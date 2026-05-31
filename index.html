@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ClientFlow — Get More Customers from Google and Your Website</title>
+<meta content="ClientFlow helps Caribbean businesses get found on Google, look professional online, and turn website visitors into real leads — live in as little as 48 hours." name="description"/>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Syne:wght@700;800;900&display=swap');
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'Plus Jakarta Sans',sans-serif; background:#fff; color:#0F172A; overflow-x:hidden; }
+  a { text-decoration:none; color:inherit; }
+
+  :root {
+    --teal:   #0D9488;
+    --teal2:  #0F766E;
+    --teal3:  #CCFBF1;
+    --teal4:  #F0FDFA;
+    --coral:  #F43F5E;
+    --coral2: #E11D48;
+    --violet: #7C3AED;
+    --sky:    #0EA5E9;
+    --amber:  #F59E0B;
+    --navy:   #0F172A;
+    --navy2:  #1E293B;
+    --slate:  #64748B;
+    --mist:   #E2E8F0;
+    --white:  #FFFFFF;
+    --offwht: #F8FAFC;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    height:68px; padding:0 40px;
+    display:flex; align-items:center; justify-content:space-between;
+    background:rgba(15,23,42,0.97);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid rgba(13,148,136,0.2);
+  }
+  .nav-logo { display:flex; align-items:center; gap:12px; }
+  .nav-logo-mark {
+    width:38px; height:38px;
+    background:linear-gradient(135deg,var(--teal),var(--sky));
+    border-radius:10px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:16px; font-weight:900; color:#fff;
+    font-family:'Syne',sans-serif;
+    box-shadow:0 4px 16px rgba(13,148,136,0.4);
+  }
+  .nav-brand { font-size:19px; font-weight:800; color:#fff; font-family:'Syne',sans-serif; letter-spacing:-0.3px; }
+  .nav-brand span { color:var(--teal); }
+  .nav-tagline { font-size:10px; color:rgba(255,255,255,0.4); font-weight:500; margin-top:1px; }
+  .nav-links { display:flex; align-items:center; gap:28px; }
+  .nav-link { font-size:13px; font-weight:500; color:rgba(255,255,255,0.55); transition:color 0.2s; }
+  .nav-link:hover { color:#fff; }
+  .nav-cta {
+    background:linear-gradient(135deg,var(--teal),var(--sky));
+    color:#fff; font-size:13px; font-weight:700;
+    padding:10px 22px; border-radius:9px;
+    box-shadow:0 4px 16px rgba(13,148,136,0.4);
+    transition:transform 0.15s, box-shadow 0.2s;
+  }
+  .nav-cta:hover { transform:translateY(-1px); box-shadow:0 6px 24px rgba(13,148,136,0.5); }
+  .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; }
+  .hamburger span { display:block; width:22px; height:2px; background:rgba(255,255,255,0.7); border-radius:2px; }
+  .mob-nav { display:none; position:fixed; top:68px; left:0; right:0; background:rgba(15,23,42,0.98); backdrop-filter:blur(20px); padding:20px 24px; flex-direction:column; gap:4px; z-index:99; border-bottom:1px solid rgba(13,148,136,0.2); }
+  .mob-nav.open { display:flex; }
+  .mob-link { font-size:15px; font-weight:600; color:rgba(255,255,255,0.7); padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.06); }
+  .mob-cta { background:linear-gradient(135deg,var(--teal),var(--sky)); color:#fff; font-weight:700; padding:14px; border-radius:10px; text-align:center; margin-top:8px; font-size:15px; }
+
+  /* Sticky bar */
+  .sticky-bar { display:none; position:fixed; bottom:0; left:0; right:0; z-index:98; background:rgba(15,23,42,0.97); backdrop-filter:blur(16px); border-top:1px solid rgba(13,148,136,0.2); padding:12px 24px; align-items:center; justify-content:space-between; gap:12px; }
+  .sticky-bar.show { display:flex; }
+  .sticky-bar-text { font-size:13px; font-weight:600; color:rgba(255,255,255,0.6); }
+  .sticky-bar-text span { color:#fff; font-weight:700; }
+  .sticky-bar-btn { background:linear-gradient(135deg,var(--teal),var(--sky)); color:#fff; font-size:13px; font-weight:700; padding:10px 22px; border-radius:8px; white-space:nowrap; flex-shrink:0; }
+
+  /* WhatsApp */
+  .wa-float { position:fixed; bottom:80px; right:20px; z-index:200; width:54px; height:54px; background:#25D366; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:26px; box-shadow:0 4px 20px rgba(37,211,102,0.45); animation:floatUp 3s ease-in-out infinite; }
+  .wa-float:hover { transform:scale(1.1) !important; animation:none; }
+  @keyframes floatUp { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+
+  /* HELPERS */
+  .wrap { max-width:1160px; margin:0 auto; padding:0 28px; }
+  .pad  { padding:96px 0; }
+
+  /* ── HERO — SPLIT SCREEN ── */
+  .hero {
+    min-height:100vh;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    position:relative;
+    overflow:hidden;
+  }
+  /* Left half — dark */
+  .hero-left {
+    background:var(--navy);
+    padding:140px 60px 80px 60px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-left::before {
+    content:'';
+    position:absolute;
+    top:-100px; left:-100px;
+    width:400px; height:400px;
+    background:radial-gradient(circle,rgba(13,148,136,0.2) 0%,transparent 65%);
+    border-radius:50%;
+    pointer-events:none;
+  }
+  .hero-left::after {
+    content:'';
+    position:absolute;
+    bottom:-60px; right:-60px;
+    width:300px; height:300px;
+    background:radial-gradient(circle,rgba(14,165,233,0.1) 0%,transparent 65%);
+    border-radius:50%;
+    pointer-events:none;
+  }
+  /* Right half — vibrant teal */
+  .hero-right {
+    background:linear-gradient(160deg,#0D9488 0%,#0EA5E9 60%,#7C3AED 100%);
+    padding:140px 60px 80px 60px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-right::before {
+    content:'';
+    position:absolute;
+    top:-80px; right:-80px;
+    width:350px; height:350px;
+    background:rgba(255,255,255,0.08);
+    border-radius:50%;
+  }
+  .hero-right::after {
+    content:'';
+    position:absolute;
+    bottom:-60px; left:-60px;
+    width:280px; height:280px;
+    background:rgba(255,255,255,0.05);
+    border-radius:50%;
+  }
+
+  .hero-eyebrow { display:inline-flex; align-items:center; gap:8px; background:rgba(13,148,136,0.15); border:1px solid rgba(13,148,136,0.3); border-radius:20px; padding:5px 14px; font-size:11px; font-weight:700; color:var(--teal); text-transform:uppercase; letter-spacing:1px; margin-bottom:24px; width:fit-content; }
+  .badge-dot { width:6px; height:6px; border-radius:50%; background:var(--teal); animation:pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.7)} }
+
+  .hero-h1 { font-family:'Syne',sans-serif; font-size:52px; font-weight:900; color:#fff; line-height:1.0; letter-spacing:-2px; margin-bottom:20px; position:relative; z-index:1; }
+  .hero-h1 .accent { color:var(--teal); display:block; }
+  .hero-sub { font-size:16px; color:rgba(255,255,255,0.6); line-height:1.75; margin-bottom:16px; max-width:440px; position:relative; z-index:1; }
+  .hero-support { font-size:13.5px; color:rgba(255,255,255,0.4); line-height:1.6; margin-bottom:36px; max-width:420px; font-style:italic; position:relative; z-index:1; }
+  .hero-btns { display:flex; gap:12px; flex-wrap:wrap; position:relative; z-index:1; }
+  .btn-teal { background:linear-gradient(135deg,var(--teal),var(--sky)); color:#fff; font-size:15px; font-weight:700; padding:15px 30px; border-radius:11px; box-shadow:0 4px 24px rgba(13,148,136,0.4); transition:transform 0.15s, box-shadow 0.2s; display:inline-block; }
+  .btn-teal:hover { transform:translateY(-2px); box-shadow:0 8px 32px rgba(13,148,136,0.5); }
+  .btn-wa { background:#25D366; color:#fff; font-size:15px; font-weight:700; padding:15px 30px; border-radius:11px; box-shadow:0 4px 20px rgba(37,211,102,0.35); transition:transform 0.15s; display:inline-flex; align-items:center; gap:8px; }
+  .btn-wa:hover { transform:translateY(-2px); }
+
+  /* Right side content */
+  .hero-right-label { font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:2px; color:rgba(255,255,255,0.6); margin-bottom:20px; position:relative; z-index:1; }
+  .hero-results { display:flex; flex-direction:column; gap:14px; margin-bottom:32px; position:relative; z-index:1; }
+  .hr-item { background:rgba(255,255,255,0.12); backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,0.2); border-radius:16px; padding:18px 20px; display:flex; align-items:center; gap:16px; transition:background 0.2s; }
+  .hr-item:hover { background:rgba(255,255,255,0.18); }
+  .hr-icon { width:48px; height:48px; border-radius:13px; background:rgba(255,255,255,0.2); display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0; }
+  .hr-title { font-size:15px; font-weight:800; color:#fff; margin-bottom:3px; }
+  .hr-desc  { font-size:12px; color:rgba(255,255,255,0.65); line-height:1.4; }
+  .hero-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; position:relative; z-index:1; }
+  .hstat { background:rgba(255,255,255,0.1); backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,0.15); border-radius:14px; padding:16px; text-align:center; }
+  .hstat-val { font-size:26px; font-weight:900; color:#fff; font-family:'Syne',sans-serif; letter-spacing:-0.5px; margin-bottom:3px; }
+  .hstat-lbl { font-size:10px; color:rgba(255,255,255,0.6); font-weight:600; line-height:1.3; }
+
+  /* PROOF STRIP */
+  .proof-strip { background:linear-gradient(135deg,var(--teal2),var(--sky)); padding:16px 0; }
+  .proof-inner { display:flex; align-items:center; justify-content:center; gap:32px; flex-wrap:wrap; }
+  .proof-item { display:flex; align-items:center; gap:7px; font-size:12px; color:rgba(255,255,255,0.8); font-weight:600; }
+
+  /* PROBLEM — DATA-LED */
+  .problem-section { background:var(--navy); }
+  .problem-eyebrow { font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:2.5px; color:var(--teal); display:block; margin-bottom:12px; }
+  .problem-h2 { font-family:'Syne',sans-serif; font-size:42px; font-weight:900; color:#fff; line-height:1.1; letter-spacing:-1px; margin-bottom:16px; }
+  .problem-lead { font-size:16px; color:rgba(255,255,255,0.5); line-height:1.75; max-width:560px; margin-bottom:52px; }
+  .problem-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-bottom:52px; }
+  .pstat { border-radius:20px; padding:32px 28px; position:relative; overflow:hidden; }
+  .pstat1 { background:linear-gradient(135deg,rgba(244,63,94,0.15),rgba(244,63,94,0.05)); border:1px solid rgba(244,63,94,0.25); }
+  .pstat2 { background:linear-gradient(135deg,rgba(245,158,11,0.15),rgba(245,158,11,0.05)); border:1px solid rgba(245,158,11,0.25); }
+  .pstat3 { background:linear-gradient(135deg,rgba(14,165,233,0.15),rgba(14,165,233,0.05)); border:1px solid rgba(14,165,233,0.25); }
+  .pstat-val { font-family:'Syne',sans-serif; font-size:56px; font-weight:900; letter-spacing:-2px; margin-bottom:8px; line-height:1; }
+  .pstat1 .pstat-val { color:var(--coral); }
+  .pstat2 .pstat-val { color:var(--amber); }
+  .pstat3 .pstat-val { color:var(--sky); }
+  .pstat-text { font-size:14px; color:rgba(255,255,255,0.6); line-height:1.5; font-weight:500; }
+  .problem-items { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+  .prob-item { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:22px 20px; display:flex; align-items:flex-start; gap:12px; transition:border-color 0.2s; }
+  .prob-item:hover { border-color:rgba(244,63,94,0.3); }
+  .prob-icon { font-size:22px; flex-shrink:0; }
+  .prob-title { font-size:14px; font-weight:700; color:#fff; margin-bottom:4px; }
+  .prob-desc  { font-size:12px; color:rgba(255,255,255,0.45); line-height:1.5; }
+
+  /* SOLUTION — ORGANIC FLOWING */
+  .solution-section { background:var(--offwht); position:relative; overflow:hidden; }
+  .solution-section::before { content:''; position:absolute; top:-100px; right:-100px; width:500px; height:500px; background:radial-gradient(circle,rgba(13,148,136,0.08) 0%,transparent 65%); border-radius:50%; pointer-events:none; }
+  .sol-eyebrow { font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:2.5px; color:var(--teal2); display:block; margin-bottom:12px; }
+  .sol-h2 { font-family:'Syne',sans-serif; font-size:42px; font-weight:900; color:var(--navy); line-height:1.1; letter-spacing:-1px; margin-bottom:16px; }
+  .sol-lead { font-size:16px; color:var(--slate); line-height:1.75; max-width:560px; margin-bottom:52px; }
+  .sol-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  .sol-card { background:#fff; border-radius:24px; padding:32px 28px; border:1.5px solid var(--mist); box-shadow:0 4px 24px rgba(0,0,0,0.05); transition:transform 0.2s, box-shadow 0.2s, border-color 0.2s; position:relative; overflow:hidden; }
+  .sol-card::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; border-radius:24px 24px 0 0; }
+  .sol-card:nth-child(1)::before { background:linear-gradient(to right,var(--teal),var(--sky)); }
+  .sol-card:nth-child(2)::before { background:linear-gradient(to right,var(--coral),var(--violet)); }
+  .sol-card:nth-child(3)::before { background:linear-gradient(to right,var(--amber),var(--coral)); }
+  .sol-card:hover { transform:translateY(-6px); box-shadow:0 12px 40px rgba(0,0,0,0.1); border-color:transparent; }
+  .sol-num { font-family:'Syne',sans-serif; font-size:48px; font-weight:900; opacity:0.06; position:absolute; top:16px; right:20px; line-height:1; color:var(--navy); }
+  .sol-icon-wrap { width:56px; height:56px; border-radius:16px; display:flex; align-items:center; justify-content:center; font-size:26px; margin-bottom:18px; }
+  .sol-card:nth-child(1) .sol-icon-wrap { background:linear-gradient(135deg,#CCFBF1,#99F6E4); }
+  .sol-card:nth-child(2) .sol-icon-wrap { background:linear-gradient(135deg,#FFE4E6,#FECDD3); }
+  .sol-card:nth-child(3) .sol-icon-wrap { background:linear-gradient(135deg,#FEF3C7,#FDE68A); }
+  .sol-name { font-family:'Syne',sans-serif; font-size:20px; font-weight:800; color:var(--navy); margin-bottom:10px; }
+  .sol-desc { font-size:13.5px; color:var(--slate); line-height:1.65; }
+
+  /* HOW IT WORKS */
+  .how-section { background:#fff; }
+  .how-eyebrow { font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:2.5px; color:var(--teal2); display:block; margin-bottom:12px; }
+  .how-h2 { font-family:'Syne',sans-serif; font-size:42px; font-weight:900; color:var(--navy); line-height:1.1; letter-spacing:-1px; margin-bottom:16px; }
+  .how-lead { font-size:16px; color:var(--slate); line-height:1.75; max-width:560px; margin-bottom:52px; }
+  .how-timeline { display:flex; flex-direction:column; gap:0; position:relative; }
+  .how-timeline::before { content:''; position:absolute; left:35px; top:0; bottom:0; width:2px; background:linear-gradient(to bottom,var(--teal),var(--sky),var(--violet)); }
+  .how-step { display:grid; grid-template-columns:72px 1fr; gap:28px; padding-bottom:40px; position:relative; }
+  .how-step:last-child { padding-bottom:0; }
+  .how-step-left { display:flex; flex-direction:column; align-items:center; }
+  .how-step-num { width:72px; height:72px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Syne',sans-serif; font-size:22px; font-weight:900; color:#fff; flex-shrink:0; z-index:1; box-shadow:0 4px 20px rgba(0,0,0,0.2); }
+  .hs1 { background:linear-gradient(135deg,var(--teal),var(--sky)); }
+  .hs2 { background:linear-gradient(135deg,var(--coral),var(--violet)); }
+  .hs3 { background:linear-gradient(135deg,var(--amber),var(--coral)); }
+  .how-step-content { padding-top:14px; }
+  .how-step-title { font-family:'Syne',sans-serif; font-size:22px; font-weight:800; color:var(--navy); margin-bottom:8px; }
+  .how-step-desc  { font-size:14px; color:var(--slate); line-height:1.7; max-width:520px; }
+  .how-step-tag { display:inline-block; margin-top:10px; padding:4px 12px; border-radius:20px; font-size:11px; font-weight:700; }
+  .hs1-tag { background:#CCFBF1; color:var(--teal2); }
+  .hs2-tag { background:#FFE4E6; color:var(--coral2); }
+  .hs3-tag { background:#FEF3C7; color:#92400E; }
+
+  /* PRICING — SIMPLE */
+  .pricing-section { background:var(--navy); position:relative; overflow:hidden; }
+  .pricing-section::before { content:''; position:absolute; top:-150px; right:-150px; width:500px; height:500px; background:radial-gradient(circle,rgba(13,148,136,0.12) 0%,transparent 65%); border-radius:50%; pointer-events:none; }
+  .pricing-section::after { content:''; position:absolute; bottom:-100px; left:-100px; width:400px; height:400px; background:radial-gradient(circle,rgba(124,58,237,0.08) 0%,transparent 65%); border-radius:50%; pointer-events:none; }
+  .pricing-eyebrow { font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:2.5px; color:var(--teal); display:block; margin-bottom:12px; }
+  .pricing-h2 { font-family:'Syne',sans-serif; font-size:42px; font-weight:900; color:#fff; line-height:1.1; letter-spacing:-1px; margin-bottom:12px; }
+  .pricing-sub { font-size:16px; color:rgba(255,255,255,0.5); line-height:1.75; max-width:600px; margin-bottom:8px; }
+  .pricing-note { font-size:14px; color:rgba(255,255,255,0.35); line-height:1.6; max-width:600px; margin-bottom:52px; font-style:italic; }
+  .pricing-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; position:relative; z-index:1; }
+
+  .price-card { border-radius:24px; overflow:hidden; transition:transform 0.2s, box-shadow 0.2s; }
+  .price-card:hover { transform:translateY(-8px); }
+  .price-card.featured { transform:scale(1.04); box-shadow:0 0 0 2px var(--teal),0 20px 60px rgba(13,148,136,0.3); }
+  .price-card.featured:hover { transform:scale(1.04) translateY(-8px); }
+
+  .price-header { padding:28px 28px 22px; position:relative; overflow:hidden; }
+  .ph-start    { background:linear-gradient(135deg,#0F766E 0%,#0D9488 100%); }
+  .ph-grow     { background:linear-gradient(135deg,#0D9488 0%,#0EA5E9 60%,#7C3AED 100%); }
+  .ph-flourish { background:linear-gradient(135deg,#1E293B 0%,#0F172A 100%); border-bottom:2px solid var(--teal); }
+
+  .price-popular { display:inline-block; background:rgba(255,255,255,0.2); color:#fff; font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:1px; padding:4px 12px; border-radius:20px; margin-bottom:12px; }
+  .price-name { font-family:'Syne',sans-serif; font-size:24px; font-weight:900; color:#fff; margin-bottom:4px; }
+  .price-tagline { font-size:13px; color:rgba(255,255,255,0.65); font-style:italic; margin-bottom:14px; }
+  .price-desc { font-size:13px; color:rgba(255,255,255,0.75); line-height:1.6; }
+
+  .price-body { background:rgba(255,255,255,0.04); padding:24px 28px; border:1px solid rgba(255,255,255,0.08); border-top:none; border-radius:0 0 24px 24px; }
+  .price-items { display:flex; flex-direction:column; gap:9px; margin-bottom:20px; }
+  .price-item { font-size:13px; color:rgba(255,255,255,0.7); display:flex; align-items:flex-start; gap:9px; line-height:1.4; }
+  .price-item::before { content:'✓'; font-weight:800; color:var(--teal); flex-shrink:0; font-size:13px; }
+  .price-item.sub { color:rgba(255,255,255,0.5); font-size:12px; padding-left:22px; }
+  .price-item.sub::before { content:'·'; color:rgba(255,255,255,0.3); }
+  .price-how { font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:1px; color:var(--teal); margin-bottom:8px; margin-top:14px; }
+  .price-flex-note { font-size:12px; color:rgba(255,255,255,0.4); font-style:italic; margin-bottom:16px; line-height:1.5; padding:10px 14px; background:rgba(255,255,255,0.04); border-radius:8px; border:1px solid rgba(255,255,255,0.08); }
+  .price-cta { display:block; text-align:center; font-size:14px; font-weight:700; padding:14px; border-radius:12px; transition:all 0.2s; }
+  .pc-start    { background:linear-gradient(135deg,var(--teal),var(--sky)); color:#fff; box-shadow:0 4px 16px rgba(13,148,136,0.3); }
+  .pc-grow     { background:#fff; color:var(--navy); box-shadow:0 4px 20px rgba(255,255,255,0.2); }
+  .pc-flourish { background:linear-gradient(135deg,var(--teal),var(--sky)); color:#fff; box-shadow:0 4px 16px rgba(13,148,136,0.3); }
+  .price-cta:hover { transform:translateY(-2px); }
+
+  /* GOOGLE VISIBILITY */
+  .google-section { background:var(--offwht); }
+  .google-eyebrow { font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:2.5px; color:var(--teal2); display:block; margin-bottom:12px; }
+  .google-h2 { font-family:'Syne',sans-serif; font-size:42px; font-weight:900; color:var(--navy); line-height:1.1; letter-spacing:-1px; margin-bottom:16px; }
+  .google-grid { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
+  .google-points { display:flex; flex-direction:column; gap:16px; margin-top:32px; }
+  .gp { display:flex; align-items:flex-start; gap:16px; padding:20px 22px; background:#fff; border-radius:16px; border:1.5px solid var(--mist); box-shadow:0 2px 12px rgba(0,0,0,0.04); transition:transform 0.2s, border-color 0.2s; }
+  .gp:hover { transform:translateX(6px); border-color:var(--teal); }
+  .gp-icon { width:46px; height:46px; border-radius:13px; display:flex; align-items:center; justify-content:center; font-size:20px; flex-shrink:0; }
+  .gp1 { background:linear-gradient(135deg,#CCFBF1,#99F6E4); }
+  .gp2 { background:linear-gradient(135deg,#DBEAFE,#BAE6FD); }
+  .gp3 { background:linear-gradient(135deg,#FEF3C7,#FDE68A); }
+  .gp-title { font-size:15px; font-weight:800; color:var(--navy); margin-bottom:4px; }
+  .gp-desc  { font-size:12.5px; color:var(--slate); line-height:1.5; }
+  .google-mockup { background:var(--navy); border-radius:24px; padding:28px; box-shadow:0 8px 40px rgba(15,23,42,0.2); }
+  .gm-bar { background:rgba(255,255,255,0.06); border-radius:10px; padding:12px 16px; display:flex; align-items:center; gap:10px; margin-bottom:20px; border:1px solid rgba(255,255,255,0.08); }
+  .gm-bar-icon { font-size:16px; }
+  .gm-bar-text { font-size:13px; color:rgba(255,255,255,0.5); }
+  .gm-results { display:flex; flex-direction:column; gap:10px; }
+  .gm-result { padding:14px 16px; border-radius:12px; border:1px solid rgba(255,255,255,0.06); background:rgba(255,255,255,0.03); }
+  .gm-result.top { background:linear-gradient(135deg,rgba(13,148,136,0.15),rgba(14,165,233,0.1)); border-color:rgba(13,148,136,0.3); }
+  .gm-label { font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:1px; color:var(--teal); margin-bottom:4px; }
+  .gm-name  { font-size:14px; font-weight:700; color:#fff; margin-bottom:2px; }
+  .gm-url   { font-size:11px; color:var(--teal); }
+  .gm-desc  { font-size:11px; color:rgba(255,255,255,0.45); margin-top:4px; line-height:1.4; }
+  .gm-result.dim .gm-name { color:rgba(255,255,255,0.4); }
+  .gm-result.dim .gm-url  { color:rgba(255,255,255,0.25); }
+  .gm-badge { margin-top:16px; background:linear-gradient(135deg,var(--teal),var(--sky)); border-radius:10px; padding:12px 16px; text-align:center; font-size:13px; font-weight:700; color:#fff; }
+
+  /* SPEED */
+  .speed-section { background:linear-gradient(160deg,var(--teal2) 0%,var(--sky) 50%,var(--violet) 100%); position:relative; overflow:hidden; }
+  .speed-section::before { content:''; position:absolute; top:-100px; right:-100px; width:400px; height:400px; background:rgba(255,255,255,0.06); border-radius:50%; }
+  .speed-eyebrow { font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:2.5px; color:rgba(255,255,255,0.6); display:block; margin-bottom:12px; }
+  .speed-h2 { font-family:'Syne',sans-serif; font-size:42px; font-weight:900; color:#fff; line-height:1.1; letter-spacing:-1px; margin-bottom:16px; }
+  .speed-lead { font-size:16px; color:rgba(255,255,255,0.7); line-height:1.75; max-width:560px; margin-bottom:52px; }
+  .speed-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-bottom:40px; }
+  .speed-card { background:rgba(255,255,255,0.1); backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,0.2); border-radius:20px; padding:28px 24px; text-align:center; transition:background 0.2s; }
+  .speed-card:hover { background:rgba(255,255,255,0.18); }
+  .speed-icon  { font-size:36px; margin-bottom:14px; }
+  .speed-title { font-family:'Syne',sans-serif; font-size:18px; font-weight:800; color:#fff; margin-bottom:8px; }
+  .speed-desc  { font-size:13px; color:rgba(255,255,255,0.65); line-height:1.6; }
+  .speed-cta-row { text-align:center; }
+  .speed-big { font-family:'Syne',sans-serif; font-size:80px; font-weight:900; color:#fff; letter-spacing:-4px; line-height:1; margin-bottom:8px; }
+  .speed-big-sub { font-size:18px; color:rgba(255,255,255,0.75); font-weight:600; margin-bottom:28px; }
+
+  /* WHY */
+  .why-section { background:#fff; }
+  .why-eyebrow { font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:2.5px; color:var(--teal2); display:block; margin-bottom:12px; }
+  .why-h2 { font-family:'Syne',sans-serif; font-size:42px; font-weight:900; color:var(--navy); line-height:1.1; letter-spacing:-1px; margin-bottom:16px; }
+  .why-lead { font-size:16px; color:var(--slate); line-height:1.75; max-width:560px; margin-bottom:52px; }
+  .why-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+  .why-card { border-radius:20px; padding:28px 26px; display:flex; align-items:flex-start; gap:18px; transition:transform 0.2s; }
+  .wc1 { background:linear-gradient(135deg,#F0FDFA,#CCFBF1); border:1.5px solid #99F6E4; }
+  .wc2 { background:linear-gradient(135deg,#FFF1F2,#FFE4E6); border:1.5px solid #FECDD3; }
+  .wc3 { background:linear-gradient(135deg,#FFFBEB,#FEF3C7); border:1.5px solid #FDE68A; }
+  .wc4 { background:linear-gradient(135deg,#F5F3FF,#EDE9FE); border:1.5px solid #DDD6FE; }
+  .why-card:hover { transform:translateY(-4px); }
+  .why-icon { width:52px; height:52px; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:24px; flex-shrink:0; }
+  .wc1 .why-icon { background:linear-gradient(135deg,var(--teal),var(--sky)); }
+  .wc2 .why-icon { background:linear-gradient(135deg,var(--coral),var(--violet)); }
+  .wc3 .why-icon { background:linear-gradient(135deg,var(--amber),var(--coral)); }
+  .wc4 .why-icon { background:linear-gradient(135deg,var(--violet),var(--sky)); }
+  .why-title { font-family:'Syne',sans-serif; font-size:17px; font-weight:800; color:var(--navy); margin-bottom:6px; }
+  .why-desc  { font-size:13px; color:var(--slate); line-height:1.6; }
+
+  /* TRUST */
+  .trust-section { background:var(--navy); }
+  .trust-eyebrow { font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:2.5px; color:var(--teal); display:block; margin-bottom:12px; }
+  .trust-h2 { font-family:'Syne',sans-serif; font-size:42px; font-weight:900; color:#fff; line-height:1.1; letter-spacing:-1px; margin-bottom:16px; }
+  .trust-lead { font-size:16px; color:rgba(255,255,255,0.5); line-height:1.75; max-width:560px; margin-bottom:52px; }
+  .testi-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:48px; }
+  .testi-card { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08); border-radius:20px; padding:26px; transition:border-color 0.2s; }
+  .testi-card:hover { border-color:rgba(13,148,136,0.3); }
+  .testi-stars { color:var(--amber); font-size:14px; margin-bottom:14px; }
+  .testi-quote { font-size:13.5px; color:rgba(255,255,255,0.7); line-height:1.7; font-style:italic; margin-bottom:18px; }
+  .testi-author { display:flex; align-items:center; gap:12px; }
+  .testi-avatar { width:42px; height:42px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0; }
+  .ta1{background:linear-gradient(135deg,var(--teal),var(--sky));}
+  .ta2{background:linear-gradient(135deg,var(--coral),var(--violet));}
+  .ta3{background:linear-gradient(135deg,var(--amber),var(--coral));}
+  .testi-name { font-size:13px; font-weight:700; color:#fff; }
+  .testi-role { font-size:11px; color:rgba(255,255,255,0.4); }
+
+  /* Before/After */
+  .ba-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  .ba-card { border-radius:20px; overflow:hidden; }
+  .ba-header { padding:16px 22px; display:flex; align-items:center; gap:10px; }
+  .ba-before-h { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08); border-radius:20px 20px 0 0; }
+  .ba-after-h  { background:linear-gradient(135deg,var(--teal),var(--sky)); border-radius:20px 20px 0 0; }
+  .ba-label { font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:1px; }
+  .ba-before-h .ba-label { color:rgba(255,255,255,0.5); }
+  .ba-after-h  .ba-label { color:#fff; }
+  .ba-body { padding:18px 22px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-top:none; border-radius:0 0 20px 20px; }
+  .ba-item { font-size:13px; color:rgba(255,255,255,0.6); display:flex; align-items:flex-start; gap:9px; margin-bottom:10px; line-height:1.4; }
+  .ba-before-h ~ .ba-body .ba-item::before { content:'✕'; color:var(--coral); font-weight:800; flex-shrink:0; }
+  .ba-after-h  ~ .ba-body .ba-item::before { content:'✓'; color:var(--teal); font-weight:800; flex-shrink:0; }
+
+  /* CTA / CONTACT */
+  .cta-section { background:var(--offwht); }
+  .cta-eyebrow { font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:2.5px; color:var(--teal2); display:block; margin-bottom:12px; }
+  .cta-h2 { font-family:'Syne',sans-serif; font-size:42px; font-weight:900; color:var(--navy); line-height:1.1; letter-spacing:-1px; margin-bottom:14px; }
+  .cta-sub { font-size:16px; color:var(--slate); line-height:1.75; margin-bottom:32px; max-width:480px; }
+  .cta-grid { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start; }
+  .cta-contact-items { display:flex; flex-direction:column; gap:12px; margin-bottom:28px; }
+  .cta-contact-item { display:flex; align-items:center; gap:12px; padding:14px 18px; background:#fff; border-radius:12px; border:1.5px solid var(--mist); font-size:14px; color:var(--navy); font-weight:600; box-shadow:0 2px 8px rgba(0,0,0,0.04); }
+  .cta-contact-icon { font-size:20px; flex-shrink:0; }
+  .cta-form { background:var(--navy); border-radius:24px; padding:32px; box-shadow:0 8px 40px rgba(15,23,42,0.15); }
+  .form-title { font-family:'Syne',sans-serif; font-size:20px; font-weight:800; color:#fff; margin-bottom:4px; }
+  .form-sub   { font-size:12px; color:rgba(255,255,255,0.4); margin-bottom:22px; }
+  .form-group { margin-bottom:14px; }
+  .form-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.8px; color:rgba(255,255,255,0.4); margin-bottom:6px; display:block; }
+  .form-input { width:100%; background:rgba(255,255,255,0.07); border:1.5px solid rgba(255,255,255,0.1); border-radius:10px; padding:12px 16px; font-size:13px; color:#fff; font-family:'Plus Jakarta Sans',sans-serif; outline:none; transition:border-color 0.2s; }
+  .form-input:focus { border-color:var(--teal); background:rgba(255,255,255,0.1); }
+  .form-input::placeholder { color:rgba(255,255,255,0.25); }
+  .form-select { appearance:none; cursor:pointer; }
+  .form-submit { width:100%; background:linear-gradient(135deg,var(--teal),var(--sky)); color:#fff; font-size:15px; font-weight:700; padding:15px; border-radius:12px; border:none; cursor:pointer; font-family:'Plus Jakarta Sans',sans-serif; transition:transform 0.15s, box-shadow 0.2s; box-shadow:0 4px 20px rgba(13,148,136,0.35); margin-top:4px; }
+  .form-submit:hover { transform:translateY(-1px); box-shadow:0 6px 28px rgba(13,148,136,0.45); }
+  .form-wa { display:flex; align-items:center; justify-content:center; gap:8px; margin-top:12px; padding:12px; background:#25D366; border-radius:10px; font-size:14px; font-weight:700; color:#fff; transition:background 0.2s; }
+  .form-wa:hover { background:#1da851; }
+  .form-secure { display:flex; align-items:center; justify-content:center; gap:6px; margin-top:10px; font-size:11px; color:rgba(255,255,255,0.3); }
+
+  /* FOOTER */
+  footer { background:var(--navy); border-top:1px solid rgba(255,255,255,0.05); padding:40px 40px 24px; }
+  .footer-top { max-width:1160px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:40px; margin-bottom:32px; }
+  .footer-logo { display:flex; align-items:center; gap:12px; margin-bottom:12px; }
+  .footer-logo-mark { width:38px; height:38px; background:linear-gradient(135deg,var(--teal),var(--sky)); border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:15px; font-weight:900; color:#fff; font-family:'Syne',sans-serif; }
+  .footer-brand-name { font-family:'Syne',sans-serif; font-size:18px; font-weight:900; color:#fff; }
+  .footer-brand-name span { color:var(--teal); }
+  .footer-tagline { font-size:12px; color:rgba(255,255,255,0.3); line-height:1.6; max-width:220px; margin-bottom:16px; }
+  .footer-col h4 { font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:1px; color:rgba(255,255,255,0.3); margin-bottom:14px; }
+  .footer-col a { display:block; font-size:12px; color:rgba(255,255,255,0.45); font-weight:500; margin-bottom:9px; transition:color 0.2s; }
+  .footer-col a:hover { color:var(--teal); }
+  .footer-bottom { max-width:1160px; margin:0 auto; padding-top:20px; border-top:1px solid rgba(255,255,255,0.05); display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+  .footer-copy { font-size:11px; color:rgba(255,255,255,0.2); }
+  .footer-flags { display:flex; gap:6px; font-size:16px; }
+
+  /* RESPONSIVE */
+  @media (max-width:1024px) {
+    .hero { grid-template-columns:1fr; }
+    .hero-right { display:none; }
+    .hero-left { padding:120px 40px 60px; }
+    .hero-h1 { font-size:42px; }
+    .problem-h2,.sol-h2,.how-h2,.pricing-h2,.google-h2,.speed-h2,.why-h2,.trust-h2,.cta-h2 { font-size:34px; }
+    .footer-top { grid-template-columns:1fr 1fr; gap:28px; }
+  }
+  @media (max-width:768px) {
+    nav { padding:0 20px; } .nav-links { display:none; } .hamburger { display:flex; }
+    .hero-left { padding:100px 24px 56px; }
+    .hero-h1 { font-size:34px; letter-spacing:-1px; }
+    .hero-btns { flex-direction:column; }
+    .btn-teal,.btn-wa { text-align:center; justify-content:center; }
+    .wrap { padding:0 20px; } .pad { padding:64px 0; }
+    .problem-h2,.sol-h2,.how-h2,.pricing-h2,.google-h2,.speed-h2,.why-h2,.trust-h2,.cta-h2 { font-size:28px; }
+    .problem-stats,.problem-items,.sol-grid,.speed-grid,.pricing-grid,.testi-grid { grid-template-columns:1fr; }
+    .price-card.featured { transform:none; }
+    .google-grid,.cta-grid { grid-template-columns:1fr; gap:36px; }
+    .why-grid,.ba-grid { grid-template-columns:1fr; }
+    .footer-top { grid-template-columns:1fr; gap:24px; }
+    .footer-bottom { flex-direction:column; align-items:flex-start; }
+    .sticky-bar-text { display:none; } .wa-float { bottom:72px; }
+    .proof-inner { gap:16px; }
+    .hero-stats { grid-template-columns:repeat(3,1fr); }
+  }
+  @media (max-width:480px) {
+    .hero-h1 { font-size:28px; }
+    .hero-stats { grid-template-columns:1fr 1fr; }
+    .pstat-val { font-size:42px; }
+    .speed-big { font-size:60px; }
+  }
+</style>
+</head>
+<body>
+<!-- NAV -->
+<nav>
+<div class="nav-logo">
+<div class="nav-logo-mark">CF</div>
+<div>
+<div class="nav-brand">Client<span>Flow</span></div>
+<div class="nav-tagline">Helping Caribbean businesses get more customers online</div>
+</div>
+</div>
+<div class="nav-links">
+<a class="nav-link" href="#how">How It Works</a>
+<a class="nav-link" href="#pricing">Pricing</a>
+<a class="nav-link" href="#google">Google Visibility</a>
+<a class="nav-link" href="#why">Why Us</a>
+<a class="nav-cta" href="#contact">Get Free Review</a>
+</div>
+<div class="hamburger" id="hamburger" onclick="toggleMenu()">
+<span></span><span></span><span></span>
+</div>
+</nav>
+<!-- MOBILE NAV -->
+<div class="mob-nav" id="mobNav">
+<a class="mob-link" href="#how" onclick="toggleMenu()">How It Works</a>
+<a class="mob-link" href="#pricing" onclick="toggleMenu()">Pricing</a>
+<a class="mob-link" href="#google" onclick="toggleMenu()">Google Visibility</a>
+<a class="mob-link" href="#why" onclick="toggleMenu()">Why Us</a>
+<a class="mob-cta" href="#contact" onclick="toggleMenu()">Get Free Website &amp; Google Review</a>
+</div>
+<!-- STICKY BAR -->
+<div class="sticky-bar" id="stickyBar">
+<div class="sticky-bar-text"><span>ClientFlow</span> — Get more customers from Google and your website.</div>
+<a class="sticky-bar-btn" href="#contact">Get Free Review →</a>
+</div>
+<!-- WHATSAPP -->
+<a class="wa-float" href="https://wa.me/18681234567" target="_blank" title="Chat on WhatsApp">💬</a>
+<!-- ══ HERO — SPLIT SCREEN ══ -->
+<section class="hero" id="home">
+<!-- LEFT — Dark, bold headline -->
+<div class="hero-left">
+<div class="hero-eyebrow"><div class="badge-dot"></div>Caribbean Lead Generation · Est. 2026</div>
+<h1 class="hero-h1">
+      Get More Customers
+      <span class="accent">from Google.</span>
+</h1>
+<p class="hero-sub">We help Caribbean businesses get found online, look professional, and turn website visitors into real leads — live in as little as 48 hours.</p>
+<p class="hero-support">No complicated tech. No expensive agencies. Fast, simple systems that work.</p>
+<div class="hero-btns">
+<a class="btn-teal" href="#contact">Get a Free Website &amp; Google Review →</a>
+<a class="btn-wa" href="https://wa.me/18681234567" target="_blank">💬 Chat on WhatsApp</a>
+</div>
+</div>
+<!-- RIGHT — Vibrant teal/violet gradient -->
+<div class="hero-right">
+<div class="hero-right-label">What ClientFlow delivers</div>
+<div class="hero-results">
+<div class="hr-item">
+<div class="hr-icon">📈</div>
+<div>
+<div class="hr-title">More Customers</div>
+<div class="hr-desc">Real leads from Google and your website — not just traffic</div>
+</div>
+</div>
+<div class="hr-item">
+<div class="hr-icon">🔍</div>
+<div>
+<div class="hr-title">Google Visibility</div>
+<div class="hr-desc">Show up when customers search for your services locally</div>
+</div>
+</div>
+<div class="hr-item">
+<div class="hr-icon">🌐</div>
+<div>
+<div class="hr-title">Professional Website</div>
+<div class="hr-desc">Build trust and get more enquiries — live in 48 hours</div>
+</div>
+</div>
+</div>
+<div class="hero-stats">
+<div class="hstat"><div class="hstat-val">48h</div><div class="hstat-lbl">Go Live</div></div>
+<div class="hstat"><div class="hstat-val">3×</div><div class="hstat-lbl">More Leads</div></div>
+<div class="hstat"><div class="hstat-val">🌍</div><div class="hstat-lbl">Caribbean</div></div>
+</div>
+</div>
+</section>
+<!-- PROOF STRIP -->
+<div class="proof-strip">
+<div class="proof-inner">
+<div class="proof-item">🇹🇹 Trinidad &amp; Tobago</div>
+<div class="proof-item">🇯🇲 Jamaica</div>
+<div class="proof-item">🇧🇧 Barbados</div>
+<div class="proof-item">🇬🇾 Guyana</div>
+<div class="proof-item">🇱🇨 St. Lucia</div>
+<div class="proof-item">🇬🇩 Grenada</div>
+<div class="proof-item">🇧🇸 Bahamas</div>
+<div class="proof-item">🌍 Diaspora</div>
+</div>
+</div>
+<!-- ══ PROBLEM — DATA-LED ══ -->
+<section class="problem-section pad" id="problem">
+<div class="wrap">
+<span class="problem-eyebrow">The Problem</span>
+<h2 class="problem-h2">Most Businesses Are Losing<br/>Customers Online</h2>
+<p class="problem-lead">Today, customers search online before choosing a business. If you're not showing up on Google — you're losing customers to competitors every single day.</p>
+<div class="problem-stats">
+<div class="pstat pstat1">
+<div class="pstat-val">97%</div>
+<div class="pstat-text">of consumers search online before choosing a local business</div>
+</div>
+<div class="pstat pstat2">
+<div class="pstat-val">76%</div>
+<div class="pstat-text">of mobile searches lead to a business visit within 24 hours</div>
+</div>
+<div class="pstat pstat3">
+<div class="pstat-val">46%</div>
+<div class="pstat-text">of all Google searches are looking for local businesses</div>
+</div>
+</div>
+<div class="problem-items">
+<div class="prob-item">
+<div class="prob-icon">❌</div>
+<div>
+<div class="prob-title">Not showing up on Google</div>
+<div class="prob-desc">Customers search for your services — but find your competitor instead. You're invisible where it matters most.</div>
+</div>
+</div>
+<div class="prob-item">
+<div class="prob-icon">❌</div>
+<div>
+<div class="prob-title">Outdated or no website</div>
+<div class="prob-desc">A Facebook page isn't enough. Customers judge your credibility by your website before they ever call you.</div>
+</div>
+</div>
+<div class="prob-item">
+<div class="prob-icon">❌</div>
+<div>
+<div class="prob-title">Missing calls and enquiries</div>
+<div class="prob-desc">Without the right setup, potential customers can't easily contact you — so they move on to someone else.</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ══ SOLUTION ══ -->
+<section class="solution-section pad" id="solution">
+<div class="wrap">
+<span class="sol-eyebrow">The Solution</span>
+<h2 class="sol-h2">We Fix That</h2>
+<p class="sol-lead">ClientFlow combines three powerful tools so your business not only gets found — but gets contacted. Simple, fast, and built for Caribbean businesses.</p>
+<div class="sol-grid">
+<div class="sol-card">
+<div class="sol-num">01</div>
+<div class="sol-icon-wrap">🌐</div>
+<div class="sol-name">A Professional Website</div>
+<div class="sol-desc">Clean, modern, mobile-first websites that build trust and encourage customers to contact you — delivered in 48–72 hours. No technical complexity.</div>
+</div>
+<div class="sol-card">
+<div class="sol-num">02</div>
+<div class="sol-icon-wrap">🔍</div>
+<div class="sol-name">Google Visibility</div>
+<div class="sol-desc">We get your business showing up on Google Search and Google Maps so customers find you when they're ready to buy — not your competitor.</div>
+</div>
+<div class="sol-card">
+<div class="sol-num">03</div>
+<div class="sol-icon-wrap">📈</div>
+<div class="sol-name">Lead Capture Systems</div>
+<div class="sol-desc">WhatsApp buttons, contact forms, and clear calls-to-action that turn website visitors into real enquiries, calls, and customers.</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ══ HOW IT WORKS ══ -->
+<section class="how-section pad" id="how">
+<div class="wrap">
+<span class="how-eyebrow">How It Works</span>
+<h2 class="how-h2">How We Help You Grow</h2>
+<p class="how-lead">Three simple steps. Real results. No technical complexity required from you.</p>
+<div class="how-timeline">
+<div class="how-step">
+<div class="how-step-left">
+<div class="how-step-num hs1">1</div>
+</div>
+<div class="how-step-content">
+<div class="how-step-title">We Improve Your Visibility</div>
+<div class="how-step-desc">We help your business show up on Google when customers search for your services — locally and across the Caribbean. We set up and optimize your Google Business Profile so you appear on Google Maps and in local search results.</div>
+<span class="how-step-tag hs1-tag">Google Search + Maps</span>
+</div>
+</div>
+<div class="how-step">
+<div class="how-step-left">
+<div class="how-step-num hs2">2</div>
+</div>
+<div class="how-step-content">
+<div class="how-step-title">We Build or Upgrade Your Website</div>
+<div class="how-step-desc">We create a clean, modern website that builds trust and encourages customers to contact you. Mobile-first, fast-loading, and designed to convert visitors into real enquiries — delivered in 48–72 hours.</div>
+<span class="how-step-tag hs2-tag">Website + Mobile Design</span>
+</div>
+</div>
+<div class="how-step">
+<div class="how-step-left">
+<div class="how-step-num hs3">3</div>
+</div>
+<div class="how-step-content">
+<div class="how-step-title">We Turn Visitors Into Leads</div>
+<div class="how-step-desc">We add WhatsApp buttons, contact forms, and clear calls-to-action so visitors become real enquiries and customers. Every element is designed to make it easy for customers to reach you immediately.</div>
+<span class="how-step-tag hs3-tag">WhatsApp + Lead Capture</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ══ PRICING ══ -->
+<section class="pricing-section pad" id="pricing">
+<div class="wrap">
+<span class="pricing-eyebrow">Simple Pricing</span>
+<h2 class="pricing-h2">Honest. Transparent.<br/>Built for Caribbean Businesses.</h2>
+<p class="pricing-sub">No hidden fees. No unnecessary extras.</p>
+<p class="pricing-note">You own your website, and everything we build is designed to help you get more customers — not just look good.</p>
+<div class="pricing-grid">
+<!-- PACKAGE 1 -->
+<div class="price-card">
+<div class="price-header ph-start">
+<div class="price-name">ClientFlow Start</div>
+<div class="price-tagline">Get visible fast</div>
+<div class="price-desc">Get your business online quickly so customers can find and contact you.</div>
+</div>
+<div class="price-body">
+<div class="price-items">
+<div class="price-item">Simple, professional website (1–3 pages)</div>
+<div class="price-item">Google Business Profile setup</div>
+<div class="price-item">Basic SEO setup (included)</div>
+<div class="price-item">WhatsApp and contact integration</div>
+<div class="price-item">Mobile-friendly design</div>
+<div class="price-item">Fast setup — live in as little as 48 hours</div>
+</div>
+<a class="price-cta pc-start" href="#contact">Get Started →</a>
+</div>
+</div>
+<!-- PACKAGE 2 — FEATURED -->
+<div class="price-card featured">
+<div class="price-header ph-grow">
+<div class="price-popular">⭐ Most Popular</div>
+<div class="price-name">ClientFlow Grow</div>
+<div class="price-tagline">Get more customers</div>
+<div class="price-desc">Turn your website into a lead-generating system that brings you real inquiries and customers.</div>
+</div>
+<div class="price-body">
+<div class="price-items">
+<div class="price-item">Website designed for conversions (3–5 pages)</div>
+<div class="price-item">Service pages optimized for customer inquiries</div>
+<div class="price-item">Google Business Profile optimization</div>
+<div class="price-item">SEO setup for local visibility (included)</div>
+<div class="price-item">WhatsApp, contact forms &amp; lead capture setup</div>
+<div class="price-item">Clear call-to-action structure throughout</div>
+</div>
+<a class="price-cta pc-grow" href="#contact">Get Started →</a>
+</div>
+</div>
+<!-- PACKAGE 3 -->
+<div class="price-card">
+<div class="price-header ph-flourish">
+<div class="price-name">ClientFlow Flourish</div>
+<div class="price-tagline">Grow consistently and attract customers every month</div>
+<div class="price-desc">Build consistent visibility and steady customer flow with ongoing support and improvements.</div>
+</div>
+<div class="price-body">
+<div class="price-how">How it works:</div>
+<div class="price-items">
+<div class="price-item">One-time setup to build your website and get everything live</div>
+<div class="price-item">Ongoing monthly plan to improve visibility and attract customers</div>
+</div>
+<div class="price-items" style="margin-top:12px;">
+<div class="price-item">Ongoing SEO improvements</div>
+<div class="price-item">Google Business Profile updates</div>
+<div class="price-item">Website updates and optimizations</div>
+<div class="price-item">1–2 SEO-focused blog posts per month</div>
+<div class="price-item">Content designed to attract customers from search</div>
+<div class="price-item">Continuous improvement for better results over time</div>
+</div>
+<div class="price-flex-note">Flexible setup fees and monthly plans available based on your business needs.</div>
+<a class="price-cta pc-flourish" href="#contact">Start Growing →</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ══ GOOGLE VISIBILITY ══ -->
+<section class="google-section pad" id="google">
+<div class="wrap">
+<div class="google-grid">
+<div>
+<span class="google-eyebrow">Google Visibility</span>
+<h2 class="google-h2">Show Up When<br/>Customers Search</h2>
+<p style="font-size:16px;color:var(--slate);line-height:1.75;margin-bottom:0;">Most customers search on Google before choosing a business. If you're not showing up — your competitor is getting that customer instead.</p>
+<div class="google-points">
+<div class="gp">
+<div class="gp-icon gp1">🔍</div>
+<div>
+<div class="gp-title">Appear in Search Results</div>
+<div class="gp-desc">When customers search for your services, your business shows up — not your competitor's.</div>
+</div>
+</div>
+<div class="gp">
+<div class="gp-icon gp2">📍</div>
+<div>
+<div class="gp-title">Show Up on Google Maps</div>
+<div class="gp-desc">Local customers find your location, hours, and contact details instantly on Google Maps.</div>
+</div>
+</div>
+<div class="gp">
+<div class="gp-icon gp3">📞</div>
+<div>
+<div class="gp-title">Get More Calls &amp; Visits</div>
+<div class="gp-desc">More visibility means more calls, more messages, and more customers choosing your business.</div>
+</div>
+</div>
+</div>
+</div>
+<div class="google-mockup">
+<div class="gm-bar">
+<div class="gm-bar-icon">🔍</div>
+<div class="gm-bar-text">"best consultant Trinidad"</div>
+</div>
+<div class="gm-results">
+<div class="gm-result top">
+<div class="gm-label">✓ Your Business — Top Result</div>
+<div class="gm-name">Your Business Name</div>
+<div class="gm-url">yourbusiness.com</div>
+<div class="gm-desc">Professional services in Trinidad. Contact us today — fast response guaranteed.</div>
+</div>
+<div class="gm-result dim">
+<div class="gm-name">Competitor A</div>
+<div class="gm-url">competitor-a.com</div>
+</div>
+<div class="gm-result dim">
+<div class="gm-name">Competitor B</div>
+<div class="gm-url">competitor-b.com</div>
+</div>
+</div>
+<div class="gm-badge">✓ ClientFlow gets your business to the top</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ══ SPEED ══ -->
+<section class="speed-section pad" id="speed">
+<div class="wrap">
+<span class="speed-eyebrow">Fast Setup. Real Results.</span>
+<h2 class="speed-h2">We know business moves fast.</h2>
+<p class="speed-lead">That's why we offer simple, efficient solutions that help you get online and start attracting customers quickly — often in as little as 48 hours.</p>
+<div class="speed-grid">
+<div class="speed-card">
+<div class="speed-icon">⚡</div>
+<div class="speed-title">Fast Turnaround</div>
+<div class="speed-desc">Most clients are live and attracting customers within 48–72 hours of signing up. No long waits, no delays.</div>
+</div>
+<div class="speed-card">
+<div class="speed-icon">🎯</div>
+<div class="speed-title">No Complicated Process</div>
+<div class="speed-desc">We handle everything. You give us your business details — we do the rest. Simple, clear, and stress-free.</div>
+</div>
+<div class="speed-card">
+<div class="speed-icon">🚀</div>
+<div class="speed-title">Ready to Go Live Quickly</div>
+<div class="speed-desc">Your website, Google listing, and lead capture tools — all set up and ready to bring in customers fast.</div>
+</div>
+</div>
+<div class="speed-cta-row">
+<div class="speed-big">48h</div>
+<div class="speed-big-sub">From sign-up to live — attracting real customers</div>
+<a class="btn-teal" href="#contact" style="display:inline-block;">Get Started Today →</a>
+</div>
+</div>
+</section>
+<!-- ══ WHY CHOOSE US ══ -->
+<section class="why-section pad" id="why">
+<div class="wrap">
+<span class="why-eyebrow">Why Choose ClientFlow</span>
+<h2 class="why-h2">Built for Caribbean Businesses.<br/>Focused on Results.</h2>
+<p class="why-lead">We're not just a web design company. We're a business growth partner — focused on getting you more customers, not just a pretty website.</p>
+<div class="why-grid">
+<div class="why-card wc1">
+<div class="why-icon">🌍</div>
+<div>
+<div class="why-title">Built for Caribbean SMEs</div>
+<div class="why-desc">We understand the Caribbean market, the culture, and what local customers actually respond to. Not a generic solution — built for your reality.</div>
+</div>
+</div>
+<div class="why-card wc2">
+<div class="why-icon">🎯</div>
+<div>
+<div class="why-title">Focused on Real Results</div>
+<div class="why-desc">We measure success by customers, leads, and visibility — not just how your website looks. Every decision is about growing your business.</div>
+</div>
+</div>
+<div class="why-card wc3">
+<div class="why-icon">💰</div>
+<div>
+<div class="why-title">Fast and Affordable</div>
+<div class="why-desc">No expensive agency fees. No long contracts. Simple, transparent pricing that delivers real value for Caribbean small and mid-sized businesses.</div>
+</div>
+</div>
+<div class="why-card wc4">
+<div class="why-icon">🔓</div>
+<div>
+<div class="why-title">No Technical Complexity</div>
+<div class="why-desc">You don't need to understand SEO or web design. We handle all of it — you focus on running your business and serving your customers.</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ══ TRUST ══ -->
+<section class="trust-section pad" id="trust">
+<div class="wrap">
+<span class="trust-eyebrow">Helping Businesses Grow Online</span>
+<h2 class="trust-h2">Real Caribbean Businesses.<br/>Real Results.</h2>
+<p class="trust-lead">We help Caribbean businesses improve their online presence and attract more customers using simple, effective digital solutions.</p>
+<div class="testi-grid">
+<div class="testi-card">
+<div class="testi-stars">★★★★★</div>
+<div class="testi-quote">"Before ClientFlow, customers couldn't find us on Google. Within 2 weeks of going live, we were getting 3–4 new enquiries every week directly from our website."</div>
+<div class="testi-author">
+<div class="testi-avatar ta1">👨🏽</div>
+<div><div class="testi-name">Marcus Joseph 🇹🇹</div><div class="testi-role">Consulting Business, Trinidad</div></div>
+</div>
+</div>
+<div class="testi-card">
+<div class="testi-stars">★★★★★</div>
+<div class="testi-quote">"The WhatsApp button alone changed everything. Customers message us directly from the website now. Orders went up 40% in the first month."</div>
+<div class="testi-author">
+<div class="testi-avatar ta2">👩🏽</div>
+<div><div class="testi-name">Kezia Phillip 🇯🇲</div><div class="testi-role">Restaurant Owner, Jamaica</div></div>
+</div>
+</div>
+<div class="testi-card">
+<div class="testi-stars">★★★★★</div>
+<div class="testi-quote">"We went from invisible online to showing up on the first page of Google in our area. ClientFlow delivered exactly what they promised — fast."</div>
+<div class="testi-author">
+<div class="testi-avatar ta3">👩🏾</div>
+<div><div class="testi-name">Sandra Mohammed 🇧🇧</div><div class="testi-role">Service Business, Barbados</div></div>
+</div>
+</div>
+</div>
+<div style="margin-top:48px;">
+<div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--teal);margin-bottom:20px;">Before &amp; After ClientFlow</div>
+<div class="ba-grid">
+<div class="ba-card">
+<div class="ba-header ba-before-h"><span style="font-size:16px;">😟</span><span class="ba-label">Before ClientFlow</span></div>
+<div class="ba-body">
+<div class="ba-item">Not showing up on Google</div>
+<div class="ba-item">Outdated or no website</div>
+<div class="ba-item">Missing calls and enquiries daily</div>
+<div class="ba-item">Losing customers to competitors</div>
+</div>
+</div>
+<div class="ba-card">
+<div class="ba-header ba-after-h"><span style="font-size:16px;">🌟</span><span class="ba-label">After ClientFlow</span></div>
+<div class="ba-body">
+<div class="ba-item">Showing up on Google Search &amp; Maps</div>
+<div class="ba-item">Professional website that builds trust</div>
+<div class="ba-item">Getting calls, messages &amp; leads daily</div>
+<div class="ba-item">Growing consistently online</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ══ CONTACT ══ -->
+<section class="cta-section pad" id="contact">
+<div class="wrap">
+<div class="cta-grid">
+<div>
+<span class="cta-eyebrow">Get Started Today</span>
+<h2 class="cta-h2">Get Your Free Website &amp; Google Review</h2>
+<p class="cta-sub">Find out how your business can improve its online presence and start getting more customers. No obligation. No technical jargon. Just a clear, honest review.</p>
+<div class="cta-contact-items">
+<div class="cta-contact-item"><span class="cta-contact-icon">💬</span>WhatsApp: +1 (868) 123-4567</div>
+<div class="cta-contact-item"><span class="cta-contact-icon">📞</span>Phone: +1 (868) 123-4567</div>
+<div class="cta-contact-item"><span class="cta-contact-icon">✉️</span>hello@clientflow.tt</div>
+<div class="cta-contact-item"><span class="cta-contact-icon">🇹🇹</span>Based in Trinidad · Serving the Caribbean</div>
+</div>
+<a class="btn-wa" href="https://wa.me/18681234567" style="display:inline-flex; margin-top:8px;" target="_blank">💬 Chat on WhatsApp Now</a>
+</div>
+<div class="cta-form">
+<div class="form-title">Request Your Free Review</div>
+<div class="form-sub">We'll get back to you within 2 hours.</div>
+<div class="form-group"><label class="form-label">Your Name</label><input class="form-input" placeholder="e.g. Sandra Mohammed" type="text"/></div>
+<div class="form-group"><label class="form-label">Email Address</label><input class="form-input" placeholder="your@email.com" type="email"/></div>
+<div class="form-group"><label class="form-label">Business Name</label><input class="form-input" placeholder="e.g. Mohammed Catering TT" type="text"/></div>
+<div class="form-group">
+<label class="form-label">Territory</label>
+<select class="form-input form-select">
+<option value="">Select your territory...</option>
+<option>Trinidad &amp; Tobago</option><option>Jamaica</option><option>Barbados</option>
+<option>Guyana</option><option>St. Lucia</option><option>Grenada</option>
+<option>Bahamas</option><option>Other Caribbean</option>
+</select>
+</div>
+<div class="form-group">
+<label class="form-label">What's Your Biggest Challenge?</label>
+<select class="form-input form-select">
+<option value="">Select...</option>
+<option>Not showing up on Google</option>
+<option>No website or outdated website</option>
+<option>Not getting enough leads</option>
+<option>Need more local customers</option>
+<option>Not sure — need advice</option>
+</select>
+</div>
+<button class="form-submit" onclick="submitForm()">Request Free Review →</button>
+<a class="form-wa" href="https://wa.me/18681234567" target="_blank">💬 Or WhatsApp Us Directly</a>
+<div class="form-secure">🔒   Your information is private and secure</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FOOTER -->
+<footer>
+<div class="footer-top">
+<div>
+<div class="footer-logo">
+<div class="footer-logo-mark">CF</div>
+<div class="footer-brand-name">Client<span>Flow</span></div>
+</div>
+<div class="footer-tagline">Helping Caribbean businesses get more customers online — fast, simple, affordable.</div>
+</div>
+<div class="footer-col">
+<h4>Services</h4>
+<a href="#pricing">ClientFlow Start</a>
+<a href="#pricing">ClientFlow Grow</a>
+<a href="#pricing">ClientFlow Flourish</a>
+<a href="#google">Google Visibility</a>
+</div>
+<div class="footer-col">
+<h4>Company</h4>
+<a href="#how">How It Works</a>
+<a href="#why">Why ClientFlow</a>
+<a href="#trust">Results</a>
+<a href="#contact">Contact Us</a>
+</div>
+<div class="footer-col">
+<h4>Contact</h4>
+<a href="https://wa.me/18681234567">💬 WhatsApp</a>
+<a href="tel:+18681234567">📞 +1 (868) 123-4567</a>
+<a href="mailto:hello@clientflow.tt">✉️ hello@clientflow.tt</a>
+<a href="#contact">Free Review</a>
+</div>
+</div>
+<div class="footer-bottom">
+<div class="footer-copy">© 2026 ClientFlow. All rights reserved. · Proudly Caribbean. 🌍</div>
+<div class="footer-flags">🇹🇹🇯🇲🇧🇧🇬🇾🇱🇨🇬🇩🇧🇸🌍</div>
+</div>
+</footer>
+<script>
+  function toggleMenu() { document.getElementById('mobNav').classList.toggle('open'); }
+  document.addEventListener('click', function(e) {
+    const nav = document.getElementById('mobNav');
+    const hb  = document.getElementById('hamburger');
+    if (!nav.contains(e.target) && !hb.contains(e.target)) nav.classList.remove('open');
+  });
+  window.addEventListener('scroll', function() {
+    const bar = document.getElementById('stickyBar');
+    if (window.scrollY > window.innerHeight * 0.75) bar.classList.add('show');
+    else bar.classList.remove('show');
+  });
+  function submitForm() { alert('Thank you! We will contact you within 2 hours. 📈'); }
+</script>
+</body>
+</html>
