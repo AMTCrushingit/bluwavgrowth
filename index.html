@@ -192,7 +192,7 @@
   .price-body  { padding:24px 28px; }
   .price-items { display:flex; flex-direction:column; gap:9px; margin-bottom:20px; }
   .price-item  { font-size:13px; color:var(--slate); display:flex; align-items:flex-start; gap:9px; line-height:1.4; }
-  .price-item::before { content:'checkmark'; font-weight:800; color:var(--green); flex-shrink:0; font-size:13px; }
+  .price-item::before { content:'✓'; font-weight:800; color:var(--green); flex-shrink:0; font-size:13px; }
   .price-how   { font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:1px; color:var(--teal2); margin-bottom:8px; margin-top:14px; }
   .price-flex-note { font-size:12px; color:var(--slate); font-style:italic; margin-bottom:16px; line-height:1.5; padding:10px 14px; background:var(--offwht); border-radius:8px; border:1px solid var(--mist); }
   .price-cta { display:block; text-align:center; font-size:14px; font-weight:700; padding:14px; border-radius:12px; transition:all 0.2s; }
@@ -446,9 +446,10 @@
 
 <!-- PROOF STRIP -->
 <div class="proof-strip">
-<div class="proof-inner">
-<div class="proof-item"></div>
-<div class="proof-item">🇯🇲 Jamaica</div>
+<div class="proof-inner" style="justify-content:center;">
+<div style="font-size:15px;font-weight:700;color:rgba(255,255,255,0.85);letter-spacing:0.5px;text-align:center;">Every island. Every business. Every opportunity.</div>
+</div>
+</div>
 <div class="proof-item">🇧🇧 Barbados</div>
 <div class="proof-item">🇬🇾 Guyana</div>
 <div class="proof-item">🇱🇨 St. Lucia</div>
