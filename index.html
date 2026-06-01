@@ -192,7 +192,7 @@
   .price-body  { padding:24px 28px; }
   .price-items { display:flex; flex-direction:column; gap:9px; margin-bottom:20px; }
   .price-item  { font-size:13px; color:var(--slate); display:flex; align-items:flex-start; gap:9px; line-height:1.4; }
-  .price-item::before { content:'✓'; font-weight:800; color:var(--green); flex-shrink:0; font-size:13px; }
+  .price-item::before { content:'checkmark'; font-weight:800; color:var(--green); flex-shrink:0; font-size:13px; }
   .price-how   { font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:1px; color:var(--teal2); margin-bottom:8px; margin-top:14px; }
   .price-flex-note { font-size:12px; color:var(--slate); font-style:italic; margin-bottom:16px; line-height:1.5; padding:10px 14px; background:var(--offwht); border-radius:8px; border:1px solid var(--mist); }
   .price-cta { display:block; text-align:center; font-size:14px; font-weight:700; padding:14px; border-radius:12px; transition:all 0.2s; }
@@ -290,8 +290,8 @@
   .ba-after-h  .ba-label { color:#fff; }
   .ba-body { padding:18px 22px; background:#fff; }
   .ba-item { font-size:13px; color:var(--slate); display:flex; align-items:flex-start; gap:9px; margin-bottom:10px; line-height:1.4; }
-  .ba-before-h ~ .ba-body .ba-item::before { content:"x"; color:#F43F5E; font-weight:800; flex-shrink:0; }
-  .ba-after-h  ~ .ba-body .ba-item::before { content:"check"; color:var(--green); font-weight:800; flex-shrink:0; }
+  .ba-before-h ~ .ba-body .ba-item::before { content:"✕"; color:#F43F5E; font-weight:800; flex-shrink:0; }
+  .ba-after-h  ~ .ba-body .ba-item::before { content:"✓"; color:var(--green); font-weight:800; flex-shrink:0; }
 
   /* CTA */
   .cta-section { background:var(--offwht); }
@@ -411,7 +411,7 @@
 <section class="hero" id="home">
   <div class="hero-inner">
     <div class="hero-top">
-      <div class="hero-badge"><div class="badge-dot"></div>5+ Years Caribbean Digital Experience</div>
+      <div class="hero-badge"><div class="badge-dot"></div>Caribbean Lead Generation &middot; Est. 2026</div>
       <h1 class="hero-h1">Get More Customers from <span class="gold">Google</span> and Your Website</h1>
       <p class="hero-sub">We help Caribbean businesses get found online, look professional, and turn visitors into real leads &mdash; live in as little as 48 hours.</p>
       <p class="hero-support">No complicated tech. No expensive agencies. Fast, simple systems that work.</p>
@@ -446,10 +446,9 @@
 
 <!-- PROOF STRIP -->
 <div class="proof-strip">
-<div class="proof-inner" style="justify-content:center;">
-<div style="font-size:15px;font-weight:700;color:rgba(255,255,255,0.85);letter-spacing:0.5px;text-align:center;">Every island. Every business. Every opportunity.</div>
-</div>
-</div>
+<div class="proof-inner">
+<div class="proof-item">🇹🇹 Trinidad &amp; Tobago</div>
+<div class="proof-item">🇯🇲 Jamaica</div>
 <div class="proof-item">🇧🇧 Barbados</div>
 <div class="proof-item">🇬🇾 Guyana</div>
 <div class="proof-item">🇱🇨 St. Lucia</div>
@@ -912,7 +911,7 @@
 </div>
 <div class="footer-bottom">
 <div class="footer-copy">© 2026 ClientFlow. All rights reserved. · Proudly Caribbean. 🌍</div>
-<div class="footer-flags" style="font-size:12px;color:rgba(255,255,255,0.3);font-weight:600;">Serving the entire Caribbean region &amp; diaspora</div>
+<div class="footer-flags">🇹🇹🇯🇲🇧🇧🇬🇾🇱🇨🇬🇩🇧🇸🌍</div>
 </div>
 </footer>
 <script>
