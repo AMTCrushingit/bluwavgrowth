@@ -192,7 +192,7 @@
   .price-body  { padding:24px 28px; }
   .price-items { display:flex; flex-direction:column; gap:9px; margin-bottom:20px; }
   .price-item  { font-size:13px; color:var(--slate); display:flex; align-items:flex-start; gap:9px; line-height:1.4; }
-  .price-item::before { content:'checkmark'; font-weight:800; color:var(--green); flex-shrink:0; font-size:13px; }
+  .price-item::before { content:'✓'; font-weight:800; color:var(--green); flex-shrink:0; font-size:13px; }
   .price-how   { font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:1px; color:var(--teal2); margin-bottom:8px; margin-top:14px; }
   .price-flex-note { font-size:12px; color:var(--slate); font-style:italic; margin-bottom:16px; line-height:1.5; padding:10px 14px; background:var(--offwht); border-radius:8px; border:1px solid var(--mist); }
   .price-cta { display:block; text-align:center; font-size:14px; font-weight:700; padding:14px; border-radius:12px; transition:all 0.2s; }
@@ -446,9 +446,10 @@
 
 <!-- PROOF STRIP -->
 <div class="proof-strip">
-<div class="proof-inner">
-<div class="proof-item">🇹🇹 Trinidad &amp; Tobago</div>
-<div class="proof-item">🇯🇲 Jamaica</div>
+<div class="proof-inner" style="justify-content:center;">
+<div style="font-size:15px;font-weight:700;color:rgba(255,255,255,0.85);letter-spacing:0.5px;text-align:center;">Every island. Every business. Every opportunity.</div>
+</div>
+</div>
 <div class="proof-item">🇧🇧 Barbados</div>
 <div class="proof-item">🇬🇾 Guyana</div>
 <div class="proof-item">🇱🇨 St. Lucia</div>
@@ -647,6 +648,84 @@
 </div>
 </div>
 </section>
+
+<!-- PAYMENT PLANS -->
+<section style="background:linear-gradient(160deg,#FFF8ED 0%,#FEF3C7 100%);padding:96px 0;" id="payment">
+  <div class="wrap">
+    <span class="eyebrow" style="color:#008080;">Flexible Payment Options</span>
+    <h2 style="font-family:'Sora',sans-serif;font-size:40px;font-weight:900;color:#0B2C4D;line-height:1.1;letter-spacing:-0.8px;margin-bottom:16px;">Pay your way.<br>No stress. No pressure.</h2>
+    <p style="font-size:16px;line-height:1.75;color:#64748B;max-width:560px;margin-bottom:52px;">We know Caribbean businesses work hard for every dollar. That's why we offer flexible payment options that work for your cash flow.</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:40px;">
+
+      <div style="background:#fff;border-radius:18px;padding:26px 24px;border:1.5px solid #E2E8F0;box-shadow:0 2px 16px rgba(0,0,0,0.05);text-align:center;">
+        <div style="font-size:36px;margin-bottom:12px;">💳</div>
+        <div style="font-family:'Sora',sans-serif;font-size:18px;font-weight:900;color:#0B2C4D;margin-bottom:6px;">Pay in Full</div>
+        <div style="font-size:13px;color:#64748B;line-height:1.6;margin-bottom:16px;">Pay the full amount upfront and get priority scheduling — your project starts within 24 hours.</div>
+        <div style="display:flex;flex-direction:column;gap:8px;text-align:left;margin-bottom:16px;">
+          <div style="display:flex;align-items:center;gap:10px;font-size:12.5px;color:#0B2C4D;font-weight:500;"><div style="width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#F5A623,#FFB347);color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;">1</div>Pay full amount</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:12.5px;color:#0B2C4D;font-weight:500;"><div style="width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#F5A623,#FFB347);color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;">2</div>Project starts within 24 hours</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:12.5px;color:#0B2C4D;font-weight:500;"><div style="width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#F5A623,#FFB347);color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;">3</div>Site delivered on time</div>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:center;">
+          <span style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:7px;padding:4px 10px;font-size:11px;font-weight:700;color:#0B2C4D;">💳 Stripe</span>
+          <span style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:7px;padding:4px 10px;font-size:11px;font-weight:700;color:#0B2C4D;">🌴 WiPay</span>
+          <span style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:7px;padding:4px 10px;font-size:11px;font-weight:700;color:#0B2C4D;">🏦 Bank Transfer</span>
+        </div>
+      </div>
+
+      <div style="background:#fff;border-radius:18px;padding:26px 24px;border:2px solid #F5A623;box-shadow:0 4px 24px rgba(245,166,35,0.15);text-align:center;">
+        <div style="font-size:36px;margin-bottom:12px;">✌️</div>
+        <div style="font-family:'Sora',sans-serif;font-size:18px;font-weight:900;color:#0B2C4D;margin-bottom:4px;">Pay in 2</div>
+        <div style="display:inline-block;background:linear-gradient(135deg,#F5A623,#FFB347);color:#fff;font-size:10px;font-weight:800;padding:3px 10px;border-radius:20px;margin-bottom:8px;">Most Popular</div>
+        <div style="font-size:13px;color:#64748B;line-height:1.6;margin-bottom:16px;">Split your payment in two — 50% to start, 50% on delivery and approval.</div>
+        <div style="display:flex;flex-direction:column;gap:8px;text-align:left;margin-bottom:16px;">
+          <div style="display:flex;align-items:center;gap:10px;font-size:12.5px;color:#0B2C4D;font-weight:500;"><div style="width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#F5A623,#FFB347);color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;">1</div>50% deposit to start</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:12.5px;color:#0B2C4D;font-weight:500;"><div style="width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#F5A623,#FFB347);color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;">2</div>We build your site</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:12.5px;color:#0B2C4D;font-weight:500;"><div style="width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#F5A623,#FFB347);color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;">3</div>50% on delivery &amp; approval</div>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:center;">
+          <span style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:7px;padding:4px 10px;font-size:11px;font-weight:700;color:#0B2C4D;">💳 Stripe</span>
+          <span style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:7px;padding:4px 10px;font-size:11px;font-weight:700;color:#0B2C4D;">🌴 WiPay</span>
+          <span style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:7px;padding:4px 10px;font-size:11px;font-weight:700;color:#0B2C4D;">🏦 Bank Transfer</span>
+        </div>
+      </div>
+
+      <div style="background:#fff;border-radius:18px;padding:26px 24px;border:1.5px solid #E2E8F0;box-shadow:0 2px 16px rgba(0,0,0,0.05);text-align:center;">
+        <div style="font-size:36px;margin-bottom:12px;">🗓️</div>
+        <div style="font-family:'Sora',sans-serif;font-size:18px;font-weight:900;color:#0B2C4D;margin-bottom:6px;">Pay in 3</div>
+        <div style="font-size:13px;color:#64748B;line-height:1.6;margin-bottom:16px;">Spread your payment over 6 weeks. Available for Professional and Premium packages.</div>
+        <div style="display:flex;flex-direction:column;gap:8px;text-align:left;margin-bottom:16px;">
+          <div style="display:flex;align-items:center;gap:10px;font-size:12.5px;color:#0B2C4D;font-weight:500;"><div style="width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#F5A623,#FFB347);color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;">1</div>40% deposit to start</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:12.5px;color:#0B2C4D;font-weight:500;"><div style="width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#F5A623,#FFB347);color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;">2</div>30% at midpoint review</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:12.5px;color:#0B2C4D;font-weight:500;"><div style="width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#F5A623,#FFB347);color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;">3</div>30% on final delivery</div>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:center;">
+          <span style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:7px;padding:4px 10px;font-size:11px;font-weight:700;color:#0B2C4D;">💳 Stripe</span>
+          <span style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:7px;padding:4px 10px;font-size:11px;font-weight:700;color:#0B2C4D;">🌴 WiPay</span>
+          <span style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:7px;padding:4px 10px;font-size:11px;font-weight:700;color:#0B2C4D;">🏦 Bank Transfer</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Payment logos -->
+    <div style="text-align:center;">
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#64748B;margin-bottom:14px;">Secure Payments Accepted Via</div>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+        <div style="background:#fff;border:1.5px solid #E2E8F0;border-radius:10px;padding:10px 20px;display:flex;align-items:center;gap:8px;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+          <span style="font-size:18px;">💳</span><span style="font-size:13px;font-weight:700;color:#0B2C4D;">Stripe</span><span style="font-size:11px;color:#64748B;">International Cards</span>
+        </div>
+        <div style="background:#fff;border:1.5px solid #E2E8F0;border-radius:10px;padding:10px 20px;display:flex;align-items:center;gap:8px;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+          <span style="font-size:18px;">🌴</span><span style="font-size:13px;font-weight:700;color:#0B2C4D;">WiPay</span><span style="font-size:11px;color:#64748B;">Caribbean Cards · TTD · JMD · BBD</span>
+        </div>
+        <div style="background:#fff;border:1.5px solid #E2E8F0;border-radius:10px;padding:10px 20px;display:flex;align-items:center;gap:8px;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+          <span style="font-size:18px;">🏦</span><span style="font-size:13px;font-weight:700;color:#0B2C4D;">Bank Transfer</span><span style="font-size:11px;color:#64748B;">Local &amp; International</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ══ GOOGLE VISIBILITY ══ -->
 <section class="google-section pad" id="google">
 <div class="wrap">
@@ -913,8 +992,7 @@
 </div>
 <div class="footer-bottom">
 <div class="footer-copy">© 2026 ClientFlow. All rights reserved. · Proudly Caribbean. 🌍</div>
-<div class="footer-flags">🇹🇹🇯🇲🇧🇧🇬🇾🇱🇨🇬🇩🇧🇸🌍</div>
-</div>
+<div style="font-size:12px;color:rgba(255,255,255,0.3);font-weight:600;">Serving the entire Caribbean region &amp; diaspora</div>
 </footer>
 <script>
   function toggleMenu() { document.getElementById('mobNav').classList.toggle('open'); }
