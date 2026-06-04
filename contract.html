@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ClientFlow Smart Agreement — ClientFlow Caribbean</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Sora:wght@700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'Plus Jakarta Sans',sans-serif; background:#F8FAFC; color:#0B2C4D; }
+
+  :root {
+    --navy:  #0B2C4D;
+    --navy2: #0D3A63;
+    --gold:  #F5A623;
+    --gold2: #FFB347;
+    --teal:  #00A8A8;
+    --slate: #64748B;
+    --mist:  #E2E8F0;
+    --offwht:#F8FAFC;
+    --green: #059669;
+    --red:   #EF4444;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);
+    padding:32px 28px 28px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .header::before {
+    content:'';
+    position:absolute; top:-60px; right:-60px;
+    width:300px; height:300px;
+    background:radial-gradient(circle,rgba(245,166,35,0.1) 0%,transparent 65%);
+    border-radius:50%;
+  }
+  .header-logo { display:flex; align-items:center; justify-content:center; gap:12px; margin-bottom:16px; }
+  .header-mark { width:48px; height:48px; background:linear-gradient(135deg,var(--gold),var(--gold2)); border-radius:12px; display:flex; align-items:center; justify-content:center; font-family:'Sora',sans-serif; font-size:20px; font-weight:900; color:#fff; }
+  .header-brand { font-family:'Sora',sans-serif; font-size:22px; font-weight:900; color:#fff; }
+  .header-brand span { background:linear-gradient(135deg,var(--gold),var(--gold2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+  .header-title { font-family:'Sora',sans-serif; font-size:28px; font-weight:900; color:#fff; margin-bottom:8px; letter-spacing:-0.5px; }
+  .header-title span { background:linear-gradient(135deg,var(--gold),var(--gold2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+  .header-sub { font-size:14px; color:rgba(255,255,255,0.55); max-width:500px; margin:0 auto; line-height:1.6; }
+
+  /* ── PROGRESS BAR ── */
+  .progress-wrap { background:#fff; border-bottom:1px solid var(--mist); padding:16px 28px; position:sticky; top:0; z-index:50; box-shadow:0 2px 12px rgba(0,0,0,0.06); }
+  .progress-inner { max-width:760px; margin:0 auto; }
+  .progress-steps { display:flex; align-items:center; gap:0; }
+  .progress-step { display:flex; flex-direction:column; align-items:center; flex:1; position:relative; }
+  .progress-step::after { content:''; position:absolute; top:16px; left:50%; width:100%; height:2px; background:var(--mist); z-index:0; }
+  .progress-step:last-child::after { display:none; }
+  .progress-step.active::after { background:linear-gradient(to right,var(--gold),var(--mist)); }
+  .progress-step.done::after { background:var(--gold); }
+  .step-circle { width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:800; position:relative; z-index:1; transition:all 0.3s; }
+  .step-circle.pending { background:var(--mist); color:var(--slate); }
+  .step-circle.active  { background:linear-gradient(135deg,var(--gold),var(--gold2)); color:#fff; box-shadow:0 4px 12px rgba(245,166,35,0.4); }
+  .step-circle.done    { background:var(--green); color:#fff; }
+  .step-label { font-size:10px; font-weight:700; color:var(--slate); margin-top:5px; text-align:center; white-space:nowrap; }
+  .step-label.active { color:var(--gold2); }
+  .step-label.done   { color:var(--green); }
+
+  /* ── MAIN ── */
+  .main { max-width:760px; margin:0 auto; padding:32px 20px 80px; }
+
+  /* ── SECTION CARD ── */
+  .section-card { background:#fff; border-radius:20px; padding:28px 32px; margin-bottom:24px; border:1.5px solid var(--mist); box-shadow:0 2px 16px rgba(0,0,0,0.05); display:none; }
+  .section-card.active { display:block; animation:fadeInUp 0.4s ease; }
+  @keyframes fadeInUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+
+  .section-eyebrow { font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:2px; color:var(--teal); margin-bottom:8px; }
+  .section-title { font-family:'Sora',sans-serif; font-size:22px; font-weight:900; color:var(--navy); margin-bottom:6px; letter-spacing:-0.3px; }
+  .section-sub { font-size:14px; color:var(--slate); line-height:1.6; margin-bottom:24px; }
+
+  /* ── FORM ELEMENTS ── */
+  .form-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .form-grid.single { grid-template-columns:1fr; }
+  .form-group { display:flex; flex-direction:column; gap:6px; }
+  .form-group.full { grid-column:1/-1; }
+  .form-label { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.8px; color:var(--navy); }
+  .form-label .required { color:var(--red); margin-left:2px; }
+  .form-input, .form-select, .form-textarea {
+    width:100%; padding:12px 16px;
+    background:#F8FAFC; border:1.5px solid var(--mist);
+    border-radius:10px; font-size:14px; color:var(--navy);
+    font-family:'Plus Jakarta Sans',sans-serif;
+    outline:none; transition:border-color 0.2s, background 0.2s;
+  }
+  .form-input:focus, .form-select:focus, .form-textarea:focus {
+    border-color:var(--gold); background:#fff;
+    box-shadow:0 0 0 3px rgba(245,166,35,0.1);
+  }
+  .form-input.error, .form-select.error { border-color:var(--red); }
+  .form-select { appearance:none; cursor:pointer; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2364748B' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 14px center; padding-right:36px; }
+  .form-textarea { resize:vertical; min-height:80px; }
+  .error-msg { font-size:11px; color:var(--red); font-weight:600; display:none; }
+  .error-msg.show { display:block; }
+
+  /* ── PACKAGE CARDS ── */
+  .package-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:8px; }
+  .package-option { position:relative; }
+  .package-option input { position:absolute; opacity:0; }
+  .package-label {
+    display:block; border-radius:14px; padding:18px 16px;
+    border:2px solid var(--mist); cursor:pointer;
+    transition:all 0.2s; background:#F8FAFC;
+  }
+  .package-option input:checked + .package-label {
+    border-color:var(--gold);
+    background:linear-gradient(160deg,#FFFBF0,#FEF3C7);
+    box-shadow:0 4px 16px rgba(245,166,35,0.2);
+  }
+  .pkg-name { font-family:'Sora',sans-serif; font-size:14px; font-weight:800; color:var(--navy); margin-bottom:4px; }
+  .pkg-price { font-size:13px; font-weight:700; color:var(--gold2); margin-bottom:6px; }
+  .pkg-desc { font-size:11px; color:var(--slate); line-height:1.4; }
+  .pkg-badge { display:inline-block; background:linear-gradient(135deg,var(--gold),var(--gold2)); color:#fff; font-size:9px; font-weight:800; padding:2px 8px; border-radius:10px; margin-bottom:6px; text-transform:uppercase; letter-spacing:0.5px; }
+
+  /* ── PAYMENT PLAN ── */
+  .payment-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+  .payment-option { position:relative; }
+  .payment-option input { position:absolute; opacity:0; }
+  .payment-label {
+    display:block; border-radius:12px; padding:16px 14px;
+    border:2px solid var(--mist); cursor:pointer;
+    transition:all 0.2s; background:#F8FAFC; text-align:center;
+  }
+  .payment-option input:checked + .payment-label {
+    border-color:var(--teal);
+    background:linear-gradient(160deg,#F0FDFA,#E0F7F7);
+    box-shadow:0 4px 16px rgba(0,168,168,0.15);
+  }
+  .pay-icon { font-size:24px; margin-bottom:8px; }
+  .pay-name { font-size:13px; font-weight:800; color:var(--navy); margin-bottom:4px; }
+  .pay-desc { font-size:11px; color:var(--slate); line-height:1.4; }
+
+  /* ── TERMS SECTION ── */
+  .terms-box {
+    background:#F8FAFC; border:1.5px solid var(--mist);
+    border-radius:14px; padding:20px 22px;
+    max-height:320px; overflow-y:auto;
+    font-size:13px; color:var(--slate); line-height:1.7;
+    margin-bottom:20px;
+  }
+  .terms-box h3 { font-size:14px; font-weight:800; color:var(--navy); margin:16px 0 6px; }
+  .terms-box h3:first-child { margin-top:0; }
+  .terms-box p { margin-bottom:10px; }
+  .terms-box ul { padding-left:20px; margin-bottom:10px; }
+  .terms-box ul li { margin-bottom:4px; }
+  .terms-scroll-note { font-size:11px; color:var(--slate); font-style:italic; margin-bottom:12px; text-align:center; }
+
+  /* ── CHECKBOX ── */
+  .checkbox-group { display:flex; align-items:flex-start; gap:12px; padding:14px 16px; background:#F0FDFA; border-radius:10px; border:1.5px solid #99F6E4; margin-bottom:12px; cursor:pointer; }
+  .checkbox-group input { width:18px; height:18px; accent-color:var(--teal); flex-shrink:0; margin-top:2px; cursor:pointer; }
+  .checkbox-group label { font-size:13px; color:var(--navy); font-weight:500; line-height:1.5; cursor:pointer; }
+  .checkbox-group label strong { color:var(--navy); font-weight:700; }
+
+  /* ── SIGNATURE ── */
+  .signature-wrap { margin-bottom:20px; }
+  .signature-box {
+    border:2px dashed var(--mist); border-radius:14px;
+    padding:24px; text-align:center; background:#F8FAFC;
+    transition:border-color 0.2s;
+  }
+  .signature-box.has-sig { border-color:var(--gold); background:#FFFBF0; }
+  .sig-input {
+    width:100%; border:none; background:transparent;
+    font-family:'Sora',sans-serif; font-size:28px; font-weight:700;
+    color:var(--navy); text-align:center; outline:none;
+    border-bottom:2px solid var(--navy); padding:8px 0;
+    letter-spacing:1px;
+  }
+  .sig-input::placeholder { color:var(--mist); font-size:18px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:400; }
+  .sig-note { font-size:11px; color:var(--slate); margin-top:8px; font-style:italic; }
+  .sig-date { font-size:12px; color:var(--slate); margin-top:12px; font-weight:600; }
+
+  /* ── SUMMARY BOX ── */
+  .summary-box { background:linear-gradient(160deg,var(--navy),var(--navy2)); border-radius:16px; padding:24px; margin-bottom:20px; }
+  .summary-title { font-family:'Sora',sans-serif; font-size:16px; font-weight:800; color:#fff; margin-bottom:16px; }
+  .summary-row { display:flex; justify-content:space-between; align-items:flex-start; padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.08); }
+  .summary-row:last-child { border-bottom:none; }
+  .summary-key { font-size:12px; color:rgba(255,255,255,0.5); font-weight:600; }
+  .summary-val { font-size:13px; color:#fff; font-weight:700; text-align:right; max-width:60%; }
+  .summary-val.gold { color:var(--gold); }
+
+  /* ── BUTTONS ── */
+  .btn-row { display:flex; gap:12px; justify-content:space-between; margin-top:24px; }
+  .btn-back { background:transparent; color:var(--slate); font-size:14px; font-weight:600; padding:13px 24px; border-radius:11px; border:1.5px solid var(--mist); cursor:pointer; font-family:'Plus Jakarta Sans',sans-serif; transition:all 0.2s; }
+  .btn-back:hover { border-color:var(--navy); color:var(--navy); }
+  .btn-next { background:linear-gradient(135deg,var(--gold),var(--gold2)); color:#fff; font-size:15px; font-weight:700; padding:14px 32px; border-radius:11px; border:none; cursor:pointer; font-family:'Plus Jakarta Sans',sans-serif; box-shadow:0 4px 16px rgba(245,166,35,0.4); transition:transform 0.15s, box-shadow 0.2s; flex:1; }
+  .btn-next:hover { transform:translateY(-1px); box-shadow:0 6px 24px rgba(245,166,35,0.5); }
+  .btn-submit { background:linear-gradient(135deg,var(--green),#047857); color:#fff; font-size:15px; font-weight:700; padding:14px 32px; border-radius:11px; border:none; cursor:pointer; font-family:'Plus Jakarta Sans',sans-serif; box-shadow:0 4px 16px rgba(5,150,105,0.35); transition:transform 0.15s; flex:1; }
+  .btn-submit:hover { transform:translateY(-1px); }
+
+  /* ── SUCCESS SCREEN ── */
+  .success-screen { display:none; text-align:center; padding:48px 28px; }
+  .success-screen.show { display:block; animation:fadeInUp 0.5s ease; }
+  .success-icon { font-size:64px; margin-bottom:20px; }
+  .success-title { font-family:'Sora',sans-serif; font-size:28px; font-weight:900; color:var(--navy); margin-bottom:12px; }
+  .success-sub { font-size:15px; color:var(--slate); line-height:1.7; max-width:480px; margin:0 auto 28px; }
+  .success-next { background:#fff; border-radius:16px; padding:20px 24px; border:1.5px solid var(--mist); text-align:left; max-width:480px; margin:0 auto 24px; }
+  .success-next-title { font-size:13px; font-weight:800; color:var(--navy); text-transform:uppercase; letter-spacing:1px; margin-bottom:12px; }
+  .success-step { display:flex; align-items:flex-start; gap:12px; margin-bottom:10px; font-size:13px; color:var(--slate); }
+  .success-step-num { width:24px; height:24px; border-radius:50%; background:linear-gradient(135deg,var(--gold),var(--gold2)); color:#fff; font-size:11px; font-weight:800; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .success-wa { display:inline-flex; align-items:center; gap:8px; background:#25D366; color:#fff; font-size:14px; font-weight:700; padding:13px 28px; border-radius:11px; text-decoration:none; transition:background 0.2s; }
+  .success-wa:hover { background:#1da851; }
+
+  /* ── TRUST BADGES ── */
+  .trust-row { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:20px; }
+  .trust-badge { display:flex; align-items:center; gap:6px; font-size:11px; color:var(--slate); font-weight:600; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width:600px) {
+    .section-card { padding:20px 18px; }
+    .form-grid { grid-template-columns:1fr; }
+    .package-grid { grid-template-columns:1fr; }
+    .payment-grid { grid-template-columns:1fr; }
+    .header-title { font-size:22px; }
+    .btn-row { flex-direction:column; }
+    .btn-back { order:2; }
+    .progress-steps { gap:0; }
+    .step-label { font-size:9px; }
+  }
+</style>
+</head>
+<body>
+<!-- HEADER -->
+<div class="header">
+<div class="header-logo">
+<div class="header-mark">CF</div>
+<div class="header-brand">Client<span>Flow</span> Caribbean</div>
+</div>
+<div class="header-title">ClientFlow <span>Smart Agreement</span></div>
+<div class="header-sub">Complete your client service agreement online in under 5 minutes. Secure, simple, and legally clear.</div>
+</div>
+<!-- PROGRESS -->
+<div class="progress-wrap">
+<div class="progress-inner">
+<div class="progress-steps">
+<div class="progress-step" id="step-ind-1">
+<div class="step-circle active" id="step-circle-1">1</div>
+<div class="step-label active" id="step-label-1">Your Details</div>
+</div>
+<div class="progress-step" id="step-ind-2">
+<div class="step-circle pending" id="step-circle-2">2</div>
+<div class="step-label" id="step-label-2">Package</div>
+</div>
+<div class="progress-step" id="step-ind-3">
+<div class="step-circle pending" id="step-circle-3">3</div>
+<div class="step-label" id="step-label-3">Payment Plan</div>
+</div>
+<div class="progress-step" id="step-ind-4">
+<div class="step-circle pending" id="step-circle-4">4</div>
+<div class="step-label" id="step-label-4">Terms</div>
+</div>
+<div class="progress-step" id="step-ind-5">
+<div class="step-circle pending" id="step-circle-5">5</div>
+<div class="step-label" id="step-label-5">Sign</div>
+</div>
+</div>
+</div>
+</div>
+<!-- MAIN -->
+<div class="main">
+<!-- ══ STEP 1 — CLIENT DETAILS ══ -->
+<div class="section-card active" id="card-1">
+<div class="section-eyebrow">Step 1 of 5</div>
+<div class="section-title">Your Business Details</div>
+<div class="section-sub">Tell us about your business so we can personalise your agreement.</div>
+<div class="form-grid">
+<div class="form-group">
+<label class="form-label">Full Name <span class="required">*</span></label>
+<input class="form-input" id="client-name" placeholder="e.g. Sandra Mohammed" type="text"/>
+<span class="error-msg" id="err-name">Please enter your full name</span>
+</div>
+<div class="form-group">
+<label class="form-label">Business Name <span class="required">*</span></label>
+<input class="form-input" id="client-business" placeholder="e.g. Mohammed Catering TT" type="text"/>
+<span class="error-msg" id="err-business">Please enter your business name</span>
+</div>
+<div class="form-group">
+<label class="form-label">Email Address <span class="required">*</span></label>
+<input class="form-input" id="client-email" placeholder="your@email.com" type="email"/>
+<span class="error-msg" id="err-email">Please enter a valid email address</span>
+</div>
+<div class="form-group">
+<label class="form-label">WhatsApp / Phone <span class="required">*</span></label>
+<input class="form-input" id="client-phone" placeholder="+1 (868) XXX-XXXX" type="tel"/>
+<span class="error-msg" id="err-phone">Please enter your phone number</span>
+</div>
+<div class="form-group">
+<label class="form-label">Territory <span class="required">*</span></label>
+<select class="form-select" id="client-territory">
+<option value="">Select your territory...</option>
+<option>Trinidad &amp; Tobago</option>
+<option>Jamaica</option>
+<option>Barbados</option>
+<option>Guyana</option>
+<option>St. Lucia</option>
+<option>Grenada</option>
+<option>Bahamas</option>
+<option>Other Caribbean</option>
+<option>Diaspora (UK/Canada/USA)</option>
+</select>
+<span class="error-msg" id="err-territory">Please select your territory</span>
+</div>
+<div class="form-group">
+<label class="form-label">Business Type</label>
+<select class="form-select" id="client-type">
+<option value="">Select business type...</option>
+<option>Professional Services</option>
+<option>Restaurant / Food</option>
+<option>Retail / Shop</option>
+<option>NGO / Non-Profit</option>
+<option>Church / Religious Org</option>
+<option>Institution / Government</option>
+<option>Other</option>
+</select>
+</div>
+</div>
+<div class="btn-row">
+<div></div>
+<button class="btn-next" onclick="goToStep(2)">Continue to Package Selection →</button>
+</div>
+</div>
+<!-- ══ STEP 2 — PACKAGE ══ -->
+<div class="section-card" id="card-2">
+<div class="section-eyebrow">Step 2 of 5</div>
+<div class="section-title">Choose Your Package</div>
+<div class="section-sub">Select the package that best fits your business needs. You can discuss details with us after signing.</div>
+<div class="package-grid">
+<div class="package-option">
+<input id="pkg-start" name="package" type="radio" value="ClientFlow Start — $500-$900 USD"/>
+<label class="package-label" for="pkg-start">
+<div class="pkg-name">ClientFlow Start</div>
+<div class="pkg-price">$500 – $900 USD</div>
+<div class="pkg-desc">Simple website, Google Business Profile, basic SEO, WhatsApp integration. Live in 48 hours.</div>
+</label>
+</div>
+<div class="package-option">
+<input checked="" id="pkg-grow" name="package" type="radio" value="ClientFlow Grow — $1,200-$2,500 USD"/>
+<label class="package-label" for="pkg-grow">
+<div class="pkg-badge">Most Popular</div>
+<div class="pkg-name">ClientFlow Grow</div>
+<div class="pkg-price">$1,200 – $2,500 USD</div>
+<div class="pkg-desc">Conversion-optimized website, Google Business optimization, SEO, lead capture setup.</div>
+</label>
+</div>
+<div class="package-option">
+<input id="pkg-flourish" name="package" type="radio" value="ClientFlow Flourish — Setup + Monthly Plan"/>
+<label class="package-label" for="pkg-flourish">
+<div class="pkg-name">ClientFlow Flourish</div>
+<div class="pkg-price">Setup + Monthly Plan</div>
+<div class="pkg-desc">Full website build + ongoing monthly SEO, Google updates, blog posts, continuous improvements.</div>
+</label>
+</div>
+</div>
+<div style="margin-top:16px;padding:14px 16px;background:#F0FDFA;border-radius:10px;border:1px solid #99F6E4;font-size:13px;color:#0B2C4D;">
+      💡 <strong>Not sure?</strong> Choose your best estimate — we'll confirm the exact scope and price before any work begins.
+    </div>
+<div class="btn-row">
+<button class="btn-back" onclick="goToStep(1)">← Back</button>
+<button class="btn-next" onclick="goToStep(3)">Continue to Payment Plan →</button>
+</div>
+</div>
+<!-- ══ STEP 3 — PAYMENT PLAN ══ -->
+<div class="section-card" id="card-3">
+<div class="section-eyebrow">Step 3 of 5</div>
+<div class="section-title">Choose Your Payment Plan</div>
+<div class="section-sub">We offer flexible payment options to suit your cash flow. All plans accept Stripe, WiPay, and bank transfer.</div>
+<div class="payment-grid">
+<div class="payment-option">
+<input id="pay-full" name="payment" type="radio" value="Pay in Full — Full payment upfront, project starts within 24 hours"/>
+<label class="payment-label" for="pay-full">
+<div class="pay-icon">💳</div>
+<div class="pay-name">Pay in Full</div>
+<div class="pay-desc">Full payment upfront. Project starts within 24 hours of payment.</div>
+</label>
+</div>
+<div class="payment-option">
+<input checked="" id="pay-2" name="payment" type="radio" value="Pay in 2 — 50% deposit to start, 50% on delivery"/>
+<label class="payment-label" for="pay-2">
+<div class="pay-icon">✌️</div>
+<div class="pay-name">Pay in 2</div>
+<div class="pay-desc">50% deposit to start. 50% on delivery and approval. Most popular.</div>
+</label>
+</div>
+<div class="payment-option">
+<input id="pay-3" name="payment" type="radio" value="Pay in 3 — 40% deposit, 30% midpoint, 30% on delivery (Grow &amp; Flourish only)"/>
+<label class="payment-label" for="pay-3">
+<div class="pay-icon">🗓️</div>
+<div class="pay-name">Pay in 3</div>
+<div class="pay-desc">40% deposit, 30% midpoint, 30% on delivery. Grow &amp; Flourish only.</div>
+</label>
+</div>
+</div>
+<div style="margin-top:20px;">
+<label class="form-label" style="margin-bottom:8px;display:block;">Preferred Payment Method</label>
+<select class="form-select" id="pay-method">
+<option value="Stripe (international cards)">💳 Stripe — International cards (Visa, Mastercard, Amex)</option>
+<option value="WiPay (Caribbean cards)">🌴 WiPay — Caribbean cards (TTD, JMD, BBD, GYD)</option>
+<option value="Bank Transfer">🏦 Bank Transfer — Local or international</option>
+</select>
+</div>
+<div class="btn-row">
+<button class="btn-back" onclick="goToStep(2)">← Back</button>
+<button class="btn-next" onclick="goToStep(4)">Continue to Terms →</button>
+</div>
+</div>
+<!-- ══ STEP 4 — TERMS ══ -->
+<div class="section-card" id="card-4">
+<div class="section-eyebrow">Step 4 of 5</div>
+<div class="section-title">Review the Agreement Terms</div>
+<div class="section-sub">Please read the key terms below. Scroll to the bottom before proceeding.</div>
+<div class="terms-scroll-note">📜 Scroll through all terms before confirming</div>
+<div class="terms-box" id="terms-box">
+<h3>1. Services</h3>
+<p>ClientFlow Caribbean will provide the services included in the selected package. The specific deliverables and timeline will be confirmed in writing before work begins.</p>
+<h3>2. Payment Terms</h3>
+<p><strong>Pay in Full:</strong> Full payment upfront. Project starts within 24 hours.</p>
+<p><strong>Pay in 2:</strong> 50% deposit to start. 50% due on delivery and approval.</p>
+<p><strong>Pay in 3:</strong> 40% deposit, 30% at midpoint, 30% on final delivery. Available for Grow and Flourish packages only.</p>
+<p>Deposits are non-refundable once work has commenced. Final deliverables will not be released until all payments are received in full.</p>
+<h3>3. Timeline &amp; Delivery</h3>
+<p>ClientFlow Start: 48-72 hours. ClientFlow Grow: 3-5 business days. ClientFlow Flourish: 7-14 business days for setup, then ongoing monthly. Timelines depend on the Client providing content and approvals promptly.</p>
+<h3>4. Revisions</h3>
+<p>Start: 1 revision round. Grow: 2 revision rounds. Flourish: 3 revision rounds for initial setup. Additional revisions are available at an agreed rate. Major scope changes will be quoted separately.</p>
+<h3>5. Ownership</h3>
+<p>Upon full payment, the Client owns all deliverables including website files, domain, and hosting. ClientFlow Caribbean retains the right to display completed work in its portfolio unless the Client requests otherwise in writing.</p>
+<h3>6. Confidentiality</h3>
+<p>Both parties agree to keep all shared business information confidential. ClientFlow Caribbean will not share Client data with third parties without written consent.</p>
+<h3>7. Limitation of Liability</h3>
+<p>ClientFlow Caribbean does not guarantee specific search rankings, lead volumes, or revenue results. Total liability is limited to fees paid for the specific service in question.</p>
+<h3>8. Termination</h3>
+<p>Either party may terminate with written notice. The Client pays for all work completed. Deposits are non-refundable once work has started. Monthly retainers require 30 days written notice to terminate.</p>
+<h3>9. Dispute Resolution</h3>
+<p>Disputes will first be addressed through good-faith negotiation. This Agreement is governed by the laws of Trinidad and Tobago.</p>
+<h3>10. Client Responsibilities</h3>
+<p>The Client agrees to provide all required content within 48 hours of project start, respond to review requests within 3 business days, and ensure all provided content is accurate and lawful.</p>
+</div>
+<div class="checkbox-group">
+<input id="terms-check" onchange="checkTerms()" type="checkbox"/>
+<label for="terms-check">I have read and understood all terms of this Client Service Agreement. I agree to be bound by these terms on behalf of myself and my business. <strong>I understand that my deposit is non-refundable once work begins.</strong></label>
+</div>
+<div class="checkbox-group">
+<input id="age-check" onchange="checkTerms()" type="checkbox"/>
+<label for="age-check">I confirm that I am 18 years of age or older and have the authority to enter into this agreement on behalf of my business.</label>
+</div>
+<span class="error-msg" id="err-terms" style="display:none;">Please read and accept all terms to continue</span>
+<div class="btn-row">
+<button class="btn-back" onclick="goToStep(3)">← Back</button>
+<button class="btn-next" disabled="" id="btn-terms-next" onclick="goToStep(5)" style="opacity:0.5;cursor:not-allowed;">Continue to Sign →</button>
+</div>
+</div>
+<!-- ══ STEP 5 — SIGN ══ -->
+<div class="section-card" id="card-5">
+<div class="section-eyebrow">Step 5 of 5</div>
+<div class="section-title">Review &amp; Sign</div>
+<div class="section-sub">Review your agreement summary and add your digital signature to complete.</div>
+<!-- Summary -->
+<div class="summary-box" id="summary-box">
+<div class="summary-title">📋 Agreement Summary</div>
+<div class="summary-row"><span class="summary-key">Client Name</span><span class="summary-val" id="sum-name">—</span></div>
+<div class="summary-row"><span class="summary-key">Business</span><span class="summary-val" id="sum-business">—</span></div>
+<div class="summary-row"><span class="summary-key">Email</span><span class="summary-val" id="sum-email">—</span></div>
+<div class="summary-row"><span class="summary-key">Territory</span><span class="summary-val" id="sum-territory">—</span></div>
+<div class="summary-row"><span class="summary-key">Package</span><span class="summary-val gold" id="sum-package">—</span></div>
+<div class="summary-row"><span class="summary-key">Payment Plan</span><span class="summary-val" id="sum-payment">—</span></div>
+<div class="summary-row"><span class="summary-key">Payment Method</span><span class="summary-val" id="sum-method">—</span></div>
+<div class="summary-row"><span class="summary-key">Agreement Date</span><span class="summary-val gold" id="sum-date">—</span></div>
+</div>
+<!-- Signature -->
+<div class="signature-wrap">
+<label class="form-label" style="margin-bottom:8px;display:block;">Digital Signature <span class="required">*</span></label>
+<div class="signature-box" id="sig-box">
+<input class="sig-input" id="sig-input" oninput="updateSig()" placeholder="Type your full legal name to sign" type="text"/>
+<div class="sig-note">By typing your name above, you are providing your digital signature and agreeing to all terms of this agreement.</div>
+<div class="sig-date" id="sig-date-display"></div>
+</div>
+<span class="error-msg" id="err-sig">Please type your full name as your digital signature</span>
+</div>
+<div class="btn-row">
+<button class="btn-back" onclick="goToStep(4)">← Back</button>
+<button class="btn-submit" onclick="submitAgreement()">✓ Sign &amp; Submit Agreement</button>
+</div>
+<div class="trust-row">
+<div class="trust-badge">🔒 Secure &amp; Encrypted</div>
+<div class="trust-badge">📧 Confirmation sent to your email</div>
+<div class="trust-badge">✓ Legally clear</div>
+</div>
+</div>
+<!-- ══ SUCCESS ══ -->
+<div class="success-screen" id="success-screen">
+<div class="success-icon">🎉</div>
+<div class="success-title">Agreement Signed!</div>
+<div class="success-sub">Thank you, <strong id="success-name"></strong>! Your ClientFlow Smart Agreement has been submitted successfully. We'll be in touch within 2 hours to get started.</div>
+<div class="success-next">
+<div class="success-next-title">What Happens Next</div>
+<div class="success-step"><div class="success-step-num">1</div><span>You'll receive a confirmation email at <strong id="success-email"></strong> with your agreement details</span></div>
+<div class="success-step"><div class="success-step-num">2</div><span>Our team will contact you within 2 hours via WhatsApp or email to confirm your project details</span></div>
+<div class="success-step"><div class="success-step-num">3</div><span>We'll send your deposit invoice — once paid, your project starts immediately</span></div>
+<div class="success-step"><div class="success-step-num">4</div><span>Your website goes live in as little as 48 hours!</span></div>
+</div>
+<a class="success-wa" href="https://wa.me/18682979960" target="_blank">💬 Chat with us on WhatsApp</a>
+<div style="margin-top:20px;font-size:13px;color:var(--slate);">
+      Questions? Email us at <a href="mailto:hello@clientflowcaribbean.com" style="color:var(--teal);font-weight:600;">hello@clientflowcaribbean.com</a>
+</div>
+</div>
+</div>
+<script>
+  let currentStep = 1;
+  const totalSteps = 5;
+
+  // Set today's date
+  const today = new Date();
+  const dateStr = today.toLocaleDateString('en-US', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+  document.getElementById('sig-date-display').textContent = 'Date: ' + dateStr;
+  document.getElementById('sum-date').textContent = today.toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' });
+
+  function goToStep(step) {
+    // Validate current step
+    if (step > currentStep && !validateStep(currentStep)) return;
+
+    // Hide all cards
+    for (let i = 1; i <= totalSteps; i++) {
+      document.getElementById('card-' + i).classList.remove('active');
+    }
+
+    // Update progress
+    for (let i = 1; i <= totalSteps; i++) {
+      const circle = document.getElementById('step-circle-' + i);
+      const label  = document.getElementById('step-label-' + i);
+      const ind    = document.getElementById('step-ind-' + i);
+      circle.className = 'step-circle';
+      label.className  = 'step-label';
+      if (i < step) {
+        circle.classList.add('done');
+        label.classList.add('done');
+        circle.textContent = '✓';
+        ind.classList.add('done');
+      } else if (i === step) {
+        circle.classList.add('active');
+        label.classList.add('active');
+        circle.textContent = i;
+        ind.classList.add('active');
+      } else {
+        circle.classList.add('pending');
+        circle.textContent = i;
+      }
+    }
+
+    // Show new card
+    if (step <= totalSteps) {
+      document.getElementById('card-' + step).classList.add('active');
+      if (step === 5) updateSummary();
+    }
+
+    currentStep = step;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function validateStep(step) {
+    let valid = true;
+    if (step === 1) {
+      const name     = document.getElementById('client-name').value.trim();
+      const business = document.getElementById('client-business').value.trim();
+      const email    = document.getElementById('client-email').value.trim();
+      const phone    = document.getElementById('client-phone').value.trim();
+      const territory= document.getElementById('client-territory').value;
+
+      if (!name)      { showError('err-name', 'client-name'); valid = false; }
+      else            { hideError('err-name', 'client-name'); }
+      if (!business)  { showError('err-business', 'client-business'); valid = false; }
+      else            { hideError('err-business', 'client-business'); }
+      if (!email || !email.includes('@')) { showError('err-email', 'client-email'); valid = false; }
+      else            { hideError('err-email', 'client-email'); }
+      if (!phone)     { showError('err-phone', 'client-phone'); valid = false; }
+      else            { hideError('err-phone', 'client-phone'); }
+      if (!territory) { showError('err-territory', 'client-territory'); valid = false; }
+      else            { hideError('err-territory', 'client-territory'); }
+    }
+    if (step === 4) {
+      const terms = document.getElementById('terms-check').checked;
+      const age   = document.getElementById('age-check').checked;
+      if (!terms || !age) {
+        document.getElementById('err-terms').style.display = 'block';
+        valid = false;
+      } else {
+        document.getElementById('err-terms').style.display = 'none';
+      }
+    }
+    return valid;
+  }
+
+  function showError(errId, inputId) {
+    document.getElementById(errId).classList.add('show');
+    document.getElementById(inputId).classList.add('error');
+  }
+  function hideError(errId, inputId) {
+    document.getElementById(errId).classList.remove('show');
+    document.getElementById(inputId).classList.remove('error');
+  }
+
+  function checkTerms() {
+    const terms = document.getElementById('terms-check').checked;
+    const age   = document.getElementById('age-check').checked;
+    const btn   = document.getElementById('btn-terms-next');
+    if (terms && age) {
+      btn.disabled = false;
+      btn.style.opacity = '1';
+      btn.style.cursor = 'pointer';
+    } else {
+      btn.disabled = true;
+      btn.style.opacity = '0.5';
+      btn.style.cursor = 'not-allowed';
+    }
+  }
+
+  function updateSig() {
+    const val = document.getElementById('sig-input').value;
+    const box = document.getElementById('sig-box');
+    if (val.trim()) {
+      box.classList.add('has-sig');
+    } else {
+      box.classList.remove('has-sig');
+    }
+  }
+
+  function updateSummary() {
+    document.getElementById('sum-name').textContent     = document.getElementById('client-name').value || '—';
+    document.getElementById('sum-business').textContent = document.getElementById('client-business').value || '—';
+    document.getElementById('sum-email').textContent    = document.getElementById('client-email').value || '—';
+    document.getElementById('sum-territory').textContent= document.getElementById('client-territory').value || '—';
+
+    const pkg = document.querySelector('input[name="package"]:checked');
+    document.getElementById('sum-package').textContent  = pkg ? pkg.value : '—';
+
+    const pay = document.querySelector('input[name="payment"]:checked');
+    document.getElementById('sum-payment').textContent  = pay ? pay.value : '—';
+
+    document.getElementById('sum-method').textContent   = document.getElementById('pay-method').value || '—';
+  }
+
+  function submitAgreement() {
+    const sig = document.getElementById('sig-input').value.trim();
+    if (!sig) {
+      document.getElementById('err-sig').classList.add('show');
+      return;
+    }
+    document.getElementById('err-sig').classList.remove('show');
+
+    // Collect all data
+    const name     = document.getElementById('client-name').value;
+    const business = document.getElementById('client-business').value;
+    const email    = document.getElementById('client-email').value;
+    const phone    = document.getElementById('client-phone').value;
+    const territory= document.getElementById('client-territory').value;
+    const bizType  = document.getElementById('client-type').value;
+    const pkg      = document.querySelector('input[name="package"]:checked').value;
+    const pay      = document.querySelector('input[name="payment"]:checked').value;
+    const method   = document.getElementById('pay-method').value;
+
+    // Build email body
+    const subject = encodeURIComponent('ClientFlow Smart Agreement — ' + business);
+    const body = encodeURIComponent(
+      'NEW CLIENT AGREEMENT SIGNED\n\n' +
+      '================================\n' +
+      'CLIENT DETAILS\n' +
+      '================================\n' +
+      'Name: ' + name + '\n' +
+      'Business: ' + business + '\n' +
+      'Email: ' + email + '\n' +
+      'Phone: ' + phone + '\n' +
+      'Territory: ' + territory + '\n' +
+      'Business Type: ' + bizType + '\n\n' +
+      '================================\n' +
+      'AGREEMENT DETAILS\n' +
+      '================================\n' +
+      'Package: ' + pkg + '\n' +
+      'Payment Plan: ' + pay + '\n' +
+      'Payment Method: ' + method + '\n' +
+      'Digital Signature: ' + sig + '\n' +
+      'Date Signed: ' + dateStr + '\n\n' +
+      '================================\n' +
+      'Terms accepted: YES\n' +
+      'Age confirmed: YES\n' +
+      '================================\n\n' +
+      'Please follow up with this client within 2 hours.\n' +
+      'clientflowcaribbean.com'
+    );
+
+    // Open email client
+    window.location.href = 'mailto:info@clientflowcaribbean.com?subject=' + subject + '&body=' + body;
+
+    // Show success screen
+    setTimeout(() => {
+      for (let i = 1; i <= totalSteps; i++) {
+        document.getElementById('card-' + i).classList.remove('active');
+      }
+      document.getElementById('success-screen').classList.add('show');
+      document.getElementById('success-name').textContent  = name;
+      document.getElementById('success-email').textContent = email;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 500);
+  }
+</script>
+</body>
+</html>
