@@ -34,7 +34,7 @@
   /* NAV */
   nav { position:fixed; top:0; left:0; right:0; z-index:100; height:68px; padding:0 40px; display:flex; align-items:center; justify-content:space-between; background:rgba(255,255,255,0.97); backdrop-filter:blur(20px); border-bottom:1px solid rgba(11,44,77,0.08); box-shadow:0 2px 20px rgba(0,0,0,0.06); }
   .nav-logo { display:flex; align-items:center; gap:12px; }
-  .nav-logo-mark { width:38px; height:38px; background:linear-gradient(135deg,var(--teal),var(--navy)); border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:15px; font-weight:900; color:#fff; font-family:'Sora',sans-serif; box-shadow:0 4px 16px rgba(11,44,77,0.3); }
+  .nav-logo-mark { width:38px; height:38px; background:linear-gradient(135deg,var(--coral),var(--gold)); border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:15px; font-weight:900; color:#fff; font-family:'Sora',sans-serif; box-shadow:0 4px 16px rgba(11,44,77,0.3); }
   .nav-brand { font-size:19px; font-weight:800; color:var(--navy); font-family:'Sora',sans-serif; letter-spacing:-0.3px; }
   .nav-brand span { background:linear-gradient(135deg,var(--coral),var(--gold)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
   .nav-tagline { font-size:10px; color:var(--slate); font-weight:500; margin-top:1px; }
@@ -74,33 +74,33 @@
   .btn-navy:hover { background:var(--navy2); transform:translateY(-2px); }
 
   /* HERO */
-  .hero { min-height:100vh; background:linear-gradient(160deg,#FDFDFD 0%,#F0FDFB 50%,#FFF5F4 100%); display:flex; align-items:center; padding:110px 28px 80px; position:relative; overflow:hidden; }
-  .hero::before { content:''; position:absolute; top:-100px; right:-100px; width:500px; height:500px; background:radial-gradient(circle,rgba(255,111,97,0.12) 0%,transparent 65%); border-radius:50%; pointer-events:none; }
-  .hero::after  { content:''; position:absolute; bottom:-80px; left:-80px; width:400px; height:400px; background:radial-gradient(circle,rgba(168,240,214,0.2) 0%,transparent 65%); border-radius:50%; pointer-events:none; }
+  .hero { min-height:100vh; background:linear-gradient(160deg,#0A1A2F 0%,#0D2440 60%,#0A1A2F 100%); display:flex; align-items:center; padding:110px 28px 80px; position:relative; overflow:hidden; }
+  .hero::before { content:''; position:absolute; top:-100px; right:-100px; width:600px; height:600px; background:radial-gradient(circle,rgba(255,111,97,0.18) 0%,transparent 65%); border-radius:50%; pointer-events:none; }
+  .hero::after  { content:''; position:absolute; bottom:-80px; left:-80px; width:500px; height:500px; background:radial-gradient(circle,rgba(0,201,177,0.15) 0%,transparent 65%); border-radius:50%; pointer-events:none; }
   .hero-inner { max-width:900px; margin:0 auto; width:100%; position:relative; z-index:2; text-align:center; }
   .hero-top { text-align:center; margin-bottom:40px; }
-  .hero-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(0,168,168,0.1); border:1px solid rgba(0,168,168,0.25); border-radius:20px; padding:5px 14px; font-size:11px; font-weight:700; color:var(--teal2); text-transform:uppercase; letter-spacing:1px; margin-bottom:24px; }
-  .badge-dot { width:6px; height:6px; border-radius:50%; background:var(--teal); animation:pulse 2s infinite; }
+  .hero-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(255,111,97,0.15); border:1px solid rgba(255,111,97,0.35); border-radius:20px; padding:5px 14px; font-size:11px; font-weight:700; color:#FF9B94; text-transform:uppercase; letter-spacing:1px; margin-bottom:24px; }
+  .badge-dot { width:6px; height:6px; border-radius:50%; background:var(--coral); animation:pulse 2s infinite; }
   @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.7)} }
-  .hero-h1 { font-family:'Sora',sans-serif; font-size:54px; font-weight:900; color:var(--navy); line-height:1.05; letter-spacing:-2px; margin-bottom:18px; }
-  .hero-h1 .gold { background:linear-gradient(135deg,var(--coral),var(--gold)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-  .hero-sub { font-size:18px; color:var(--slate); line-height:1.75; margin:0 auto 16px; max-width:620px; }
-  .hero-support { font-size:14px; color:var(--slate); line-height:1.6; margin:0 auto 36px; max-width:520px; font-style:italic; opacity:0.75; }
+  .hero-h1 { font-family:'Sora',sans-serif; font-size:54px; font-weight:900; color:#FDFDFD; line-height:1.05; letter-spacing:-2px; margin-bottom:18px; }
+  .hero-h1 .gold { background:linear-gradient(135deg,#FF6F61,#F4B400); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+  .hero-sub { font-size:18px; color:rgba(255,255,255,0.7); line-height:1.75; margin:0 auto 16px; max-width:620px; }
+  .hero-support { font-size:14px; color:rgba(255,255,255,0.45); line-height:1.6; margin:0 auto 36px; max-width:520px; font-style:italic; }
   .hero-btns { display:flex; gap:14px; flex-wrap:wrap; justify-content:center; }
-  .hero-card { background:#fff; border-radius:24px; box-shadow:0 8px 48px rgba(11,44,77,0.1),0 2px 16px rgba(0,0,0,0.05); border:1px solid rgba(11,44,77,0.06); overflow:hidden; max-width:860px; margin:52px auto 0; }
+  .hero-card { background:rgba(255,255,255,0.06); backdrop-filter:blur(12px); border-radius:24px; box-shadow:0 8px 48px rgba(0,0,0,0.3); border:1px solid rgba(255,255,255,0.1); overflow:hidden; max-width:860px; margin:52px auto 0; }
   .hero-card-img { width:100%; height:280px; object-fit:cover; display:block; }
-  .hero-card-label { background:linear-gradient(135deg,var(--teal),var(--teal2)); padding:12px 24px; display:flex; align-items:center; gap:10px; }
+  .hero-card-label { background:linear-gradient(135deg,#FF6F61,#F4B400); padding:12px 24px; display:flex; align-items:center; gap:10px; }
   .hero-card-label-dot { width:8px; height:8px; border-radius:50%; background:var(--coral); flex-shrink:0; }
   .hero-card-label-text { font-size:13px; font-weight:700; color:#fff; }
   .hero-card-label-sub  { font-size:11px; color:rgba(255,255,255,0.5); margin-left:auto; }
-  .hero-metrics { display:grid; grid-template-columns:repeat(4,1fr); gap:0; border-bottom:1px solid var(--mist); }
-  .hero-metric { padding:20px 16px; text-align:center; border-right:1px solid var(--mist); }
+  .hero-metrics { display:grid; grid-template-columns:repeat(4,1fr); gap:0; border-bottom:1px solid rgba(255,255,255,0.1); }
+  .hero-metric { padding:20px 16px; text-align:center; border-right:1px solid rgba(255,255,255,0.08); }
   .hero-metric:last-child { border-right:none; }
-  .hm-val { font-family:'Sora',sans-serif; font-size:26px; font-weight:900; color:var(--navy); letter-spacing:-0.5px; margin-bottom:3px; }
+  .hm-val { font-family:'Sora',sans-serif; font-size:26px; font-weight:900; color:#FDFDFD; letter-spacing:-0.5px; margin-bottom:3px; }
   .hm-val .gold-text { background:linear-gradient(135deg,var(--coral),var(--gold)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-  .hm-lbl { font-size:11px; color:var(--slate); font-weight:600; line-height:1.3; }
+  .hm-lbl { font-size:11px; color:rgba(255,255,255,0.45); font-weight:600; line-height:1.3; }
   .hero-features { display:flex; align-items:center; justify-content:center; padding:16px 24px; flex-wrap:wrap; gap:8px; max-width:600px; margin:0 auto; }
-  .hero-feature { display:flex; align-items:center; gap:7px; font-size:12.5px; color:var(--navy); font-weight:600; padding:6px 12px; background:var(--offwht); border-radius:20px; border:1px solid var(--mist); }
+  .hero-feature { display:flex; align-items:center; gap:7px; font-size:12.5px; color:rgba(255,255,255,0.8); font-weight:600; padding:6px 12px; background:rgba(255,255,255,0.08); border-radius:20px; border:1px solid rgba(255,255,255,0.12); }
   .hf-check { width:18px; height:18px; border-radius:50%; background:linear-gradient(135deg,var(--coral),var(--gold)); display:flex; align-items:center; justify-content:center; font-size:10px; color:#fff; font-weight:800; flex-shrink:0; }
 
   /* PROOF STRIP */
@@ -500,10 +500,10 @@
   <div class="hero-inner">
     <div class="hero-top">
       <h1 class="hero-h1" style="font-size:64px;letter-spacing:-2px;margin-bottom:12px;">ClientFlow</h1>
-      <h2 style="font-family:'Sora',sans-serif;font-size:32px;font-weight:800;color:var(--navy);letter-spacing:-0.5px;margin-bottom:16px;">Get More Customers Online — <span class="gold">Fast.</span></h2>
+      <h2 style="font-family:'Sora',sans-serif;font-size:32px;font-weight:800;color:rgba(255,255,255,0.9);letter-spacing:-0.5px;margin-bottom:16px;">Get More Customers Online — <span class="gold">Fast.</span></h2>
       <p class="hero-sub" style="margin-bottom:6px;">Caribbean-ready websites built to convert.</p>
       <p class="hero-sub" style="margin-bottom:20px;">Go live in 48 hours, starting at 00.</p>
-      <p style="font-size:13px;color:var(--slate);line-height:1.6;margin-bottom:32px;max-width:520px;margin-left:auto;margin-right:auto;">5+ years of Caribbean digital experience. 50+ businesses served. 100% ownership , your website is yours forever.</p>
+      <p style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.6;margin-bottom:32px;max-width:520px;margin-left:auto;margin-right:auto;">5+ years of Caribbean digital experience. 50+ businesses served. 100% ownership , your website is yours forever.</p>
       <div class="hero-btns">
         <a href="#contact" class="btn-gold">Get Started &rarr;</a>
       </div>
@@ -511,27 +511,27 @@
     
   <!-- WHY CARIBBEAN BUSINESSES CHOOSE CLIENTFLOW -->
   <div style="max-width:900px;margin:40px auto 0;">
-    <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--teal2);margin-bottom:20px;text-align:center;">Why Caribbean Businesses Choose ClientFlow</div>
+    <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.5);margin-bottom:20px;text-align:center;">Why Caribbean Businesses Choose ClientFlow</div>
     <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:16px;">
       <div style="text-align:center;">
         <div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--teal2));display:flex;align-items:center;justify-content:center;font-size:20px;color:#fff;font-weight:900;margin:0 auto 10px;">&#x2713;</div>
-        <div style="font-size:12.5px;font-weight:700;color:var(--navy);line-height:1.4;">Mobile-first design</div>
+        <div style="font-size:12.5px;font-weight:700;color:rgba(255,255,255,0.85);line-height:1.4;">Mobile-first design</div>
       </div>
       <div style="text-align:center;">
         <div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--teal2));display:flex;align-items:center;justify-content:center;font-size:20px;color:#fff;font-weight:900;margin:0 auto 10px;">&#x2713;</div>
-        <div style="font-size:12.5px;font-weight:700;color:var(--navy);line-height:1.4;">WhatsApp button built in</div>
+        <div style="font-size:12.5px;font-weight:700;color:rgba(255,255,255,0.85);line-height:1.4;">WhatsApp button built in</div>
       </div>
       <div style="text-align:center;">
         <div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--teal2));display:flex;align-items:center;justify-content:center;font-size:20px;color:#fff;font-weight:900;margin:0 auto 10px;">&#x2713;</div>
-        <div style="font-size:12.5px;font-weight:700;color:var(--navy);line-height:1.4;">Google Maps integrated</div>
+        <div style="font-size:12.5px;font-weight:700;color:rgba(255,255,255,0.85);line-height:1.4;">Google Maps integrated</div>
       </div>
       <div style="text-align:center;">
         <div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--teal2));display:flex;align-items:center;justify-content:center;font-size:20px;color:#fff;font-weight:900;margin:0 auto 10px;">&#x2713;</div>
-        <div style="font-size:12.5px;font-weight:700;color:var(--navy);line-height:1.4;">SEO-optimized for Google</div>
+        <div style="font-size:12.5px;font-weight:700;color:rgba(255,255,255,0.85);line-height:1.4;">SEO-optimized for Google</div>
       </div>
       <div style="text-align:center;">
         <div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--teal2));display:flex;align-items:center;justify-content:center;font-size:20px;color:#fff;font-weight:900;margin:0 auto 10px;">&#x2713;</div>
-        <div style="font-size:12.5px;font-weight:700;color:var(--navy);line-height:1.4;">Built specifically for Caribbean markets</div>
+        <div style="font-size:12.5px;font-weight:700;color:rgba(255,255,255,0.85);line-height:1.4;">Built specifically for Caribbean markets</div>
       </div>
     </div>
   </div>
@@ -1120,8 +1120,8 @@
 <h4>Contact</h4>
 <a href="https://wa.me/18682979960">💬 WhatsApp</a>
 <a href="tel:+18682979960">📞 +1 (868) 297-9960</a>
-<a href="mailto:hello@clientflow.tt">✉️ hello@clientflow.tt</a>
-<a href="#contact">Free Review</a>
+<a href="mailto:hello@clientflowcaribbean.com">✉️ hello@clientflowcaribbean.com</a>
+<a href="#contact">Get Started</a>
 </div>
 </div>
 <div class="footer-bottom">
