@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Free Website &amp; Google Audit — ClientFlow Caribbean</title>
+<meta content="Find out exactly why customers can't find your Caribbean business online. Free Website &amp; Google Audit — same day delivery, no obligation." name="description"/>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Sora:wght@700;800;900&display=swap');
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'Plus Jakarta Sans',sans-serif; background:#fff; color:#0A1A2F; overflow-x:hidden; }
+
+  :root {
+    --navy:   #0A1A2F;
+    --orange: #FF5500;
+    --orange2:#E63920;
+    --gold:   #F4B400;
+    --white:  #FFFFFF;
+    --offwht: #FDFDFD;
+    --slate:  #64748B;
+    --mist:   #E2E8F0;
+    --green:  #059669;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(160deg, #0A1A2F 0%, #0D2440 60%, #0A1A2F 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(255,85,0,0.15) 0%, transparent 65%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -80px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(0,168,168,0.1) 0%, transparent 65%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 1100px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* LEFT SIDE */
+  .hero-left {}
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,85,0,0.15);
+    border: 1px solid rgba(255,85,0,0.35);
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #FF9B94;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 24px;
+  }
+  .badge-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--orange);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%,100%{opacity:1;transform:scale(1)}
+    50%{opacity:0.4;transform:scale(0.7)}
+  }
+
+  .hero-h1 {
+    font-family: 'Sora', sans-serif;
+    font-size: 48px;
+    font-weight: 900;
+    color: #FDFDFD;
+    line-height: 1.05;
+    letter-spacing: -1.5px;
+    margin-bottom: 20px;
+  }
+  .hero-h1 .orange {
+    background: linear-gradient(135deg, #FF5500, #F4B400);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-sub {
+    font-size: 17px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.75;
+    margin-bottom: 32px;
+    max-width: 480px;
+  }
+
+  .what-you-get {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+  .get-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    font-weight: 600;
+  }
+  .get-icon {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--orange), var(--gold));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+
+  .scarcity {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+    font-weight: 600;
+  }
+  .scarcity span { color: #FF9B94; font-weight: 800; }
+
+  /* RIGHT SIDE — FORM */
+  .form-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 40px 36px;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.4);
+  }
+
+  .form-title {
+    font-family: 'Sora', sans-serif;
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .form-sub {
+    font-size: 13px;
+    color: var(--slate);
+    margin-bottom: 28px;
+    line-height: 1.5;
+  }
+  .form-sub strong { color: var(--orange); }
+
+  .form-group { margin-bottom: 16px; }
+  .form-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--slate);
+    margin-bottom: 6px;
+    display: block;
+  }
+  .form-input {
+    width: 100%;
+    background: #F8FAFC;
+    border: 1.5px solid var(--mist);
+    border-radius: 10px;
+    padding: 13px 16px;
+    font-size: 14px;
+    color: var(--navy);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .form-input:focus {
+    border-color: var(--orange);
+    box-shadow: 0 0 0 3px rgba(255,85,0,0.1);
+    background: #fff;
+  }
+  .form-input::placeholder { color: #94A3B8; }
+
+  .form-select {
+    appearance: none;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2364748B' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 40px;
+  }
+
+  .form-submit {
+    width: 100%;
+    background: linear-gradient(135deg, var(--orange), var(--orange2));
+    color: #fff;
+    font-size: 16px;
+    font-weight: 800;
+    padding: 16px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    transition: transform 0.15s, box-shadow 0.2s;
+    box-shadow: 0 6px 24px rgba(255,85,0,0.4);
+    margin-top: 8px;
+    letter-spacing: -0.3px;
+  }
+  .form-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 32px rgba(255,85,0,0.5);
+  }
+
+  .form-secure {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 12px;
+    font-size: 11px;
+    color: var(--slate);
+  }
+
+  /* ── SOCIAL PROOF STRIP ── */
+  .proof-strip {
+    background: linear-gradient(135deg, var(--orange), var(--orange2));
+    padding: 14px 24px;
+  }
+  .proof-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .proof-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.9);
+    font-weight: 700;
+  }
+
+  /* ── HOW IT WORKS ── */
+  .how-section {
+    background: var(--offwht);
+    padding: 80px 24px;
+  }
+  .how-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .section-eyebrow {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: var(--orange);
+    margin-bottom: 12px;
+    display: block;
+  }
+  .section-h2 {
+    font-family: 'Sora', sans-serif;
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--navy);
+    line-height: 1.1;
+    letter-spacing: -0.8px;
+    margin-bottom: 16px;
+  }
+  .section-lead {
+    font-size: 16px;
+    color: var(--slate);
+    line-height: 1.75;
+    margin-bottom: 52px;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .step-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 32px 24px;
+    border: 1.5px solid var(--mist);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    text-align: left;
+    position: relative;
+  }
+  .step-num {
+    font-family: 'Sora', sans-serif;
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--orange);
+    opacity: 0.15;
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    line-height: 1;
+  }
+  .step-icon {
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--orange), var(--gold));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin-bottom: 16px;
+  }
+  .step-title {
+    font-family: 'Sora', sans-serif;
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+  .step-desc {
+    font-size: 13px;
+    color: var(--slate);
+    line-height: 1.65;
+  }
+  .step-tag {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    background: rgba(255,85,0,0.1);
+    color: var(--orange);
+  }
+
+  /* ── WHAT WE CHECK ── */
+  .check-section {
+    background: var(--navy);
+    padding: 80px 24px;
+  }
+  .check-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .check-inner .section-eyebrow { color: var(--gold); }
+  .check-inner .section-h2 { color: #fff; }
+  .check-inner .section-lead { color: rgba(255,255,255,0.5); }
+
+  .check-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    text-align: left;
+  }
+  .check-item {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 22px 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    transition: border-color 0.2s;
+  }
+  .check-item:hover { border-color: rgba(255,85,0,0.3); }
+  .check-icon-wrap {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    background: rgba(255,85,0,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .check-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+  .check-desc {
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.5;
+  }
+
+  /* ── BOTTOM CTA ── */
+  .cta-section {
+    background: linear-gradient(160deg, #FFF5F4 0%, #FDFDFD 100%);
+    padding: 80px 24px;
+    text-align: center;
+  }
+  .cta-inner { max-width: 600px; margin: 0 auto; }
+  .cta-inner .section-h2 { margin-bottom: 14px; }
+  .cta-inner .section-lead { margin-bottom: 32px; }
+
+  .cta-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--orange), var(--orange2));
+    color: #fff;
+    font-size: 16px;
+    font-weight: 800;
+    padding: 18px 40px;
+    border-radius: 12px;
+    text-decoration: none;
+    box-shadow: 0 6px 24px rgba(255,85,0,0.4);
+    transition: transform 0.15s, box-shadow 0.2s;
+    letter-spacing: -0.3px;
+  }
+  .cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 32px rgba(255,85,0,0.5);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    padding: 28px 24px;
+    text-align: center;
+  }
+  .footer-logo {
+    font-family: 'Sora', sans-serif;
+    font-size: 18px;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  .footer-logo span {
+    background: linear-gradient(135deg, var(--orange), var(--gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .footer-copy {
+    font-size: 11px;
+    color: rgba(255,255,255,0.25);
+  }
+
+  /* ── SUCCESS STATE ── */
+  .success-state {
+    display: none;
+    text-align: center;
+    padding: 20px 0;
+  }
+  .success-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+  }
+  .success-title {
+    font-family: 'Sora', sans-serif;
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+  .success-sub {
+    font-size: 14px;
+    color: var(--slate);
+    line-height: 1.6;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+    .hero-h1 { font-size: 34px; }
+    .steps-grid { grid-template-columns: 1fr; }
+    .check-grid { grid-template-columns: 1fr; }
+    .proof-inner { gap: 16px; }
+    .form-card { padding: 28px 24px; }
+    .section-h2 { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+<!-- ── HERO ── -->
+<section class="hero">
+<div class="hero-inner">
+<!-- LEFT -->
+<div class="hero-left">
+<div class="hero-badge">
+<div class="badge-dot"></div>
+        Free — No Obligation — Same Day
+      </div>
+<h1 class="hero-h1">
+        Find out exactly why<br/>
+        customers can't find<br/>
+        your business <span class="orange">online.</span>
+</h1>
+<p class="hero-sub">
+        We'll audit your website and Google presence — and show you exactly what's costing you customers every single day. Free. Same day. No catch.
+      </p>
+<div class="what-you-get">
+<div class="get-item">
+<div class="get-icon">✓</div>
+          Google search visibility check
+        </div>
+<div class="get-item">
+<div class="get-icon">✓</div>
+          Google Maps &amp; Business Profile review
+        </div>
+<div class="get-item">
+<div class="get-icon">✓</div>
+          Website assessment &amp; conversion check
+        </div>
+<div class="get-item">
+<div class="get-icon">✓</div>
+          One-page findings report — delivered same day
+        </div>
+</div>
+<div class="scarcity">
+        🔒 Andrea personally conducts every audit — <span>only 5 spots per day</span>
+</div>
+</div>
+<!-- RIGHT — FORM -->
+<div class="hero-right">
+<div class="form-card">
+<div id="formContent">
+<div class="form-title">Claim Your Free Audit</div>
+<div class="form-sub">Takes 30 seconds. Report delivered <strong>same day.</strong></div>
+<form id="auditForm" onsubmit="handleSubmit(event)">
+<div class="form-group">
+<label class="form-label">Your Name</label>
+<input class="form-input" placeholder="e.g. Maria Joseph" required="" type="text"/>
+</div>
+<div class="form-group">
+<label class="form-label">Business Name</label>
+<input class="form-input" placeholder="e.g. Maria's Catering" required="" type="text"/>
+</div>
+<div class="form-group">
+<label class="form-label">WhatsApp Number</label>
+<input class="form-input" placeholder="e.g. +1 868 123 4567" required="" type="tel"/>
+</div>
+<div class="form-group">
+<label class="form-label">Website URL (if you have one)</label>
+<input class="form-input" placeholder="e.g. www.mariacatering.com" type="url"/>
+</div>
+<div class="form-group">
+<label class="form-label">Your Island</label>
+<select class="form-input form-select" required="">
+<option disabled="" selected="" value="">Select your island</option>
+<option>Trinidad &amp; Tobago</option>
+<option>Jamaica</option>
+<option>Barbados</option>
+<option>Guyana</option>
+<option>Other Caribbean Island</option>
+</select>
+</div>
+<button class="form-submit" type="submit">
+              Get My Free Audit →
+            </button>
+</form>
+<div class="form-secure">
+            🔒 Your information is private and never shared
+          </div>
+</div>
+<!-- SUCCESS STATE -->
+<div class="success-state" id="successState">
+<div class="success-icon">🎉</div>
+<div class="success-title">You're on the list!</div>
+<div class="success-sub">
+            Andrea will review your business and send your free audit report via WhatsApp today.<br/><br/>
+<strong>Keep an eye on your WhatsApp — your report is coming soon.</strong>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ── PROOF STRIP ── -->
+<div class="proof-strip">
+<div class="proof-inner">
+<div class="proof-item">🇹🇹 Trinidad &amp; Tobago</div>
+<div class="proof-item">🇯🇲 Jamaica</div>
+<div class="proof-item">🇧🇧 Barbados</div>
+<div class="proof-item">🇬🇾 Guyana</div>
+<div class="proof-item">🌴 Serving the entire Caribbean</div>
+</div>
+</div>
+<!-- ── HOW IT WORKS ── -->
+<section class="how-section">
+<div class="how-inner">
+<span class="section-eyebrow">How It Works</span>
+<h2 class="section-h2">Simple. Fast. Free.</h2>
+<p class="section-lead">Three steps between you and knowing exactly what's holding your business back online.</p>
+<div class="steps-grid">
+<div class="step-card">
+<div class="step-num">1</div>
+<div class="step-icon">📋</div>
+<div class="step-title">Submit Your Details</div>
+<div class="step-desc">Fill in the form above with your business name, WhatsApp number, and website (if you have one). Takes 30 seconds.</div>
+<span class="step-tag">30 seconds</span>
+</div>
+<div class="step-card">
+<div class="step-num">2</div>
+<div class="step-icon">🔍</div>
+<div class="step-title">We Run Your Audit</div>
+<div class="step-desc">Andrea personally checks your Google visibility, Google Maps presence, and website performance. Same day, every time.</div>
+<span class="step-tag">Same day</span>
+</div>
+<div class="step-card">
+<div class="step-num">3</div>
+<div class="step-icon">📱</div>
+<div class="step-title">Get Your Report</div>
+<div class="step-desc">You receive a clear, one-page findings report via WhatsApp showing exactly what's happening and what it's costing you.</div>
+<span class="step-tag">Via WhatsApp</span>
+</div>
+</div>
+</div>
+</section>
+<!-- ── WHAT WE CHECK ── -->
+<section class="check-section">
+<div class="check-inner">
+<span class="section-eyebrow">What We Audit</span>
+<h2 class="section-h2">A complete picture of your online presence</h2>
+<p class="section-lead">We check everything that determines whether customers can find you — and trust you — online.</p>
+<div class="check-grid">
+<div class="check-item">
+<div class="check-icon-wrap">🔍</div>
+<div>
+<div class="check-title">Google Search Visibility</div>
+<div class="check-desc">Do you show up when someone searches for what you sell in your area? We check your ranking and identify why you may be invisible.</div>
+</div>
+</div>
+<div class="check-item">
+<div class="check-icon-wrap">📍</div>
+<div>
+<div class="check-title">Google Maps &amp; Business Profile</div>
+<div class="check-desc">Is your business on Google Maps? Is your profile complete, accurate, and optimised to attract customers?</div>
+</div>
+</div>
+<div class="check-item">
+<div class="check-icon-wrap">💻</div>
+<div>
+<div class="check-title">Website Assessment</div>
+<div class="check-desc">Does your website look professional? Is it mobile-friendly? Does it clearly tell visitors what you do and how to contact you?</div>
+</div>
+</div>
+<div class="check-item">
+<div class="check-icon-wrap">⭐</div>
+<div>
+<div class="check-title">Reviews &amp; Trust Signals</div>
+<div class="check-desc">Do you have Google reviews? Are they recent? We check whether your online reputation is helping or hurting you.</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ── BOTTOM CTA ── -->
+<section class="cta-section">
+<div class="cta-inner">
+<span class="section-eyebrow">Ready?</span>
+<h2 class="section-h2">Find out what's costing you customers — for free.</h2>
+<p class="section-lead">No cost. No obligation. No catch. Just a clear picture of where your business stands online — and what to do about it.</p>
+<a class="cta-btn" href="#" onclick="document.querySelector('.hero').scrollIntoView({behavior:'smooth'}); return false;">
+      Claim My Free Audit →
+    </a>
+</div>
+</section>
+<!-- ── FOOTER ── -->
+<footer>
+<div class="footer-logo">Client<span>Flow</span> Caribbean</div>
+<div class="footer-copy">© 2025 ClientFlow Caribbean. All rights reserved. · Simple. Affordable. Caribbean-Ready.</div>
+</footer>
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  // In production, connect to your form backend (Formspree, WhatsApp API, etc.)
+  // For now, show success state
+  document.getElementById('formContent').style.display = 'none';
+  document.getElementById('successState').style.display = 'block';
+
+  // Optional: send to WhatsApp
+  // const name = e.target[0].value;
+  // const business = e.target[1].value;
+  // const phone = e.target[2].value;
+  // window.open(`https://wa.me/YOUR_NUMBER?text=New audit request from ${name} - ${business} - ${phone}`);
+}
+</script>
+</body>
+</html>
