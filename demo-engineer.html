@@ -1,0 +1,2470 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Adderley &amp; Associates Engineering | Nassau, Bahamas</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&amp;family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+    /* ─── DESIGN TOKENS ─────────────────────────────────────────── */
+    :root {
+      --green:        #4a7c59;   /* slightly darker than light green */
+      --green-light:  #6aab7e;
+      --green-pale:   #d4e8da;
+      --green-dark:   #2e5038;
+      --black:        #0d0d0d;
+      --charcoal:     #1a1a1a;
+      --sand:         #f5f0e8;
+      --sand-dark:    #e8dfc8;
+      --ocean:        #1a4a5c;
+      --ocean-light:  #2d7a9a;
+      --white:        #ffffff;
+      --text-muted:   #6b7280;
+
+      --font-serif:   'Cormorant Garamond', Georgia, serif;
+      --font-sans:    'Space Grotesk', 'Inter', sans-serif;
+      --font-body:    'Inter', sans-serif;
+
+      --radius:       4px;
+      --radius-lg:    12px;
+      --transition:   0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ─── RESET ─────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--font-body);
+      background: var(--white);
+      color: var(--black);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* ─── SCROLLBAR ──────────────────────────────────────────────── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--sand); }
+    ::-webkit-scrollbar-thumb { background: var(--green); border-radius: 3px; }
+
+    /* ─── UTILITY ────────────────────────────────────────────────── */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+    .section-label {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--green);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 2px;
+      background: var(--green);
+      flex-shrink: 0;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.85rem 2rem;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: var(--transition);
+      border: 2px solid transparent;
+    }
+    .btn-primary {
+      background: var(--green);
+      color: var(--white);
+      border-color: var(--green);
+    }
+    .btn-primary:hover {
+      background: var(--green-dark);
+      border-color: var(--green-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(74,124,89,0.35);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border-color: rgba(255,255,255,0.6);
+    }
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.12);
+      border-color: var(--white);
+    }
+    .btn-dark {
+      background: transparent;
+      color: var(--black);
+      border-color: var(--black);
+    }
+    .btn-dark:hover {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    /* ─── NAV ────────────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.25rem 0;
+      transition: var(--transition);
+    }
+    nav.scrolled {
+      background: rgba(13,13,13,0.96);
+      backdrop-filter: blur(12px);
+      padding: 0.85rem 0;
+      box-shadow: 0 2px 24px rgba(0,0,0,0.3);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .nav-logo-mark {
+      width: 42px;
+      height: 42px;
+      background: var(--green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .nav-logo-mark svg { width: 22px; height: 22px; fill: white; }
+    .nav-logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+    .nav-logo-name {
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.04em;
+    }
+    .nav-logo-sub {
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      color: var(--green-light);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+    }
+    .nav-links a {
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      transition: color var(--transition);
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0; right: 0;
+      height: 1px;
+      background: var(--green-light);
+      transform: scaleX(0);
+      transition: transform var(--transition);
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    .nav-cta {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--green);
+      padding: 0.6rem 1.4rem;
+      border-radius: var(--radius);
+      transition: var(--transition);
+    }
+    .nav-cta:hover {
+      background: var(--green-dark);
+      transform: translateY(-1px);
+    }
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    /* ─── HERO ───────────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: var(--charcoal);
+    }
+    /* Animated ocean wave background */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, #0d1f2d 0%, #1a3a4a 40%, #0e2a1a 100%);
+    }
+    /* Bahamas-inspired diagonal stripe accent */
+    .hero-stripe {
+      position: absolute;
+      top: 0; right: 0;
+      width: 55%;
+      height: 100%;
+      background: linear-gradient(160deg, rgba(74,124,89,0.18) 0%, rgba(26,74,92,0.25) 100%);
+      clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+    }
+    /* Animated wave SVG */
+    .hero-waves {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 180px;
+      overflow: hidden;
+    }
+    .hero-waves svg {
+      width: 200%;
+      height: 100%;
+      animation: waveScroll 12s linear infinite;
+    }
+    @keyframes waveScroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    /* Floating geometric shapes */
+    .hero-geo {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.06;
+      animation: floatGeo 8s ease-in-out infinite;
+    }
+    .hero-geo-1 {
+      width: 400px; height: 400px;
+      background: var(--green);
+      top: -100px; right: 10%;
+      animation-delay: 0s;
+    }
+    .hero-geo-2 {
+      width: 200px; height: 200px;
+      background: var(--ocean-light);
+      bottom: 20%; right: 25%;
+      animation-delay: 3s;
+    }
+    .hero-geo-3 {
+      width: 120px; height: 120px;
+      background: var(--green-light);
+      top: 30%; left: 5%;
+      animation-delay: 5s;
+    }
+    @keyframes floatGeo {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50%       { transform: translateY(-20px) scale(1.05); }
+    }
+    /* Grid overlay */
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(74,124,89,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(74,124,89,0.06) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      padding: 8rem 0 6rem;
+    }
+    .hero-left {}
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(74,124,89,0.2);
+      border: 1px solid rgba(74,124,89,0.4);
+      border-radius: 100px;
+      padding: 0.4rem 1rem;
+      margin-bottom: 2rem;
+    }
+    .hero-badge-dot {
+      width: 6px; height: 6px;
+      background: var(--green-light);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.5; transform: scale(1.4); }
+    }
+    .hero-badge-text {
+      font-family: var(--font-sans);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green-light);
+    }
+    .hero-headline {
+      font-family: var(--font-serif);
+      font-size: clamp(3rem, 5.5vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+    .hero-headline em {
+      font-style: italic;
+      color: var(--green-light);
+    }
+    .hero-headline strong {
+      font-weight: 600;
+      display: block;
+    }
+    .hero-sub {
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.75;
+      max-width: 480px;
+      margin-bottom: 2.5rem;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    /* Credential cards */
+    .cred-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      backdrop-filter: blur(8px);
+      transition: var(--transition);
+    }
+    .cred-card:hover {
+      background: rgba(74,124,89,0.12);
+      border-color: rgba(74,124,89,0.4);
+      transform: translateX(6px);
+    }
+    .cred-card-top {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+    .cred-icon {
+      width: 44px; height: 44px;
+      background: var(--green);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .cred-icon svg { width: 22px; height: 22px; fill: white; }
+    .cred-title {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--white);
+    }
+    .cred-detail {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.5;
+    }
+    .cred-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+    .cred-tag {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: rgba(74,124,89,0.25);
+      color: var(--green-light);
+      padding: 0.25rem 0.6rem;
+      border-radius: 100px;
+    }
+    /* Scroll indicator */
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      z-index: 2;
+    }
+    .hero-scroll-text {
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+    }
+    .hero-scroll-line {
+      width: 1px;
+      height: 48px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
+      animation: scrollLine 2s ease-in-out infinite;
+    }
+    @keyframes scrollLine {
+      0%, 100% { opacity: 0.4; transform: scaleY(1); }
+      50%       { opacity: 1; transform: scaleY(0.6); }
+    }
+
+    /* ─── MARQUEE STRIP ──────────────────────────────────────────── */
+    .marquee-strip {
+      background: var(--green);
+      padding: 0.85rem 0;
+      overflow: hidden;
+    }
+    .marquee-track {
+      display: flex;
+      gap: 3rem;
+      animation: marquee 25s linear infinite;
+      white-space: nowrap;
+    }
+    @keyframes marquee {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.9);
+      flex-shrink: 0;
+    }
+    .marquee-dot {
+      width: 4px; height: 4px;
+      background: rgba(255,255,255,0.5);
+      border-radius: 50%;
+    }
+
+    /* ─── ABOUT ──────────────────────────────────────────────────── */
+    .about {
+      padding: 7rem 0;
+      background: var(--sand);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .about-visual {
+      position: relative;
+    }
+    /* Portrait frame */
+    .portrait-frame {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      background: linear-gradient(135deg, var(--green-dark) 0%, var(--ocean) 100%);
+    }
+    .portrait-frame::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 30% 70%, rgba(74,124,89,0.4) 0%, transparent 60%),
+        radial-gradient(ellipse at 70% 30%, rgba(26,74,92,0.4) 0%, transparent 60%);
+    }
+    /* Decorative pattern overlay */
+    .portrait-pattern {
+      position: absolute;
+      inset: 0;
+      opacity: 0.08;
+      background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M20 0L40 20L20 40L0 20z'/%3E%3C/g%3E%3C/svg%3E");
+      background-size: 40px 40px;
+    }
+    /* Silhouette placeholder */
+    .portrait-silhouette {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 75%;
+      height: 90%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+    .portrait-silhouette svg {
+      width: 100%;
+      height: 100%;
+      fill: rgba(255,255,255,0.12);
+    }
+    /* Floating badge on portrait */
+    .portrait-badge {
+      position: absolute;
+      bottom: -1.5rem;
+      right: -1.5rem;
+      background: var(--black);
+      color: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem 1.5rem;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+    }
+    .portrait-badge-num {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: var(--green-light);
+      line-height: 1;
+    }
+    .portrait-badge-label {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 0.25rem;
+    }
+    /* Decorative corner accent */
+    .about-corner {
+      position: absolute;
+      top: -1.5rem;
+      left: -1.5rem;
+      width: 80px;
+      height: 80px;
+      border-top: 3px solid var(--green);
+      border-left: 3px solid var(--green);
+      border-radius: 4px 0 0 0;
+    }
+    .about-content {}
+    .about-headline {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 3.5vw, 3.2rem);
+      font-weight: 300;
+      line-height: 1.2;
+      color: var(--black);
+      margin-bottom: 1.5rem;
+    }
+    .about-headline em { font-style: italic; color: var(--green-dark); }
+    .about-body {
+      font-size: 0.95rem;
+      color: #444;
+      line-height: 1.85;
+      margin-bottom: 1.25rem;
+    }
+    .about-credentials {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .about-cred {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      border-left: 3px solid var(--green);
+    }
+    .about-cred-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 0.25rem;
+    }
+    .about-cred-value {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--black);
+    }
+    .about-signature {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      font-style: italic;
+      color: var(--green-dark);
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--sand-dark);
+    }
+
+    /* ─── SERVICES ───────────────────────────────────────────────── */
+    .services {
+      padding: 7rem 0;
+      background: var(--black);
+      position: relative;
+      overflow: hidden;
+    }
+    /* Bahamas map watermark */
+    .services-watermark {
+      position: absolute;
+      right: -5%;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0.03;
+      font-family: var(--font-serif);
+      font-size: 20rem;
+      font-weight: 600;
+      color: var(--white);
+      pointer-events: none;
+      white-space: nowrap;
+    }
+    .services-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 4rem;
+    }
+    .services-headline {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 3.5vw, 3.2rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.2;
+    }
+    .services-headline em { font-style: italic; color: var(--green-light); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: rgba(255,255,255,0.08);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .service-card {
+      background: var(--charcoal);
+      padding: 2.5rem;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--green);
+      transform: scaleX(0);
+      transition: transform var(--transition);
+    }
+    .service-card:hover {
+      background: #222;
+    }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-num {
+      font-family: var(--font-serif);
+      font-size: 3.5rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.06);
+      line-height: 1;
+      margin-bottom: 1.5rem;
+      transition: color var(--transition);
+    }
+    .service-card:hover .service-num { color: rgba(74,124,89,0.2); }
+    .service-icon {
+      width: 48px; height: 48px;
+      background: rgba(74,124,89,0.15);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+      transition: background var(--transition);
+    }
+    .service-card:hover .service-icon { background: rgba(74,124,89,0.3); }
+    .service-icon svg { width: 24px; height: 24px; stroke: var(--green-light); fill: none; stroke-width: 1.5; }
+    .service-title {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+    .service-desc {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.75;
+    }
+    .service-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--green-light);
+      margin-top: 1.5rem;
+      opacity: 0;
+      transform: translateY(4px);
+      transition: var(--transition);
+    }
+    .service-card:hover .service-link { opacity: 1; transform: translateY(0); }
+
+    /* ─── PROJECTS ───────────────────────────────────────────────── */
+    .projects {
+      padding: 7rem 0;
+      background: var(--white);
+    }
+    .projects-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 3.5rem;
+    }
+    .projects-headline {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 3.5vw, 3.2rem);
+      font-weight: 300;
+      color: var(--black);
+      line-height: 1.2;
+    }
+    .projects-headline em { font-style: italic; color: var(--green-dark); }
+    /* Featured project */
+    .project-featured {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 0;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+      min-height: 420px;
+    }
+    .project-featured-visual {
+      position: relative;
+      background: linear-gradient(135deg, #0d2a1a 0%, #1a4a5c 100%);
+      overflow: hidden;
+    }
+    /* Bahamas-inspired abstract visual */
+    .project-featured-visual::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 80%, rgba(74,124,89,0.5) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(26,74,92,0.6) 0%, transparent 50%);
+    }
+    .project-visual-label {
+      position: absolute;
+      top: 1.5rem; left: 1.5rem;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 100px;
+      padding: 0.35rem 0.85rem;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--green-light);
+    }
+    /* Architectural line drawing overlay */
+    .project-arch-lines {
+      position: absolute;
+      inset: 0;
+      opacity: 0.15;
+    }
+    .project-arch-lines svg {
+      width: 100%;
+      height: 100%;
+    }
+    .project-featured-content {
+      background: var(--sand);
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .project-category {
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 1rem;
+    }
+    .project-title {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--black);
+      line-height: 1.25;
+      margin-bottom: 1rem;
+    }
+    .project-desc {
+      font-size: 0.88rem;
+      color: #555;
+      line-height: 1.75;
+      margin-bottom: 1.5rem;
+    }
+    .project-meta {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .project-meta-item {}
+    .project-meta-label {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.2rem;
+    }
+    .project-meta-value {
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--black);
+    }
+    /* Project grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .project-card {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--sand);
+      transition: var(--transition);
+      cursor: pointer;
+    }
+    .project-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,0.12); }
+    .project-card-visual {
+      height: 200px;
+      position: relative;
+      overflow: hidden;
+    }
+    .project-card-visual-1 { background: linear-gradient(135deg, #1a3a2a 0%, #2d7a9a 100%); }
+    .project-card-visual-2 { background: linear-gradient(135deg, #2e5038 0%, #1a3a4a 100%); }
+    .project-card-visual-3 { background: linear-gradient(135deg, #0d2a1a 0%, #4a7c59 100%); }
+    .project-card-visual::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 70%, rgba(255,255,255,0.08) 0%, transparent 60%);
+    }
+    /* Decorative pattern per card */
+    .project-card-pattern {
+      position: absolute;
+      inset: 0;
+      opacity: 0.1;
+    }
+    .project-card-body {
+      padding: 1.5rem;
+    }
+    .project-card-cat {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 0.5rem;
+    }
+    .project-card-title {
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+    .project-card-loc {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    /* ─── STATS ──────────────────────────────────────────────────── */
+    .stats {
+      padding: 5rem 0;
+      background: var(--green-dark);
+      position: relative;
+      overflow: hidden;
+    }
+    .stats::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='0.08'%3E%3Cpath d='M30 0L60 30L30 60L0 30z'/%3E%3C/g%3E%3C/svg%3E") repeat;
+      background-size: 60px 60px;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      position: relative;
+    }
+    .stat-item {
+      text-align: center;
+      padding: 2rem 1rem;
+      border-right: 1px solid rgba(255,255,255,0.12);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: var(--font-serif);
+      font-size: 3.5rem;
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .stat-num span { color: var(--green-light); }
+    .stat-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+    }
+
+    /* ─── CLIENTS / TRUST ────────────────────────────────────────── */
+    .clients {
+      padding: 5rem 0;
+      background: var(--sand);
+      border-top: 1px solid var(--sand-dark);
+    }
+    .clients-label {
+      text-align: center;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 3rem;
+    }
+    .clients-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+    .client-logo {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.3);
+      padding: 0.75rem 1.5rem;
+      border: 1px solid rgba(0,0,0,0.1);
+      border-radius: var(--radius);
+      transition: var(--transition);
+    }
+    .client-logo:hover {
+      color: var(--green-dark);
+      border-color: var(--green);
+      background: rgba(74,124,89,0.06);
+    }
+
+    /* ─── TESTIMONIAL ────────────────────────────────────────────── */
+    .testimonial {
+      padding: 7rem 0;
+      background: var(--black);
+      position: relative;
+      overflow: hidden;
+    }
+    .testimonial::before {
+      content: '"';
+      position: absolute;
+      top: -2rem;
+      left: 5%;
+      font-family: var(--font-serif);
+      font-size: 25rem;
+      color: rgba(74,124,89,0.06);
+      line-height: 1;
+      pointer-events: none;
+    }
+    .testimonial-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+    }
+    .testimonial-quote {
+      font-family: var(--font-serif);
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--white);
+      line-height: 1.6;
+      margin-bottom: 2.5rem;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .testimonial-avatar {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--green) 0%, var(--ocean) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .testimonial-name {
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--white);
+    }
+    .testimonial-role {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.45);
+    }
+    .testimonial-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 3rem;
+    }
+    .testimonial-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .testimonial-dot.active {
+      background: var(--green-light);
+      width: 24px;
+      border-radius: 3px;
+    }
+
+    /* ─── BAHAMAS SECTION ────────────────────────────────────────── */
+    .bahamas {
+      padding: 7rem 0;
+      background: var(--white);
+      position: relative;
+    }
+    .bahamas-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .bahamas-content {}
+    .bahamas-headline {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 3.5vw, 3.2rem);
+      font-weight: 300;
+      color: var(--black);
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+    .bahamas-headline em { font-style: italic; color: var(--green-dark); }
+    .bahamas-body {
+      font-size: 0.95rem;
+      color: #444;
+      line-height: 1.85;
+      margin-bottom: 1.5rem;
+    }
+    .bahamas-islands {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+    }
+    .island-tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      background: var(--green-pale);
+      color: var(--green-dark);
+      padding: 0.4rem 0.85rem;
+      border-radius: 100px;
+    }
+    .bahamas-visual {
+      position: relative;
+    }
+    /* Stylized Bahamas map */
+    .bahamas-map-container {
+      background: linear-gradient(135deg, #e8f4f8 0%, #d4e8da 100%);
+      border-radius: var(--radius-lg);
+      padding: 3rem;
+      position: relative;
+      overflow: hidden;
+      min-height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .bahamas-map-container::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 30% 60%, rgba(26,74,92,0.12) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 30%, rgba(74,124,89,0.12) 0%, transparent 50%);
+    }
+    .bahamas-map-svg {
+      width: 100%;
+      max-width: 380px;
+      position: relative;
+    }
+    /* Coverage cards */
+    .coverage-cards {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 1.5rem;
+      right: 1.5rem;
+      display: flex;
+      gap: 0.75rem;
+    }
+    .coverage-card {
+      flex: 1;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(8px);
+      border-radius: var(--radius);
+      padding: 0.85rem;
+      text-align: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    }
+    .coverage-card-flag {
+      font-size: 1.4rem;
+      margin-bottom: 0.25rem;
+    }
+    .coverage-card-name {
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--black);
+    }
+    .coverage-card-detail {
+      font-size: 0.6rem;
+      color: var(--text-muted);
+      margin-top: 0.15rem;
+    }
+
+    /* ─── CONTACT ────────────────────────────────────────────────── */
+    .contact {
+      padding: 7rem 0;
+      background: var(--sand);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .contact-info {}
+    .contact-headline {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 3.5vw, 3.2rem);
+      font-weight: 300;
+      color: var(--black);
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+    .contact-headline em { font-style: italic; color: var(--green-dark); }
+    .contact-body {
+      font-size: 0.92rem;
+      color: #555;
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+    }
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .contact-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    .contact-detail-icon {
+      width: 40px; height: 40px;
+      background: var(--green);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-detail-icon svg { width: 18px; height: 18px; stroke: white; fill: none; stroke-width: 1.5; }
+    .contact-detail-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.2rem;
+    }
+    .contact-detail-value {
+      font-family: var(--font-sans);
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--black);
+    }
+    /* Contact form */
+    .contact-form {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.06);
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+    .form-group:last-of-type { margin-bottom: 0; }
+    .form-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--black);
+    }
+    .form-input, .form-select, .form-textarea {
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      color: var(--black);
+      background: var(--sand);
+      border: 1.5px solid var(--sand-dark);
+      border-radius: var(--radius);
+      padding: 0.75rem 1rem;
+      transition: border-color var(--transition);
+      outline: none;
+      width: 100%;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--green);
+      background: var(--white);
+    }
+    .form-textarea { resize: vertical; min-height: 120px; }
+    .form-submit {
+      width: 100%;
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background: var(--green);
+      color: var(--white);
+      border: none;
+      border-radius: var(--radius);
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .form-submit:hover {
+      background: var(--green-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(74,124,89,0.35);
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────────────────── */
+    footer {
+      background: var(--charcoal);
+      padding: 4rem 0 2rem;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 2rem;
+    }
+    .footer-brand {}
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+    .footer-logo-mark {
+      width: 38px; height: 38px;
+      background: var(--green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .footer-logo-mark svg { width: 20px; height: 20px; fill: white; }
+    .footer-logo-name {
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .footer-tagline {
+      font-family: var(--font-serif);
+      font-size: 0.95rem;
+      font-style: italic;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    .footer-social {
+      display: flex;
+      gap: 0.75rem;
+    }
+    .footer-social-link {
+      width: 36px; height: 36px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+    .footer-social-link:hover { background: var(--green); }
+    .footer-social-link svg { width: 16px; height: 16px; fill: rgba(255,255,255,0.6); }
+    .footer-social-link:hover svg { fill: white; }
+    .footer-col-title {
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 1.25rem;
+    }
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+    .footer-links a {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.45);
+      transition: color var(--transition);
+    }
+    .footer-links a:hover { color: var(--green-light); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-copy {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.3);
+    }
+    .footer-copy span { color: var(--green-light); }
+    .footer-licenses {
+      display: flex;
+      gap: 1rem;
+    }
+    .footer-license {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.05);
+      padding: 0.3rem 0.7rem;
+      border-radius: 100px;
+    }
+
+    /* ─── MOBILE NAV ─────────────────────────────────────────────── */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--black);
+      z-index: 99;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--white);
+      transition: color var(--transition);
+    }
+    .mobile-menu a:hover { color: var(--green-light); }
+    .mobile-close {
+      position: absolute;
+      top: 1.5rem; right: 1.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--white);
+      font-size: 1.5rem;
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .hero-content { grid-template-columns: 1fr; gap: 3rem; }
+      .hero-right { display: grid; grid-template-columns: 1fr 1fr; }
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .portrait-frame { aspect-ratio: 16/9; }
+      .portrait-badge { bottom: -1rem; right: 1rem; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .project-featured { grid-template-columns: 1fr; }
+      .project-featured-visual { min-height: 280px; }
+      .projects-grid { grid-template-columns: 1fr 1fr; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .bahamas-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+      .hero-content { padding: 7rem 0 5rem; }
+      .hero-right { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.12); }
+      .stat-item:last-child { border-bottom: none; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .services-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .projects-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    }
+
+    /* ─── ANIMATIONS ─────────────────────────────────────────────── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-up-delay-1 { transition-delay: 0.1s; }
+    .fade-up-delay-2 { transition-delay: 0.2s; }
+    .fade-up-delay-3 { transition-delay: 0.3s; }
+    .fade-up-delay-4 { transition-delay: 0.4s; }
+  </style>
+</head>
+<body>
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!--  NAVIGATION                                                     -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<nav id="mainNav">
+<div class="container">
+<div class="nav-inner">
+<a class="nav-logo" href="#">
+<div class="nav-logo-mark">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+</svg>
+</div>
+<div class="nav-logo-text">
+<span class="nav-logo-name">Adderley &amp; Associates</span>
+<span class="nav-logo-sub">Engineering Group</span>
+</div>
+</a>
+<ul class="nav-links">
+<li><a href="#about">About</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#bahamas">Our Region</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<a class="nav-cta" href="#contact">Start a Project</a>
+<div class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
+<span></span><span></span><span></span>
+</div>
+</div>
+</div>
+</nav>
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+<button class="mobile-close" onclick="toggleMenu()">✕</button>
+<a href="#about" onclick="toggleMenu()">About</a>
+<a href="#services" onclick="toggleMenu()">Services</a>
+<a href="#projects" onclick="toggleMenu()">Projects</a>
+<a href="#bahamas" onclick="toggleMenu()">Our Region</a>
+<a href="#contact" onclick="toggleMenu()">Contact</a>
+</div>
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!--  HERO                                                           -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section class="hero" id="home">
+<div class="hero-bg"></div>
+<div class="hero-stripe"></div>
+<div class="hero-grid"></div>
+<div class="hero-geo hero-geo-1"></div>
+<div class="hero-geo hero-geo-2"></div>
+<div class="hero-geo hero-geo-3"></div>
+<div class="container">
+<div class="hero-content">
+<div class="hero-left">
+<div class="hero-badge">
+<div class="hero-badge-dot"></div>
+<span class="hero-badge-text">Nassau, Bahamas · Licensed P.Eng · FL &amp; TX</span>
+</div>
+<h1 class="hero-headline">
+          Engineering the<br/>
+<em>Islands</em> We<br/>
+<strong>Call Home.</strong>
+</h1>
+<p class="hero-sub">
+          A Bahamian woman-founded engineering firm delivering world-class structural, civil, and infrastructure solutions across the Caribbean and the United States.
+        </p>
+<div class="hero-actions">
+<a class="btn btn-primary" href="#projects">View Our Work</a>
+<a class="btn btn-outline" href="#contact">Get in Touch</a>
+</div>
+</div>
+<div class="hero-right">
+<!-- Credential Card 1 -->
+<div class="cred-card">
+<div class="cred-card-top">
+<div class="cred-icon">
+<svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+</div>
+<div>
+<div class="cred-title">Professional Engineer (P.Eng)</div>
+<div class="cred-detail">Dual-state licensed practitioner</div>
+</div>
+</div>
+<div class="cred-tags">
+<span class="cred-tag">Florida</span>
+<span class="cred-tag">Texas</span>
+<span class="cred-tag">Bahamas</span>
+</div>
+</div>
+<!-- Credential Card 2 -->
+<div class="cred-card">
+<div class="cred-card-top">
+<div class="cred-icon">
+<svg viewbox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+</div>
+<div>
+<div class="cred-title">Government &amp; Resort Projects</div>
+<div class="cred-detail">Trusted by the Bahamas Government</div>
+</div>
+</div>
+<div class="cred-tags">
+<span class="cred-tag">Infrastructure</span>
+<span class="cred-tag">Hospitality</span>
+<span class="cred-tag">Public Works</span>
+</div>
+</div>
+<!-- Credential Card 3 -->
+<div class="cred-card">
+<div class="cred-card-top">
+<div class="cred-icon">
+<svg viewbox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"></path></svg>
+</div>
+<div>
+<div class="cred-title">Caribbean-Wide Reach</div>
+<div class="cred-detail">Projects across 12+ islands</div>
+</div>
+</div>
+<div class="cred-tags">
+<span class="cred-tag">Nassau</span>
+<span class="cred-tag">Grand Bahama</span>
+<span class="cred-tag">Exumas</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Animated waves -->
+<div class="hero-waves">
+<svg preserveaspectratio="none" viewbox="0 0 1440 180" xmlns="http://www.w3.org/2000/svg">
+<path d="M0,80 C180,140 360,20 540,80 C720,140 900,20 1080,80 C1260,140 1440,20 1440,80 L1440,180 L0,180 Z" fill="rgba(74,124,89,0.08)"></path>
+<path d="M0,100 C200,160 400,40 600,100 C800,160 1000,40 1200,100 C1300,130 1380,80 1440,100 L1440,180 L0,180 Z" fill="rgba(26,74,92,0.1)"></path>
+<path d="M0,120 C240,60 480,160 720,120 C960,80 1200,160 1440,120 L1440,180 L0,180 Z" fill="rgba(13,13,13,0.6)"></path>
+</svg>
+</div>
+<div class="hero-scroll">
+<span class="hero-scroll-text">Scroll</span>
+<div class="hero-scroll-line"></div>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!--  MARQUEE                                                        -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="marquee-strip">
+<div class="marquee-track">
+<!-- Repeated twice for seamless loop -->
+<span class="marquee-item"><span class="marquee-dot"></span>Structural Engineering</span>
+<span class="marquee-item"><span class="marquee-dot"></span>Civil Infrastructure</span>
+<span class="marquee-item"><span class="marquee-dot"></span>Resort Development</span>
+<span class="marquee-item"><span class="marquee-dot"></span>Government Projects</span>
+<span class="marquee-item"><span class="marquee-dot"></span>Hurricane Resilience</span>
+<span class="marquee-item"><span class="marquee-dot"></span>Coastal Engineering</span>
+<span class="marquee-item"><span class="marquee-dot"></span>Project Management</span>
+<span class="marquee-item"><span class="marquee-dot"></span>Environmental Compliance</span>
+<span class="marquee-item"><span class="marquee-dot"></span>Structural Engineering</span>
+<span class="marquee-item"><span class="marquee-dot"></span>Civil Infrastructure</span>
+<span class="marquee-item"><span class="marquee-dot"></span>Resort Development</span>
+<span class="marquee-item"><span class="marquee-dot"></span>Government Projects</span>
+<span class="marquee-item"><span class="marquee-dot"></span>Hurricane Resilience</span>
+<span class="marquee-item"><span class="marquee-dot"></span>Coastal Engineering</span>
+<span class="marquee-item"><span class="marquee-dot"></span>Project Management</span>
+<span class="marquee-item"><span class="marquee-dot"></span>Environmental Compliance</span>
+</div>
+</div>
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!--  ABOUT                                                          -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section class="about" id="about">
+<div class="container">
+<div class="about-grid">
+<div class="about-visual fade-up">
+<div class="about-corner"></div>
+<div class="portrait-frame">
+<div class="portrait-pattern"></div>
+<!-- Stylized silhouette / placeholder for founder photo -->
+<div class="portrait-silhouette">
+<svg viewbox="0 0 200 280" xmlns="http://www.w3.org/2000/svg">
+<!-- Head -->
+<ellipse cx="100" cy="60" fill="rgba(255,255,255,0.15)" rx="38" ry="44"></ellipse>
+<!-- Shoulders / body -->
+<path d="M30 280 Q30 160 100 150 Q170 160 170 280Z" fill="rgba(255,255,255,0.12)"></path>
+<!-- Hard hat suggestion -->
+<path d="M62 42 Q100 10 138 42 L140 55 Q100 45 60 55Z" fill="rgba(74,124,89,0.5)"></path>
+<!-- Collar / jacket -->
+<path d="M70 150 L100 170 L130 150 L140 165 L100 185 L60 165Z" fill="rgba(74,124,89,0.3)"></path>
+</svg>
+</div>
+<!-- Decorative island silhouette at bottom -->
+<div style="position:absolute;bottom:0;left:0;right:0;height:60px;overflow:hidden;">
+<svg preserveaspectratio="none" viewbox="0 0 400 60" xmlns="http://www.w3.org/2000/svg">
+<path d="M0,60 L0,40 Q50,20 100,35 Q150,50 200,30 Q250,10 300,35 Q350,55 400,40 L400,60Z" fill="rgba(74,124,89,0.25)"></path>
+</svg>
+</div>
+</div>
+<div class="portrait-badge">
+<div class="portrait-badge-num">15<span style="font-size:1.5rem">+</span></div>
+<div class="portrait-badge-label">Years of Practice</div>
+</div>
+</div>
+<div class="about-content">
+<div class="section-label">Our Founder</div>
+<h2 class="about-headline fade-up">
+          Built on <em>Bahamian</em><br/>
+          Roots &amp; Rigorous<br/>
+          Engineering.
+        </h2>
+<p class="about-body fade-up fade-up-delay-1">
+          Monique Adderley, P.Eng, is the founder and principal engineer of Adderley &amp; Associates Engineering Group — a firm born from a deep love of the Bahamas and a commitment to building infrastructure that lasts.
+        </p>
+<p class="about-body fade-up fade-up-delay-2">
+          A proud Bahamian, Monique holds Professional Engineer licensure in both Florida and Texas, bringing international standards to every project she leads. From government ministries in Nassau to luxury resort developments on private cays, her work shapes the built environment of the islands she calls home.
+        </p>
+<div class="about-credentials fade-up fade-up-delay-2">
+<div class="about-cred">
+<div class="about-cred-label">License</div>
+<div class="about-cred-value">P.Eng — Florida</div>
+</div>
+<div class="about-cred">
+<div class="about-cred-label">License</div>
+<div class="about-cred-value">P.Eng — Texas</div>
+</div>
+<div class="about-cred">
+<div class="about-cred-label">Specialisation</div>
+<div class="about-cred-value">Structural &amp; Civil</div>
+</div>
+<div class="about-cred">
+<div class="about-cred-label">Founded</div>
+<div class="about-cred-value">Nassau, Bahamas</div>
+</div>
+</div>
+<div class="about-signature fade-up fade-up-delay-3">
+          Monique Adderley, P.Eng
+        </div>
+</div>
+</div>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!--  SERVICES                                                       -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section class="services" id="services">
+<div class="services-watermark">Engineering</div>
+<div class="container">
+<div class="services-header">
+<div>
+<div class="section-label" style="color:var(--green-light)">
+<span style="background:var(--green-light)"></span>
+          What We Do
+        </div>
+<h2 class="services-headline">
+          Full-Spectrum<br/>
+<em>Engineering</em> Services
+        </h2>
+</div>
+<a class="btn btn-outline" href="#contact">All Services →</a>
+</div>
+<div class="services-grid">
+<!-- Service 1 -->
+<div class="service-card fade-up">
+<div class="service-num">01</div>
+<div class="service-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<rect height="14" rx="2" width="20" x="2" y="3"></rect><path d="M8 21h8M12 17v4"></path>
+</svg>
+</div>
+<div class="service-title">Structural Engineering</div>
+<p class="service-desc">Design and analysis of buildings, bridges, and marine structures engineered to withstand Caribbean weather extremes, including Category 5 hurricane loads.</p>
+<span class="service-link">Learn More →</span>
+</div>
+<!-- Service 2 -->
+<div class="service-card fade-up fade-up-delay-1">
+<div class="service-num">02</div>
+<div class="service-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M3 17l4-8 4 4 4-6 4 10"></path><path d="M3 21h18"></path>
+</svg>
+</div>
+<div class="service-title">Civil &amp; Infrastructure</div>
+<p class="service-desc">Roads, drainage, water systems, and public utilities — delivering the backbone of island communities with precision and long-term durability.</p>
+<span class="service-link">Learn More →</span>
+</div>
+<!-- Service 3 -->
+<div class="service-card fade-up fade-up-delay-2">
+<div class="service-num">03</div>
+<div class="service-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+</div>
+<div class="service-title">Resort &amp; Hospitality</div>
+<p class="service-desc">Luxury resort engineering from concept to completion — pools, marinas, villas, and amenity structures that blend seamlessly with the natural environment.</p>
+<span class="service-link">Learn More →</span>
+</div>
+<!-- Service 4 -->
+<div class="service-card fade-up">
+<div class="service-num">04</div>
+<div class="service-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+</svg>
+</div>
+<div class="service-title">Government &amp; Public Works</div>
+<p class="service-desc">Trusted partner to the Bahamas Government for public infrastructure, schools, health facilities, and national development projects.</p>
+<span class="service-link">Learn More →</span>
+</div>
+<!-- Service 5 -->
+<div class="service-card fade-up fade-up-delay-1">
+<div class="service-num">05</div>
+<div class="service-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M1 6s1-1 4-1 5 2 8 2 4-1 4-1V22s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="1" x2="1" y1="2" y2="6"></line>
+</svg>
+</div>
+<div class="service-title">Coastal &amp; Marine Engineering</div>
+<p class="service-desc">Seawalls, docks, piers, and coastal protection systems designed for the unique challenges of the Bahamian marine environment.</p>
+<span class="service-link">Learn More →</span>
+</div>
+<!-- Service 6 -->
+<div class="service-card fade-up fade-up-delay-2">
+<div class="service-num">06</div>
+<div class="service-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<circle cx="12" cy="12" r="3"></circle><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"></path>
+</svg>
+</div>
+<div class="service-title">Project Management &amp; Consulting</div>
+<p class="service-desc">End-to-end project oversight, permitting, code compliance, and expert witness services across US and Bahamian jurisdictions.</p>
+<span class="service-link">Learn More →</span>
+</div>
+</div>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!--  STATS                                                          -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section class="stats">
+<div class="container">
+<div class="stats-grid">
+<div class="stat-item fade-up">
+<div class="stat-num">85<span>+</span></div>
+<div class="stat-label">Projects Completed</div>
+</div>
+<div class="stat-item fade-up fade-up-delay-1">
+<div class="stat-num">12<span>+</span></div>
+<div class="stat-label">Islands Served</div>
+</div>
+<div class="stat-item fade-up fade-up-delay-2">
+<div class="stat-num">3<span></span></div>
+<div class="stat-label">Jurisdictions Licensed</div>
+</div>
+<div class="stat-item fade-up fade-up-delay-3">
+<div class="stat-num">15<span>+</span></div>
+<div class="stat-label">Years of Excellence</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!--  PROJECTS                                                       -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section class="projects" id="projects">
+<div class="container">
+<div class="projects-header">
+<div>
+<div class="section-label">Selected Work</div>
+<h2 class="projects-headline">
+          Projects That<br/>
+<em>Define</em> the Islands
+        </h2>
+</div>
+<a class="btn btn-dark" href="#contact">Full Portfolio →</a>
+</div>
+<!-- Featured Project -->
+<div class="project-featured fade-up">
+<div class="project-featured-visual">
+<div class="project-visual-label">Featured Project</div>
+<!-- Architectural line drawing -->
+<div class="project-arch-lines">
+<svg preserveaspectratio="xMidYMid slice" viewbox="0 0 600 420" xmlns="http://www.w3.org/2000/svg">
+<!-- Building outline -->
+<rect fill="none" height="260" stroke="white" stroke-width="1.5" width="440" x="80" y="120"></rect>
+<!-- Floors -->
+<line stroke="white" stroke-dasharray="4,4" stroke-width="0.8" x1="80" x2="520" y1="185" y2="185"></line>
+<line stroke="white" stroke-dasharray="4,4" stroke-width="0.8" x1="80" x2="520" y1="250" y2="250"></line>
+<line stroke="white" stroke-dasharray="4,4" stroke-width="0.8" x1="80" x2="520" y1="315" y2="315"></line>
+<!-- Columns -->
+<line stroke="white" stroke-dasharray="4,4" stroke-width="0.8" x1="190" x2="190" y1="120" y2="380"></line>
+<line stroke="white" stroke-dasharray="4,4" stroke-width="0.8" x1="300" x2="300" y1="120" y2="380"></line>
+<line stroke="white" stroke-dasharray="4,4" stroke-width="0.8" x1="410" x2="410" y1="120" y2="380"></line>
+<!-- Roof detail -->
+<path d="M60 120 L300 40 L540 120" fill="none" stroke="white" stroke-width="1.5"></path>
+<!-- Foundation -->
+<rect fill="none" height="20" stroke="white" stroke-width="1.5" width="480" x="60" y="380"></rect>
+<!-- Dimension lines -->
+<line stroke="rgba(255,255,255,0.5)" stroke-width="0.8" x1="60" x2="540" y1="420" y2="420"></line>
+<line stroke="rgba(255,255,255,0.5)" stroke-width="0.8" x1="60" x2="60" y1="415" y2="425"></line>
+<line stroke="rgba(255,255,255,0.5)" stroke-width="0.8" x1="540" x2="540" y1="415" y2="425"></line>
+<!-- Palm tree silhouette -->
+<path d="M550 380 Q548 340 552 300 Q545 295 540 285 Q555 290 552 300 Q558 295 565 288 Q560 298 552 300 Q556 295 562 292 Q556 302 552 300" fill="rgba(255,255,255,0.4)" stroke="none"></path>
+<line stroke="rgba(255,255,255,0.4)" stroke-width="2" x1="552" x2="552" y1="300" y2="380"></line>
+</svg>
+</div>
+<!-- Ocean wave at bottom -->
+<div style="position:absolute;bottom:0;left:0;right:0;">
+<svg preserveaspectratio="none" viewbox="0 0 600 80" xmlns="http://www.w3.org/2000/svg">
+<path d="M0,40 Q75,10 150,40 Q225,70 300,40 Q375,10 450,40 Q525,70 600,40 L600,80 L0,80Z" fill="rgba(74,124,89,0.3)"></path>
+</svg>
+</div>
+</div>
+<div class="project-featured-content">
+<div class="project-category">Government Infrastructure · Nassau</div>
+<h3 class="project-title">Ministry of Works — Multi-Facility Renovation Programme</h3>
+<p class="project-desc">Structural assessment, design, and construction oversight for a portfolio of government buildings across New Providence, including seismic and hurricane-load upgrades to bring facilities to current international code standards.</p>
+<div class="project-meta">
+<div class="project-meta-item">
+<div class="project-meta-label">Location</div>
+<div class="project-meta-value">Nassau, NP</div>
+</div>
+<div class="project-meta-item">
+<div class="project-meta-label">Scope</div>
+<div class="project-meta-value">Structural + Civil</div>
+</div>
+<div class="project-meta-item">
+<div class="project-meta-label">Status</div>
+<div class="project-meta-value">Completed</div>
+</div>
+</div>
+<a class="btn btn-primary" href="#contact">Discuss a Similar Project</a>
+</div>
+</div>
+<!-- Project Grid -->
+<div class="projects-grid">
+<div class="project-card fade-up">
+<div class="project-card-visual project-card-visual-1">
+<div class="project-card-pattern">
+<svg height="100%" viewbox="0 0 300 200" width="100%" xmlns="http://www.w3.org/2000/svg">
+<path d="M0,100 Q75,50 150,100 Q225,150 300,100" fill="none" stroke="white" stroke-width="1.5"></path>
+<path d="M0,130 Q75,80 150,130 Q225,180 300,130" fill="none" stroke="white" stroke-width="1"></path>
+<!-- Marina dock lines -->
+<line stroke="white" stroke-width="1.5" x1="50" x2="50" y1="60" y2="160"></line>
+<line stroke="white" stroke-width="1.5" x1="100" x2="100" y1="60" y2="160"></line>
+<line stroke="white" stroke-width="1.5" x1="150" x2="150" y1="60" y2="160"></line>
+<line stroke="white" stroke-width="1" x1="30" x2="170" y1="80" y2="80"></line>
+<line stroke="white" stroke-width="1" x1="30" x2="170" y1="120" y2="120"></line>
+</svg>
+</div>
+</div>
+<div class="project-card-body">
+<div class="project-card-cat">Coastal · Marine</div>
+<div class="project-card-title">Exuma Cays Private Marina &amp; Dock Complex</div>
+<div class="project-card-loc">📍 Great Exuma, Bahamas</div>
+</div>
+</div>
+<div class="project-card fade-up fade-up-delay-1">
+<div class="project-card-visual project-card-visual-2">
+<div class="project-card-pattern">
+<svg height="100%" viewbox="0 0 300 200" width="100%" xmlns="http://www.w3.org/2000/svg">
+<!-- Resort villa outline -->
+<rect fill="none" height="100" stroke="white" stroke-width="1.5" width="220" x="40" y="80"></rect>
+<path d="M30 80 L150 30 L270 80" fill="none" stroke="white" stroke-width="1.5"></path>
+<rect fill="none" height="50" stroke="white" stroke-width="1" width="80" x="110" y="130"></rect>
+<!-- Pool -->
+<ellipse cx="150" cy="170" fill="none" rx="60" ry="15" stroke="rgba(255,255,255,0.5)" stroke-dasharray="3,3" stroke-width="1"></ellipse>
+</svg>
+</div>
+</div>
+<div class="project-card-body">
+<div class="project-card-cat">Resort · Hospitality</div>
+<div class="project-card-title">Luxury Eco-Resort Villa Cluster — Structural Design</div>
+<div class="project-card-loc">📍 Harbour Island, Bahamas</div>
+</div>
+</div>
+<div class="project-card fade-up fade-up-delay-2">
+<div class="project-card-visual project-card-visual-3">
+<div class="project-card-pattern">
+<svg height="100%" viewbox="0 0 300 200" width="100%" xmlns="http://www.w3.org/2000/svg">
+<!-- Road cross-section -->
+<rect fill="none" height="40" stroke="white" stroke-width="1.5" width="260" x="20" y="120"></rect>
+<line stroke="white" stroke-dasharray="5,5" stroke-width="1" x1="150" x2="150" y1="120" y2="160"></line>
+<!-- Drainage -->
+<path d="M20 160 Q40 180 60 160" fill="none" stroke="white" stroke-width="1"></path>
+<path d="M240 160 Q260 180 280 160" fill="none" stroke="white" stroke-width="1"></path>
+<!-- Elevation markers -->
+<line stroke="rgba(255,255,255,0.5)" stroke-width="0.8" x1="20" x2="20" y1="80" y2="120"></line>
+<line stroke="rgba(255,255,255,0.5)" stroke-width="0.8" x1="280" x2="280" y1="80" y2="120"></line>
+<path d="M60 90 Q150 60 240 90" fill="none" stroke="white" stroke-width="1.5"></path>
+</svg>
+</div>
+</div>
+<div class="project-card-body">
+<div class="project-card-cat">Civil · Infrastructure</div>
+<div class="project-card-title">Grand Bahama Road Rehabilitation &amp; Drainage</div>
+<div class="project-card-loc">📍 Freeport, Grand Bahama</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!--  CLIENTS                                                        -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section class="clients">
+<div class="container">
+<div class="clients-label">Trusted By</div>
+<div class="clients-logos">
+<div class="client-logo">Bahamas Gov't</div>
+<div class="client-logo">Ministry of Works</div>
+<div class="client-logo">Atlantis Resort</div>
+<div class="client-logo">Baha Mar</div>
+<div class="client-logo">BISX</div>
+<div class="client-logo">Private Developers</div>
+</div>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!--  TESTIMONIAL                                                    -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section class="testimonial">
+<div class="container">
+<div class="testimonial-inner">
+<div class="section-label" style="color:var(--green-light);justify-content:center;margin-bottom:2rem">
+<span style="background:var(--green-light)"></span>
+        Client Voices
+        <span style="background:var(--green-light)"></span>
+</div>
+<p class="testimonial-quote" id="testimonialQuote">
+        "Monique and her team brought a level of technical rigour and local knowledge that no outside firm could match. The project was delivered on time, on budget, and built to last. She is the standard for engineering in the Bahamas."
+      </p>
+<div class="testimonial-author">
+<div class="testimonial-avatar" id="testimonialAvatar">JF</div>
+<div>
+<div class="testimonial-name" id="testimonialName">James Ferguson</div>
+<div class="testimonial-role" id="testimonialRole">Director of Infrastructure, Ministry of Works, Bahamas</div>
+</div>
+</div>
+<div class="testimonial-dots">
+<div class="testimonial-dot active" onclick="setTestimonial(0)"></div>
+<div class="testimonial-dot" onclick="setTestimonial(1)"></div>
+<div class="testimonial-dot" onclick="setTestimonial(2)"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!--  BAHAMAS SECTION                                               -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section class="bahamas" id="bahamas">
+<div class="container">
+<div class="bahamas-grid">
+<div class="bahamas-content">
+<div class="section-label">Our Region</div>
+<h2 class="bahamas-headline fade-up">
+          Rooted in the<br/>
+<em>Bahamas,</em><br/>
+          Reaching Beyond.
+        </h2>
+<p class="bahamas-body fade-up fade-up-delay-1">
+          As a Bahamian-owned and operated firm, we bring an irreplaceable understanding of local conditions, regulations, culture, and community to every project. We know these islands — their soils, their storms, their people.
+        </p>
+<p class="bahamas-body fade-up fade-up-delay-2">
+          Our dual US licensure (Florida &amp; Texas) means we can seamlessly bridge Bahamian and American engineering standards — a critical advantage for international resort developers, US-funded projects, and cross-border infrastructure work.
+        </p>
+<div class="bahamas-islands fade-up fade-up-delay-3">
+<span class="island-tag">New Providence</span>
+<span class="island-tag">Grand Bahama</span>
+<span class="island-tag">Exumas</span>
+<span class="island-tag">Abaco</span>
+<span class="island-tag">Eleuthera</span>
+<span class="island-tag">Harbour Island</span>
+<span class="island-tag">Andros</span>
+<span class="island-tag">Bimini</span>
+<span class="island-tag">Cat Island</span>
+<span class="island-tag">Long Island</span>
+</div>
+</div>
+<div class="bahamas-visual fade-up">
+<div class="bahamas-map-container">
+<!-- Stylized Bahamas archipelago SVG -->
+<svg class="bahamas-map-svg" viewbox="0 0 380 320" xmlns="http://www.w3.org/2000/svg">
+<!-- Ocean background -->
+<rect fill="rgba(26,74,92,0.15)" height="320" rx="8" width="380"></rect>
+<!-- Grid lines -->
+<g stroke="rgba(26,74,92,0.2)" stroke-width="0.5">
+<line x1="0" x2="380" y1="80" y2="80"></line>
+<line x1="0" x2="380" y1="160" y2="160"></line>
+<line x1="0" x2="380" y1="240" y2="240"></line>
+<line x1="95" x2="95" y1="0" y2="320"></line>
+<line x1="190" x2="190" y1="0" y2="320"></line>
+<line x1="285" x2="285" y1="0" y2="320"></line>
+</g>
+<!-- Florida (simplified) -->
+<path d="M30 20 L55 20 L60 60 L50 80 L40 75 L35 60Z" fill="rgba(74,124,89,0.3)" stroke="rgba(74,124,89,0.6)" stroke-width="1"></path>
+<text fill="rgba(74,124,89,0.8)" font-family="sans-serif" font-size="7" text-anchor="middle" x="42" y="50">FL</text>
+<!-- Grand Bahama -->
+<ellipse cx="120" cy="55" fill="var(--green)" opacity="0.7" rx="35" ry="8" transform="rotate(-10 120 55)"></ellipse>
+<text fill="var(--green-dark)" font-family="sans-serif" font-size="6" font-weight="bold" text-anchor="middle" x="120" y="42">Grand Bahama</text>
+<!-- New Providence (Nassau) - highlighted -->
+<ellipse cx="145" cy="115" fill="var(--green)" opacity="0.9" rx="18" ry="10"></ellipse>
+<circle cx="145" cy="115" fill="var(--green-dark)" r="4"></circle>
+<text fill="var(--green-dark)" font-family="sans-serif" font-size="7" font-weight="bold" text-anchor="middle" x="145" y="100">Nassau ★</text>
+<!-- Andros -->
+<path d="M110 130 Q115 145 112 165 Q108 180 110 195 L118 195 Q120 175 118 155 Q120 140 118 130Z" fill="var(--green)" opacity="0.6"></path>
+<text fill="var(--green-dark)" font-family="sans-serif" font-size="6" text-anchor="middle" x="100" y="165">Andros</text>
+<!-- Eleuthera -->
+<path d="M185 95 Q188 120 186 150 Q184 175 185 200 L190 200 Q191 175 192 150 Q193 120 190 95Z" fill="var(--green)" opacity="0.6"></path>
+<text fill="var(--green-dark)" font-family="sans-serif" font-size="6" text-anchor="middle" x="200" y="150">Eleuthera</text>
+<!-- Exumas chain -->
+<path d="M195 175 Q205 185 210 200 Q215 215 218 230 Q220 245 222 260" fill="none" opacity="0.7" stroke="var(--green)" stroke-linecap="round" stroke-width="6"></path>
+<text fill="var(--green-dark)" font-family="sans-serif" font-size="6" text-anchor="middle" x="235" y="220">Exumas</text>
+<!-- Abaco -->
+<path d="M175 40 Q185 50 188 70 Q190 85 188 95 L193 95 Q195 80 193 65 Q192 48 182 38Z" fill="var(--green)" opacity="0.6"></path>
+<text fill="var(--green-dark)" font-family="sans-serif" font-size="6" text-anchor="middle" x="205" y="68">Abaco</text>
+<!-- Bimini -->
+<ellipse cx="80" cy="100" fill="var(--green)" opacity="0.6" rx="5" ry="12"></ellipse>
+<text fill="var(--green-dark)" font-family="sans-serif" font-size="5" text-anchor="middle" x="68" y="100">Bimini</text>
+<!-- Cat Island -->
+<ellipse cx="240" cy="175" fill="var(--green)" opacity="0.6" rx="6" ry="18" transform="rotate(-15 240 175)"></ellipse>
+<text fill="var(--green-dark)" font-family="sans-serif" font-size="5" text-anchor="middle" x="258" y="175">Cat Is.</text>
+<!-- Long Island -->
+<path d="M255 215 Q260 230 258 250 Q256 265 258 280 L263 280 Q265 265 264 248 Q265 230 262 215Z" fill="var(--green)" opacity="0.6"></path>
+<text fill="var(--green-dark)" font-family="sans-serif" font-size="5" text-anchor="middle" x="275" y="250">Long Is.</text>
+<!-- Compass rose -->
+<g transform="translate(340, 40)">
+<circle cx="0" cy="0" fill="rgba(255,255,255,0.6)" r="18" stroke="rgba(74,124,89,0.4)" stroke-width="1"></circle>
+<text fill="var(--green-dark)" font-family="sans-serif" font-size="8" font-weight="bold" text-anchor="middle" x="0" y="-8">N</text>
+<text fill="var(--green-dark)" font-family="sans-serif" font-size="6" text-anchor="middle" x="0" y="14">S</text>
+<text fill="var(--green-dark)" font-family="sans-serif" font-size="6" text-anchor="middle" x="12" y="3">E</text>
+<text fill="var(--green-dark)" font-family="sans-serif" font-size="6" text-anchor="middle" x="-12" y="3">W</text>
+<line stroke="var(--green)" stroke-width="0.8" x1="0" x2="0" y1="-14" y2="14"></line>
+<line stroke="var(--green)" stroke-width="0.8" x1="-14" x2="14" y1="0" y2="0"></line>
+</g>
+<!-- Scale bar -->
+<g transform="translate(20, 300)">
+<line stroke="var(--green-dark)" stroke-width="1.5" x1="0" x2="60" y1="0" y2="0"></line>
+<line stroke="var(--green-dark)" stroke-width="1.5" x1="0" x2="0" y1="-4" y2="4"></line>
+<line stroke="var(--green-dark)" stroke-width="1.5" x1="60" x2="60" y1="-4" y2="4"></line>
+<text fill="var(--green-dark)" font-family="sans-serif" font-size="6" text-anchor="middle" x="30" y="-6">~100 km</text>
+</g>
+</svg>
+<!-- Coverage cards -->
+<div class="coverage-cards">
+<div class="coverage-card">
+<div class="coverage-card-flag">🇧🇸</div>
+<div class="coverage-card-name">Bahamas</div>
+<div class="coverage-card-detail">Primary Market</div>
+</div>
+<div class="coverage-card">
+<div class="coverage-card-flag">🇺🇸</div>
+<div class="coverage-card-name">Florida</div>
+<div class="coverage-card-detail">P.Eng Licensed</div>
+</div>
+<div class="coverage-card">
+<div class="coverage-card-flag">🇺🇸</div>
+<div class="coverage-card-name">Texas</div>
+<div class="coverage-card-detail">P.Eng Licensed</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!--  CONTACT                                                        -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section class="contact" id="contact">
+<div class="container">
+<div class="contact-grid">
+<div class="contact-info">
+<div class="section-label">Get In Touch</div>
+<h2 class="contact-headline fade-up">
+          Let's Build<br/>
+          Something<br/>
+<em>Lasting.</em>
+</h2>
+<p class="contact-body fade-up fade-up-delay-1">
+          Whether you're planning a government infrastructure project, a luxury resort development, or need expert engineering consultation — we'd love to hear from you.
+        </p>
+<div class="contact-details fade-up fade-up-delay-2">
+<div class="contact-detail">
+<div class="contact-detail-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path><circle cx="12" cy="10" r="3"></circle>
+</svg>
+</div>
+<div>
+<div class="contact-detail-label">Office</div>
+<div class="contact-detail-value">Nassau, New Providence, Bahamas</div>
+</div>
+</div>
+<div class="contact-detail">
+<div class="contact-detail-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"></path>
+</svg>
+</div>
+<div>
+<div class="contact-detail-label">Phone</div>
+<div class="contact-detail-value">+1 (242) 555-0192</div>
+</div>
+</div>
+<div class="contact-detail">
+<div class="contact-detail-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline>
+</svg>
+</div>
+<div>
+<div class="contact-detail-label">Email</div>
+<div class="contact-detail-value">info@adderleyengineering.com</div>
+</div>
+</div>
+<div class="contact-detail">
+<div class="contact-detail-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+</div>
+<div>
+<div class="contact-detail-label">Office Hours</div>
+<div class="contact-detail-value">Mon – Fri, 8:00 AM – 5:00 PM EST</div>
+</div>
+</div>
+</div>
+</div>
+<div class="contact-form fade-up fade-up-delay-1">
+<div class="section-label" style="margin-bottom:1.5rem">Send a Message</div>
+<div class="form-row">
+<div class="form-group">
+<label class="form-label">First Name</label>
+<input class="form-input" placeholder="Monique" type="text"/>
+</div>
+<div class="form-group">
+<label class="form-label">Last Name</label>
+<input class="form-input" placeholder="Adderley" type="text"/>
+</div>
+</div>
+<div class="form-group">
+<label class="form-label">Email Address</label>
+<input class="form-input" placeholder="you@example.com" type="email"/>
+</div>
+<div class="form-group">
+<label class="form-label">Organisation</label>
+<input class="form-input" placeholder="Ministry of Works / Resort Name / etc." type="text"/>
+</div>
+<div class="form-group">
+<label class="form-label">Project Type</label>
+<select class="form-select">
+<option value="">Select a service area…</option>
+<option>Structural Engineering</option>
+<option>Civil &amp; Infrastructure</option>
+<option>Resort &amp; Hospitality</option>
+<option>Government &amp; Public Works</option>
+<option>Coastal &amp; Marine Engineering</option>
+<option>Project Management &amp; Consulting</option>
+<option>Other</option>
+</select>
+</div>
+<div class="form-group">
+<label class="form-label">Project Details</label>
+<textarea class="form-textarea" placeholder="Tell us about your project — location, scope, timeline, and any specific requirements…"></textarea>
+</div>
+<button class="form-submit">Send Enquiry →</button>
+</div>
+</div>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!--  FOOTER                                                         -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<footer>
+<div class="container">
+<div class="footer-top">
+<div class="footer-brand">
+<div class="footer-logo">
+<div class="footer-logo-mark">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+</svg>
+</div>
+<span class="footer-logo-name">Adderley &amp; Associates</span>
+</div>
+<p class="footer-tagline">
+          "Engineering the islands we call home — with precision, pride, and purpose."
+        </p>
+<div class="footer-social">
+<a aria-label="LinkedIn" class="footer-social-link" href="#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path><circle cx="4" cy="4" r="2"></circle></svg>
+</a>
+<a aria-label="Instagram" class="footer-social-link" href="#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+</a>
+<a aria-label="Facebook" class="footer-social-link" href="#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path></svg>
+</a>
+</div>
+</div>
+<div>
+<div class="footer-col-title">Services</div>
+<ul class="footer-links">
+<li><a href="#services">Structural Engineering</a></li>
+<li><a href="#services">Civil &amp; Infrastructure</a></li>
+<li><a href="#services">Resort &amp; Hospitality</a></li>
+<li><a href="#services">Government Projects</a></li>
+<li><a href="#services">Coastal &amp; Marine</a></li>
+<li><a href="#services">Project Management</a></li>
+</ul>
+</div>
+<div>
+<div class="footer-col-title">Company</div>
+<ul class="footer-links">
+<li><a href="#about">About Monique</a></li>
+<li><a href="#projects">Our Projects</a></li>
+<li><a href="#bahamas">Our Region</a></li>
+<li><a href="#contact">Contact Us</a></li>
+<li><a href="#">Careers</a></li>
+<li><a href="#">News &amp; Insights</a></li>
+</ul>
+</div>
+<div>
+<div class="footer-col-title">Licences</div>
+<ul class="footer-links">
+<li><a href="#">P.Eng — Florida</a></li>
+<li><a href="#">P.Eng — Texas</a></li>
+<li><a href="#">Bahamas Registered</a></li>
+<li><a href="#">NSPE Member</a></li>
+<li><a href="#">ASCE Member</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<div class="footer-copy">
+        © 2026 <span>Adderley &amp; Associates Engineering Group</span>. All rights reserved. Nassau, Bahamas.
+      </div>
+<div class="footer-licenses">
+<span class="footer-license">P.Eng FL</span>
+<span class="footer-license">P.Eng TX</span>
+<span class="footer-license">🇧🇸 Bahamian-Owned</span>
+</div>
+</div>
+</div>
+</footer>
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!--  JAVASCRIPT                                                     -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<script>
+  // ── Nav scroll effect ──────────────────────────────────────────
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // ── Mobile menu ────────────────────────────────────────────────
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+  // ── Scroll animations ──────────────────────────────────────────
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // ── Testimonials ───────────────────────────────────────────────
+  const testimonials = [
+    {
+      quote: '"Monique and her team brought a level of technical rigour and local knowledge that no outside firm could match. The project was delivered on time, on budget, and built to last. She is the standard for engineering in the Bahamas."',
+      initials: 'JF',
+      name: 'James Ferguson',
+      role: 'Director of Infrastructure, Ministry of Works, Bahamas'
+    },
+    {
+      quote: '"We\'ve worked with engineering firms across the Caribbean, but Adderley & Associates stands apart. Their understanding of coastal conditions, hurricane codes, and resort aesthetics is unmatched. Our marina project exceeded every expectation."',
+      initials: 'SR',
+      name: 'Sandra Rolle',
+      role: 'VP Development, Exuma Cays Resort Group'
+    },
+    {
+      quote: '"As a US developer working in the Bahamas, having an engineer licensed in both Florida and the Bahamas was invaluable. Monique navigated every regulatory challenge with confidence and professionalism."',
+      initials: 'DM',
+      name: 'David Martinez',
+      role: 'Principal, Coastal Development Partners, Miami FL'
+    }
+  ];
+
+  let currentTestimonial = 0;
+
+  function setTestimonial(index) {
+    currentTestimonial = index;
+    const t = testimonials[index];
+    document.getElementById('testimonialQuote').textContent = t.quote;
+    document.getElementById('testimonialAvatar').textContent = t.initials;
+    document.getElementById('testimonialName').textContent = t.name;
+    document.getElementById('testimonialRole').textContent = t.role;
+    document.querySelectorAll('.testimonial-dot').forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+    });
+  }
+
+  // Auto-rotate testimonials
+  setInterval(() => {
+    setTestimonial((currentTestimonial + 1) % testimonials.length);
+  }, 6000);
+
+  // ── Smooth scroll for anchor links ────────────────────────────
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // ── Counter animation ──────────────────────────────────────────
+  function animateCounter(el, target, suffix = '') {
+    let current = 0;
+    const step = target / 60;
+    const timer = setInterval(() => {
+      current += step;
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+      }
+      el.innerHTML = Math.floor(current) + '<span>' + suffix + '</span>';
+    }, 25);
+  }
+
+  const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const nums = entry.target.querySelectorAll('.stat-num');
+        const targets = [85, 12, 3, 15];
+        const suffixes = ['+', '+', '', '+'];
+        nums.forEach((num, i) => animateCounter(num, targets[i], suffixes[i]));
+        statsObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  const statsSection = document.querySelector('.stats');
+  if (statsSection) statsObserver.observe(statsSection);
+</script>
+</body>
+</html>
