@@ -225,10 +225,90 @@ footer{background:#0A1A2F;padding:60px 0 0;}
   .footer-bottom{flex-direction:column;text-align:center;}
   .sticky-bar{padding:12px 20px;}
 }
+
+/* ── ANIMATED WAVES ── */
+@keyframes wave-move-1{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+@keyframes wave-move-2{0%{transform:translateX(-50%);}100%{transform:translateX(0);}}
+.wave-bottom-1{position:fixed;bottom:0;left:0;width:200%;pointer-events:none;z-index:1;opacity:0.07;animation:wave-move-1 12s linear infinite;}
+.wave-bottom-2{position:fixed;bottom:0;left:0;width:200%;pointer-events:none;z-index:1;opacity:0.05;animation:wave-move-2 18s linear infinite;}
+
+/* ── SCROLL ANIMATIONS ── */
+@keyframes fadeInUp{from{opacity:0;transform:translateY(40px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeInLeft{from{opacity:0;transform:translateX(-40px);}to{opacity:1;transform:translateX(0);}}
+@keyframes fadeInRight{from{opacity:0;transform:translateX(40px);}to{opacity:1;transform:translateX(0);}}
+@keyframes scaleIn{from{opacity:0;transform:scale(0.92);}to{opacity:1;transform:scale(1);}}
+@keyframes shimmer{0%{background-position:-200% center;}100%{background-position:200% center;}}
+
+.anim-up{opacity:0;animation:fadeInUp 0.7s ease forwards;}
+.anim-left{opacity:0;animation:fadeInLeft 0.7s ease forwards;}
+.anim-right{opacity:0;animation:fadeInRight 0.7s ease forwards;}
+.anim-scale{opacity:0;animation:scaleIn 0.6s ease forwards;}
+
+.delay-1{animation-delay:0.1s;}
+.delay-2{animation-delay:0.2s;}
+.delay-3{animation-delay:0.3s;}
+.delay-4{animation-delay:0.4s;}
+.delay-5{animation-delay:0.5s;}
+.delay-6{animation-delay:0.6s;}
+
+/* Section hover effects */
+.section-hover{transition:background 0.4s ease;}
+.island-tag{transition:all 0.25s ease!important;}
+.island-tag:hover{background:rgba(255,85,0,0.25)!important;border-color:var(--coral)!important;transform:translateY(-3px) scale(1.05)!important;}
+
+/* Proof strip items */
+.proof-item{transition:transform 0.2s ease,opacity 0.2s ease;}
+.proof-item:hover{transform:scale(1.08);opacity:1!important;}
+
+/* Nav link underline animation */
+.nav-link{position:relative;}
+.nav-link::after{content:"";position:absolute;bottom:-2px;left:0;width:0;height:2px;background:var(--coral);transition:width 0.3s ease;}
+.nav-link:hover::after{width:100%;}
+
+/* Button pulse on hover */
+.btn-coral{position:relative;overflow:hidden;}
+.btn-coral::after{content:"";position:absolute;inset:0;background:rgba(255,255,255,0.15);transform:translateX(-100%);transition:transform 0.3s ease;}
+.btn-coral:hover::after{transform:translateX(0);}
+
+/* Service cards glow on hover */
+.service-glow{transition:transform 0.25s ease,box-shadow 0.25s ease,filter 0.25s ease;}
+.service-glow:hover{transform:translateY(-8px)!important;filter:brightness(1.08);}
+
+/* Compare cards */
+.compare-card{transition:transform 0.25s ease,box-shadow 0.25s ease;}
+.compare-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,0.12);}
+
+/* Timeline items */
+.timeline-item{transition:transform 0.2s ease;}
+.timeline-item:hover{transform:translateX(6px);}
+
+/* Health check pillars */
+.hc-pillar{transition:transform 0.25s ease,box-shadow 0.25s ease,border-color 0.25s ease!important;}
+
+/* Footer links */
+.footer-link{transition:color 0.2s ease,transform 0.2s ease!important;}
+.footer-link:hover{transform:translateX(4px)!important;}
+
+/* Scroll reveal using IntersectionObserver */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal-left{opacity:0;transform:translateX(-30px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal-left.visible{opacity:1;transform:translateX(0);}
+.reveal-right{opacity:0;transform:translateX(30px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal-right.visible{opacity:1;transform:translateX(0);}
+.reveal-scale{opacity:0;transform:scale(0.94);transition:opacity 0.6s ease,transform 0.6s ease;}
+.reveal-scale.visible{opacity:1;transform:scale(1);}
 </style>
 </head>
 <body>
 
+<!-- Animated wave strips -->
+<svg class="wave-bottom-1" viewBox="0 0 1440 80" preserveAspectRatio="none">
+  <path d="M0,40 Q180,10 360,40 Q540,70 720,40 Q900,10 1080,40 Q1260,70 1440,40 Q1620,10 1800,40 Q1980,70 2160,40 Q2340,10 2520,40 Q2700,70 2880,40" stroke="#1CA3EC" stroke-width="4" fill="none"/>
+</svg>
+<svg class="wave-bottom-2" viewBox="0 0 1440 80" preserveAspectRatio="none">
+  <path d="M0,55 Q180,25 360,55 Q540,85 720,55 Q900,25 1080,55 Q1260,85 1440,55 Q1620,25 1800,55 Q1980,85 2160,55 Q2340,25 2520,55 Q2700,85 2880,55" stroke="#FF5500" stroke-width="3" fill="none"/>
+</svg>
 <nav id="mainNav">
 <div class="nav-logo">
 <div style="font-family:'Kaushan Script',cursive;font-size:24px;line-height:1;color:var(--navy);">Blu<span style="color:var(--cyan);">Wav</span> <span style="font-family:'Kaushan Script',cursive;font-size:24px;color:var(--navy);">Growth</span></div>
@@ -330,9 +410,9 @@ footer{background:#0A1A2F;padding:60px 0 0;}
 <h2 style="font-family:'Playfair Display',serif;font-size:44px;font-weight:800;color:#fff;line-height:1.15;letter-spacing:-0.3px;margin-bottom:16px;">Caribbean customers search online<br/>before choosing a business.</h2>
 <p style="font-size:17px;color:rgba(255,255,255,0.55);line-height:1.75;max-width:600px;margin-bottom:52px;">If your business is not showing up on Google, a competitor is getting that customer instead — every single day.</p>
 <div class="problem-cards">
-<div class="pcard"><div class="pcard-icon">😔</div><div class="pcard-title">Not Showing Up on Google</div><div class="pcard-text">Your competitors are getting the customers you should be getting — simply because they show up and you do not.</div></div>
-<div class="pcard"><div class="pcard-icon">📵</div><div class="pcard-title">Outdated or No Website</div><div class="pcard-text">A bad website is worse than no website. Customers judge your business in 3 seconds — make it count.</div></div>
-<div class="pcard"><div class="pcard-icon">📉</div><div class="pcard-title">Missing Calls and Enquiries Daily</div><div class="pcard-text">Every day without a proper digital presence is revenue walking out the door to your competition.</div></div>
+<div class="pcard reveal delay-1"><div class="pcard-icon">😔</div><div class="pcard-title">Not Showing Up on Google</div><div class="pcard-text">Your competitors are getting the customers you should be getting — simply because they show up and you do not.</div></div>
+<div class="pcard reveal delay-2"><div class="pcard-icon">📵</div><div class="pcard-title">Outdated or No Website</div><div class="pcard-text">A bad website is worse than no website. Customers judge your business in 3 seconds — make it count.</div></div>
+<div class="pcard reveal delay-3"><div class="pcard-icon">📉</div><div class="pcard-title">Missing Calls and Enquiries Daily</div><div class="pcard-text">Every day without a proper digital presence is revenue walking out the door to your competition.</div></div>
 </div>
 </div>
 </section>
@@ -378,11 +458,11 @@ footer{background:#0A1A2F;padding:60px 0 0;}
 <!-- COMPARISON — Sand -->
 <section id="comparison" style="background:var(--sand);padding:100px 0;">
 <div class="wrap">
-<span class="eyebrow">The Difference We Make</span>
+<span class="eyebrow reveal">The Difference We Make</span>
 <h2 class="h2">Without BluWav vs With BluWav</h2>
 <p class="lead">Caribbean businesses that go digital grow faster. BluWav makes it simple.</p>
 <div class="compare-grid">
-<div class="compare-card compare-bad">
+<div class="compare-card compare-bad reveal-left">
 <div style="font-size:17px;font-weight:800;color:var(--coral);margin-bottom:24px;">Without BluWav</div>
 <div class="compare-item"><span style="font-size:18px;">❌</span>Not showing up on Google Search and Maps</div>
 <div class="compare-item"><span style="font-size:18px;">❌</span>Outdated or no website losing trust</div>
@@ -391,7 +471,7 @@ footer{background:#0A1A2F;padding:60px 0 0;}
 <div class="compare-item"><span style="font-size:18px;">❌</span>No system to track leads or follow up</div>
 <div class="compare-item"><span style="font-size:18px;">❌</span>Slow or no growth online</div>
 </div>
-<div class="compare-card compare-good">
+<div class="compare-card compare-good reveal-right">
 <div style="font-size:17px;font-weight:800;color:var(--navy);margin-bottom:24px;">With BluWav Growth</div>
 <div class="compare-item"><span style="font-size:18px;">✅</span>Showing up on Google Search and Maps</div>
 <div class="compare-item"><span style="font-size:18px;">✅</span>Professional website that builds trust instantly</div>
@@ -512,7 +592,7 @@ footer{background:#0A1A2F;padding:60px 0 0;}
 </div>
 </div>
 <div class="hc-pillars">
-<div class="hc-pillar" style="border-top:4px solid var(--coral);">
+<div class="hc-pillar reveal delay-1" style="border-top:4px solid var(--coral);">
 <div class="hc-icon" style="background:linear-gradient(135deg,#FF6F61,#F7C873);">🔍</div>
 <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--coral);margin-bottom:8px;">Pillar 1</div>
 <div style="font-size:20px;font-weight:800;color:var(--navy);margin-bottom:12px;">Visibility Review</div>
@@ -525,7 +605,7 @@ footer{background:#0A1A2F;padding:60px 0 0;}
 <div style="margin-top:12px;font-size:12px;color:#9ca3af;font-style:italic;">Not included: Full keyword rankings, backlink analysis, technical SEO</div>
 </div>
 </div>
-<div class="hc-pillar" style="border-top:4px solid var(--navy);">
+<div class="hc-pillar reveal delay-2" style="border-top:4px solid var(--navy);">
 <div class="hc-icon" style="background:linear-gradient(135deg,#0A3D62,#1CA3EC);">⭐</div>
 <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--navy);margin-bottom:8px;">Pillar 2</div>
 <div style="font-size:20px;font-weight:800;color:var(--navy);margin-bottom:12px;">Credibility Review</div>
@@ -538,7 +618,7 @@ footer{background:#0A1A2F;padding:60px 0 0;}
 <div style="margin-top:12px;font-size:12px;color:#9ca3af;font-style:italic;">Not included: Full redesign, detailed critique, code fixes</div>
 </div>
 </div>
-<div class="hc-pillar" style="border-top:4px solid var(--gold);">
+<div class="hc-pillar reveal delay-3" style="border-top:4px solid var(--gold);">
 <div class="hc-icon" style="background:linear-gradient(135deg,#F7C873,#FF6F61);">📈</div>
 <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--gold2);margin-bottom:8px;">Pillar 3</div>
 <div style="font-size:20px;font-weight:800;color:var(--navy);margin-bottom:12px;">Conversion Review</div>
@@ -595,7 +675,7 @@ footer{background:#0A1A2F;padding:60px 0 0;}
 <!-- PRICING — White -->
 <section id="pricing" style="background:#fff;padding:100px 0;">
 <div class="wrap">
-<span class="eyebrow">Simple Pricing</span>
+<span class="eyebrow reveal">Simple Pricing</span>
 <h2 class="h2">Honest. Transparent.<br/>Built for Caribbean Businesses.</h2>
 <p class="lead">No hidden fees. No unnecessary extras. You own your website — and everything we build is designed to get you more customers.</p>
 <!-- Contract Banner -->
@@ -723,7 +803,7 @@ footer{background:#0A1A2F;padding:60px 0 0;}
 <span class="eyebrow" style="color:var(--gold);text-align:center;display:block;">Our Reach</span>
 <h2 style="font-family:'Playfair Display',serif;font-size:44px;font-weight:800;color:#fff;line-height:1.15;letter-spacing:-0.3px;margin-bottom:16px;text-align:center;">Every Island. Every Business.<br/>Every Opportunity.</h2>
 <p style="font-size:17px;color:rgba(255,255,255,0.6);line-height:1.75;max-width:600px;margin:0 auto 40px;text-align:center;">Serving the entire Caribbean region and diaspora.</p>
-<div class="islands-grid">
+<div class="islands-grid reveal">
 <div class="island-tag">🇹🇹 Trinidad and Tobago</div>
 <div class="island-tag">🇯🇲 Jamaica</div>
 <div class="island-tag">🇧🇧 Barbados</div>
@@ -754,7 +834,7 @@ footer{background:#0A1A2F;padding:60px 0 0;}
 <!-- CONTACT — Sand -->
 <section id="contact" style="background:var(--sand);padding:100px 0;">
 <div class="wrap">
-<span class="eyebrow">Get in Touch</span>
+<span class="eyebrow reveal">Get in Touch</span>
 <h2 class="h2">Let us Grow Your Business Together</h2>
 <p class="lead">Free consultation. No pressure. Just a conversation about your business and how we can help.</p>
 <div class="contact-grid">
@@ -848,6 +928,45 @@ footer{background:#0A1A2F;padding:60px 0 0;}
 function toggleMob(){document.getElementById('mobNav').classList.toggle('open');}
 window.addEventListener('scroll',function(){var bar=document.getElementById('stickyBar');if(window.scrollY>600){bar.classList.add('show');}else{bar.classList.remove('show');}});
 document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var target=document.querySelector(this.getAttribute('href'));if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth'});}});});
+
+// Intersection Observer for scroll reveal animations
+var revealObserver = new IntersectionObserver(function(entries){
+  entries.forEach(function(entry){
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+    }
+  });
+},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(function(el){
+  revealObserver.observe(el);
+});
+
+// Add service-glow class to service cards
+document.querySelectorAll('#services [style*="border-radius:20px"]').forEach(function(el){
+  el.classList.add('service-glow');
+});
+
+// Stagger reveal for island tags
+var islands = document.querySelectorAll('.island-tag');
+islands.forEach(function(el,i){
+  el.style.transitionDelay = (i * 0.05) + 's';
+});
+
+// Animate hero elements on load
+window.addEventListener('load', function(){
+  var heroEls = document.querySelectorAll('.hero-inner > div > *');
+  heroEls.forEach(function(el, i){
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    el.style.transitionDelay = (i * 0.12) + 's';
+    setTimeout(function(){
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+    }, 100);
+  });
+});
 </script>
 </body>
 </html>
