@@ -151,7 +151,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 48px;d
 .price-divider{border:none;border-top:1px solid var(--mist);margin:16px 0;}
 .price-feature{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:var(--dark);margin-bottom:10px;line-height:1.4;}
 .pf-check{width:18px;height:18px;border-radius:50%;background:linear-gradient(135deg,var(--coral),var(--gold));display:flex;align-items:center;justify-content:center;font-size:9px;color:#fff;font-weight:800;flex-shrink:0;margin-top:1px;}
-.price-cta{margin-top:auto;padding-top:20px;}
+.price-cta{margin-top:auto;padding-top:20px;}.pricing-card-hover{transition:transform 0.25s ease,box-shadow 0.25s ease;}.pricing-card-hover:hover{transform:translateY(-8px)!important;box-shadow:0 24px 60px rgba(0,0,0,0.25)!important;}
 .payment-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px;}
 .payment-card{background:#fff;border-radius:16px;padding:28px;border:1px solid var(--mist);text-align:center;}
 .payment-card.popular{border-color:var(--coral);position:relative;}
@@ -303,8 +303,7 @@ footer{background:#0A1A2F;padding:60px 0 0;}
 <p class="hero-services">🖥️ Websites  |  🔍 Visibility  |  💬 CRM  |  ⚙️ Automation  |  📈 Growth Systems</p>
 <div class="hero-price">CRM live today. Website live in 48 hours. From $700.</div>
 <div class="hero-trust">
-<div class="hero-trust-item"><div class="hero-trust-check">✓</div>5+ years of Caribbean digital experience</div>
-<div class="hero-trust-item"><div class="hero-trust-check">✓</div>50+ businesses served</div>
+<div class="hero-trust-item"><div class="hero-trust-check">✓</div>5+ years Caribbean experience &nbsp;·&nbsp; 50+ businesses served</div>
 <div class="hero-trust-item"><div class="hero-trust-check">✓</div>Signed agreement on every project — your website is yours forever</div>
 </div>
 <div class="hero-btns">
@@ -330,12 +329,6 @@ footer{background:#0A1A2F;padding:60px 0 0;}
 <span class="eyebrow" style="color:var(--gold);">The Real Problem</span>
 <h2 style="font-family:'Playfair Display',serif;font-size:44px;font-weight:800;color:#fff;line-height:1.15;letter-spacing:-0.3px;margin-bottom:16px;">Caribbean customers search online<br/>before choosing a business.</h2>
 <p style="font-size:17px;color:rgba(255,255,255,0.55);line-height:1.75;max-width:600px;margin-bottom:52px;">If your business is not showing up on Google, a competitor is getting that customer instead — every single day.</p>
-<div class="problem-stats">
-<div class="pstat pstat1"><div class="pstat-val c1">97%</div><div class="pstat-label">Search Before Buying</div><div class="pstat-sub">Consumers research online before choosing a local business</div></div>
-<div class="pstat pstat2"><div class="pstat-val c2">76%</div><div class="pstat-label">Visit Within 24 Hours</div><div class="pstat-sub">Mobile searches lead to a business visit within 24 hours</div></div>
-<div class="pstat pstat3"><div class="pstat-val c3">46%</div><div class="pstat-label">Local Searches</div><div class="pstat-sub">Of all Google searches are looking for local businesses</div></div>
-<div class="pstat pstat4"><div class="pstat-val c4">60%+</div><div class="pstat-label">Not Fully Digital</div><div class="pstat-sub">Caribbean businesses have not fully implemented digital strategies</div></div>
-</div>
 <div class="problem-cards">
 <div class="pcard"><div class="pcard-icon">😔</div><div class="pcard-title">Not Showing Up on Google</div><div class="pcard-text">Your competitors are getting the customers you should be getting — simply because they show up and you do not.</div></div>
 <div class="pcard"><div class="pcard-icon">📵</div><div class="pcard-title">Outdated or No Website</div><div class="pcard-text">A bad website is worse than no website. Customers judge your business in 3 seconds — make it count.</div></div>
@@ -620,7 +613,7 @@ footer{background:#0A1A2F;padding:60px 0 0;}
 <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px;">
 
   <!-- RIPPLE — Teal card -->
-  <div style="background:linear-gradient(135deg,#0A3D62,#1CA3EC);border-radius:20px;padding:36px;display:flex;flex-direction:column;color:#fff;position:relative;overflow:hidden;">
+  <div class="pricing-card-hover" style="background:linear-gradient(135deg,#0A3D62,#1CA3EC);border-radius:20px;padding:36px;display:flex;flex-direction:column;color:#fff;position:relative;overflow:hidden;transition:transform 0.25s ease,box-shadow 0.25s ease;">
     <div style="position:absolute;top:-40px;right:-40px;width:150px;height:150px;border-radius:50%;background:rgba(255,255,255,0.05);"></div>
     <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.6);margin-bottom:8px;">Starter Tier</div>
     <div style="font-family:'Playfair Display',serif;font-size:26px;font-weight:800;color:#fff;margin-bottom:4px;">BluWav Ripple</div>
@@ -640,12 +633,12 @@ footer{background:#0A1A2F;padding:60px 0 0;}
   </div>
 
   <!-- GROWTH — Orange gradient (Most Popular) -->
-  <div style="background:linear-gradient(135deg,#FF5500,#F7C873);border-radius:20px;padding:36px;display:flex;flex-direction:column;color:#fff;position:relative;overflow:hidden;transform:scale(1.04);box-shadow:0 20px 60px rgba(255,85,0,0.35);">
+  <div class="pricing-card-hover" style="background:linear-gradient(135deg,#FF5500,#F7C873);border-radius:20px;padding:48px 36px 36px;display:flex;flex-direction:column;color:#fff;position:relative;overflow:visible;transform:scale(1.04);box-shadow:0 20px 60px rgba(255,85,0,0.35);margin-top:12px;transition:transform 0.25s ease,box-shadow 0.25s ease;">
     <div style="position:absolute;top:-40px;right:-40px;width:150px;height:150px;border-radius:50%;background:rgba(255,255,255,0.1);"></div>
     <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:#fff;color:#FF5500;font-size:11px;font-weight:800;padding:4px 16px;border-radius:20px;white-space:nowrap;">⭐ MOST POPULAR</div>
-    <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.8);margin-bottom:8px;margin-top:8px;">Growth Tier</div>
-    <div style="font-family:'Playfair Display',serif;font-size:26px;font-weight:800;color:#fff;margin-bottom:4px;">BluWav Growth</div>
-    <div style="font-size:13px;color:rgba(255,255,255,0.85);margin-bottom:16px;font-style:italic;">Get more customers.</div>
+    <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.8);margin-bottom:8px;margin-top:8px;">Current Tier</div>
+    <div style="font-family:'Playfair Display',serif;font-size:26px;font-weight:800;color:#fff;margin-bottom:4px;">BluWav Current</div>
+    <div style="font-size:13px;color:rgba(255,255,255,0.85);margin-bottom:16px;font-style:italic;">Build momentum. Get more customers.</div>
     <div style="font-family:'Sora',sans-serif;font-size:38px;font-weight:900;color:#fff;letter-spacing:-1px;line-height:1;margin-bottom:4px;">$1,500</div>
     <div style="font-size:12px;color:rgba(255,255,255,0.75);margin-bottom:16px;">to $2,499 · 48 hours · 14-day support</div>
     <div style="font-size:13px;color:rgba(255,255,255,0.9);line-height:1.6;margin-bottom:16px;">Everything in Ripple, plus a full growth system built for Caribbean businesses.</div>
@@ -661,7 +654,7 @@ footer{background:#0A1A2F;padding:60px 0 0;}
   </div>
 
   <!-- SURGE — Navy card -->
-  <div style="background:#0A3D62;border-radius:20px;padding:36px;display:flex;flex-direction:column;color:#fff;position:relative;overflow:hidden;">
+  <div class="pricing-card-hover" style="background:#0A3D62;border-radius:20px;padding:36px;display:flex;flex-direction:column;color:#fff;position:relative;overflow:hidden;transition:transform 0.25s ease,box-shadow 0.25s ease;">
     <div style="position:absolute;top:-40px;right:-40px;width:150px;height:150px;border-radius:50%;background:rgba(28,163,236,0.08);"></div>
     <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#F7C873;margin-bottom:8px;">Full Transformation</div>
     <div style="font-family:'Playfair Display',serif;font-size:26px;font-weight:800;color:#fff;margin-bottom:4px;">BluWav Surge</div>
