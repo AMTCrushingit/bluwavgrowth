@@ -257,15 +257,42 @@ footer{background:#0A1A2F;padding:60px 0 0;}
 <div class="hero-inner">
 <div>
 <div style="margin-bottom:20px;">
-<svg fill="none" height="46" style="margin-bottom:6px;display:block;" viewbox="0 0 120 80" width="70" xmlns="http://www.w3.org/2000/svg">
-<circle cx="8" cy="28" fill="#1CA3EC" opacity="0.8" r="3.5"></circle>
-<circle cx="16" cy="18" fill="#F7C873" opacity="0.7" r="2.5"></circle>
-<circle cx="4" cy="16" fill="#1CA3EC" opacity="0.5" r="2"></circle>
-<circle cx="22" cy="12" fill="#F7C873" opacity="0.4" r="1.8"></circle>
-<path d="M 18 32 Q 22 10 30 8 Q 26 18 32 16 Q 28 24 36 22" fill="none" stroke="#1CA3EC" stroke-linecap="round" stroke-width="3"></path>
-<path d="M 10 42 Q 30 28 50 38 Q 70 48 90 34 Q 105 24 118 30" fill="none" stroke="#1CA3EC" stroke-linecap="round" stroke-width="5"></path>
-<path d="M 10 56 Q 30 42 50 52 Q 70 62 90 48 Q 105 38 118 44" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="5"></path>
-<path d="M 10 68 Q 35 58 55 64 Q 75 70 95 60 Q 108 54 118 58" fill="none" opacity="0.6" stroke="#F7C873" stroke-linecap="round" stroke-width="3"></path>
+<svg width="110" height="72" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:8px;display:block;">
+<style>
+@keyframes bub1{0%,100%{transform:translateY(0);opacity:0.8;}50%{transform:translateY(-6px);opacity:0.3;}}
+@keyframes bub2{0%,100%{transform:translateY(0);opacity:0.7;}50%{transform:translateY(-9px);opacity:0.2;}}
+@keyframes bub3{0%,100%{transform:translateY(0);opacity:0.5;}50%{transform:translateY(-5px);opacity:0.15;}}
+@keyframes bub4{0%,100%{transform:translateY(0);opacity:0.4;}50%{transform:translateY(-7px);opacity:0.1;}}
+@keyframes wv1{
+  0%,100%{d:path("M 10 42 Q 30 28 50 38 Q 70 48 90 34 Q 105 24 118 30");}
+  25%{d:path("M 10 38 Q 30 32 50 42 Q 70 44 90 38 Q 105 28 118 34");}
+  50%{d:path("M 10 44 Q 30 24 50 34 Q 70 52 90 30 Q 105 20 118 26");}
+  75%{d:path("M 10 40 Q 30 30 50 40 Q 70 46 90 36 Q 105 26 118 32");}
+}
+@keyframes wv2{
+  0%,100%{d:path("M 10 56 Q 30 42 50 52 Q 70 62 90 48 Q 105 38 118 44");}
+  25%{d:path("M 10 60 Q 30 46 50 48 Q 70 58 90 52 Q 105 42 118 48");}
+  50%{d:path("M 10 54 Q 30 38 50 56 Q 70 66 90 44 Q 105 34 118 40");}
+  75%{d:path("M 10 58 Q 30 44 50 50 Q 70 60 90 50 Q 105 40 118 46");}
+}
+@keyframes wv3{
+  0%,100%{d:path("M 10 68 Q 35 58 55 64 Q 75 70 95 60 Q 108 54 118 58");opacity:0.6;}
+  33%{d:path("M 10 70 Q 35 62 55 60 Q 75 66 95 64 Q 108 58 118 62");opacity:0.35;}
+  66%{d:path("M 10 66 Q 35 54 55 68 Q 75 74 95 56 Q 108 50 118 54");opacity:0.7;}
+}
+@keyframes spl{
+  0%,100%{d:path("M 18 32 Q 22 10 30 8 Q 26 18 32 16 Q 28 24 36 22");}
+  50%{d:path("M 18 30 Q 24 6 32 5 Q 27 16 34 14 Q 29 22 38 20");}
+}
+</style>
+<circle cx="8" cy="28" r="3.5" fill="#1CA3EC" style="animation:bub1 2.4s ease-in-out infinite;transform-origin:8px 28px;"/>
+<circle cx="16" cy="18" r="2.5" fill="#F7C873" style="animation:bub2 3.1s ease-in-out infinite 0.4s;transform-origin:16px 18px;"/>
+<circle cx="4" cy="16" r="2" fill="#1CA3EC" style="animation:bub3 2.8s ease-in-out infinite 0.8s;transform-origin:4px 16px;"/>
+<circle cx="22" cy="12" r="1.8" fill="#F7C873" style="animation:bub4 3.5s ease-in-out infinite 1.2s;transform-origin:22px 12px;"/>
+<path d="M 18 32 Q 22 10 30 8 Q 26 18 32 16 Q 28 24 36 22" stroke="#1CA3EC" stroke-width="3" stroke-linecap="round" fill="none" style="animation:spl 3s ease-in-out infinite;"/>
+<path d="M 10 42 Q 30 28 50 38 Q 70 48 90 34 Q 105 24 118 30" stroke="#1CA3EC" stroke-width="5" stroke-linecap="round" fill="none" style="animation:wv1 3.5s ease-in-out infinite;"/>
+<path d="M 10 56 Q 30 42 50 52 Q 70 62 90 48 Q 105 38 118 44" stroke="#fff" stroke-width="5" stroke-linecap="round" fill="none" style="animation:wv2 4s ease-in-out infinite 0.6s;"/>
+<path d="M 10 68 Q 35 58 55 64 Q 75 70 95 60 Q 108 54 118 58" stroke="#F7C873" stroke-width="3" stroke-linecap="round" fill="none" style="animation:wv3 4.5s ease-in-out infinite 1s;"/>
 </svg>
 <div class="hero-logo-name">Blu<span style="color:var(--cyan);">Wav</span></div>
 <div class="hero-logo-sub" style="display:flex;align-items:center;justify-content:center;gap:12px;font-size:11px;font-weight:700;color:#fff;letter-spacing:6px;text-transform:uppercase;margin-bottom:24px;"><span style="display:block;width:30px;height:1px;background:rgba(255,255,255,0.4);"></span>GROWTH<span style="display:block;width:30px;height:1px;background:rgba(255,255,255,0.4);"></span></div>
