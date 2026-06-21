@@ -34,7 +34,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 48px;d
 .mob-link{font-size:15px;font-weight:600;color:var(--navy);padding:12px 0;border-bottom:1px solid var(--mist);}
 .mob-cta{background:var(--coral);color:#fff;font-weight:700;padding:14px;border-radius:10px;text-align:center;margin-top:8px;font-size:15px;}
 .hero{min-height:100vh;background:url('https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=2') center center/cover no-repeat;display:flex;align-items:center;padding:110px 48px 80px;position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(10,61,98,0.70) 0%,rgba(10,61,98,0.52) 50%,rgba(10,61,98,0.68) 100%);z-index:0;pointer-events:none;}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(5,20,40,0.45) 0%,rgba(5,20,40,0.25) 50%,rgba(5,20,40,0.40) 100%);z-index:0;pointer-events:none;}
 .hero-inner{max-width:900px;margin:0 auto;width:100%;position:relative;z-index:2;text-align:center;}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,111,97,0.15);border:1px solid rgba(255,111,97,0.35);border-radius:20px;padding:5px 14px;font-size:11px;font-weight:700;color:#FF9B94;text-transform:uppercase;letter-spacing:1px;margin-bottom:20px;}
 .badge-dot{width:6px;height:6px;border-radius:50%;background:var(--coral);animation:pulse 2s infinite;}
@@ -42,13 +42,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 48px;d
 .hero-logo-name{font-family:'Kaushan Script',cursive;font-size:72px;color:#fff;line-height:1;letter-spacing:-2px;margin-bottom:4px;text-align:center;}
 .hero-logo-name span{color:var(--coral);}
 .hero-logo-sub{font-size:11px;font-weight:700;color:var(--gold);letter-spacing:6px;text-transform:uppercase;margin-bottom:24px;}
-.hero-h1{font-family:'Playfair Display',serif;font-size:52px;font-weight:800;color:#fff;line-height:1.15;letter-spacing:-0.5px;margin-bottom:16px;}
-.hero-h1 .gold{background:linear-gradient(135deg,var(--coral),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.hero-tagline{font-size:18px;color:rgba(255,255,255,0.85);font-style:italic;margin-bottom:16px;line-height:1.5;}
-.hero-services{font-size:16px;font-weight:700;color:var(--cyan);letter-spacing:0.5px;margin-bottom:16px;line-height:1.8;}
+.hero-h1{font-family:'Playfair Display',serif;font-size:56px;font-weight:800;color:#fff;line-height:1.12;letter-spacing:-0.5px;margin-bottom:16px;text-shadow:0 2px 20px rgba(0,0,0,0.3);}
+.hero-h1 .gold{background:linear-gradient(135deg,#FF6B35,#FFD700);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 2px 8px rgba(255,107,53,0.4));}
+.hero-tagline{font-size:18px;color:rgba(255,255,255,0.95);font-style:italic;margin-bottom:16px;line-height:1.5;text-shadow:0 1px 8px rgba(0,0,0,0.3);}
+.hero-services{font-size:16px;font-weight:700;color:#5DD8FF;letter-spacing:0.5px;margin-bottom:16px;line-height:1.8;text-shadow:0 1px 8px rgba(0,0,0,0.3);}
 .hero-price{font-size:17px;font-weight:700;color:#fff;margin-bottom:22px;background:rgba(255,85,0,0.2);border:1px solid rgba(255,85,0,0.3);border-radius:10px;padding:12px 20px;display:inline-block;}
 .hero-trust{display:flex;flex-direction:column;gap:8px;margin-bottom:28px;align-items:center;}
-.hero-trust-item{display:flex;align-items:center;gap:10px;font-size:15px;color:rgba(255,255,255,0.85);font-weight:500;}
+.hero-trust-item{display:flex;align-items:center;gap:10px;font-size:15px;color:rgba(255,255,255,0.95);font-weight:600;text-shadow:0 1px 6px rgba(0,0,0,0.3);}
 .hero-trust-check{width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,var(--coral),var(--gold));display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;font-weight:800;flex-shrink:0;}
 .hero-btns{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;}
 .btn-coral{background:var(--coral);color:#fff;font-size:15px;font-weight:700;padding:15px 30px;border-radius:11px;box-shadow:0 4px 24px rgba(247,200,115,0.4),0 0 40px rgba(247,200,115,0.15);transition:transform 0.15s,box-shadow 0.2s;display:inline-flex;align-items:center;gap:8px;}
@@ -353,7 +353,7 @@ footer{background:#0A1A2F;padding:60px 0 0;}
 <!-- HERO -->
 <section class="hero" id="home">
 <div class="hero-inner">
-<div>
+<div style="background:rgba(8,28,56,0.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-radius:28px;padding:52px 56px;border:1px solid rgba(255,255,255,0.12);box-shadow:0 32px 80px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.1);">
 <div style="margin-bottom:20px;">
 <svg width="110" height="72" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:8px;display:block;">
 <style>
@@ -393,7 +393,7 @@ footer{background:#0A1A2F;padding:60px 0 0;}
 <path d="M 10 68 Q 35 58 55 64 Q 75 70 95 60 Q 108 54 118 58" stroke="#F7C873" stroke-width="3" stroke-linecap="round" fill="none" style="animation:wv3 4.5s ease-in-out infinite 1s;"/>
 </svg>
 <div class="hero-logo-name">Blu<span style="color:var(--cyan);">Wav</span></div>
-<div class="hero-logo-sub" style="display:flex;align-items:center;justify-content:center;gap:12px;font-size:11px;font-weight:700;color:#fff;letter-spacing:6px;text-transform:uppercase;margin-bottom:24px;"><span style="display:block;width:30px;height:1px;background:rgba(255,255,255,0.4);"></span>GROWTH<span style="display:block;width:30px;height:1px;background:rgba(255,255,255,0.4);"></span></div>
+<div class="hero-logo-sub" style="display:flex;align-items:center;justify-content:center;gap:12px;font-size:11px;font-weight:700;color:#fff;letter-spacing:6px;text-transform:uppercase;margin-bottom:24px;"><span style="display:block;width:40px;height:1px;background:rgba(247,200,115,0.6);"></span><span style="font-size:12px;font-weight:700;color:#F7C873;letter-spacing:8px;text-transform:uppercase;">GROWTH</span><span style="display:block;width:40px;height:1px;background:rgba(247,200,115,0.6);"></span></div>
 </div>
 
 <h1 class="hero-h1">Get More Customers Online —<br/><span class="gold">With a System Built for Growth.</span></h1>
