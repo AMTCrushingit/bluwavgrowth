@@ -836,10 +836,31 @@ footer{background:#0A1A2F;padding:60px 0 0;}
     <div id="islandInfo" style="text-align:center;min-height:60px;transition:all 0.3s;">
       <div style="display:inline-flex;align-items:center;gap:12px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:14px;padding:16px 28px;">
         <span style="font-size:20px;">🌊</span>
-        <span style="font-size:15px;color:rgba(255,255,255,0.7);">Hover over an island to learn more</span>
+        <span style="font-size:15px;color:rgba(255,255,255,0.7);">Click an island to learn more</span>
       </div>
     </div>
   </div>
+  <script>
+  function selectIsland(el) {
+    document.querySelectorAll('.island-btn').forEach(function(b){
+      b.style.background='rgba(255,255,255,0.08)';
+      b.style.borderColor='rgba(255,255,255,0.15)';
+      b.style.transform='none';
+    });
+    el.style.background='rgba(255,85,0,0.2)';
+    el.style.borderColor='#FF5500';
+    el.style.transform='scale(1.05)';
+    var island = el.getAttribute('data-island');
+    var desc = el.getAttribute('data-desc');
+    var txt = el.textContent.trim();
+    var flag = txt.split(' ')[0];
+    document.getElementById('islandInfo').innerHTML =
+      '<div style="display:inline-flex;align-items:center;gap:12px;background:rgba(255,85,0,0.15);border:1px solid rgba(255,85,0,0.3);border-radius:14px;padding:16px 28px;">' +
+      '<span style="font-size:24px;">' + flag + '</span>' +
+      '<div style="text-align:left;"><div style="font-size:16px;font-weight:700;color:#fff;">' + island + '</div>' +
+      '<div style="font-size:14px;color:rgba(255,255,255,0.65);margin-top:2px;">' + desc + '</div></div></div>';
+  }
+  </script>
 </section>
 
 <!-- HEALTH CHECK — Sand -->
@@ -1089,6 +1110,72 @@ footer{background:#0A1A2F;padding:60px 0 0;}
       </div>
     </div>
   </div>
+  <script>
+  (function(){
+    var questions = [
+      {q:'Does your business show up when someone searches for it on Google?',pts:20},
+      {q:'Do you have a professional website that works on mobile?',pts:20},
+      {q:'Do you have a WhatsApp button or easy contact method on your website?',pts:20},
+      {q:'Do you have a Google Business Profile set up with your address and hours?',pts:20},
+      {q:'Do you collect and display customer reviews online?',pts:20}
+    ];
+    var cur=0, score=0, ans=[];
+
+    window.answerQuestion = function(yes){
+      ans.push(yes);
+      if(yes) score+=questions[cur].pts;
+      cur++;
+      if(cur<questions.length){ showQ(); } else { showResult(); }
+    };
+
+    function showQ(){
+      var pct=Math.round((cur/questions.length)*100);
+      document.getElementById('questionNum').textContent='Question '+(cur+1)+' of '+questions.length;
+      document.getElementById('progressPct').textContent=pct+'% complete';
+      document.getElementById('progressBar').style.width=pct+'%';
+      document.getElementById('questionText').textContent=questions[cur].q;
+    }
+
+    function showResult(){
+      document.getElementById('progressBar').style.width='100%';
+      document.getElementById('progressPct').textContent='100% complete';
+      document.getElementById('questionArea').style.display='none';
+      document.getElementById('quizResult').style.display='block';
+      var s=score;
+      var color=s>=80?'#10b981':s>=60?'#F7C873':s>=40?'#FF5500':'#ef4444';
+      var el=document.getElementById('scoreDisplay');
+      el.style.background='linear-gradient(135deg,'+color+',#F7C873)';
+      el.style.webkitBackgroundClip='text';
+      el.style.webkitTextFillColor='transparent';
+      el.style.backgroundClip='text';
+      var label=s>=80?'🌟 Excellent Digital Health!':s>=60?'👍 Good — Room to Grow':s>=40?'⚠️ Needs Attention':'🚨 Critical — Act Now';
+      var msg=s>=80?'Your business has a strong digital presence. Let BluWav help you take it to the next level.':
+              s>=60?'You are doing well but there are gaps costing you customers. A BluWav Health Check will show you exactly what to fix.':
+              s>=40?'Your business is losing customers to competitors every day. A free BluWav Health Check will show you the quick wins.':
+              'Your business is nearly invisible online. Every day without action is revenue lost. Get your free Health Check today.';
+      var i=0;
+      var timer=setInterval(function(){i+=2;if(i>=s){i=s;clearInterval(timer);}el.textContent=i;},30);
+      document.getElementById('scoreLabel').textContent=label;
+      document.getElementById('scoreMessage').textContent=msg;
+      var bd='<div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:10px;">Your results:</div>';
+      questions.forEach(function(q,i){
+        bd+='<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;font-size:13px;color:var(--slate);">'+
+          '<span>'+(ans[i]?'✅':'❌')+'</span><span>'+q.q+'</span></div>';
+      });
+      document.getElementById('scoreBreakdown').innerHTML=bd;
+    }
+
+    window.resetQuiz = function(){
+      cur=0;score=0;ans=[];
+      document.getElementById('questionArea').style.display='block';
+      document.getElementById('quizResult').style.display='none';
+      document.getElementById('progressBar').style.width='0%';
+      document.getElementById('questionNum').textContent='Question 1 of 5';
+      document.getElementById('progressPct').textContent='0% complete';
+      document.getElementById('questionText').textContent=questions[0].q;
+    };
+  })();
+  </script>
 </section>
 
 <!-- CRM SECTION — Standalone SaaS Product -->
