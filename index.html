@@ -226,11 +226,7 @@ footer{background:#0A1A2F;padding:60px 0 0;}
   .sticky-bar{padding:12px 20px;}
 }
 
-/* ── ANIMATED WAVES ── */
-@keyframes wave-move-1{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
-@keyframes wave-move-2{0%{transform:translateX(-50%);}100%{transform:translateX(0);}}
-.wave-bottom-1{position:fixed;bottom:0;left:0;width:200%;pointer-events:none;z-index:1;opacity:0.07;animation:wave-move-1 12s linear infinite;}
-.wave-bottom-2{position:fixed;bottom:0;left:0;width:200%;pointer-events:none;z-index:1;opacity:0.05;animation:wave-move-2 18s linear infinite;}
+
 
 /* ── SCROLL ANIMATIONS ── */
 @keyframes fadeInUp{from{opacity:0;transform:translateY(40px);}to{opacity:1;transform:translateY(0);}}
@@ -314,17 +310,22 @@ footer{background:#0A1A2F;padding:60px 0 0;}
 @keyframes countUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
 .island-btn.active{background:rgba(255,85,0,0.2)!important;border-color:var(--coral)!important;transform:scale(1.05);}
 .island-btn:hover{background:rgba(28,163,236,0.15)!important;border-color:var(--cyan)!important;transform:translateY(-3px) scale(1.03);}
+
+@keyframes heroFadeUp{from{opacity:0;transform:translateY(32px);}to{opacity:1;transform:translateY(0);}}
+@keyframes heroPulse{0%,100%{box-shadow:0 4px 24px rgba(255,85,0,0.4);}50%{box-shadow:0 4px 40px rgba(255,85,0,0.7),0 0 60px rgba(255,85,0,0.2);}}
+.hero-anim-1{animation:heroFadeUp 0.8s ease forwards;}
+.hero-anim-2{animation:heroFadeUp 0.8s ease 0.15s forwards;opacity:0;}
+.hero-anim-3{animation:heroFadeUp 0.8s ease 0.3s forwards;opacity:0;}
+.hero-anim-4{animation:heroFadeUp 0.8s ease 0.45s forwards;opacity:0;}
+.hero-anim-5{animation:heroFadeUp 0.8s ease 0.6s forwards;opacity:0;}
+.hero-anim-6{animation:heroFadeUp 0.8s ease 0.75s forwards;opacity:0;}
+.hero-anim-7{animation:heroFadeUp 0.8s ease 0.9s forwards;opacity:0;}
+.hero-btn-pulse{animation:heroPulse 2.5s ease-in-out infinite 1.5s;}
 </style>
 </head>
 <body>
 
-<!-- Animated wave strips -->
-<svg class="wave-bottom-1" viewBox="0 0 1440 80" preserveAspectRatio="none">
-  <path d="M0,40 Q180,10 360,40 Q540,70 720,40 Q900,10 1080,40 Q1260,70 1440,40 Q1620,10 1800,40 Q1980,70 2160,40 Q2340,10 2520,40 Q2700,70 2880,40" stroke="#1CA3EC" stroke-width="4" fill="none"/>
-</svg>
-<svg class="wave-bottom-2" viewBox="0 0 1440 80" preserveAspectRatio="none">
-  <path d="M0,55 Q180,25 360,55 Q540,85 720,55 Q900,25 1080,55 Q1260,85 1440,55 Q1620,25 1800,55 Q1980,85 2160,55 Q2340,25 2520,55 Q2700,85 2880,55" stroke="#FF5500" stroke-width="3" fill="none"/>
-</svg>
+
 <nav id="mainNav">
 <div class="nav-logo">
 <div style="font-family:'Kaushan Script',cursive;font-size:24px;line-height:1;color:var(--navy);">Blu<span style="color:var(--cyan);">Wav</span> <span style="font-family:'Kaushan Script',cursive;font-size:24px;color:var(--navy);">Growth</span></div>
@@ -353,9 +354,9 @@ footer{background:#0A1A2F;padding:60px 0 0;}
 <!-- HERO -->
 <section class="hero" id="home">
 <div class="hero-inner">
-<div style="background:rgba(8,28,56,0.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-radius:28px;padding:52px 56px;border:1px solid rgba(255,255,255,0.12);box-shadow:0 32px 80px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.1);">
+<div style="background:rgba(8,28,56,0.58);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:28px;padding:52px 56px;border:1px solid rgba(255,255,255,0.15);box-shadow:0 32px 80px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.12);">
 <div style="margin-bottom:20px;">
-<svg width="110" height="72" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:8px;display:block;">
+<svg width="110" height="72" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:8px;display:block;" class="hero-anim-1">
 <style>
 @keyframes bub1{0%,100%{transform:translateY(0);opacity:0.8;}50%{transform:translateY(-6px);opacity:0.3;}}
 @keyframes bub2{0%,100%{transform:translateY(0);opacity:0.7;}50%{transform:translateY(-9px);opacity:0.2;}}
@@ -392,19 +393,19 @@ footer{background:#0A1A2F;padding:60px 0 0;}
 <path d="M 10 56 Q 30 42 50 52 Q 70 62 90 48 Q 105 38 118 44" stroke="#fff" stroke-width="5" stroke-linecap="round" fill="none" style="animation:wv2 4s ease-in-out infinite 0.6s;"/>
 <path d="M 10 68 Q 35 58 55 64 Q 75 70 95 60 Q 108 54 118 58" stroke="#F7C873" stroke-width="3" stroke-linecap="round" fill="none" style="animation:wv3 4.5s ease-in-out infinite 1s;"/>
 </svg>
-<div class="hero-logo-name">Blu<span style="color:var(--cyan);">Wav</span></div>
+<div class="hero-logo-name hero-anim-1">Blu<span style="color:var(--cyan);">Wav</span></div>
 <div class="hero-logo-sub" style="display:flex;align-items:center;justify-content:center;gap:12px;font-size:11px;font-weight:700;color:#fff;letter-spacing:6px;text-transform:uppercase;margin-bottom:24px;"><span style="display:block;width:40px;height:1px;background:rgba(247,200,115,0.6);"></span><span style="font-size:12px;font-weight:700;color:#F7C873;letter-spacing:8px;text-transform:uppercase;">GROWTH</span><span style="display:block;width:40px;height:1px;background:rgba(247,200,115,0.6);"></span></div>
 </div>
 
-<h1 class="hero-h1">Get More Customers Online —<br/><span class="gold">With a System Built for Growth.</span></h1>
-<p class="hero-tagline">AI-powered. Human-crafted. Caribbean-ready.</p>
-<p class="hero-services">🖥️ Websites  |  🔍 Visibility  |  💬 CRM  |  ⚙️ Automation  |  📈 Growth Systems</p>
-<div class="hero-price">CRM live today. Website live in 48 hours. From $700.</div>
-<div class="hero-trust">
+<h1 class="hero-h1 hero-anim-3">Get More Customers Online —<br/><span class="gold">With a System Built for Growth.</span></h1>
+<p class="hero-tagline hero-anim-4">AI-powered. Human-crafted. Caribbean-ready.</p>
+<p class="hero-services hero-anim-4">🖥️ Websites  |  🔍 Visibility  |  💬 CRM  |  ⚙️ Automation  |  📈 Growth Systems</p>
+<div class="hero-price hero-anim-5">CRM live today. Website live in 48 hours. From $700.</div>
+<div class="hero-trust hero-anim-6">
 <div class="hero-trust-item"><div class="hero-trust-check">✓</div>5+ years Caribbean experience &nbsp;·&nbsp; 50+ businesses served</div>
 <div class="hero-trust-item"><div class="hero-trust-check">✓</div>Signed agreement on every project — your website is yours forever</div>
 </div>
-<div class="hero-btns">
+<div class="hero-btns hero-anim-7">
 <a class="btn-coral" href="#health-check">🩺 Get Your Free Online Health Check →</a>
 <a class="btn-wa" href="https://wa.me/18682979960">💬 WhatsApp Us</a>
 </div>
