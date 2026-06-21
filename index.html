@@ -290,13 +290,17 @@ footer{background:#0A1A2F;padding:60px 0 0;}
 .footer-link:hover{transform:translateX(4px)!important;}
 
 /* Scroll reveal using IntersectionObserver */
-.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal{opacity:1;transform:none;transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal.animate-ready{opacity:0;transform:translateY(30px);}
 .reveal.visible{opacity:1;transform:translateY(0);}
-.reveal-left{opacity:0;transform:translateX(-30px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal-left{opacity:1;transform:none;transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal-left.animate-ready{opacity:0;transform:translateX(-30px);}
 .reveal-left.visible{opacity:1;transform:translateX(0);}
-.reveal-right{opacity:0;transform:translateX(30px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal-right{opacity:1;transform:none;transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal-right.animate-ready{opacity:0;transform:translateX(30px);}
 .reveal-right.visible{opacity:1;transform:translateX(0);}
-.reveal-scale{opacity:0;transform:scale(0.94);transition:opacity 0.6s ease,transform 0.6s ease;}
+.reveal-scale{opacity:1;transform:none;transition:opacity 0.6s ease,transform 0.6s ease;}
+.reveal-scale.animate-ready{opacity:0;transform:scale(0.94);}
 .reveal-scale.visible{opacity:1;transform:scale(1);}
 
 /* ── NEW FEATURE ANIMATIONS ── */
@@ -1274,17 +1278,31 @@ window.addEventListener('scroll',function(){var bar=document.getElementById('sti
 document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var target=document.querySelector(this.getAttribute('href'));if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth'});}});});
 
 // Intersection Observer for scroll reveal animations
+// Add animate-ready to all reveal elements (makes them invisible for animation)
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(function(el){
+  el.classList.add('animate-ready');
+});
+
 var revealObserver = new IntersectionObserver(function(entries){
   entries.forEach(function(entry){
     if(entry.isIntersecting){
+      entry.target.classList.remove('animate-ready');
       entry.target.classList.add('visible');
     }
   });
-},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+},{threshold:0.08,rootMargin:'0px 0px -20px 0px'});
 
 document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(function(el){
   revealObserver.observe(el);
 });
+
+// Fallback: make everything visible after 3 seconds if observer fails
+setTimeout(function(){
+  document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(function(el){
+    el.classList.remove('animate-ready');
+    el.classList.add('visible');
+  });
+}, 3000);
 
 // Add service-glow class to service cards
 document.querySelectorAll('#services [style*="border-radius:20px"]').forEach(function(el){
@@ -1316,44 +1334,46 @@ window.addEventListener('load', function(){
 function animateCounter(el) {
   var target = parseInt(el.getAttribute('data-target'));
   var suffix = el.getAttribute('data-suffix') || '';
-  var duration = 2000;
-  var start = 0;
-  var startTime = null;
-  function step(timestamp) {
-    if (!startTime) startTime = timestamp;
-    var progress = Math.min((timestamp - startTime) / duration, 1);
-    var eased = 1 - Math.pow(1 - progress, 3);
-    var current = Math.floor(eased * target);
-    el.textContent = current + suffix;
-    if (progress < 1) requestAnimationFrame(step);
-    else el.textContent = target + suffix;
-  }
-  requestAnimationFrame(step);
+  var steps = 60;
+  var current = 0;
+  var increment = target / steps;
+  var timer = setInterval(function() {
+    current += increment;
+    if (current >= target) {
+      current = target;
+      clearInterval(timer);
+    }
+    el.textContent = Math.floor(current) + suffix;
+  }, 33);
 }
 
 var counterDone = false;
-var counterObserver = new IntersectionObserver(function(entries) {
-  entries.forEach(function(entry) {
-    if (entry.isIntersecting && !counterDone) {
-      counterDone = true;
-      document.querySelectorAll('.counter').forEach(animateCounter);
-    }
+function triggerCounters() {
+  if (counterDone) return;
+  counterDone = true;
+  document.querySelectorAll('.counter').forEach(function(el) {
+    animateCounter(el);
   });
-}, {threshold: 0.1, rootMargin: '0px 0px -50px 0px'});
+}
 
-var countersEl = document.getElementById('counters');
-if (countersEl) counterObserver.observe(countersEl);
-
-// Fallback: also trigger on scroll near the element
+// Multiple ways to trigger counters
 window.addEventListener('scroll', function() {
   if (counterDone) return;
   var el = document.getElementById('counters');
   if (!el) return;
   var rect = el.getBoundingClientRect();
-  if (rect.top < window.innerHeight && rect.bottom > 0) {
-    counterDone = true;
-    document.querySelectorAll('.counter').forEach(animateCounter);
-  }
+  if (rect.top < window.innerHeight) triggerCounters();
+});
+
+// Also trigger after page loads
+window.addEventListener('load', function() {
+  setTimeout(function() {
+    var el = document.getElementById('counters');
+    if (el) {
+      var rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight) triggerCounters();
+    }
+  }, 500);
 });
 
 // ── ISLAND MAP ──────────────────────────────────────────────────────────────
