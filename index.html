@@ -417,15 +417,12 @@ footer{background:#0A1A2F;padding:60px 0 0;}
 </div>
 
 <!-- RESULTS COUNTER -->
-<section style="background:#fff;padding:80px 0;border-bottom:1px solid #f3f4f6;" id="results">
+<section style="background:#fff;padding:48px 0;border-bottom:1px solid #f3f4f6;" id="results">
   <div class="wrap">
-    <div style="text-align:center;margin-bottom:48px;">
-      <span class="eyebrow reveal" style="text-align:center;display:block;">Proven Results</span>
-      <h2 class="h2 reveal" style="text-align:center;">Numbers that speak<br/>for themselves.</h2>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;" id="counters">
-      <div style="text-align:center;padding:32px 20px;background:var(--sand);border-radius:20px;border:1px solid var(--mist);transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 48px rgba(10,61,98,0.1)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
-        <div style="font-family:'Sora',sans-serif;font-size:56px;font-weight:900;background:linear-gradient(135deg,var(--coral),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;" class="counter" data-target="50" data-suffix="+">0</div>
+
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;max-width:900px;margin:0 auto;" id="counters">
+      <div style="text-align:center;padding:24px 16px;background:var(--sand);border-radius:16px;border:1px solid var(--mist);transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 48px rgba(10,61,98,0.1)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+        <div style="font-family:'Sora',sans-serif;font-size:48px;font-weight:900;background:linear-gradient(135deg,var(--coral),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;" class="counter" data-target="50" data-suffix="+">0</div>
         <div style="font-size:16px;font-weight:700;color:var(--navy);margin-top:8px;">Businesses Served</div>
         <div style="font-size:13px;color:var(--slate);margin-top:4px;">Across the Caribbean</div>
       </div>
@@ -1334,17 +1331,30 @@ function animateCounter(el) {
   requestAnimationFrame(step);
 }
 
+var counterDone = false;
 var counterObserver = new IntersectionObserver(function(entries) {
   entries.forEach(function(entry) {
-    if (entry.isIntersecting) {
-      entry.target.querySelectorAll('.counter').forEach(animateCounter);
-      counterObserver.unobserve(entry.target);
+    if (entry.isIntersecting && !counterDone) {
+      counterDone = true;
+      document.querySelectorAll('.counter').forEach(animateCounter);
     }
   });
-}, {threshold: 0.3});
+}, {threshold: 0.1, rootMargin: '0px 0px -50px 0px'});
 
 var countersEl = document.getElementById('counters');
 if (countersEl) counterObserver.observe(countersEl);
+
+// Fallback: also trigger on scroll near the element
+window.addEventListener('scroll', function() {
+  if (counterDone) return;
+  var el = document.getElementById('counters');
+  if (!el) return;
+  var rect = el.getBoundingClientRect();
+  if (rect.top < window.innerHeight && rect.bottom > 0) {
+    counterDone = true;
+    document.querySelectorAll('.counter').forEach(animateCounter);
+  }
+});
 
 // ── ISLAND MAP ──────────────────────────────────────────────────────────────
 function selectIsland(el) {
