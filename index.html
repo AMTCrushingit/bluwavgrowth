@@ -423,31 +423,59 @@ footer{background:#0A1A2F;padding:60px 0 0;}
 <!-- RESULTS COUNTER -->
 <section style="background:#fff;padding:48px 0;border-bottom:1px solid #f3f4f6;" id="results">
   <div class="wrap">
-
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;max-width:900px;margin:0 auto;" id="counters">
-      <div style="text-align:center;padding:24px 16px;background:var(--sand);border-radius:16px;border:1px solid var(--mist);transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 48px rgba(10,61,98,0.1)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
-        <div style="font-family:'Sora',sans-serif;font-size:48px;font-weight:900;background:linear-gradient(135deg,var(--coral),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;" class="counter" data-target="50" data-suffix="+">0</div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;max-width:900px;margin:0 auto;">
+      <div style="text-align:center;padding:24px 16px;background:var(--sand);border-radius:16px;border:1px solid var(--mist);">
+        <div id="cnt1" style="font-family:'Sora',sans-serif;font-size:48px;font-weight:900;background:linear-gradient(135deg,var(--coral),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;">50+</div>
         <div style="font-size:16px;font-weight:700;color:var(--navy);margin-top:8px;">Businesses Served</div>
         <div style="font-size:13px;color:var(--slate);margin-top:4px;">Across the Caribbean</div>
       </div>
-      <div style="text-align:center;padding:32px 20px;background:var(--sand);border-radius:20px;border:1px solid var(--mist);transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 48px rgba(10,61,98,0.1)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
-        <div style="font-family:'Sora',sans-serif;font-size:56px;font-weight:900;background:linear-gradient(135deg,var(--navy),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;" class="counter" data-target="48" data-suffix="hrs">0</div>
+      <div style="text-align:center;padding:24px 16px;background:var(--sand);border-radius:16px;border:1px solid var(--mist);">
+        <div id="cnt2" style="font-family:'Sora',sans-serif;font-size:48px;font-weight:900;background:linear-gradient(135deg,var(--navy),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;">48hrs</div>
         <div style="font-size:16px;font-weight:700;color:var(--navy);margin-top:8px;">Average Delivery</div>
         <div style="font-size:13px;color:var(--slate);margin-top:4px;">From brief to live website</div>
       </div>
-      <div style="text-align:center;padding:32px 20px;background:var(--sand);border-radius:20px;border:1px solid var(--mist);transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 48px rgba(10,61,98,0.1)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
-        <div style="font-family:'Sora',sans-serif;font-size:56px;font-weight:900;background:linear-gradient(135deg,var(--coral),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;" class="counter" data-target="5" data-suffix="+yrs">0</div>
+      <div style="text-align:center;padding:24px 16px;background:var(--sand);border-radius:16px;border:1px solid var(--mist);">
+        <div id="cnt3" style="font-family:'Sora',sans-serif;font-size:48px;font-weight:900;background:linear-gradient(135deg,var(--coral),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;">5+yrs</div>
         <div style="font-size:16px;font-weight:700;color:var(--navy);margin-top:8px;">Caribbean Experience</div>
         <div style="font-size:13px;color:var(--slate);margin-top:4px;">Digital expertise locally</div>
       </div>
-      <div style="text-align:center;padding:32px 20px;background:var(--sand);border-radius:20px;border:1px solid var(--mist);transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 48px rgba(10,61,98,0.1)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
-        <div style="font-family:'Sora',sans-serif;font-size:56px;font-weight:900;background:linear-gradient(135deg,var(--navy),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;" class="counter" data-target="100" data-suffix="%">0</div>
+      <div style="text-align:center;padding:24px 16px;background:var(--sand);border-radius:16px;border:1px solid var(--mist);">
+        <div id="cnt4" style="font-family:'Sora',sans-serif;font-size:48px;font-weight:900;background:linear-gradient(135deg,var(--navy),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;">100%</div>
         <div style="font-size:16px;font-weight:700;color:var(--navy);margin-top:8px;">You Own Your Site</div>
         <div style="font-size:13px;color:var(--slate);margin-top:4px;">No lock-in. Ever.</div>
       </div>
     </div>
   </div>
+  <script>
+  (function(){
+    var targets = [{id:'cnt1',end:50,suffix:'+'},{id:'cnt2',end:48,suffix:'hrs'},{id:'cnt3',end:5,suffix:'+yrs'},{id:'cnt4',end:100,suffix:'%'}];
+    var done = false;
+    function runCounters(){
+      if(done) return; done = true;
+      targets.forEach(function(t){
+        var el = document.getElementById(t.id);
+        if(!el) return;
+        var i = 0;
+        var timer = setInterval(function(){
+          i++;
+          el.textContent = Math.floor((i/60)*t.end) + t.suffix;
+          if(i>=60){clearInterval(timer);el.textContent=t.end+t.suffix;}
+        },30);
+      });
+    }
+    window.addEventListener('scroll',function(){
+      var el=document.getElementById('results');
+      if(!el) return;
+      if(el.getBoundingClientRect().top < window.innerHeight) runCounters();
+    });
+    setTimeout(function(){
+      var el=document.getElementById('results');
+      if(el && el.getBoundingClientRect().top < window.innerHeight) runCounters();
+    },800);
+  })();
+  </script>
 </section>
+
 
 <!-- PROBLEM — Navy -->
 <section id="problem" style="background:var(--navy);padding:100px 0;">
