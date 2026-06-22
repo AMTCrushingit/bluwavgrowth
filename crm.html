@@ -155,14 +155,27 @@ footer{background:#0A0A0C;padding:40px 0;border-top:1px solid rgba(28,163,236,0.
 }
 
 
-/* ── BluWav Signature Wave (Brand DNA) ── */
-@keyframes wave-move-1{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
-@keyframes wave-move-2{0%{transform:translateX(-50%);}100%{transform:translateX(0);}}
-.wave-bottom-1{position:fixed;bottom:0;left:0;width:200%;pointer-events:none;z-index:9;opacity:0.07;animation:wave-move-1 12s linear infinite;}
-.wave-bottom-2{position:fixed;bottom:0;left:0;width:200%;pointer-events:none;z-index:9;opacity:0.05;animation:wave-move-2 18s linear infinite;}
+100%{transform:translateX(-50%);}}
+100%{transform:translateX(0);}}
+/* ── BluWav Signature Wave ── */
+@keyframes bwWave1{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+@keyframes bwWave2{0%{transform:translateX(-50%);}100%{transform:translateX(0);}}
+.bw-wave-wrap{position:fixed;bottom:0;left:0;right:0;z-index:98;pointer-events:none;overflow:hidden;height:80px;}
+.bw-wave-1{position:absolute;bottom:0;left:0;width:200%;height:80px;animation:bwWave1 10s linear infinite;}
+.bw-wave-2{position:absolute;bottom:0;left:0;width:200%;height:80px;animation:bwWave2 16s linear infinite;}
 </style>
 </head>
 <body>
+<!-- BluWav Signature Wave -->
+<div class="bw-wave-wrap">
+  <svg class="bw-wave-1" viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,40 C180,10 360,70 540,40 C720,10 900,70 1080,40 C1260,10 1440,70 1440,40 L1440,80 L0,80 Z" fill="#1CA3EC" opacity="0.35"/>
+  </svg>
+  <svg class="bw-wave-2" viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,55 C180,25 360,75 540,50 C720,25 900,75 1080,50 C1260,25 1440,75 1440,50 L1440,80 L0,80 Z" fill="#0A3D62" opacity="0.45"/>
+  </svg>
+</div>
+
 <!-- NAV -->
 <div class="standalone-bar" style="background:#0A0A0C;border-bottom:1px solid rgba(28,163,236,0.3);padding:9px 0;text-align:center;position:fixed;top:0;left:0;right:0;z-index:101;">
   <span style="font-size:11px;font-weight:700;color:rgba(28,163,236,0.8);text-transform:uppercase;letter-spacing:2px;">✦ BluWav CRM — Standalone SaaS Product · $29/month</span>
