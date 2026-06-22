@@ -327,22 +327,47 @@ footer{background:#0A1A2F;padding:60px 0 0;}
 100%{transform:translateX(0);}}
 100%{transform:translateX(-50%);}}
 100%{transform:translateX(0);}}
+100%{transform:translateX(-50%);}}
+100%{transform:translateX(0);}}
 /* ── BluWav Signature Wave ── */
-@keyframes logoWave1{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
-@keyframes logoWave2{0%{transform:translateX(-50%);}100%{transform:translateX(0);}}
-.logo-wave-wrap{position:fixed;bottom:0;left:0;right:0;z-index:98;pointer-events:none;overflow:hidden;height:60px;}
-.logo-wave-1{position:absolute;bottom:0;left:0;width:200%;height:60px;animation:logoWave1 10s linear infinite;}
-.logo-wave-2{position:absolute;bottom:0;left:0;width:200%;height:60px;animation:logoWave2 15s linear infinite;}
+@keyframes bwWave1{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+@keyframes bwWave2{0%{transform:translateX(-50%);}100%{transform:translateX(0);}}
+.bw-wave-wrap{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  height:20vh;
+  z-index:0;
+  pointer-events:none;
+  overflow:hidden;
+}
+.bw-wave-1{
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:200%;
+  height:100%;
+  animation:bwWave1 12s linear infinite;
+}
+.bw-wave-2{
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:200%;
+  height:100%;
+  animation:bwWave2 18s linear infinite;
+}
 </style>
 </head>
 <body>
 <!-- BluWav Signature Wave -->
-<div class="logo-wave-wrap">
-  <svg class="logo-wave-1" viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,30 C200,5 400,55 600,30 C800,5 1000,55 1200,30 C1300,17 1380,40 1440,30 C1540,5 1640,55 1840,30 C2040,5 2240,55 2440,30 C2540,17 2620,40 2680,30 L2680,60 L0,60 Z" fill="#1CA3EC" opacity="0.18"/>
+<div class="bw-wave-wrap">
+  <svg class="bw-wave-1" viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,60 C120,20 240,100 360,60 C480,20 600,100 720,60 C840,20 960,100 1080,60 C1200,20 1320,100 1440,60 C1560,20 1680,100 1800,60 C1920,20 2040,100 2160,60 C2280,20 2400,100 2520,60 C2640,20 2760,100 2880,60 L2880,120 L0,120 Z" fill="#1CA3EC" opacity="0.12"/>
   </svg>
-  <svg class="logo-wave-2" viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,40 C200,15 400,58 600,35 C800,12 1000,58 1200,35 C1300,22 1380,48 1440,38 C1540,15 1640,58 1840,35 C2040,12 2240,58 2440,35 C2540,22 2620,48 2680,38 L2680,60 L0,60 Z" fill="#0A3D62" opacity="0.25"/>
+  <svg class="bw-wave-2" viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,80 C120,40 240,110 360,75 C480,40 600,110 720,75 C840,40 960,110 1080,75 C1200,40 1320,110 1440,75 C1560,40 1680,110 1800,75 C1920,40 2040,110 2160,75 C2280,40 2400,110 2520,75 C2640,40 2760,110 2880,75 L2880,120 L0,120 Z" fill="#0A3D62" opacity="0.18"/>
   </svg>
 </div>
 
