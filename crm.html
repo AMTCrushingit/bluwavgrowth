@@ -166,20 +166,14 @@ footer{background:#0A0A0C;padding:40px 0;border-top:1px solid rgba(28,163,236,0.
 100%{transform:translateX(-50%);}}
 100%{transform:translateX(0);}}
 100%{transform:translateX(-50%);}}
+100%{transform:translateX(-50%);}}
+100%{transform:translateX(0);}}
+100%{transform:translateX(-50%);}}
 /* ── BluWav Signature Wave ── */
 @keyframes bwWave1{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
 @keyframes bwWave2{0%{transform:translateX(-50%);}100%{transform:translateX(0);}}
 @keyframes bwWave3{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
-.bw-wave-wrap{
-  position:fixed;
-  bottom:10vh;
-  left:0;
-  right:0;
-  height:12vh;
-  z-index:0;
-  pointer-events:none;
-  overflow:visible;
-}
+.bw-wave-wrap{position:fixed;bottom:10vh;left:0;right:0;height:12vh;z-index:0;pointer-events:none;overflow:visible;}
 .bw-wave-1{position:absolute;bottom:0;left:0;width:200%;height:100%;animation:bwWave1 8s linear infinite;}
 .bw-wave-2{position:absolute;bottom:0;left:0;width:200%;height:100%;animation:bwWave2 20s linear infinite;}
 .bw-wave-3{position:absolute;bottom:0;left:0;width:200%;height:100%;animation:bwWave3 14s linear infinite;}
@@ -220,51 +214,27 @@ footer{background:#0A0A0C;padding:40px 0;border-top:1px solid rgba(28,163,236,0.
 <!-- HERO -->
 <section class="hero" id="home">
 <div class="hero-inner">
-<div class="hero-badge"><div class="badge-dot"></div>Caribbean-Built · Standalone SaaS Product</div>
-<div class="hero-logo">Blu<span>Wav</span></div>
-<div class="hero-logo-crm">CRM</div>
-<h1 class="hero-h1">Simple customer management<br/>for <span>Caribbean businesses.</span></h1>
-<p class="hero-sub">Track leads, manage customers, automate follow-ups — grow with confidence.</p>
-<div class="hero-btns">
-<a class="btn-primary" href="index.html#contact">🚀 Start Free</a>
-<a class="btn-secondary" href="#features">See Features ↓</a>
-</div>
-<!-- Dashboard Mockup -->
-<div class="hero-mockup">
-<div class="mockup-bar">
-<div class="mockup-dot" style="background:#FF5500;"></div>
-<div class="mockup-dot" style="background:#F7C873;"></div>
-<div class="mockup-dot" style="background:#1CA3EC;"></div>
-<div style="flex:1;background:rgba(255,255,255,0.08);border-radius:4px;height:8px;margin-left:8px;"></div>
-</div>
-<div class="mockup-stats">
-<div class="mockup-stat"><div class="mockup-stat-val" style="color:#1CA3EC;">24</div><div class="mockup-stat-lbl">Active Leads</div></div>
-<div class="mockup-stat"><div class="mockup-stat-val" style="color:#F7C873;">8</div><div class="mockup-stat-lbl">Deals Closing</div></div>
-<div class="mockup-stat"><div class="mockup-stat-val" style="color:#FF5500;">$12K</div><div class="mockup-stat-lbl">Pipeline Value</div></div>
-<div class="mockup-stat"><div class="mockup-stat-val" style="color:#4ade80;">94%</div><div class="mockup-stat-lbl">Follow-up Rate</div></div>
-</div>
-<div class="mockup-pipeline">
-<div class="mockup-col">
-<div class="mockup-col-title">New Leads</div>
-<div class="mockup-card"><div class="mockup-card-name">Maria T.</div>Website enquiry</div>
-<div class="mockup-card"><div class="mockup-card-name">James R.</div>WhatsApp lead</div>
-</div>
-<div class="mockup-col">
-<div class="mockup-col-title">In Progress</div>
-<div class="mockup-card"><div class="mockup-card-name">Sandra K.</div>Proposal sent</div>
-<div class="mockup-card"><div class="mockup-card-name">David M.</div>Follow-up due</div>
-</div>
-<div class="mockup-col">
-<div class="mockup-col-title">Closing</div>
-<div class="mockup-card"><div class="mockup-card-name">Priya S.</div>Contract review</div>
-</div>
-<div class="mockup-col">
-<div class="mockup-col-title">Won ✓</div>
-<div class="mockup-card" style="border-left:2px solid #4ade80;"><div class="mockup-card-name">Carlos B.</div>$2,400 closed</div>
-<div class="mockup-card" style="border-left:2px solid #4ade80;"><div class="mockup-card-name">Alicia F.</div>$1,800 closed</div>
-</div>
-</div>
-</div>
+  <div class="hero-badge"><div class="badge-dot"></div>Caribbean-Built · Standalone SaaS Product</div>
+  <div class="hero-logo">Blu<span>Wav</span></div>
+  <div class="hero-logo-crm">CRM</div>
+  <h1 class="hero-h1">Simple Customer Management<br/>for <span>Caribbean Businesses.</span></h1>
+  <p class="hero-sub">Track leads, manage customers, and automate follow-ups in one clean, Caribbean-built CRM.</p>
+
+  <!-- Trial Block -->
+  <div style="background:rgba(28,163,236,0.12);border:1px solid rgba(28,163,236,0.3);border-radius:16px;padding:24px 32px;max-width:520px;margin:0 auto 32px;text-align:center;">
+    <div style="font-size:17px;font-weight:800;color:#fff;margin-bottom:6px;">7-Day Free Trial — No credit card required</div>
+    <div style="font-size:14px;color:rgba(255,255,255,0.75);margin-bottom:16px;line-height:1.6;">Full access. No commitments.</div>
+    <div style="background:rgba(247,200,115,0.1);border:1px solid rgba(247,200,115,0.25);border-radius:10px;padding:10px 16px;font-size:13px;color:rgba(255,255,255,0.7);line-height:1.6;">
+      <strong style="color:#F7C873;">$99 one-time setup fee</strong> applies after trial<br/>
+      <span style="color:rgba(255,255,255,0.5);">Setup fee included free with any BluWav Growth package.</span>
+    </div>
+  </div>
+
+  <div class="hero-btns">
+    <a class="btn-primary" href="index.html#contact">🚀 Start Free</a>
+    <a class="btn-secondary" href="#features">See Features ↓</a>
+  </div>
+  <p style="font-size:13px;color:rgba(255,255,255,0.45);margin-top:16px;">Built for Caribbean MSMEs. Fast. Simple. Mobile-friendly.</p>
 </div>
 </section>
 <!-- WHY BLUWAV CRM -->

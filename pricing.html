@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pricing | BluWav Growth</title>
+<meta content="Simple, transparent pricing for BluWav CRM and Growth Systems. 7-day free trial. No contracts. Built for Caribbean businesses." name="description"/>
+<link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Sora:wght@700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:#F4F2ED;color:#1E1E1E;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+:root{--navy:#0A3D62;--coral:#FF5500;--coral2:#e84d00;--gold:#F7C873;--cyan:#1CA3EC;--sand:#F4F2ED;--dark:#1E1E1E;--slate:#64748b;--mist:#e8e4de;--max:1200px;}
+
+/* ── BluWav Signature Wave ── */
+@keyframes bwWave1{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+@keyframes bwWave2{0%{transform:translateX(-50%);}100%{transform:translateX(0);}}
+@keyframes bwWave3{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+.bw-wave-wrap{position:fixed;bottom:10vh;left:0;right:0;height:12vh;z-index:0;pointer-events:none;overflow:visible;}
+.bw-wave-1{position:absolute;bottom:0;left:0;width:200%;height:100%;animation:bwWave1 8s linear infinite;}
+.bw-wave-2{position:absolute;bottom:0;left:0;width:200%;height:100%;animation:bwWave2 20s linear infinite;}
+.bw-wave-3{position:absolute;bottom:0;left:0;width:200%;height:100%;animation:bwWave3 14s linear infinite;}
+
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(10,61,98,0.08);box-shadow:0 2px 20px rgba(0,0,0,0.06);}
+.nav-logo{display:flex;flex-direction:column;align-items:flex-start;line-height:1;}
+.nav-links{display:flex;align-items:center;gap:28px;}
+.nav-link{font-size:13px;font-weight:500;color:var(--slate);transition:color 0.2s;}
+.nav-link:hover{color:var(--navy);}
+.nav-cta{background:var(--coral);color:#fff;font-size:13px;font-weight:700;padding:10px 24px;border-radius:9px;box-shadow:0 4px 16px rgba(255,85,0,0.35);transition:transform 0.15s;}
+.nav-cta:hover{transform:translateY(-1px);}
+
+/* HERO */
+.hero{min-height:55vh;background:linear-gradient(160deg,#0A3D62 0%,#0d4d7a 50%,#0A3D62 100%);display:flex;align-items:center;padding:120px 48px 80px;position:relative;overflow:hidden;text-align:center;}
+.hero::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(28,163,236,0.15) 0%,transparent 70%);pointer-events:none;}
+.hero-inner{max-width:var(--max);margin:0 auto;width:100%;position:relative;z-index:2;}
+
+/* HELPERS */
+.wrap{max-width:var(--max);margin:0 auto;padding:0 48px;}
+.section-light{background:#fff;padding:96px 0;}
+.section-sand{background:var(--sand);padding:96px 0;}
+.section-navy{background:var(--navy);padding:96px 0;}
+.eyebrow{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;display:block;margin-bottom:12px;color:var(--cyan);}
+.h2{font-family:'Playfair Display',serif;font-size:40px;font-weight:800;line-height:1.15;letter-spacing:-0.5px;margin-bottom:16px;color:var(--navy);}
+.h2-white{color:#fff;}
+.lead{font-size:17px;line-height:1.75;color:var(--slate);max-width:600px;}
+
+/* PRICING CARDS */
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px;}
+.pricing-card{background:#fff;border-radius:20px;padding:36px;border:2px solid var(--mist);position:relative;transition:all 0.2s;}
+.pricing-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(10,61,98,0.1);}
+.pricing-card.featured{background:linear-gradient(135deg,#0A3D62,#0d4d7a);border-color:var(--cyan);}
+.pricing-card.surge{background:linear-gradient(135deg,#1a1a2e,#0A3D62);border-color:var(--gold);}
+
+/* COMPARISON TABLE */
+.compare-table{width:100%;border-collapse:collapse;margin-top:48px;}
+.compare-table th{padding:16px 20px;text-align:left;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:1px;border-bottom:2px solid var(--mist);}
+.compare-table td{padding:14px 20px;font-size:14px;border-bottom:1px solid var(--mist);vertical-align:middle;}
+.compare-table tr:last-child td{border-bottom:none;}
+.compare-table tr:hover td{background:rgba(28,163,236,0.03);}
+.check{color:var(--cyan);font-weight:800;font-size:16px;}
+.cross{color:#ccc;font-size:16px;}
+.partial{color:var(--gold);font-weight:700;}
+
+@media(max-width:900px){
+  nav{padding:0 20px;}
+  .wrap{padding:0 20px;}
+  .hero{padding:110px 20px 60px;}
+  .pricing-grid{grid-template-columns:1fr;}
+  .compare-table{font-size:12px;}
+  .compare-table th,.compare-table td{padding:10px 12px;}
+}
+</style>
+</head>
+<body>
+<!-- BluWav Signature Wave -->
+<div class="bw-wave-wrap">
+  <svg class="bw-wave-1" viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,40 C120,10 240,70 360,40 C480,10 600,70 720,40 C840,10 960,70 1080,40 C1200,10 1320,70 1440,40 C1560,10 1680,70 1800,40 C1920,10 2040,70 2160,40 C2280,10 2400,70 2520,40 C2640,10 2760,70 2880,40 L2880,80 L0,80 Z" fill="#1CA3EC" opacity="0.22"/>
+  </svg>
+  <svg class="bw-wave-2" viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,55 C120,25 240,75 360,50 C480,25 600,75 720,50 C840,25 960,75 1080,50 C1200,25 1320,75 1440,50 C1560,25 1680,75 1800,50 C1920,25 2040,75 2160,50 C2280,25 2400,75 2520,50 C2640,25 2760,75 2880,50 L2880,80 L0,80 Z" fill="#ffffff" opacity="0.10"/>
+  </svg>
+  <svg class="bw-wave-3" viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,65 C180,40 360,75 540,55 C720,35 900,72 1080,52 C1260,32 1440,70 1440,52 C1620,34 1800,70 1980,52 C2160,34 2340,70 2520,52 C2700,34 2880,70 2880,52 L2880,80 L0,80 Z" fill="#FF5500" opacity="0.07"/>
+  </svg>
+</div>
+
+<!-- NAV -->
+<nav>
+<div class="nav-logo">
+  <div style="font-family:'Kaushan Script',cursive;font-size:26px;line-height:1;color:var(--navy);">Blu<span style="color:var(--cyan);">Wav</span> <span style="font-family:'Kaushan Script',cursive;font-size:26px;color:var(--navy);">Growth</span></div>
+  <div style="font-size:8px;font-weight:400;color:var(--cyan);letter-spacing:1px;line-height:1.4;margin-top:2px;">Empowering Caribbean businesses to grow digitally</div>
+</div>
+<div class="nav-links">
+  <a class="nav-link" href="index.html">Home</a>
+  <a class="nav-link" href="index.html#services">Services</a>
+  <a class="nav-link" href="pricing.html" style="color:var(--navy);font-weight:700;">Pricing</a>
+  <a class="nav-link" href="crm.html">CRM</a>
+  <a class="nav-link" href="our-promise.html">Our Promise</a>
+  <a class="nav-cta" href="index.html#health-check">Free Health Check</a>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-inner">
+  <span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;color:var(--gold);display:block;margin-bottom:16px;">Pricing</span>
+  <h1 style="font-family:'Playfair Display',serif;font-size:54px;font-weight:800;color:#fff;line-height:1.12;letter-spacing:-0.5px;margin-bottom:20px;">Simple, Transparent Pricing</h1>
+  <p style="font-size:19px;color:rgba(255,255,255,0.85);line-height:1.7;max-width:580px;margin:0 auto;">No contracts. No hidden fees. You own everything forever.</p>
+</div>
+</section>
+
+<!-- CRM PRICING -->
+<section class="section-light" id="crm-pricing">
+<div class="wrap" style="text-align:center;">
+  <span class="eyebrow">BluWav CRM</span>
+  <h2 class="h2">Start free. Grow with confidence.</h2>
+  <p class="lead" style="margin:0 auto 48px;">One simple price. Full access. Built for Caribbean businesses.</p>
+
+  <div style="max-width:520px;margin:0 auto;">
+    <div style="background:#fff;border-radius:20px;padding:44px 40px;border:2px solid rgba(28,163,236,0.25);box-shadow:0 8px 40px rgba(10,61,98,0.08);text-align:center;">
+      <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--cyan);margin-bottom:12px;">BluWav CRM</div>
+      <div style="font-family:'Sora',sans-serif;font-size:64px;font-weight:900;color:var(--navy);letter-spacing:-2px;line-height:1;margin-bottom:4px;">$29</div>
+      <div style="font-size:14px;color:var(--slate);margin-bottom:24px;">USD / month</div>
+
+      <div style="background:rgba(28,163,236,0.06);border:1px solid rgba(28,163,236,0.2);border-radius:12px;padding:18px;margin-bottom:16px;">
+        <div style="font-size:16px;font-weight:800;color:var(--navy);margin-bottom:6px;">7-Day Free Trial — No credit card required</div>
+        <div style="font-size:13px;color:var(--slate);line-height:1.6;">Full access. No commitments.</div>
+      </div>
+
+      <div style="background:rgba(247,200,115,0.1);border:1px solid rgba(247,200,115,0.3);border-radius:10px;padding:12px 16px;margin-bottom:28px;font-size:13px;color:var(--dark);line-height:1.6;">
+        <strong>$99 one-time setup fee</strong> applies after trial<br/>
+        <span style="color:var(--slate);">Included free with any BluWav Growth package.</span>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:10px;text-align:left;margin-bottom:28px;">
+        <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--dark);"><span style="color:var(--cyan);font-weight:800;font-size:16px;">✓</span> Contacts & Leads</div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--dark);"><span style="color:var(--cyan);font-weight:800;font-size:16px;">✓</span> Visual Pipeline</div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--dark);"><span style="color:var(--cyan);font-weight:800;font-size:16px;">✓</span> WhatsApp Automation</div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--dark);"><span style="color:var(--cyan);font-weight:800;font-size:16px;">✓</span> Dashboard & Reports</div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--dark);"><span style="color:var(--cyan);font-weight:800;font-size:16px;">✓</span> Multi-User Access</div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--dark);"><span style="color:var(--cyan);font-weight:800;font-size:16px;">✓</span> Activities & Follow-ups</div>
+      </div>
+
+      <a href="index.html#contact" style="display:block;background:var(--cyan);color:#fff;font-size:16px;font-weight:800;padding:16px 24px;border-radius:12px;text-decoration:none;box-shadow:0 4px 24px rgba(28,163,236,0.35);margin-bottom:12px;transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">Start Free →</a>
+      <p style="font-size:13px;color:var(--slate);">Built for Caribbean MSMEs. Fast. Simple. Mobile-friendly.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- GROWTH SYSTEMS PRICING -->
+<section class="section-sand" id="growth-pricing">
+<div class="wrap" style="text-align:center;">
+  <span class="eyebrow">BluWav Growth Systems</span>
+  <h2 class="h2">Choose your growth level.</h2>
+  <p class="lead" style="margin:0 auto 48px;">Every package includes a signed agreement. You own your website forever.</p>
+
+  <div class="pricing-grid">
+    <!-- Ripple -->
+    <div class="pricing-card">
+      <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--cyan);margin-bottom:8px;">Starter</div>
+      <div style="font-family:'Playfair Display',serif;font-size:26px;font-weight:800;color:var(--navy);margin-bottom:4px;">BluWav Ripple</div>
+      <div style="font-size:13px;color:var(--slate);margin-bottom:16px;font-style:italic;">Get visible fast.</div>
+      <div style="font-family:'Sora',sans-serif;font-size:40px;font-weight:900;color:var(--navy);letter-spacing:-1px;line-height:1;margin-bottom:4px;">$800</div>
+      <div style="font-size:13px;color:var(--slate);margin-bottom:20px;">– $1,499</div>
+      <div style="font-size:13px;color:var(--slate);margin-bottom:20px;background:rgba(28,163,236,0.05);border-radius:8px;padding:10px;">Perfect for micro-businesses, side hustles, sole traders.</div>
+      <div style="display:flex;flex-direction:column;gap:8px;text-align:left;margin-bottom:24px;font-size:13px;color:var(--dark);">
+        <div><span style="color:var(--cyan);font-weight:800;">✓</span> 1-page website</div>
+        <div><span style="color:var(--cyan);font-weight:800;">✓</span> AI-assisted build + human refinement</div>
+        <div><span style="color:var(--cyan);font-weight:800;">✓</span> Mobile-ready layout</div>
+        <div><span style="color:var(--cyan);font-weight:800;">✓</span> Basic Google setup</div>
+        <div><span style="color:var(--cyan);font-weight:800;">✓</span> Basic contact form</div>
+        <div><span style="color:var(--cyan);font-weight:800;">✓</span> 48-hour delivery</div>
+        <div style="color:#ccc;"><span>✗</span> CRM · Automation · Local SEO</div>
+      </div>
+      <a href="index.html#contact" style="display:block;background:var(--navy);color:#fff;font-size:14px;font-weight:700;padding:13px 20px;border-radius:10px;text-align:center;">Get Started →</a>
+    </div>
+
+    <!-- Current (Featured) -->
+    <div class="pricing-card featured" style="transform:scale(1.03);">
+      <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--coral),var(--gold));color:#fff;font-size:11px;font-weight:800;padding:5px 18px;border-radius:20px;white-space:nowrap;">⭐ Most Popular</div>
+      <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--gold);margin-bottom:8px;margin-top:8px;">Growth</div>
+      <div style="font-family:'Playfair Display',serif;font-size:26px;font-weight:800;color:#fff;margin-bottom:4px;">BluWav Current</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.65);margin-bottom:16px;font-style:italic;">Get more customers.</div>
+      <div style="font-family:'Sora',sans-serif;font-size:40px;font-weight:900;color:var(--gold);letter-spacing:-1px;line-height:1;margin-bottom:4px;">$1,500</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:20px;">– $2,499</div>
+      <div style="display:flex;flex-direction:column;gap:8px;text-align:left;margin-bottom:24px;font-size:13px;color:rgba(255,255,255,0.85);">
+        <div><span style="color:var(--gold);font-weight:800;">✓</span> Everything in Ripple</div>
+        <div><span style="color:var(--gold);font-weight:800;">✓</span> 5-page website</div>
+        <div><span style="color:var(--gold);font-weight:800;">✓</span> Caribbean-specific messaging</div>
+        <div><span style="color:var(--gold);font-weight:800;">✓</span> Google Maps + Local SEO</div>
+        <div><span style="color:var(--gold);font-weight:800;">✓</span> CRM setup (free $99 setup fee)</div>
+        <div><span style="color:var(--gold);font-weight:800;">✓</span> Basic automation (email + WhatsApp)</div>
+        <div><span style="color:var(--gold);font-weight:800;">✓</span> Review system setup</div>
+        <div><span style="color:var(--gold);font-weight:800;">✓</span> 48-hour delivery · 14-day support</div>
+      </div>
+      <a href="index.html#contact" style="display:block;background:var(--gold);color:var(--navy);font-size:14px;font-weight:800;padding:13px 20px;border-radius:10px;text-align:center;">Get Started →</a>
+    </div>
+
+    <!-- Surge -->
+    <div class="pricing-card surge">
+      <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--gold);margin-bottom:8px;">Full Transformation</div>
+      <div style="font-family:'Playfair Display',serif;font-size:26px;font-weight:800;color:#fff;margin-bottom:4px;">BluWav Surge</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.65);margin-bottom:16px;font-style:italic;">Dominate your market.</div>
+      <div style="font-family:'Sora',sans-serif;font-size:40px;font-weight:900;color:var(--gold);letter-spacing:-1px;line-height:1;margin-bottom:4px;">$2,500+</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:20px;">Setup + Monthly Plan</div>
+      <div style="display:flex;flex-direction:column;gap:8px;text-align:left;margin-bottom:24px;font-size:13px;color:rgba(255,255,255,0.85);">
+        <div><span style="color:var(--gold);font-weight:800;">✓</span> Everything in Current</div>
+        <div><span style="color:var(--gold);font-weight:800;">✓</span> Advanced CRM automation + lead scoring</div>
+        <div><span style="color:var(--gold);font-weight:800;">✓</span> Multi-step workflows + review automation</div>
+        <div><span style="color:var(--gold);font-weight:800;">✓</span> Monthly reporting dashboard</div>
+        <div><span style="color:var(--gold);font-weight:800;">✓</span> Social media integration</div>
+        <div><span style="color:var(--gold);font-weight:800;">✓</span> Priority support + quarterly audit</div>
+      </div>
+      <a href="index.html#contact" style="display:block;background:var(--gold);color:#0A3D62;font-size:14px;font-weight:800;padding:13px 20px;border-radius:10px;text-align:center;">Let us Talk →</a>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section class="section-light" id="compare">
+<div class="wrap" style="text-align:center;">
+  <span class="eyebrow">Compare</span>
+  <h2 class="h2">CRM vs Growth Systems</h2>
+  <p class="lead" style="margin:0 auto 48px;">CRM is your entry point. Growth Systems are the full solution.</p>
+
+  <div style="overflow-x:auto;">
+  <table class="compare-table">
+    <thead>
+      <tr style="background:var(--sand);">
+        <th style="color:var(--navy);width:30%;">Feature</th>
+        <th style="color:var(--cyan);text-align:center;">BluWav CRM<br/><span style="font-size:11px;font-weight:400;color:var(--slate);">$29/month</span></th>
+        <th style="color:var(--navy);text-align:center;">Ripple<br/><span style="font-size:11px;font-weight:400;color:var(--slate);">$800–$1,499</span></th>
+        <th style="color:var(--cyan);text-align:center;">Current<br/><span style="font-size:11px;font-weight:400;color:var(--slate);">$1,500–$2,499</span></th>
+        <th style="color:var(--gold);text-align:center;">Surge<br/><span style="font-size:11px;font-weight:400;color:var(--slate);">$2,500+</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Website included</td><td style="text-align:center;"><span class="cross">—</span></td><td style="text-align:center;"><span class="check">✓</span> 1 page</td><td style="text-align:center;"><span class="check">✓</span> 5 pages</td><td style="text-align:center;"><span class="check">✓</span> Full</td></tr>
+      <tr><td>CRM included</td><td style="text-align:center;"><span class="check">✓</span></td><td style="text-align:center;"><span class="cross">—</span></td><td style="text-align:center;"><span class="check">✓</span></td><td style="text-align:center;"><span class="check">✓</span></td></tr>
+      <tr><td>Automation</td><td style="text-align:center;"><span class="partial">Basic</span></td><td style="text-align:center;"><span class="cross">—</span></td><td style="text-align:center;"><span class="partial">Email + WhatsApp</span></td><td style="text-align:center;"><span class="check">Advanced</span></td></tr>
+      <tr><td>Setup fee</td><td style="text-align:center;">$99 one-time</td><td style="text-align:center;"><span class="cross">—</span></td><td style="text-align:center;"><span class="check">Free</span></td><td style="text-align:center;"><span class="check">Free</span></td></tr>
+      <tr><td>Google / Local SEO</td><td style="text-align:center;"><span class="cross">—</span></td><td style="text-align:center;"><span class="partial">Basic</span></td><td style="text-align:center;"><span class="check">✓</span></td><td style="text-align:center;"><span class="check">✓</span></td></tr>
+      <tr><td>Support level</td><td style="text-align:center;">Email</td><td style="text-align:center;">Basic</td><td style="text-align:center;">14-day</td><td style="text-align:center;">Priority + Quarterly</td></tr>
+      <tr><td>Delivery timeline</td><td style="text-align:center;">Instant</td><td style="text-align:center;">48 hours</td><td style="text-align:center;">48 hours</td><td style="text-align:center;">48 hours</td></tr>
+      <tr><td>You own everything</td><td style="text-align:center;"><span class="check">✓</span></td><td style="text-align:center;"><span class="check">✓</span></td><td style="text-align:center;"><span class="check">✓</span></td><td style="text-align:center;"><span class="check">✓</span></td></tr>
+      <tr><td>Best for</td><td style="text-align:center;font-size:12px;">Businesses with a website needing CRM</td><td style="text-align:center;font-size:12px;">Micro-businesses getting started</td><td style="text-align:center;font-size:12px;">Growing businesses wanting full system</td><td style="text-align:center;font-size:12px;">Serious businesses wanting to dominate</td></tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section class="section-sand" id="faq">
+<div class="wrap">
+  <div style="text-align:center;margin-bottom:16px;">
+    <span class="eyebrow">FAQ</span>
+    <h2 class="h2">Got questions? We have answers.</h2>
+  </div>
+  <div style="margin-top:48px;max-width:700px;margin-left:auto;margin-right:auto;">
+  <h3 style="font-family:'Playfair Display',serif;font-size:26px;font-weight:800;color:var(--navy);text-align:center;margin-bottom:32px;">CRM — Frequently Asked Questions</h3>
+  <div style="display:flex;flex-direction:column;gap:0;">
+    <details style="border-bottom:1px solid var(--mist);padding:18px 0;" open>
+      <summary style="font-size:15px;font-weight:700;color:var(--navy);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;">Do I need a credit card to start the free trial?<span style="color:var(--coral);font-size:18px;margin-left:12px;">+</span></summary>
+      <p style="font-size:14px;color:var(--slate);line-height:1.7;margin-top:10px;">No. Your 7-day trial is completely free and does not require a credit card.</p>
+    </details>
+    <details style="border-bottom:1px solid var(--mist);padding:18px 0;">
+      <summary style="font-size:15px;font-weight:700;color:var(--navy);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;">What happens after my 7-day trial ends?<span style="color:var(--coral);font-size:18px;margin-left:12px;">+</span></summary>
+      <p style="font-size:14px;color:var(--slate);line-height:1.7;margin-top:10px;">You can continue using BluWav CRM for $29 USD/month. A $99 one-time setup fee will be applied at that time.</p>
+    </details>
+    <details style="border-bottom:1px solid var(--mist);padding:18px 0;">
+      <summary style="font-size:15px;font-weight:700;color:var(--navy);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;">Is the setup fee required for everyone?<span style="color:var(--coral);font-size:18px;margin-left:12px;">+</span></summary>
+      <p style="font-size:14px;color:var(--slate);line-height:1.7;margin-top:10px;">The setup fee applies to standalone CRM users. It is included free with any BluWav Growth package.</p>
+    </details>
+    <details style="border-bottom:1px solid var(--mist);padding:18px 0;">
+      <summary style="font-size:15px;font-weight:700;color:var(--navy);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;">What does the setup fee cover?<span style="color:var(--coral);font-size:18px;margin-left:12px;">+</span></summary>
+      <div style="font-size:14px;color:var(--slate);line-height:1.9;margin-top:10px;">Your $99 setup fee covers:<br/>– CRM configuration<br/>– Data import (if needed)<br/>– Custom fields<br/>– Pipeline setup<br/>– WhatsApp automation setup<br/>– Onboarding support</div>
+    </details>
+    <details style="border-bottom:1px solid var(--mist);padding:18px 0;">
+      <summary style="font-size:15px;font-weight:700;color:var(--navy);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;">Can I cancel anytime?<span style="color:var(--coral);font-size:18px;margin-left:12px;">+</span></summary>
+      <p style="font-size:14px;color:var(--slate);line-height:1.7;margin-top:10px;">Yes. There are no contracts and no long-term commitments.</p>
+    </details>
+    <details style="padding:18px 0;">
+      <summary style="font-size:15px;font-weight:700;color:var(--navy);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;">Is BluWav CRM built for Caribbean businesses?<span style="color:var(--coral);font-size:18px;margin-left:12px;">+</span></summary>
+      <p style="font-size:14px;color:var(--slate);line-height:1.7;margin-top:10px;">Yes. BluWav CRM is designed specifically for how Caribbean MSMEs operate — fast, simple, mobile-friendly, and built for real-world workflows.</p>
+    </details>
+  </div>
+</div>
+  <div style="margin-top:64px;"><div style="margin-top:48px;max-width:700px;margin-left:auto;margin-right:auto;">
+  <h3 style="font-family:'Playfair Display',serif;font-size:26px;font-weight:800;color:var(--navy);text-align:center;margin-bottom:32px;">Growth Systems — Frequently Asked Questions</h3>
+  <div style="display:flex;flex-direction:column;gap:0;">
+    <details style="border-bottom:1px solid var(--mist);padding:18px 0;" open>
+      <summary style="font-size:15px;font-weight:700;color:var(--navy);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;">How fast is delivery?<span style="color:var(--coral);font-size:18px;margin-left:12px;">+</span></summary>
+      <p style="font-size:14px;color:var(--slate);line-height:1.7;margin-top:10px;">Websites are delivered within 48 hours of project start. CRM setup is completed within the same window for Growth and Surge packages.</p>
+    </details>
+    <details style="border-bottom:1px solid var(--mist);padding:18px 0;">
+      <summary style="font-size:15px;font-weight:700;color:var(--navy);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;">Do I own my website?<span style="color:var(--coral);font-size:18px;margin-left:12px;">+</span></summary>
+      <p style="font-size:14px;color:var(--slate);line-height:1.7;margin-top:10px;">Yes. You own everything forever. A signed agreement is included with every project — your website, your content, your business.</p>
+    </details>
+    <details style="border-bottom:1px solid var(--mist);padding:18px 0;">
+      <summary style="font-size:15px;font-weight:700;color:var(--navy);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;">What support is included?<span style="color:var(--coral);font-size:18px;margin-left:12px;">+</span></summary>
+      <p style="font-size:14px;color:var(--slate);line-height:1.7;margin-top:10px;">Ripple includes basic support. Current includes 14-day post-launch support. Surge includes priority support and quarterly audits.</p>
+    </details>
+    <details style="border-bottom:1px solid var(--mist);padding:18px 0;">
+      <summary style="font-size:15px;font-weight:700;color:var(--navy);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;">Is CRM included in Growth packages?<span style="color:var(--coral);font-size:18px;margin-left:12px;">+</span></summary>
+      <p style="font-size:14px;color:var(--slate);line-height:1.7;margin-top:10px;">Yes. BluWav Current and Surge both include CRM setup. The $99 setup fee is waived for all Growth package clients.</p>
+    </details>
+    <details style="padding:18px 0;">
+      <summary style="font-size:15px;font-weight:700;color:var(--navy);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;">Can I upgrade my package later?<span style="color:var(--coral);font-size:18px;margin-left:12px;">+</span></summary>
+      <p style="font-size:14px;color:var(--slate);line-height:1.7;margin-top:10px;">Absolutely. You can start with Ripple and upgrade to Current or Surge at any time. We make the transition seamless.</p>
+    </details>
+  </div>
+</div></div>
+</div>
+</section>
+
+<!-- CTA -->
+<section style="background:linear-gradient(135deg,var(--navy),#0d4d7a);padding:96px 0;text-align:center;position:relative;overflow:hidden;">
+  <div style="position:absolute;top:-100px;right:-100px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(255,85,0,0.15) 0%,transparent 70%);"></div>
+  <div class="wrap" style="position:relative;z-index:2;">
+    <span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;color:var(--gold);display:block;margin-bottom:16px;">Ready to Start?</span>
+    <h2 style="font-family:'Playfair Display',serif;font-size:44px;font-weight:800;color:#fff;line-height:1.15;margin-bottom:16px;">Start free. Grow fast.<br/><span style="background:linear-gradient(135deg,var(--coral),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Built for the Caribbean.</span></h2>
+    <p style="font-size:17px;color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:36px;max-width:520px;margin-left:auto;margin-right:auto;">No contracts. No hidden fees. You own everything forever.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="index.html#contact" style="background:var(--cyan);color:#fff;font-size:16px;font-weight:800;padding:16px 36px;border-radius:12px;box-shadow:0 4px 28px rgba(28,163,236,0.45);display:inline-block;">Start Free →</a>
+      <a href="index.html#contact" style="background:rgba(255,255,255,0.1);color:#fff;font-size:16px;font-weight:600;padding:16px 36px;border-radius:12px;border:1px solid rgba(255,255,255,0.25);display:inline-block;">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:#0A0A0C;padding:40px 0;border-top:1px solid rgba(28,163,236,0.15);">
+<div style="max-width:var(--max);margin:0 auto;padding:0 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;">
+  <div>
+    <div style="font-family:'Kaushan Script',cursive;font-size:22px;color:#fff;">Blu<span style="color:var(--cyan);">Wav</span> Growth</div>
+    <div style="font-size:11px;color:rgba(255,255,255,0.3);margin-top:4px;">Built for the Caribbean. Ready for growth.</div>
+  </div>
+  <div style="display:flex;gap:24px;">
+    <a href="index.html" style="font-size:13px;color:rgba(255,255,255,0.5);transition:color 0.2s;">Home</a>
+    <a href="crm.html" style="font-size:13px;color:rgba(255,255,255,0.5);">CRM</a>
+    <a href="our-promise.html" style="font-size:13px;color:rgba(255,255,255,0.5);">Our Promise</a>
+    <a href="index.html#contact" style="font-size:13px;color:rgba(255,255,255,0.5);">Contact</a>
+  </div>
+  <div style="font-size:12px;color:rgba(255,255,255,0.3);">© 2026 BluWav Growth · bluwavgrowth.com</div>
+</div>
+</footer>
+
+<a href="https://wa.me/18682979960" style="position:fixed;bottom:80px;right:24px;z-index:200;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 20px rgba(37,211,102,0.45);">💬</a>
+
+</body>
+</html>
