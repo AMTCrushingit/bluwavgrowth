@@ -371,12 +371,245 @@ footer{background:#0A1A2F;padding:60px 0 0;}
 }
 </style>
 </head>
-<body><div class="proof-item">🌍 Serving Every Caribbean Island</div>
+<body>
+<!-- BluWav Signature Wave -->
+<div class="bw-wave-wrap">
+  <!-- Wave 1: cyan, fast, moves left — clearly visible on both light and dark -->
+  <svg class="bw-wave-1" viewBox="0 0 1440 130" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,65 C120,20 240,110 360,65 C480,20 600,110 720,65 C840,20 960,110 1080,65 C1200,20 1320,110 1440,65 C1560,20 1680,110 1800,65 C1920,20 2040,110 2160,65 C2280,20 2400,110 2520,65 C2640,20 2760,110 2880,65 L2880,130 L0,130 Z" fill="#1CA3EC" opacity="0.25"/>
+  </svg>
+  <!-- Wave 2: white, slow, moves right — crosses wave 1, visible on dark backgrounds -->
+  <svg class="bw-wave-2" viewBox="0 0 1440 130" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,85 C120,45 240,120 360,80 C480,40 600,115 720,78 C840,42 960,118 1080,80 C1200,43 1320,116 1440,80 C1560,44 1680,118 1800,80 C1920,43 2040,116 2160,80 C2280,44 2400,118 2520,80 C2640,43 2760,116 2880,80 L2880,130 L0,130 Z" fill="#ffffff" opacity="0.12"/>
+  </svg>
+  <!-- Wave 3: coral accent, medium speed — adds depth and brand colour -->
+  <svg class="bw-wave-3" viewBox="0 0 1440 130" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,100 C180,70 360,125 540,95 C720,65 900,120 1080,92 C1260,64 1440,118 1440,95 C1620,72 1800,122 1980,95 C2160,68 2340,120 2520,95 C2700,70 2880,120 2880,95 L2880,130 L0,130 Z" fill="#FF5500" opacity="0.08"/>
+  </svg>
+</div>
+
+<nav id="mainNav">
+<div class="nav-logo">
+<div style="font-family:'Kaushan Script',cursive;font-size:24px;line-height:1;color:var(--navy);">Blu<span style="color:var(--cyan);">Wav</span> <span style="font-family:'Kaushan Script',cursive;font-size:24px;color:var(--navy);">Growth</span></div>
+<div style="font-size:8px;font-weight:400;color:var(--cyan);letter-spacing:1px;line-height:1.4;margin-top:2px;">Empowering Caribbean businesses to grow digitally</div>
+</div>
+<div class="nav-links">
+<a class="nav-link" href="#how-it-works">How It Works</a>
+    <a class="nav-link" href="our-promise.html">Our Promise</a>
+<a class="nav-link" href="#services">Services</a>
+<a class="nav-link" href="#pricing">Pricing</a>
+<a class="nav-link" href="#contact">Contact</a>
+<a href="crm.html" style="display:inline-flex;align-items:center;gap:6px;background:var(--navy);color:#fff;font-size:13px;font-weight:700;padding:8px 18px;border-radius:8px;text-decoration:none;">📊 BluWav CRM</a>
+<a class="nav-cta" href="#health-check">Free Health Check</a>
+</div>
+<div class="hamburger" onclick="toggleMob()"><span></span><span></span><span></span></div>
+</nav>
+<div class="mob-nav" id="mobNav">
+<a class="mob-link" href="#how-it-works" onclick="toggleMob()">How It Works</a>
+  <a class="mob-link" href="our-promise.html" onclick="toggleMob()">Our Promise</a>
+<a class="mob-link" href="#services" onclick="toggleMob()">Services</a>
+<a class="mob-link" href="#health-check" onclick="toggleMob()">Free Health Check</a>
+<a class="mob-link" href="#pricing" onclick="toggleMob()">Pricing</a>
+<a class="mob-link" href="#contact" onclick="toggleMob()">Contact</a>
+<a class="mob-cta" href="#health-check" onclick="toggleMob()">Get Free Health Check</a>
+</div>
+<!-- HERO -->
+<section class="hero" id="home">
+<div class="hero-inner">
+<div style="background:rgba(8,28,56,0.58);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:28px;padding:52px 56px;border:1px solid rgba(255,255,255,0.15);box-shadow:0 32px 80px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.12);">
+<div style="margin-bottom:20px;">
+<svg width="110" height="72" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:8px;display:block;" class="hero-anim-1">
+<style>
+@keyframes bub1{0%,100%{transform:translateY(0);opacity:0.8;}50%{transform:translateY(-6px);opacity:0.3;}}
+@keyframes bub2{0%,100%{transform:translateY(0);opacity:0.7;}50%{transform:translateY(-9px);opacity:0.2;}}
+@keyframes bub3{0%,100%{transform:translateY(0);opacity:0.5;}50%{transform:translateY(-5px);opacity:0.15;}}
+@keyframes bub4{0%,100%{transform:translateY(0);opacity:0.4;}50%{transform:translateY(-7px);opacity:0.1;}}
+@keyframes wv1{
+  0%,100%{d:path("M 10 42 Q 30 28 50 38 Q 70 48 90 34 Q 105 24 118 30");}
+  25%{d:path("M 10 38 Q 30 32 50 42 Q 70 44 90 38 Q 105 28 118 34");}
+  50%{d:path("M 10 44 Q 30 24 50 34 Q 70 52 90 30 Q 105 20 118 26");}
+  75%{d:path("M 10 40 Q 30 30 50 40 Q 70 46 90 36 Q 105 26 118 32");}
+}
+@keyframes wv2{
+  0%,100%{d:path("M 10 56 Q 30 42 50 52 Q 70 62 90 48 Q 105 38 118 44");}
+  25%{d:path("M 10 60 Q 30 46 50 48 Q 70 58 90 52 Q 105 42 118 48");}
+  50%{d:path("M 10 54 Q 30 38 50 56 Q 70 66 90 44 Q 105 34 118 40");}
+  75%{d:path("M 10 58 Q 30 44 50 50 Q 70 60 90 50 Q 105 40 118 46");}
+}
+@keyframes wv3{
+  0%,100%{d:path("M 10 68 Q 35 58 55 64 Q 75 70 95 60 Q 108 54 118 58");opacity:0.6;}
+  33%{d:path("M 10 70 Q 35 62 55 60 Q 75 66 95 64 Q 108 58 118 62");opacity:0.35;}
+  66%{d:path("M 10 66 Q 35 54 55 68 Q 75 74 95 56 Q 108 50 118 54");opacity:0.7;}
+}
+@keyframes spl{
+  0%,100%{d:path("M 18 32 Q 22 10 30 8 Q 26 18 32 16 Q 28 24 36 22");}
+  50%{d:path("M 18 30 Q 24 6 32 5 Q 27 16 34 14 Q 29 22 38 20");}
+}
+</style>
+<circle cx="8" cy="28" r="3.5" fill="#1CA3EC" style="animation:bub1 2.4s ease-in-out infinite;transform-origin:8px 28px;"/>
+<circle cx="16" cy="18" r="2.5" fill="#F7C873" style="animation:bub2 3.1s ease-in-out infinite 0.4s;transform-origin:16px 18px;"/>
+<circle cx="4" cy="16" r="2" fill="#1CA3EC" style="animation:bub3 2.8s ease-in-out infinite 0.8s;transform-origin:4px 16px;"/>
+<circle cx="22" cy="12" r="1.8" fill="#F7C873" style="animation:bub4 3.5s ease-in-out infinite 1.2s;transform-origin:22px 12px;"/>
+<path d="M 18 32 Q 22 10 30 8 Q 26 18 32 16 Q 28 24 36 22" stroke="#1CA3EC" stroke-width="3" stroke-linecap="round" fill="none" style="animation:spl 3s ease-in-out infinite;"/>
+<path d="M 10 42 Q 30 28 50 38 Q 70 48 90 34 Q 105 24 118 30" stroke="#1CA3EC" stroke-width="5" stroke-linecap="round" fill="none" style="animation:wv1 3.5s ease-in-out infinite;"/>
+<path d="M 10 56 Q 30 42 50 52 Q 70 62 90 48 Q 105 38 118 44" stroke="#fff" stroke-width="5" stroke-linecap="round" fill="none" style="animation:wv2 4s ease-in-out infinite 0.6s;"/>
+<path d="M 10 68 Q 35 58 55 64 Q 75 70 95 60 Q 108 54 118 58" stroke="#F7C873" stroke-width="3" stroke-linecap="round" fill="none" style="animation:wv3 4.5s ease-in-out infinite 1s;"/>
+</svg>
+<div class="hero-logo-name hero-anim-1">Blu<span style="color:var(--cyan);">Wav</span></div>
+<div class="hero-logo-sub" style="display:flex;align-items:center;justify-content:center;gap:12px;font-size:11px;font-weight:700;color:#fff;letter-spacing:6px;text-transform:uppercase;margin-bottom:24px;"><span style="display:block;width:40px;height:1px;background:rgba(247,200,115,0.6);"></span><span style="font-size:12px;font-weight:700;color:#F7C873;letter-spacing:8px;text-transform:uppercase;">GROWTH</span><span style="display:block;width:40px;height:1px;background:rgba(247,200,115,0.6);"></span></div>
+</div>
+
+<h1 class="hero-h1 hero-anim-3">Get More Customers Online —<br/><span class="gold">With a System Built for Growth.</span></h1>
+<p style="font-size:13px;font-weight:600;color:rgba(255,255,255,0.5);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;" class="hero-anim-4">Built for the Caribbean. Ready for growth.</p>
+<p class="hero-services hero-anim-4">🖥️ Websites  |  🔍 Visibility  |  💬 CRM  |  ⚙️ Automation  |  📈 Growth Systems</p>
+<div class="hero-price hero-anim-5" style="font-size:15px;font-weight:500;font-style:italic;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.9);">Caribbean-ready websites, Google visibility, CRM and automation — delivered fast and built for real business growth.</div>
+<div class="hero-trust hero-anim-6">
+<div class="hero-trust-item"><div class="hero-trust-check">✓</div>5+ years Caribbean experience &nbsp;·&nbsp; 50+ businesses served</div>
+<div class="hero-trust-item"><div class="hero-trust-check">✓</div>Signed agreement on every project — your website is yours forever</div>
+</div>
+<div class="hero-btns hero-anim-7">
+<a class="btn-coral" href="#health-check">🩺 Get Your Free Online Health Check →</a>
+<a class="btn-wa" href="https://wa.me/18682979960">💬 WhatsApp Us</a>
+</div>
+</div>
+</div>
+</section>
+<!-- PROOF STRIP -->
+<div class="proof-strip">
+<div class="proof-inner">
+<div class="proof-item">🏆 5+ Years Caribbean Digital Experience</div>
+<div class="proof-item">🌍 Serving Every Caribbean Island</div>
 <div class="proof-item">⚡ 48-Hour Website Delivery</div>
 <div class="proof-item">💬 CRM Live Today</div>
 <div class="proof-item">🔒 You Own Your Website Forever</div>
 </div>
-</div></div>
+</div>
+
+<!-- RESULTS COUNTER -->
+<section style="background:#fff;padding:48px 0;border-bottom:1px solid #f3f4f6;" id="results">
+  <div class="wrap">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;max-width:900px;margin:0 auto;">
+      <div style="text-align:center;padding:24px 16px;background:var(--sand);border-radius:16px;border:1px solid var(--mist);">
+        <div id="cnt1" style="font-family:'Sora',sans-serif;font-size:48px;font-weight:900;background:linear-gradient(135deg,var(--coral),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;">50+</div>
+        <div style="font-size:16px;font-weight:700;color:var(--navy);margin-top:8px;">Businesses Served</div>
+        <div style="font-size:13px;color:var(--slate);margin-top:4px;">Across the Caribbean</div>
+      </div>
+      <div style="text-align:center;padding:24px 16px;background:var(--sand);border-radius:16px;border:1px solid var(--mist);">
+        <div id="cnt2" style="font-family:'Sora',sans-serif;font-size:48px;font-weight:900;background:linear-gradient(135deg,var(--navy),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;">48hrs</div>
+        <div style="font-size:16px;font-weight:700;color:var(--navy);margin-top:8px;">Average Delivery</div>
+        <div style="font-size:13px;color:var(--slate);margin-top:4px;">From brief to live website</div>
+      </div>
+      <div style="text-align:center;padding:24px 16px;background:var(--sand);border-radius:16px;border:1px solid var(--mist);">
+        <div id="cnt3" style="font-family:'Sora',sans-serif;font-size:48px;font-weight:900;background:linear-gradient(135deg,var(--coral),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;">5+yrs</div>
+        <div style="font-size:16px;font-weight:700;color:var(--navy);margin-top:8px;">Caribbean Experience</div>
+        <div style="font-size:13px;color:var(--slate);margin-top:4px;">Digital expertise locally</div>
+      </div>
+      <div style="text-align:center;padding:24px 16px;background:var(--sand);border-radius:16px;border:1px solid var(--mist);">
+        <div id="cnt4" style="font-family:'Sora',sans-serif;font-size:48px;font-weight:900;background:linear-gradient(135deg,var(--navy),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;">100%</div>
+        <div style="font-size:16px;font-weight:700;color:var(--navy);margin-top:8px;">You Own Your Site</div>
+        <div style="font-size:13px;color:var(--slate);margin-top:4px;">No lock-in. Ever.</div>
+      </div>
+    </div>
+  </div>
+  <script>
+  (function(){
+    var targets = [{id:'cnt1',end:50,suffix:'+'},{id:'cnt2',end:48,suffix:'hrs'},{id:'cnt3',end:5,suffix:'+yrs'},{id:'cnt4',end:100,suffix:'%'}];
+    var done = false;
+    function runCounters(){
+      if(done) return; done = true;
+      targets.forEach(function(t){
+        var el = document.getElementById(t.id);
+        if(!el) return;
+        var i = 0;
+        var timer = setInterval(function(){
+          i++;
+          el.textContent = Math.floor((i/60)*t.end) + t.suffix;
+          if(i>=60){clearInterval(timer);el.textContent=t.end+t.suffix;}
+        },30);
+      });
+    }
+    window.addEventListener('scroll',function(){
+      var el=document.getElementById('results');
+      if(!el) return;
+      if(el.getBoundingClientRect().top < window.innerHeight) runCounters();
+    });
+    setTimeout(function(){
+      var el=document.getElementById('results');
+      if(el && el.getBoundingClientRect().top < window.innerHeight) runCounters();
+    },800);
+  })();
+  </script>
+</section>
+
+
+<!-- PROBLEM — Navy -->
+<section id="problem" style="background:var(--navy);padding:100px 0;">
+<div class="wrap">
+<span class="eyebrow" style="color:var(--gold);">The Real Problem</span>
+<h2 style="font-family:'Playfair Display',serif;font-size:44px;font-weight:800;color:#fff;line-height:1.15;letter-spacing:-0.3px;margin-bottom:16px;">Caribbean customers search online<br/>before choosing a business.</h2>
+<p style="font-size:17px;color:rgba(255,255,255,0.55);line-height:1.75;max-width:600px;margin-bottom:52px;">If your business is not showing up on Google, a competitor is getting that customer instead — every single day.</p>
+<div class="problem-cards">
+<div class="pcard reveal delay-1"><div class="pcard-icon">😔</div><div class="pcard-title">Not Showing Up on Google</div><div class="pcard-text">Your competitors are getting the customers you should be getting — simply because they show up and you do not.</div></div>
+<div class="pcard reveal delay-2"><div class="pcard-icon">📵</div><div class="pcard-title">Outdated or No Website</div><div class="pcard-text">A bad website is worse than no website. Customers judge your business in 3 seconds — make it count.</div></div>
+<div class="pcard reveal delay-3"><div class="pcard-icon">📉</div><div class="pcard-title">Missing Calls and Enquiries Daily</div><div class="pcard-text">Every day without a proper digital presence is revenue walking out the door to your competition.</div></div>
+</div>
+</div>
+</section>
+<!-- HOW IT WORKS — White, two-column with vertical timeline -->
+<section id="how-it-works" style="background:#fff;padding:100px 0;">
+<div class="wrap">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;">
+<div>
+<span class="eyebrow">How It Works</span>
+<h2 class="h2">Three Simple Steps.<br/>Real Results.<br/>No Tech Skills Needed.</h2>
+<p class="lead">We handle everything — you focus on running your business. From first conversation to live website in as little as 48 hours.</p>
+<div style="margin-top:32px;"><a class="btn-coral" href="#health-check">Start with Free Health Check →</a></div>
+</div>
+<div class="timeline">
+<div class="timeline-item">
+<div class="timeline-left"><div class="timeline-circle tc-1">1</div><div class="timeline-line"></div></div>
+<div class="timeline-content">
+<div class="timeline-title">We Improve Your Visibility</div>
+<div class="timeline-text">We set up and optimize your Google Business Profile so your business appears on Google Search and Google Maps — locally and across the Caribbean.</div>
+<span class="timeline-tag tt-1">🔍 Google Search + Maps</span>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-left"><div class="timeline-circle tc-2">2</div><div class="timeline-line"></div></div>
+<div class="timeline-content">
+<div class="timeline-title">We Build or Upgrade Your Website</div>
+<div class="timeline-text">A clean, modern, mobile-first website designed to convert visitors into real enquiries — delivered in 48-72 hours. No tech knowledge needed from you.</div>
+<span class="timeline-tag tt-2">🖥️ Website + Mobile Design</span>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-left"><div class="timeline-circle tc-3">3</div><div class="timeline-line"></div></div>
+<div class="timeline-content">
+<div class="timeline-title">We Turn Visitors Into Leads</div>
+<div class="timeline-text">We add WhatsApp buttons, contact forms, and clear calls-to-action so customers can reach you instantly. Your BluWav CRM tracks every lead automatically.</div>
+<span class="timeline-tag tt-3">💬 WhatsApp + Lead Capture</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- BLUWAV PROCESS -->
+<section style="background:var(--navy);padding:100px 0;overflow:hidden;" id="process">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:64px;">
+      <span class="eyebrow reveal" style="color:var(--gold);text-align:center;display:block;">Our Process</span>
+      <h2 style="font-family:'Playfair Display',serif;font-size:44px;font-weight:800;color:#fff;line-height:1.15;letter-spacing:-0.3px;margin-bottom:16px;text-align:center;" class="reveal">The BluWav Way.</h2>
+      <p style="font-size:17px;color:rgba(255,255,255,0.55);line-height:1.75;max-width:560px;margin:0 auto;" class="reveal">Five simple steps from first conversation to growing business. No surprises. No delays.</p>
+    </div>
+
+    <!-- Process steps -->
+    <div style="position:relative;">
+      <!-- Animated connecting wave line -->
+      <div style="position:absolute;top:52px;left:10%;right:10%;height:4px;z-index:0;overflow:hidden;border-radius:2px;">
+        <div style="height:100%;background:linear-gradient(90deg,var(--cyan),var(--coral),var(--gold),var(--cyan));background-size:200% 100%;animation:gradientFlow 3s linear infinite;border-radius:2px;"></div>
+      </div>
 
       <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:20px;position:relative;z-index:1;">
 
