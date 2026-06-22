@@ -179,60 +179,39 @@ footer{background:#060a14;padding:40px 28px 24px;border-top:1px solid rgba(255,2
 100%{transform:translateX(0);}}
 100%{transform:translateX(-50%);}}
 100%{transform:translateX(0);}}
+100%{transform:translateX(-50%);}}
+100%{transform:translateX(0);}}
+100%{transform:translateX(-50%);}}
 /* ── BluWav Signature Wave ── */
 @keyframes bwWave1{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
 @keyframes bwWave2{0%{transform:translateX(-50%);}100%{transform:translateX(0);}}
 @keyframes bwWave3{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
 .bw-wave-wrap{
   position:fixed;
-  bottom:0;
+  bottom:10vh;
   left:0;
   right:0;
-  height:22vh;
+  height:12vh;
   z-index:0;
   pointer-events:none;
-  overflow:hidden;
+  overflow:visible;
 }
-.bw-wave-1{
-  position:absolute;
-  bottom:0;
-  left:0;
-  width:200%;
-  height:100%;
-  animation:bwWave1 8s linear infinite;
-}
-.bw-wave-2{
-  position:absolute;
-  bottom:0;
-  left:0;
-  width:200%;
-  height:100%;
-  animation:bwWave2 20s linear infinite;
-}
-.bw-wave-3{
-  position:absolute;
-  bottom:0;
-  left:0;
-  width:200%;
-  height:100%;
-  animation:bwWave3 14s linear infinite;
-}
+.bw-wave-1{position:absolute;bottom:0;left:0;width:200%;height:100%;animation:bwWave1 8s linear infinite;}
+.bw-wave-2{position:absolute;bottom:0;left:0;width:200%;height:100%;animation:bwWave2 20s linear infinite;}
+.bw-wave-3{position:absolute;bottom:0;left:0;width:200%;height:100%;animation:bwWave3 14s linear infinite;}
 </style>
 </head>
 <body>
 <!-- BluWav Signature Wave -->
 <div class="bw-wave-wrap">
-  <!-- Wave 1: cyan, fast, moves left — clearly visible on both light and dark -->
-  <svg class="bw-wave-1" viewBox="0 0 1440 130" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,65 C120,20 240,110 360,65 C480,20 600,110 720,65 C840,20 960,110 1080,65 C1200,20 1320,110 1440,65 C1560,20 1680,110 1800,65 C1920,20 2040,110 2160,65 C2280,20 2400,110 2520,65 C2640,20 2760,110 2880,65 L2880,130 L0,130 Z" fill="#1CA3EC" opacity="0.25"/>
+  <svg class="bw-wave-1" viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,40 C120,10 240,70 360,40 C480,10 600,70 720,40 C840,10 960,70 1080,40 C1200,10 1320,70 1440,40 C1560,10 1680,70 1800,40 C1920,10 2040,70 2160,40 C2280,10 2400,70 2520,40 C2640,10 2760,70 2880,40 L2880,80 L0,80 Z" fill="#1CA3EC" opacity="0.22"/>
   </svg>
-  <!-- Wave 2: white, slow, moves right — crosses wave 1, visible on dark backgrounds -->
-  <svg class="bw-wave-2" viewBox="0 0 1440 130" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,85 C120,45 240,120 360,80 C480,40 600,115 720,78 C840,42 960,118 1080,80 C1200,43 1320,116 1440,80 C1560,44 1680,118 1800,80 C1920,43 2040,116 2160,80 C2280,44 2400,118 2520,80 C2640,43 2760,116 2880,80 L2880,130 L0,130 Z" fill="#ffffff" opacity="0.12"/>
+  <svg class="bw-wave-2" viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,55 C120,25 240,75 360,50 C480,25 600,75 720,50 C840,25 960,75 1080,50 C1200,25 1320,75 1440,50 C1560,25 1680,75 1800,50 C1920,25 2040,75 2160,50 C2280,25 2400,75 2520,50 C2640,25 2760,75 2880,50 L2880,80 L0,80 Z" fill="#ffffff" opacity="0.10"/>
   </svg>
-  <!-- Wave 3: coral accent, medium speed — adds depth and brand colour -->
-  <svg class="bw-wave-3" viewBox="0 0 1440 130" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,100 C180,70 360,125 540,95 C720,65 900,120 1080,92 C1260,64 1440,118 1440,95 C1620,72 1800,122 1980,95 C2160,68 2340,120 2520,95 C2700,70 2880,120 2880,95 L2880,130 L0,130 Z" fill="#FF5500" opacity="0.08"/>
+  <svg class="bw-wave-3" viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,65 C180,40 360,75 540,55 C720,35 900,72 1080,52 C1260,32 1440,70 1440,52 C1620,34 1800,70 1980,52 C2160,34 2340,70 2520,52 C2700,34 2880,70 2880,52 L2880,80 L0,80 Z" fill="#FF5500" opacity="0.07"/>
   </svg>
 </div>
 

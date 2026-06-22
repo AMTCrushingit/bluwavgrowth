@@ -163,60 +163,39 @@ footer{background:#0A0A0C;padding:40px 0;border-top:1px solid rgba(28,163,236,0.
 100%{transform:translateX(0);}}
 100%{transform:translateX(-50%);}}
 100%{transform:translateX(0);}}
+100%{transform:translateX(-50%);}}
+100%{transform:translateX(0);}}
+100%{transform:translateX(-50%);}}
 /* ── BluWav Signature Wave ── */
 @keyframes bwWave1{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
 @keyframes bwWave2{0%{transform:translateX(-50%);}100%{transform:translateX(0);}}
 @keyframes bwWave3{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
 .bw-wave-wrap{
   position:fixed;
-  bottom:0;
+  bottom:10vh;
   left:0;
   right:0;
-  height:22vh;
+  height:12vh;
   z-index:0;
   pointer-events:none;
-  overflow:hidden;
+  overflow:visible;
 }
-.bw-wave-1{
-  position:absolute;
-  bottom:0;
-  left:0;
-  width:200%;
-  height:100%;
-  animation:bwWave1 8s linear infinite;
-}
-.bw-wave-2{
-  position:absolute;
-  bottom:0;
-  left:0;
-  width:200%;
-  height:100%;
-  animation:bwWave2 20s linear infinite;
-}
-.bw-wave-3{
-  position:absolute;
-  bottom:0;
-  left:0;
-  width:200%;
-  height:100%;
-  animation:bwWave3 14s linear infinite;
-}
+.bw-wave-1{position:absolute;bottom:0;left:0;width:200%;height:100%;animation:bwWave1 8s linear infinite;}
+.bw-wave-2{position:absolute;bottom:0;left:0;width:200%;height:100%;animation:bwWave2 20s linear infinite;}
+.bw-wave-3{position:absolute;bottom:0;left:0;width:200%;height:100%;animation:bwWave3 14s linear infinite;}
 </style>
 </head>
 <body>
 <!-- BluWav Signature Wave -->
 <div class="bw-wave-wrap">
-  <!-- Wave 1: cyan, fast, moves left — clearly visible on both light and dark -->
-  <svg class="bw-wave-1" viewBox="0 0 1440 130" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,65 C120,20 240,110 360,65 C480,20 600,110 720,65 C840,20 960,110 1080,65 C1200,20 1320,110 1440,65 C1560,20 1680,110 1800,65 C1920,20 2040,110 2160,65 C2280,20 2400,110 2520,65 C2640,20 2760,110 2880,65 L2880,130 L0,130 Z" fill="#1CA3EC" opacity="0.25"/>
+  <svg class="bw-wave-1" viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,40 C120,10 240,70 360,40 C480,10 600,70 720,40 C840,10 960,70 1080,40 C1200,10 1320,70 1440,40 C1560,10 1680,70 1800,40 C1920,10 2040,70 2160,40 C2280,10 2400,70 2520,40 C2640,10 2760,70 2880,40 L2880,80 L0,80 Z" fill="#1CA3EC" opacity="0.22"/>
   </svg>
-  <!-- Wave 2: white, slow, moves right — crosses wave 1, visible on dark backgrounds -->
-  <svg class="bw-wave-2" viewBox="0 0 1440 130" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,85 C120,45 240,120 360,80 C480,40 600,115 720,78 C840,42 960,118 1080,80 C1200,43 1320,116 1440,80 C1560,44 1680,118 1800,80 C1920,43 2040,116 2160,80 C2280,44 2400,118 2520,80 C2640,43 2760,116 2880,80 L2880,130 L0,130 Z" fill="#ffffff" opacity="0.12"/>
+  <svg class="bw-wave-2" viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,55 C120,25 240,75 360,50 C480,25 600,75 720,50 C840,25 960,75 1080,50 C1200,25 1320,75 1440,50 C1560,25 1680,75 1800,50 C1920,25 2040,75 2160,50 C2280,25 2400,75 2520,50 C2640,25 2760,75 2880,50 L2880,80 L0,80 Z" fill="#ffffff" opacity="0.10"/>
   </svg>
-  <!-- Wave 3: coral accent, medium speed — adds depth and brand colour -->
-  <svg class="bw-wave-3" viewBox="0 0 1440 130" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,100 C180,70 360,125 540,95 C720,65 900,120 1080,92 C1260,64 1440,118 1440,95 C1620,72 1800,122 1980,95 C2160,68 2340,120 2520,95 C2700,70 2880,120 2880,95 L2880,130 L0,130 Z" fill="#FF5500" opacity="0.08"/>
+  <svg class="bw-wave-3" viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,65 C180,40 360,75 540,55 C720,35 900,72 1080,52 C1260,32 1440,70 1440,52 C1620,34 1800,70 1980,52 C2160,34 2340,70 2520,52 C2700,34 2880,70 2880,52 L2880,80 L0,80 Z" fill="#FF5500" opacity="0.07"/>
   </svg>
 </div>
 
@@ -387,56 +366,61 @@ footer{background:#0A0A0C;padding:40px 0;border-top:1px solid rgba(28,163,236,0.
 <div style="max-width:1200px;margin:0 auto;padding:0 48px;text-align:center;">
   <span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;color:#1CA3EC;display:block;margin-bottom:12px;">Pricing</span>
   <h2 style="font-family:'Playfair Display',serif;font-size:42px;font-weight:800;color:#fff;line-height:1.15;letter-spacing:-0.5px;margin-bottom:12px;">Simple, honest pricing.</h2>
-  <p style="font-size:17px;color:rgba(240,240,242,0.65);margin-bottom:52px;max-width:480px;margin-left:auto;margin-right:auto;">One product. Two options. No hidden fees. Built for Caribbean businesses.</p>
+  <p style="font-size:17px;color:rgba(240,240,242,0.65);margin-bottom:52px;max-width:480px;margin-left:auto;margin-right:auto;">One product. No hidden fees. Built for Caribbean businesses.</p>
 
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:720px;margin:0 auto 40px;">
+  <div style="max-width:520px;margin:0 auto 40px;">
+    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(28,163,236,0.25);border-radius:20px;padding:44px 40px;text-align:center;">
+      <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#1CA3EC;margin-bottom:12px;">BluWav CRM</div>
+      <div style="font-family:'Sora',sans-serif;font-size:60px;font-weight:900;color:#fff;letter-spacing:-2px;line-height:1;margin-bottom:4px;">$29</div>
+      <div style="font-size:14px;color:rgba(255,255,255,0.45);margin-bottom:24px;">USD / month</div>
 
-    <!-- Monthly -->
-    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(28,163,236,0.2);border-radius:20px;padding:40px 32px;text-align:left;transition:all 0.2s;position:relative;"
-         onmouseover="this.style.borderColor='rgba(28,163,236,0.5)';this.style.transform='translateY(-4px)';this.style.boxShadow='0 16px 48px rgba(28,163,236,0.1)'"
-         onmouseout="this.style.borderColor='rgba(28,163,236,0.2)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
-      <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#1CA3EC;margin-bottom:16px;">Monthly</div>
-      <div style="font-family:'Sora',sans-serif;font-size:56px;font-weight:900;color:#fff;letter-spacing:-2px;line-height:1;margin-bottom:4px;">$29</div>
-      <div style="font-size:14px;color:rgba(255,255,255,0.45);margin-bottom:28px;">USD / month</div>
-      <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:32px;">
-        <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(240,240,242,0.8);"><span style="color:#1CA3EC;font-weight:800;">✓</span> Contacts & Leads</div>
-        <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(240,240,242,0.8);"><span style="color:#1CA3EC;font-weight:800;">✓</span> Visual Pipeline</div>
-        <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(240,240,242,0.8);"><span style="color:#1CA3EC;font-weight:800;">✓</span> WhatsApp Automation</div>
-        <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(240,240,242,0.8);"><span style="color:#1CA3EC;font-weight:800;">✓</span> Dashboard & Reports</div>
-        <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(240,240,242,0.8);"><span style="color:#1CA3EC;font-weight:800;">✓</span> Multi-User Access</div>
+      <div style="background:rgba(28,163,236,0.1);border:1px solid rgba(28,163,236,0.25);border-radius:12px;padding:16px;margin-bottom:16px;">
+        <div style="font-size:15px;font-weight:800;color:#fff;margin-bottom:4px;">7-Day Free Trial — No credit card required</div>
+        <div style="font-size:13px;color:rgba(240,240,242,0.65);line-height:1.6;">Experience the full CRM with all features unlocked.</div>
       </div>
-      <a href="index.html#contact" style="display:block;background:rgba(28,163,236,0.15);color:#1CA3EC;font-size:15px;font-weight:700;padding:14px 20px;border-radius:11px;text-align:center;border:1px solid rgba(28,163,236,0.3);transition:all 0.2s;"
-         onmouseover="this.style.background='rgba(28,163,236,0.25)'"
-         onmouseout="this.style.background='rgba(28,163,236,0.15)'">Start Free →</a>
+
+      <div style="background:rgba(247,200,115,0.08);border:1px solid rgba(247,200,115,0.2);border-radius:10px;padding:12px 16px;margin-bottom:28px;font-size:13px;color:rgba(255,255,255,0.75);line-height:1.6;">
+        <strong style="color:#F7C873;">$99 one-time setup fee</strong> after trial<br/>
+        <span style="color:rgba(255,255,255,0.5);">Setup fee is included free with any BluWav Growth package.</span>
+      </div>
+
+      <a href="index.html#contact" style="display:block;background:#1CA3EC;color:#fff;font-size:16px;font-weight:800;padding:16px 24px;border-radius:12px;text-decoration:none;box-shadow:0 4px 28px rgba(28,163,236,0.45);margin-bottom:16px;transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 36px rgba(28,163,236,0.6)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 28px rgba(28,163,236,0.45)'">Start Free →</a>
+      <p style="font-size:13px;color:rgba(255,255,255,0.35);">No contracts. Cancel anytime. Built for Caribbean businesses.</p>
     </div>
-
-    <!-- Annual -->
-    <div style="background:linear-gradient(135deg,#0d1a2e,#0A3D62);border:1px solid rgba(247,200,115,0.3);border-radius:20px;padding:40px 32px;text-align:left;position:relative;overflow:hidden;box-shadow:0 8px 40px rgba(10,61,98,0.3);">
-      <div style="position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#FF5500,#F7C873);color:#fff;font-size:11px;font-weight:800;padding:5px 18px;border-radius:0 0 12px 12px;white-space:nowrap;letter-spacing:0.5px;">⭐ Best Value — 2 Months FREE</div>
-      <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#F7C873;margin-bottom:16px;margin-top:12px;">Annual</div>
-      <div style="font-family:'Sora',sans-serif;font-size:56px;font-weight:900;color:#F7C873;letter-spacing:-2px;line-height:1;margin-bottom:4px;">$290</div>
-      <div style="font-size:14px;color:rgba(255,255,255,0.5);margin-bottom:6px;">USD / year</div>
-      <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(247,200,115,0.12);border:1px solid rgba(247,200,115,0.25);border-radius:20px;padding:4px 12px;margin-bottom:22px;">
-        <span style="font-size:12px;font-weight:700;color:#F7C873;">Save $58 — that's 2 months free</span>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:32px;">
-        <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(255,255,255,0.85);"><span style="color:#F7C873;font-weight:800;">✓</span> Everything in Monthly</div>
-        <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(255,255,255,0.85);"><span style="color:#F7C873;font-weight:800;">✓</span> Priority Support</div>
-        <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(255,255,255,0.85);"><span style="color:#F7C873;font-weight:800;">✓</span> Save $58 USD annually</div>
-        <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(255,255,255,0.85);"><span style="color:#F7C873;font-weight:800;">✓</span> Quarterly check-in call</div>
-        <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(255,255,255,0.85);"><span style="color:#F7C873;font-weight:800;">✓</span> Multi-User Access</div>
-      </div>
-      <a href="index.html#contact" style="display:block;background:#F7C873;color:#0A3D62;font-size:15px;font-weight:800;padding:14px 20px;border-radius:11px;text-align:center;transition:all 0.2s;"
-         onmouseover="this.style.background='#f9d48a'"
-         onmouseout="this.style.background='#F7C873'">Start Annual — Save $58 →</a>
-    </div>
-
   </div>
 
-  <!-- Reassurance line -->
-  <p style="font-size:14px;color:rgba(255,255,255,0.4);margin-top:8px;">
-    No contracts. Cancel anytime. Built for Caribbean businesses.
-  </p>
+
+<!-- CRM FAQ -->
+<div style="margin-top:48px;max-width:700px;margin-left:auto;margin-right:auto;">
+  <h3 style="font-family:'Playfair Display',serif;font-size:26px;font-weight:800;color:#fff;text-align:center;margin-bottom:32px;">Frequently Asked Questions</h3>
+  <div style="display:flex;flex-direction:column;gap:0;">
+    <details style="border-bottom:1px solid rgba(255,255,255,0.1);padding:18px 0;" open>
+      <summary style="font-size:15px;font-weight:700;color:#fff;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;">Do I need a credit card to start the free trial? <span style="color:var(--coral);font-size:18px;">+</span></summary>
+      <p style="font-size:14px;color:rgba(240,240,242,0.7);line-height:1.7;margin-top:10px;">No. Your 7-day trial is completely free and does not require a credit card.</p>
+    </details>
+    <details style="border-bottom:1px solid rgba(255,255,255,0.1);padding:18px 0;">
+      <summary style="font-size:15px;font-weight:700;color:#fff;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;">What happens after my 7-day trial ends? <span style="color:var(--coral);font-size:18px;">+</span></summary>
+      <p style="font-size:14px;color:rgba(240,240,242,0.7);line-height:1.7;margin-top:10px;">You can continue using BluWav CRM for $29 USD/month. A $99 one-time setup fee will be applied at that time.</p>
+    </details>
+    <details style="border-bottom:1px solid rgba(255,255,255,0.1);padding:18px 0;">
+      <summary style="font-size:15px;font-weight:700;color:#fff;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;">Is the setup fee required for everyone? <span style="color:var(--coral);font-size:18px;">+</span></summary>
+      <p style="font-size:14px;color:rgba(240,240,242,0.7);line-height:1.7;margin-top:10px;">The setup fee applies to standalone CRM users. However, it is included free with any BluWav Growth package.</p>
+    </details>
+    <details style="border-bottom:1px solid rgba(255,255,255,0.1);padding:18px 0;">
+      <summary style="font-size:15px;font-weight:700;color:#fff;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;">What does the setup fee cover? <span style="color:var(--coral);font-size:18px;">+</span></summary>
+      <div style="font-size:14px;color:rgba(240,240,242,0.7);line-height:1.9;margin-top:10px;">Your $99 setup fee covers:<br/>– CRM configuration<br/>– Data import (if needed)<br/>– Custom fields<br/>– Pipeline setup<br/>– WhatsApp automation setup<br/>– Onboarding support</div>
+    </details>
+    <details style="border-bottom:1px solid rgba(255,255,255,0.1);padding:18px 0;">
+      <summary style="font-size:15px;font-weight:700;color:#fff;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;">Can I cancel anytime? <span style="color:var(--coral);font-size:18px;">+</span></summary>
+      <p style="font-size:14px;color:rgba(240,240,242,0.7);line-height:1.7;margin-top:10px;">Yes. There are no contracts and no long-term commitments.</p>
+    </details>
+    <details style="padding:18px 0;">
+      <summary style="font-size:15px;font-weight:700;color:#fff;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;">Is BluWav CRM really built for Caribbean businesses? <span style="color:var(--coral);font-size:18px;">+</span></summary>
+      <p style="font-size:14px;color:rgba(240,240,242,0.7);line-height:1.7;margin-top:10px;">Yes. BluWav CRM is designed specifically for how Caribbean MSMEs operate — fast, simple, mobile-friendly, and built for real-world workflows.</p>
+    </details>
+  </div>
+</div>
+
 </div>
 </section>
 
