@@ -99,6 +99,132 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 48px;d
   height:160px;
   animation:bwWave2 16s linear infinite;
 }
+
+/* ══════════════════════════════════════════
+   COMPREHENSIVE MOBILE RESPONSIVE FIX
+   ══════════════════════════════════════════ */
+@media(max-width:768px){
+  /* NAV */
+  nav{padding:0 16px !important;height:60px !important;}
+  .nav-links{display:none !important;}
+  .hamburger{display:flex !important;}
+  .wrap{padding:0 16px !important;}
+
+  /* HERO */
+  .hero{padding:90px 16px 60px !important;}
+  .hero-inner{padding:20px 0 !important;}
+  .hero-logo-name{font-size:48px !important;}
+  .hero-h1{font-size:28px !important;letter-spacing:-0.5px !important;}
+  .hero-tagline{font-size:15px !important;}
+  .hero-services{font-size:13px !important;}
+  .hero-btns{flex-direction:column !important;align-items:center !important;}
+  .hero-btns a{width:100% !important;text-align:center !important;box-sizing:border-box !important;}
+
+  /* TYPOGRAPHY */
+  .h2{font-size:26px !important;}
+  .lead{font-size:15px !important;}
+
+  /* ALL GRIDS → SINGLE COLUMN */
+  .problem-stats,
+  .problem-cards,
+  .pricing-grid,
+  .payment-grid,
+  .hc-pillars,
+  .hc-cta-grid,
+  .compare-grid,
+  .contact-grid,
+  .footer-grid,
+  .features-grid,
+  .who-grid,
+  .why-choose-grid,
+  .why-grid,
+  .service-row{
+    grid-template-columns:1fr !important;
+    gap:16px !important;
+  }
+
+  /* INLINE GRID OVERRIDES — target common patterns */
+  [style*="grid-template-columns:repeat(2"],[style*="grid-template-columns: repeat(2"],
+  [style*="grid-template-columns:repeat(3"],[style*="grid-template-columns: repeat(3"],
+  [style*="grid-template-columns:repeat(4"],[style*="grid-template-columns: repeat(4"],
+  [style*="grid-template-columns:1fr 1fr"],[style*="grid-template-columns: 1fr 1fr"],
+  [style*="grid-template-columns:2fr 1fr"],[style*="grid-template-columns: 2fr 1fr"],
+  [style*="grid-template-columns:1fr 2fr"],[style*="grid-template-columns: 1fr 2fr"]{
+    grid-template-columns:1fr !important;
+    gap:16px !important;
+  }
+
+  /* FLEX ROWS → COLUMN */
+  [style*="display:flex"][style*="gap"]:not(.hero-btns):not(.nav-links):not(.mob-nav):not(.proof-inner):not(.footer-bottom):not(.hero-trust):not(.hero-trust-item):not(.contact-info-item):not(.timeline-item):not(.why-point):not(.compare-item):not(.hc-item):not(.price-feature):not(.payment-step):not(.island-tag):not(.hero-feature):not(.proof-item):not(.footer-link):not(.wa-float):not(.sticky-bar):not(.nav-logo):not(.badge-dot):not(.hero-badge):not(.mockup-bar):not(.mockup-stats):not(.mockup-pipeline){
+    flex-wrap:wrap !important;
+  }
+
+  /* SPECIFIC SECTION FIXES */
+  /* Services section */
+  [style*="display:grid;grid-template-columns:1fr 1fr"],
+  [style*="display:grid;grid-template-columns:2fr 1fr"],
+  [style*="display:grid;grid-template-columns:1fr 2fr"]{
+    display:block !important;
+  }
+
+  /* Pricing cards */
+  .price-card{margin-bottom:16px !important;}
+  .pricing-grid [style*="transform:scale"]{transform:none !important;}
+
+  /* CRM mockup */
+  .hero-mockup{padding:16px !important;}
+  .mockup-stats{grid-template-columns:1fr 1fr !important;}
+  .mockup-pipeline{flex-wrap:wrap !important;gap:8px !important;}
+  .mockup-col{min-width:calc(50% - 4px) !important;}
+
+  /* Forms */
+  .form-row{grid-template-columns:1fr !important;}
+  .contact-grid{grid-template-columns:1fr !important;}
+
+  /* Footer */
+  .footer-grid{grid-template-columns:1fr !important;}
+  .footer-bottom{flex-direction:column !important;text-align:center !important;gap:8px !important;}
+
+  /* Comparison table */
+  .compare-table{font-size:11px !important;}
+  .compare-table th,.compare-table td{padding:8px 6px !important;}
+
+  /* CRM page */
+  .why-grid{grid-template-columns:1fr !important;}
+  .features-grid{grid-template-columns:1fr 1fr !important;}
+  .who-grid{grid-template-columns:1fr 1fr !important;}
+  .why-choose-grid{grid-template-columns:1fr !important;}
+
+  /* Padding reductions */
+  .pad{padding:60px 0 !important;}
+  section[style*="padding:96px"]{padding:60px 0 !important;}
+  section[style*="padding:100px"]{padding:60px 0 !important;}
+
+  /* Max widths */
+  [style*="max-width:700px"],[style*="max-width:720px"],[style*="max-width:800px"]{
+    max-width:100% !important;
+  }
+
+  /* CRM hero mockup hide on mobile */
+  .hero-mockup{display:none !important;}
+
+  /* Sticky bar */
+  .sticky-bar{flex-direction:column !important;gap:8px !important;padding:12px 16px !important;}
+  .sticky-bar-text{font-size:12px !important;text-align:center !important;}
+
+  /* Wave */
+  .bw-wave-wrap{height:100px !important;}
+}
+
+@media(max-width:480px){
+  .hero-h1{font-size:24px !important;}
+  .h2{font-size:22px !important;}
+  .features-grid{grid-template-columns:1fr !important;}
+  .who-grid{grid-template-columns:1fr !important;}
+  .mockup-pipeline{display:none !important;}
+  .hero-logo-name{font-size:40px !important;}
+}
+
 </style>
 </head>
 <body>
