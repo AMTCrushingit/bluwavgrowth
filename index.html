@@ -340,57 +340,49 @@ footer{background:#0A1A2F;padding:60px 0 0;}
 100%{transform:translateX(-50%);}}
 100%{transform:translateX(0);}}
 100%{transform:translateX(-50%);}}
+100%{transform:translateX(-50%);}}
+100%{transform:translateX(0);}}
 /* ── BluWav Signature Wave ── */
 @keyframes bwWave1{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
-@keyframes bwWave2{0%{transform:translateX(-50%);}100%{transform:translateX(0);}}
+@keyframes bwWave2{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
 .bw-wave-wrap{
   position:fixed;
   bottom:0;
-  left:-10%;
-  right:-10%;
-  height:18vh;
+  left:0;
+  right:0;
+  height:160px;
   z-index:0;
   pointer-events:none;
   overflow:visible;
 }
-.bw-wave-1{position:absolute;bottom:0;left:0;width:200%;height:100%;animation:bwWave1 10s linear infinite;}
-.bw-wave-2{position:absolute;bottom:0;left:0;width:200%;height:100%;animation:bwWave2 16s linear infinite;}
+.bw-wave-1{
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:200%;
+  height:160px;
+  animation:bwWave1 10s linear infinite;
+}
+.bw-wave-2{
+  position:absolute;
+  bottom:0;
+  left:-50%;
+  width:200%;
+  height:160px;
+  animation:bwWave2 16s linear infinite;
+}
 </style>
 </head>
 <body>
 <!-- BluWav Signature Wave -->
 <div class="bw-wave-wrap">
-  <!-- Wave 1: Cyan ribbon — sweeps high to low, moves left -->
-  <svg class="bw-wave-1" viewBox="0 0 2880 180" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="
-      M0,60
-      C240,10 480,110 720,60
-      C960,10 1200,110 1440,60
-      C1680,10 1920,110 2160,60
-      C2400,10 2640,110 2880,60
-      L2880,100
-      C2640,150 2400,50 2160,100
-      C1920,150 1680,50 1440,100
-      C1200,150 960,50 720,100
-      C480,150 240,50 0,100
-      Z
-    " fill="#1CA3EC" opacity="0.35"/>
+  <!-- Cyan ribbon: starts at position 0, moves left -->
+  <svg class="bw-wave-1" viewBox="0 0 2880 160" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,80 C180,20 360,120 540,70 C720,20 900,120 1080,70 C1260,20 1440,120 1620,70 C1800,20 1980,120 2160,70 C2340,20 2520,120 2700,70 C2790,45 2840,90 2880,70 L2880,160 L0,160 Z" fill="#1CA3EC" opacity="0.40"/>
   </svg>
-  <!-- Wave 2: Navy ribbon — sweeps low to high, moves right (crosses wave 1) -->
-  <svg class="bw-wave-2" viewBox="0 0 2880 180" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="
-      M0,100
-      C240,140 480,60 720,100
-      C960,140 1200,60 1440,100
-      C1680,140 1920,60 2160,100
-      C2400,140 2640,60 2880,100
-      L2880,140
-      C2640,100 2400,180 2160,140
-      C1920,100 1680,180 1440,140
-      C1200,100 960,180 720,140
-      C480,100 240,180 0,140
-      Z
-    " fill="#0A3D62" opacity="0.45"/>
+  <!-- Navy ribbon: starts offset -50%, moves left at different speed (crosses cyan) -->
+  <svg class="bw-wave-2" viewBox="0 0 2880 160" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,110 C180,60 360,140 540,100 C720,60 900,140 1080,100 C1260,60 1440,140 1620,100 C1800,60 1980,140 2160,100 C2340,60 2520,140 2700,100 C2790,80 2840,115 2880,100 L2880,160 L0,160 Z" fill="#0A3D62" opacity="0.55"/>
   </svg>
 </div>
 
