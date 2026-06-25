@@ -33,9 +33,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 48px;d
 .mob-nav.open{display:flex !important;}
 .mob-link{font-size:15px;font-weight:600;color:var(--navy);padding:12px 0;border-bottom:1px solid var(--mist);}
 .mob-cta{background:var(--coral);color:#fff;font-weight:700;padding:14px;border-radius:10px;text-align:center;margin-top:8px;font-size:15px;}
-.hero{min-height:100vh;position:relative;background:url('https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=2') center center/cover no-repeat;display:flex;align-items:center;padding:110px 48px 80px;position:relative;overflow:hidden;}
+.hero{min-height:100vh;position:relative;background:linear-gradient(160deg,#001020 0%,#001828 40%,#002B49 100%);display:flex;align-items:center;padding:110px 48px 80px;overflow:hidden;}
+.hero-layout{max-width:1400px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 420px;gap:60px;align-items:center;position:relative;z-index:2;}
+.hero-kai-wrap{position:relative;display:flex;align-items:flex-end;justify-content:center;height:520px;}
+.hero-kai-img{height:100%;max-height:520px;width:auto;object-fit:cover;object-position:top center;border-radius:24px 24px 0 0;opacity:0.82;filter:brightness(1.05) contrast(1.02);mask-image:linear-gradient(to bottom,black 60%,transparent 100%);-webkit-mask-image:linear-gradient(to bottom,black 60%,transparent 100%);}
+.hero-kai-glow{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:300px;height:200px;background:radial-gradient(ellipse,rgba(0,224,255,0.18) 0%,transparent 70%);pointer-events:none;}
 .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(5,20,40,0.45) 0%,rgba(5,20,40,0.25) 50%,rgba(5,20,40,0.40) 100%);z-index:0;pointer-events:none;}
-.hero-inner{max-width:900px;margin:0 auto;width:100%;position:relative;z-index:2;text-align:center;}
+.hero-inner{width:100%;text-align:left;}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,111,97,0.15);border:1px solid rgba(255,111,97,0.35);border-radius:20px;padding:5px 14px;font-size:11px;font-weight:700;color:#FF9B94;text-transform:uppercase;letter-spacing:1px;margin-bottom:20px;}
 .badge-dot{width:6px;height:6px;border-radius:50%;background:var(--coral);animation:pulse 2s infinite;}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.4;transform:scale(0.7);}}
@@ -199,7 +203,7 @@ footer{background:#001a2e;padding:60px 0 0;}
 .wa-float:hover{transform:scale(1.1)!important;animation:none;}
 @keyframes floatUp{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
 @media(max-width:1100px){
-  .hero-inner{grid-template-columns:1fr;gap:40px;}
+  .hero-layout{grid-template-columns:1fr;}.hero-kai-wrap{display:none;}
   .hero-right{display:none;}
   .hero-btns{justify-content:center;}
   .hero-trust{align-items:center;}
@@ -547,34 +551,50 @@ footer{background:#001a2e;padding:60px 0 0;}
 </div>
 <!-- HERO -->
 <section class="hero" id="home">
-<div class="hero-inner">
-<div style="background:rgba(8,28,56,0.58);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:28px;padding:52px 56px;border:1px solid rgba(255,255,255,0.15);box-shadow:0 32px 80px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.12);">
+<div class="hero-layout">
 
-<div class="hero-logo-name hero-anim-1">Blu<span style="color:var(--cyan);">Wav</span></div>
-<div class="hero-logo-sub hero-anim-2" style="display:flex;align-items:center;justify-content:center;gap:12px;font-size:11px;font-weight:700;color:#fff;letter-spacing:6px;text-transform:uppercase;margin-bottom:28px;"><span style="display:block;width:40px;height:1px;background:rgba(247,200,115,0.6);"></span><span style="font-size:12px;font-weight:700;color:#F7C873;letter-spacing:8px;text-transform:uppercase;">GROWTH</span><span style="display:block;width:40px;height:1px;background:rgba(247,200,115,0.6);"></span></div>
+  <!-- LEFT: Text content -->
+  <div class="hero-inner">
 
-<h1 class="hero-h1 hero-anim-3">Your Business Deserves<br/>to Be <span class="gold">Found Online.</span></h1>
-<p class="hero-tagline hero-anim-4">Caribbean customers search before they buy. BluWav makes sure they find you — not your competitor.</p>
-<p class="hero-services hero-anim-4">🖥️ Websites &nbsp;|&nbsp; 🔍 Visibility &nbsp;|&nbsp; 💬 CRM &nbsp;|&nbsp; ⚙️ Automation &nbsp;|&nbsp; 📈 Growth Systems</p>
+    <!-- Logo -->
+    <div class="hero-logo-name hero-anim-1" style="text-align:left;margin-bottom:4px;">Blu<span style="color:var(--cyan);">Wav</span></div>
+    <div class="hero-anim-2" style="display:flex;align-items:center;justify-content:flex-start;gap:10px;margin-bottom:36px;">
+      <span style="display:block;width:28px;height:1px;background:rgba(0,224,255,0.5);"></span>
+      <span style="font-size:11px;font-weight:700;color:#00E0FF;letter-spacing:7px;text-transform:uppercase;">GROWTH</span>
+    </div>
 
-<!-- CRM CTA Block -->
-<div class="hero-anim-5" style="background:rgba(0,224,255,0.12);border:1px solid rgba(0,224,255,0.3);border-radius:14px;padding:18px 24px;margin-bottom:20px;text-align:center;">
-  <div style="font-size:15px;font-weight:800;color:#fff;margin-bottom:4px;">BluWav CRM — Start Free for 7 Days</div>
-  <div style="font-size:13px;color:rgba(255,255,255,0.7);">Full access. No credit card. $99 setup fee after trial.</div>
-</div>
+    <!-- Headline -->
+    <h1 class="hero-h1 hero-anim-3" style="font-size:50px;text-align:left;margin-bottom:16px;">Built for the Caribbean.<br/><span class="gold">Ready for Growth.</span></h1>
 
-<div class="hero-btns hero-anim-6" style="flex-direction:column;align-items:center;gap:12px;">
-  <!-- Primary CTA: Blue — Free Online Health Check -->
-  <a href="#health-check" style="background:#FF5500;color:#fff;font-size:15px;font-weight:800;padding:15px 36px;border-radius:11px;box-shadow:0 4px 24px rgba(255,85,0,0.45);transition:transform 0.15s,box-shadow 0.2s;display:inline-block;min-width:260px;text-align:center;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 32px rgba(255,85,0,0.6)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 24px rgba(255,85,0,0.45)'">🩺 Free Online Health Check</a>
-  <!-- Secondary CTA: White outline — Start CRM Free -->
-  <a href="#crm" style="background:#00E0FF;color:#fff;font-size:15px;font-weight:700;padding:14px 36px;border-radius:11px;box-shadow:0 4px 20px rgba(0,224,255,0.35);transition:transform 0.15s,box-shadow 0.2s;display:inline-block;min-width:260px;text-align:center;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 28px rgba(0,224,255,0.5)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 20px rgba(0,224,255,0.35)'">💬 Start CRM Free</a>
-  <!-- Tertiary CTA: Text link — View Customer Growth Plans -->
-  <a href="#pricing" style="background:transparent;color:#F7C873;font-size:14px;font-weight:700;padding:8px 0;display:inline-block;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(247,200,115,0.4);transition:color 0.2s;" onmouseover="this.style.color='#ffd98a'" onmouseout="this.style.color='#F7C873'">View Customer Growth Plans ↓</a>
-</div>
+    <!-- Subheadline -->
+    <p class="hero-tagline hero-anim-4" style="text-align:left;max-width:500px;margin-bottom:32px;">Caribbean customers search before they buy. BluWav makes sure they find you&hellip; and choose you.</p>
 
-<p class="hero-anim-7" style="font-size:13px;color:rgba(255,255,255,0.6);margin-top:20px;line-height:1.7;">48-hour website delivery. Caribbean-built CRM. You own everything forever.</p>
+    <!-- Primary CTA -->
+    <div class="hero-anim-5" style="margin-bottom:28px;">
+      <a href="#health-check" style="background:#FF5500;color:#fff;font-size:16px;font-weight:800;padding:16px 40px;border-radius:12px;box-shadow:0 4px 28px rgba(255,85,0,0.45);transition:transform 0.15s,box-shadow 0.2s;display:inline-block;text-align:center;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 36px rgba(255,85,0,0.6)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 28px rgba(255,85,0,0.45)'">🩺 Free Online Health Check</a>
+    </div>
 
-</div>
+    <!-- Trust strip -->
+    <div class="hero-anim-6" style="display:flex;flex-wrap:wrap;gap:20px;align-items:center;">
+      <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.65);font-weight:600;">
+        <span style="width:5px;height:5px;border-radius:50%;background:#00E0FF;flex-shrink:0;display:inline-block;"></span>48&ndash;72 hour delivery
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.65);font-weight:600;">
+        <span style="width:5px;height:5px;border-radius:50%;background:#00E0FF;flex-shrink:0;display:inline-block;"></span>Caribbean-built systems
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.65);font-weight:600;">
+        <span style="width:5px;height:5px;border-radius:50%;background:#00E0FF;flex-shrink:0;display:inline-block;"></span>You own everything forever
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RIGHT: Kai -->
+  <div class="hero-kai-wrap hero-anim-3">
+    <div class="hero-kai-glow"></div>
+    <img src="kai.png" alt="BluWav Growth Caribbean" class="hero-kai-img"/>
+  </div>
+
 </div>
 </section>
 <!-- PROOF STRIP -->
