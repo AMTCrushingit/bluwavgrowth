@@ -33,14 +33,67 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 48px;d
 .mob-nav.open{display:flex !important;}
 .mob-link{font-size:15px;font-weight:600;color:var(--navy);padding:12px 0;border-bottom:1px solid var(--mist);}
 .mob-cta{background:var(--coral);color:#fff;font-weight:700;padding:14px;border-radius:10px;text-align:center;margin-top:8px;font-size:15px;}
-.hero{min-height:100vh;position:relative;background:linear-gradient(160deg,#001020 0%,#001828 40%,#002B49 100%);display:flex;align-items:center;padding:110px 7% 80px;overflow:hidden;}
-.hero-layout{max-width:1600px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 460px;gap:80px;align-items:center;position:relative;z-index:2;}
-.hero-kai-wrap{position:relative;display:flex;align-items:flex-end;justify-content:center;height:520px;}
-.hero-kai-img{height:100%;max-height:520px;width:auto;object-fit:cover;object-position:top center;border-radius:24px 24px 0 0;opacity:0.78;filter:brightness(1.02) contrast(0.98) blur(0.4px);mask-image:linear-gradient(to bottom,black 50%,transparent 100%);-webkit-mask-image:linear-gradient(to bottom,black 50%,transparent 100%);drop-shadow:0 0 40px rgba(0,16,32,0.8);}
-.hero-kai-glow{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:300px;height:200px;background:radial-gradient(ellipse,rgba(0,224,255,0.15) 0%,transparent 70%);pointer-events:none;}
-.hero-kai-fade{position:absolute;top:0;left:0;width:60%;height:100%;background:linear-gradient(to right,#001020 0%,transparent 100%);pointer-events:none;z-index:2;}
+.hero{
+  min-height:100vh;
+  position:relative;
+  background:url('https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=2') center center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  padding:110px 7% 80px;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(105deg,
+    rgba(0,16,32,0.88) 0%,
+    rgba(0,24,40,0.82) 35%,
+    rgba(0,43,73,0.55) 60%,
+    rgba(0,43,73,0.15) 80%,
+    transparent 100%);
+  z-index:1;
+  pointer-events:none;
+}
+.hero-layout{
+  max-width:1600px;
+  margin:0 auto;
+  width:100%;
+  position:relative;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  min-height:calc(100vh - 190px);
+}
+.hero-kai-wrap{
+  position:absolute;
+  right:0;
+  bottom:0;
+  top:0;
+  width:50%;
+  display:flex;
+  align-items:flex-end;
+  justify-content:flex-end;
+  z-index:2;
+  pointer-events:none;
+}
+.hero-kai-img{
+  height:90%;
+  max-height:680px;
+  width:auto;
+  object-fit:cover;
+  object-position:top center;
+  opacity:0.90;
+  filter:brightness(1.05) contrast(1.02) drop-shadow(-20px 0 40px rgba(0,16,32,0.6));
+  mask-image:linear-gradient(to left,black 40%,transparent 100%),linear-gradient(to bottom,black 70%,transparent 100%);
+  -webkit-mask-image:linear-gradient(to left,black 40%,transparent 100%),linear-gradient(to bottom,black 70%,transparent 100%);
+  mask-composite:intersect;
+  -webkit-mask-composite:source-in;
+}
+.hero-kai-glow{position:absolute;bottom:0;right:10%;width:400px;height:300px;background:radial-gradient(ellipse,rgba(0,224,255,0.12) 0%,transparent 70%);pointer-events:none;}
+.hero-kai-fade{display:none;}
 .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(5,20,40,0.45) 0%,rgba(5,20,40,0.25) 50%,rgba(5,20,40,0.40) 100%);z-index:0;pointer-events:none;}
-.hero-inner{width:100%;text-align:left;}
+.hero-inner{width:55%;max-width:700px;text-align:left;position:relative;z-index:3;}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,111,97,0.15);border:1px solid rgba(255,111,97,0.35);border-radius:20px;padding:5px 14px;font-size:11px;font-weight:700;color:#FF9B94;text-transform:uppercase;letter-spacing:1px;margin-bottom:20px;}
 .badge-dot{width:6px;height:6px;border-radius:50%;background:var(--coral);animation:pulse 2s infinite;}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.4;transform:scale(0.7);}}
@@ -204,7 +257,7 @@ footer{background:#001a2e;padding:60px 0 0;}
 .wa-float:hover{transform:scale(1.1)!important;animation:none;}
 @keyframes floatUp{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
 @media(max-width:1100px){
-  .hero-layout{grid-template-columns:1fr;}.hero-kai-wrap{display:none;}
+  .hero-layout{display:block;}.hero-inner{width:100%;max-width:100%;}.hero-kai-wrap{position:relative;width:100%;height:300px;top:auto;right:auto;bottom:auto;}
   .hero-right{display:none;}
   .hero-btns{justify-content:center;}
   .hero-trust{align-items:center;}
@@ -584,9 +637,8 @@ footer{background:#001a2e;padding:60px 0 0;}
   </div>
 
   <!-- RIGHT: Kai -->
-  <div class="hero-kai-wrap hero-anim-3">
+  <div class="hero-kai-wrap">
     <div class="hero-kai-glow"></div>
-    <div class="hero-kai-fade"></div>
     <img src="kai.png" alt="BluWav Growth Caribbean" class="hero-kai-img"/>
   </div>
 
