@@ -563,6 +563,78 @@ footer{background:#001a2e;padding:60px 0 0;}
     grid-template-columns:1fr !important;
   }
 }
+.hero{
+  min-height:100vh;
+  position:relative;
+  background:url('https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=2') center center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  padding:110px 7% 80px;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(105deg,
+    rgba(0,16,32,0.88) 0%,
+    rgba(0,24,40,0.82) 38%,
+    rgba(0,43,73,0.50) 62%,
+    rgba(0,43,73,0.12) 82%,
+    transparent 100%);
+  z-index:1;
+  pointer-events:none;
+}
+.hero-layout{
+  max-width:1600px;
+  margin:0 auto;
+  width:100%;
+  position:relative;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  min-height:calc(100vh - 190px);
+}
+.hero-inner{width:52%;max-width:680px;text-align:left;position:relative;z-index:3;}
+.hero-kai-wrap{
+  position:absolute;
+  right:-2%;
+  bottom:0;
+  top:0;
+  width:54%;
+  display:flex;
+  align-items:flex-end;
+  justify-content:flex-end;
+  z-index:3;
+  pointer-events:none;
+}
+.hero-kai-img{
+  height:95%;
+  max-height:720px;
+  width:auto;
+  object-fit:contain;
+  object-position:bottom right;
+  opacity:0.95;
+  filter:brightness(1.04) contrast(1.02) drop-shadow(-20px 0 40px rgba(0,16,32,0.6)) drop-shadow(0 10px 30px rgba(0,16,32,0.5));
+  mask-image:linear-gradient(to bottom,black 80%,transparent 100%);
+  -webkit-mask-image:linear-gradient(to bottom,black 80%,transparent 100%);
+}
+.hero-kai-glow{
+  position:absolute;
+  bottom:0;
+  right:15%;
+  width:400px;
+  height:300px;
+  background:radial-gradient(ellipse,rgba(0,224,255,0.10) 0%,transparent 70%);
+  pointer-events:none;
+}
+
+
+@media(max-width:768px){
+  .hero-layout{display:block;}
+  .hero-inner{width:100%;max-width:100%;}
+  .hero-kai-wrap{display:none;}
+}
 </style>
 </head>
 <body>
@@ -611,35 +683,35 @@ footer{background:#001a2e;padding:60px 0 0;}
   <div class="hero-inner">
 
     <!-- Headline -->
-    <h1 class="hero-h1 hero-anim-3" style="font-size:56px;text-align:left;margin-bottom:20px;line-height:1.08;">Built for the Caribbean.<br/><span class="gold">Ready for Growth.</span></h1>
+    <h1 class="hero-h1 hero-anim-1" style="font-size:56px;text-align:left;margin-bottom:20px;line-height:1.08;">Built for the Caribbean.<br/><span class="gold">Ready for Growth.</span></h1>
 
     <!-- Subheadline -->
-    <p class="hero-tagline hero-anim-4" style="text-align:left;max-width:520px;margin-bottom:36px;font-size:19px;line-height:1.65;">Caribbean customers search before they buy. BluWav makes sure they find you&hellip; and choose you.</p>
+    <p class="hero-tagline hero-anim-2" style="text-align:left;max-width:520px;margin-bottom:36px;font-size:19px;line-height:1.65;">Caribbean customers search before they buy. BluWav makes sure they find you&hellip; and choose you.</p>
 
     <!-- Primary CTA -->
-    <div class="hero-anim-5" style="margin-bottom:28px;">
+    <div class="hero-anim-3" style="margin-bottom:28px;">
       <a href="#health-check" style="background:#FF5500;color:#fff;font-size:17px;font-weight:800;padding:18px 44px;border-radius:12px;box-shadow:0 6px 32px rgba(255,85,0,0.55),0 2px 8px rgba(0,0,0,0.3);transition:transform 0.15s,box-shadow 0.2s;display:inline-block;text-align:center;letter-spacing:0.2px;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 40px rgba(255,85,0,0.7),0 4px 12px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 6px 32px rgba(255,85,0,0.55),0 2px 8px rgba(0,0,0,0.3)'">🩺 Free Online Health Check</a>
     </div>
 
     <!-- Trust strip -->
-    <div class="hero-anim-6" style="display:flex;flex-wrap:wrap;gap:20px;align-items:center;">
-      <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.65);font-weight:600;">
+    <div class="hero-anim-4" style="display:flex;flex-wrap:wrap;gap:20px;align-items:center;">
+      <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.75);font-weight:600;">
         <span style="width:5px;height:5px;border-radius:50%;background:#00E0FF;flex-shrink:0;display:inline-block;"></span>48&ndash;72 hour delivery
       </div>
-      <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.65);font-weight:600;">
+      <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.75);font-weight:600;">
         <span style="width:5px;height:5px;border-radius:50%;background:#00E0FF;flex-shrink:0;display:inline-block;"></span>Caribbean-built systems
       </div>
-      <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.65);font-weight:600;">
+      <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.75);font-weight:600;">
         <span style="width:5px;height:5px;border-radius:50%;background:#00E0FF;flex-shrink:0;display:inline-block;"></span>You own everything forever
       </div>
     </div>
 
   </div>
 
-  <!-- RIGHT: Kai -->
+  <!-- RIGHT: Kai cutout (transparent bg, pointing left) -->
   <div class="hero-kai-wrap">
     <div class="hero-kai-glow"></div>
-    <img src="kai.png" alt="BluWav Growth Caribbean" class="hero-kai-img"/>
+    <img src="kai-cutout.png" alt="BluWav Growth" class="hero-kai-img"/>
   </div>
 
 </div>
