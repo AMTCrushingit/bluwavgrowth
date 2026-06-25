@@ -33,67 +33,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 48px;d
 .mob-nav.open{display:flex !important;}
 .mob-link{font-size:15px;font-weight:600;color:var(--navy);padding:12px 0;border-bottom:1px solid var(--mist);}
 .mob-cta{background:var(--coral);color:#fff;font-weight:700;padding:14px;border-radius:10px;text-align:center;margin-top:8px;font-size:15px;}
-.hero{
-  min-height:100vh;
-  position:relative;
-  background:url('https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=2') center center/cover no-repeat;
-  display:flex;
-  align-items:center;
-  padding:110px 7% 80px;
-  overflow:hidden;
-}
-.hero::before{
-  content:'';
-  position:absolute;
-  inset:0;
-  background:linear-gradient(105deg,
-    rgba(0,16,32,0.88) 0%,
-    rgba(0,24,40,0.82) 35%,
-    rgba(0,43,73,0.55) 60%,
-    rgba(0,43,73,0.15) 80%,
-    transparent 100%);
-  z-index:1;
-  pointer-events:none;
-}
-.hero-layout{
-  max-width:1600px;
-  margin:0 auto;
-  width:100%;
-  position:relative;
-  z-index:2;
-  display:flex;
-  align-items:center;
-  min-height:calc(100vh - 190px);
-}
-.hero-kai-wrap{
-  position:absolute;
-  right:0;
-  bottom:0;
-  top:0;
-  width:50%;
-  display:flex;
-  align-items:flex-end;
-  justify-content:flex-end;
-  z-index:2;
-  pointer-events:none;
-}
-.hero-kai-img{
-  height:90%;
-  max-height:680px;
-  width:auto;
-  object-fit:cover;
-  object-position:top center;
-  opacity:0.90;
-  filter:brightness(1.05) contrast(1.02) drop-shadow(-20px 0 40px rgba(0,16,32,0.6));
-  mask-image:linear-gradient(to left,black 40%,transparent 100%),linear-gradient(to bottom,black 70%,transparent 100%);
-  -webkit-mask-image:linear-gradient(to left,black 40%,transparent 100%),linear-gradient(to bottom,black 70%,transparent 100%);
-  mask-composite:intersect;
-  -webkit-mask-composite:source-in;
-}
-.hero-kai-glow{position:absolute;bottom:0;right:10%;width:400px;height:300px;background:radial-gradient(ellipse,rgba(0,224,255,0.12) 0%,transparent 70%);pointer-events:none;}
-.hero-kai-fade{display:none;}
-.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(5,20,40,0.45) 0%,rgba(5,20,40,0.25) 50%,rgba(5,20,40,0.40) 100%);z-index:0;pointer-events:none;}
-.hero-inner{width:55%;max-width:700px;text-align:left;position:relative;z-index:3;}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(0,16,32,0.72) 0%,rgba(0,24,40,0.60) 50%,rgba(0,16,32,0.72) 100%);z-index:0;pointer-events:none;}
+.hero{min-height:100vh;position:relative;background:url('https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=2') center center/cover no-repeat;display:flex;align-items:center;padding:110px 48px 80px;position:relative;overflow:hidden;}
+
+
+
+
+
+
+
+.hero-inner{max-width:900px;margin:0 auto;width:100%;position:relative;z-index:2;text-align:center;}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,111,97,0.15);border:1px solid rgba(255,111,97,0.35);border-radius:20px;padding:5px 14px;font-size:11px;font-weight:700;color:#FF9B94;text-transform:uppercase;letter-spacing:1px;margin-bottom:20px;}
 .badge-dot{width:6px;height:6px;border-radius:50%;background:var(--coral);animation:pulse 2s infinite;}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.4;transform:scale(0.7);}}
@@ -257,7 +206,7 @@ footer{background:#001a2e;padding:60px 0 0;}
 .wa-float:hover{transform:scale(1.1)!important;animation:none;}
 @keyframes floatUp{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
 @media(max-width:1100px){
-  .hero-layout{display:block;}.hero-inner{width:100%;max-width:100%;}.hero-kai-wrap{position:relative;width:100%;height:300px;top:auto;right:auto;bottom:auto;}
+  .hero-inner{max-width:900px;margin:0 auto;width:100%;position:relative;z-index:2;text-align:center;}
   .hero-right{display:none;}
   .hero-btns{justify-content:center;}
   .hero-trust{align-items:center;}
@@ -433,7 +382,7 @@ footer{background:#001a2e;padding:60px 0 0;}
 
   /* HERO */
   .hero{padding:90px 16px 60px !important;}
-  .hero-inner{padding:20px 0 !important;}
+  .hero-inner{max-width:900px;margin:0 auto;width:100%;position:relative;z-index:2;text-align:center;}
   .hero-logo-name{font-size:48px !important;}
   .hero-h1{font-size:28px !important;letter-spacing:-0.5px !important;}
   .hero-tagline{font-size:15px !important;}
@@ -572,69 +521,19 @@ footer{background:#001a2e;padding:60px 0 0;}
   padding:110px 7% 80px;
   overflow:hidden;
 }
-.hero::before{
-  content:'';
-  position:absolute;
-  inset:0;
-  background:linear-gradient(105deg,
-    rgba(0,16,32,0.88) 0%,
-    rgba(0,24,40,0.82) 38%,
-    rgba(0,43,73,0.50) 62%,
-    rgba(0,43,73,0.12) 82%,
-    transparent 100%);
-  z-index:1;
-  pointer-events:none;
-}
-.hero-layout{
-  max-width:1600px;
-  margin:0 auto;
-  width:100%;
-  position:relative;
-  z-index:2;
-  display:flex;
-  align-items:center;
-  min-height:calc(100vh - 190px);
-}
-.hero-inner{width:52%;max-width:680px;text-align:left;position:relative;z-index:3;}
-.hero-kai-wrap{
-  position:absolute;
-  right:-2%;
-  bottom:0;
-  top:0;
-  width:54%;
-  display:flex;
-  align-items:flex-end;
-  justify-content:flex-end;
-  z-index:3;
-  pointer-events:none;
-}
-.hero-kai-img{
-  height:95%;
-  max-height:720px;
-  width:auto;
-  object-fit:contain;
-  object-position:bottom right;
-  opacity:0.97;
-  filter:brightness(1.08) contrast(1.04) saturate(1.08) drop-shadow(-24px 0 48px rgba(0,16,32,0.55)) drop-shadow(0 12px 32px rgba(0,16,32,0.45));
-  mask-image:linear-gradient(to bottom,black 82%,transparent 100%);
-  -webkit-mask-image:linear-gradient(to bottom,black 82%,transparent 100%);
-}
-.hero-kai-glow{
-  position:absolute;
-  bottom:0;
-  right:15%;
-  width:400px;
-  height:300px;
-  background:radial-gradient(ellipse,rgba(0,224,255,0.10) 0%,transparent 70%);
-  pointer-events:none;
-}
+
+
+.hero-inner{max-width:900px;margin:0 auto;width:100%;position:relative;z-index:2;text-align:center;}
+
+
+
 
 
 @media(max-width:768px){
-  .hero-layout{display:block;}
-  .hero-inner{width:100%;max-width:100%;position:relative;z-index:4;}
-  .hero-kai-wrap{position:absolute;right:-5%;bottom:0;top:auto;width:55%;height:55vw;max-height:320px;opacity:0.35;z-index:1;}
-  .hero-kai-img{height:100%;max-height:320px;}
+  
+  .hero-inner{max-width:900px;margin:0 auto;width:100%;position:relative;z-index:2;text-align:center;}
+  
+  
 }
 </style>
 </head>
@@ -678,48 +577,47 @@ footer{background:#001a2e;padding:60px 0 0;}
 </div>
 <!-- HERO -->
 <section class="hero" id="home">
-<div class="hero-layout">
+<div class="hero-inner">
+<div style="background:rgba(8,28,56,0.62);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:28px;padding:56px 64px;border:1px solid rgba(255,255,255,0.15);box-shadow:0 32px 80px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.12);max-width:860px;margin:0 auto;">
 
-  <!-- LEFT: Text content -->
-  <div class="hero-inner">
-
-    <!-- Headline -->
-    <h1 class="hero-h1 hero-anim-1" style="font-size:54px;text-align:left;margin-bottom:18px;line-height:1.08;">Built for the Caribbean.<br/><span class="gold">Ready for Growth.</span></h1>
-
-    <!-- Subheadline -->
-    <p class="hero-tagline hero-anim-2" style="text-align:left;max-width:540px;margin-bottom:16px;font-size:18px;line-height:1.65;font-style:normal;color:rgba(255,255,255,0.92);">Caribbean customers search before they buy. BluWav makes sure they find your business&hellip; and choose it.</p>
-
-    <!-- Supporting copy -->
-    <p class="hero-anim-2" style="text-align:left;max-width:540px;margin-bottom:12px;font-size:15px;line-height:1.7;color:rgba(255,255,255,0.72);">We build websites, boost your business&rsquo;s visibility, automate follow-ups, and help you turn interest into paying customers.</p>
-    <p class="hero-anim-3" style="text-align:left;max-width:540px;margin-bottom:12px;font-size:15px;line-height:1.7;color:rgba(255,255,255,0.72);">Most Caribbean businesses lose customers simply because people can&rsquo;t find them online &mdash; even when they offer the better service.</p>
-    <p class="hero-anim-3" style="text-align:left;max-width:540px;margin-bottom:32px;font-size:15px;line-height:1.7;color:rgba(0,224,255,0.85);font-weight:600;">Your Free Online Health Check shows what&rsquo;s working, what&rsquo;s broken, and what&rsquo;s stopping customers from discovering your business today.</p>
-
-    <!-- Primary CTA -->
-    <div class="hero-anim-4" style="margin-bottom:28px;">
-      <a href="#health-check" style="background:#FF5500;color:#fff;font-size:17px;font-weight:800;padding:18px 44px;border-radius:12px;box-shadow:0 6px 32px rgba(255,85,0,0.6),0 2px 8px rgba(0,0,0,0.35);transition:transform 0.15s,box-shadow 0.2s;display:inline-block;text-align:center;letter-spacing:0.3px;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 14px 44px rgba(255,85,0,0.75),0 4px 12px rgba(0,0,0,0.35)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 6px 32px rgba(255,85,0,0.6),0 2px 8px rgba(0,0,0,0.35)'">🩺 Free Online Health Check</a>
-    </div>
-
-    <!-- Trust strip -->
-    <div class="hero-anim-5" style="display:flex;flex-wrap:wrap;gap:20px;align-items:center;">
-      <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.65);font-weight:600;">
-        <span style="width:5px;height:5px;border-radius:50%;background:#00E0FF;flex-shrink:0;display:inline-block;"></span>48&ndash;72 hour delivery
-      </div>
-      <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.65);font-weight:600;">
-        <span style="width:5px;height:5px;border-radius:50%;background:#00E0FF;flex-shrink:0;display:inline-block;"></span>Caribbean-built systems
-      </div>
-      <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.65);font-weight:600;">
-        <span style="width:5px;height:5px;border-radius:50%;background:#00E0FF;flex-shrink:0;display:inline-block;"></span>You own everything forever
-      </div>
-    </div>
-
+  <!-- Logo -->
+  <div class="hero-logo-name hero-anim-1">Blu<span style="color:var(--cyan);">Wav</span></div>
+  <div class="hero-anim-2" style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:32px;">
+    <span style="display:block;width:40px;height:1px;background:rgba(0,224,255,0.5);"></span>
+    <span style="font-size:12px;font-weight:700;color:#00E0FF;letter-spacing:8px;text-transform:uppercase;">GROWTH</span>
+    <span style="display:block;width:40px;height:1px;background:rgba(0,224,255,0.5);"></span>
   </div>
 
-  <!-- RIGHT: Kai cutout — pointing left, warm, alive, confident -->
-  <div class="hero-kai-wrap">
-    <div class="hero-kai-glow"></div>
-    <img src="kai-cutout.png" alt="BluWav Growth Caribbean" class="hero-kai-img"/>
+  <!-- Headline -->
+  <h1 class="hero-h1 hero-anim-3" style="font-size:62px;text-align:center;margin-bottom:20px;line-height:1.06;">Built for the Caribbean.<br/><span class="gold">Ready for Growth.</span></h1>
+
+  <!-- Subheadline -->
+  <p class="hero-tagline hero-anim-4" style="text-align:center;max-width:640px;margin:0 auto 16px;font-size:20px;line-height:1.65;font-style:normal;color:rgba(255,255,255,0.92);">Caribbean customers search before they buy. BluWav makes sure they find your business&hellip; and choose it.</p>
+
+  <!-- Supporting copy -->
+  <p class="hero-anim-4" style="text-align:center;max-width:620px;margin:0 auto 12px;font-size:15px;line-height:1.75;color:rgba(255,255,255,0.68);">We build websites, boost your business&rsquo;s visibility, automate follow-ups, and help you turn interest into paying customers.</p>
+  <p class="hero-anim-5" style="text-align:center;max-width:620px;margin:0 auto 12px;font-size:15px;line-height:1.75;color:rgba(255,255,255,0.68);">Most Caribbean businesses lose customers simply because people can&rsquo;t find them online &mdash; even when they offer the better service.</p>
+  <p class="hero-anim-5" style="text-align:center;max-width:620px;margin:0 auto 36px;font-size:15px;line-height:1.75;color:rgba(0,224,255,0.85);font-weight:600;">Your Free Online Health Check shows what&rsquo;s working, what&rsquo;s broken, and what&rsquo;s stopping customers from discovering your business today.</p>
+
+  <!-- Primary CTA -->
+  <div class="hero-anim-6" style="text-align:center;margin-bottom:28px;">
+    <a href="#health-check" style="background:#FF5500;color:#fff;font-size:18px;font-weight:800;padding:20px 52px;border-radius:12px;box-shadow:0 6px 32px rgba(255,85,0,0.6),0 2px 8px rgba(0,0,0,0.35);transition:transform 0.15s,box-shadow 0.2s;display:inline-block;text-align:center;letter-spacing:0.3px;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 14px 44px rgba(255,85,0,0.75),0 4px 12px rgba(0,0,0,0.35)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 6px 32px rgba(255,85,0,0.6),0 2px 8px rgba(0,0,0,0.35)'">🩺 Free Online Health Check</a>
   </div>
 
+  <!-- Trust strip -->
+  <div class="hero-anim-7" style="display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:center;">
+    <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.6);font-weight:600;">
+      <span style="width:5px;height:5px;border-radius:50%;background:#00E0FF;flex-shrink:0;display:inline-block;"></span>48&ndash;72 hour delivery
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.6);font-weight:600;">
+      <span style="width:5px;height:5px;border-radius:50%;background:#00E0FF;flex-shrink:0;display:inline-block;"></span>Caribbean-built systems
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.6);font-weight:600;">
+      <span style="width:5px;height:5px;border-radius:50%;background:#00E0FF;flex-shrink:0;display:inline-block;"></span>You own everything forever
+    </div>
+  </div>
+
+</div>
 </div>
 </section>
 <!-- PROOF STRIP -->
