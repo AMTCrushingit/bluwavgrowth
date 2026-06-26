@@ -412,39 +412,76 @@ input,button,select,textarea{
   font-family:'Inter',sans-serif !important;
 }
 
-</style>
-</head>
-<body>
-<!-- BluWav Signature Wave -->
-<div class="bw-wave-wrap">
-  <!-- Cyan ribbon: starts at position 0, moves left -->
-  <svg class="bw-wave-1" viewBox="0 0 2880 160" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,80 C180,20 360,120 540,70 C720,20 900,120 1080,70 C1260,20 1440,120 1620,70 C1800,20 1980,120 2160,70 C2340,20 2520,120 2700,70 C2790,45 2840,90 2880,70 L2880,160 L0,160 Z" fill="#00E0FF" opacity="0.40"/>
-  </svg>
-  <!-- Navy ribbon: starts offset -50%, moves left at different speed (crosses cyan) -->
-  <svg class="bw-wave-2" viewBox="0 0 2880 160" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,110 C180,60 360,140 540,100 C720,60 900,140 1080,100 C1260,60 1440,140 1620,100 C1800,60 1980,140 2160,100 C2340,60 2520,140 2700,100 C2790,80 2840,115 2880,100 L2880,160 L0,160 Z" fill="#002B49" opacity="0.55"/>
-  </svg>
-</div>
 
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(0,43,73,0.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,224,255,0.15);box-shadow:0 2px 24px rgba(0,0,0,0.3);}
+.nav-links{display:flex;align-items:center;gap:32px;}
+.nav-link{font-size:13px;font-weight:500;color:rgba(255,255,255,0.65);transition:color 0.2s;text-decoration:none;}
+.nav-link:hover{color:#fff;}
+.nav-cta{background:#FF5500;color:#fff;font-size:13px;font-weight:700;padding:10px 24px;border-radius:9px;box-shadow:0 4px 16px rgba(255,85,0,0.35);transition:transform 0.15s,box-shadow 0.2s;text-decoration:none;}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(255,85,0,0.5);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:101;position:relative;background:none;border:none;padding:0;}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;}
+.mob-nav{display:none;position:fixed;top:70px;left:0;right:0;background:rgba(0,43,73,0.99);backdrop-filter:blur(20px);padding:20px 24px;flex-direction:column;gap:4px;z-index:9999;border-bottom:1px solid rgba(0,224,255,0.15);box-shadow:0 8px 32px rgba(0,0,0,0.3);}
+.mob-nav.open{display:flex !important;}
+.mob-link{font-size:15px;font-weight:600;color:rgba(255,255,255,0.85);padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.1);text-decoration:none;display:block;}
+.mob-cta{background:#FF5500;color:#fff;font-weight:700;padding:14px;border-radius:10px;text-align:center;margin-top:8px;font-size:15px;text-decoration:none;display:block;}
+.nav-dropdown{position:relative;}
+.nav-dropdown-menu{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:12px;z-index:300;min-width:200px;}
+.nav-dropdown-menu.open{display:block;}
+.nav-dropdown-inner{background:rgba(0,43,73,0.98);backdrop-filter:blur(20px);border:1px solid rgba(0,224,255,0.2);border-radius:12px;padding:8px 0;box-shadow:0 8px 32px rgba(0,0,0,0.4);}
+.nav-dropdown-menu a{display:block;padding:11px 20px;font-size:13px;font-weight:500;color:rgba(255,255,255,0.75);text-decoration:none;transition:all 0.15s;white-space:nowrap;}
+.nav-dropdown-menu a:hover{color:#00E0FF;background:rgba(0,224,255,0.07);padding-left:26px;}
+.nav-dropdown-trigger::after{content:" \25BE";font-size:10px;opacity:0.6;}
+/* Footer */
+footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;}
+.footer-heading{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.4);margin-bottom:16px;}
+.footer-brand-name{font-family:'Kaushan Script',cursive;font-size:34px;color:#fff;line-height:1;margin-bottom:6px;}
+.footer-brand-name span{color:#FF5500;}
+.footer-brand-sub{font-size:9px;font-weight:700;color:#F7C873;letter-spacing:5px;text-transform:uppercase;margin-bottom:12px;}
+.footer-brand-tag{font-size:12px;font-weight:500;color:#00E0FF;letter-spacing:1px;margin-bottom:6px;}
+.footer-desc{font-size:13px;color:rgba(255,255,255,0.4);line-height:1.65;margin-top:12px;}
+.footer-link{display:block;font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:8px;transition:color 0.2s,transform 0.2s;text-decoration:none;}
+.footer-link:hover{color:#fff;transform:translateX(4px);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding:20px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.footer-bottom-text{font-size:12px;color:rgba(255,255,255,0.3);}
+.footer-bottom-text span{color:#00E0FF;}
+.wrap{max-width:1200px;margin:0 auto;padding:0 48px;}
+@media(max-width:768px){
+  nav{padding:0 20px !important;}
+  .nav-links{display:none !important;}
+  .hamburger{display:flex !important;}
+  [style*="grid-template-columns:repeat(3,1fr)"]{grid-template-columns:1fr !important;}
+  [style*="grid-template-columns:repeat(2,1fr)"]{grid-template-columns:1fr !important;}
+  [style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr !important;}
+  [style*="padding:120px 48px"]{padding:100px 20px 60px !important;}
+  [style*="padding:96px 0"]{padding:60px 0 !important;}
+  [style*="padding:0 48px"]{padding:0 20px !important;}
+  [style*="padding:40px 48px"]{padding:28px 20px !important;}
+  .footer-grid{grid-template-columns:1fr !important;}
+  .footer-bottom{flex-direction:column;text-align:center;}
+}
+
+</style>
 <!-- NAV -->
 <nav id="mainNav">
 <div class="nav-logo" style="display:flex;flex-direction:column;align-items:flex-start;line-height:1;padding:4px 0;">
-  <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:300;letter-spacing:4px;line-height:1;color:#fff;">BLU<span style="color:#00E0FF;">WAV</span>&nbsp;<span style="color:#fff;">GROWTH</span></div>
-  <div style="font-size:9px;font-weight:600;color:#00E0FF;letter-spacing:0.5px;line-height:1.4;margin-top:3px;">Get Found. Get Chosen. Grow.</div>
+<div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:300;letter-spacing:4px;line-height:1;color:#fff;">BLU<span style="color:#00E0FF;">WAV</span> <span style="color:#fff;">GROWTH</span></div>
+<div style="font-size:9px;font-weight:600;color:#00E0FF;letter-spacing:0.5px;line-height:1.4;margin-top:3px;">Get Found. Get Chosen. Grow.</div>
 </div>
 <div class="nav-links">
 <a class="nav-link" href="index.html">Home</a>
 <div class="nav-dropdown" id="svcDropdown">
-  <a class="nav-link nav-dropdown-trigger" href="index.html#what-we-do" onclick="toggleDropdown(event)">Services</a>
-  <div class="nav-dropdown-menu" id="svcMenu">
-    <div class="nav-dropdown-inner">
-      <a href="index.html#what-we-do">Websites</a>
-      <a href="index.html#what-we-do">Visibility</a>
-      <a href="index.html#what-we-do">Automation</a>
-      <a href="index.html#what-we-do">Growth Systems</a>
-    </div>
-  </div>
+<a class="nav-link nav-dropdown-trigger" href="index.html#what-we-do" onclick="toggleDropdown(event)">Services</a>
+<div class="nav-dropdown-menu" id="svcMenu">
+<div class="nav-dropdown-inner">
+<a href="index.html#what-we-do">Websites</a>
+<a href="index.html#what-we-do">Visibility</a>
+<a href="index.html#what-we-do">Automation</a>
+<a href="index.html#what-we-do">Growth Systems</a>
+</div>
+</div>
 </div>
 <a class="nav-link" href="index.html#how-it-works">How It Works</a>
 <a class="nav-link" href="our-promise.html">Our Promise</a>
@@ -457,10 +494,6 @@ input,button,select,textarea{
 <div class="mob-nav" id="mobNav">
 <a class="mob-link" href="index.html" onclick="toggleMob()">Home</a>
 <a class="mob-link" href="index.html#what-we-do" onclick="toggleMob()">Services</a>
-<a class="mob-link" href="index.html#what-we-do" onclick="toggleMob()" style="padding-left:24px;font-size:13px;color:rgba(255,255,255,0.6);">— Websites</a>
-<a class="mob-link" href="index.html#what-we-do" onclick="toggleMob()" style="padding-left:24px;font-size:13px;color:rgba(255,255,255,0.6);">— Visibility</a>
-<a class="mob-link" href="index.html#what-we-do" onclick="toggleMob()" style="padding-left:24px;font-size:13px;color:rgba(255,255,255,0.6);">— Automation</a>
-<a class="mob-link" href="index.html#what-we-do" onclick="toggleMob()" style="padding-left:24px;font-size:13px;color:rgba(255,255,255,0.6);">— Growth Systems</a>
 <a class="mob-link" href="index.html#how-it-works" onclick="toggleMob()">How It Works</a>
 <a class="mob-link" href="our-promise.html" onclick="toggleMob()">Our Promise</a>
 <a class="mob-link" href="pricing.html" onclick="toggleMob()">Pricing</a>
@@ -468,207 +501,208 @@ input,button,select,textarea{
 <a class="mob-cta" href="index.html#health-check" onclick="toggleMob()">Free Online Health Check</a>
 </div>
 <!-- HERO -->
-<section class="hiw-hero">
-<div class="wrap hiw-hero-inner">
-<div class="hiw-badge"><span class="badge-dot"></span>Caribbean Digital Growth Agency</div>
-<h1 class="hiw-h1">From First Chat to<br/><span class="gold">Live Website</span> in 4 Steps.</h1>
-<p class="hiw-sub">No tech skills needed. No long waits. No lock-in. Just real digital growth — website, Google visibility &amp; leads — delivered in 5–7 days, starting at $500.</p>
-<div class="hiw-cta-row">
-<a class="btn-coral" href="/#contact">Get Started Today →</a>
-<a class="btn-ghost" href="/#pricing">View Pricing</a>
-</div>
+<section style="background:linear-gradient(160deg,#002B49 0%,#003d5c 50%,#002B49 100%);padding:120px 48px 80px;text-align:center;position:relative;overflow:hidden;min-height:50vh;display:flex;align-items:center;">
+<div style="position:absolute;top:-100px;right:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(0,224,255,0.12) 0%,transparent 70%);pointer-events:none;"></div>
+<div style="max-width:760px;margin:0 auto;position:relative;z-index:2;width:100%;">
+<span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;color:#F7C873;display:block;margin-bottom:16px;">Growth Systems</span>
+<h1 style="font-size:52px;font-weight:800;color:#fff;line-height:1.1;letter-spacing:-0.5px;margin-bottom:20px;font-family:'Manrope',sans-serif;">BluWav Growth Systems</h1>
+<p style="font-size:18px;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:36px;">Everything your business needs to get found online, be chosen first, and grow — powered by AI and built for Caribbean MSMEs.</p>
+<a href="index.html#health-check" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 28px rgba(0,224,255,0.4)'" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 36px rgba(0,224,255,0.55)'" style="background:#00E0FF;color:#fff;font-size:16px;font-weight:800;padding:16px 44px;border-radius:12px;box-shadow:0 4px 28px rgba(0,224,255,0.4);display:inline-block;text-decoration:none;transition:all 0.2s;">Start Free →</a>
 </div>
 </section>
-<!-- TIMELINE STRIP -->
-<div class="timeline-strip">
-<div class="wrap">
-<div class="timeline-inner">
-<div class="tl-step tl1">
-<div class="tl-dot">1</div>
-<div class="tl-label">Discover</div>
-<div class="tl-time">Day 1</div>
+<!-- WHAT WE DO -->
+<section style="background:#fff;padding:96px 0;">
+<div style="max-width:1100px;margin:0 auto;padding:0 48px;">
+<div style="text-align:center;margin-bottom:56px;">
+<span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;color:#00E0FF;display:block;margin-bottom:12px;">What We Do</span>
+<h2 style="font-size:42px;font-weight:800;color:#002B49;margin-bottom:20px;font-family:'Manrope',sans-serif;">One System. Every Channel.</h2>
+<p style="font-size:17px;color:#64748b;line-height:1.75;max-width:680px;margin:0 auto 12px;">BluWav helps your business show up where customers are already searching — Google, Maps, Bing, WhatsApp, and across the web.</p>
+<p style="font-size:17px;color:#64748b;line-height:1.75;max-width:680px;margin:0 auto;">We combine your website, Google Business Profile, WhatsApp Business, CRM, automation, and analytics into one unified system that works together to bring you more customers.</p>
 </div>
-<div class="tl-step tl2">
-<div class="tl-dot">2</div>
-<div class="tl-label">Build</div>
-<div class="tl-time">Days 2–6</div>
+<!-- 3 pillars -->
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-bottom:0;">
+<div style="background:#f8faff;border-radius:20px;padding:36px 28px;border:1px solid rgba(0,43,73,0.08);text-align:center;">
+<div style="width:64px;height:64px;border-radius:16px;background:linear-gradient(135deg,#00E0FF,#002B49);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:28px;">🔍</div>
+<h3 style="font-size:20px;font-weight:800;color:#002B49;margin-bottom:10px;font-family:'Manrope',sans-serif;">Be Found Online</h3>
+<p style="font-size:14px;color:#64748b;line-height:1.7;">Google, Maps, Bing, WhatsApp, and search visibility.</p>
 </div>
-<div class="tl-step tl3">
-<div class="tl-dot">3</div>
-<div class="tl-label">Review</div>
-<div class="tl-time">Day 7</div>
+<div style="background:#f8faff;border-radius:20px;padding:36px 28px;border:1px solid rgba(0,43,73,0.08);text-align:center;">
+<div style="width:64px;height:64px;border-radius:16px;background:linear-gradient(135deg,#00C2D8,#002B49);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:28px;">🌐</div>
+<h3 style="font-size:20px;font-weight:800;color:#002B49;margin-bottom:10px;font-family:'Manrope',sans-serif;">Be Chosen First</h3>
+<p style="font-size:14px;color:#64748b;line-height:1.7;">A modern website and strong digital presence that builds trust.</p>
 </div>
-<div class="tl-step tl4">
-<div class="tl-dot">4</div>
-<div class="tl-label">Launch</div>
-<div class="tl-time">Day 8</div>
-</div>
-</div>
-</div>
-</div>
-<!-- STEPS -->
-<section class="steps-section">
-<div class="wrap">
-<div class="steps-intro">
-<span class="eyebrow">The Process</span>
-<h2>Four Simple Steps.<br/>Real Results. No Tech Skills Needed.</h2>
-<p>We handle everything — you just tell us about your business and approve the final result.</p>
-</div>
-<!-- STEP 1 -->
-<div class="step-row s1">
-<div class="step-visual">
-<div class="step-card s1">
-<div class="step-num-bg">01</div>
-<div class="step-icon-wrap">💬</div>
-<div class="step-card-label">Step 01 — Discover</div>
-<h3>We Learn Your Business</h3>
-<p>A short, focused conversation to understand what you offer, who you serve, and what you need online. No forms. No complexity. Just a real conversation.</p>
-<span class="step-tag">✓ Free &amp; No Obligation</span>
-</div>
-</div>
-<div class="step-content">
-<div class="step-number">01</div>
-<h2>Discover — We Learn Your Business</h2>
-<p>We start with a short conversation — by WhatsApp, phone, or email — to understand your business, your customers, and what you need online. Simple, fast, and focused.</p>
-<ul class="step-bullets">
-<li>Tell us what your business does and who you serve</li>
-<li>Share any photos, logo, or content you already have</li>
-<li>We handle everything else — no homework for you</li>
-<li>Takes less than 30 minutes of your time</li>
-</ul>
-</div>
-</div>
-<!-- STEP 2 -->
-<div class="step-row reverse s2">
-<div class="step-visual">
-<div class="step-card s2">
-<div class="step-num-bg">02</div>
-<div class="step-icon-wrap">💻</div>
-<div class="step-card-label">Step 02 — Build</div>
-<h3>We Create Your Digital Growth</h3>
-<p>Your website, Google Business Profile, and customer-ready content — built in 5–7 days, optimized specifically for Caribbean customers searching online.</p>
-<span class="step-tag">⚡ 5–7 Days Delivery</span>
-</div>
-</div>
-<div class="step-content">
-<div class="step-number">02</div>
-<h2>Build — We Create Your Digital Growth</h2>
-<p>While you focus on running your business, we build everything you need to get found online and turn visitors into customers.</p>
-<ul class="step-bullets">
-<li>Clean, modern, mobile-first website built to convert</li>
-<li>Google Business Profile set up and optimized</li>
-<li>WhatsApp button, contact forms, and clear CTAs</li>
-<li>SEO-optimized so customers can find you on Google</li>
-<li>Delivered in 5–7 days — no long waits</li>
-</ul>
-</div>
-</div>
-<!-- STEP 3 -->
-<div class="step-row s3">
-<div class="step-visual">
-<div class="step-card s3">
-<div class="step-num-bg">03</div>
-<div class="step-icon-wrap">✅</div>
-<div class="step-card-label">Step 03 — Review</div>
-<h3>You Approve the Final Version</h3>
-<p>We share the completed website for your review. Tell us what to adjust — photos, text, services — and we update everything within 48 hours.</p>
-<span class="step-tag">🕐 Updates in 48 Hours</span>
-</div>
-</div>
-<div class="step-content">
-<div class="step-number">03</div>
-<h2>Review — You Approve the Final Version</h2>
-<p>Before anything goes live, you see exactly what your website looks like and have full control to request changes. Your approval, your call — always.</p>
-<ul class="step-bullets">
-<li>Review your complete website before it goes live</li>
-<li>Request any changes — photos, text, layout, services</li>
-<li>All updates completed within 48 hours</li>
-<li>Nothing launches without your sign-off</li>
-</ul>
-</div>
-</div>
-<!-- STEP 4 -->
-<div class="step-row reverse s4">
-<div class="step-visual">
-<div class="step-card s4">
-<div class="step-num-bg">04</div>
-<div class="step-icon-wrap">🚀</div>
-<div class="step-card-label">Step 04 — Launch</div>
-<h3>You Go Live — You Own Everything</h3>
-<p>We connect your domain, update your Google listing, and hand over everything you own. No subscriptions. No lock-in. Your website is yours forever.</p>
-<span class="step-tag">🌍 You Own Everything</span>
-</div>
-</div>
-<div class="step-content">
-<div class="step-number">04</div>
-<h2>Launch — You Go Live &amp; Own Everything</h2>
-<p>Your business goes live online. We connect your domain, finalize your Google listing, and hand over full ownership of everything we built.</p>
-<ul class="step-bullets">
-<li>Domain connected and website published</li>
-<li>Google Business Profile live and verified</li>
-<li>Full ownership transferred — files, logins, everything</li>
-<li>No monthly fees to us. No subscriptions. No lock-in.</li>
-<li>Optional ongoing support available if you need it</li>
-</ul>
+<div style="background:#f8faff;border-radius:20px;padding:36px 28px;border:1px solid rgba(0,43,73,0.08);text-align:center;">
+<div style="width:64px;height:64px;border-radius:16px;background:linear-gradient(135deg,#FF5500,#F7C873);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:28px;">📈</div>
+<h3 style="font-size:20px;font-weight:800;color:#002B49;margin-bottom:10px;font-family:'Manrope',sans-serif;">Grow Automatically</h3>
+<p style="font-size:14px;color:#64748b;line-height:1.7;">CRM + automation included in every plan.</p>
 </div>
 </div>
 </div>
 </section>
-<!-- OUR PROMISE -->
-<section class="promise-section">
-<div class="wrap">
-<div style="text-align:center;margin-bottom:52px;">
-<span class="eyebrow">What You Get</span>
-<h2 style="font-family:'Sora',sans-serif;font-size:clamp(1.8rem,3.5vw,2.4rem);font-weight:900;color:var(--navy);letter-spacing:-0.8px;margin-bottom:14px;">What's Included in Every ClientFlow Website</h2>
-<p style="font-size:16px;color:var(--slate);line-height:1.75;max-width:520px;margin:0 auto;">Every ClientFlow website comes with these 6 essentials — built in, not bolted on. No extras. No hidden fees. Just everything you need to get found and get customers.</p>
+<!-- INCLUDED IN EVERY PLAN -->
+<section style="background:#F4F2ED;padding:96px 0;">
+<div style="max-width:1100px;margin:0 auto;padding:0 48px;">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;">
+<div>
+<span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;color:#00E0FF;display:block;margin-bottom:12px;">Every Plan</span>
+<h2 style="font-size:40px;font-weight:800;color:#002B49;margin-bottom:20px;font-family:'Manrope',sans-serif;">What's Included in Every Plan</h2>
+<p style="font-size:16px;color:#64748b;line-height:1.75;margin-bottom:24px;">Every BluWav Growth System includes the essential tools your business needs to get found online, be chosen first, and grow — powered by AI and built for Caribbean MSMEs.</p>
+<p style="font-size:15px;color:#64748b;line-height:1.75;">These essentials give every business — even at the Starter level — a real, working online presence that drives visibility and customer action.</p>
 </div>
-<div class="promise-grid">
-<div class="promise-card">
-<div class="promise-icon">⚡</div>
-<h4>Fast Delivery</h4>
-<p>Your website and Google listing delivered in 5–7 days. We move fast because your business can't afford to wait.</p>
+<div>
+<div style="font-size:13px;font-weight:800;color:#002B49;text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;">Included Across All Plans:</div>
+<div style="display:flex;flex-direction:column;gap:10px;">
+<div style="display:flex;align-items:center;gap:12px;font-size:14px;color:#1E1E1E;"><span style="width:22px;height:22px;border-radius:50%;background:#00E0FF;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;font-weight:800;flex-shrink:0;">✓</span>Modern website (you own it forever)</div>
+<div style="display:flex;align-items:center;gap:12px;font-size:14px;color:#1E1E1E;"><span style="width:22px;height:22px;border-radius:50%;background:#00E0FF;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;font-weight:800;flex-shrink:0;">✓</span>Google Business Profile setup</div>
+<div style="display:flex;align-items:center;gap:12px;font-size:14px;color:#1E1E1E;"><span style="width:22px;height:22px;border-radius:50%;background:#00E0FF;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;font-weight:800;flex-shrink:0;">✓</span>CRM included (no monthly subscription)</div>
+<div style="display:flex;align-items:center;gap:12px;font-size:14px;color:#1E1E1E;"><span style="width:22px;height:22px;border-radius:50%;background:#00E0FF;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;font-weight:800;flex-shrink:0;">✓</span>Basic automation</div>
+<div style="display:flex;align-items:center;gap:12px;font-size:14px;color:#1E1E1E;"><span style="width:22px;height:22px;border-radius:50%;background:#00E0FF;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;font-weight:800;flex-shrink:0;">✓</span>Basic analytics dashboard</div>
+<div style="display:flex;align-items:center;gap:12px;font-size:14px;color:#1E1E1E;"><span style="width:22px;height:22px;border-radius:50%;background:#00E0FF;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;font-weight:800;flex-shrink:0;">✓</span>On-page SEO essentials (titles, meta, headers)</div>
+<div style="display:flex;align-items:center;gap:12px;font-size:14px;color:#1E1E1E;"><span style="width:22px;height:22px;border-radius:50%;background:#00E0FF;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;font-weight:800;flex-shrink:0;">✓</span>Google Search Console setup</div>
+<div style="display:flex;align-items:center;gap:12px;font-size:14px;color:#1E1E1E;"><span style="width:22px;height:22px;border-radius:50%;background:#00E0FF;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;font-weight:800;flex-shrink:0;">✓</span>Google Analytics 4 setup</div>
+<div style="display:flex;align-items:center;gap:12px;font-size:14px;color:#1E1E1E;"><span style="width:22px;height:22px;border-radius:50%;background:#00E0FF;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;font-weight:800;flex-shrink:0;">✓</span>WhatsApp chat button</div>
+<div style="display:flex;align-items:center;gap:12px;font-size:14px;color:#1E1E1E;"><span style="width:22px;height:22px;border-radius:50%;background:#00E0FF;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;font-weight:800;flex-shrink:0;">✓</span>Mobile-optimized design</div>
+<div style="display:flex;align-items:center;gap:12px;font-size:14px;color:#1E1E1E;"><span style="width:22px;height:22px;border-radius:50%;background:#00E0FF;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;font-weight:800;flex-shrink:0;">✓</span>Fast, secure hosting</div>
+<div style="display:flex;align-items:center;gap:12px;font-size:14px;color:#1E1E1E;"><span style="width:22px;height:22px;border-radius:50%;background:#00E0FF;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;font-weight:800;flex-shrink:0;">✓</span>Standard support</div>
 </div>
-<div class="promise-card">
-<div class="promise-icon">📱</div>
-<h4>Mobile-First Design</h4>
-<p>Every website we build looks perfect on phones — because that's how Caribbean customers search for businesses.</p>
-</div>
-<div class="promise-card">
-<div class="promise-icon">🔑</div>
-<h4>100% Ownership</h4>
-<p>Your website is yours forever. No subscriptions, no lock-in, no monthly fees to us. You own everything outright.</p>
-</div>
-<div class="promise-card">
-<div class="promise-icon">🌍</div>
-<h4>Caribbean-Specific</h4>
-<p>We understand the Caribbean market, culture, and what local customers respond to. Not a generic solution.</p>
-</div>
-<div class="promise-card">
-<div class="promise-icon">🔍</div>
-<h4>SEO-Optimized</h4>
-<p>Every site is built to rank on Google from day one — proper titles, descriptions, speed, and structure.</p>
-</div>
-<div class="promise-card">
-<div class="promise-icon">💬</div>
-<h4>WhatsApp Ready</h4>
-<p>Every website includes a WhatsApp button so customers can reach you instantly — the way Caribbean customers prefer.</p>
 </div>
 </div>
 </div>
 </section>
-<!-- CTA -->
-<section class="hiw-cta">
-<div class="wrap hiw-cta-inner">
-<span class="eyebrow" style="color:var(--teal);">Ready to Get Started?</span>
-<h2>Get Your Business Online<br/><span>in 4 Simple Steps.</span></h2>
-<p>Join 50+ Caribbean businesses that chose ClientFlow to get found online, build credibility, and turn visitors into real customers.</p>
-<div class="hiw-cta-btns">
-<a class="btn-coral" href="/#contact">Get Started Today →</a>
-<a class="btn-ghost" href="/#pricing">View Pricing</a>
+<!-- THREE GROWTH SYSTEMS -->
+<section style="background:#002B49;padding:96px 0;">
+<div style="max-width:1100px;margin:0 auto;padding:0 48px;">
+<div style="text-align:center;margin-bottom:64px;">
+<span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;color:#F7C873;display:block;margin-bottom:12px;">Growth Systems</span>
+<h2 style="font-size:42px;font-weight:800;color:#fff;margin-bottom:16px;font-family:'Manrope',sans-serif;">Our Three Growth Systems</h2>
+<p style="font-size:16px;color:rgba(255,255,255,0.6);line-height:1.75;max-width:600px;margin:0 auto;">BluWav offers three Growth Systems designed for different stages of your business. Each one builds on the last, adding more visibility, automation, and multi-channel reach.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:32px;">
+<!-- Ripple -->
+<div style="background:rgba(255,255,255,0.04);border:1px solid rgba(0,224,255,0.15);border-radius:20px;padding:40px 48px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;">
+<div>
+<div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#00E0FF;margin-bottom:8px;">Starter</div>
+<h3 style="font-size:32px;font-weight:800;color:#fff;margin-bottom:12px;font-family:'Manrope',sans-serif;">Ripple</h3>
+<p style="font-size:16px;color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:16px;">Get online fast with the essentials that help customers find you.</p>
+<p style="font-size:14px;color:rgba(255,255,255,0.5);line-height:1.7;margin-bottom:24px;">Perfect for small businesses that need a modern website, Google visibility, CRM, and the foundational tools to start growing online.</p>
+<div style="font-family:'Manrope',sans-serif;font-size:36px;font-weight:900;color:#00E0FF;margin-bottom:4px;">$800</div>
+<div style="font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:24px;">Starting at</div>
+<a href="index.html#health-check" onmouseout="this.style.transform='translateY(0)'" onmouseover="this.style.transform='translateY(-2px)'" style="display:inline-block;background:#00E0FF;color:#002B49;font-size:15px;font-weight:800;padding:14px 32px;border-radius:11px;text-decoration:none;transition:all 0.2s;">Start Free →</a>
+</div>
+<div>
+<div style="font-size:12px;font-weight:800;color:#00E0FF;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;">Included in every plan (see above)</div>
+<div style="font-size:13px;color:rgba(255,255,255,0.5);font-style:italic;">All core essentials included. See the full list above.</div>
+</div>
+</div>
+<!-- Current -->
+<div style="background:rgba(255,255,255,0.06);border:2px solid rgba(247,200,115,0.3);border-radius:20px;padding:40px 48px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;position:relative;">
+<div style="position:absolute;top:-1px;left:40px;background:linear-gradient(135deg,#FF5500,#F7C873);color:#fff;font-size:11px;font-weight:800;padding:5px 18px;border-radius:0 0 12px 12px;white-space:nowrap;">⭐ Most Popular</div>
+<div style="margin-top:12px;">
+<div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#F7C873;margin-bottom:8px;">Growth</div>
+<h3 style="font-size:32px;font-weight:800;color:#fff;margin-bottom:12px;font-family:'Manrope',sans-serif;">Current</h3>
+<p style="font-size:16px;color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:16px;">Boost visibility, engagement, and trust with local SEO and WhatsApp systems.</p>
+<p style="font-size:14px;color:rgba(255,255,255,0.5);line-height:1.7;margin-bottom:24px;">Ideal for businesses that want to show up more often, convert more customers, and build a stronger digital presence.</p>
+<div style="font-family:'Manrope',sans-serif;font-size:36px;font-weight:900;color:#F7C873;margin-bottom:4px;">$1,500</div>
+<div style="font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:24px;">Starting at</div>
+<a href="index.html#health-check" onmouseout="this.style.transform='translateY(0)'" onmouseover="this.style.transform='translateY(-2px)'" style="display:inline-block;background:#F7C873;color:#002B49;font-size:15px;font-weight:800;padding:14px 32px;border-radius:11px;text-decoration:none;transition:all 0.2s;">Start Free →</a>
+</div>
+<div style="margin-top:12px;">
+<div style="font-size:12px;font-weight:800;color:#F7C873;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;">Adds to Ripple:</div>
+<div style="display:flex;flex-direction:column;gap:8px;font-size:14px;color:rgba(255,255,255,0.8);">
+<div><span style="color:#F7C873;font-weight:800;margin-right:8px;">✓</span>WhatsApp Business setup</div>
+<div><span style="color:#F7C873;font-weight:800;margin-right:8px;">✓</span>WhatsApp catalog</div>
+<div><span style="color:#F7C873;font-weight:800;margin-right:8px;">✓</span>Quick replies &amp; automated messages</div>
+<div><span style="color:#F7C873;font-weight:800;margin-right:8px;">✓</span>Local SEO optimization</div>
+<div><span style="color:#F7C873;font-weight:800;margin-right:8px;">✓</span>Review system setup</div>
+<div><span style="color:#F7C873;font-weight:800;margin-right:8px;">✓</span>Lead capture system</div>
+<div><span style="color:#F7C873;font-weight:800;margin-right:8px;">✓</span>Priority support</div>
+</div>
+</div>
+</div>
+<!-- Surge -->
+<div style="background:rgba(255,255,255,0.04);border:1px solid rgba(247,200,115,0.15);border-radius:20px;padding:40px 48px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;">
+<div>
+<div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#F7C873;margin-bottom:8px;">Full Transformation</div>
+<h3 style="font-size:32px;font-weight:800;color:#fff;margin-bottom:12px;font-family:'Manrope',sans-serif;">Surge</h3>
+<p style="font-size:16px;color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:16px;">Scale across multiple channels with advanced automation and multi-search visibility.</p>
+<p style="font-size:14px;color:rgba(255,255,255,0.5);line-height:1.7;margin-bottom:24px;">Built for businesses ready to dominate search, automate follow-ups, and run ad-ready campaigns across Google and Bing.</p>
+<div style="font-family:'Manrope',sans-serif;font-size:36px;font-weight:900;color:#F7C873;margin-bottom:4px;">$2,500+</div>
+<div style="font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:24px;">Setup + Monthly Plan</div>
+<a href="index.html#contact" onmouseout="this.style.transform='translateY(0)'" onmouseover="this.style.transform='translateY(-2px)'" style="display:inline-block;background:#F7C873;color:#001020;font-size:15px;font-weight:800;padding:14px 32px;border-radius:11px;text-decoration:none;transition:all 0.2s;">Start Free →</a>
+</div>
+<div>
+<div style="font-size:12px;font-weight:800;color:#F7C873;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;">Adds to Current:</div>
+<div style="display:flex;flex-direction:column;gap:8px;font-size:14px;color:rgba(255,255,255,0.8);">
+<div><span style="color:#F7C873;font-weight:800;margin-right:8px;">✓</span>Bing Places listing</div>
+<div><span style="color:#F7C873;font-weight:800;margin-right:8px;">✓</span>Multi-search engine listing</div>
+<div><span style="color:#F7C873;font-weight:800;margin-right:8px;">✓</span>Bing Webmaster Tools setup</div>
+<div><span style="color:#F7C873;font-weight:800;margin-right:8px;">✓</span>Ad-ready setup (Google + Bing)</div>
+<div><span style="color:#F7C873;font-weight:800;margin-right:8px;">✓</span>Advanced WhatsApp automation</div>
+<div><span style="color:#F7C873;font-weight:800;margin-right:8px;">✓</span>Monthly visibility report</div>
+<div><span style="color:#F7C873;font-weight:800;margin-right:8px;">✓</span>Dedicated account manager</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </section>
-<!-- FOOTER -->
+<!-- WHY BLUWAV WORKS -->
+<section style="background:#fff;padding:96px 0;">
+<div style="max-width:1100px;margin:0 auto;padding:0 48px;">
+<div style="text-align:center;margin-bottom:56px;">
+<span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;color:#00E0FF;display:block;margin-bottom:12px;">Why BluWav</span>
+<h2 style="font-size:42px;font-weight:800;color:#002B49;font-family:'Manrope',sans-serif;">Why BluWav Works</h2>
+</div>
+<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:32px;">
+<div style="background:#f8faff;border-radius:20px;padding:36px;border:1px solid rgba(0,43,73,0.08);">
+<div style="font-size:32px;margin-bottom:16px;">🌎</div>
+<h3 style="font-size:20px;font-weight:800;color:#002B49;margin-bottom:10px;font-family:'Manrope',sans-serif;">Built for Caribbean MSMEs</h3>
+<p style="font-size:14px;color:#64748b;line-height:1.7;">Your customers use Google, Maps, WhatsApp, and social — we optimize for how the region actually searches.</p>
+</div>
+<div style="background:#f8faff;border-radius:20px;padding:36px;border:1px solid rgba(0,43,73,0.08);">
+<div style="font-size:32px;margin-bottom:16px;">🤖</div>
+<h3 style="font-size:20px;font-weight:800;color:#002B49;margin-bottom:10px;font-family:'Manrope',sans-serif;">AI-Powered Delivery</h3>
+<p style="font-size:14px;color:#64748b;line-height:1.7;">Faster setup, smarter automation, and better results — without the agency price tag.</p>
+</div>
+<div style="background:#f8faff;border-radius:20px;padding:36px;border:1px solid rgba(0,43,73,0.08);">
+<div style="font-size:32px;margin-bottom:16px;">⚡</div>
+<h3 style="font-size:20px;font-weight:800;color:#002B49;margin-bottom:10px;font-family:'Manrope',sans-serif;">48–72 Hour Turnaround</h3>
+<p style="font-size:14px;color:#64748b;line-height:1.7;">Your system goes live fast so you can start getting customers sooner.</p>
+</div>
+<div style="background:#f8faff;border-radius:20px;padding:36px;border:1px solid rgba(0,43,73,0.08);">
+<div style="font-size:32px;margin-bottom:16px;">🔒</div>
+<h3 style="font-size:20px;font-weight:800;color:#002B49;margin-bottom:10px;font-family:'Manrope',sans-serif;">You Own Everything Forever</h3>
+<p style="font-size:14px;color:#64748b;line-height:1.7;">No subscriptions. No lock-in. No surprises.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- FINAL CTA -->
+<section style="background:linear-gradient(135deg,#002B49,#003d5c);padding:96px 0;text-align:center;position:relative;overflow:hidden;">
+<div style="position:absolute;top:-100px;right:-100px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(0,224,255,0.12) 0%,transparent 70%);pointer-events:none;"></div>
+<div style="max-width:600px;margin:0 auto;padding:0 48px;position:relative;z-index:2;">
+<span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;color:#F7C873;display:block;margin-bottom:16px;">Ready to Grow?</span>
+<h2 style="font-size:44px;font-weight:800;color:#fff;line-height:1.15;margin-bottom:16px;font-family:'Manrope',sans-serif;">Ready to grow your business online?</h2>
+<p style="font-size:18px;color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:36px;">Start with your free Digital Health Check — it takes 30 seconds.</p>
+<a href="index.html#health-check" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 6px 32px rgba(255,85,0,0.5)'" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 40px rgba(255,85,0,0.65)'" style="background:#FF5500;color:#fff;font-size:17px;font-weight:800;padding:18px 52px;border-radius:12px;box-shadow:0 6px 32px rgba(255,85,0,0.5);display:inline-block;text-decoration:none;transition:all 0.2s;">Start Free →</a>
+</div>
+</section>
+<script>
+function toggleMob(){var n=document.getElementById('mobNav');if(n)n.classList.toggle('open');}
+function toggleDropdown(e){
+  e.preventDefault();
+  var menu=document.getElementById('svcMenu');
+  if(!menu)return;
+  var isOpen=menu.classList.contains('open');
+  document.querySelectorAll('.nav-dropdown-menu').forEach(function(m){m.classList.remove('open');});
+  if(!isOpen){menu.classList.add('open');}
+}
+document.addEventListener('click',function(e){
+  if(!e.target.closest('#svcDropdown')){
+    document.querySelectorAll('.nav-dropdown-menu').forEach(function(m){m.classList.remove('open');});
+  }
+});
+</script><!-- FOOTER -->
 <footer>
 <div class="wrap">
 <div class="footer-grid">
