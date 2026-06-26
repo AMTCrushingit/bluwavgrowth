@@ -291,22 +291,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 48px;d
 
 
 .hamburger{display:flex !important;}}
-/* ── FOOTER ── */
-footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;}
-.footer-heading{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.4);margin-bottom:16px;}
-.footer-brand-name{font-family:'Kaushan Script',cursive;font-size:34px;color:#fff;line-height:1;margin-bottom:6px;}
-.footer-brand-name span{color:#FF5500;}
-.footer-brand-sub{font-size:9px;font-weight:700;color:#F7C873;letter-spacing:5px;text-transform:uppercase;margin-bottom:12px;}
-.footer-brand-tag{font-size:12px;font-weight:500;color:#00E0FF;letter-spacing:1px;margin-bottom:6px;}
-.footer-desc{font-size:13px;color:rgba(255,255,255,0.4);line-height:1.65;margin-top:12px;}
-.footer-link{display:block;font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:8px;transition:color 0.2s,transform 0.2s;text-decoration:none;}
-.footer-link:hover{color:#fff;transform:translateX(4px);}
-.footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding:20px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
-.footer-bottom-text{font-size:12px;color:rgba(255,255,255,0.3);}
-.footer-bottom-text span{color:#00E0FF;}
-@media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;}}
-@media(max-width:600px){.footer-grid{grid-template-columns:1fr !important;}.footer-bottom{flex-direction:column;text-align:center;}}
 
 /* ── SERVICES DROPDOWN (JS-powered, no gap issue) ── */
 
@@ -334,6 +318,25 @@ p,.lead,.footer-link,.footer-desc,
 input,button,select,textarea{
   font-family:'Inter',sans-serif !important;
 }
+
+/* ── FOOTER ── */
+footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;}
+.footer-heading{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.4);margin-bottom:16px;}
+.footer-brand-name{font-family:'Kaushan Script',cursive;font-size:34px;color:#fff;line-height:1;margin-bottom:6px;}
+.footer-brand-name span{color:#FF5500;}
+.footer-brand-sub{font-size:9px;font-weight:700;color:#F7C873;letter-spacing:5px;text-transform:uppercase;margin-bottom:12px;}
+.footer-brand-tag{font-size:12px;font-weight:500;color:#00E0FF;letter-spacing:1px;margin-bottom:6px;}
+.footer-desc{font-size:13px;color:rgba(255,255,255,0.4);line-height:1.65;margin-top:12px;}
+.footer-link{display:block;font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:8px;transition:color 0.2s,transform 0.2s;text-decoration:none;}
+.footer-link:hover{color:#fff;transform:translateX(4px);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding:20px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.footer-bottom-text{font-size:12px;color:rgba(255,255,255,0.3);}
+.footer-bottom-text span{color:#00E0FF;}
+@media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:600px){.footer-grid{grid-template-columns:1fr !important;}.footer-bottom{flex-direction:column;text-align:center;gap:8px;}}
+/* ── KAUSHAN SCRIPT for BluWav wordmark ── */
+.footer-brand-name,.hero-logo-name{font-family:'Kaushan Script',cursive !important;}
 
 </style>
 </head>
@@ -510,7 +513,7 @@ input,button,select,textarea{
 <div class="footer-brand-tag">Get Found. Get Chosen. Grow.</div>
 <div style="font-size:10px;font-weight:700;color:var(--gold,#F7C873);letter-spacing:3px;text-transform:uppercase;margin-top:6px;">A Stratiix Group Company</div>
 <p class="footer-desc">Caribbean-ready websites, Google visibility, CRM and automation. Built for Caribbean businesses by Caribbean experts.</p>
-<div style="margin-top:16px;"><a class="btn-wa" href="https://wa.me/18682979960" style="font-size:13px;padding:10px 18px;">💬 WhatsApp</a></div>
+<div style="margin-top:16px;"><a class="btn-wa" href="https://wa.me/18682979960" style="font-size:13px;padding:10px 18px;display:inline-flex;align-items:center;gap:6px;background:#25D366;color:#fff;border-radius:9px;text-decoration:none;font-weight:700;">&#128172; WhatsApp</a></div>
 </div>
 <div>
 <div class="footer-heading">Services</div>
@@ -529,14 +532,14 @@ input,button,select,textarea{
 </div>
 <div>
 <div class="footer-heading">Contact</div>
-<a class="footer-link" href="tel:+18682979960">📞 +1 (868) 297-9960</a>
-<a class="footer-link" href="https://wa.me/18682979960">💬 WhatsApp</a>
-<a class="footer-link" href="mailto:hello@bluwavgrowth.com">✉️ hello@bluwavgrowth.com</a>
-<div class="footer-link" style="cursor:default;">🌍 MSMEs across the Caribbean</div>
+<a class="footer-link" href="tel:+18682979960">&#128222; +1 (868) 297-9960</a>
+<a class="footer-link" href="https://wa.me/18682979960">&#128172; WhatsApp</a>
+<a class="footer-link" href="mailto:hello@bluwavgrowth.com">&#9993;&#65039; hello@bluwavgrowth.com</a>
+<div class="footer-link" style="cursor:default;">&#127757; MSMEs across the Caribbean</div>
 </div>
 </div>
 <div class="footer-bottom">
-<div class="footer-bottom-text">© 2026 <span>BluWav Growth</span> · All rights reserved.</div>
+<div class="footer-bottom-text">&#169; 2026 <span>BluWav Growth</span> &#183; All rights reserved.</div>
 <div class="footer-bottom-text">Get Found. Get Chosen. Grow.</div>
 </div>
 </div>
