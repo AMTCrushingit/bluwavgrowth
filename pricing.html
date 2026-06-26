@@ -28,9 +28,9 @@ a{text-decoration:none;color:inherit;}
 
 
 /* HERO */
-.hero{min-height:55vh;background:linear-gradient(160deg,#002B49 0%,#003d5c 50%,#002B49 100%);display:flex;align-items:center;padding:120px 48px 80px;position:relative;overflow:hidden;text-align:center;box-sizing:border-box;}
-.hero::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(0,224,255,0.15) 0%,transparent 70%);pointer-events:none;}
-.hero-inner{max-width:760px;margin:0 auto;width:100%;position:relative;z-index:2;padding:0 16px;box-sizing:border-box;}
+
+
+
 
 /* HELPERS */
 .wrap{max-width:var(--max);margin:0 auto;padding:0 48px;}
@@ -60,12 +60,12 @@ a{text-decoration:none;color:inherit;}
 .partial{color:var(--gold);font-weight:700;}
 
 @media(max-width:900px){
-  .hero{padding:110px 24px 60px !important;}
-  .hero-inner{padding:0 8px !important;}
+  
+  
 
   nav{padding:0 20px;}
   .wrap{padding:0 20px;}
-  .hero{padding:110px 20px 60px;}
+  
   .pricing-grid{grid-template-columns:1fr;}
   .compare-table{font-size:12px;}
   .compare-table th,.compare-table td{padding:10px 12px;}
@@ -116,8 +116,8 @@ a{text-decoration:none;color:inherit;}
   .wrap{padding:0 16px !important;}
 
   /* HERO */
-  .hero{padding:90px 16px 60px !important;}
-  .hero-inner{padding:20px 0 !important;}
+  
+  
   .hero-logo-name{font-size:48px !important;}
   .hero-h1{font-size:28px !important;letter-spacing:-0.5px !important;}
   .hero-tagline{font-size:15px !important;}
@@ -274,8 +274,8 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
 .footer-bottom-text{font-size:12px;color:rgba(255,255,255,0.3);}
 .footer-bottom-text span{color:#00E0FF;}
 @media(max-width:900px){
-  .hero{padding:110px 24px 60px !important;}
-  .hero-inner{padding:0 8px !important;}
+  
+  
 .footer-grid{grid-template-columns:1fr 1fr;}}
 @media(max-width:600px){.footer-grid{grid-template-columns:1fr !important;}.footer-bottom{flex-direction:column;text-align:center;}}
 
@@ -389,47 +389,17 @@ input,button,select,textarea{
 </div>
 
 
-<!-- HEADER STRIP -->
-<div style="background:#002B49;border-bottom:1px solid rgba(0,224,255,0.15);padding:10px 0;text-align:center;">
-<div style="display:flex;align-items:center;justify-content:center;gap:32px;flex-wrap:wrap;">
-<span style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.7);">⚡ 48–72 Hour Delivery</span>
-<span style="color:rgba(0,224,255,0.3);font-size:10px;">·</span>
-<span style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.7);">🌊 Caribbean-Built Systems</span>
-<span style="color:rgba(0,224,255,0.3);font-size:10px;">·</span>
-<span style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.7);">🔒 You Own Everything Forever</span>
+<!-- SLIM NAVY STRIP -->
+<div style="background:#002B49;border-bottom:1px solid rgba(0,224,255,0.2);padding:11px 0;text-align:center;margin-top:70px;">
+  <div style="display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap;max-width:900px;margin:0 auto;padding:0 24px;">
+    <span style="font-size:13px;font-weight:600;color:rgba(255,255,255,0.8);">⚡ 48&ndash;72 Hour Delivery</span>
+    <span style="color:rgba(0,224,255,0.4);font-size:12px;">·</span>
+    <span style="font-size:13px;font-weight:600;color:rgba(255,255,255,0.8);">🌊 Caribbean-Built Systems</span>
+    <span style="color:rgba(0,224,255,0.4);font-size:12px;">·</span>
+    <span style="font-size:13px;font-weight:600;color:rgba(255,255,255,0.8);">🔒 You Own Everything Forever</span>
+  </div>
 </div>
-</div>
-<!-- HERO -->
-<section class="hero">
-<div class="hero-inner">
-<span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;color:var(--gold);display:block;margin-bottom:16px;">Customer Growth Plans</span>
-<h1 style="font-size:52px;font-weight:800;color:#fff;line-height:1.1;letter-spacing:-0.5px;margin-bottom:20px;">Customer Growth Systems</h1>
-<p style="font-size:18px;color:rgba(255,255,255,0.85);line-height:1.7;max-width:100%;margin:0 auto 32px;">Your website, Google presence, WhatsApp Business, CRM, and automation working together to bring you more customers online.</p>
-<a href="index.html#health-check" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 24px rgba(0,224,255,0.4)'" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 32px rgba(0,224,255,0.55)'" style="background:var(--cyan);color:#fff;font-size:16px;font-weight:800;padding:16px 40px;border-radius:12px;box-shadow:0 4px 24px rgba(0,224,255,0.4);display:inline-block;text-decoration:none;transition:all 0.2s;">Start Free →</a>
-</div>
-</section>
-<!-- VALUE PROPOSITION — 3 columns -->
-<section style="background:#fff;padding:64px 0;border-bottom:1px solid var(--mist);">
-<div class="wrap">
-<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:40px;">
-<div style="text-align:center;padding:32px 24px;">
-<div style="font-size:36px;margin-bottom:16px;">🔍</div>
-<div style="font-size:18px;font-weight:800;color:var(--navy);margin-bottom:10px;font-family:'Manrope',sans-serif;">Be Found Online</div>
-<div style="font-size:14px;color:var(--slate);line-height:1.7;">Google, Maps, WhatsApp, and search visibility.</div>
-</div>
-<div style="text-align:center;padding:32px 24px;border-left:1px solid var(--mist);border-right:1px solid var(--mist);">
-<div style="font-size:36px;margin-bottom:16px;">🌐</div>
-<div style="font-size:18px;font-weight:800;color:var(--navy);margin-bottom:10px;font-family:'Manrope',sans-serif;">Be Chosen First</div>
-<div style="font-size:14px;color:var(--slate);line-height:1.7;">A modern website and strong digital presence.</div>
-</div>
-<div style="text-align:center;padding:32px 24px;">
-<div style="font-size:36px;margin-bottom:16px;">📈</div>
-<div style="font-size:18px;font-weight:800;color:var(--navy);margin-bottom:10px;font-family:'Manrope',sans-serif;">Grow Automatically</div>
-<div style="font-size:14px;color:var(--slate);line-height:1.7;">CRM + automation included in every plan.</div>
-</div>
-</div>
-</div>
-</section>
+
 <!-- PRICING PLANS — 3 cards -->
 <section id="growth-pricing" style="background:var(--sand);padding:96px 0;">
 <div class="wrap" style="text-align:center;">
