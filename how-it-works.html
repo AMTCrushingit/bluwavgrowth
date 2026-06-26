@@ -347,11 +347,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 48px;d
 /* Dropdown */
 
 
-.nav-dropdown:hover 
-
-
-
-@media(max-width:768px){.nav-links{display:none !important;}.hamburger{display:flex !important;}}
+.hamburger{display:flex !important;}}
 /* ── FOOTER ── */
 footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;}
@@ -370,29 +366,13 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
 @media(max-width:600px){.footer-grid{grid-template-columns:1fr !important;}.footer-bottom{flex-direction:column;text-align:center;}}
 
 /* ── SERVICES DROPDOWN (JS-powered, no gap issue) ── */
-.nav-dropdown{position:relative;}
-.nav-dropdown-menu{
-  display:none;
-  position:absolute;
-  top:100%;
-  left:50%;
-  transform:translateX(-50%);
-  padding-top:12px;
-  z-index:300;
-  min-width:200px;
-}
+
+
 .nav-dropdown-menu.open{display:block;}
-.nav-dropdown-inner{
-  background:rgba(0,43,73,0.98);
-  backdrop-filter:blur(20px);
-  border:1px solid rgba(0,224,255,0.2);
-  border-radius:12px;
-  padding:8px 0;
-  box-shadow:0 8px 32px rgba(0,0,0,0.4);
-}
-.nav-dropdown-menu a{display:block;padding:11px 20px;font-size:13px;font-weight:500;color:rgba(255,255,255,0.75);text-decoration:none;transition:all 0.15s;white-space:nowrap;}
-.nav-dropdown-menu a:hover{color:#00E0FF;background:rgba(0,224,255,0.07);padding-left:26px;}
-.nav-dropdown-trigger::after{content:" \25BE";font-size:10px;opacity:0.6;}
+
+
+
+
 
 
 /* ── TYPOGRAPHY: Manrope headings, Inter body ── */
@@ -426,13 +406,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 48px;d
 .mob-nav.open{display:flex !important;}
 .mob-link{font-size:15px;font-weight:600;color:rgba(255,255,255,0.85);padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.1);text-decoration:none;display:block;}
 .mob-cta{background:#FF5500;color:#fff;font-weight:700;padding:14px;border-radius:10px;text-align:center;margin-top:8px;font-size:15px;text-decoration:none;display:block;}
-.nav-dropdown{position:relative;}
-.nav-dropdown-menu{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:12px;z-index:300;min-width:200px;}
+
+
 .nav-dropdown-menu.open{display:block;}
-.nav-dropdown-inner{background:rgba(0,43,73,0.98);backdrop-filter:blur(20px);border:1px solid rgba(0,224,255,0.2);border-radius:12px;padding:8px 0;box-shadow:0 8px 32px rgba(0,0,0,0.4);}
-.nav-dropdown-menu a{display:block;padding:11px 20px;font-size:13px;font-weight:500;color:rgba(255,255,255,0.75);text-decoration:none;transition:all 0.15s;white-space:nowrap;}
-.nav-dropdown-menu a:hover{color:#00E0FF;background:rgba(0,224,255,0.07);padding-left:26px;}
-.nav-dropdown-trigger::after{content:" \25BE";font-size:10px;opacity:0.6;}
+
+
+
+
 /* Footer */
 footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;}
@@ -472,17 +452,7 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
 </div>
 <div class="nav-links">
 <a class="nav-link" href="index.html">Home</a>
-<div class="nav-dropdown" id="svcDropdown">
-<a class="nav-link nav-dropdown-trigger" href="index.html#what-we-do" onclick="toggleDropdown(event)">Services</a>
-<div class="nav-dropdown-menu" id="svcMenu">
-<div class="nav-dropdown-inner">
-<a href="index.html#what-we-do">Websites</a>
-<a href="index.html#what-we-do">Visibility</a>
-<a href="index.html#what-we-do">Automation</a>
-<a href="index.html#what-we-do">Growth Systems</a>
-</div>
-</div>
-</div>
+<a class="nav-link" href="index.html#what-we-do">Services</a>
 <a class="nav-link" href="index.html#how-it-works">How It Works</a>
 <a class="nav-link" href="our-promise.html">Our Promise</a>
 <a class="nav-link" href="pricing.html">Pricing</a>
@@ -689,19 +659,8 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
 </section>
 <script>
 function toggleMob(){var n=document.getElementById('mobNav');if(n)n.classList.toggle('open');}
-function toggleDropdown(e){
-  e.preventDefault();
-  var menu=document.getElementById('svcMenu');
-  if(!menu)return;
-  var isOpen=menu.classList.contains('open');
-  document.querySelectorAll('.nav-dropdown-menu').forEach(function(m){m.classList.remove('open');});
-  if(!isOpen){menu.classList.add('open');}
-}
-document.addEventListener('click',function(e){
-  if(!e.target.closest('#svcDropdown')){
-    document.querySelectorAll('.nav-dropdown-menu').forEach(function(m){m.classList.remove('open');});
-  }
-});
+
+
 </script><!-- FOOTER -->
 <footer>
 <div class="wrap">
@@ -767,26 +726,17 @@ document.addEventListener('click', function(e) {
   var ham = document.querySelector('.hamburger');
   if (!nav.contains(e.target) && !ham.contains(e.target)) {
     nav.classList.remove('open');
-  }
-});
+
 </script>
 
 <script>
 function toggleMob(){document.getElementById('mobNav').classList.toggle('open');}
-function toggleDropdown(e){
-  e.preventDefault();
-  var menu = document.getElementById('svcMenu');
-  var isOpen = menu.classList.contains('open');
-  // Close all dropdowns first
-  document.querySelectorAll('.nav-dropdown-menu').forEach(function(m){m.classList.remove('open');});
-  if(!isOpen){ menu.classList.add('open'); }
-}
+
 // Close dropdown when clicking outside
 document.addEventListener('click', function(e){
-  if(!e.target.closest('#svcDropdown')){
-    document.querySelectorAll('.nav-dropdown-menu').forEach(function(m){m.classList.remove('open');});
-  }
-});
+  
+    
+
 </script>
 </body>
 </html>
