@@ -553,6 +553,38 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
   #problem .wrap > div > div:last-child{order:1;}
 }
 
+
+/* ── SERVICES DROPDOWN ── */
+.nav-dropdown{position:relative;}
+.nav-dropdown-menu{
+  display:none;
+  position:absolute;
+  top:calc(100% + 12px);
+  left:50%;
+  transform:translateX(-50%);
+  background:rgba(0,43,73,0.98);
+  backdrop-filter:blur(20px);
+  border:1px solid rgba(0,224,255,0.15);
+  border-radius:12px;
+  padding:8px 0;
+  min-width:180px;
+  box-shadow:0 8px 32px rgba(0,0,0,0.3);
+  z-index:200;
+}
+.nav-dropdown:hover .nav-dropdown-menu{display:block;}
+.nav-dropdown-menu a{
+  display:block;
+  padding:10px 20px;
+  font-size:13px;
+  font-weight:500;
+  color:rgba(255,255,255,0.75);
+  text-decoration:none;
+  transition:all 0.15s;
+  white-space:nowrap;
+}
+.nav-dropdown-menu a:hover{color:#00E0FF;background:rgba(0,224,255,0.06);padding-left:24px;}
+.nav-dropdown > .nav-link::after{content:" ▾";font-size:10px;opacity:0.6;}
+
 </style>
 </head>
 <body>
@@ -575,7 +607,15 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
 </div>
 <div class="nav-links">
 <a class="nav-link" href="#home">Home</a>
-<a class="nav-link" href="#services">Services</a>
+<div class="nav-dropdown">
+  <a class="nav-link" href="#services">Services</a>
+  <div class="nav-dropdown-menu">
+    <a href="#what-we-do">Websites</a>
+    <a href="#what-we-do">Visibility</a>
+    <a href="#what-we-do">Automation</a>
+    <a href="#what-we-do">Growth Systems</a>
+  </div>
+</div>
 <a class="nav-link" href="#how-it-works">How It Works</a>
 <a class="nav-link" href="our-promise.html">Our Promise</a>
 <a class="nav-link" href="pricing.html">Pricing</a>
