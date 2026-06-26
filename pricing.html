@@ -5,8 +5,10 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Pricing | BluWav Growth</title>
 <meta content="Simple, transparent pricing for BluWav CRM and Growth Systems. 7-day free trial. No contracts. Built for Caribbean businesses." name="description"/>
-<link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Sora:wght@700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800;900\&family=Inter:wght@300;400;500;600;700;800\&Kaushan+Script&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Sora:wght@700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet"/>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{font-family:'Plus Jakarta Sans',sans-serif;background:#F4F2ED;color:#1E1E1E;overflow-x:hidden;}
@@ -41,7 +43,7 @@ a{text-decoration:none;color:inherit;}
 .lead{font-size:17px;line-height:1.75;color:var(--slate);max-width:600px;}
 
 /* PRICING CARDS */
-.pricing-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:48px;}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px;}
 .pricing-card{background:#fff;border-radius:20px;padding:36px;border:2px solid var(--mist);position:relative;transition:all 0.2s;}
 .pricing-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,43,73,0.1);}
 .pricing-card.featured{background:linear-gradient(135deg,#002B49,#003d5c);border-color:var(--cyan);}
@@ -296,6 +298,24 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
 .nav-dropdown-menu a:hover{color:#00E0FF;background:rgba(0,224,255,0.07);padding-left:26px;}
 .nav-dropdown-trigger::after{content:" \25BE";font-size:10px;opacity:0.6;}
 
+
+/* ── TYPOGRAPHY: Manrope headings, Inter body ── */
+body{font-family:'Inter',sans-serif;}
+h1,h2,h3,h4,h5,h6,.h2,.h1,
+.hero-h1,.hero-logo-name,.footer-brand-name,
+.hero-logo-sub,.eyebrow,
+[style*="font-family:'Playfair Display'"],
+[style*="font-family:'Sora'"],
+[style*="font-family:'Playfair Display'"],
+[style*="font-family:'Sora'"] {
+  font-family:'Manrope',sans-serif !important;
+}
+.nav-link,.mob-link,.mob-cta,.nav-cta,
+p,.lead,.footer-link,.footer-desc,
+input,button,select,textarea{
+  font-family:'Inter',sans-serif !important;
+}
+
 </style>
 </head>
 <body>
@@ -357,7 +377,7 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
 <section class="hero">
 <div class="hero-inner">
   <span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;color:var(--gold);display:block;margin-bottom:16px;">Customer Growth Plans</span>
-  <h1 style="font-family:'Playfair Display',serif;font-size:54px;font-weight:800;color:#fff;line-height:1.12;letter-spacing:-0.5px;margin-bottom:20px;">Customer Growth Plans</h1>
+  <h1 style="font-size:54px;font-weight:800;color:#fff;line-height:1.12;letter-spacing:-0.5px;margin-bottom:20px;">Simple, Transparent Pricing</h1>
   <p style="font-size:19px;color:rgba(255,255,255,0.85);line-height:1.7;max-width:640px;margin:0 auto 20px;">Choose the level of online growth your business needs. From simple customer management to complete online customer acquisition.</p>
   <p style="font-size:15px;color:rgba(255,255,255,0.6);line-height:1.7;max-width:620px;margin:0 auto 32px;">Websites. Google. WhatsApp. CRM. Automation. Everything working together to bring you more customers online.</p>
   <a href="index.html#contact" style="background:var(--cyan);color:#fff;font-size:15px;font-weight:800;padding:14px 32px;border-radius:11px;box-shadow:0 4px 24px rgba(0,224,255,0.4);display:inline-block;">Start Free →</a>
@@ -375,25 +395,6 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
   <p class="lead" style="margin:0 auto 48px;">Your website, Google presence, WhatsApp Business, CRM, and automation working together to bring you more customers online.</p>
 
   <div class="pricing-grid">
-
-    <!-- CRM Only — white card, cyan border -->
-    <div style="background:#fff;border-radius:20px;padding:32px;border:2px solid rgba(0,224,255,0.2);display:flex;flex-direction:column;transition:all 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 16px 48px rgba(0,43,73,0.1)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
-      <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--cyan);margin-bottom:8px;">CRM Only</div>
-      <div style="font-family:'Sora',sans-serif;font-size:44px;font-weight:900;color:var(--navy);letter-spacing:-1px;line-height:1;margin-bottom:4px;">$29</div>
-      <div style="font-size:13px;color:var(--slate);margin-bottom:16px;">USD / month</div>
-      <div style="background:rgba(0,224,255,0.06);border:1px solid rgba(0,224,255,0.15);border-radius:10px;padding:12px;margin-bottom:16px;font-size:13px;color:var(--dark);line-height:1.6;">
-        <strong>7-Day Free Trial</strong> — No credit card required<br/>
-        <span style="color:var(--slate);">$99 one-time setup fee after trial.</span>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:24px;flex:1;font-size:13px;color:var(--dark);">
-        <div><span style="color:var(--cyan);font-weight:800;">✓</span> Contacts & Leads</div>
-        <div><span style="color:var(--cyan);font-weight:800;">✓</span> Visual Pipeline</div>
-        <div><span style="color:var(--cyan);font-weight:800;">✓</span> WhatsApp Automation</div>
-        <div><span style="color:var(--cyan);font-weight:800;">✓</span> Dashboard & Reports</div>
-        <div><span style="color:var(--cyan);font-weight:800;">✓</span> Multi-User Access</div>
-      </div>
-      <a href="index.html#contact" style="display:block;background:var(--cyan);color:#fff;font-size:14px;font-weight:800;padding:13px 20px;border-radius:10px;text-decoration:none;text-align:center;">Start Free →</a>
-    </div>
 
     <!-- Starter (Ripple) — white card, navy border -->
     <div style="background:#fff;border-radius:20px;padding:32px;border:2px solid var(--mist);display:flex;flex-direction:column;transition:all 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 16px 48px rgba(0,43,73,0.1)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
