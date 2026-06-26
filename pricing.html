@@ -28,9 +28,9 @@ a{text-decoration:none;color:inherit;}
 
 
 /* HERO */
-.hero{min-height:55vh;background:linear-gradient(160deg,#002B49 0%,#003d5c 50%,#002B49 100%);display:flex;align-items:center;padding:120px 48px 80px;position:relative;overflow:hidden;text-align:center;}
+.hero{min-height:55vh;background:linear-gradient(160deg,#002B49 0%,#003d5c 50%,#002B49 100%);display:flex;align-items:center;padding:120px 48px 80px;position:relative;overflow:hidden;text-align:center;box-sizing:border-box;}
 .hero::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(0,224,255,0.15) 0%,transparent 70%);pointer-events:none;}
-.hero-inner{max-width:var(--max);margin:0 auto;width:100%;position:relative;z-index:2;}
+.hero-inner{max-width:760px;margin:0 auto;width:100%;position:relative;z-index:2;padding:0 16px;box-sizing:border-box;}
 
 /* HELPERS */
 .wrap{max-width:var(--max);margin:0 auto;padding:0 48px;}
@@ -60,6 +60,9 @@ a{text-decoration:none;color:inherit;}
 .partial{color:var(--gold);font-weight:700;}
 
 @media(max-width:900px){
+  .hero{padding:110px 24px 60px !important;}
+  .hero-inner{padding:0 8px !important;}
+
   nav{padding:0 20px;}
   .wrap{padding:0 20px;}
   .hero{padding:110px 20px 60px;}
@@ -270,7 +273,10 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
 .footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding:20px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
 .footer-bottom-text{font-size:12px;color:rgba(255,255,255,0.3);}
 .footer-bottom-text span{color:#00E0FF;}
-@media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:900px){
+  .hero{padding:110px 24px 60px !important;}
+  .hero-inner{padding:0 8px !important;}
+.footer-grid{grid-template-columns:1fr 1fr;}}
 @media(max-width:600px){.footer-grid{grid-template-columns:1fr !important;}.footer-bottom{flex-direction:column;text-align:center;}}
 
 /* ── SERVICES DROPDOWN (JS-powered, no gap issue) ── */
@@ -378,14 +384,11 @@ input,button,select,textarea{
 <div class="hero-inner">
   <span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;color:var(--gold);display:block;margin-bottom:16px;">Customer Growth Plans</span>
   <h1 style="font-size:54px;font-weight:800;color:#fff;line-height:1.12;letter-spacing:-0.5px;margin-bottom:20px;">Simple, Transparent Pricing</h1>
-  <p style="font-size:19px;color:rgba(255,255,255,0.85);line-height:1.7;max-width:640px;margin:0 auto 20px;">Choose the level of online growth your business needs. From simple customer management to complete online customer acquisition.</p>
-  <p style="font-size:15px;color:rgba(255,255,255,0.6);line-height:1.7;max-width:620px;margin:0 auto 32px;">Websites. Google. WhatsApp. CRM. Automation. Everything working together to bring you more customers online.</p>
+  <p style="font-size:18px;color:rgba(255,255,255,0.85);line-height:1.7;max-width:100%;margin:0 auto 20px;">Choose the level of online growth your business needs. From simple customer management to complete online customer acquisition.</p>
+  <p style="font-size:14px;color:rgba(255,255,255,0.6);line-height:1.7;max-width:100%;margin:0 auto 32px;">Websites. Google. WhatsApp. CRM. Automation. Everything working together to bring you more customers online.</p>
   <a href="index.html#contact" style="background:var(--cyan);color:#fff;font-size:15px;font-weight:800;padding:14px 32px;border-radius:11px;box-shadow:0 4px 24px rgba(0,224,255,0.4);display:inline-block;">Start Free →</a>
 </div>
 </section>
-
-<!-- CRM PRICING -->
-
 
 <!-- GROWTH SYSTEMS PRICING -->
 <section class="section-sand" id="growth-pricing">
