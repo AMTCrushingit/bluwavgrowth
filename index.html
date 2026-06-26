@@ -569,26 +569,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 48px;d
 .mob-link{font-size:15px;font-weight:600;color:rgba(255,255,255,0.85);padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.1);text-decoration:none;display:block;}
 .mob-cta{background:var(--coral,#FF5500);color:#fff;font-weight:700;padding:14px;border-radius:10px;text-align:center;margin-top:8px;font-size:15px;text-decoration:none;display:block;}
 /* Dropdown */
-.nav-dropdown{position:relative;}
-.nav-dropdown-menu{
-  display:none;
-  position:absolute;
-  top:calc(100% + 16px);
-  left:50%;
-  transform:translateX(-50%);
-  background:rgba(0,43,73,0.98);
-  backdrop-filter:blur(20px);
-  border:1px solid rgba(0,224,255,0.2);
-  border-radius:12px;
-  padding:8px 0;
-  min-width:190px;
-  box-shadow:0 8px 32px rgba(0,0,0,0.4);
-  z-index:300;
-}
-.nav-dropdown:hover .nav-dropdown-menu{display:block;}
-.nav-dropdown-menu a{display:block;padding:11px 20px;font-size:13px;font-weight:500;color:rgba(255,255,255,0.75);text-decoration:none;transition:all 0.15s;white-space:nowrap;}
-.nav-dropdown-menu a:hover{color:#00E0FF;background:rgba(0,224,255,0.07);padding-left:26px;}
-.nav-dropdown > .nav-link::after{content:" \25BE";font-size:10px;opacity:0.6;}
+
+
+.nav-dropdown:hover 
+
+
+
 @media(max-width:768px){.nav-links{display:none !important;}.hamburger{display:flex !important;}}
 /* ── FOOTER ── */
 footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
@@ -606,6 +592,31 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
 .footer-bottom-text span{color:#00E0FF;}
 @media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;}}
 @media(max-width:600px){.footer-grid{grid-template-columns:1fr !important;}.footer-bottom{flex-direction:column;text-align:center;}}
+
+/* ── SERVICES DROPDOWN (JS-powered, no gap issue) ── */
+.nav-dropdown{position:relative;}
+.nav-dropdown-menu{
+  display:none;
+  position:absolute;
+  top:100%;
+  left:50%;
+  transform:translateX(-50%);
+  padding-top:12px;
+  z-index:300;
+  min-width:200px;
+}
+.nav-dropdown-menu.open{display:block;}
+.nav-dropdown-inner{
+  background:rgba(0,43,73,0.98);
+  backdrop-filter:blur(20px);
+  border:1px solid rgba(0,224,255,0.2);
+  border-radius:12px;
+  padding:8px 0;
+  box-shadow:0 8px 32px rgba(0,0,0,0.4);
+}
+.nav-dropdown-menu a{display:block;padding:11px 20px;font-size:13px;font-weight:500;color:rgba(255,255,255,0.75);text-decoration:none;transition:all 0.15s;white-space:nowrap;}
+.nav-dropdown-menu a:hover{color:#00E0FF;background:rgba(0,224,255,0.07);padding-left:26px;}
+.nav-dropdown-trigger::after{content:" \25BE";font-size:10px;opacity:0.6;}
 
 </style>
 </head>
@@ -629,13 +640,15 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
 </div>
 <div class="nav-links">
 <a class="nav-link" href="#home">Home</a>
-<div class="nav-dropdown">
-  <a class="nav-link" href="#what-we-do">Services</a>
-  <div class="nav-dropdown-menu">
-    <a href="#what-we-do">Websites</a>
-    <a href="#what-we-do">Visibility</a>
-    <a href="#what-we-do">Automation</a>
-    <a href="#what-we-do">Growth Systems</a>
+<div class="nav-dropdown" id="svcDropdown">
+  <a class="nav-link nav-dropdown-trigger" href="#what-we-do" onclick="toggleDropdown(event)">Services</a>
+  <div class="nav-dropdown-menu" id="svcMenu">
+    <div class="nav-dropdown-inner">
+      <a href="#what-we-do">Websites</a>
+      <a href="#what-we-do">Visibility</a>
+      <a href="#what-we-do">Automation</a>
+      <a href="#what-we-do">Growth Systems</a>
+    </div>
   </div>
 </div>
 <a class="nav-link" href="#how-it-works">How It Works</a>
@@ -649,6 +662,10 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
 <div class="mob-nav" id="mobNav">
 <a class="mob-link" href="#home" onclick="toggleMob()">Home</a>
 <a class="mob-link" href="#what-we-do" onclick="toggleMob()">Services</a>
+<a class="mob-link" href="#what-we-do" onclick="toggleMob()" style="padding-left:24px;font-size:13px;color:rgba(255,255,255,0.6);">— Websites</a>
+<a class="mob-link" href="#what-we-do" onclick="toggleMob()" style="padding-left:24px;font-size:13px;color:rgba(255,255,255,0.6);">— Visibility</a>
+<a class="mob-link" href="#what-we-do" onclick="toggleMob()" style="padding-left:24px;font-size:13px;color:rgba(255,255,255,0.6);">— Automation</a>
+<a class="mob-link" href="#what-we-do" onclick="toggleMob()" style="padding-left:24px;font-size:13px;color:rgba(255,255,255,0.6);">— Growth Systems</a>
 <a class="mob-link" href="#how-it-works" onclick="toggleMob()">How It Works</a>
 <a class="mob-link" href="our-promise.html" onclick="toggleMob()">Our Promise</a>
 <a class="mob-link" href="pricing.html" onclick="toggleMob()">Pricing</a>
@@ -1051,193 +1068,7 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
 <a class="sticky-bar-btn" href="#health-check">Get Free Health Check →</a>
 </div>
 <a class="wa-float" href="https://wa.me/18682979960" title="WhatsApp Us">💬</a>
-<script>
-function toggleMob(){document.getElementById('mobNav').classList.toggle('open');}
-window.addEventListener('scroll',function(){var bar=document.getElementById('stickyBar');if(window.scrollY>600){bar.classList.add('show');}else{bar.classList.remove('show');}});
-document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var target=document.querySelector(this.getAttribute('href'));if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth'});}});});
 
-// Intersection Observer for scroll reveal animations
-// Add animate-ready to all reveal elements (makes them invisible for animation)
-document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(function(el){
-  el.classList.add('animate-ready');
-});
-
-var revealObserver = new IntersectionObserver(function(entries){
-  entries.forEach(function(entry){
-    if(entry.isIntersecting){
-      entry.target.classList.remove('animate-ready');
-      entry.target.classList.add('visible');
-    }
-  });
-},{threshold:0.08,rootMargin:'0px 0px -20px 0px'});
-
-document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(function(el){
-  revealObserver.observe(el);
-});
-
-// Fallback: make everything visible after 3 seconds if observer fails
-setTimeout(function(){
-  document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(function(el){
-    el.classList.remove('animate-ready');
-    el.classList.add('visible');
-  });
-}, 3000);
-
-// Add service-glow class to service cards
-document.querySelectorAll('#services [style*="border-radius:20px"]').forEach(function(el){
-  el.classList.add('service-glow');
-});
-
-// Stagger reveal for island tags
-var islands = document.querySelectorAll('.island-tag');
-islands.forEach(function(el,i){
-  el.style.transitionDelay = (i * 0.05) + 's';
-});
-
-// Animate hero elements on load
-window.addEventListener('load', function(){
-  var heroEls = document.querySelectorAll('.hero-inner > div > *');
-  heroEls.forEach(function(el, i){
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    el.style.transitionDelay = (i * 0.12) + 's';
-    setTimeout(function(){
-      el.style.opacity = '1';
-      el.style.transform = 'translateY(0)';
-    }, 100);
-  });
-});
-
-// ── COUNTER ANIMATION ──────────────────────────────────────────────────────
-function animateCounter(el) {
-  var target = parseInt(el.getAttribute('data-target'));
-  var suffix = el.getAttribute('data-suffix') || '';
-  var steps = 60;
-  var current = 0;
-  var increment = target / steps;
-  var timer = setInterval(function() {
-    current += increment;
-    if (current >= target) {
-      current = target;
-      clearInterval(timer);
-    }
-    el.textContent = Math.floor(current) + suffix;
-  }, 33);
-}
-
-var counterDone = false;
-function triggerCounters() {
-  if (counterDone) return;
-  counterDone = true;
-  document.querySelectorAll('.counter').forEach(function(el) {
-    animateCounter(el);
-  });
-}
-
-// Multiple ways to trigger counters
-window.addEventListener('scroll', function() {
-  if (counterDone) return;
-  var el = document.getElementById('counters');
-  if (!el) return;
-  var rect = el.getBoundingClientRect();
-  if (rect.top < window.innerHeight) triggerCounters();
-});
-
-// Also trigger after page loads
-window.addEventListener('load', function() {
-  setTimeout(function() {
-    var el = document.getElementById('counters');
-    if (el) {
-      var rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight) triggerCounters();
-    }
-  }, 500);
-});
-
-// ── ISLAND MAP ──────────────────────────────────────────────────────────────
-// ── HEALTH SCORE QUIZ ───────────────────────────────────────────────────────
-var quizQuestions = [
-  { q: 'Does your business show up when someone searches for it on Google?', points: 20 },
-  { q: 'Do you have a professional website that works on mobile?', points: 20 },
-  { q: 'Do you have a WhatsApp button or easy contact method on your website?', points: 20 },
-  { q: 'Do you have a Google Business Profile set up with your address and hours?', points: 20 },
-  { q: 'Do you collect and display customer reviews online?', points: 20 }
-];
-var currentQ = 0;
-var totalScore = 0;
-var answers = [];
-
-function answerQuestion(yes) {
-  answers.push(yes);
-  if (yes) totalScore += quizQuestions[currentQ].points;
-  currentQ++;
-  if (currentQ < quizQuestions.length) {
-    showQuestion();
-  } else {
-    showResult();
-  }
-}
-
-function showQuestion() {
-  var pct = Math.round((currentQ / quizQuestions.length) * 100);
-  document.getElementById('questionNum').textContent = 'Question ' + (currentQ + 1) + ' of ' + quizQuestions.length;
-  document.getElementById('progressPct').textContent = pct + '% complete';
-  document.getElementById('progressBar').style.width = pct + '%';
-  document.getElementById('questionText').textContent = quizQuestions[currentQ].q;
-}
-
-function showResult() {
-  document.getElementById('progressBar').style.width = '100%';
-  document.getElementById('progressPct').textContent = '100% complete';
-  document.getElementById('questionArea').style.display = 'none';
-  document.getElementById('quizResult').style.display = 'block';
-
-  var scoreEl = document.getElementById('scoreDisplay');
-  var score = totalScore;
-  var color = score >= 80 ? '#10b981' : score >= 60 ? '#F7C873' : score >= 40 ? '#FF5500' : '#ef4444';
-  scoreEl.style.background = 'linear-gradient(135deg,' + color + ',#F7C873)';
-  scoreEl.style.webkitBackgroundClip = 'text';
-  scoreEl.style.webkitTextFillColor = 'transparent';
-  scoreEl.style.backgroundClip = 'text';
-
-  var label = score >= 80 ? '🌟 Excellent Digital Health!' : score >= 60 ? '👍 Good — Room to Grow' : score >= 40 ? '⚠️ Needs Attention' : '🚨 Critical — Act Now';
-  var msg = score >= 80 ? 'Your business has a strong digital presence. Let BluWav help you take it to the next level.' :
-            score >= 60 ? 'You're doing well but there are gaps costing you customers. A BluWav Health Check will show you exactly what to fix.' :
-            score >= 40 ? 'Your business is losing customers to competitors every day. A free BluWav Health Check will show you the quick wins.' :
-            'Your business is nearly invisible online. Every day without action is revenue lost. Get your free Health Check today.';
-
-  // Animate score
-  var start = 0;
-  var interval = setInterval(function() {
-    start += 2;
-    if (start >= score) { start = score; clearInterval(interval); }
-    scoreEl.textContent = start;
-  }, 30);
-
-  document.getElementById('scoreLabel').textContent = label;
-  document.getElementById('scoreMessage').textContent = msg;
-
-  var breakdown = '<div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:10px;">Your results:</div>';
-  quizQuestions.forEach(function(q, i) {
-    breakdown += '<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;font-size:13px;color:var(--slate);">' +
-      '<span>' + (answers[i] ? '✅' : '❌') + '</span>' +
-      '<span>' + q.q + '</span></div>';
-  });
-  document.getElementById('scoreBreakdown').innerHTML = breakdown;
-}
-
-function resetQuiz() {
-  currentQ = 0; totalScore = 0; answers = [];
-  document.getElementById('questionArea').style.display = 'block';
-  document.getElementById('quizResult').style.display = 'none';
-  document.getElementById('progressBar').style.width = '0%';
-  document.getElementById('questionNum').textContent = 'Question 1 of 5';
-  document.getElementById('progressPct').textContent = '0% complete';
-  document.getElementById('questionText').textContent = quizQuestions[0].q;
-}
-
-</script>
 <script>
 function showBA(w){
   var b=document.getElementById('pBefore'),a=document.getElementById('pAfter');
@@ -1249,5 +1080,22 @@ var ro=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isInterse
 document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(function(el){ro.observe(el);});
 </script>
 
+<script>
+function toggleMob(){document.getElementById('mobNav').classList.toggle('open');}
+function toggleDropdown(e){
+  e.preventDefault();
+  var menu = document.getElementById('svcMenu');
+  var isOpen = menu.classList.contains('open');
+  // Close all dropdowns first
+  document.querySelectorAll('.nav-dropdown-menu').forEach(function(m){m.classList.remove('open');});
+  if(!isOpen){ menu.classList.add('open'); }
+}
+// Close dropdown when clicking outside
+document.addEventListener('click', function(e){
+  if(!e.target.closest('#svcDropdown')){
+    document.querySelectorAll('.nav-dropdown-menu').forEach(function(m){m.classList.remove('open');});
+  }
+});
+</script>
 </body>
 </html

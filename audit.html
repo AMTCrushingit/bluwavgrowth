@@ -697,26 +697,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 48px;d
 .mob-link{font-size:15px;font-weight:600;color:rgba(255,255,255,0.85);padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.1);text-decoration:none;display:block;}
 .mob-cta{background:var(--coral,#FF5500);color:#fff;font-weight:700;padding:14px;border-radius:10px;text-align:center;margin-top:8px;font-size:15px;text-decoration:none;display:block;}
 /* Dropdown */
-.nav-dropdown{position:relative;}
-.nav-dropdown-menu{
-  display:none;
-  position:absolute;
-  top:calc(100% + 16px);
-  left:50%;
-  transform:translateX(-50%);
-  background:rgba(0,43,73,0.98);
-  backdrop-filter:blur(20px);
-  border:1px solid rgba(0,224,255,0.2);
-  border-radius:12px;
-  padding:8px 0;
-  min-width:190px;
-  box-shadow:0 8px 32px rgba(0,0,0,0.4);
-  z-index:300;
-}
-.nav-dropdown:hover .nav-dropdown-menu{display:block;}
-.nav-dropdown-menu a{display:block;padding:11px 20px;font-size:13px;font-weight:500;color:rgba(255,255,255,0.75);text-decoration:none;transition:all 0.15s;white-space:nowrap;}
-.nav-dropdown-menu a:hover{color:#00E0FF;background:rgba(0,224,255,0.07);padding-left:26px;}
-.nav-dropdown > .nav-link::after{content:" \25BE";font-size:10px;opacity:0.6;}
+
+
+.nav-dropdown:hover 
+
+
+
 @media(max-width:768px){.nav-links{display:none !important;}.hamburger{display:flex !important;}}
 /* ── FOOTER ── */
 footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
@@ -735,9 +721,74 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
 @media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;}}
 @media(max-width:600px){.footer-grid{grid-template-columns:1fr !important;}.footer-bottom{flex-direction:column;text-align:center;}}
 
+/* ── SERVICES DROPDOWN (JS-powered, no gap issue) ── */
+.nav-dropdown{position:relative;}
+.nav-dropdown-menu{
+  display:none;
+  position:absolute;
+  top:100%;
+  left:50%;
+  transform:translateX(-50%);
+  padding-top:12px;
+  z-index:300;
+  min-width:200px;
+}
+.nav-dropdown-menu.open{display:block;}
+.nav-dropdown-inner{
+  background:rgba(0,43,73,0.98);
+  backdrop-filter:blur(20px);
+  border:1px solid rgba(0,224,255,0.2);
+  border-radius:12px;
+  padding:8px 0;
+  box-shadow:0 8px 32px rgba(0,0,0,0.4);
+}
+.nav-dropdown-menu a{display:block;padding:11px 20px;font-size:13px;font-weight:500;color:rgba(255,255,255,0.75);text-decoration:none;transition:all 0.15s;white-space:nowrap;}
+.nav-dropdown-menu a:hover{color:#00E0FF;background:rgba(0,224,255,0.07);padding-left:26px;}
+.nav-dropdown-trigger::after{content:" \25BE";font-size:10px;opacity:0.6;}
+
 </style>
 </head>
 <body>
+<nav id="mainNav">
+<div class="nav-logo" style="display:flex;flex-direction:column;align-items:flex-start;line-height:1;padding:4px 0;">
+  <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:300;letter-spacing:4px;line-height:1;color:#fff;">BLU<span style="color:#00E0FF;">WAV</span>&nbsp;<span style="color:#fff;">GROWTH</span></div>
+  <div style="font-size:9px;font-weight:600;color:#00E0FF;letter-spacing:0.5px;line-height:1.4;margin-top:3px;">Get Found. Get Chosen. Grow.</div>
+</div>
+<div class="nav-links">
+<a class="nav-link" href="index.html">Home</a>
+<div class="nav-dropdown" id="svcDropdown">
+  <a class="nav-link nav-dropdown-trigger" href="index.html#what-we-do" onclick="toggleDropdown(event)">Services</a>
+  <div class="nav-dropdown-menu" id="svcMenu">
+    <div class="nav-dropdown-inner">
+      <a href="index.html#what-we-do">Websites</a>
+      <a href="index.html#what-we-do">Visibility</a>
+      <a href="index.html#what-we-do">Automation</a>
+      <a href="index.html#what-we-do">Growth Systems</a>
+    </div>
+  </div>
+</div>
+<a class="nav-link" href="index.html#how-it-works">How It Works</a>
+<a class="nav-link" href="our-promise.html">Our Promise</a>
+<a class="nav-link" href="pricing.html">Pricing</a>
+<a class="nav-link" href="index.html#contact">Contact</a>
+<a class="nav-cta" href="index.html#health-check">Free Online Health Check</a>
+</div>
+<div class="hamburger" onclick="toggleMob()"><span></span><span></span><span></span></div>
+</nav>
+<div class="mob-nav" id="mobNav">
+<a class="mob-link" href="index.html" onclick="toggleMob()">Home</a>
+<a class="mob-link" href="index.html#what-we-do" onclick="toggleMob()">Services</a>
+<a class="mob-link" href="index.html#what-we-do" onclick="toggleMob()" style="padding-left:24px;font-size:13px;color:rgba(255,255,255,0.6);">&#8212; Websites</a>
+<a class="mob-link" href="index.html#what-we-do" onclick="toggleMob()" style="padding-left:24px;font-size:13px;color:rgba(255,255,255,0.6);">&#8212; Visibility</a>
+<a class="mob-link" href="index.html#what-we-do" onclick="toggleMob()" style="padding-left:24px;font-size:13px;color:rgba(255,255,255,0.6);">&#8212; Automation</a>
+<a class="mob-link" href="index.html#what-we-do" onclick="toggleMob()" style="padding-left:24px;font-size:13px;color:rgba(255,255,255,0.6);">&#8212; Growth Systems</a>
+<a class="mob-link" href="index.html#how-it-works" onclick="toggleMob()">How It Works</a>
+<a class="mob-link" href="our-promise.html" onclick="toggleMob()">Our Promise</a>
+<a class="mob-link" href="pricing.html" onclick="toggleMob()">Pricing</a>
+<a class="mob-link" href="index.html#contact" onclick="toggleMob()">Contact</a>
+<a class="mob-cta" href="index.html#health-check" onclick="toggleMob()">Free Online Health Check</a>
+</div>
+
 <!-- BluWav Signature Wave -->
 <div class="bw-wave-wrap">
   <!-- Cyan ribbon: starts at position 0, moves left -->
@@ -991,8 +1042,23 @@ function handleSubmit(e) {
   // window.open(`https://wa.me/YOUR_NUMBER?text=New audit request from ${name} - ${business} - ${phone}`);
 }
 </script>
+
+
 <script>
-function toggleMob(){document.getElementById('mobNav').classList.toggle('open');}
+function toggleMob(){var n=document.getElementById('mobNav');if(n)n.classList.toggle('open');}
+function toggleDropdown(e){
+  e.preventDefault();
+  var menu=document.getElementById('svcMenu');
+  if(!menu)return;
+  var isOpen=menu.classList.contains('open');
+  document.querySelectorAll('.nav-dropdown-menu').forEach(function(m){m.classList.remove('open');});
+  if(!isOpen){menu.classList.add('open');}
+}
+document.addEventListener('click',function(e){
+  if(!e.target.closest('#svcDropdown')){
+    document.querySelectorAll('.nav-dropdown-menu').forEach(function(m){m.classList.remove('open');});
+  }
+});
 </script>
 </body>
 </html>
