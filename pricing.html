@@ -17,13 +17,13 @@ a{text-decoration:none;color:inherit;}
 100%{transform:translateX(0);}}
 100%{transform:translateX(-50%);}}
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,43,73,0.08);box-shadow:0 2px 20px rgba(0,0,0,0.06);}
-.nav-logo{display:flex;flex-direction:column;align-items:flex-start;line-height:1;padding:4px 0;}
-.nav-links{display:flex;align-items:center;gap:28px;}
-.nav-link{font-size:13px;font-weight:500;color:var(--slate);transition:color 0.2s;}
-.nav-link:hover{color:var(--navy);}
-.nav-cta{background:var(--coral);color:#fff;font-size:13px;font-weight:700;padding:10px 24px;border-radius:9px;box-shadow:0 4px 16px rgba(255,85,0,0.35);transition:transform 0.15s;}
-.nav-cta:hover{transform:translateY(-1px);}
+
+
+
+
+
+
+
 
 /* HERO */
 .hero{min-height:55vh;background:linear-gradient(160deg,#002B49 0%,#003d5c 50%,#002B49 100%);display:flex;align-items:center;padding:120px 48px 80px;position:relative;overflow:hidden;text-align:center;}
@@ -106,8 +106,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 48px;d
 @media(max-width:768px){
   /* NAV */
   nav{padding:0 16px !important;height:60px !important;}
-  .nav-links{display:none !important;}
-  .hamburger{display:flex !important;}
+  
+  
   .wrap{padding:0 16px !important;}
 
   /* HERO */
@@ -182,8 +182,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 48px;d
   .contact-grid{grid-template-columns:1fr !important;}
 
   /* Footer */
-  .footer-grid{grid-template-columns:1fr !important;}
-  .footer-bottom{flex-direction:column !important;text-align:center !important;gap:8px !important;}
+  
+  
 
   /* Comparison table */
   .compare-table{font-size:11px !important;}
@@ -232,6 +232,59 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 48px;d
 @media(max-width:600px){
   .pricing-grid{grid-template-columns:1fr !important;}
 }
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(0,43,73,0.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,224,255,0.15);box-shadow:0 2px 24px rgba(0,0,0,0.3);}
+.nav-logo{display:flex;flex-direction:column;align-items:flex-start;line-height:1;padding:4px 0;}
+.nav-links{display:flex;align-items:center;gap:32px;}
+.nav-link{font-size:13px;font-weight:500;color:rgba(255,255,255,0.65);transition:color 0.2s;text-decoration:none;}
+.nav-link:hover{color:#fff;}
+.nav-cta{background:var(--coral,#FF5500);color:#fff;font-size:13px;font-weight:700;padding:10px 24px;border-radius:9px;box-shadow:0 4px 16px rgba(255,85,0,0.35);transition:transform 0.15s,box-shadow 0.2s;text-decoration:none;}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(255,85,0,0.5);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:101;position:relative;background:none;border:none;padding:0;}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;}
+.mob-nav{display:none;position:fixed;top:70px;left:0;right:0;background:rgba(0,43,73,0.99);backdrop-filter:blur(20px);padding:20px 24px;flex-direction:column;gap:4px;z-index:9999;border-bottom:1px solid rgba(0,224,255,0.15);box-shadow:0 8px 32px rgba(0,0,0,0.3);}
+.mob-nav.open{display:flex !important;}
+.mob-link{font-size:15px;font-weight:600;color:rgba(255,255,255,0.85);padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.1);text-decoration:none;display:block;}
+.mob-cta{background:var(--coral,#FF5500);color:#fff;font-weight:700;padding:14px;border-radius:10px;text-align:center;margin-top:8px;font-size:15px;text-decoration:none;display:block;}
+/* Dropdown */
+.nav-dropdown{position:relative;}
+.nav-dropdown-menu{
+  display:none;
+  position:absolute;
+  top:calc(100% + 16px);
+  left:50%;
+  transform:translateX(-50%);
+  background:rgba(0,43,73,0.98);
+  backdrop-filter:blur(20px);
+  border:1px solid rgba(0,224,255,0.2);
+  border-radius:12px;
+  padding:8px 0;
+  min-width:190px;
+  box-shadow:0 8px 32px rgba(0,0,0,0.4);
+  z-index:300;
+}
+.nav-dropdown:hover .nav-dropdown-menu{display:block;}
+.nav-dropdown-menu a{display:block;padding:11px 20px;font-size:13px;font-weight:500;color:rgba(255,255,255,0.75);text-decoration:none;transition:all 0.15s;white-space:nowrap;}
+.nav-dropdown-menu a:hover{color:#00E0FF;background:rgba(0,224,255,0.07);padding-left:26px;}
+.nav-dropdown > .nav-link::after{content:" \25BE";font-size:10px;opacity:0.6;}
+@media(max-width:768px){.nav-links{display:none !important;}.hamburger{display:flex !important;}}
+/* ── FOOTER ── */
+footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;}
+.footer-heading{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.4);margin-bottom:16px;}
+.footer-brand-name{font-family:'Kaushan Script',cursive;font-size:34px;color:#fff;line-height:1;margin-bottom:6px;}
+.footer-brand-name span{color:#FF5500;}
+.footer-brand-sub{font-size:9px;font-weight:700;color:#F7C873;letter-spacing:5px;text-transform:uppercase;margin-bottom:12px;}
+.footer-brand-tag{font-size:12px;font-weight:500;color:#00E0FF;letter-spacing:1px;margin-bottom:6px;}
+.footer-desc{font-size:13px;color:rgba(255,255,255,0.4);line-height:1.65;margin-top:12px;}
+.footer-link{display:block;font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:8px;transition:color 0.2s,transform 0.2s;text-decoration:none;}
+.footer-link:hover{color:#fff;transform:translateX(4px);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding:20px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.footer-bottom-text{font-size:12px;color:rgba(255,255,255,0.3);}
+.footer-bottom-text span{color:#00E0FF;}
+@media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:600px){.footer-grid{grid-template-columns:1fr !important;}.footer-bottom{flex-direction:column;text-align:center;}}
+
 </style>
 </head>
 <body>
@@ -472,23 +525,51 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 48px;d
 </section>
 
 <!-- FOOTER -->
-<footer style="background:#001020;padding:40px 0;border-top:1px solid rgba(0,224,255,0.15);">
-<div style="max-width:var(--max);margin:0 auto;padding:0 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;">
-  <div>
-    <div style="font-family:'Kaushan Script',cursive;font-size:22px;color:#fff;">Blu<span style="color:var(--cyan);">Wav</span> Growth</div>
-    <div style="font-size:11px;color:rgba(255,255,255,0.3);margin-top:4px;">Built for the Caribbean. Ready for growth.</div>
-  </div>
-  <div style="display:flex;gap:24px;">
-    <a href="index.html" style="font-size:13px;color:rgba(255,255,255,0.5);transition:color 0.2s;">Home</a>
-    <a href="crm.html" style="font-size:13px;color:rgba(255,255,255,0.5);">CRM</a>
-    <a href="our-promise.html" style="font-size:13px;color:rgba(255,255,255,0.5);">Our Promise</a>
-    <a href="index.html#contact" style="font-size:13px;color:rgba(255,255,255,0.5);">Contact</a>
-  </div>
-  <div style="font-size:12px;color:rgba(255,255,255,0.3);">© 2026 BluWav Growth · bluwavgrowth.com</div>
+<footer>
+<div class="wrap">
+<div class="footer-grid">
+<div>
+<div class="footer-brand-name">Blu<span>Wav</span></div>
+<div class="footer-brand-sub">Growth</div>
+<div class="footer-brand-tag">Get Found. Get Chosen. Grow.</div>
+<div style="font-size:10px;font-weight:700;color:var(--gold,#F7C873);letter-spacing:3px;text-transform:uppercase;margin-top:6px;">A Stratiix Group Company</div>
+<p class="footer-desc">Caribbean-ready websites, Google visibility, CRM and automation. Built for Caribbean businesses by Caribbean experts.</p>
+<div style="margin-top:16px;"><a class="btn-wa" href="https://wa.me/18682979960" style="font-size:13px;padding:10px 18px;">💬 WhatsApp</a></div>
+</div>
+<div>
+<div class="footer-heading">Services</div>
+<a class="footer-link" href="index.html#what-we-do">Professional Websites</a>
+<a class="footer-link" href="index.html#what-we-do">Google Visibility</a>
+<a class="footer-link" href="index.html#what-we-do">Automation</a>
+<a class="footer-link" href="index.html#what-we-do">Growth Systems</a>
+</div>
+<div>
+<div class="footer-heading">Company</div>
+<a class="footer-link" href="index.html#how-it-works">How It Works</a>
+<a class="footer-link" href="index.html#health-check">Free Health Check</a>
+<a class="footer-link" href="pricing.html">Pricing</a>
+<a class="footer-link" href="our-promise.html">Our Promise</a>
+<a class="footer-link" href="index.html#contact">Contact Us</a>
+</div>
+<div>
+<div class="footer-heading">Contact</div>
+<a class="footer-link" href="tel:+18682979960">📞 +1 (868) 297-9960</a>
+<a class="footer-link" href="https://wa.me/18682979960">💬 WhatsApp</a>
+<a class="footer-link" href="mailto:hello@bluwavgrowth.com">✉️ hello@bluwavgrowth.com</a>
+<div class="footer-link" style="cursor:default;">🌍 MSMEs across the Caribbean</div>
+</div>
+</div>
+<div class="footer-bottom">
+<div class="footer-bottom-text">© 2026 <span>BluWav Growth</span> · All rights reserved.</div>
+<div class="footer-bottom-text">Get Found. Get Chosen. Grow.</div>
+</div>
 </div>
 </footer>
 
 <a href="https://wa.me/18682979960" style="position:fixed;bottom:80px;right:24px;z-index:200;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 20px rgba(37,211,102,0.45);">💬</a>
 
+<script>
+function toggleMob(){document.getElementById('mobNav').classList.toggle('open');}
+</script>
 </body>
 </html>
