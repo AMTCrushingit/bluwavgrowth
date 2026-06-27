@@ -678,6 +678,92 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
   animation:waveUndulate2 8s ease-in-out infinite;
 }
 
+
+/* ══ SITE-WIDE POLISH ══ */
+
+/* Smooth scroll */
+html{scroll-behavior:smooth;}
+
+/* Selection colour */
+::selection{background:#00E0FF;color:#002B49;}
+
+/* Scrollbar */
+::-webkit-scrollbar{width:6px;}
+::-webkit-scrollbar-track{background:#001020;}
+::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#00E0FF,#002B49);border-radius:3px;}
+
+/* Link hover glow */
+.nav-link{position:relative;}
+.nav-link::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;background:#00E0FF;transition:width 0.3s ease;border-radius:2px;}
+.nav-link:hover::after{width:100%;}
+
+/* CTA button shimmer */
+@keyframes shimmer{0%{background-position:-200% center;}100%{background-position:200% center;}}
+.nav-cta{background-size:200% auto;transition:all 0.3s ease;}
+.nav-cta:hover{background-image:linear-gradient(90deg,#FF5500,#FF8C00,#FF5500);background-size:200% auto;animation:shimmer 1.5s linear infinite;}
+
+/* Card 3D tilt on hover */
+@keyframes cardFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+
+/* Eyebrow text glow */
+.eyebrow{text-shadow:0 0 20px rgba(0,224,255,0.4);}
+
+/* Section reveal animations */
+@keyframes revealUp{from{opacity:0;transform:translateY(48px);}to{opacity:1;transform:translateY(0);}}
+@keyframes revealLeft{from{opacity:0;transform:translateX(-48px);}to{opacity:1;transform:translateX(0);}}
+@keyframes revealRight{from{opacity:0;transform:translateX(48px);}to{opacity:1;transform:translateX(0);}}
+@keyframes revealScale{from{opacity:0;transform:scale(0.92);}to{opacity:1;transform:scale(1);}}
+.reveal-up{opacity:0;}.reveal-up.in-view{animation:revealUp 0.8s cubic-bezier(0.22,1,0.36,1) forwards;}
+.reveal-left{opacity:0;}.reveal-left.in-view{animation:revealLeft 0.8s cubic-bezier(0.22,1,0.36,1) forwards;}
+.reveal-right{opacity:0;}.reveal-right.in-view{animation:revealRight 0.8s cubic-bezier(0.22,1,0.36,1) forwards;}
+.reveal-scale{opacity:0;}.reveal-scale.in-view{animation:revealScale 0.7s cubic-bezier(0.22,1,0.36,1) forwards;}
+
+/* Stagger delays */
+.delay-1{animation-delay:0.1s!important;}
+.delay-2{animation-delay:0.2s!important;}
+.delay-3{animation-delay:0.3s!important;}
+.delay-4{animation-delay:0.4s!important;}
+.delay-5{animation-delay:0.5s!important;}
+
+/* Floating WhatsApp button pulse */
+@keyframes waPulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.45);}50%{box-shadow:0 4px 40px rgba(37,211,102,0.8),0 0 0 8px rgba(37,211,102,0.1);}}
+.wa-float{animation:waPulse 2.5s ease-in-out infinite!important;}
+
+/* Gradient text utility */
+.text-gradient{background:linear-gradient(135deg,#00E0FF,#00C2D8,#F7C873);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+
+/* Cyan glow on focus inputs */
+input:focus,textarea:focus,select:focus{box-shadow:0 0 0 3px rgba(0,224,255,0.2)!important;border-color:#00E0FF!important;}
+
+/* Footer link hover */
+.footer-link{position:relative;}
+
+/* Smooth image loading */
+img{transition:opacity 0.3s ease;}
+
+/* Premium button base */
+a[style*="background:#FF5500"],a[style*="background:var(--coral)"]{
+  position:relative;overflow:hidden;
+}
+a[style*="background:#FF5500"]::after,a[style*="background:var(--coral)"]::after{
+  content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent);
+  transition:left 0.5s ease;
+}
+a[style*="background:#FF5500"]:hover::after,a[style*="background:var(--coral)"]:hover::after{
+  left:100%;
+}
+
+/* Cyan button shimmer */
+a[style*="background:#00E0FF"]::after,a[style*="background:var(--cyan)"]::after{
+  content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent);
+  transition:left 0.5s ease;
+}
+a[style*="background:#00E0FF"]:hover::after,a[style*="background:var(--cyan)"]:hover::after{
+  left:100%;
+}
+
 </style>
 </head>
 <body>
@@ -966,6 +1052,67 @@ function handleSubmit(e) {
 function toggleMob(){var n=document.getElementById('mobNav');if(n)n.classList.toggle('open');}
 
 
+</script>
+<script>
+// ── Intersection Observer for scroll reveals ──────────────────────────────────
+(function(){
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('in-view');
+        obs.unobserve(e.target);
+      }
+    });
+  },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal-up,.reveal-left,.reveal-right,.reveal-scale').forEach(function(el){
+    obs.observe(el);
+  });
+
+  // Add reveal classes to key elements dynamically
+  document.querySelectorAll('h2.h2,h1.hero-h1').forEach(function(el,i){
+    if(!el.classList.contains('reveal-up')){
+      el.classList.add('reveal-up');
+      if(i>0) el.classList.add('delay-'+Math.min(i,5));
+    }
+  });
+  document.querySelectorAll('.eyebrow').forEach(function(el){
+    if(!el.classList.contains('reveal-up')) el.classList.add('reveal-up');
+  });
+})();
+
+// ── Cursor glow effect ────────────────────────────────────────────────────────
+(function(){
+  var glow = document.createElement('div');
+  glow.style.cssText='position:fixed;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(0,224,255,0.04) 0%,transparent 70%);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:left 0.15s ease,top 0.15s ease;';
+  document.body.appendChild(glow);
+  document.addEventListener('mousemove',function(e){
+    glow.style.left=e.clientX+'px';
+    glow.style.top=e.clientY+'px';
+  });
+})();
+
+// ── Smooth counter animation for stat numbers ─────────────────────────────────
+(function(){
+  var counters = document.querySelectorAll('[id^="s"]');
+  counters.forEach(function(el){
+    var text = el.textContent;
+    var num = parseInt(text);
+    if(isNaN(num)) return;
+    var suffix = text.replace(num,'');
+    var obs2 = new IntersectionObserver(function(entries){
+      if(entries[0].isIntersecting){
+        var start=0,duration=1500,step=duration/num;
+        var timer=setInterval(function(){
+          start+=Math.ceil(num/60);
+          if(start>=num){start=num;clearInterval(timer);}
+          el.textContent=start+suffix;
+        },step);
+        obs2.unobserve(el);
+      }
+    },{threshold:0.5});
+    obs2.observe(el);
+  });
+})();
 </script>
 </body>
 </html>
