@@ -650,6 +650,11 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
   #home > div > div{padding:100px 20px 60px !important;}
 }
 
+@media(max-width:768px){
+  #every-plan{clip-path:polygon(0 2%,100% 0,100% 98%,0 100%) !important;padding:80px 0 !important;}
+  #every-plan .wrap,[style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr !important;}
+  #every-plan [style*="font-size:400px"]{display:none;}
+}
 </style>
 </head>
 <body>
@@ -856,32 +861,68 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
     </div>
   </div>
 
-  <!-- Included in every plan -->
-  <div style="background:#002B49;border-radius:24px;padding:56px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;margin-bottom:80px;">
-    <div>
-      <span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#00E0FF;display:block;margin-bottom:12px;">Every Plan</span>
-      <h3 style="font-size:32px;font-weight:800;color:#fff;margin-bottom:16px;font-family:'Manrope',sans-serif;">What's Included in Every Plan</h3>
-      <p style="font-size:15px;color:rgba(255,255,255,0.65);line-height:1.75;margin-bottom:16px;">Every BluWav Growth System includes the essential tools your business needs to get found online, be chosen first, and grow &mdash; powered by AI and built for Caribbean MSMEs.</p>
-      <p style="font-size:14px;color:rgba(255,255,255,0.45);line-height:1.7;">These essentials give every business &mdash; even at the Starter level &mdash; a real, working online presence that drives visibility and customer action.</p>
-    </div>
-    <div>
-      <div style="font-size:12px;font-weight:800;color:#00E0FF;text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;">Included Across All Plans:</div>
-      <div style="display:flex;flex-direction:column;gap:9px;">
-        <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,0.85);"><span style="width:20px;height:20px;border-radius:50%;background:#00E0FF;display:flex;align-items:center;justify-content:center;font-size:10px;color:#002B49;font-weight:800;flex-shrink:0;">&#10003;</span>Modern website (you own it forever)</div>
-        <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,0.85);"><span style="width:20px;height:20px;border-radius:50%;background:#00E0FF;display:flex;align-items:center;justify-content:center;font-size:10px;color:#002B49;font-weight:800;flex-shrink:0;">&#10003;</span>Google Business Profile setup</div>
-        <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,0.85);"><span style="width:20px;height:20px;border-radius:50%;background:#00E0FF;display:flex;align-items:center;justify-content:center;font-size:10px;color:#002B49;font-weight:800;flex-shrink:0;">&#10003;</span>CRM included (no monthly subscription)</div>
-        <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,0.85);"><span style="width:20px;height:20px;border-radius:50%;background:#00E0FF;display:flex;align-items:center;justify-content:center;font-size:10px;color:#002B49;font-weight:800;flex-shrink:0;">&#10003;</span>Basic automation</div>
-        <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,0.85);"><span style="width:20px;height:20px;border-radius:50%;background:#00E0FF;display:flex;align-items:center;justify-content:center;font-size:10px;color:#002B49;font-weight:800;flex-shrink:0;">&#10003;</span>Basic analytics dashboard</div>
-        <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,0.85);"><span style="width:20px;height:20px;border-radius:50%;background:#00E0FF;display:flex;align-items:center;justify-content:center;font-size:10px;color:#002B49;font-weight:800;flex-shrink:0;">&#10003;</span>On-page SEO essentials</div>
-        <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,0.85);"><span style="width:20px;height:20px;border-radius:50%;background:#00E0FF;display:flex;align-items:center;justify-content:center;font-size:10px;color:#002B49;font-weight:800;flex-shrink:0;">&#10003;</span>Google Search Console setup</div>
-        <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,0.85);"><span style="width:20px;height:20px;border-radius:50%;background:#00E0FF;display:flex;align-items:center;justify-content:center;font-size:10px;color:#002B49;font-weight:800;flex-shrink:0;">&#10003;</span>Google Analytics 4 setup</div>
-        <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,0.85);"><span style="width:20px;height:20px;border-radius:50%;background:#00E0FF;display:flex;align-items:center;justify-content:center;font-size:10px;color:#002B49;font-weight:800;flex-shrink:0;">&#10003;</span>WhatsApp chat button</div>
-        <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,0.85);"><span style="width:20px;height:20px;border-radius:50%;background:#00E0FF;display:flex;align-items:center;justify-content:center;font-size:10px;color:#002B49;font-weight:800;flex-shrink:0;">&#10003;</span>Mobile-optimized design</div>
-        <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,0.85);"><span style="width:20px;height:20px;border-radius:50%;background:#00E0FF;display:flex;align-items:center;justify-content:center;font-size:10px;color:#002B49;font-weight:800;flex-shrink:0;">&#10003;</span>Fast, secure hosting</div>
-        <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,0.85);"><span style="width:20px;height:20px;border-radius:50%;background:#00E0FF;display:flex;align-items:center;justify-content:center;font-size:10px;color:#002B49;font-weight:800;flex-shrink:0;">&#10003;</span>Standard support</div>
+  <!-- Included in every plan — FULL WIDTH STUNNING -->
+</div>
+</section>
+
+<!-- EVERY PLAN — Full bleed aerial photo, diagonal cuts -->
+<section style="position:relative;padding:120px 0;overflow:hidden;clip-path:polygon(0 5%,100% 0,100% 95%,0 100%);margin:-40px 0;" id="every-plan">
+
+  <!-- Background: Caribbean aerial photo -->
+  <div style="position:absolute;inset:0;z-index:0;">
+    <img src="https://images.pexels.com/photos/1591373/pexels-photo-1591373.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=2" alt="Caribbean" style="width:100%;height:100%;object-fit:cover;object-position:center;filter:brightness(0.35) saturate(1.2);"/>
+  </div>
+
+  <!-- Cyan gradient overlay -->
+  <div style="position:absolute;inset:0;z-index:1;background:linear-gradient(135deg,rgba(0,43,73,0.92) 0%,rgba(0,30,60,0.85) 40%,rgba(0,194,216,0.25) 100%);"></div>
+
+  <!-- Oversized watermark ✓ -->
+  <div style="position:absolute;right:-2%;top:50%;transform:translateY(-50%);font-size:400px;font-weight:900;color:rgba(0,224,255,0.04);line-height:1;z-index:1;pointer-events:none;user-select:none;font-family:'Manrope',sans-serif;">&#10003;</div>
+
+  <!-- Cyan accent line top -->
+  <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,#00E0FF,#00C2D8,transparent);z-index:2;"></div>
+
+  <div style="max-width:1200px;margin:0 auto;padding:0 48px;position:relative;z-index:3;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;">
+
+      <!-- Left: headline + description -->
+      <div class="reveal-left">
+        <span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:#00E0FF;display:block;margin-bottom:16px;">Every Plan</span>
+        <h2 style="font-size:48px;font-weight:800;color:#fff;margin-bottom:24px;line-height:1.1;font-family:'Manrope',sans-serif;">What&rsquo;s Included<br/>in <span style="color:#00E0FF;">Every Plan</span></h2>
+        <p style="font-size:17px;color:rgba(255,255,255,0.75);line-height:1.8;margin-bottom:20px;">Every BluWav Growth System includes the essential tools your business needs to get found online, be chosen first, and grow &mdash; powered by AI and built for Caribbean MSMEs.</p>
+        <p style="font-size:15px;color:rgba(255,255,255,0.5);line-height:1.75;margin-bottom:40px;">These essentials give every business &mdash; even at the Starter level &mdash; a real, working online presence that drives visibility and customer action.</p>
+        <a href="pricing.html" style="display:inline-block;background:transparent;color:#00E0FF;font-size:15px;font-weight:700;padding:14px 32px;border-radius:11px;border:2px solid rgba(0,224,255,0.5);text-decoration:none;transition:all 0.2s;" onmouseover="this.style.background='rgba(0,224,255,0.1)';this.style.borderColor='#00E0FF'" onmouseout="this.style.background='transparent';this.style.borderColor='rgba(0,224,255,0.5)'">View Full Pricing &rarr;</a>
       </div>
+
+      <!-- Right: checklist in 2 mini-columns -->
+      <div class="reveal-right">
+        <div style="font-size:12px;font-weight:800;color:#00E0FF;text-transform:uppercase;letter-spacing:2px;margin-bottom:24px;">Included Across All Plans:</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px 24px;">
+          <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(255,255,255,0.9);padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06);"><span style="width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#00E0FF,#00C2D8);display:flex;align-items:center;justify-content:center;font-size:11px;color:#002B49;font-weight:900;flex-shrink:0;">&#10003;</span>Modern website</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(255,255,255,0.9);padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06);"><span style="width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#00E0FF,#00C2D8);display:flex;align-items:center;justify-content:center;font-size:11px;color:#002B49;font-weight:900;flex-shrink:0;">&#10003;</span>Google Business Profile</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(255,255,255,0.9);padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06);"><span style="width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#00E0FF,#00C2D8);display:flex;align-items:center;justify-content:center;font-size:11px;color:#002B49;font-weight:900;flex-shrink:0;">&#10003;</span>CRM included</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(255,255,255,0.9);padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06);"><span style="width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#00E0FF,#00C2D8);display:flex;align-items:center;justify-content:center;font-size:11px;color:#002B49;font-weight:900;flex-shrink:0;">&#10003;</span>Basic automation</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(255,255,255,0.9);padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06);"><span style="width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#00E0FF,#00C2D8);display:flex;align-items:center;justify-content:center;font-size:11px;color:#002B49;font-weight:900;flex-shrink:0;">&#10003;</span>Analytics dashboard</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(255,255,255,0.9);padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06);"><span style="width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#00E0FF,#00C2D8);display:flex;align-items:center;justify-content:center;font-size:11px;color:#002B49;font-weight:900;flex-shrink:0;">&#10003;</span>On-page SEO essentials</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(255,255,255,0.9);padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06);"><span style="width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#00E0FF,#00C2D8);display:flex;align-items:center;justify-content:center;font-size:11px;color:#002B49;font-weight:900;flex-shrink:0;">&#10003;</span>Search Console setup</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(255,255,255,0.9);padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06);"><span style="width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#00E0FF,#00C2D8);display:flex;align-items:center;justify-content:center;font-size:11px;color:#002B49;font-weight:900;flex-shrink:0;">&#10003;</span>Google Analytics 4</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(255,255,255,0.9);padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06);"><span style="width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#00E0FF,#00C2D8);display:flex;align-items:center;justify-content:center;font-size:11px;color:#002B49;font-weight:900;flex-shrink:0;">&#10003;</span>WhatsApp chat button</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(255,255,255,0.9);padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06);"><span style="width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#00E0FF,#00C2D8);display:flex;align-items:center;justify-content:center;font-size:11px;color:#002B49;font-weight:900;flex-shrink:0;">&#10003;</span>Mobile-optimized design</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(255,255,255,0.9);padding:10px 0;"><span style="width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#00E0FF,#00C2D8);display:flex;align-items:center;justify-content:center;font-size:11px;color:#002B49;font-weight:900;flex-shrink:0;">&#10003;</span>Fast, secure hosting</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(255,255,255,0.9);padding:10px 0;"><span style="width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#00E0FF,#00C2D8);display:flex;align-items:center;justify-content:center;font-size:11px;color:#002B49;font-weight:900;flex-shrink:0;">&#10003;</span>Standard support</div>
+        </div>
+      </div>
+
     </div>
   </div>
+
+  <!-- Cyan accent line bottom -->
+  <div style="position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,#00C2D8,#00E0FF,transparent);z-index:2;"></div>
+</section>
+
+<!-- Resume what-we-do section -->
+<section style="background:#fff;padding:0 0 80px;" id="what-we-do-cont">
+<div style="max-width:1100px;margin:0 auto;padding:0 48px;">
 
   <!-- Three Growth Systems -->
   <div style="text-align:center;margin-bottom:48px;">
