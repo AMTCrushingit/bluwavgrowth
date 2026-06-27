@@ -36,7 +36,11 @@ a{text-decoration:none;color:inherit;}
 
 
 .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(0,16,32,0.72) 0%,rgba(0,24,40,0.60) 50%,rgba(0,16,32,0.72) 100%);z-index:0;pointer-events:none;}
-.hero{min-height:100vh;position:relative;background:url('https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=2') center center/cover no-repeat;display:flex;align-items:center;padding:110px 48px 80px;position:relative;overflow:hidden;}
+.hero{min-height:100vh;position:relative;background:url('https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=2') center center/cover no-repeat;display:flex;align-items:center;padding:110px 7% 80px;overflow:hidden;}
+.hero-layout{max-width:1600px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 420px;gap:60px;align-items:center;position:relative;z-index:2;}
+.hero-kai{position:relative;display:flex;align-items:flex-end;justify-content:flex-end;height:580px;}
+.hero-kai img{height:100%;max-height:580px;width:auto;object-fit:contain;object-position:bottom right;filter:drop-shadow(-20px 0 40px rgba(0,16,32,0.5));mask-image:linear-gradient(to bottom,black 80%,transparent 100%);-webkit-mask-image:linear-gradient(to bottom,black 80%,transparent 100%);}
+@media(max-width:900px){.hero-layout{grid-template-columns:1fr;}.hero-kai{display:none;}}
 
 
 
@@ -44,7 +48,7 @@ a{text-decoration:none;color:inherit;}
 
 
 
-.hero-inner{max-width:900px;margin:0 auto;width:100%;position:relative;z-index:2;text-align:center;}
+.hero-inner{width:100%;text-align:left;position:relative;z-index:2;}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,111,97,0.15);border:1px solid rgba(255,111,97,0.35);border-radius:20px;padding:5px 14px;font-size:11px;font-weight:700;color:#FF9B94;text-transform:uppercase;letter-spacing:1px;margin-bottom:20px;}
 .badge-dot{width:6px;height:6px;border-radius:50%;background:var(--coral);animation:pulse 2s infinite;}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.4;transform:scale(0.7);}}
@@ -208,7 +212,7 @@ a{text-decoration:none;color:inherit;}
 .wa-float:hover{transform:scale(1.1)!important;animation:none;}
 @keyframes floatUp{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
 @media(max-width:1100px){
-  .hero-inner{max-width:900px;margin:0 auto;width:100%;position:relative;z-index:2;text-align:center;}
+  .hero-inner{width:100%;text-align:left;position:relative;z-index:2;}
   .hero-right{display:none;}
   .hero-btns{justify-content:center;}
   .hero-trust{align-items:center;}
@@ -387,7 +391,7 @@ a{text-decoration:none;color:inherit;}
 
   /* HERO */
   .hero{padding:90px 16px 60px !important;}
-  .hero-inner{max-width:900px;margin:0 auto;width:100%;position:relative;z-index:2;text-align:center;}
+  .hero-inner{width:100%;text-align:left;position:relative;z-index:2;}
   .hero-logo-name{font-size:48px !important;}
   .hero-h1{font-size:28px !important;letter-spacing:-0.5px !important;}
   .hero-tagline{font-size:15px !important;}
@@ -528,7 +532,7 @@ a{text-decoration:none;color:inherit;}
 }
 
 
-.hero-inner{max-width:900px;margin:0 auto;width:100%;position:relative;z-index:2;text-align:center;}
+.hero-inner{width:100%;text-align:left;position:relative;z-index:2;}
 
 
 
@@ -536,7 +540,7 @@ a{text-decoration:none;color:inherit;}
 
 @media(max-width:768px){
   
-  .hero-inner{max-width:900px;margin:0 auto;width:100%;position:relative;z-index:2;text-align:center;}
+  .hero-inner{width:100%;text-align:left;position:relative;z-index:2;}
   
   
 }
@@ -666,39 +670,48 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
 </div>
 <!-- HERO -->
 <section class="hero" id="home">
-<div class="hero-inner">
-<div style="background:rgba(8,28,56,0.62);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:28px;padding:56px 64px;border:1px solid rgba(255,255,255,0.15);box-shadow:0 32px 80px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.12);max-width:860px;margin:0 auto;">
+<div class="hero-layout">
 
-  <!-- Logo -->
-    <div class="hero-logo-name hero-anim-1">Blu<span style="color:var(--cyan);">Wav</span></div>
-  <div class="hero-anim-2" style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:32px;">
-    <span style="display:block;width:28px;height:1px;background:rgba(0,224,255,0.5);"></span>
-    <span style="font-size:12px;font-weight:700;color:#00E0FF;letter-spacing:8px;text-transform:uppercase;">GROWTH</span>
-    <span style="display:block;width:28px;height:1px;background:rgba(0,224,255,0.5);"></span>
-  </div></div>
+  <!-- LEFT: Text -->
+  <div class="hero-inner">
+    <div style="background:rgba(8,28,56,0.60);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:28px;padding:52px 56px;border:1px solid rgba(255,255,255,0.15);box-shadow:0 32px 80px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.12);">
 
-  <!-- Headline -->
-  <h1 class="hero-h1 hero-anim-3" style="font-size:62px;text-align:center;margin-bottom:20px;line-height:1.06;">Get Your Business Found Online&hellip;<br/><span class="gold">and Chosen First.</span></h1>
+      <!-- Logo -->
+      <div class="hero-logo-name hero-anim-1" style="text-align:left;margin-bottom:4px;">Blu<span style="color:var(--cyan);">Wav</span></div>
+      <div class="hero-anim-2" style="display:flex;align-items:center;justify-content:flex-start;gap:10px;margin-bottom:28px;">
+        <span style="display:block;width:28px;height:1px;background:rgba(0,224,255,0.5);"></span>
+        <span style="font-size:11px;font-weight:700;color:#00E0FF;letter-spacing:7px;text-transform:uppercase;">GROWTH</span>
+      </div>
 
-  <!-- Subheadline -->
-  <p class="hero-tagline hero-anim-4" style="text-align:center;max-width:640px;margin:0 auto 16px;font-size:20px;line-height:1.65;font-style:normal;color:rgba(255,255,255,0.92);">BluWav builds your website, boosts your visibility, automates your follow-ups, and helps your business win more customers.</p>
+      <!-- Headline -->
+      <h1 class="hero-h1 hero-anim-3" style="font-size:52px;text-align:left;margin-bottom:18px;line-height:1.08;">Get Your Business Found Online&hellip;<br/><span class="gold">and Chosen First.</span></h1>
 
-  <!-- Supporting copy -->
-  <p class="hero-anim-4" style="text-align:center;max-width:620px;margin:0 auto 36px;font-size:15px;line-height:1.75;color:rgba(255,255,255,0.68);">Our free Health Check reviews your online presence and shows you exactly what&rsquo;s working, what&rsquo;s broken, and what&rsquo;s stopping customers from finding you online.</p>
-  
-  
+      <!-- Subheadline -->
+      <p class="hero-tagline hero-anim-4" style="text-align:left;max-width:480px;margin-bottom:14px;font-size:18px;line-height:1.65;font-style:normal;color:rgba(255,255,255,0.9);">BluWav builds your website, boosts your visibility, automates your follow-ups, and helps your business win more customers.</p>
 
-  <!-- Primary CTA -->
-  <div class="hero-anim-6" style="text-align:center;margin-bottom:28px;">
-    <a href="#health-check" style="background:#FF5500;color:#fff;font-size:18px;font-weight:800;padding:20px 52px;border-radius:12px;box-shadow:0 6px 32px rgba(255,85,0,0.6),0 2px 8px rgba(0,0,0,0.35);transition:transform 0.15s,box-shadow 0.2s;display:inline-block;text-align:center;letter-spacing:0.3px;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 14px 44px rgba(255,85,0,0.75),0 4px 12px rgba(0,0,0,0.35)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 6px 32px rgba(255,85,0,0.6),0 2px 8px rgba(0,0,0,0.35)'">Check My Business for Free</a>
+      <!-- Health check copy -->
+      <p class="hero-anim-4" style="text-align:left;max-width:480px;margin-bottom:32px;font-size:14px;line-height:1.7;color:rgba(0,224,255,0.85);font-weight:600;">Our free Health Check reviews your online presence and shows you exactly what&rsquo;s working, what&rsquo;s broken, and what&rsquo;s stopping customers from finding you online.</p>
+
+      <!-- CTA -->
+      <div class="hero-anim-5">
+        <a href="#health-check" style="background:#FF5500;color:#fff;font-size:17px;font-weight:800;padding:18px 44px;border-radius:12px;box-shadow:0 6px 32px rgba(255,85,0,0.55),0 2px 8px rgba(0,0,0,0.3);transition:transform 0.15s,box-shadow 0.2s;display:inline-block;text-align:center;letter-spacing:0.3px;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 14px 44px rgba(255,85,0,0.75),0 4px 12px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 6px 32px rgba(255,85,0,0.55),0 2px 8px rgba(0,0,0,0.3)'">Check My Business for Free</a>
+      </div>
+
+      <!-- Trust strip -->
+      <div class="hero-anim-6" style="display:flex;flex-wrap:wrap;gap:20px;align-items:center;margin-top:24px;">
+        <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.6);font-weight:600;"><span style="width:5px;height:5px;border-radius:50%;background:#00E0FF;flex-shrink:0;display:inline-block;"></span>48&ndash;72 hour delivery</div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.6);font-weight:600;"><span style="width:5px;height:5px;border-radius:50%;background:#00E0FF;flex-shrink:0;display:inline-block;"></span>Caribbean-built systems</div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.6);font-weight:600;"><span style="width:5px;height:5px;border-radius:50%;background:#00E0FF;flex-shrink:0;display:inline-block;"></span>You own everything forever</div>
+      </div>
+
+    </div>
   </div>
 
-  <!-- Microcopy under CTA -->
-  <p class="hero-anim-6" style="text-align:center;font-size:13px;color:rgba(0,224,255,0.75);margin-bottom:28px;line-height:1.6;font-style:italic;"></p>
+  <!-- RIGHT: Kai -->
+  <div class="hero-kai hero-anim-3">
+    <img src="kai-hero.png" alt="BluWav Growth Caribbean" />
+  </div>
 
-
-
-</div>
 </div>
 </section>
 <!-- PROOF STRIP — animated ticker -->
