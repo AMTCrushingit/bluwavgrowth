@@ -37,9 +37,9 @@ a{text-decoration:none;color:inherit;}
 
 .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(0,16,32,0.72) 0%,rgba(0,24,40,0.60) 50%,rgba(0,16,32,0.72) 100%);z-index:0;pointer-events:none;}
 .hero{min-height:100vh;position:relative;background:url('https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=2') center center/cover no-repeat;display:flex;align-items:center;padding:110px 7% 80px;overflow:hidden;}
-.hero-layout{max-width:1600px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 420px;gap:60px;align-items:center;position:relative;z-index:2;}
-.hero-kai{position:relative;display:flex;align-items:flex-end;justify-content:flex-end;height:580px;}
-.hero-kai img{height:100%;max-height:580px;width:auto;object-fit:contain;object-position:bottom right;filter:drop-shadow(-20px 0 40px rgba(0,16,32,0.5));mask-image:linear-gradient(to bottom,black 80%,transparent 100%);-webkit-mask-image:linear-gradient(to bottom,black 80%,transparent 100%);}
+.hero-layout{max-width:1600px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 480px;gap:48px;align-items:stretch;position:relative;z-index:2;}
+.hero-kai{position:relative;display:flex;align-items:center;justify-content:flex-end;height:100%;min-height:500px;border-radius:0 0 0 0;overflow:hidden;}
+.hero-kai img{width:100%;height:100%;object-fit:cover;object-position:center;border-radius:20px;opacity:0.92;filter:brightness(0.95) contrast(1.02);mask-image:linear-gradient(to left,black 50%,transparent 100%),linear-gradient(to bottom,black 80%,transparent 100%);-webkit-mask-image:linear-gradient(to left,black 50%,transparent 100%),linear-gradient(to bottom,black 80%,transparent 100%);mask-composite:intersect;-webkit-mask-composite:source-in;}
 @media(max-width:900px){.hero-layout{grid-template-columns:1fr;}.hero-kai{display:none;}}
 
 
@@ -709,7 +709,7 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
 
   <!-- RIGHT: Kai -->
   <div class="hero-kai hero-anim-3">
-    <img src="kai-hero.png" alt="BluWav Growth Caribbean" />
+    <img src="hero-team.jpg" alt="BluWav Growth Caribbean businesses" />
   </div>
 
 </div>
