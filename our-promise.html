@@ -47,7 +47,7 @@ a{text-decoration:none;color:inherit;}
 .hero-inner{max-width:var(--max);margin:0 auto;text-align:center;position:relative;z-index:2;}
 
 /* HELPERS */
-.wrap{max-width:var(--max);margin:0 auto;padding:0 48px;}
+.wrap{max-width:1400px;margin:0 auto;padding:0 48px;}
 .pad{padding:96px 0;}
 
 /* PROMISE CARDS */
@@ -338,6 +338,14 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
 /* ── KAUSHAN SCRIPT for BluWav wordmark ── */
 .footer-brand-name,.hero-logo-name{font-family:'Kaushan Script',cursive !important;}
 
+@media(max-width:768px){
+  [style*="grid-template-columns:repeat(3,1fr)"]{grid-template-columns:1fr !important;}
+  [style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr !important;}
+  [style*="clip-path:polygon"]{clip-path:none !important;margin:0 !important;}
+  [style*="padding:56px 64px"]{padding:36px 24px !important;}
+  [style*="padding:120px 0"]{padding:72px 0 !important;}
+  [style*="padding:0 48px"]{padding:0 20px !important;}
+}
 </style>
 </head>
 <body>
@@ -392,117 +400,121 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
   </div>
 </div>
 </section>
-<!-- PROMISE CARDS -->
-<section class="fear-section">
-<div class="wrap">
-<div style="text-align:center;margin-bottom:16px;">
-<span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;color:var(--gold);display:block;margin-bottom:12px;">Six Unbreakable Commitments</span>
-<h2 style="font-family:'Playfair Display',serif;font-size:42px;font-weight:800;color:#fff;line-height:1.15;margin-bottom:16px;">Our Promise to Every<br/>Caribbean Business.</h2>
-<p style="font-size:17px;color:rgba(255,255,255,0.55);line-height:1.75;max-width:560px;margin:0 auto;">These are not marketing words. These are commitments backed by a signed agreement.</p>
-</div>
-<div class="promise-grid">
-<!-- Promise 1 -->
-<div class="promise-card teal">
-<div class="promise-icon teal">📋</div>
-<div class="promise-title">Signed Agreement First</div>
-<div class="promise-text">Every project begins with a digital contract. You know exactly what you're getting, when you're getting it, and how much it costs — before we start a single thing.</div>
-</div>
-<!-- Promise 2 -->
-<div class="promise-card orange">
-<div class="promise-icon orange">⚡</div>
-<div class="promise-title">Progress Updates Every 2 Days</div>
-<div class="promise-text">No silence. No guessing. No "we're working on it." You get regular updates throughout your project so you always know exactly where things stand.</div>
-</div>
-<!-- Promise 3 -->
-<div class="promise-card gold">
-<div class="promise-icon gold">🔑</div>
-<div class="promise-title">You Approve Before We Launch</div>
-<div class="promise-text">Nothing goes live without your sign-off. You review, you approve, you launch. If you want changes, we update within 48 hours. Your website, your rules.</div>
-</div>
-<!-- Promise 4 -->
-<div class="promise-card green">
-<div class="promise-icon green">🌍</div>
-<div class="promise-title">50+ Caribbean Businesses Served</div>
-<div class="promise-text">We're not new to this. We've built websites for real businesses across Trinidad &amp; Tobago, Jamaica, Barbados, Guyana and beyond. Ask us for references anytime.</div>
-</div>
-<!-- Promise 5 -->
-<div class="promise-card purple">
-<div class="promise-icon purple">🩺</div>
-<div class="promise-title">Free Health Check Before You Pay</div>
-<div class="promise-text">We diagnose your digital presence for free — no commitment, no payment. You see exactly what needs fixing before you decide to work with us. Zero risk.</div>
-</div>
-<!-- Promise 6 -->
-<div class="promise-card red">
-<div class="promise-icon red">📱</div>
-<div class="promise-title">You Own Your Website Forever</div>
-<div class="promise-text">Your website belongs to you — not us. No monthly lock-in fees, no holding your site hostage. Every project includes a signed agreement confirming your full ownership.</div>
-</div>
-</div>
-</div>
-</section>
-<!-- WHAT THIS MEANS -->
-<section style="background:#fff;padding:96px 0;">
-<div class="wrap">
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
-<div>
-<span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;color:var(--coral);display:block;margin-bottom:12px;">What This Means For You</span>
-<h2 style="font-family:'Playfair Display',serif;font-size:40px;font-weight:800;color:var(--navy);line-height:1.15;margin-bottom:20px;">You take zero risk.<br/>We take all of it.</h2>
-<p style="font-size:17px;color:var(--slate);line-height:1.75;margin-bottom:24px;">Most agencies ask you to trust them blindly. We don't. We put everything in writing, keep you informed every step of the way, and don't get paid in full until you're happy.</p>
-<p style="font-size:17px;color:var(--slate);line-height:1.75;margin-bottom:32px;">That's how business should be done in the Caribbean — with respect, transparency, and accountability.</p>
-<div style="display:flex;flex-direction:column;gap:14px;">
-<div style="display:flex;align-items:center;gap:14px;padding:16px 20px;background:var(--sand);border-radius:12px;border-left:4px solid var(--cyan);">
-<span style="font-size:22px;">✅</span>
-<div style="font-size:15px;font-weight:600;color:var(--navy);">Signed contract before any work begins</div>
-</div>
-<div style="display:flex;align-items:center;gap:14px;padding:16px 20px;background:var(--sand);border-radius:12px;border-left:4px solid var(--coral);">
-<span style="font-size:22px;">✅</span>
-<div style="font-size:15px;font-weight:600;color:var(--navy);">Pay in 2 or 3 instalments — final payment on delivery</div>
-</div>
-<div style="display:flex;align-items:center;gap:14px;padding:16px 20px;background:var(--sand);border-radius:12px;border-left:4px solid var(--gold);">
-<span style="font-size:22px;">✅</span>
-<div style="font-size:15px;font-weight:600;color:var(--navy);">Your approval required before anything goes live</div>
-</div>
-<div style="display:flex;align-items:center;gap:14px;padding:16px 20px;background:var(--sand);border-radius:12px;border-left:4px solid #10b981;">
-<span style="font-size:22px;">✅</span>
-<div style="font-size:15px;font-weight:600;color:var(--navy);">You own your website 100% — forever</div>
-</div>
-</div>
-</div>
-<div style="background:linear-gradient(135deg,var(--navy),#003d5c);border-radius:24px;padding:40px;color:#fff;position:relative;overflow:hidden;">
-<div style="position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:rgba(0,224,255,0.1);"></div>
-<div style="position:relative;z-index:2;">
-<div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--gold);margin-bottom:16px;">What Our Clients Say</div>
-<div style="display:flex;flex-direction:column;gap:20px;">
-<div style="background:rgba(255,255,255,0.06);border-radius:14px;padding:20px;border-left:3px solid var(--cyan);">
-<div style="font-size:14px;color:rgba(255,255,255,0.8);line-height:1.7;font-style:italic;margin-bottom:12px;">"I was nervous after being burned before. BluWav sent me a contract on day one and updated me every two days. My site was live in 48 hours exactly as promised."</div>
-<div style="font-size:13px;font-weight:700;color:#fff;">Restaurant Owner, Trinidad</div>
-</div>
-<div style="background:rgba(255,255,255,0.06);border-radius:14px;padding:20px;border-left:3px solid var(--coral);">
-<div style="font-size:14px;color:rgba(255,255,255,0.8);line-height:1.7;font-style:italic;margin-bottom:12px;">"The free health check showed me exactly what was wrong with my online presence. No pressure, no sales pitch — just honest advice. I signed up the next day."</div>
-<div style="font-size:13px;font-weight:700;color:#fff;">Consultant, Barbados</div>
-</div>
-<div style="background:rgba(255,255,255,0.06);border-radius:14px;padding:20px;border-left:3px solid var(--gold);">
-<div style="font-size:14px;color:rgba(255,255,255,0.8);line-height:1.7;font-style:italic;margin-bottom:12px;">"I own my website completely. No monthly fees, no lock-in. That alone made BluWav different from everyone else I spoke to."</div>
-<div style="font-size:13px;font-weight:700;color:#fff;">Salon Owner, Jamaica</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<!-- PROMISE CARDS — Sand bg, full width, alternating layout -->
+<section style="background:var(--sand);padding:100px 0;" id="promise-content">
+<div style="max-width:1400px;margin:0 auto;padding:0 48px;">
+  <div style="text-align:center;margin-bottom:72px;">
+    <span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:var(--coral);display:block;margin-bottom:12px;">Six Unbreakable Commitments</span>
+    <h2 style="font-family:'Manrope',sans-serif;font-size:48px;font-weight:800;color:var(--navy);line-height:1.1;margin-bottom:16px;">Our Promise to Every<br/>Caribbean Business.</h2>
+    <p style="font-size:18px;color:var(--slate);line-height:1.75;max-width:560px;margin:0 auto;">These are not marketing words. These are commitments backed by a signed agreement.</p>
+  </div>
+
+  <!-- 3-col card grid — colourful, not navy -->
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;">
+
+    <div style="background:#fff;border-radius:20px;padding:36px;border-top:4px solid #00E0FF;box-shadow:0 4px 24px rgba(0,43,73,0.06);transition:all 0.2s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 48px rgba(0,43,73,0.12)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 24px rgba(0,43,73,0.06)'">
+      <div style="font-size:40px;margin-bottom:16px;">&#128203;</div>
+      <h3 style="font-size:20px;font-weight:800;color:var(--navy);margin-bottom:12px;font-family:'Manrope',sans-serif;">Signed Agreement First</h3>
+      <p style="font-size:14px;color:var(--slate);line-height:1.75;">Every project begins with a digital contract. You know exactly what you're getting, when you're getting it, and how much it costs — before we start a single thing.</p>
+    </div>
+
+    <div style="background:#fff;border-radius:20px;padding:36px;border-top:4px solid #FF5500;box-shadow:0 4px 24px rgba(0,43,73,0.06);transition:all 0.2s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 48px rgba(0,43,73,0.12)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 24px rgba(0,43,73,0.06)'">
+      <div style="font-size:40px;margin-bottom:16px;">&#9889;</div>
+      <h3 style="font-size:20px;font-weight:800;color:var(--navy);margin-bottom:12px;font-family:'Manrope',sans-serif;">Progress Updates Every 2 Days</h3>
+      <p style="font-size:14px;color:var(--slate);line-height:1.75;">No silence. No guessing. No "we're working on it." You get regular updates throughout your project so you always know exactly where things stand.</p>
+    </div>
+
+    <div style="background:#fff;border-radius:20px;padding:36px;border-top:4px solid #F7C873;box-shadow:0 4px 24px rgba(0,43,73,0.06);transition:all 0.2s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 48px rgba(0,43,73,0.12)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 24px rgba(0,43,73,0.06)'">
+      <div style="font-size:40px;margin-bottom:16px;">&#128273;</div>
+      <h3 style="font-size:20px;font-weight:800;color:var(--navy);margin-bottom:12px;font-family:'Manrope',sans-serif;">You Approve Before We Launch</h3>
+      <p style="font-size:14px;color:var(--slate);line-height:1.75;">Nothing goes live without your sign-off. You review, you approve, you launch. If you want changes, we update within 48 hours. Your website, your rules.</p>
+    </div>
+
+    <div style="background:#fff;border-radius:20px;padding:36px;border-top:4px solid #10b981;box-shadow:0 4px 24px rgba(0,43,73,0.06);transition:all 0.2s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 48px rgba(0,43,73,0.12)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 24px rgba(0,43,73,0.06)'">
+      <div style="font-size:40px;margin-bottom:16px;">&#127758;</div>
+      <h3 style="font-size:20px;font-weight:800;color:var(--navy);margin-bottom:12px;font-family:'Manrope',sans-serif;">50+ Caribbean Businesses Served</h3>
+      <p style="font-size:14px;color:var(--slate);line-height:1.75;">We're not new to this. We've built websites for real businesses across the Caribbean. Ask us for references anytime.</p>
+    </div>
+
+    <div style="background:#fff;border-radius:20px;padding:36px;border-top:4px solid #8b5cf6;box-shadow:0 4px 24px rgba(0,43,73,0.06);transition:all 0.2s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 48px rgba(0,43,73,0.12)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 24px rgba(0,43,73,0.06)'">
+      <div style="font-size:40px;margin-bottom:16px;">&#129706;</div>
+      <h3 style="font-size:20px;font-weight:800;color:var(--navy);margin-bottom:12px;font-family:'Manrope',sans-serif;">Free Health Check Before You Pay</h3>
+      <p style="font-size:14px;color:var(--slate);line-height:1.75;">We diagnose your digital presence for free — no commitment, no payment. You see exactly what needs fixing before you decide to work with us. Zero risk.</p>
+    </div>
+
+    <div style="background:#fff;border-radius:20px;padding:36px;border-top:4px solid #00C2D8;box-shadow:0 4px 24px rgba(0,43,73,0.06);transition:all 0.2s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 48px rgba(0,43,73,0.12)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 24px rgba(0,43,73,0.06)'">
+      <div style="font-size:40px;margin-bottom:16px;">&#128241;</div>
+      <h3 style="font-size:20px;font-weight:800;color:var(--navy);margin-bottom:12px;font-family:'Manrope',sans-serif;">You Own Your Website Forever</h3>
+      <p style="font-size:14px;color:var(--slate);line-height:1.75;">Your website belongs to you — not us. No monthly lock-in fees, no holding your site hostage. Every project includes a signed agreement confirming your full ownership.</p>
+    </div>
+
+  </div>
 </div>
 </section>
-<!-- CTA BANNER -->
-<section style="background:var(--navy);padding:64px 0;">
-<div class="wrap">
-<div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:40px 48px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;">
-<div>
-<div style="font-family:'Playfair Display',serif;font-size:28px;font-weight:800;color:#fff;margin-bottom:8px;">Start with a Free Online Health Check — Zero Risk.</div>
-<div style="font-size:16px;color:rgba(255,255,255,0.6);">No payment. No commitment. Just a professional review of your online presence.</div>
-</div>
-<a href="index.html#health-check" style="display:inline-flex;align-items:center;gap:10px;background:var(--coral);color:#fff;font-size:16px;font-weight:700;padding:16px 32px;border-radius:12px;text-decoration:none;box-shadow:0 4px 24px rgba(255,85,0,0.4);white-space:nowrap;flex-shrink:0;">🩺 Get Your Free Online Health Check →</a>
-</div>
+
+<!-- WHAT THIS MEANS — Full bleed aerial photo, diagonal cuts -->
+<section style="position:relative;padding:120px 0;overflow:hidden;clip-path:polygon(0 4%,100% 0,100% 96%,0 100%);margin:-20px 0;">
+  <div style="position:absolute;inset:0;z-index:0;">
+    <img src="https://images.pexels.com/photos/1591373/pexels-photo-1591373.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=2" alt="Caribbean" style="width:100%;height:100%;object-fit:cover;filter:brightness(0.3) saturate(1.2);"/>
+  </div>
+  <div style="position:absolute;inset:0;z-index:1;background:linear-gradient(135deg,rgba(0,43,73,0.95) 0%,rgba(0,30,60,0.85) 50%,rgba(0,194,216,0.3) 100%);"></div>
+  <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,#00E0FF,transparent);z-index:2;"></div>
+
+  <div style="max-width:1400px;margin:0 auto;padding:0 48px;position:relative;z-index:3;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;">
+
+      <!-- Left: zero risk -->
+      <div>
+        <span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:#FF5500;display:block;margin-bottom:16px;">What This Means For You</span>
+        <h2 style="font-family:'Manrope',sans-serif;font-size:44px;font-weight:800;color:#fff;line-height:1.1;margin-bottom:24px;">You take zero risk.<br/><span style="color:#00E0FF;">We take all of it.</span></h2>
+        <p style="font-size:17px;color:rgba(255,255,255,0.75);line-height:1.8;margin-bottom:20px;">Most agencies ask you to trust them blindly. We don't. We put everything in writing, keep you informed every step of the way, and don't get paid in full until you're happy.</p>
+        <p style="font-size:17px;color:rgba(255,255,255,0.55);line-height:1.8;margin-bottom:40px;">That's how business should be done in the Caribbean — with respect, transparency, and accountability.</p>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div style="display:flex;align-items:center;gap:14px;padding:16px 20px;background:rgba(255,255,255,0.06);border-radius:12px;border-left:4px solid #00E0FF;"><span style="font-size:20px;">&#9989;</span><div style="font-size:15px;font-weight:600;color:#fff;">Signed contract before any work begins</div></div>
+          <div style="display:flex;align-items:center;gap:14px;padding:16px 20px;background:rgba(255,255,255,0.06);border-radius:12px;border-left:4px solid #FF5500;"><span style="font-size:20px;">&#9989;</span><div style="font-size:15px;font-weight:600;color:#fff;">Pay in 2 or 3 instalments — final payment on delivery</div></div>
+          <div style="display:flex;align-items:center;gap:14px;padding:16px 20px;background:rgba(255,255,255,0.06);border-radius:12px;border-left:4px solid #F7C873;"><span style="font-size:20px;">&#9989;</span><div style="font-size:15px;font-weight:600;color:#fff;">Your approval required before anything goes live</div></div>
+          <div style="display:flex;align-items:center;gap:14px;padding:16px 20px;background:rgba(255,255,255,0.06);border-radius:12px;border-left:4px solid #10b981;"><span style="font-size:20px;">&#9989;</span><div style="font-size:15px;font-weight:600;color:#fff;">You own your website 100% — forever</div></div>
+        </div>
+      </div>
+
+      <!-- Right: testimonials -->
+      <div>
+        <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#F7C873;margin-bottom:24px;">What Our Clients Say</div>
+        <div style="display:flex;flex-direction:column;gap:20px;">
+          <div style="background:rgba(255,255,255,0.06);border-radius:16px;padding:24px;border-left:3px solid #00E0FF;">
+            <div style="font-size:14px;color:rgba(255,255,255,0.85);line-height:1.75;font-style:italic;margin-bottom:12px;">"I was nervous after being burned before. BluWav sent me a contract on day one and updated me every two days. My site was live in 48 hours exactly as promised."</div>
+            <div style="font-size:13px;font-weight:700;color:#00E0FF;">Restaurant Owner, Trinidad</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.06);border-radius:16px;padding:24px;border-left:3px solid #FF5500;">
+            <div style="font-size:14px;color:rgba(255,255,255,0.85);line-height:1.75;font-style:italic;margin-bottom:12px;">"The free health check showed me exactly what was wrong with my online presence. No pressure, no sales pitch — just honest advice. I signed up the next day."</div>
+            <div style="font-size:13px;font-weight:700;color:#FF5500;">Consultant, Barbados</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.06);border-radius:16px;padding:24px;border-left:3px solid #F7C873;">
+            <div style="font-size:14px;color:rgba(255,255,255,0.85);line-height:1.75;font-style:italic;margin-bottom:12px;">"I own my website completely. No monthly fees, no lock-in. That alone made BluWav different from everyone else I spoke to."</div>
+            <div style="font-size:13px;font-weight:700;color:#F7C873;">Salon Owner, Jamaica</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div style="position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,#00C2D8,transparent);z-index:2;"></div>
+</section>
+
+<!-- CTA BANNER — white bg, full width, stands out -->
+<section style="background:#fff;padding:80px 0;">
+<div style="max-width:1400px;margin:0 auto;padding:0 48px;">
+  <div style="background:linear-gradient(135deg,#FF5500,#e84d00);border-radius:24px;padding:56px 64px;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;position:relative;overflow:hidden;">
+    <div style="position:absolute;top:-40px;right:-40px;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,0.08);pointer-events:none;"></div>
+    <div style="position:relative;z-index:2;">
+      <div style="font-family:'Manrope',sans-serif;font-size:32px;font-weight:800;color:#fff;margin-bottom:10px;">Start with a Free Online Health Check — Zero Risk.</div>
+      <div style="font-size:17px;color:rgba(255,255,255,0.8);">No payment. No commitment. Just a professional review of your online presence.</div>
+    </div>
+    <a href="index.html#health-check" style="display:inline-flex;align-items:center;gap:10px;background:#fff;color:#FF5500;font-size:16px;font-weight:800;padding:18px 36px;border-radius:12px;text-decoration:none;box-shadow:0 4px 24px rgba(0,0,0,0.15);white-space:nowrap;flex-shrink:0;position:relative;z-index:2;transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 32px rgba(0,0,0,0.2)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 24px rgba(0,0,0,0.15)'">&#129706; Get Your Free Health Check &#8594;</a>
+  </div>
 </div>
 </section>
+
 <!-- FOOTER -->
 <footer>
 <div class="wrap">
