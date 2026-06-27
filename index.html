@@ -629,6 +629,28 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
 /* ── KAUSHAN SCRIPT for BluWav wordmark ── */
 .footer-brand-name,.hero-logo-name{font-family:'Kaushan Script',cursive !important;}
 
+/* ── HERO STUNNING ── */
+@keyframes heroSlideUp{from{opacity:0;transform:translateY(40px);}to{opacity:1;transform:translateY(0);}}
+@keyframes heroImageReveal{from{opacity:0;transform:scale(1.08);}to{opacity:1;transform:scale(1);}}
+@keyframes heroPulse{0%,100%{box-shadow:0 6px 32px rgba(255,85,0,0.55),0 2px 8px rgba(0,0,0,0.3);}50%{box-shadow:0 8px 56px rgba(255,85,0,0.85),0 0 80px rgba(255,85,0,0.25);}}
+@keyframes heroDotPulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.4;transform:scale(0.6);}}
+@keyframes heroGlow{0%,100%{opacity:0.6;}50%{opacity:1;}}
+.hero-anim-1{animation:heroSlideUp 0.9s cubic-bezier(0.22,1,0.36,1) 0.1s both;}
+.hero-anim-2{animation:heroSlideUp 0.9s cubic-bezier(0.22,1,0.36,1) 0.25s both;}
+.hero-anim-3{animation:heroSlideUp 0.9s cubic-bezier(0.22,1,0.36,1) 0.4s both;}
+.hero-anim-4{animation:heroSlideUp 0.9s cubic-bezier(0.22,1,0.36,1) 0.55s both;}
+.hero-anim-5{animation:heroSlideUp 0.9s cubic-bezier(0.22,1,0.36,1) 0.7s both;}
+.hero-anim-6{animation:heroSlideUp 0.9s cubic-bezier(0.22,1,0.36,1) 0.85s both;}
+.hero-cta-pulse{animation:heroPulse 2.8s ease-in-out 1.6s infinite;}
+.hero-img-reveal{animation:heroImageReveal 1.4s cubic-bezier(0.22,1,0.36,1) 0.2s both;}
+
+
+@media(max-width:768px){
+  #home{flex-direction:column !important;}
+  #home > div:first-child{width:100% !important;min-height:auto !important;padding:100px 20px 60px !important;}
+  #home > div:last-child{display:none !important;}
+}
+
 </style>
 </head>
 <body>
@@ -670,12 +692,11 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
 <a class="mob-cta" href="#health-check" onclick="toggleMob()">Free Online Health Check</a>
 </div>
 <!-- HERO -->
-<section class="hero" id="home">
-<div class="hero-layout">
+<section class="hero" id="home" style="padding:0;min-height:100vh;display:flex;align-items:stretch;">
 
-  <!-- LEFT: Text -->
-  <div class="hero-inner">
-    <div style="padding:0;">
+  <!-- LEFT: Text panel — takes 55% -->
+  <div style="width:55%;min-height:100vh;display:flex;align-items:center;padding:120px 5% 80px 7%;position:relative;z-index:3;flex-shrink:0;">
+    <div style="width:100%;max-width:640px;">
 
       <!-- Logo -->
       <div class="hero-logo-name hero-anim-1" style="text-align:left;margin-bottom:4px;">Blu<span style="color:var(--cyan);">Wav</span></div>
@@ -685,34 +706,40 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
       </div>
 
       <!-- Headline -->
-      <h1 class="hero-h1 hero-anim-3" style="font-size:52px;text-align:left;margin-bottom:18px;line-height:1.08;">Get Your Business Found Online&hellip;<br/><span class="gold">and Chosen First.</span></h1>
+      <h1 class="hero-h1 hero-anim-3" style="font-size:54px;text-align:left;margin-bottom:18px;line-height:1.06;">Get Your Business Found Online&hellip;<br/><span class="gold">and Chosen First.</span></h1>
 
       <!-- Subheadline -->
-      <p class="hero-tagline hero-anim-4" style="text-align:left;max-width:480px;margin-bottom:14px;font-size:18px;line-height:1.65;font-style:normal;color:rgba(255,255,255,0.9);">BluWav builds your website, boosts your visibility, automates your follow-ups, and helps your business win more customers.</p>
+      <p class="hero-anim-4" style="text-align:left;max-width:520px;margin-bottom:14px;font-size:18px;line-height:1.7;color:rgba(255,255,255,0.9);font-weight:400;">BluWav builds your website, boosts your visibility, automates your follow-ups, and helps your business win more customers.</p>
 
       <!-- Health check copy -->
-      <p class="hero-anim-4" style="text-align:left;max-width:480px;margin-bottom:32px;font-size:14px;line-height:1.7;color:rgba(0,224,255,0.85);font-weight:600;">Our free Health Check reviews your online presence and shows you exactly what&rsquo;s working, what&rsquo;s broken, and what&rsquo;s stopping customers from finding you online.</p>
+      <p class="hero-anim-4" style="text-align:left;max-width:520px;margin-bottom:36px;font-size:14px;line-height:1.75;color:rgba(0,224,255,0.9);font-weight:600;">Our free Health Check reviews your online presence and shows you exactly what&rsquo;s working, what&rsquo;s broken, and what&rsquo;s stopping customers from finding you online.</p>
 
       <!-- CTA -->
-      <div class="hero-anim-5">
-        <a href="#health-check" style="background:#FF5500;color:#fff;font-size:17px;font-weight:800;padding:18px 44px;border-radius:12px;box-shadow:0 6px 32px rgba(255,85,0,0.55),0 2px 8px rgba(0,0,0,0.3);transition:transform 0.15s,box-shadow 0.2s;display:inline-block;text-align:center;letter-spacing:0.3px;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 14px 44px rgba(255,85,0,0.75),0 4px 12px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 6px 32px rgba(255,85,0,0.55),0 2px 8px rgba(0,0,0,0.3)'">Check My Business for Free</a>
+      <div class="hero-anim-5" style="margin-bottom:32px;">
+        <a href="#health-check" class="hero-cta-pulse" style="background:#FF5500;color:#fff;font-size:17px;font-weight:800;padding:18px 48px;border-radius:12px;display:inline-block;text-align:center;letter-spacing:0.3px;text-decoration:none;transition:transform 0.15s;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">Check My Business for Free</a>
       </div>
 
       <!-- Trust strip -->
-      <div class="hero-anim-6" style="display:flex;flex-wrap:wrap;gap:20px;align-items:center;margin-top:24px;">
-        <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.6);font-weight:600;"><span style="width:5px;height:5px;border-radius:50%;background:#00E0FF;flex-shrink:0;display:inline-block;"></span>48&ndash;72 hour delivery</div>
-        <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.6);font-weight:600;"><span style="width:5px;height:5px;border-radius:50%;background:#00E0FF;flex-shrink:0;display:inline-block;"></span>Caribbean-built systems</div>
-        <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.6);font-weight:600;"><span style="width:5px;height:5px;border-radius:50%;background:#00E0FF;flex-shrink:0;display:inline-block;"></span>You own everything forever</div>
+      <div class="hero-anim-6" style="display:flex;flex-wrap:wrap;gap:20px;align-items:center;">
+        <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.65);font-weight:600;"><span style="width:6px;height:6px;border-radius:50%;background:#00E0FF;flex-shrink:0;display:inline-block;animation:heroDotPulse 2s ease-in-out infinite;"></span>48&ndash;72 hour delivery</div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.65);font-weight:600;"><span style="width:6px;height:6px;border-radius:50%;background:#00E0FF;flex-shrink:0;display:inline-block;animation:heroDotPulse 2s ease-in-out 0.4s infinite;"></span>Caribbean-built systems</div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.65);font-weight:600;"><span style="width:6px;height:6px;border-radius:50%;background:#00E0FF;flex-shrink:0;display:inline-block;animation:heroDotPulse 2s ease-in-out 0.8s infinite;"></span>You own everything forever</div>
       </div>
 
+    </div>
   </div>
 
-  <!-- RIGHT: Team -->
-  <div class="hero-kai hero-anim-3">
-    <img src="hero-team.jpg" alt="BluWav Growth Caribbean businesses" />
+  <!-- RIGHT: Team image — fills remaining 45%, full height -->
+  <div style="flex:1;position:relative;overflow:hidden;min-height:100vh;">
+    <!-- Left fade to blend with text panel -->
+    <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(0,10,24,0.95) 0%,rgba(0,30,60,0.6) 20%,rgba(0,43,73,0.2) 45%,transparent 70%);z-index:2;pointer-events:none;"></div>
+    <!-- Bottom fade -->
+    <div style="position:absolute;bottom:0;left:0;right:0;height:30%;background:linear-gradient(to top,rgba(0,10,24,0.6) 0%,transparent 100%);z-index:2;pointer-events:none;"></div>
+    <!-- Cyan glow accent -->
+    <div style="position:absolute;bottom:15%;left:10%;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(0,224,255,0.12) 0%,transparent 70%);z-index:3;pointer-events:none;animation:heroGlow 3s ease-in-out infinite;"></div>
+    <img src="hero-team.jpg" alt="BluWav Growth Caribbean team" class="hero-img-reveal" style="width:100%;height:100%;object-fit:cover;object-position:center center;display:block;filter:brightness(1.05) contrast(1.05) saturate(1.1);"/>
   </div>
 
-</div>
 </section>
 <!-- PROOF STRIP — animated ticker -->
 <div class="proof-strip" style="overflow:hidden;padding:0;">
