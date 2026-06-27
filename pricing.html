@@ -75,36 +75,8 @@ a{text-decoration:none;color:inherit;}
 100%{transform:translateX(-50%);}}
 100%{transform:translateX(-50%);}}
 100%{transform:translateX(0);}}
-/* ── BluWav Signature Wave ── */
-@keyframes bwWave1{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
-@keyframes bwWave2{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
-.bw-wave-wrap{
-  position:fixed;
-  bottom:0;
-  left:0;
-  right:0;
-  height:160px;
-  z-index:0;
-  pointer-events:none;
-  overflow:visible;
-}
-.bw-wave-1{
-  position:absolute;
-  bottom:0;
-  left:0;
-  width:200%;
-  height:160px;
-  animation:bwWave1 10s linear infinite;
-}
-.bw-wave-2{
-  position:absolute;
-  bottom:0;
-  left:-50%;
-  width:200%;
-  height:160px;
-  animation:bwWave2 16s linear infinite;
-}
-
+100%{transform:translateX(-50%);}}
+100%{transform:translateX(-50%);}}
 /* ══════════════════════════════════════════
    COMPREHENSIVE MOBILE RESPONSIVE FIX
    ══════════════════════════════════════════ */
@@ -218,8 +190,7 @@ a{text-decoration:none;color:inherit;}
   .sticky-bar-text{font-size:12px !important;text-align:center !important;}
 
   /* Wave */
-  .bw-wave-wrap{height:100px !important;}
-}
+  }
 
 @media(max-width:480px){
   .hero-h1{font-size:24px !important;}
@@ -325,18 +296,48 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
 /* ── KAUSHAN SCRIPT for BluWav wordmark ── */
 .footer-brand-name,.hero-logo-name{font-family:'Kaushan Script',cursive !important;}
 
+/* ── BluWav Signature Wave ── */
+@keyframes waveUndulate1{
+  0%,100%{d:path("M0,40 C240,15 480,65 720,40 C960,15 1200,65 1440,40 L1440,80 L0,80 Z");}
+  50%{d:path("M0,50 C240,25 480,55 720,50 C960,45 1200,25 1440,50 L1440,80 L0,80 Z");}
+}
+@keyframes waveUndulate2{
+  0%,100%{d:path("M0,55 C240,35 480,70 720,55 C960,40 1200,70 1440,55 L1440,80 L0,80 Z");}
+  50%{d:path("M0,45 C240,60 480,35 720,45 C960,55 1200,35 1440,45 L1440,80 L0,80 Z");}
+}
+.bw-wave-wrap{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  width:100%;
+  height:80px;
+  z-index:0;
+  pointer-events:none;
+  overflow:hidden;
+}
+.bw-wave-svg{
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:100%;
+}
+.bw-wave-path-1{
+  animation:waveUndulate1 6s ease-in-out infinite;
+}
+.bw-wave-path-2{
+  animation:waveUndulate2 8s ease-in-out infinite;
+}
+
 </style>
 </head>
 <body>
 <!-- BluWav Signature Wave -->
 <div class="bw-wave-wrap">
-  <!-- Cyan ribbon: starts at position 0, moves left -->
-  <svg class="bw-wave-1" viewBox="0 0 2880 160" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,80 C180,20 360,120 540,70 C720,20 900,120 1080,70 C1260,20 1440,120 1620,70 C1800,20 1980,120 2160,70 C2340,20 2520,120 2700,70 C2790,45 2840,90 2880,70 L2880,160 L0,160 Z" fill="#00E0FF" opacity="0.40"/>
-  </svg>
-  <!-- Navy ribbon: starts offset -50%, moves left at different speed (crosses cyan) -->
-  <svg class="bw-wave-2" viewBox="0 0 2880 160" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,110 C180,60 360,140 540,100 C720,60 900,140 1080,100 C1260,60 1440,140 1620,100 C1800,60 1980,140 2160,100 C2340,60 2520,140 2700,100 C2790,80 2840,115 2880,100 L2880,160 L0,160 Z" fill="#002B49" opacity="0.55"/>
+  <svg class="bw-wave-svg" viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path class="bw-wave-path-2" d="M0,55 C240,35 480,70 720,55 C960,40 1200,70 1440,55 L1440,80 L0,80 Z" fill="#002B49" opacity="0.55"/>
+    <path class="bw-wave-path-1" d="M0,40 C240,15 480,65 720,40 C960,15 1200,65 1440,40 L1440,80 L0,80 Z" fill="#00E0FF" opacity="0.28"/>
   </svg>
 </div>
 
