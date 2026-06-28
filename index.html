@@ -772,6 +772,24 @@ a[style*="background:#00E0FF"]:hover::after,a[style*="background:var(--cyan)"]:h
 .px-layer-2{animation:px-move-2 15s linear infinite;opacity:0.22;}
 .px-layer-3{animation:px-move-3 10s linear infinite;opacity:0.30;}
 
+
+/* ── Currency Selector ── */
+#currency-btn{position:fixed;top:80px;right:20px;z-index:200;background:rgba(0,43,73,0.9);border:1px solid rgba(0,224,255,0.3);color:#00E0FF;font-size:12px;font-weight:700;padding:8px 14px;border-radius:20px;cursor:pointer;backdrop-filter:blur(10px);transition:all 0.2s;font-family:inherit;}
+#currency-btn:hover{background:rgba(0,43,73,1);border-color:#00E0FF;}
+#currency-modal{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:9998;background:rgba(0,0,0,0.6);backdrop-filter:blur(4px);}
+#currency-modal.open{display:flex;align-items:center;justify-content:center;}
+#currency-box{background:#001828;border:1px solid rgba(0,224,255,0.2);border-radius:16px;padding:0;overflow:hidden;min-width:320px;box-shadow:0 24px 60px rgba(0,0,0,0.5);}
+#currency-box h3{background:#002B49;color:#fff;font-size:14px;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:18px 24px;margin:0;}
+.currency-option{display:flex;align-items:center;gap:14px;padding:16px 24px;cursor:pointer;transition:background 0.15s;border-bottom:1px solid rgba(255,255,255,0.06);}
+.currency-option:last-child{border-bottom:none;}
+.currency-option:hover{background:rgba(0,224,255,0.08);}
+.currency-option.active{background:rgba(0,224,255,0.12);}
+.currency-flag{font-size:22px;}
+.currency-info{flex:1;}
+.currency-code{font-size:15px;font-weight:800;color:#fff;}
+.currency-name{font-size:12px;color:rgba(255,255,255,0.5);margin-top:2px;}
+.currency-check{color:#00E0FF;font-size:16px;font-weight:800;}
+
 </style>
 <meta name="robots" content="index, follow"/>
 <meta property="og:title" content="BluWav Growth | Caribbean Digital Growth Agency"/>
@@ -833,6 +851,64 @@ a[style*="background:#00E0FF"]:hover::after,a[style*="background:var(--cyan)"]:h
 
 </head>
 <body>
+<!-- Currency Selector -->
+<button id="currency-btn" onclick="openCurrency()">🌍 USD ▾</button>
+<div id="currency-modal" onclick="closeCurrency(event)">
+  <div id="currency-box">
+    <h3>Select Your Currency</h3>
+    <div class="currency-option active" onclick="setCurrency('USD','$','US Dollar')">
+      <span class="currency-flag">🇺🇸</span>
+      <div class="currency-info"><div class="currency-code">USD</div><div class="currency-name">United States Dollar</div></div>
+      <span class="currency-check" id="check-USD">✓</span>
+    </div>
+    <div class="currency-option" onclick="setCurrency('TTD','TT$','Trinidad & Tobago Dollar')">
+      <span class="currency-flag">🇹🇹</span>
+      <div class="currency-info"><div class="currency-code">TTD</div><div class="currency-name">Trinidad &amp; Tobago Dollar</div></div>
+      <span class="currency-check" id="check-TTD" style="display:none;">✓</span>
+    </div>
+    <div class="currency-option" onclick="setCurrency('XCD','EC$','East Caribbean Dollar')">
+      <span class="currency-flag">🌊</span>
+      <div class="currency-info"><div class="currency-code">XCD</div><div class="currency-name">East Caribbean Dollar</div></div>
+      <span class="currency-check" id="check-XCD" style="display:none;">✓</span>
+    </div>
+    <div class="currency-option" onclick="setCurrency('JMD','J$','Jamaican Dollar')">
+      <span class="currency-flag">🇯🇲</span>
+      <div class="currency-info"><div class="currency-code">JMD</div><div class="currency-name">Jamaican Dollar</div></div>
+      <span class="currency-check" id="check-JMD" style="display:none;">✓</span>
+    </div>
+  </div>
+</div>
+<script>
+// Exchange rates (approximate — update periodically)
+var rates = {USD:1, TTD:6.79, XCD:2.70, JMD:157};
+var symbols = {USD:'$', TTD:'TT$', XCD:'EC$', JMD:'J$'};
+var current = 'USD';
+
+function openCurrency(){document.getElementById('currency-modal').classList.add('open');}
+function closeCurrency(e){if(e.target===document.getElementById('currency-modal'))document.getElementById('currency-modal').classList.remove('open');}
+
+function setCurrency(code, symbol, name){
+  current = code;
+  // Update button
+  document.getElementById('currency-btn').textContent = '🌍 ' + code + ' ▾';
+  // Hide all checks, show selected
+  ['USD','TTD','XCD','JMD'].forEach(function(c){
+    var el = document.getElementById('check-'+c);
+    if(el) el.style.display = c===code ? 'block' : 'none';
+  });
+  // Update active class
+  document.querySelectorAll('.currency-option').forEach(function(el){el.classList.remove('active');});
+  event.currentTarget.classList.add('active');
+  // Convert all prices on page
+  document.querySelectorAll('[data-usd]').forEach(function(el){
+    var usd = parseFloat(el.getAttribute('data-usd'));
+    var converted = Math.round(usd * rates[code]);
+    el.textContent = symbol + converted.toLocaleString();
+  });
+  document.getElementById('currency-modal').classList.remove('open');
+}
+</script>
+
 <nav id="mainNav">
 <div class="nav-logo" style="display:flex;flex-direction:column;align-items:flex-start;line-height:1;padding:4px 0;">
   <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:300;letter-spacing:4px;line-height:1;color:#fff;">BLU<span style="color:#00E0FF;">WAV</span>&nbsp;<span style="color:#fff;">GROWTH</span></div>
@@ -1102,7 +1178,7 @@ a[style*="background:#00E0FF"]:hover::after,a[style*="background:var(--cyan)"]:h
       <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#00E0FF;margin-bottom:6px;">Starter</div>
       <h4 style="font-size:24px;font-weight:800;color:#002B49;margin-bottom:8px;font-family:'Manrope',sans-serif;">Ripple</h4>
       <p style="font-size:13px;color:#64748b;line-height:1.65;margin-bottom:16px;flex:1;">Get online fast with the essentials that help customers find you.</p>
-      <div style="font-family:'Manrope',sans-serif;font-size:36px;font-weight:900;color:#002B49;line-height:1;margin-bottom:2px;">$800</div>
+      <div style="font-family:'Manrope',sans-serif;font-size:36px;font-weight:900;color:#002B49;line-height:1;margin-bottom:2px;" data-usd="800">$800</div>
       <div style="font-size:12px;color:#64748b;margin-bottom:20px;">Starting at</div>
       <a href="#health-check" style="display:block;background:#00E0FF;color:#fff;font-size:14px;font-weight:800;padding:13px 20px;border-radius:11px;text-decoration:none;text-align:center;transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">Start Free &#8594;</a>
       <a href="pricing.html" style="display:block;text-align:center;font-size:12px;color:#64748b;margin-top:10px;text-decoration:underline;">See what's included</a>
@@ -1115,7 +1191,7 @@ a[style*="background:#00E0FF"]:hover::after,a[style*="background:var(--cyan)"]:h
       <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#F7C873;margin-bottom:6px;margin-top:10px;">Growth</div>
       <h4 style="font-size:24px;font-weight:800;color:#fff;margin-bottom:8px;font-family:'Manrope',sans-serif;">Current</h4>
       <p style="font-size:13px;color:rgba(255,255,255,0.65);line-height:1.65;margin-bottom:16px;flex:1;">Boost visibility, engagement, and trust with local SEO and WhatsApp systems.</p>
-      <div style="font-family:'Manrope',sans-serif;font-size:36px;font-weight:900;color:#F7C873;line-height:1;margin-bottom:2px;">$1,500</div>
+      <div style="font-family:'Manrope',sans-serif;font-size:36px;font-weight:900;color:#F7C873;line-height:1;margin-bottom:2px;" data-usd="1500">$1,500</div>
       <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:20px;">Starting at</div>
       <a href="#health-check" style="display:block;background:#F7C873;color:#002B49;font-size:14px;font-weight:800;padding:13px 20px;border-radius:11px;text-decoration:none;text-align:center;transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">Start Free &#8594;</a>
       <a href="pricing.html" style="display:block;text-align:center;font-size:12px;color:rgba(255,255,255,0.4);margin-top:10px;text-decoration:underline;">See what's included</a>
@@ -1126,7 +1202,7 @@ a[style*="background:#00E0FF"]:hover::after,a[style*="background:var(--cyan)"]:h
       <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#F7C873;margin-bottom:6px;">Full Transformation</div>
       <h4 style="font-size:24px;font-weight:800;color:#fff;margin-bottom:8px;font-family:'Manrope',sans-serif;">Surge</h4>
       <p style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.65;margin-bottom:16px;flex:1;">Scale across multiple channels with advanced automation and multi-search visibility.</p>
-      <div style="font-family:'Manrope',sans-serif;font-size:36px;font-weight:900;color:#F7C873;line-height:1;margin-bottom:2px;">$2,500+</div>
+      <div style="font-family:'Manrope',sans-serif;font-size:36px;font-weight:900;color:#F7C873;line-height:1;margin-bottom:2px;" data-usd="2500">$2,500+</div>
       <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:20px;">Setup + Monthly</div>
       <a href="#contact" style="display:block;background:#F7C873;color:#001020;font-size:14px;font-weight:800;padding:13px 20px;border-radius:11px;text-decoration:none;text-align:center;transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">Start Free &#8594;</a>
       <a href="pricing.html" style="display:block;text-align:center;font-size:12px;color:rgba(255,255,255,0.3);margin-top:10px;text-decoration:underline;">See what's included</a>
@@ -1273,20 +1349,69 @@ a[style*="background:#00E0FF"]:hover::after,a[style*="background:var(--cyan)"]:h
       <div style="display:flex;flex-direction:column;gap:16px;">
         <div style="background:var(--sand);border-radius:16px;padding:24px 28px;border:1px solid var(--mist);display:flex;align-items:center;justify-content:space-between;gap:20px;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--cyan)';this.style.transform='translateX(6px)'" onmouseout="this.style.borderColor='var(--mist)';this.style.transform='translateX(0)'">
           <div><div style="font-size:11px;font-weight:800;color:var(--slate);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px;">Starter</div><div style="font-size:18px;font-weight:800;color:var(--navy);">BluWav Ripple</div><div style="font-size:13px;color:var(--slate);margin-top:4px;">Website + basic automation</div></div>
-          <div style="text-align:right;flex-shrink:0;"><div style="font-family:'Sora',sans-serif;font-size:28px;font-weight:900;color:var(--navy);">$800</div><div style="font-size:11px;color:var(--slate);">&ndash; $1,499</div></div>
+          <div style="text-align:right;flex-shrink:0;"><div style="font-family:'Sora',sans-serif;font-size:28px;font-weight:900;color:var(--navy);" data-usd="800">$800</div><div style="font-size:11px;color:var(--slate);">&ndash; $1,499</div></div>
         </div>
         <div style="background:var(--navy);border-radius:16px;padding:24px 28px;border:2px solid rgba(0,224,255,0.2);display:flex;align-items:center;justify-content:space-between;gap:20px;position:relative;overflow:hidden;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--cyan)';this.style.transform='translateX(6px)'" onmouseout="this.style.borderColor='rgba(0,224,255,0.2)';this.style.transform='translateX(0)'">
           <div style="position:absolute;top:0;right:0;background:linear-gradient(135deg,var(--coral),var(--gold));font-size:10px;font-weight:800;color:#fff;padding:4px 12px;border-radius:0 0 0 10px;">&#11088; Most Popular</div>
           <div><div style="font-size:11px;font-weight:800;color:var(--gold);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px;">Growth</div><div style="font-size:18px;font-weight:800;color:#fff;">BluWav Current</div><div style="font-size:13px;color:rgba(255,255,255,0.5);margin-top:4px;">Full system + Google + WhatsApp</div></div>
-          <div style="text-align:right;flex-shrink:0;"><div style="font-family:'Sora',sans-serif;font-size:28px;font-weight:900;color:var(--gold);">$1,500</div><div style="font-size:11px;color:rgba(255,255,255,0.4);">&ndash; $2,499</div></div>
+          <div style="text-align:right;flex-shrink:0;"><div style="font-family:'Sora',sans-serif;font-size:28px;font-weight:900;color:var(--gold);" data-usd="1500">$1,500</div><div style="font-size:11px;color:rgba(255,255,255,0.4);">&ndash; $2,499</div></div>
         </div>
         <div style="background:linear-gradient(135deg,#001020,var(--navy));border-radius:16px;padding:24px 28px;border:1px solid rgba(247,200,115,0.25);display:flex;align-items:center;justify-content:space-between;gap:20px;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)';this.style.transform='translateX(6px)'" onmouseout="this.style.borderColor='rgba(247,200,115,0.25)';this.style.transform='translateX(0)'">
           <div><div style="font-size:11px;font-weight:800;color:var(--gold);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px;">Full Transformation</div><div style="font-size:18px;font-weight:800;color:#fff;">BluWav Surge</div><div style="font-size:13px;color:rgba(255,255,255,0.5);margin-top:4px;">Complete digital domination</div></div>
-          <div style="text-align:right;flex-shrink:0;"><div style="font-family:'Sora',sans-serif;font-size:28px;font-weight:900;color:var(--gold);">$2,500+</div><div style="font-size:11px;color:rgba(255,255,255,0.4);">Setup + Monthly</div></div>
+          <div style="text-align:right;flex-shrink:0;"><div style="font-family:'Sora',sans-serif;font-size:28px;font-weight:900;color:var(--gold);" data-usd="2500">$2,500+</div><div style="font-size:11px;color:rgba(255,255,255,0.4);">Setup + Monthly</div></div>
         </div>
         <a href="pricing.html" style="text-align:center;display:block;color:var(--cyan);font-size:14px;font-weight:700;text-decoration:underline;text-underline-offset:3px;margin-top:8px;">View full pricing details &rarr;</a>
       </div>
     </div>
+  </div>
+</div>
+</section>
+
+
+<!-- PAYMENT OPTIONS -->
+<section style="background:#fff;padding:80px 0;border-top:1px solid var(--mist);">
+<div style="max-width:1400px;margin:0 auto;padding:0 48px;">
+  <div style="text-align:center;margin-bottom:48px;">
+    <span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;color:var(--cyan);display:block;margin-bottom:12px;">Flexible Payment</span>
+    <h2 style="font-family:'Manrope',sans-serif;font-size:40px;font-weight:800;color:var(--navy);margin-bottom:8px;">Pay Your Way. No Stress.</h2>
+    <p style="font-size:16px;color:var(--slate);">We know Caribbean businesses work hard for every dollar.</p>
+  </div>
+  <div class="payment-grid">
+    <div class="payment-card">
+      <div class="payment-icon">💳</div>
+      <div class="payment-title">Pay in Full</div>
+      <ul class="payment-steps">
+        <li class="payment-step"><div class="ps-num">1</div>Pay full amount upfront</li>
+        <li class="payment-step"><div class="ps-num">2</div>Project starts within 24 hours</li>
+        <li class="payment-step"><div class="ps-num">3</div>Site delivered on time</li>
+      </ul>
+      <div class="payment-methods"><span class="pm-badge">Stripe</span><span class="pm-badge">WiPay</span><span class="pm-badge">Bank Transfer</span></div>
+    </div>
+    <div class="payment-card popular">
+      <div class="payment-popular-badge">Most Popular</div>
+      <div class="payment-icon">✌️</div>
+      <div class="payment-title">Pay in 2 (50/50)</div>
+      <ul class="payment-steps">
+        <li class="payment-step"><div class="ps-num">1</div>50% deposit to start</li>
+        <li class="payment-step"><div class="ps-num">2</div>We build your site</li>
+        <li class="payment-step"><div class="ps-num">3</div>50% on delivery and approval</li>
+      </ul>
+      <div class="payment-methods"><span class="pm-badge">Stripe</span><span class="pm-badge">WiPay</span><span class="pm-badge">Bank Transfer</span></div>
+    </div>
+    <div class="payment-card">
+      <div class="payment-icon">🗓️</div>
+      <div class="payment-title">Pay in 3 (40/30/30)</div>
+      <ul class="payment-steps">
+        <li class="payment-step"><div class="ps-num">1</div>40% deposit to start</li>
+        <li class="payment-step"><div class="ps-num">2</div>30% at midpoint review</li>
+        <li class="payment-step"><div class="ps-num">3</div>30% on final delivery</li>
+      </ul>
+      <div class="payment-methods"><span class="pm-badge">Stripe</span><span class="pm-badge">WiPay</span><span class="pm-badge">Bank Transfer</span></div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:40px;">
+    <p style="font-size:15px;color:var(--slate);margin-bottom:16px;">Every project includes a signed agreement before work begins.</p>
+    <a href="contract.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;font-size:15px;font-weight:700;padding:14px 32px;border-radius:11px;text-decoration:none;transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">📄 View Service Agreement →</a>
   </div>
 </div>
 </section>
