@@ -762,6 +762,26 @@ a[style*="background:#00E0FF"]:hover::after,a[style*="background:var(--cyan)"]:h
 .connector-anim{width:0;opacity:0;transition:width 1.2s ease 0.3s,opacity 0.3s ease 0.3s;}
 .connector-anim.step-visible{width:100%;opacity:1;}
 
+
+/* ── BluWav Logo Wave Divider ── */
+@keyframes waveLine1{
+  0%,100%{d:path("M20 90 C 140 40, 260 40, 380 90 S 620 140, 780 90");}
+  50%{d:path("M20 90 C 140 50, 260 30, 380 90 S 620 150, 780 90");}
+}
+@keyframes waveLine2{
+  0%,100%{d:path("M20 110 C 140 60, 260 60, 380 110 S 620 160, 780 110");}
+  50%{d:path("M20 110 C 140 70, 260 50, 380 110 S 620 170, 780 110");}
+}
+@keyframes waveLine3{
+  0%,100%{d:path("M20 130 C 140 80, 260 80, 380 130 S 620 180, 780 130");}
+  50%{d:path("M20 130 C 140 90, 260 70, 380 130 S 620 190, 780 130");}
+}
+.bw-divider{display:block;width:100%;overflow:hidden;line-height:0;margin:0;padding:0;}
+.bw-divider svg{display:block;width:100%;}
+.bw-divider-path-1{animation:waveLine1 5s ease-in-out infinite;}
+.bw-divider-path-2{animation:waveLine2 6s ease-in-out infinite 0.5s;}
+.bw-divider-path-3{animation:waveLine3 7s ease-in-out infinite 1s;}
+
 </style>
 <meta name="robots" content="index, follow"/>
 <meta property="og:title" content="BluWav Growth | Caribbean Digital Growth Agency"/>
@@ -902,6 +922,13 @@ a[style*="background:#00E0FF"]:hover::after,a[style*="background:var(--cyan)"]:h
   </div>
 
 </section>
+<div class="bw-divider" aria-hidden="true">
+  <svg width="100%" viewBox="0 0 800 160" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+    <path class="bw-divider-path-1" d="M20 70 C 140 30, 260 30, 380 70 S 620 110, 780 70" fill="none" stroke="#00E0FF" stroke-width="8" stroke-linecap="round" opacity="0.6"/>
+    <path class="bw-divider-path-2" d="M20 90 C 140 50, 260 50, 380 90 S 620 130, 780 90" fill="none" stroke="#00C2D8" stroke-width="8" stroke-linecap="round" opacity="0.5"/>
+    <path class="bw-divider-path-3" d="M20 110 C 140 70, 260 70, 380 110 S 620 150, 780 110" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="8" stroke-linecap="round" opacity="0.4"/>
+  </svg>
+</div>
 <!-- PROOF STRIP — animated ticker -->
 <div class="proof-strip" style="overflow:hidden;padding:0;background:linear-gradient(135deg,#FF5500,#e84d00);">
   <div style="display:flex;width:200%;animation:ticker 28s linear infinite;" class="ticker-track">
@@ -960,6 +987,13 @@ a[style*="background:#00E0FF"]:hover::after,a[style*="background:var(--cyan)"]:h
   </div>
 </section>
 
+<div class="bw-divider" aria-hidden="true">
+  <svg width="100%" viewBox="0 0 800 160" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+    <path class="bw-divider-path-1" d="M20 70 C 140 30, 260 30, 380 70 S 620 110, 780 70" fill="none" stroke="#00E0FF" stroke-width="8" stroke-linecap="round" opacity="0.6"/>
+    <path class="bw-divider-path-2" d="M20 90 C 140 50, 260 50, 380 90 S 620 130, 780 90" fill="none" stroke="#00C2D8" stroke-width="8" stroke-linecap="round" opacity="0.5"/>
+    <path class="bw-divider-path-3" d="M20 110 C 140 70, 260 70, 380 110 S 620 150, 780 110" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="8" stroke-linecap="round" opacity="0.4"/>
+  </svg>
+</div>
 <!-- PROBLEM — diagonal clip, 2-col, emotional -->
 <section style="background:var(--navy);padding:100px 0 140px;position:relative;clip-path:polygon(0 0,100% 0,100% 92%,0 100%);" id="problem">
   <div class="wrap">
@@ -1171,6 +1205,13 @@ a[style*="background:#00E0FF"]:hover::after,a[style*="background:var(--cyan)"]:h
 </div>
 </section>
 
+<div class="bw-divider" aria-hidden="true">
+  <svg width="100%" viewBox="0 0 800 160" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+    <path class="bw-divider-path-1" d="M20 70 C 140 30, 260 30, 380 70 S 620 110, 780 70" fill="none" stroke="#00E0FF" stroke-width="8" stroke-linecap="round" opacity="0.5"/>
+    <path class="bw-divider-path-2" d="M20 90 C 140 50, 260 50, 380 90 S 620 130, 780 90" fill="none" stroke="#00C2D8" stroke-width="8" stroke-linecap="round" opacity="0.4"/>
+    <path class="bw-divider-path-3" d="M20 110 C 140 70, 260 70, 380 110 S 620 150, 780 110" fill="none" stroke="#002B49" stroke-width="8" stroke-linecap="round" opacity="0.3"/>
+  </svg>
+</div>
 <!-- HOW IT WORKS — dark grid bg, 3 steps with connector -->
 <section style="background:#001828;padding:120px 0;position:relative;overflow:hidden;" id="how-it-works">
   <div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(0,224,255,0.025) 39px,rgba(0,224,255,0.025) 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(0,224,255,0.025) 39px,rgba(0,224,255,0.025) 40px);pointer-events:none;"></div>
@@ -1206,6 +1247,13 @@ a[style*="background:#00E0FF"]:hover::after,a[style*="background:var(--cyan)"]:h
   </div>
 </section>
 
+<div class="bw-divider" aria-hidden="true">
+  <svg width="100%" viewBox="0 0 800 160" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+    <path class="bw-divider-path-1" d="M20 70 C 140 30, 260 30, 380 70 S 620 110, 780 70" fill="none" stroke="#00E0FF" stroke-width="8" stroke-linecap="round" opacity="0.6"/>
+    <path class="bw-divider-path-2" d="M20 90 C 140 50, 260 50, 380 90 S 620 130, 780 90" fill="none" stroke="#00C2D8" stroke-width="8" stroke-linecap="round" opacity="0.5"/>
+    <path class="bw-divider-path-3" d="M20 110 C 140 70, 260 70, 380 110 S 620 150, 780 110" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="8" stroke-linecap="round" opacity="0.4"/>
+  </svg>
+</div>
 <!-- BEFORE / AFTER — interactive toggle -->
 <section style="background:var(--sand);padding:120px 0;" id="comparison">
 <div class="wrap">
@@ -1289,6 +1337,13 @@ a[style*="background:#00E0FF"]:hover::after,a[style*="background:var(--cyan)"]:h
 </div>
 </section>
 
+<div class="bw-divider" aria-hidden="true">
+  <svg width="100%" viewBox="0 0 800 160" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+    <path class="bw-divider-path-1" d="M20 70 C 140 30, 260 30, 380 70 S 620 110, 780 70" fill="none" stroke="#00E0FF" stroke-width="8" stroke-linecap="round" opacity="0.5"/>
+    <path class="bw-divider-path-2" d="M20 90 C 140 50, 260 50, 380 90 S 620 130, 780 90" fill="none" stroke="#00C2D8" stroke-width="8" stroke-linecap="round" opacity="0.4"/>
+    <path class="bw-divider-path-3" d="M20 110 C 140 70, 260 70, 380 110 S 620 150, 780 110" fill="none" stroke="#002B49" stroke-width="8" stroke-linecap="round" opacity="0.3"/>
+  </svg>
+</div>
 <!-- CONTACT — Sand -->
 <section id="contact" style="background:var(--sand);padding:100px 0;">
 <div class="wrap">
