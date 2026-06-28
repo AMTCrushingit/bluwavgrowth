@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Wave | BluWav Growth — Insights for Caribbean Businesses</title>
+<meta content="Insights for Caribbean businesses riding the digital wave. Practical advice on websites, Google visibility, WhatsApp Business, CRM and automation." name="description"/>
+<meta content="The Wave | BluWav Growth" property="og:title"/>
+<meta content="Insights for Caribbean businesses riding the digital wave." property="og:description"/>
+<meta content="https://bluwavgrowth.com/the-wave.html" property="og:url"/>
+<link href="https://bluwavgrowth.com/the-wave.html" rel="canonical"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&amp;family=Inter:wght@400;500;600;700&amp;family=Kaushan+Script&amp;display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:#F4F2ED;color:#1E1E1E;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+:root{--navy:#002B49;--cyan:#00E0FF;--coral:#FF5500;--gold:#F7C873;--sand:#F4F2ED;--slate:#64748b;--mist:#e8e4de;--white:#fff;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(0,43,73,0.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,224,255,0.15);box-shadow:0 2px 24px rgba(0,0,0,0.3);}
+.nav-logo{display:flex;flex-direction:column;align-items:flex-start;line-height:1;padding:4px 0;}
+.nav-links{display:flex;align-items:center;gap:28px;}
+.nav-link{font-size:13px;font-weight:500;color:rgba(255,255,255,0.65);transition:color 0.2s;}
+.nav-link:hover{color:#fff;}
+.nav-cta{background:var(--coral);color:#fff;font-size:13px;font-weight:700;padding:10px 24px;border-radius:9px;box-shadow:0 4px 16px rgba(255,85,0,0.35);transition:transform 0.15s;}
+.nav-cta:hover{transform:translateY(-1px);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:0;}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;}
+.mob-nav{display:none;position:fixed;top:70px;left:0;right:0;background:rgba(0,43,73,0.99);backdrop-filter:blur(20px);padding:20px 24px;flex-direction:column;gap:4px;z-index:9999;border-bottom:1px solid rgba(0,224,255,0.15);}
+.mob-nav.open{display:flex!important;}
+.mob-link{font-size:15px;font-weight:600;color:rgba(255,255,255,0.85);padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.1);display:block;}
+.mob-cta{background:var(--coral);color:#fff;font-weight:700;padding:14px;border-radius:10px;text-align:center;margin-top:8px;font-size:15px;display:block;}
+
+/* HERO */
+.blog-hero{background:linear-gradient(160deg,#001020 0%,#002B49 50%,#001828 100%);padding:120px 48px 80px;text-align:center;position:relative;overflow:hidden;}
+.blog-hero::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(0,224,255,0.1) 0%,transparent 70%);pointer-events:none;}
+
+/* WRAP */
+.wrap{max-width:1200px;margin:0 auto;padding:0 48px;}
+
+/* ARTICLE GRID */
+.articles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-bottom:80px;}
+.article-card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 4px 24px rgba(0,43,73,0.06);transition:all 0.2s;display:flex;flex-direction:column;}
+.article-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(0,43,73,0.12);}
+.article-card.featured{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;border-radius:24px;}
+.article-img{height:220px;object-fit:cover;width:100%;display:block;}
+.article-img.featured-img{height:100%;min-height:320px;}
+.article-body{padding:28px;flex:1;display:flex;flex-direction:column;}
+.article-tag{display:inline-block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--cyan);margin-bottom:12px;}
+.article-title{font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;color:var(--navy);line-height:1.3;margin-bottom:12px;}
+.article-card.featured .article-title{font-size:28px;}
+.article-excerpt{font-size:14px;color:var(--slate);line-height:1.75;flex:1;margin-bottom:20px;}
+.article-meta{display:flex;align-items:center;justify-content:space-between;font-size:12px;color:var(--slate);}
+.article-read{font-size:13px;font-weight:700;color:var(--cyan);}
+.article-read:hover{color:var(--navy);}
+
+/* ARTICLE BG COLOURS */
+.tag-google{color:#4285F4;}
+.tag-whatsapp{color:#25D366;}
+.tag-crm{color:var(--cyan);}
+.tag-website{color:var(--coral);}
+.tag-seo{color:#8b5cf6;}
+.tag-strategy{color:var(--gold);}
+
+/* NEWSLETTER */
+.newsletter{background:linear-gradient(135deg,var(--navy),#003d5c);border-radius:24px;padding:56px;text-align:center;margin-bottom:80px;position:relative;overflow:hidden;}
+.newsletter::before{content:'';position:absolute;top:-60px;right:-60px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(0,224,255,0.1) 0%,transparent 70%);pointer-events:none;}
+
+/* FOOTER */
+footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;}
+.footer-brand-name{font-family:'Kaushan Script',cursive;font-size:34px;color:#fff;line-height:1;margin-bottom:6px;}
+.footer-brand-name span{color:var(--cyan);}
+.footer-brand-sub{font-size:9px;font-weight:700;color:var(--gold);letter-spacing:5px;text-transform:uppercase;margin-bottom:12px;}
+.footer-brand-tag{font-size:12px;font-weight:500;color:var(--cyan);letter-spacing:1px;margin-bottom:6px;}
+.footer-heading{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.4);margin-bottom:16px;}
+.footer-link{display:block;font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:8px;transition:color 0.2s;}
+.footer-link:hover{color:#fff;}
+.footer-desc{font-size:13px;color:rgba(255,255,255,0.4);line-height:1.65;margin-top:12px;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding:20px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.footer-bottom-text{font-size:12px;color:rgba(255,255,255,0.3);}
+.footer-bottom-text span{color:var(--cyan);}
+
+/* WAVE */
+@keyframes wave-move{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+.wave-strip{position:fixed;bottom:0;left:0;width:200%;pointer-events:none;z-index:1;opacity:0.08;animation:wave-move 12s linear infinite;}
+
+/* PARALLAX WAVE */
+@keyframes px-move-1{from{transform:translateX(0);}to{transform:translateX(-720px);}}
+@keyframes px-move-2{from{transform:translateX(0);}to{transform:translateX(-720px);}}
+@keyframes px-move-3{from{transform:translateX(0);}to{transform:translateX(-720px);}}
+.parallax-wrap{position:fixed;bottom:0;left:0;right:0;height:180px;z-index:0;pointer-events:none;overflow:hidden;}
+.px-svg{position:absolute;bottom:0;left:0;width:200%;height:100%;}
+.px-layer-1{animation:px-move-1 22s linear infinite;opacity:0.15;}
+.px-layer-2{animation:px-move-2 15s linear infinite;opacity:0.22;}
+.px-layer-3{animation:px-move-3 10s linear infinite;opacity:0.30;}
+
+@media(max-width:900px){
+  nav{padding:0 20px;}
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .wrap{padding:0 20px;}
+  .articles-grid{grid-template-columns:1fr;}
+  .article-card.featured{grid-template-columns:1fr;}
+  .article-img.featured-img{height:220px;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+  .blog-hero{padding:100px 20px 60px;}
+}
+@media(max-width:600px){
+  .footer-grid{grid-template-columns:1fr;}
+  .footer-bottom{flex-direction:column;text-align:center;}
+}
+</style>
+</head>
+<body>
+<!-- BluWav Signature Wave -->
+<div class="parallax-wrap">
+<svg class="px-svg px-layer-1" preserveaspectratio="none" viewbox="0 0 1440 180" xmlns="http://www.w3.org/2000/svg">
+<path d="M0,120 C120,90 240,150 360,120 C480,90 600,150 720,120 C840,90 960,150 1080,120 C1200,90 1320,150 1440,120 C1560,90 1680,150 1800,120 C1920,90 2040,150 2160,120 L2160,180 L0,180 Z" fill="rgba(0,43,73,0.7)"></path>
+</svg>
+<svg class="px-svg px-layer-2" preserveaspectratio="none" viewbox="0 0 1440 180" xmlns="http://www.w3.org/2000/svg">
+<path d="M0,135 C120,105 240,160 360,135 C480,105 600,160 720,135 C840,105 960,160 1080,135 C1200,105 1320,160 1440,135 C1560,105 1680,160 1800,135 C1920,105 2040,160 2160,135 L2160,180 L0,180 Z" fill="rgba(0,194,216,0.45)"></path>
+</svg>
+<svg class="px-svg px-layer-3" preserveaspectratio="none" viewbox="0 0 1440 180" xmlns="http://www.w3.org/2000/svg">
+<path d="M0,148 C120,120 240,168 360,148 C480,120 600,168 720,148 C840,120 960,168 1080,148 C1200,120 1320,168 1440,148 C1560,120 1680,168 1800,148 C1920,120 2040,168 2160,148 L2160,180 L0,180 Z" fill="rgba(0,224,255,0.32)"></path>
+</svg>
+</div>
+<!-- NAV -->
+<nav id="mainNav">
+<div class="nav-logo">
+<div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:300;letter-spacing:4px;line-height:1;color:#fff;">BLU<span style="color:#00E0FF;">WAV</span> <span style="color:#fff;">GROWTH</span></div>
+<div style="font-size:9px;font-weight:600;color:#00E0FF;letter-spacing:0.5px;line-height:1.4;margin-top:3px;">Get Found. Get Chosen. Grow.</div>
+</div>
+<div class="nav-links">
+<a class="nav-link" href="index.html">Home</a>
+<a class="nav-link" href="index.html#what-we-do">Services</a>
+<a class="nav-link" href="index.html#how-it-works">How It Works</a>
+<a class="nav-link" href="our-promise.html">Our Promise</a>
+<a class="nav-link" href="pricing.html">Pricing</a>
+<a class="nav-link" href="the-wave.html" style="color:#00E0FF;font-weight:700;">The Wave</a>
+<a class="nav-link" href="index.html#contact">Contact</a>
+<a class="nav-cta" href="index.html#health-check">Free Online Health Check</a>
+</div>
+<div class="hamburger" onclick="toggleMob()"><span></span><span></span><span></span></div>
+</nav>
+<div class="mob-nav" id="mobNav">
+<a class="mob-link" href="index.html" onclick="toggleMob()">Home</a>
+<a class="mob-link" href="index.html#what-we-do" onclick="toggleMob()">Services</a>
+<a class="mob-link" href="index.html#how-it-works" onclick="toggleMob()">How It Works</a>
+<a class="mob-link" href="our-promise.html" onclick="toggleMob()">Our Promise</a>
+<a class="mob-link" href="pricing.html" onclick="toggleMob()">Pricing</a>
+<a class="mob-link" href="the-wave.html" onclick="toggleMob()" style="color:#00E0FF;">The Wave</a>
+<a class="mob-link" href="index.html#contact" onclick="toggleMob()">Contact</a>
+<a class="mob-cta" href="index.html#health-check" onclick="toggleMob()">Free Online Health Check</a>
+</div>
+<!-- HERO -->
+<section class="blog-hero">
+<div style="max-width:700px;margin:0 auto;position:relative;z-index:2;">
+<span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:var(--gold);display:block;margin-bottom:16px;">BluWav Growth</span>
+<h1 style="font-family:'Manrope',sans-serif;font-size:56px;font-weight:800;color:#fff;line-height:1.1;margin-bottom:16px;">The Wave 🌊</h1>
+<p style="font-size:18px;color:rgba(255,255,255,0.75);line-height:1.7;margin-bottom:0;">Insights for Caribbean businesses riding the digital wave.</p>
+</div>
+</section>
+<!-- ARTICLES -->
+<section style="background:var(--sand);padding:80px 0;">
+<div class="wrap">
+<div class="articles-grid">
+<!-- FEATURED ARTICLE -->
+<article class="article-card featured">
+<div style="background:linear-gradient(135deg,#001020,#002B49);display:flex;align-items:center;justify-content:center;min-height:320px;position:relative;overflow:hidden;">
+<div style="position:absolute;inset:0;background:radial-gradient(circle at 30% 50%,rgba(0,224,255,0.15) 0%,transparent 70%);"></div>
+<div style="text-align:center;padding:40px;position:relative;z-index:2;">
+<div style="font-size:80px;margin-bottom:16px;">🔍</div>
+<div style="font-size:14px;font-weight:700;color:rgba(0,224,255,0.8);letter-spacing:1px;">FEATURED</div>
+</div>
+</div>
+<div class="article-body" style="padding:40px;">
+<span class="article-tag tag-google">Google Visibility</span>
+<h2 class="article-title">Why Caribbean Businesses Lose Customers Online — And Exactly How to Fix It</h2>
+<p class="article-excerpt">Every day, thousands of Caribbean customers search Google for exactly what your business offers. Most of them never find you. Not because your business isn't good enough — but because your digital presence isn't working. Here's what's really happening, and what you can do about it starting today.</p>
+<div class="article-meta">
+<span>BluWav Growth · 5 min read</span>
+<a class="article-read" href="article-1.html">Read Article →</a>
+</div>
+</div>
+</article>
+<!-- ARTICLE 2 -->
+<article class="article-card">
+<div style="background:linear-gradient(135deg,#001828,#003d5c);height:220px;display:flex;align-items:center;justify-content:center;">
+<div style="font-size:64px;">📍</div>
+</div>
+<div class="article-body">
+<span class="article-tag tag-google">Google Business Profile</span>
+<h2 class="article-title">Google Business Profile: The Free Tool Every Caribbean MSME Needs Right Now</h2>
+<p class="article-excerpt">It's free. It takes 30 minutes to set up. And it could be the single most impactful thing you do for your business this year. Here's everything you need to know about Google Business Profile — and why most Caribbean businesses are leaving money on the table by ignoring it.</p>
+<div class="article-meta">
+<span>BluWav Growth · 4 min read</span>
+<a class="article-read" href="article-2.html">Read Article →</a>
+</div>
+</div>
+</article>
+<!-- ARTICLE 3 -->
+<article class="article-card">
+<div style="background:linear-gradient(135deg,#001020,#002B49);height:220px;display:flex;align-items:center;justify-content:center;">
+<div style="font-size:64px;">💬</div>
+</div>
+<div class="article-body">
+<span class="article-tag tag-whatsapp">WhatsApp Business</span>
+<h2 class="article-title">WhatsApp Business: How Caribbean Businesses Are Winning More Customers With One App</h2>
+<p class="article-excerpt">Caribbean customers don't email. They WhatsApp. If your business isn't set up on WhatsApp Business — with a catalog, quick replies, and automated messages — you're losing leads every single day. Here's how to fix that in under an hour.</p>
+<div class="article-meta">
+<span>BluWav Growth · 4 min read</span>
+<a class="article-read" href="article-3.html">Read Article →</a>
+</div>
+</div>
+</article>
+<!-- ARTICLE 4 -->
+<article class="article-card">
+<div style="background:linear-gradient(135deg,#001828,#002B49);height:220px;display:flex;align-items:center;justify-content:center;">
+<div style="font-size:64px;">📊</div>
+</div>
+<div class="article-body">
+<span class="article-tag tag-crm">CRM</span>
+<h2 class="article-title">What Is a CRM and Why Does Your Caribbean Business Need One?</h2>
+<p class="article-excerpt">You're losing customers you already have. Not because your service is bad — but because there's no system to follow up, track leads, or stay organised. A CRM fixes that. Here's what it is, how it works, and why it's now included in every BluWav Growth System.</p>
+<div class="article-meta">
+<span>BluWav Growth · 3 min read</span>
+<a class="article-read" href="article-4.html">Read Article →</a>
+</div>
+</div>
+</article>
+<!-- ARTICLE 5 -->
+<article class="article-card">
+<div style="background:linear-gradient(135deg,#001020,#003d5c);height:220px;display:flex;align-items:center;justify-content:center;">
+<div style="font-size:64px;">🌐</div>
+</div>
+<div class="article-body">
+<span class="article-tag tag-website">Websites</span>
+<h2 class="article-title">5 Signs Your Caribbean Business Website Is Costing You Customers</h2>
+<p class="article-excerpt">A bad website is worse than no website. It tells customers you're not serious. Here are the 5 most common website mistakes Caribbean businesses make — and what a modern, conversion-focused website actually looks like.</p>
+<div class="article-meta">
+<span>BluWav Growth · 4 min read</span>
+<a class="article-read" href="article-5.html">Read Article →</a>
+</div>
+</div>
+</article>
+<!-- ARTICLE 6 -->
+<article class="article-card">
+<div style="background:linear-gradient(135deg,#001828,#002B49);height:220px;display:flex;align-items:center;justify-content:center;">
+<div style="font-size:64px;">📈</div>
+</div>
+<div class="article-body">
+<span class="article-tag tag-seo">SEO</span>
+<h2 class="article-title">Local SEO for Caribbean Businesses: How to Show Up When Customers Search</h2>
+<p class="article-excerpt">When someone in Port of Spain searches "best salon near me" — does your business appear? Local SEO is the difference between being found and being invisible. Here's a practical guide built specifically for Caribbean MSMEs.</p>
+<div class="article-meta">
+<span>BluWav Growth · 5 min read</span>
+<a class="article-read" href="article-6.html">Read Article →</a>
+</div>
+</div>
+</article>
+</div>
+<!-- NEWSLETTER -->
+<div class="newsletter">
+<div style="position:relative;z-index:2;">
+<span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:var(--gold);display:block;margin-bottom:12px;">Stay on the Wave</span>
+<h2 style="font-family:'Manrope',sans-serif;font-size:36px;font-weight:800;color:#fff;margin-bottom:12px;">Get new insights delivered<br/>to your inbox.</h2>
+<p style="font-size:16px;color:rgba(255,255,255,0.65);margin-bottom:32px;">Practical digital growth tips for Caribbean businesses. No spam. Unsubscribe anytime.</p>
+<form onsubmit="return false;" style="display:flex;gap:12px;max-width:480px;margin:0 auto;flex-wrap:wrap;">
+<input placeholder="your@email.com" style="flex:1;min-width:200px;padding:14px 18px;border-radius:11px;border:none;font-size:15px;font-family:inherit;outline:none;" type="email"/>
+<button style="background:var(--coral);color:#fff;font-size:15px;font-weight:800;padding:14px 28px;border-radius:11px;border:none;cursor:pointer;font-family:inherit;white-space:nowrap;box-shadow:0 4px 20px rgba(255,85,0,0.4);" type="submit">Subscribe →</button>
+</form>
+</div>
+</div>
+<!-- CTA -->
+<div style="text-align:center;padding:40px 0 20px;">
+<span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:var(--cyan);display:block;margin-bottom:12px;">Ready to Grow?</span>
+<h2 style="font-family:'Manrope',sans-serif;font-size:36px;font-weight:800;color:var(--navy);margin-bottom:12px;">Start with a free Health Check.</h2>
+<p style="font-size:16px;color:var(--slate);margin-bottom:28px;">See exactly what's working, what's broken, and what's stopping customers from finding your business.</p>
+<a href="index.html#health-check" onmouseout="this.style.transform='translateY(0)'" onmouseover="this.style.transform='translateY(-2px)'" style="display:inline-block;background:var(--coral);color:#fff;font-size:16px;font-weight:800;padding:18px 48px;border-radius:12px;box-shadow:0 6px 28px rgba(255,85,0,0.4);transition:all 0.2s;">Check My Business for Free →</a>
+</div>
+</div>
+</section>
+<!-- FOOTER -->
+<footer>
+<div class="wrap">
+<div class="footer-grid">
+<div>
+<div class="footer-brand-name">Blu<span>Wav</span></div>
+<div class="footer-brand-sub">Growth</div>
+<div class="footer-brand-tag">Get Found. Get Chosen. Grow.</div>
+<div style="font-size:10px;font-weight:700;color:var(--gold);letter-spacing:3px;text-transform:uppercase;margin-top:6px;">A Stratiix Group Company</div>
+<p class="footer-desc">Caribbean-ready websites, Google visibility, CRM and automation. Built for Caribbean businesses by Caribbean experts.</p>
+</div>
+<div>
+<div class="footer-heading">Services</div>
+<a class="footer-link" href="index.html#what-we-do">Professional Websites</a>
+<a class="footer-link" href="index.html#what-we-do">Google Visibility</a>
+<a class="footer-link" href="index.html#what-we-do">Automation</a>
+<a class="footer-link" href="index.html#what-we-do">Growth Systems</a>
+</div>
+<div>
+<div class="footer-heading">Company</div>
+<a class="footer-link" href="index.html#how-it-works">How It Works</a>
+<a class="footer-link" href="index.html#health-check">Free Health Check</a>
+<a class="footer-link" href="pricing.html">Pricing</a>
+<a class="footer-link" href="our-promise.html">Our Promise</a>
+<a class="footer-link" href="the-wave.html">The Wave</a>
+<a class="footer-link" href="index.html#contact">Contact Us</a>
+</div>
+<div>
+<div class="footer-heading">Contact</div>
+<a class="footer-link" href="tel:+18682979960">📞 +1 (868) 297-9960</a>
+<a class="footer-link" href="https://wa.me/18682979960">💬 WhatsApp</a>
+<a class="footer-link" href="mailto:hello@bluwavgrowth.com">✉️ hello@bluwavgrowth.com</a>
+<div class="footer-link" style="cursor:default;">🌍 MSMEs across the Caribbean</div>
+<div style="margin-top:16px;">
+<div class="footer-heading">Follow Us</div>
+<a class="footer-link" href="https://facebook.com/bluwavgrowth" style="display:flex;align-items:center;gap:8px;" target="_blank"><span style="width:24px;height:24px;border-radius:6px;background:#1877F2;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#fff;flex-shrink:0;">f</span>Facebook</a>
+<div class="footer-link" style="display:flex;align-items:center;gap:8px;opacity:0.4;cursor:default;"><span style="width:24px;height:24px;border-radius:6px;background:linear-gradient(135deg,#f09433,#dc2743,#bc1888);display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;flex-shrink:0;">📷</span>Instagram <span style="font-size:10px;color:var(--gold);margin-left:4px;">Soon</span></div>
+<div class="footer-link" style="display:flex;align-items:center;gap:8px;opacity:0.4;cursor:default;"><span style="width:24px;height:24px;border-radius:6px;background:#0A66C2;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;flex-shrink:0;">in</span>LinkedIn <span style="font-size:10px;color:var(--gold);margin-left:4px;">Soon</span></div>
+</div>
+</div>
+</div>
+<div class="footer-bottom">
+<div class="footer-bottom-text">© 2026 <span>BluWav Growth</span> · All rights reserved.</div>
+<div class="footer-bottom-text">Get Found. Get Chosen. Grow.</div>
+</div>
+</div>
+</footer>
+<script>
+function toggleMob(){var n=document.getElementById('mobNav');if(n)n.classList.toggle('open');}
+</script>
+</body>
+</html>
