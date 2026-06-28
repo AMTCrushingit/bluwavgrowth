@@ -541,9 +541,31 @@ a[style*="background:#00E0FF"]:hover::after,a[style*="background:var(--cyan)"]:h
   75% {d:path("M-100,100 C100,60 300,120 500,80 C700,40 900,120 1100,80 C1300,40 1500,120 1700,80");}
   100%{d:path("M-100,90 C100,50 300,130 500,90 C700,50 900,130 1100,90 C1300,50 1500,130 1700,90");}
 }
-/* ── BluWav Signature Wave ── */
-@keyframes wave-move{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
-.wave-strip{position:fixed;bottom:0;left:0;width:200%;pointer-events:none;z-index:1;opacity:0.08;animation:wave-move 12s linear infinite;}
+100%{transform:translateX(-50%);}}
+/* ── BluWav Signature Wave — Parallax ── */
+@keyframes px-move-1{from{transform:translateX(0);}to{transform:translateX(-720px);}}
+@keyframes px-move-2{from{transform:translateX(0);}to{transform:translateX(-720px);}}
+@keyframes px-move-3{from{transform:translateX(0);}to{transform:translateX(-720px);}}
+.parallax-wrap{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  height:180px;
+  z-index:0;
+  pointer-events:none;
+  overflow:hidden;
+}
+.px-svg{
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:200%;
+  height:100%;
+}
+.px-layer-1{animation:px-move-1 22s linear infinite;opacity:0.15;}
+.px-layer-2{animation:px-move-2 15s linear infinite;opacity:0.22;}
+.px-layer-3{animation:px-move-3 10s linear infinite;opacity:0.30;}
 
 </style>
 </head>
@@ -1169,10 +1191,20 @@ function toggleMob(){var n=document.getElementById('mobNav');if(n)n.classList.to
 })();
 </script>
 <!-- BluWav Signature Wave -->
-<svg class="wave-strip" preserveAspectRatio="none" viewBox="0 0 1440 120">
-  <path d="M0,60 Q180,20 360,60 Q540,100 720,60 Q900,20 1080,60 Q1260,100 1440,60 Q1620,20 1800,60 Q1980,100 2160,60 Q2340,20 2520,60 Q2700,100 2880,60" fill="none" stroke="#00E0FF" stroke-width="4"/>
-  <path d="M0,80 Q180,40 360,80 Q540,120 720,80 Q900,40 1080,80 Q1260,120 1440,80 Q1620,40 1800,80 Q1980,120 2160,80 Q2340,40 2520,80 Q2700,120 2880,80" fill="none" stroke="#fff" stroke-width="3"/>
-</svg>
+<div class="parallax-wrap">
+  <!-- Layer 1: back, slowest, navy -->
+  <svg class="px-svg px-layer-1" viewBox="0 0 1440 180" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,120 C120,90 240,150 360,120 C480,90 600,150 720,120 C840,90 960,150 1080,120 C1200,90 1320,150 1440,120 C1560,90 1680,150 1800,120 C1920,90 2040,150 2160,120 L2160,180 L0,180 Z" fill="rgba(0,43,73,0.7)"/>
+  </svg>
+  <!-- Layer 2: middle, turquoise -->
+  <svg class="px-svg px-layer-2" viewBox="0 0 1440 180" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,135 C120,105 240,160 360,135 C480,105 600,160 720,135 C840,105 960,160 1080,135 C1200,105 1320,160 1440,135 C1560,105 1680,160 1800,135 C1920,105 2040,160 2160,135 L2160,180 L0,180 Z" fill="rgba(0,194,216,0.45)"/>
+  </svg>
+  <!-- Layer 3: front, fastest, cyan -->
+  <svg class="px-svg px-layer-3" viewBox="0 0 1440 180" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,148 C120,120 240,168 360,148 C480,120 600,168 720,148 C840,120 960,168 1080,148 C1200,120 1320,168 1440,148 C1560,120 1680,168 1800,148 C1920,120 2040,168 2160,148 L2160,180 L0,180 Z" fill="rgba(0,224,255,0.32)"/>
+  </svg>
+</div>
 
 </body>
 </html>
