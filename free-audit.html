@@ -486,6 +486,10 @@ a[style*="background:#00E0FF"]:hover::after,a[style*="background:var(--cyan)"]:h
   75% {d:path("M-100,100 C100,60 300,120 500,80 C700,40 900,120 1100,80 C1300,40 1500,120 1700,80");}
   100%{d:path("M-100,90 C100,50 300,130 500,90 C700,50 900,130 1100,90 C1300,50 1500,130 1700,90");}
 }
+/* ── BluWav Signature Wave ── */
+@keyframes wave-move{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+.wave-strip{position:fixed;bottom:0;left:0;width:200%;pointer-events:none;z-index:1;opacity:0.08;animation:wave-move 12s linear infinite;}
+
 </style>
 </head>
 <body>
@@ -895,5 +899,11 @@ function toggleMob(){document.getElementById('mobNav').classList.toggle('open');
   });
 })();
 </script>
+<!-- BluWav Signature Wave -->
+<svg class="wave-strip" preserveAspectRatio="none" viewBox="0 0 1440 120">
+  <path d="M0,60 Q180,20 360,60 Q540,100 720,60 Q900,20 1080,60 Q1260,100 1440,60 Q1620,20 1800,60 Q1980,100 2160,60 Q2340,20 2520,60 Q2700,100 2880,60" fill="none" stroke="#00E0FF" stroke-width="4"/>
+  <path d="M0,80 Q180,40 360,80 Q540,120 720,80 Q900,40 1080,80 Q1260,120 1440,80 Q1620,40 1800,80 Q1980,120 2160,80 Q2340,40 2520,80 Q2700,120 2880,80" fill="none" stroke="#fff" stroke-width="3"/>
+</svg>
+
 </body>
 </html>
