@@ -790,6 +790,93 @@ a[style*="background:#00E0FF"]:hover::after,a[style*="background:var(--cyan)"]:h
 .currency-name{font-size:12px;color:rgba(255,255,255,0.5);margin-top:2px;}
 .currency-check{color:#00E0FF;font-size:16px;font-weight:800;}
 
+
+/* ── Mobile Nav Polish ── */
+.hamburger{display:none;flex-direction:column;gap:6px;cursor:pointer;z-index:101;position:relative;background:none;border:none;padding:8px;border-radius:8px;transition:background 0.2s;}
+.hamburger:hover{background:rgba(255,255,255,0.1);}
+.hamburger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:all 0.3s ease;}
+/* Animated X when open */
+.hamburger.open span:nth-child(1){transform:translateY(8px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+.hamburger.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg);}
+
+.mob-nav{
+  display:none;
+  position:fixed;
+  top:70px;
+  left:0;
+  right:0;
+  background:rgba(0,27,50,0.98);
+  backdrop-filter:blur(24px);
+  -webkit-backdrop-filter:blur(24px);
+  padding:0;
+  flex-direction:column;
+  z-index:9999;
+  border-bottom:2px solid rgba(0,224,255,0.2);
+  box-shadow:0 16px 48px rgba(0,0,0,0.4);
+  max-height:0;
+  overflow:hidden;
+  transition:max-height 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+.mob-nav.open{
+  display:flex !important;
+  max-height:600px;
+}
+.mob-nav-inner{
+  padding:12px 0 20px;
+  display:flex;
+  flex-direction:column;
+}
+.mob-link{
+  font-size:16px;
+  font-weight:600;
+  color:rgba(255,255,255,0.85);
+  padding:16px 28px;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  display:flex;
+  align-items:center;
+  gap:10px;
+  transition:all 0.15s;
+  min-height:56px;
+}
+.mob-link:hover,.mob-link:active{
+  background:rgba(0,224,255,0.08);
+  color:#fff;
+  padding-left:36px;
+}
+.mob-link.sub{
+  font-size:14px;
+  font-weight:500;
+  color:rgba(255,255,255,0.55);
+  padding:12px 28px 12px 44px;
+  min-height:44px;
+  border-bottom:1px solid rgba(255,255,255,0.04);
+}
+.mob-link.sub:hover{color:rgba(255,255,255,0.85);background:rgba(0,224,255,0.05);}
+.mob-link.wave{color:#00E0FF;}
+.mob-link.wave:hover{color:#00E0FF;background:rgba(0,224,255,0.08);}
+.mob-cta{
+  background:linear-gradient(135deg,#FF5500,#e84d00);
+  color:#fff;
+  font-weight:800;
+  padding:18px 28px;
+  text-align:center;
+  margin:16px 20px 8px;
+  font-size:16px;
+  display:block;
+  border-radius:14px;
+  box-shadow:0 4px 20px rgba(255,85,0,0.4);
+  letter-spacing:0.3px;
+  transition:all 0.2s;
+}
+.mob-cta:hover,.mob-cta:active{transform:translateY(-1px);box-shadow:0 6px 28px rgba(255,85,0,0.55);}
+.mob-divider{height:1px;background:rgba(255,255,255,0.08);margin:8px 0;}
+
+@media(max-width:1100px){
+  .nav-links{display:none !important;}
+  .hamburger{display:flex !important;}
+}
+
 </style>
 <meta name="robots" content="index, follow"/>
 <meta property="og:title" content="BluWav Growth | Caribbean Digital Growth Agency"/>
@@ -924,18 +1011,27 @@ function setCurrency(code, symbol, name){
 <button id="currency-btn" onclick="openCurrency()" style="background:rgba(0,224,255,0.1);border:1px solid rgba(0,224,255,0.3);color:#00E0FF;font-size:12px;font-weight:700;padding:8px 14px;border-radius:20px;cursor:pointer;font-family:inherit;transition:all 0.2s;" onmouseover="this.style.background='rgba(0,224,255,0.2)'" onmouseout="this.style.background='rgba(0,224,255,0.1)'">🌍 USD ▾</button>
 <a class="nav-cta" href="#health-check">Free Online Health Check</a>
 </div>
-<div class="hamburger" onclick="toggleMob()"><span></span><span></span><span></span></div>
+<button class="hamburger" id="hamburgerBtn" onclick="toggleMob()" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 <div class="mob-nav" id="mobNav">
-<a class="mob-link" href="#home" onclick="toggleMob()">Home</a>
-<a class="mob-link" href="#how-it-works" onclick="toggleMob()" style="padding-left:24px;font-size:13px;color:rgba(255,255,255,0.6);">&#8212; How It Works</a>
-<a class="mob-link" href="our-promise.html" onclick="toggleMob()" style="padding-left:24px;font-size:13px;color:rgba(255,255,255,0.6);">&#8212; Our Promise</a>
-<a class="mob-link" href="#what-we-do" onclick="toggleMob()">Services</a>
-<a class="mob-link" href="pricing.html" onclick="toggleMob()">Pricing</a>
-<a class="mob-link" href="the-wave.html" onclick="toggleMob()" style="color:#00E0FF;">The Wave</a>
-<a class="mob-link" href="#contact" onclick="toggleMob()">Contact</a>
-<a class="mob-cta" href="#health-check" onclick="toggleMob()">Free Online Health Check</a>
+<div class="mob-nav-inner">
+  <a class="mob-link" href="#home" onclick="closeMob()">🏠 Home</a>
+  <a class="mob-link sub" href="#how-it-works" onclick="closeMob()">&#8212; How It Works</a>
+  <a class="mob-link sub" href="our-promise.html" onclick="closeMob()">&#8212; Our Promise</a>
+  <div class="mob-divider"></div>
+  <a class="mob-link" href="#what-we-do" onclick="closeMob()">⚡ Services</a>
+  <a class="mob-link sub" href="#what-we-do" onclick="closeMob()">&#8212; Websites</a>
+  <a class="mob-link sub" href="#what-we-do" onclick="closeMob()">&#8212; Visibility</a>
+  <a class="mob-link sub" href="#what-we-do" onclick="closeMob()">&#8212; Automation</a>
+  <a class="mob-link sub" href="#what-we-do" onclick="closeMob()">&#8212; Growth Systems</a>
+  <div class="mob-divider"></div>
+  <a class="mob-link" href="pricing.html" onclick="closeMob()">💰 Pricing</a>
+  <a class="mob-link wave" href="the-wave.html" onclick="closeMob()">🌊 The Wave</a>
+  <a class="mob-link" href="#contact" onclick="closeMob()">📞 Contact</a>
+  <a class="mob-cta" href="#health-check" onclick="closeMob()">🩺 Check My Business for Free</a>
 </div>
+</div>
+
 <!-- HERO -->
 <section class="hero" id="home" style="min-height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;padding:0;">
 
