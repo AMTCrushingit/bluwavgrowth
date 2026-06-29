@@ -928,9 +928,9 @@ function setCurrency(code, symbol, name){
 </nav>
 <div class="mob-nav" id="mobNav">
 <a class="mob-link" href="#home" onclick="toggleMob()">Home</a>
+<a class="mob-link" href="#how-it-works" onclick="toggleMob()" style="padding-left:24px;font-size:13px;color:rgba(255,255,255,0.6);">&#8212; How It Works</a>
+<a class="mob-link" href="our-promise.html" onclick="toggleMob()" style="padding-left:24px;font-size:13px;color:rgba(255,255,255,0.6);">&#8212; Our Promise</a>
 <a class="mob-link" href="#what-we-do" onclick="toggleMob()">Services</a>
-<a class="mob-link" href="#how-it-works" onclick="toggleMob()">How It Works</a>
-<a class="mob-link" href="our-promise.html" onclick="toggleMob()">Our Promise</a>
 <a class="mob-link" href="pricing.html" onclick="toggleMob()">Pricing</a>
 <a class="mob-link" href="the-wave.html" onclick="toggleMob()" style="color:#00E0FF;">The Wave</a>
 <a class="mob-link" href="#contact" onclick="toggleMob()">Contact</a>
@@ -1643,6 +1643,21 @@ document.addEventListener('click', function(e){
   </svg>
 </div>
 
+<script>
+function toggleHomeDropdown(e){
+  e.preventDefault();
+  var menu=document.getElementById('homeMenu');
+  if(!menu)return;
+  var isOpen=menu.classList.contains('open');
+  document.querySelectorAll('.nav-dropdown-menu').forEach(function(m){m.classList.remove('open');});
+  if(!isOpen){menu.classList.add('open');}
+}
+document.addEventListener('click',function(e){
+  if(!e.target.closest('#homeDropdown')&&!e.target.closest('#svcDropdown')){
+    document.querySelectorAll('.nav-dropdown-menu').forEach(function(m){m.classList.remove('open');});
+  }
+});
+</script>
 </body>
 </html
 <div class="proof-strip" style="overflow:hidden;padding:0;background:linear-gradient(135deg,#FF5500,#e84d00);">
