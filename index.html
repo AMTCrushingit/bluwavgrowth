@@ -520,6 +520,7 @@ a{text-decoration:none;color:inherit;}
 
 /* Ticker */
 @keyframes ticker{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+@keyframes ticker-seamless{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
 .ticker-track{animation:ticker 22s linear infinite;}
 .ticker-track:hover{animation-play-state:paused;}
 /* Scroll reveals */
@@ -1078,33 +1079,31 @@ function setCurrency(code, symbol, name){
   </div>
 
 </section>
-<!-- PROOF STRIP — animated ticker -->
-<div class="proof-strip" style="overflow:hidden;padding:0;background:linear-gradient(135deg,#FF5500,#e84d00);">
-  <div style="display:flex;width:200%;animation:ticker 28s linear infinite;" class="ticker-track">
-    <div style="display:flex;gap:0;white-space:nowrap;flex-shrink:0;width:50%;align-items:center;">
-      <span style="font-size:15px;font-weight:800;color:#fff;padding:18px 52px;letter-spacing:0.5px;display:inline-block;">&#9889; 48&ndash;72 Hour Delivery</span>
-      <span style="color:rgba(255,255,255,0.35);font-size:22px;">&#183;</span>
-      <span style="font-size:15px;font-weight:800;color:#fff;padding:18px 52px;letter-spacing:0.5px;display:inline-block;">&#127754; Caribbean-Built Systems</span>
-      <span style="color:rgba(255,255,255,0.35);font-size:22px;">&#183;</span>
-      <span style="font-size:15px;font-weight:800;color:#fff;padding:18px 52px;letter-spacing:0.5px;display:inline-block;">&#128274; You Own Everything Forever</span>
-      <span style="color:rgba(255,255,255,0.35);font-size:22px;">&#183;</span>
-      <span style="font-size:15px;font-weight:800;color:#fff;padding:18px 52px;letter-spacing:0.5px;display:inline-block;">&#128202; CRM Live Today</span>
-      <span style="color:rgba(255,255,255,0.35);font-size:22px;">&#183;</span>
-      <span style="font-size:15px;font-weight:800;color:#fff;padding:18px 52px;letter-spacing:0.5px;display:inline-block;">&#127942; 5+ Years Caribbean Experience</span>
-      <span style="color:rgba(255,255,255,0.35);font-size:22px;">&#183;</span>
-    </div>
-    <div style="display:flex;gap:0;white-space:nowrap;flex-shrink:0;width:50%;align-items:center;" aria-hidden="true">
-      <span style="font-size:15px;font-weight:800;color:#fff;padding:18px 52px;letter-spacing:0.5px;display:inline-block;">&#9889; 48&ndash;72 Hour Delivery</span>
-      <span style="color:rgba(255,255,255,0.35);font-size:22px;">&#183;</span>
-      <span style="font-size:15px;font-weight:800;color:#fff;padding:18px 52px;letter-spacing:0.5px;display:inline-block;">&#127754; Caribbean-Built Systems</span>
-      <span style="color:rgba(255,255,255,0.35);font-size:22px;">&#183;</span>
-      <span style="font-size:15px;font-weight:800;color:#fff;padding:18px 52px;letter-spacing:0.5px;display:inline-block;">&#128274; You Own Everything Forever</span>
-      <span style="color:rgba(255,255,255,0.35);font-size:22px;">&#183;</span>
-      <span style="font-size:15px;font-weight:800;color:#fff;padding:18px 52px;letter-spacing:0.5px;display:inline-block;">&#128202; CRM Live Today</span>
-      <span style="color:rgba(255,255,255,0.35);font-size:22px;">&#183;</span>
-      <span style="font-size:15px;font-weight:800;color:#fff;padding:18px 52px;letter-spacing:0.5px;display:inline-block;">&#127942; 5+ Years Caribbean Experience</span>
-      <span style="color:rgba(255,255,255,0.35);font-size:22px;">&#183;</span>
-    </div>
+<!-- PROOF STRIP — seamless ticker -->
+<div style="background:linear-gradient(135deg,#FF5500,#e84d00);overflow:hidden;padding:0;position:relative;">
+  <div style="display:flex;align-items:center;white-space:nowrap;animation:ticker-seamless 30s linear infinite;">
+    <!-- Single set — duplicated inline for seamless loop -->
+    <span style="font-size:15px;font-weight:800;color:#fff;padding:16px 48px;display:inline-block;flex-shrink:0;">&#9889; 48&ndash;72 Hour Delivery</span>
+    <span style="color:rgba(255,255,255,0.4);font-size:18px;flex-shrink:0;">&#183;</span>
+    <span style="font-size:15px;font-weight:800;color:#fff;padding:16px 48px;display:inline-block;flex-shrink:0;">&#127754; Caribbean-Built Systems</span>
+    <span style="color:rgba(255,255,255,0.4);font-size:18px;flex-shrink:0;">&#183;</span>
+    <span style="font-size:15px;font-weight:800;color:#fff;padding:16px 48px;display:inline-block;flex-shrink:0;">&#128274; You Own Everything Forever</span>
+    <span style="color:rgba(255,255,255,0.4);font-size:18px;flex-shrink:0;">&#183;</span>
+    <span style="font-size:15px;font-weight:800;color:#fff;padding:16px 48px;display:inline-block;flex-shrink:0;">&#128202; CRM Live Today</span>
+    <span style="color:rgba(255,255,255,0.4);font-size:18px;flex-shrink:0;">&#183;</span>
+    <span style="font-size:15px;font-weight:800;color:#fff;padding:16px 48px;display:inline-block;flex-shrink:0;">&#127942; 5+ Years Caribbean Experience</span>
+    <span style="color:rgba(255,255,255,0.4);font-size:18px;flex-shrink:0;">&#183;</span>
+    <!-- Duplicate for seamless loop -->
+    <span style="font-size:15px;font-weight:800;color:#fff;padding:16px 48px;display:inline-block;flex-shrink:0;" aria-hidden="true">&#9889; 48&ndash;72 Hour Delivery</span>
+    <span style="color:rgba(255,255,255,0.4);font-size:18px;flex-shrink:0;" aria-hidden="true">&#183;</span>
+    <span style="font-size:15px;font-weight:800;color:#fff;padding:16px 48px;display:inline-block;flex-shrink:0;" aria-hidden="true">&#127754; Caribbean-Built Systems</span>
+    <span style="color:rgba(255,255,255,0.4);font-size:18px;flex-shrink:0;" aria-hidden="true">&#183;</span>
+    <span style="font-size:15px;font-weight:800;color:#fff;padding:16px 48px;display:inline-block;flex-shrink:0;" aria-hidden="true">&#128274; You Own Everything Forever</span>
+    <span style="color:rgba(255,255,255,0.4);font-size:18px;flex-shrink:0;" aria-hidden="true">&#183;</span>
+    <span style="font-size:15px;font-weight:800;color:#fff;padding:16px 48px;display:inline-block;flex-shrink:0;" aria-hidden="true">&#128202; CRM Live Today</span>
+    <span style="color:rgba(255,255,255,0.4);font-size:18px;flex-shrink:0;" aria-hidden="true">&#183;</span>
+    <span style="font-size:15px;font-weight:800;color:#fff;padding:16px 48px;display:inline-block;flex-shrink:0;" aria-hidden="true">&#127942; 5+ Years Caribbean Experience</span>
+    <span style="color:rgba(255,255,255,0.4);font-size:18px;flex-shrink:0;" aria-hidden="true">&#183;</span>
   </div>
 </div>
 
