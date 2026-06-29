@@ -878,6 +878,27 @@ a[style*="background:#00E0FF"]:hover::after,a[style*="background:var(--cyan)"]:h
   .hamburger{display:flex !important;}
 }
 
+
+/* ── Hero paragraph mobile fix ── */
+@media(max-width:768px){
+  .hero-para-1{
+    font-size:15px !important;
+    line-height:1.6 !important;
+    max-width:100% !important;
+    margin-bottom:12px !important;
+  }
+  .hero-para-2{
+    font-size:13px !important;
+    line-height:1.65 !important;
+    max-width:100% !important;
+    margin-bottom:28px !important;
+  }
+}
+@media(max-width:480px){
+  .hero-para-1{font-size:14px !important;line-height:1.55 !important;}
+  .hero-para-2{font-size:12px !important;line-height:1.6 !important;}
+}
+
 </style>
 <meta name="robots" content="index, follow"/>
 <meta property="og:title" content="BluWav Growth | Caribbean Digital Growth Agency"/>
@@ -1050,7 +1071,7 @@ function setCurrency(code, symbol, name){
 
   <!-- TEXT CONTENT: left side, sits on gradient -->
   <div style="position:relative;z-index:3;width:100%;max-width:1600px;margin:0 auto;padding:120px 7% 80px;">
-    <div style="max-width:600px;">
+    <div style="max-width:600px;width:100%;">
 
       <!-- Logo -->
       <div class="hero-logo-name hero-anim-1" style="text-align:left;margin-bottom:4px;">Blu<span style="color:var(--cyan);">Wav</span></div>
@@ -1063,10 +1084,10 @@ function setCurrency(code, symbol, name){
       <h1 class="hero-h1 hero-anim-3" style="font-size:54px;text-align:left;margin-bottom:18px;line-height:1.06;">Get Your Business Found Online&hellip;<br/><span class="gold">and Chosen First.</span></h1>
 
       <!-- Subheadline -->
-      <p class="hero-anim-4" style="text-align:left;max-width:600px;margin-bottom:14px;font-size:17px;line-height:1.65;color:rgba(255,255,255,0.9);font-weight:400;">BluWav builds your website, boosts your visibility, automates your follow-ups, and helps your business win more customers.</p>
+      <p class="hero-anim-4 hero-para-1" style="text-align:left;max-width:600px;margin-bottom:14px;font-size:17px;line-height:1.65;color:rgba(255,255,255,0.9);font-weight:400;">BluWav builds your website, boosts your visibility, automates your follow-ups, and helps your business win more customers.</p>
 
       <!-- Health check copy -->
-      <p class="hero-anim-4" style="text-align:left;max-width:620px;margin-bottom:36px;font-size:14px;line-height:1.7;color:rgba(0,224,255,0.9);font-weight:600;">Our free Health Check reviews your online presence and shows you exactly what&rsquo;s working, what&rsquo;s broken, and what&rsquo;s stopping customers from finding you online.</p>
+      <p class="hero-anim-4 hero-para-2" style="text-align:left;max-width:620px;margin-bottom:36px;font-size:14px;line-height:1.7;color:rgba(0,224,255,0.9);font-weight:600;">Our free Health Check reviews your online presence and shows you exactly what&rsquo;s working, what&rsquo;s broken, and what&rsquo;s stopping customers from finding you online.</p>
 
       <!-- CTA -->
       <div class="hero-anim-5" style="margin-bottom:32px;">
