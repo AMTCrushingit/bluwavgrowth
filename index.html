@@ -433,6 +433,7 @@ a{text-decoration:none;color:inherit;}
 
   /* Forms */
   .form-row{grid-template-columns:1fr !important;}
+  #contact .wrap > div[style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr !important;gap:32px !important;}
   .contact-grid{grid-template-columns:1fr !important;}
 
   /* Footer */
@@ -1512,95 +1513,155 @@ function setCurrency(code, symbol, name){
 </div>
 </section>
 <!-- CONTACT — Sand -->
-<section id="contact" style="background:var(--sand);padding:100px 0;">
-<div class="wrap">
-<span class="eyebrow reveal">Get in Touch</span>
-<h2 class="h2 reveal-up">Let us Grow Your Business Together</h2>
-<p class="lead">Free consultation. No pressure. Just a conversation about your business and how we can help.</p>
-<div class="contact-grid">
-<div>
-<div class="contact-info-item"><div class="ci-icon-wrap">📞</div><div><div class="ci-label">Phone and WhatsApp</div><div class="ci-value">+1 (868) 297-9960</div></div></div>
-<div class="contact-info-item"><div class="ci-icon-wrap">✉️</div><div><div class="ci-label">Email</div><div class="ci-value">hello@bluwavgrowth.com</div></div></div>
-<div class="contact-info-item"><div class="ci-icon-wrap">🌍</div><div><div class="ci-label">Serving</div><div class="ci-value">MSMEs across the Caribbean</div></div></div>
-<div class="contact-info-item"><div class="ci-icon-wrap">⚡</div><div><div class="ci-label">Response Time</div><div class="ci-value">Within 2 hours (business hours)</div></div></div>
-<div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap;">
-<a class="btn-wa" href="https://wa.me/18682979960">💬 WhatsApp Now</a>
-<a class="btn-navy" href="mailto:hello@bluwavgrowth.com">✉️ Send Email</a>
-</div>
-</div>
-<div class="contact-form">
-<h3 style="font-size:20px;font-weight:800;color:var(--navy);margin-bottom:20px;">Request a Free Online Health Check</h3>
-<form id="contact-form" onsubmit="submitContactForm(event)">
-<div class="form-row">
-<div class="form-group"><label>First Name *</label><input id="cf-fname" placeholder="Your first name" required="" type="text"/></div>
-<div class="form-group"><label>Last Name *</label><input id="cf-lname" placeholder="Your last name" required="" type="text"/></div>
-</div>
-<div class="form-group"><label>Business Name *</label><input id="cf-biz" placeholder="Your business name" required="" type="text"/></div>
-<div class="form-group"><label>Email *</label><input id="cf-email" placeholder="your@email.com" required="" type="email"/></div>
-<div class="form-group"><label>WhatsApp Number *</label><input id="cf-wa" placeholder="+1 (868) 000-0000" required="" type="tel"/></div>
-<div class="form-group"><label>Website (if you have one)</label><input id="cf-web" placeholder="www.yourbusiness.com" type="text"/></div>
-<div class="form-group"><label>I am interested in</label>
-<select id="cf-interest">
-<option>Free Online Health Check</option>
-<option>Professional Website</option>
-<option>Google Visibility</option>
-<option>BluWav CRM</option>
-<option>Full Growth Package</option>
-</select>
-</div>
-<div class="form-group"><label>Tell us about your business</label><textarea id="cf-msg" placeholder="What does your business do? What is your biggest challenge online?"></textarea></div>
-<button class="btn-coral" id="cf-btn" style="width:100%;justify-content:center;display:flex;border:none;cursor:pointer;font-family:inherit;font-size:16px;" type="submit">Send Request →</button>
-<p style="font-size:11px;color:var(--slate);text-align:center;margin-top:10px;">Or WhatsApp us directly: <a href="https://wa.me/18682979960" style="color:var(--teal2);font-weight:700;">+1 (868) 297-9960</a></p>
-</form>
+<section id="contact" style="background:linear-gradient(135deg,#001828,#002B49);padding:100px 0;position:relative;overflow:hidden;">
+<!-- Background glow -->
+<div style="position:absolute;top:-100px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(0,224,255,0.06) 0%,transparent 65%);pointer-events:none;"></div>
+<div style="position:absolute;bottom:-80px;left:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(255,85,0,0.05) 0%,transparent 65%);pointer-events:none;"></div>
+<div class="wrap" style="position:relative;z-index:2;">
+  <span class="eyebrow reveal" style="color:#00E0FF;">Start Here</span>
+  <h2 class="h2 reveal-up" style="color:#fff;">Get Your Free Online Health Check</h2>
+  <p class="lead" style="color:rgba(255,255,255,0.6);max-width:520px;">Four quick details and we’ll WhatsApp you within 2 hours with a personalised review of your business online. No commitment. No cost.</p>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:56px;align-items:start;">
+
+    <!-- LEFT: Contact info -->
+    <div>
+      <div style="display:flex;flex-direction:column;gap:20px;margin-bottom:36px;">
+        <div style="display:flex;align-items:center;gap:16px;">
+          <div style="width:44px;height:44px;border-radius:12px;background:rgba(0,224,255,0.1);border:1px solid rgba(0,224,255,0.2);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">📱</div>
+          <div>
+            <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:2px;">Phone &amp; WhatsApp</div>
+            <div style="font-size:16px;font-weight:700;color:#fff;">+1 (868) 297-9960</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:16px;">
+          <div style="width:44px;height:44px;border-radius:12px;background:rgba(0,224,255,0.1);border:1px solid rgba(0,224,255,0.2);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">✉️</div>
+          <div>
+            <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:2px;">Email</div>
+            <div style="font-size:16px;font-weight:700;color:#fff;">hello@bluwavgrowth.com</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:16px;">
+          <div style="width:44px;height:44px;border-radius:12px;background:rgba(0,224,255,0.1);border:1px solid rgba(0,224,255,0.2);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">⚡</div>
+          <div>
+            <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:2px;">Response Time</div>
+            <div style="font-size:16px;font-weight:700;color:#fff;">Within 2 hours</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:16px;">
+          <div style="width:44px;height:44px;border-radius:12px;background:rgba(0,224,255,0.1);border:1px solid rgba(0,224,255,0.2);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">🌍</div>
+          <div>
+            <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:2px;">Serving</div>
+            <div style="font-size:16px;font-weight:700;color:#fff;">MSMEs across the Caribbean</div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <a href="https://wa.me/18682979960" style="background:#25D366;color:#fff;font-size:14px;font-weight:800;padding:13px 24px;border-radius:11px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;box-shadow:0 4px 16px rgba(37,211,102,0.3);transition:transform 0.15s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">💬 WhatsApp Now</a>
+        <a href="mailto:hello@bluwavgrowth.com" style="background:rgba(255,255,255,0.06);color:#fff;font-size:14px;font-weight:700;padding:13px 24px;border-radius:11px;text-decoration:none;border:1px solid rgba(255,255,255,0.12);transition:all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='rgba(255,255,255,0.06)'">✉️ Send Email</a>
+      </div>
+
+      <!-- Trust signals -->
+      <div style="margin-top:40px;padding:24px;background:rgba(0,224,255,0.05);border:1px solid rgba(0,224,255,0.12);border-radius:16px;">
+        <div style="font-size:12px;font-weight:800;color:#00E0FF;text-transform:uppercase;letter-spacing:2px;margin-bottom:16px;">What you get</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(255,255,255,0.75);"><span style="color:#00E0FF;font-weight:800;">✓</span> Free digital presence review</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(255,255,255,0.75);"><span style="color:#00E0FF;font-weight:800;">✓</span> WhatsApp response within 2 hours</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(255,255,255,0.75);"><span style="color:#00E0FF;font-weight:800;">✓</span> No commitment required</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(255,255,255,0.75);"><span style="color:#00E0FF;font-weight:800;">✓</span> We never share your details</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Streamlined 4-field form -->
+    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(0,224,255,0.15);border-radius:24px;padding:36px;">
+      <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#F7C873;margin-bottom:8px;">Free · Takes 30 seconds</div>
+      <h3 style="font-size:22px;font-weight:800;color:#fff;margin-bottom:24px;">Request Your Health Check</h3>
+      <form id="contact-form" onsubmit="submitContactForm(event)">
+        <div style="margin-bottom:16px;">
+          <label style="display:block;font-size:11px;font-weight:700;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Your Name *</label>
+          <input id="cf-fname" type="text" required placeholder="First &amp; last name"
+            style="width:100%;padding:13px 16px;border-radius:11px;border:1.5px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.06);color:#fff;font-size:15px;font-family:inherit;outline:none;transition:border 0.2s;"
+            onfocus="this.style.borderColor='#00E0FF'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'"/>
+        </div>
+        <div style="margin-bottom:16px;">
+          <label style="display:block;font-size:11px;font-weight:700;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Business Name *</label>
+          <input id="cf-biz" type="text" required placeholder="Your business name"
+            style="width:100%;padding:13px 16px;border-radius:11px;border:1.5px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.06);color:#fff;font-size:15px;font-family:inherit;outline:none;transition:border 0.2s;"
+            onfocus="this.style.borderColor='#00E0FF'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'"/>
+        </div>
+        <div style="margin-bottom:16px;">
+          <label style="display:block;font-size:11px;font-weight:700;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">WhatsApp Number *</label>
+          <input id="cf-wa" type="tel" required placeholder="+1 (868) 000-0000"
+            style="width:100%;padding:13px 16px;border-radius:11px;border:1.5px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.06);color:#fff;font-size:15px;font-family:inherit;outline:none;transition:border 0.2s;"
+            onfocus="this.style.borderColor='#00E0FF'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'"/>
+        </div>
+        <div style="margin-bottom:24px;">
+          <label style="display:block;font-size:11px;font-weight:700;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">I need help with</label>
+          <select id="cf-interest"
+            style="width:100%;padding:13px 16px;border-radius:11px;border:1.5px solid rgba(255,255,255,0.1);background:rgba(30,40,60,0.9);color:#fff;font-size:15px;font-family:inherit;outline:none;transition:border 0.2s;cursor:pointer;"
+            onfocus="this.style.borderColor='#00E0FF'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'">
+            <option>Free Online Health Check</option>
+            <option>Professional Website</option>
+            <option>Google Visibility</option>
+            <option>BluWav CRM</option>
+            <option>Full Growth Package</option>
+          </select>
+        </div>
+        <button type="submit" id="cf-btn"
+          style="width:100%;background:#FF5500;color:#fff;font-size:16px;font-weight:800;padding:16px;border-radius:12px;border:none;cursor:pointer;font-family:inherit;box-shadow:0 4px 24px rgba(255,85,0,0.4);transition:all 0.2s;"
+          onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 32px rgba(255,85,0,0.55)'"
+          onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 24px rgba(255,85,0,0.4)'">
+          Get My Free Health Check →
+        </button>
+        <p style="font-size:12px;color:rgba(255,255,255,0.3);text-align:center;margin-top:12px;">We never share your details. Ever.</p>
+      </form>
+    </div>
+
+  </div>
 </div>
 <script>
 function submitContactForm(e) {
   e.preventDefault();
   var btn = document.getElementById('cf-btn');
-  btn.textContent = 'Sending...';
+  btn.textContent = 'Sending…';
   btn.style.opacity = '0.7';
   btn.disabled = true;
 
-  // Collect form data
   var fname    = document.getElementById('cf-fname').value.trim();
-  var lname    = document.getElementById('cf-lname').value.trim();
   var biz      = document.getElementById('cf-biz').value.trim();
-  var email    = document.getElementById('cf-email').value.trim();
   var wa       = document.getElementById('cf-wa').value.trim();
-  var web      = document.getElementById('cf-web').value.trim();
   var interest = document.getElementById('cf-interest').value;
-  var msg      = document.getElementById('cf-msg').value.trim();
 
-  // Save to localStorage so thank-you page can personalise
-  var lead = { fname:fname, lname:lname, biz:biz, email:email, wa:wa, web:web, interest:interest, msg:msg, ts: new Date().toISOString() };
+  var lead = { fname:fname, biz:biz, wa:wa, interest:interest, ts: new Date().toISOString() };
   var leads = JSON.parse(localStorage.getItem('bluwav_leads') || '[]');
   leads.push(lead);
   localStorage.setItem('bluwav_leads', JSON.stringify(leads));
 
-  // Build WhatsApp pre-filled message (sends to Andrea automatically)
   var waMsg = encodeURIComponent(
-    'Hi BluWav Growth! 👋\n\n' +
-    'New enquiry from your website:\n\n' +
-    '👤 Name: ' + fname + ' ' + lname + '\n' +
-    '🏢 Business: ' + biz + '\n' +
-    '📧 Email: ' + email + '\n' +
-    '📱 WhatsApp: ' + wa + '\n' +
-    '🌐 Website: ' + (web || 'None') + '\n' +
-    '📋 Interested in: ' + interest + '\n' +
-    '💬 Message: ' + (msg || 'No message') + '\n\n' +
+    'Hi BluWav Growth! 👋
+
+New enquiry from your website:
+
+' +
+    '👤 Name: ' + fname + '
+' +
+    '🏢 Business: ' + biz + '
+' +
+    '📱 WhatsApp: ' + wa + '
+' +
+    '📋 Interested in: ' + interest + '
+
+' +
     'Please follow up!'
   );
 
-  // Open WhatsApp with pre-filled message in background
   setTimeout(function() {
     window.open('https://wa.me/18682979960?text=' + waMsg, '_blank');
-    // Redirect to thank you page
     window.location.href = 'thank-you.html';
   }, 800);
 }
 </script>
-</div>
-</div>
 </section>
 <!-- FOOTER -->
 <!-- ── WAVE NEWSLETTER STRIP ── -->
