@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You're on the Wave — BluWav Growth</title>
+<meta name="description" content="Thank you for reaching out to BluWav Growth. Here's what happens next.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&family=Kaushan+Script&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Manrope',sans-serif;background:#001020;color:#fff;min-height:100vh;overflow-x:hidden;}
+  a{text-decoration:none;color:inherit;}
+  :root{
+    --cyan:#00E0FF;
+    --turq:#00C2D8;
+    --navy:#002B49;
+    --coral:#FF5500;
+    --gold:#F7C873;
+    --slate:#64748B;
+  }
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;padding:0 40px;display:flex;align-items:center;justify-content:space-between;background:rgba(0,16,32,0.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,224,255,0.08);}
+  .nav-logo{font-family:'Kaushan Script',cursive;font-size:24px;color:#fff;}
+  .nav-logo span{color:var(--cyan);}
+  .nav-home{font-size:13px;font-weight:700;color:rgba(255,255,255,0.5);transition:color 0.2s;}
+  .nav-home:hover{color:#fff;}
+
+  /* HERO */
+  .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:100px 28px 60px;position:relative;overflow:hidden;}
+  .hero::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(0,224,255,0.07) 0%,transparent 65%);pointer-events:none;}
+
+  .hero-inner{max-width:680px;margin:0 auto;text-align:center;position:relative;z-index:2;}
+
+  /* Checkmark animation */
+  .check-wrap{width:96px;height:96px;border-radius:50%;background:rgba(0,224,255,0.1);border:2px solid rgba(0,224,255,0.3);display:flex;align-items:center;justify-content:center;margin:0 auto 32px;animation:popIn 0.6s cubic-bezier(0.175,0.885,0.32,1.275) both;}
+  @keyframes popIn{0%{transform:scale(0);opacity:0;}100%{transform:scale(1);opacity:1;}}
+  .check-icon{font-size:44px;animation:fadeIn 0.4s 0.4s both;}
+  @keyframes fadeIn{from{opacity:0;transform:scale(0.5);}to{opacity:1;transform:scale(1);}}
+
+  .eyebrow{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:var(--gold);display:block;margin-bottom:16px;animation:slideUp 0.5s 0.2s both;}
+  @keyframes slideUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+
+  h1{font-size:42px;font-weight:900;line-height:1.1;letter-spacing:-1px;margin-bottom:16px;animation:slideUp 0.5s 0.3s both;}
+  h1 span{color:var(--cyan);}
+  .subtitle{font-size:17px;color:rgba(255,255,255,0.65);line-height:1.7;margin-bottom:48px;animation:slideUp 0.5s 0.4s both;}
+
+  /* Steps */
+  .steps{display:flex;flex-direction:column;gap:0;margin-bottom:48px;text-align:left;animation:slideUp 0.5s 0.5s both;}
+  .step{display:flex;gap:20px;align-items:flex-start;padding:24px 0;border-bottom:1px solid rgba(255,255,255,0.06);}
+  .step:last-child{border-bottom:none;}
+  .step-num{width:40px;height:40px;border-radius:50%;background:rgba(0,224,255,0.1);border:1.5px solid rgba(0,224,255,0.3);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;color:var(--cyan);flex-shrink:0;margin-top:2px;}
+  .step-content{}
+  .step-title{font-size:16px;font-weight:800;color:#fff;margin-bottom:4px;}
+  .step-desc{font-size:14px;color:rgba(255,255,255,0.55);line-height:1.6;}
+  .step-time{display:inline-block;font-size:11px;font-weight:700;color:var(--cyan);background:rgba(0,224,255,0.08);border:1px solid rgba(0,224,255,0.2);border-radius:20px;padding:2px 10px;margin-top:6px;}
+
+  /* CTA box */
+  .cta-box{background:rgba(255,255,255,0.04);border:1px solid rgba(0,224,255,0.15);border-radius:20px;padding:32px;margin-bottom:32px;animation:slideUp 0.5s 0.6s both;}
+  .cta-box h3{font-size:18px;font-weight:800;color:#fff;margin-bottom:8px;}
+  .cta-box p{font-size:14px;color:rgba(255,255,255,0.55);margin-bottom:20px;line-height:1.6;}
+  .cta-btns{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;}
+
+  .btn-wa{background:#25D366;color:#fff;font-size:15px;font-weight:800;padding:14px 28px;border-radius:11px;display:inline-flex;align-items:center;gap:8px;transition:transform 0.15s,box-shadow 0.2s;box-shadow:0 4px 20px rgba(37,211,102,0.3);}
+  .btn-wa:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(37,211,102,0.45);}
+  .btn-contract{background:transparent;color:var(--cyan);font-size:15px;font-weight:800;padding:14px 28px;border-radius:11px;border:2px solid rgba(0,224,255,0.4);display:inline-flex;align-items:center;gap:8px;transition:all 0.2s;}
+  .btn-contract:hover{background:rgba(0,224,255,0.08);border-color:var(--cyan);}
+
+  /* Reassurance */
+  .reassurance{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;animation:slideUp 0.5s 0.7s both;}
+  .re-item{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.4);font-weight:600;}
+  .re-dot{width:6px;height:6px;border-radius:50%;background:var(--cyan);flex-shrink:0;}
+
+  /* Wave */
+  .bw-wave-wrap{position:fixed;bottom:0;left:0;right:0;height:120px;pointer-events:none;z-index:0;overflow:hidden;}
+  .wave-svg{position:absolute;bottom:0;left:0;width:200%;animation:waveScroll 18s linear infinite;}
+  .wave-svg-2{position:absolute;bottom:0;left:0;width:200%;animation:waveScroll 26s linear infinite reverse;opacity:0.5;}
+  @keyframes waveScroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+
+  /* Footer */
+  footer{text-align:center;padding:40px 28px 160px;position:relative;z-index:2;}
+  .footer-logo{font-family:'Kaushan Script',cursive;font-size:22px;color:#fff;margin-bottom:8px;}
+  .footer-logo span{color:var(--cyan);}
+  .footer-copy{font-size:12px;color:rgba(255,255,255,0.2);}
+
+  @media(max-width:600px){
+    h1{font-size:30px;}
+    .cta-btns{flex-direction:column;}
+    .btn-wa,.btn-contract{justify-content:center;}
+    nav{padding:0 20px;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Blu<span>Wav</span> Growth</a>
+  <a href="index.html" class="nav-home">← Back to Home</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+
+    <div class="check-wrap">
+      <div class="check-icon">🌊</div>
+    </div>
+
+    <span class="eyebrow">Request Received</span>
+    <h1>You're on the <span>Wave!</span></h1>
+    <p class="subtitle">We've received your request and we're already on it. Here's exactly what happens next — no guessing, no waiting in the dark.</p>
+
+    <!-- STEPS -->
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <div class="step-title">We review your request</div>
+          <div class="step-desc">Our team looks at your business details and prepares a personalised response — not a generic template.</div>
+          <span class="step-time">⏱ Within 2 hours (business hours)</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <div class="step-title">We WhatsApp you directly</div>
+          <div class="step-desc">Expect a message from +1 (868) 297-9960. We'll confirm your package, answer any questions, and agree on next steps.</div>
+          <span class="step-time">⏱ Same day</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <div class="step-title">You receive and sign your contract</div>
+          <div class="step-desc">We send you a simple, plain-English agreement. No legal jargon. You can review it now if you'd like — it's already ready.</div>
+          <span class="step-time">⏱ Before we start any work</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <div class="step-title">Payment is confirmed</div>
+          <div class="step-desc">We accept bank transfer, PayPal, or card. Pay in full or split into 2–3 payments — whatever works for your business.</div>
+          <span class="step-time">⏱ Flexible payment options available</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <div class="step-title">We start building — you go live in 48 hours</div>
+          <div class="step-desc">Once signed and payment confirmed, the clock starts. Most clients are live within 48–72 hours.</div>
+          <span class="step-time">⏱ 48–72 hour delivery</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA BOX -->
+    <div class="cta-box">
+      <h3>Want to get ahead? Review your contract now.</h3>
+      <p>We've prepared a simple, transparent agreement so there are no surprises. Take a look while you wait for our WhatsApp message.</p>
+      <div class="cta-btns">
+        <a href="https://wa.me/18682979960?text=Hi%20BluWav%20Growth%2C%20I%20just%20submitted%20my%20request%20and%20I%27m%20ready%20to%20get%20started!" class="btn-wa" target="_blank">💬 WhatsApp Us Now</a>
+        <a href="contract.html" class="btn-contract">📄 Review Contract</a>
+      </div>
+    </div>
+
+    <!-- REASSURANCE -->
+    <div class="reassurance">
+      <div class="re-item"><div class="re-dot"></div>No commitment yet</div>
+      <div class="re-item"><div class="re-dot"></div>No payment until you're ready</div>
+      <div class="re-item"><div class="re-dot"></div>You own everything forever</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WAVE -->
+<div class="bw-wave-wrap">
+  <svg class="wave-svg" viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,60 Q180,20 360,60 Q540,100 720,60 Q900,20 1080,60 Q1260,100 1440,60 Q1620,20 1800,60 Q1980,100 2160,60 Q2340,20 2520,60 Q2700,100 2880,60 L2880,120 L0,120 Z" fill="rgba(0,194,216,0.12)"/>
+  </svg>
+  <svg class="wave-svg-2" viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,70 Q180,30 360,70 Q540,110 720,70 Q900,30 1080,70 Q1260,110 1440,70 Q1620,30 1800,70 Q1980,110 2160,70 Q2340,30 2520,70 Q2700,110 2880,70 L2880,120 L0,120 Z" fill="rgba(0,43,73,0.4)"/>
+  </svg>
+</div>
+
+<footer>
+  <div class="footer-logo">Blu<span>Wav</span> Growth</div>
+  <div class="footer-copy">© 2026 BluWav Growth · bluwavgrowth.com · Get Found. Get Chosen. Grow. · A Stratiix Group Company</div>
+</footer>
+
+</body>
+</html>
