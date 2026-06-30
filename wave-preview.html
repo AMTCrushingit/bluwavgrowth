@@ -47,14 +47,14 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:#111;color:#fff;}
 .nav-btn:hover{background:rgba(0,224,255,0.25);}
 
 /* ══════════════════════════════════════════════════════
-   OPTION A — CURRENT (Q-curve sliding lines)
+   OPTION A, CURRENT (Q-curve sliding lines)
 ══════════════════════════════════════════════════════ */
 #option-a{background:linear-gradient(160deg,#001020 0%,#002B49 50%,#001828 100%);}
 @keyframes wave-move{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
 .wave-current{position:absolute;bottom:0;left:0;width:200%;pointer-events:none;z-index:1;opacity:0.08;animation:wave-move 12s linear infinite;}
 
 /* ══════════════════════════════════════════════════════
-   OPTION B — FILLED GRADIENT WAVE
+   OPTION B, FILLED GRADIENT WAVE
 ══════════════════════════════════════════════════════ */
 #option-b{background:linear-gradient(160deg,#001020 0%,#002B49 50%,#001828 100%);}
 @keyframes filledWave1{
@@ -76,20 +76,20 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:#111;color:#fff;}
 .wf3{animation:filledWave3 11s ease-in-out infinite 1s;}
 
 /* ══════════════════════════════════════════════════════
-   OPTION C — MULTI-LAYER PARALLAX WAVE
+   OPTION C, MULTI-LAYER PARALLAX WAVE
 ══════════════════════════════════════════════════════ */
 #option-c{background:linear-gradient(160deg,#001020 0%,#002B49 50%,#001828 100%);}
 .parallax-wrap{position:absolute;bottom:0;left:0;right:0;height:200px;z-index:1;pointer-events:none;overflow:hidden;}
 
-/* Layer 1 — back, slowest, most transparent */
+/* Layer 1, back, slowest, most transparent */
 @keyframes px1{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
 .px-layer-1{position:absolute;bottom:0;left:0;width:200%;height:100%;animation:px1 20s linear infinite;opacity:0.12;}
 
-/* Layer 2 — middle */
+/* Layer 2, middle */
 @keyframes px2{0%{transform:translateX(-50%);}100%{transform:translateX(0);}}
 .px-layer-2{position:absolute;bottom:0;left:0;width:200%;height:100%;animation:px2 14s linear infinite;opacity:0.18;}
 
-/* Layer 3 — front, fastest, most visible */
+/* Layer 3, front, fastest, most visible */
 @keyframes px3{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
 .px-layer-3{position:absolute;bottom:0;left:0;width:200%;height:100%;animation:px3 9s linear infinite;opacity:0.25;}
 
@@ -113,7 +113,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:#111;color:#fff;}
 <body>
 <!-- ══ OPTION A: Current Q-curve ══ -->
 <section class="preview-section" id="option-a">
-<div class="preview-label">Option A — Current (Q-Curve Lines)</div>
+<div class="preview-label">Option A, Current (Q-Curve Lines)</div>
 <div class="preview-content">
 <h2>BluWav Growth</h2>
 <p>Get Your Business Found Online… and Chosen First.</p>
@@ -127,7 +127,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:#111;color:#fff;}
 </section>
 <!-- ══ OPTION B: Filled Gradient Wave ══ -->
 <section class="preview-section" id="option-b">
-<div class="preview-label">Option B — Filled Gradient Wave</div>
+<div class="preview-label">Option B, Filled Gradient Wave</div>
 <div class="preview-content">
 <h2>BluWav Growth</h2>
 <p>Get Your Business Found Online… and Chosen First.</p>
@@ -138,18 +138,18 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:#111;color:#fff;}
 </div>
 <div class="wave-filled-wrap">
 <svg class="wave-filled-svg" preserveaspectratio="none" viewbox="0 0 1440 160" xmlns="http://www.w3.org/2000/svg">
-<!-- Back layer — navy -->
+<!-- Back layer, navy -->
 <path class="wf3" d="M0,130 C240,100 480,150 720,130 C960,100 1200,150 1440,130 L1440,160 L0,160 Z" fill="rgba(0,43,73,0.6)"></path>
-<!-- Mid layer — turquoise -->
+<!-- Mid layer, turquoise -->
 <path class="wf2" d="M0,110 C240,70 480,140 720,110 C960,70 1200,140 1440,110 L1440,160 L0,160 Z" fill="rgba(0,194,216,0.35)"></path>
-<!-- Front layer — cyan -->
+<!-- Front layer, cyan -->
 <path class="wf1" d="M0,80 C240,40 480,120 720,80 C960,40 1200,120 1440,80 L1440,160 L0,160 Z" fill="rgba(0,224,255,0.22)"></path>
 </svg>
 </div>
 </section>
 <!-- ══ OPTION C: Multi-Layer Parallax ══ -->
 <section class="preview-section" id="option-c">
-<div class="preview-label">Option C — Multi-Layer Parallax Wave</div>
+<div class="preview-label">Option C, Multi-Layer Parallax Wave</div>
 <div class="preview-content">
 <h2>BluWav Growth</h2>
 <p>Get Your Business Found Online… and Chosen First.</p>

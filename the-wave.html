@@ -5,7 +5,7 @@
 <meta content="FEE9B5469C6A497A48F135B874E87252" name="msvalidate.01"/>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>The Wave | BluWav Growth — Insights for Caribbean Businesses</title>
+<title>The Wave | BluWav Growth, Insights for Caribbean Businesses</title>
 <meta content="Insights for Caribbean businesses riding the digital wave. Practical advice on websites, Google visibility, WhatsApp Business, CRM and automation." name="description"/>
 <meta content="The Wave | BluWav Growth" property="og:title"/>
 <meta content="Insights for Caribbean businesses riding the digital wave." property="og:description"/>
@@ -35,7 +35,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 48px;d
 .mob-cta{background:var(--coral);color:#fff;font-weight:700;padding:14px;border-radius:10px;text-align:center;margin-top:8px;font-size:15px;display:block;}
 
 /* HERO */
-.blog-hero{background:linear-gradient(160deg,#001020 0%,#002B49 50%,#001828 100%);padding:120px 48px 80px;text-align:center;position:relative;overflow:hidden;}
+.blog-hero{background:none;padding:0;position:relative;overflow:hidden;}
 .blog-hero::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(0,224,255,0.1) 0%,transparent 70%);pointer-events:none;}
 
 /* WRAP */
@@ -43,7 +43,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 48px;d
 
 /* ARTICLE GRID */
 .articles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-bottom:80px;}
-.article-card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 4px 24px rgba(0,43,73,0.06);transition:all 0.2s;display:flex;flex-direction:column;}
+.article-card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 4px 24px rgba(0,43,73,0.08);transition:all 0.2s;display:flex;flex-direction:column;border:1px solid rgba(0,43,73,0.06);}
 .article-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(0,43,73,0.12);}
 .article-card.featured{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;border-radius:24px;}
 .article-img{height:220px;object-fit:cover;width:100%;display:block;}
@@ -157,108 +157,126 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
 <a class="mob-cta" href="index.html#health-check" onclick="toggleMob()">Free Online Health Check</a>
 </div>
 <!-- HERO -->
-<section class="blog-hero">
-<div style="max-width:700px;margin:0 auto;position:relative;z-index:2;">
-<span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:var(--gold);display:block;margin-bottom:16px;">BluWav Growth</span>
-<h1 style="font-family:'Manrope',sans-serif;font-size:56px;font-weight:800;color:#fff;line-height:1.1;margin-bottom:16px;">The Wave 🌊</h1>
-<p style="font-size:18px;color:rgba(255,255,255,0.75);line-height:1.7;margin-bottom:0;">Insights for Caribbean businesses riding the digital wave.</p>
+<section class="blog-hero" style="background:none;padding:0;position:relative;overflow:hidden;min-height:480px;display:flex;align-items:center;">
+<!-- Real Caribbean ocean background -->
+<div style="position:absolute;inset:0;background:url('https://lp-cms-production.imgix.net/2019-06/GettyImages-149520831_super.jpg?fit=crop&q=40&sharp=10&vib=20&auto=format&ixlib=react-8.6.4') center center/cover no-repeat;"></div>
+<!-- Warm gradient overlay — not too dark -->
+<div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,20,40,0.78) 0%,rgba(0,43,73,0.55) 60%,rgba(255,85,0,0.15) 100%);"></div>
+<!-- Animated wave accent at bottom -->
+<div style="position:absolute;bottom:0;left:0;right:0;height:80px;overflow:hidden;">
+  <svg viewBox="0 0 1440 80" preserveAspectRatio="none" style="width:100%;height:100%;">
+    <path d="M0,40 Q360,80 720,40 Q1080,0 1440,40 L1440,80 L0,80 Z" fill="rgba(245,240,230,1)"/>
+  </svg>
+</div>
+<div style="max-width:760px;margin:0 auto;position:relative;z-index:2;padding:100px 28px 100px;text-align:center;">
+  <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,85,0,0.9);border-radius:20px;padding:6px 16px;margin-bottom:20px;">
+    <span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#fff;">BluWav Growth</span>
+  </div>
+  <h1 style="font-family:'Manrope',sans-serif;font-size:60px;font-weight:900;color:#fff;line-height:1.05;margin-bottom:16px;letter-spacing:-1px;">The Wave 🌊</h1>
+  <p style="font-size:19px;color:rgba(255,255,255,0.9);line-height:1.6;margin-bottom:28px;font-weight:500;">Real talk for Caribbean businesses ready to grow online.</p>
+  <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+    <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.12);backdrop-filter:blur(8px);border-radius:20px;padding:8px 16px;">
+      <span style="font-size:14px;color:#fff;font-weight:600;">6 articles</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.12);backdrop-filter:blur(8px);border-radius:20px;padding:8px 16px;">
+      <span style="font-size:14px;color:#fff;font-weight:600;">3 min reads</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.12);backdrop-filter:blur(8px);border-radius:20px;padding:8px 16px;">
+      <span style="font-size:14px;color:#fff;font-weight:600;">Built for Caribbean MSMEs</span>
+    </div>
+  </div>
 </div>
 </section>
 <!-- ARTICLES -->
-<section style="background:var(--sand);padding:80px 0;">
+<section style="background:#f5f0e6;padding:80px 0;">
 <div class="wrap">
+<!-- Section intro -->
+<div style="text-align:center;margin-bottom:48px;">
+  <h2 style="font-family:'Manrope',sans-serif;font-size:36px;font-weight:800;color:#002B49;margin-bottom:8px;">Latest from The Wave</h2>
+  <p style="font-size:16px;color:#64748B;">Short reads. Real insights. No fluff.</p>
+</div>
 <div class="articles-grid">
 <!-- FEATURED ARTICLE -->
-<article class="article-card featured">
-<div style="background:linear-gradient(135deg,#001020,#002B49);display:flex;align-items:center;justify-content:center;min-height:320px;position:relative;overflow:hidden;">
-<div style="position:absolute;inset:0;background:radial-gradient(circle at 30% 50%,rgba(0,224,255,0.15) 0%,transparent 70%);"></div>
-<div style="text-align:center;padding:40px;position:relative;z-index:2;">
-<div style="font-size:80px;margin-bottom:16px;">🔍</div>
-<div style="font-size:14px;font-weight:700;color:rgba(0,224,255,0.8);letter-spacing:1px;">FEATURED</div>
+<article class="article-card featured" style="border:none;box-shadow:0 8px 40px rgba(0,43,73,0.12);border-radius:24px;overflow:hidden;">
+<div style="position:relative;min-height:340px;overflow:hidden;">
+  <img src="https://skyticket.com/guide/wp-content/uploads/2024/12/iStock-174774690-1200x675-1200x675.jpg" alt="Trinidad and Tobago Caribbean coast" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;"/>
+  <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,20,40,0.7) 0%,rgba(255,85,0,0.3) 100%);"></div>
+  <div style="position:absolute;top:20px;left:20px;background:#FF5500;color:#fff;font-size:11px;font-weight:800;padding:5px 14px;border-radius:20px;letter-spacing:1px;text-transform:uppercase;">Featured</div>
+  <div style="position:absolute;bottom:24px;left:24px;">
+    <span style="background:rgba(0,224,255,0.2);border:1px solid rgba(0,224,255,0.4);color:#00E0FF;font-size:11px;font-weight:800;padding:4px 12px;border-radius:20px;letter-spacing:1px;text-transform:uppercase;">Google Visibility</span>
+  </div>
 </div>
-</div>
-<div class="article-body" style="padding:40px;">
-<span class="article-tag tag-google">Google Visibility</span>
-<h2 class="article-title">Why Caribbean Businesses Lose Customers Online — And Exactly How to Fix It</h2>
-<p class="article-excerpt">Every day, thousands of Caribbean customers search Google for exactly what your business offers. Most of them never find you. Not because your business isn't good enough — but because your digital presence isn't working. Here's what's really happening, and what you can do about it starting today.</p>
-<div class="article-meta">
-<span>BluWav Growth · 5 min read</span>
-<a class="article-read" href="article-1.html">Read Article →</a>
+<div class="article-body" style="padding:36px;background:#fff;">
+<h2 class="article-title" style="font-size:26px;color:#002B49;margin-bottom:12px;">Why Caribbean Businesses Lose Customers Online</h2>
+<p class="article-excerpt" style="font-size:15px;color:#475569;line-height:1.7;margin-bottom:20px;">Your customers are searching Google right now. Most of them find your competitor instead. Here is why, and the 3 things you can fix this week.</p>
+<div class="article-meta" style="display:flex;align-items:center;justify-content:space-between;">
+<span style="font-size:13px;color:#94a3b8;font-weight:600;">5 min read</span>
+<a class="article-read" href="article-1.html" style="background:#FF5500;color:#fff;padding:10px 20px;border-radius:10px;font-size:14px;font-weight:800;text-decoration:none;transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">Read Now →</a>
 </div>
 </div>
 </article>
 <!-- ARTICLE 2 -->
 <article class="article-card">
-<div style="background:linear-gradient(135deg,#001828,#003d5c);height:220px;display:flex;align-items:center;justify-content:center;">
-<div style="font-size:64px;">📍</div>
-</div>
+<div style="height:200px;overflow:hidden;position:relative;"><img src="https://as1.ftcdn.net/v2/jpg/02/23/87/60/1000_F_223876044_UpFZ6XDNlSxj2Ix1w338z7atXCsZJd0e.jpg" alt="Caribbean beach" style="width:100%;height:100%;object-fit:cover;"/><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,43,73,0.6) 100%);"></div><div style="position:absolute;bottom:12px;left:16px;"><span style="background:#00C2D8;color:#fff;font-size:10px;font-weight:800;padding:3px 10px;border-radius:12px;text-transform:uppercase;letter-spacing:1px;">Google</span></div></div>
 <div class="article-body">
 <span class="article-tag tag-google">Google Business Profile</span>
-<h2 class="article-title">Google Business Profile: The Free Tool Every Caribbean MSME Needs Right Now</h2>
-<p class="article-excerpt">It's free. It takes 30 minutes to set up. And it could be the single most impactful thing you do for your business this year. Here's everything you need to know about Google Business Profile — and why most Caribbean businesses are leaving money on the table by ignoring it.</p>
+<h2 class="article-title">Google Business Profile: The Free Tool Every Caribbean MSME Needs</h2>
+<p class="article-excerpt">Free. 30 minutes to set up. Could be the most impactful thing you do this year. Most Caribbean businesses skip it. Don't be one of them.</p>
 <div class="article-meta">
 <span>BluWav Growth · 4 min read</span>
-<a class="article-read" href="article-2.html">Read Article →</a>
+<a class="article-read" href="article-2.html" style="background:#00C2D8;color:#fff;padding:8px 16px;border-radius:8px;font-size:13px;font-weight:800;text-decoration:none;">Read Now →</a>
 </div>
 </div>
 </article>
 <!-- ARTICLE 3 -->
 <article class="article-card">
-<div style="background:linear-gradient(135deg,#001020,#002B49);height:220px;display:flex;align-items:center;justify-content:center;">
-<div style="font-size:64px;">💬</div>
-</div>
+<div style="height:200px;overflow:hidden;position:relative;"><img src="https://freespirittravel.net/wp-content/uploads/2023/11/vibrant-colorful-straw-market-on-a-tropical-island-2022-11-14-03-45-10-utc.jpg" alt="Caribbean market" style="width:100%;height:100%;object-fit:cover;"/><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,20,40,0.65) 100%);"></div><div style="position:absolute;bottom:12px;left:16px;"><span style="background:#25D366;color:#fff;font-size:10px;font-weight:800;padding:3px 10px;border-radius:12px;text-transform:uppercase;letter-spacing:1px;">WhatsApp</span></div></div>
 <div class="article-body">
 <span class="article-tag tag-whatsapp">WhatsApp Business</span>
-<h2 class="article-title">WhatsApp Business: How Caribbean Businesses Are Winning More Customers With One App</h2>
-<p class="article-excerpt">Caribbean customers don't email. They WhatsApp. If your business isn't set up on WhatsApp Business — with a catalog, quick replies, and automated messages — you're losing leads every single day. Here's how to fix that in under an hour.</p>
+<h2 class="article-title">WhatsApp Business: How Caribbean Businesses Win More Customers</h2>
+<p class="article-excerpt">Caribbean customers don't email. They WhatsApp. If you're not set up properly, you're losing leads every day. Fix it in under an hour.</p>
 <div class="article-meta">
 <span>BluWav Growth · 4 min read</span>
-<a class="article-read" href="article-3.html">Read Article →</a>
+<a class="article-read" href="article-3.html" style="background:#25D366;color:#fff;padding:8px 16px;border-radius:8px;font-size:13px;font-weight:800;text-decoration:none;">Read Now →</a>
 </div>
 </div>
 </article>
 <!-- ARTICLE 4 -->
 <article class="article-card">
-<div style="background:linear-gradient(135deg,#001828,#002B49);height:220px;display:flex;align-items:center;justify-content:center;">
-<div style="font-size:64px;">📊</div>
-</div>
+<div style="height:200px;overflow:hidden;position:relative;"><img src="https://www.caribbeanworld-magazine.com/assets/Uploads/breaking-barriers.jpeg" alt="Caribbean entrepreneur" style="width:100%;height:100%;object-fit:cover;"/><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,20,40,0.65) 100%);"></div><div style="position:absolute;bottom:12px;left:16px;"><span style="background:#F7C873;color:#002B49;font-size:10px;font-weight:800;padding:3px 10px;border-radius:12px;text-transform:uppercase;letter-spacing:1px;">CRM</span></div></div>
 <div class="article-body">
 <span class="article-tag tag-crm">CRM</span>
-<h2 class="article-title">What Is a CRM and Why Does Your Caribbean Business Need One?</h2>
-<p class="article-excerpt">You're losing customers you already have. Not because your service is bad — but because there's no system to follow up, track leads, or stay organised. A CRM fixes that. Here's what it is, how it works, and why it's now included in every BluWav Growth System.</p>
+<h2 class="article-title">What Is a CRM and Why Does Your Business Need One?</h2>
+<p class="article-excerpt">You're losing customers you already have. Not because your service is bad, but because there's no system to follow up. A CRM fixes that.</p>
 <div class="article-meta">
 <span>BluWav Growth · 3 min read</span>
-<a class="article-read" href="article-4.html">Read Article →</a>
+<a class="article-read" href="article-4.html" style="background:#F7C873;color:#002B49;padding:8px 16px;border-radius:8px;font-size:13px;font-weight:800;text-decoration:none;">Read Now →</a>
 </div>
 </div>
 </article>
 <!-- ARTICLE 5 -->
 <article class="article-card">
-<div style="background:linear-gradient(135deg,#001020,#003d5c);height:220px;display:flex;align-items:center;justify-content:center;">
-<div style="font-size:64px;">🌐</div>
-</div>
+<div style="height:200px;overflow:hidden;position:relative;"><img src="https://as2.ftcdn.net/v2/jpg/02/23/87/59/1000_F_223875986_KSvtZ0fZvTZjYxfxWDQJHiWHfhs3K1LU.jpg" alt="Caribbean coast" style="width:100%;height:100%;object-fit:cover;object-position:center top;"/><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,20,40,0.65) 100%);"></div><div style="position:absolute;bottom:12px;left:16px;"><span style="background:#FF5500;color:#fff;font-size:10px;font-weight:800;padding:3px 10px;border-radius:12px;text-transform:uppercase;letter-spacing:1px;">Websites</span></div></div>
 <div class="article-body">
 <span class="article-tag tag-website">Websites</span>
-<h2 class="article-title">5 Signs Your Caribbean Business Website Is Costing You Customers</h2>
-<p class="article-excerpt">A bad website is worse than no website. It tells customers you're not serious. Here are the 5 most common website mistakes Caribbean businesses make — and what a modern, conversion-focused website actually looks like.</p>
+<h2 class="article-title">5 Signs Your Website Is Costing You Customers</h2>
+<p class="article-excerpt">A bad website is worse than no website. It tells customers you're not serious. Here are the 5 mistakes most Caribbean businesses make.</p>
 <div class="article-meta">
 <span>BluWav Growth · 4 min read</span>
-<a class="article-read" href="article-5.html">Read Article →</a>
+<a class="article-read" href="article-5.html" style="background:#FF5500;color:#fff;padding:8px 16px;border-radius:8px;font-size:13px;font-weight:800;text-decoration:none;">Read Now →</a>
 </div>
 </div>
 </article>
 <!-- ARTICLE 6 -->
 <article class="article-card">
-<div style="background:linear-gradient(135deg,#001828,#002B49);height:220px;display:flex;align-items:center;justify-content:center;">
-<div style="font-size:64px;">📈</div>
-</div>
+<div style="height:200px;overflow:hidden;position:relative;"><img src="https://tripjive.com/wp-content/uploads/2025/01/Trinidads-coastal-scene-1024x585.jpg" alt="Trinidad coastal scene" style="width:100%;height:100%;object-fit:cover;"/><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,20,40,0.65) 100%);"></div><div style="position:absolute;bottom:12px;left:16px;"><span style="background:#00E0FF;color:#002B49;font-size:10px;font-weight:800;padding:3px 10px;border-radius:12px;text-transform:uppercase;letter-spacing:1px;">SEO</span></div></div>
 <div class="article-body">
 <span class="article-tag tag-seo">SEO</span>
-<h2 class="article-title">Local SEO for Caribbean Businesses: How to Show Up When Customers Search</h2>
-<p class="article-excerpt">When someone in Port of Spain searches "best salon near me" — does your business appear? Local SEO is the difference between being found and being invisible. Here's a practical guide built specifically for Caribbean MSMEs.</p>
+<h2 class="article-title">Local SEO: How to Show Up When Caribbean Customers Search</h2>
+<p class="article-excerpt">When someone in Port of Spain searches "best salon near me", does your business show up? If not, here is how to fix that.</p>
 <div class="article-meta">
 <span>BluWav Growth · 5 min read</span>
-<a class="article-read" href="article-6.html">Read Article →</a>
+<a class="article-read" href="article-6.html" style="background:#00E0FF;color:#002B49;padding:8px 16px;border-radius:8px;font-size:13px;font-weight:800;text-decoration:none;">Read Now →</a>
 </div>
 </div>
 </article>
@@ -267,8 +285,8 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
 <div class="newsletter">
 <div style="position:relative;z-index:2;">
 <span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:var(--gold);display:block;margin-bottom:12px;">Stay on the Wave</span>
-<h2 style="font-family:'Manrope',sans-serif;font-size:36px;font-weight:800;color:#fff;margin-bottom:12px;">Get new insights delivered<br/>to your inbox.</h2>
-<p style="font-size:16px;color:rgba(255,255,255,0.65);margin-bottom:32px;">Practical digital growth tips for Caribbean businesses. No spam. Unsubscribe anytime.</p>
+<h2 style="font-family:'Manrope',sans-serif;font-size:32px;font-weight:800;color:#fff;margin-bottom:12px;">Stay on the Wave 🌊</h2>
+<p style="font-size:16px;color:rgba(255,255,255,0.7);margin-bottom:32px;">Short, practical tips for Caribbean business owners. Drop your email and ride the wave with us.</p>
 <form id="wave-subscribe-form" onsubmit="handleWaveSubscribe(event)" style="display:flex;gap:12px;max-width:480px;margin:0 auto;flex-wrap:wrap;">
 <input id="wave-email-input" onblur="this.style.border='2px solid transparent'" onfocus="this.style.border='2px solid #00E0FF'" placeholder="your@email.com" required="" style="flex:1;min-width:200px;padding:14px 18px;border-radius:11px;border:2px solid transparent;font-size:15px;font-family:inherit;outline:none;transition:border 0.2s;" type="email"/>
 <button id="wave-subscribe-btn" style="background:var(--coral);color:#fff;font-size:15px;font-weight:800;padding:14px 28px;border-radius:11px;border:none;cursor:pointer;font-family:inherit;white-space:nowrap;box-shadow:0 4px 20px rgba(255,85,0,0.4);transition:all 0.2s;" type="submit">Subscribe →</button>
@@ -315,7 +333,7 @@ function handleWaveSubscribe(e) {
     form.style.display = 'none';
     successBox.style.display = 'block';
 
-    // Also send to WhatsApp notification (optional — opens WA with subscriber email)
+    // Also send to WhatsApp notification (optional, opens WA with subscriber email)
     // Uncomment below to get notified on WhatsApp when someone subscribes:
     // var waMsg = encodeURIComponent('New Wave subscriber: ' + email);
     // window.open('https://wa.me/18682979960?text=' + waMsg, '_blank');
