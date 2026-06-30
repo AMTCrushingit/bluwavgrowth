@@ -1140,30 +1140,63 @@ function setCurrency(code, symbol, name){
 </div>
 </div>
 <!-- STATS, dark, oversized numbers in bordered grid -->
-<section style="background:#001020;padding:72px 0;">
-<div class="wrap">
-<div style="display:grid;grid-template-columns:repeat(4,1fr);border:1px solid rgba(0,224,255,0.12);border-radius:20px;overflow:hidden;">
-<div class="reveal" style="padding:40px 24px;text-align:center;border-right:1px solid rgba(0,224,255,0.12);">
-<div style="font-family:'Sora',sans-serif;font-size:52px;font-weight:900;color:#00E0FF;line-height:1;margin-bottom:8px;">50+</div>
-<div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:4px;">Businesses Served</div>
-<div style="font-size:12px;color:rgba(255,255,255,0.4);">Across the Caribbean</div>
+<section style="position:relative;padding:0;overflow:hidden;">
+<!-- Caribbean aerial background -->
+<div style="position:absolute;inset:0;background:url('https://cdn6.dissolve.com/p/D246_143_174/D246_143_174_1200.jpg') center center/cover no-repeat;"></div>
+<!-- Warm light overlay — not dark -->
+<div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,43,73,0.82) 0%,rgba(0,20,40,0.7) 50%,rgba(255,85,0,0.25) 100%);"></div>
+<!-- Wave top edge -->
+<div style="position:absolute;top:0;left:0;right:0;height:60px;overflow:hidden;">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="width:100%;height:100%;">
+    <path d="M0,0 Q360,60 720,30 Q1080,0 1440,40 L1440,0 Z" fill="#fff"/>
+  </svg>
 </div>
-<div class="reveal" style="padding:40px 24px;text-align:center;border-right:1px solid rgba(0,224,255,0.12);">
-<div style="font-family:'Sora',sans-serif;font-size:52px;font-weight:900;color:#00C2D8;line-height:1;margin-bottom:8px;">48h</div>
-<div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:4px;">Average Delivery</div>
-<div style="font-size:12px;color:rgba(255,255,255,0.4);">From brief to live</div>
+<!-- Wave bottom edge -->
+<div style="position:absolute;bottom:0;left:0;right:0;height:60px;overflow:hidden;">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="width:100%;height:100%;">
+    <path d="M0,60 Q360,0 720,30 Q1080,60 1440,20 L1440,60 Z" fill="#002B49"/>
+  </svg>
 </div>
-<div class="reveal" style="padding:40px 24px;text-align:center;border-right:1px solid rgba(0,224,255,0.12);">
-<div style="font-family:'Sora',sans-serif;font-size:52px;font-weight:900;color:#FF5500;line-height:1;margin-bottom:8px;">5+</div>
-<div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:4px;">Years Experience</div>
-<div style="font-size:12px;color:rgba(255,255,255,0.4);">Caribbean digital expertise</div>
-</div>
-<div class="reveal" style="padding:40px 24px;text-align:center;">
-<div style="font-family:'Sora',sans-serif;font-size:52px;font-weight:900;color:#F7C873;line-height:1;margin-bottom:8px;">100%</div>
-<div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:4px;">You Own Your Site</div>
-<div style="font-size:12px;color:rgba(255,255,255,0.4);">No lock-in. Ever.</div>
-</div>
-</div>
+<div class="wrap" style="position:relative;z-index:2;padding:100px 28px;">
+  <!-- Eyebrow -->
+  <div style="text-align:center;margin-bottom:48px;">
+    <span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:#F7C873;">Trusted Across the Caribbean</span>
+  </div>
+  <!-- Stats grid -->
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;">
+    <!-- Stat 1 -->
+    <div class="reveal" style="text-align:center;background:rgba(255,255,255,0.08);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.15);border-radius:20px;padding:36px 20px;transition:transform 0.2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+      <div style="font-size:32px;margin-bottom:8px;">🌊</div>
+      <div style="font-family:'Manrope',sans-serif;font-size:52px;font-weight:900;color:#00E0FF;line-height:1;margin-bottom:8px;">50+</div>
+      <div style="font-size:15px;font-weight:800;color:#fff;margin-bottom:4px;">Businesses Served</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.55);line-height:1.5;">Across the Caribbean</div>
+    </div>
+    <!-- Stat 2 -->
+    <div class="reveal" style="text-align:center;background:rgba(255,255,255,0.08);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.15);border-radius:20px;padding:36px 20px;transition:transform 0.2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+      <div style="font-size:32px;margin-bottom:8px;">⚡</div>
+      <div style="font-family:'Manrope',sans-serif;font-size:52px;font-weight:900;color:#F7C873;line-height:1;margin-bottom:8px;">48h</div>
+      <div style="font-size:15px;font-weight:800;color:#fff;margin-bottom:4px;">Average Delivery</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.55);line-height:1.5;">From brief to live</div>
+    </div>
+    <!-- Stat 3 -->
+    <div class="reveal" style="text-align:center;background:rgba(255,255,255,0.08);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.15);border-radius:20px;padding:36px 20px;transition:transform 0.2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+      <div style="font-size:32px;margin-bottom:8px;">🇹🇹</div>
+      <div style="font-family:'Manrope',sans-serif;font-size:52px;font-weight:900;color:#FF5500;line-height:1;margin-bottom:8px;">5+</div>
+      <div style="font-size:15px;font-weight:800;color:#fff;margin-bottom:4px;">Years Experience</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.55);line-height:1.5;">Caribbean digital expertise</div>
+    </div>
+    <!-- Stat 4 -->
+    <div class="reveal" style="text-align:center;background:rgba(255,255,255,0.08);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.15);border-radius:20px;padding:36px 20px;transition:transform 0.2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+      <div style="font-size:32px;margin-bottom:8px;">🔑</div>
+      <div style="font-family:'Manrope',sans-serif;font-size:52px;font-weight:900;color:#00C2D8;line-height:1;margin-bottom:8px;">100%</div>
+      <div style="font-size:15px;font-weight:800;color:#fff;margin-bottom:4px;">You Own Everything</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.55);line-height:1.5;">No lock-in. Ever.</div>
+    </div>
+  </div>
+  <!-- Warm tagline -->
+  <div style="text-align:center;margin-top:40px;">
+    <p style="font-size:15px;color:rgba(255,255,255,0.65);font-weight:600;font-style:italic;">Built for the Caribbean. Ready for growth.</p>
+  </div>
 </div>
 </section>
 <!-- PROBLEM, diagonal clip, 2-col, emotional -->
