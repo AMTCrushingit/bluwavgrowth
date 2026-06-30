@@ -270,6 +270,48 @@ footer{background:rgba(0,43,73,0.97);padding:48px 0 0;margin-top:80px;}
 </div>
 </article>
 </div>
+
+<!-- ── WAVE NEWSLETTER STRIP ── -->
+<div style="background:linear-gradient(135deg,#002B49,#003d5c);padding:48px 28px;text-align:center;">
+  <div style="max-width:560px;margin:0 auto;">
+    <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:#F7C873;margin-bottom:10px;">Stay on the Wave</div>
+    <h3 style="font-family:'Manrope',sans-serif;font-size:24px;font-weight:800;color:#fff;margin-bottom:8px;">Get practical digital growth tips</h3>
+    <p style="font-size:15px;color:rgba(255,255,255,0.6);margin-bottom:24px;">For Caribbean businesses. No spam. Unsubscribe anytime.</p>
+    <form id="nl-form-a6" onsubmit="handleNLSubscribe(event,'a6')" style="display:flex;gap:12px;max-width:440px;margin:0 auto;flex-wrap:wrap;">
+      <input id="nl-email-a6" type="email" required placeholder="your@email.com"
+        style="flex:1;min-width:180px;padding:13px 16px;border-radius:10px;border:2px solid transparent;font-size:15px;font-family:inherit;outline:none;transition:border 0.2s;"
+        onfocus="this.style.border='2px solid #00E0FF'" onblur="this.style.border='2px solid transparent'"/>
+      <button type="submit" id="nl-btn-a6"
+        style="background:#FF5500;color:#fff;font-size:15px;font-weight:800;padding:13px 24px;border-radius:10px;border:none;cursor:pointer;font-family:inherit;white-space:nowrap;box-shadow:0 4px 16px rgba(255,85,0,0.4);transition:all 0.2s;">
+        Subscribe →
+      </button>
+    </form>
+    <div id="nl-success-a6" style="display:none;margin-top:16px;background:rgba(0,224,255,0.1);border:1px solid rgba(0,224,255,0.3);border-radius:10px;padding:14px 20px;">
+      <p style="color:#00E0FF;font-weight:800;font-size:15px;margin-bottom:2px;">🌊 You're on the Wave!</p>
+      <p style="color:rgba(255,255,255,0.65);font-size:13px;">Thanks — practical Caribbean digital tips coming your way.</p>
+    </div>
+    <div id="nl-error-a6" style="display:none;margin-top:12px;">
+      <p style="color:#FF5500;font-size:13px;font-weight:700;">Please enter a valid email address.</p>
+    </div>
+  </div>
+</div>
+<script>
+function handleNLSubscribe(e, pid) {
+  e.preventDefault();
+  var email = document.getElementById('nl-email-' + pid).value.trim();
+  var btn   = document.getElementById('nl-btn-' + pid);
+  var form  = document.getElementById('nl-form-' + pid);
+  var succ  = document.getElementById('nl-success-' + pid);
+  var err   = document.getElementById('nl-error-' + pid);
+  var re    = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!re.test(email)) { err.style.display='block'; succ.style.display='none'; return; }
+  btn.textContent = 'Subscribing...'; btn.style.opacity='0.7'; btn.disabled=true; err.style.display='none';
+  var subs = JSON.parse(localStorage.getItem('bluwav_subscribers')||'[]');
+  if (!subs.includes(email)) { subs.push(email); localStorage.setItem('bluwav_subscribers', JSON.stringify(subs)); }
+  setTimeout(function(){ form.style.display='none'; succ.style.display='block'; }, 700);
+}
+</script>
+
 <footer>
 <div class="footer-inner">
 <div class="footer-brand">Blu<span>Wav</span> Growth</div>
