@@ -1082,6 +1082,13 @@ function setCurrency(code, symbol, name){
 <div style="position:absolute;inset:0;z-index:0;">
 <img alt="BluWav Growth Caribbean team" class="hero-img-reveal" src="hero-team.jpg?expires=1785418560&amp;signature=2cae191ba08460de3594f6aff64dbacd8e6d3763beb7585b4bf32a3a8682725a&amp;kid=prod-250922" style="width:100%;height:100%;object-fit:cover;object-position:25% center;display:block;filter:brightness(1.08) contrast(1.05) saturate(1.1);"/>
 </div>
+<!-- Caribbean beach scenery — warm right-side accent -->
+<div style="position:absolute;top:0;right:0;width:45%;height:100%;z-index:0;overflow:hidden;">
+  <img src="https://as1.ftcdn.net/v2/jpg/02/23/87/60/1000_F_223876044_UpFZ6XDNlSxj2Ix1w338z7atXCsZJd0e.jpg"
+       alt="Caribbean beach" style="width:100%;height:100%;object-fit:cover;object-position:center;opacity:0.18;filter:saturate(1.4) brightness(1.1);"/>
+  <!-- Fade left so it blends with team photo -->
+  <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(0,8,20,0.95) 0%,transparent 40%);"></div>
+</div>
 <!-- SEAMLESS GRADIENT OVERLAY: dark left → transparent right -->
 <div style="position:absolute;inset:0;z-index:1;background:linear-gradient(to right,rgba(0,8,20,0.95) 0%,rgba(0,20,45,0.88) 15%,rgba(0,35,65,0.65) 30%,rgba(0,43,73,0.30) 45%,rgba(0,43,73,0.08) 60%,transparent 75%);"></div>
 <!-- Top darkening for readability -->
@@ -1100,6 +1107,7 @@ function setCurrency(code, symbol, name){
 <!-- Headline -->
 <h1 class="hero-h1 hero-anim-3" style="font-size:54px;text-align:left;margin-bottom:18px;line-height:1.06;">Get Your Business Found Online…<br/><span class="gold">and Chosen First.</span></h1>
 <!-- Subheadline -->
+<p class="hero-anim-4 hero-para-1" style="text-align:left;max-width:600px;margin-bottom:14px;font-size:17px;line-height:1.65;color:rgba(255,255,255,0.9);font-weight:400;">We build your website, boost your Google visibility, and automate your follow-ups.<br><span style="color:var(--gold);font-weight:700;">Most clients go live in 48 hours.</span></p>
 <!-- Health check copy -->
 <p class="hero-anim-4 hero-para-2" style="text-align:left;max-width:620px;margin-bottom:12px;font-size:14px;line-height:1.7;color:rgba(0,224,255,0.9);font-weight:600;">Our free Health Check shows you exactly why customers are choosing your competitor right now.</p>
 <!-- CTA -->
@@ -1113,9 +1121,15 @@ function setCurrency(code, symbol, name){
 </div>
 </div>
 </div>
+<!-- Curved wave bottom — same as The Wave page -->
+<div style="position:absolute;bottom:-2px;left:0;right:0;z-index:4;line-height:0;pointer-events:none;">
+  <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:90px;display:block;">
+    <path d="M0,0 Q360,90 720,45 Q1080,0 1440,60 L1440,90 L0,90 Z" fill="#FF5500"/>
+  </svg>
+</div>
 </section>
-<!-- PROOF STRIP, seamless ticker -->
-<div style="background:linear-gradient(135deg,#FF5500,#e84d00);overflow:hidden;padding:0;">
+<!-- PROOF STRIP, seamless ticker — sits on the orange wave -->
+<div style="background:linear-gradient(135deg,#FF5500,#e84d00);overflow:hidden;padding:0;margin-top:-2px;">
 <div style="display:flex;align-items:center;white-space:nowrap;animation:ticker-seamless 30s linear infinite;">
 <span style="font-size:15px;font-weight:800;color:#fff;padding:16px 48px;display:inline-block;flex-shrink:0;">⚡ 48–72 Hour Delivery</span>
 <span style="color:rgba(255,255,255,0.4);font-size:18px;flex-shrink:0;">·</span>
@@ -1138,9 +1152,20 @@ function setCurrency(code, symbol, name){
 <span aria-hidden="true" style="font-size:15px;font-weight:800;color:#fff;padding:16px 48px;display:inline-block;flex-shrink:0;">🏆 5+ Years Caribbean Experience</span>
 <span aria-hidden="true" style="color:rgba(255,255,255,0.4);font-size:18px;flex-shrink:0;">·</span>
 </div>
+<!-- Curved wave bottom of ticker — flows into beach/stats section -->
+<div style="position:relative;line-height:0;margin-top:-1px;">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:60px;display:block;">
+    <path d="M0,60 Q360,0 720,30 Q1080,60 1440,10 L1440,60 Z" fill="#FF5500"/>
+  </svg>
+  <!-- Beach scenery strip — warm Caribbean transition -->
+  <div style="position:absolute;inset:0;overflow:hidden;z-index:-1;">
+    <img src="https://as1.ftcdn.net/v2/jpg/02/23/87/60/1000_F_223876044_UpFZ6XDNlSxj2Ix1w338z7atXCsZJd0e.jpg"
+         alt="Caribbean beach" style="width:100%;height:200%;object-fit:cover;object-position:center 30%;opacity:0.3;"/>
+  </div>
+</div>
 </div>
 <!-- STATS, dark, oversized numbers in bordered grid -->
-<section style="position:relative;padding:0;overflow:hidden;">
+<section style="position:relative;padding:0;overflow:hidden;margin-top:-2px;">
 <!-- Caribbean aerial background -->
 <div style="position:absolute;inset:0;background:url('https://cdn6.dissolve.com/p/D246_143_174/D246_143_174_1200.jpg') center center/cover no-repeat;"></div>
 <!-- Warm light overlay — not dark -->
@@ -1197,6 +1222,12 @@ function setCurrency(code, symbol, name){
   <div style="text-align:center;margin-top:40px;">
     <p style="font-size:15px;color:rgba(255,255,255,0.65);font-weight:600;font-style:italic;">Built for the Caribbean. Ready for growth.</p>
   </div>
+</div>
+<!-- Curved wave bottom of stats → flows into Problem section -->
+<div style="position:absolute;bottom:-2px;left:0;right:0;z-index:4;line-height:0;pointer-events:none;">
+  <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:70px;display:block;">
+    <path d="M0,70 Q360,0 720,35 Q1080,70 1440,20 L1440,70 Z" fill="#002B49"/>
+  </svg>
 </div>
 </section>
 <!-- PROBLEM, diagonal clip, 2-col, emotional -->
