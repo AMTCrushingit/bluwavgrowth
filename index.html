@@ -85,7 +85,7 @@ a{text-decoration:none;color:inherit;}
 .hero-features{display:flex;flex-wrap:wrap;gap:8px;padding:16px 20px;border-top:1px solid rgba(255,255,255,0.08);}
 .hero-feature{display:flex;align-items:center;gap:6px;font-size:12px;color:rgba(255,255,255,0.8);font-weight:600;padding:5px 10px;background:rgba(255,255,255,0.08);border-radius:20px;border:1px solid rgba(255,255,255,0.12);}
 .hf-check{width:16px;height:16px;border-radius:50%;background:linear-gradient(135deg,var(--coral),var(--gold));display:flex;align-items:center;justify-content:center;font-size:9px;color:#fff;font-weight:800;flex-shrink:0;}
-.proof-strip{background:linear-gradient(135deg,#FF5500,#e84d00);padding:0;overflow:hidden;}
+.proof-strip{background:#FF5500;padding:0;overflow:hidden;}
 .proof-inner{max-width:var(--max);margin:0 auto;padding:0 48px;display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap;}
 .proof-item{display:inline-flex;align-items:center;font-size:15px;color:#fff;font-weight:800;}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 48px;}
@@ -1119,15 +1119,15 @@ function setCurrency(code, symbol, name){
 </div>
 </div>
 </div>
-<!-- Curved wave bottom — same as The Wave page -->
-<div style="position:absolute;bottom:-2px;left:0;right:0;z-index:4;line-height:0;pointer-events:none;">
+</section>
+<!-- Curved wave — sits BETWEEN hero and ticker, no overflow clipping -->
+<div style="background:#FF5500;margin-top:-90px;position:relative;z-index:10;line-height:0;">
   <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:90px;display:block;">
-    <path d="M0,0 Q360,90 720,45 Q1080,0 1440,60 L1440,92 L0,92 Z" fill="#FF5500"/>
+    <path d="M0,0 Q360,90 720,45 Q1080,0 1440,60 L1440,90 L0,90 Z" fill="#FF5500"/>
   </svg>
 </div>
-</section>
-<!-- PROOF STRIP, seamless ticker — sits on the orange wave -->
-<div style="background:linear-gradient(135deg,#FF5500,#e84d00);overflow:hidden;padding:0;margin-top:-2px;">
+<!-- PROOF STRIP, seamless ticker -->
+<div style="background:#FF5500;overflow:hidden;padding:0;margin-top:-2px;">
 <div style="display:flex;align-items:center;white-space:nowrap;animation:ticker-seamless 30s linear infinite;">
 <span style="font-size:15px;font-weight:800;color:#fff;padding:16px 48px;display:inline-block;flex-shrink:0;">⚡ 48–72 Hour Delivery</span>
 <span style="color:rgba(255,255,255,0.4);font-size:18px;flex-shrink:0;">·</span>
