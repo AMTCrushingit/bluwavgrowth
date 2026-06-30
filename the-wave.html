@@ -2,7 +2,7 @@
 
 <html lang="en">
 <head>
-<meta name="msvalidate.01" content="FEE9B5469C6A497A48F135B874E87252" />
+<meta content="FEE9B5469C6A497A48F135B874E87252" name="msvalidate.01"/>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>The Wave | BluWav Growth — Insights for Caribbean Businesses</title>
@@ -269,10 +269,59 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
 <span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:var(--gold);display:block;margin-bottom:12px;">Stay on the Wave</span>
 <h2 style="font-family:'Manrope',sans-serif;font-size:36px;font-weight:800;color:#fff;margin-bottom:12px;">Get new insights delivered<br/>to your inbox.</h2>
 <p style="font-size:16px;color:rgba(255,255,255,0.65);margin-bottom:32px;">Practical digital growth tips for Caribbean businesses. No spam. Unsubscribe anytime.</p>
-<form onsubmit="return false;" style="display:flex;gap:12px;max-width:480px;margin:0 auto;flex-wrap:wrap;">
-<input placeholder="your@email.com" style="flex:1;min-width:200px;padding:14px 18px;border-radius:11px;border:none;font-size:15px;font-family:inherit;outline:none;" type="email"/>
-<button style="background:var(--coral);color:#fff;font-size:15px;font-weight:800;padding:14px 28px;border-radius:11px;border:none;cursor:pointer;font-family:inherit;white-space:nowrap;box-shadow:0 4px 20px rgba(255,85,0,0.4);" type="submit">Subscribe →</button>
+<form id="wave-subscribe-form" onsubmit="handleWaveSubscribe(event)" style="display:flex;gap:12px;max-width:480px;margin:0 auto;flex-wrap:wrap;">
+<input id="wave-email-input" onblur="this.style.border='2px solid transparent'" onfocus="this.style.border='2px solid #00E0FF'" placeholder="your@email.com" required="" style="flex:1;min-width:200px;padding:14px 18px;border-radius:11px;border:2px solid transparent;font-size:15px;font-family:inherit;outline:none;transition:border 0.2s;" type="email"/>
+<button id="wave-subscribe-btn" style="background:var(--coral);color:#fff;font-size:15px;font-weight:800;padding:14px 28px;border-radius:11px;border:none;cursor:pointer;font-family:inherit;white-space:nowrap;box-shadow:0 4px 20px rgba(255,85,0,0.4);transition:all 0.2s;" type="submit">Subscribe →</button>
 </form>
+<div id="wave-subscribe-success" style="display:none;margin-top:20px;background:rgba(0,224,255,0.1);border:1px solid rgba(0,224,255,0.3);border-radius:12px;padding:16px 24px;max-width:480px;margin-left:auto;margin-right:auto;">
+<p style="color:#00E0FF;font-weight:800;font-size:16px;margin-bottom:4px;">🌊 You're on the Wave!</p>
+<p style="color:rgba(255,255,255,0.7);font-size:14px;">Thanks for subscribing. Practical Caribbean digital growth tips coming your way.</p>
+</div>
+<div id="wave-subscribe-error" style="display:none;margin-top:20px;background:rgba(255,85,0,0.1);border:1px solid rgba(255,85,0,0.3);border-radius:12px;padding:16px 24px;max-width:480px;margin-left:auto;margin-right:auto;">
+<p style="color:#FF5500;font-weight:800;font-size:14px;">Please enter a valid email address.</p>
+</div>
+<script>
+function handleWaveSubscribe(e) {
+  e.preventDefault();
+  var email = document.getElementById('wave-email-input').value.trim();
+  var btn = document.getElementById('wave-subscribe-btn');
+  var successBox = document.getElementById('wave-subscribe-success');
+  var errorBox = document.getElementById('wave-subscribe-error');
+  var form = document.getElementById('wave-subscribe-form');
+
+  // Basic email validation
+  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    errorBox.style.display = 'block';
+    successBox.style.display = 'none';
+    return;
+  }
+
+  // Loading state
+  btn.textContent = 'Subscribing...';
+  btn.style.opacity = '0.7';
+  btn.disabled = true;
+  errorBox.style.display = 'none';
+
+  // Store in localStorage so it persists
+  var subscribers = JSON.parse(localStorage.getItem('bluwav_subscribers') || '[]');
+  if (!subscribers.includes(email)) {
+    subscribers.push(email);
+    localStorage.setItem('bluwav_subscribers', JSON.stringify(subscribers));
+  }
+
+  // Simulate brief processing then show success
+  setTimeout(function() {
+    form.style.display = 'none';
+    successBox.style.display = 'block';
+
+    // Also send to WhatsApp notification (optional — opens WA with subscriber email)
+    // Uncomment below to get notified on WhatsApp when someone subscribes:
+    // var waMsg = encodeURIComponent('New Wave subscriber: ' + email);
+    // window.open('https://wa.me/18682979960?text=' + waMsg, '_blank');
+  }, 800);
+}
+</script>
 </div>
 </div>
 <!-- CTA -->
