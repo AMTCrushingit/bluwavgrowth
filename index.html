@@ -1019,25 +1019,7 @@ a[style*="background:#00E0FF"]:hover::after,a[style*="background:var(--cyan)"]:h
 }
 
 
-/* ── Hero paragraph mobile fix ── */
-@media(max-width:768px){
-  .hero-para-1{
-    font-size:15px !important;
-    line-height:1.6 !important;
-    max-width:100% !important;
-    margin-bottom:12px !important;
-  }
-  .hero-para-2{
-    font-size:13px !important;
-    line-height:1.65 !important;
-    max-width:100% !important;
-    margin-bottom:28px !important;
-  }
-}
-@media(max-width:480px){
-  .hero-para-1{font-size:14px !important;line-height:1.55 !important;}
-  .hero-para-2{font-size:12px !important;line-height:1.6 !important;}
-}
+/* hero-para rules consolidated into main mobile block */
 
 
 
@@ -1142,6 +1124,328 @@ input[type="submit"]{
   font-family:'object-fit:cover;object-position:25% center;';
 }
 
+
+/* ════════════════════════════════════════════════════════════════════════════
+   COMPREHENSIVE MOBILE & TABLET RESPONSIVE SYSTEM
+   Breakpoints: 1024px (tablet) · 768px (mobile) · 480px (small) · 360px (tiny)
+   ════════════════════════════════════════════════════════════════════════════ */
+
+/* ── 1024px TABLET ── */
+@media(max-width:1024px){
+
+  /* Trusted stats: 2×2 grid on tablet */
+  .trusted-stats-grid{
+    grid-template-columns:1fr 1fr !important;
+    gap:16px !important;
+  }
+  .trusted-stats-grid > div{
+    padding:28px 16px !important;
+  }
+
+  /* Growth Systems: equal columns on tablet */
+  .growth-systems-grid{
+    grid-template-columns:1fr 1fr 1fr !important;
+    gap:12px !important;
+  }
+  .growth-systems-grid > div{
+    padding:24px 16px !important;
+    transform:none !important;
+  }
+
+  /* Problem section: stack on tablet */
+  #problem .wrap > div[style*="grid-template-columns:1fr 1fr"]{
+    grid-template-columns:1fr !important;
+    gap:40px !important;
+  }
+
+  /* Health check: stack on tablet */
+  #health-check .wrap > div[style*="grid-template-columns:1fr 1fr"]{
+    grid-template-columns:1fr !important;
+    gap:40px !important;
+  }
+
+  /* Contact: stack on tablet */
+  #contact-grid{
+    grid-template-columns:1fr !important;
+    gap:32px !important;
+  }
+
+  /* What We Do pillars: 2-col on tablet */
+  [style*="grid-template-columns:repeat(3,1fr)"][style*="gap:28px"]{
+    grid-template-columns:1fr 1fr !important;
+  }
+
+  /* Section padding reduction */
+  #problem{padding:72px 0 100px !important;}
+  #every-plan{padding:80px 0 !important;}
+  #comparison{padding:80px 0 !important;}
+  #how-it-works{padding:80px 0 !important;}
+  #health-check{padding:80px 0 !important;}
+  #contact{padding:72px 0 !important;}
+
+  /* Inner container padding */
+  [style*="padding:0 48px"]{padding:0 28px !important;}
+  [style*="max-width:1100px"]{padding:0 28px !important;}
+  [style*="max-width:1200px"]{padding:0 28px !important;}
+}
+
+/* ── 768px MOBILE ── */
+@media(max-width:768px){
+
+  /* ── GLOBAL ── */
+  html,body{overflow-x:hidden !important;}
+
+  /* ── SECTION PADDING ── */
+  #problem{padding:56px 0 72px !important;clip-path:none !important;}
+  #what-we-do{padding:56px 0 !important;}
+  #every-plan{padding:56px 0 !important;clip-path:none !important;margin:0 !important;}
+  #what-we-do-cont{padding:0 0 48px !important;}
+  #comparison{padding:56px 0 !important;}
+  #how-it-works{padding:56px 0 !important;}
+  #health-check{padding:56px 0 !important;}
+  #contact{padding:56px 0 !important;}
+
+  /* ── INNER CONTAINERS ── */
+  [style*="padding:0 48px"]{padding:0 16px !important;}
+  [style*="max-width:1100px"]{max-width:100% !important;padding:0 16px !important;}
+  [style*="max-width:1200px"]{max-width:100% !important;padding:0 16px !important;}
+  [style*="max-width:680px"]{max-width:100% !important;}
+  [style*="max-width:600px"]{max-width:100% !important;}
+  [style*="max-width:560px"]{max-width:100% !important;}
+  [style*="max-width:520px"]{max-width:100% !important;}
+
+  /* ── TYPOGRAPHY ── */
+  /* H1 hero */
+  .hero-h1{font-size:32px !important;line-height:1.15 !important;letter-spacing:-0.3px !important;}
+  /* Section headings */
+  [style*="font-size:48px"]{font-size:28px !important;line-height:1.2 !important;}
+  [style*="font-size:44px"]{font-size:26px !important;line-height:1.2 !important;}
+  [style*="font-size:40px"]{font-size:26px !important;line-height:1.2 !important;}
+  [style*="font-size:36px"]{font-size:24px !important;line-height:1.2 !important;}
+  /* Sub-headings */
+  [style*="font-size:24px"]{font-size:20px !important;}
+  [style*="font-size:20px"]{font-size:18px !important;}
+  /* Body text */
+  [style*="font-size:17px"]{font-size:15px !important;line-height:1.7 !important;}
+  [style*="font-size:16px"]{font-size:15px !important;line-height:1.7 !important;}
+  /* Small text */
+  [style*="font-size:13px"]{font-size:13px !important;}
+  [style*="font-size:12px"]{font-size:12px !important;}
+
+  /* ── PROBLEM SECTION ── */
+  #problem .wrap > div[style*="grid-template-columns:1fr 1fr"]{
+    grid-template-columns:1fr !important;
+    gap:32px !important;
+  }
+  #problem h2[style*="font-size:48px"]{font-size:28px !important;}
+  #problem .reveal-right{order:2;}
+  #problem .reveal-left{order:1;}
+
+  /* ── WHAT WE DO ── */
+  /* 3-pillar grid → 1 col */
+  [style*="grid-template-columns:repeat(3,1fr)"][style*="gap:28px"]{
+    grid-template-columns:1fr !important;
+    gap:16px !important;
+  }
+  /* Service rows */
+  .service-row{grid-template-columns:1fr !important;}
+  [style*="grid-template-columns:repeat(3,1fr)"][style*="gap:24px"]{
+    grid-template-columns:1fr !important;
+    gap:14px !important;
+  }
+
+  /* ── EVERY PLAN SECTION ── */
+  #every-plan [style*="max-width:1200px"]{padding:0 16px !important;}
+  #every-plan [style*="grid-template-columns:repeat(3,1fr)"]{
+    grid-template-columns:1fr !important;
+    gap:16px !important;
+  }
+  #every-plan [style*="grid-template-columns:1fr 1fr"]{
+    grid-template-columns:1fr !important;
+    gap:16px !important;
+  }
+  /* Oversized watermark — hide on mobile */
+  [style*="font-size:400px"]{display:none !important;}
+
+  /* ── GROWTH SYSTEMS ── */
+  .growth-systems-grid{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:16px !important;
+    align-items:stretch !important;
+  }
+  .growth-systems-grid > div{
+    transform:none !important;
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+    box-sizing:border-box !important;
+    padding:24px 20px !important;
+  }
+  /* Why BluWav 2-col → 1-col */
+  [style*="grid-template-columns:repeat(2,1fr)"][style*="gap:24px"]{
+    grid-template-columns:1fr !important;
+    gap:12px !important;
+  }
+  /* CTA box padding */
+  [style*="padding:56px"][style*="border-radius:24px"]{
+    padding:32px 20px !important;
+  }
+  [style*="padding:56px"] h3[style*="font-size:36px"]{
+    font-size:22px !important;
+  }
+
+  /* ── TRUSTED STATS ── */
+  .trusted-stats-grid{
+    display:grid !important;
+    grid-template-columns:1fr 1fr !important;
+    gap:12px !important;
+  }
+  .trusted-stats-grid > div{
+    padding:20px 12px !important;
+    min-width:0 !important;
+    box-sizing:border-box !important;
+  }
+  /* Stat numbers */
+  .trusted-stats-grid [style*="font-size:52px"]{
+    font-size:32px !important;
+    line-height:1 !important;
+  }
+  .trusted-stats-grid [style*="font-size:15px"]{
+    font-size:13px !important;
+  }
+  .trusted-stats-grid [style*="font-size:12px"]{
+    font-size:11px !important;
+  }
+  /* Trusted section padding */
+  [style*="padding:100px 28px"]{padding:48px 16px !important;}
+
+  /* ── COMPARISON SECTION ── */
+  #comparison [style*="max-width:680px"]{max-width:100% !important;}
+  #comparison [style*="padding:48px"]{padding:24px 20px !important;}
+  /* Toggle buttons */
+  #comparison .reveal > div[style*="display:inline-flex"]{
+    flex-direction:column !important;
+    width:100% !important;
+    border-radius:16px !important;
+  }
+  #btnBefore,#btnAfter{
+    width:100% !important;
+    border-radius:12px !important;
+    text-align:center !important;
+  }
+
+  /* ── HOW IT WORKS ── */
+  .how-it-works-steps{
+    grid-template-columns:1fr !important;
+    gap:32px !important;
+  }
+  .how-it-works-steps .connector-anim{display:none !important;}
+  .how-it-works-steps > div{padding:0 8px !important;}
+  /* Step circles */
+  .how-it-works-steps [style*="width:104px;height:104px"]{
+    width:80px !important;
+    height:80px !important;
+    font-size:28px !important;
+  }
+  /* Step title */
+  .how-it-works-steps [style*="font-size:20px"]{font-size:17px !important;}
+
+  /* ── HEALTH CHECK ── */
+  #health-check .wrap > div[style*="grid-template-columns:1fr 1fr"]{
+    grid-template-columns:1fr !important;
+    gap:32px !important;
+  }
+  #health-check [style*="gap:80px"]{gap:32px !important;}
+  #health-check [style*="padding:36px"]{padding:24px 20px !important;}
+
+  /* ── CONTACT ── */
+  #contact-grid{
+    grid-template-columns:1fr !important;
+    gap:28px !important;
+  }
+  #contact [style*="gap:48px"]{gap:28px !important;}
+  #contact [style*="padding:36px"]{padding:24px 20px !important;}
+  #contact h2{font-size:26px !important;}
+
+  /* ── FOOTER ── */
+  .footer-grid{grid-template-columns:1fr !important;gap:28px !important;}
+  .footer-bottom{flex-direction:column !important;text-align:center !important;gap:8px !important;}
+
+  /* ── PROCESS STEPS ── */
+  .process-steps-grid{grid-template-columns:1fr 1fr !important;gap:20px !important;}
+
+  /* ── BUTTONS ── */
+  .btn-coral,.btn-wa,.btn-navy{
+    width:100% !important;
+    justify-content:center !important;
+    box-sizing:border-box !important;
+    text-align:center !important;
+  }
+
+  /* ── CLIP-PATH REMOVAL ── */
+  /* clip-path causes overflow issues on mobile */
+  [style*="clip-path"]{clip-path:none !important;}
+}
+
+/* ── 480px SMALL PHONES ── */
+@media(max-width:480px){
+
+  /* Trusted stats → 1 col */
+  .trusted-stats-grid{
+    grid-template-columns:1fr !important;
+    gap:10px !important;
+  }
+  .trusted-stats-grid > div{padding:16px 12px !important;}
+  .trusted-stats-grid [style*="font-size:52px"]{font-size:28px !important;}
+
+  /* Growth systems cards */
+  .growth-systems-grid > div{padding:20px 16px !important;}
+  .growth-systems-grid [style*="font-size:36px"]{font-size:28px !important;}
+
+  /* Hero */
+  .hero-h1{font-size:26px !important;}
+  .hero-logo-name{font-size:40px !important;}
+
+  /* Section headings */
+  [style*="font-size:48px"]{font-size:24px !important;}
+  [style*="font-size:44px"]{font-size:22px !important;}
+  [style*="font-size:40px"]{font-size:22px !important;}
+
+  /* Process steps → 1 col */
+  .process-steps-grid{grid-template-columns:1fr !important;}
+
+  /* How it works circles */
+  .how-it-works-steps [style*="width:104px;height:104px"]{
+    width:68px !important;
+    height:68px !important;
+    font-size:24px !important;
+  }
+
+  /* Comparison toggle */
+  #btnBefore,#btnAfter{font-size:13px !important;padding:10px 16px !important;}
+
+  /* Contact form */
+  #contact [style*="padding:36px"]{padding:20px 16px !important;}
+  #contact [style*="font-size:22px"]{font-size:18px !important;}
+
+  /* CTA box */
+  [style*="padding:56px"][style*="border-radius:24px"]{padding:24px 16px !important;}
+}
+
+/* ── 360px TINY PHONES ── */
+@media(max-width:360px){
+  .hero-h1{font-size:22px !important;}
+  .hero-logo-name{font-size:34px !important;}
+  nav{padding:0 12px !important;}
+  .wrap{padding:0 12px !important;}
+  [style*="font-size:48px"]{font-size:20px !important;}
+  [style*="font-size:44px"]{font-size:20px !important;}
+  [style*="font-size:40px"]{font-size:20px !important;}
+  .trusted-stats-grid [style*="font-size:52px"]{font-size:24px !important;}
+  .growth-systems-grid > div{padding:16px 12px !important;}
+  .btn-coral,.btn-wa,.btn-navy{font-size:14px !important;padding:13px 16px !important;}
+}
 </style>
 <meta content="index, follow" name="robots"/>
 <meta content="BluWav Caribbean | Digital Growth Agency for the Caribbean" property="og:title"/>
