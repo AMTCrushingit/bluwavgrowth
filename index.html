@@ -476,16 +476,37 @@ a{text-decoration:none;color:inherit;}
 
   /* ── Three Growth Systems: stack on mobile ── */
   .growth-systems-grid{
+    display:grid !important;
     grid-template-columns:1fr !important;
-    gap:20px !important;
+    gap:16px !important;
     align-items:stretch !important;
     padding:0 !important;
+    width:100% !important;
   }
   .growth-systems-grid > div{
     transform:none !important;
     margin-bottom:0 !important;
     width:100% !important;
+    max-width:100% !important;
     box-sizing:border-box !important;
+    min-width:0 !important;
+  }
+
+  /* ── Trusted Stats: 2-col on mobile, 1-col on tiny screens ── */
+  .trusted-stats-grid{
+    display:grid !important;
+    grid-template-columns:1fr 1fr !important;
+    gap:12px !important;
+    width:100% !important;
+  }
+  .trusted-stats-grid > div{
+    width:100% !important;
+    box-sizing:border-box !important;
+    padding:20px 12px !important;
+    min-width:0 !important;
+  }
+  .trusted-stats-grid > div > div[style*="font-size:52px"]{
+    font-size:36px !important;
   }
 
   /* ── How It Works: stack steps vertically ── */
@@ -531,6 +552,14 @@ a{text-decoration:none;color:inherit;}
   #how-it-works{padding:72px 0 !important;}
   #how-it-works .wrap > div:first-child{margin-bottom:48px !important;}
 
+  /* ── Trusted section mobile ── */
+  .trusted-stats-grid > div > div[style*="font-size:52px"]{
+    font-size:36px !important;
+    line-height:1 !important;
+  }
+  /* Trusted section wrap padding */
+  [style*="padding:100px 28px"]{padding:60px 16px !important;}
+
   /* Prevent horizontal overflow from wide elements */
   .proof-inner{padding:0 16px !important;gap:20px !important;}
   .ticker-track > div{padding:0 24px !important;}
@@ -559,6 +588,13 @@ a{text-decoration:none;color:inherit;}
   }
 
 @media(max-width:480px){
+  .trusted-stats-grid{
+    grid-template-columns:1fr !important;
+    gap:10px !important;
+  }
+  .trusted-stats-grid > div{
+    padding:16px 12px !important;
+  }
   .hero-h1{font-size:24px !important;}
   .h2{font-size:22px !important;}
   .features-grid{grid-template-columns:1fr !important;}
@@ -1358,7 +1394,7 @@ function setCurrency(code, symbol, name){
     <span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:#F7C873;">Trusted Across the Caribbean</span>
   </div>
   <!-- Stats grid -->
-  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;">
+  <div class="trusted-stats-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;">
     <!-- Stat 1 -->
     <div class="reveal" style="text-align:center;background:rgba(255,255,255,0.08);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.15);border-radius:20px;padding:36px 20px;transition:transform 0.2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
       <div style="font-size:32px;margin-bottom:8px;">🌊</div>
