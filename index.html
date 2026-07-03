@@ -15,7 +15,7 @@
 
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{font-family:'Plus Jakarta Sans',sans-serif;background:#F4F2ED;color:#1E1E1E;overflow-x:hidden;}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:#F4F2ED;color:#1E1E1E;overflow-x:hidden;-webkit-text-size-adjust:100%;}
 a{text-decoration:none;color:inherit;}
 :root{--navy:#002B49;--coral:#FF5500;--coral2:#e84d00;--gold:#F7C873;--gold2:#e8b85e;--cyan:#00E0FF;--turquoise:#00C2D8;--sand:#F4F2ED;--dark:#1E1E1E;--slate:#64748b;--white:#ffffff;--mist:#e8e4de;--max:1400px;}
 
@@ -360,6 +360,7 @@ a{text-decoration:none;color:inherit;}
 
   /* NAV */
   nav{padding:0 16px !important;height:60px !important;}
+  .mob-nav{top:60px !important;}
   
   
   .wrap{padding:0 16px !important;}
@@ -471,6 +472,32 @@ a{text-decoration:none;color:inherit;}
   .sticky-bar-text{font-size:12px !important;text-align:center !important;}
 
   /* Wave */
+
+  /* Prevent horizontal overflow from wide elements */
+  .proof-inner{padding:0 16px !important;gap:20px !important;}
+  .ticker-track > div{padding:0 24px !important;}
+
+  /* Stats section */
+  [style*="max-width:1100px"]{max-width:100% !important;padding:0 16px !important;}
+  [style*="max-width:1200px"]{max-width:100% !important;padding:0 16px !important;}
+  [style*="max-width:1400px"]{max-width:100% !important;padding:0 16px !important;}
+
+  /* Section padding */
+  section{padding-left:0 !important;padding-right:0 !important;}
+  .wrap{padding:0 16px !important;}
+
+  /* Images */
+  img{max-width:100% !important;height:auto !important;}
+
+  /* Buttons full width on small screens */
+  .btn-coral,.btn-wa,.btn-navy{width:100% !important;justify-content:center !important;box-sizing:border-box !important;}
+
+  /* Footer */
+  .footer-grid{grid-template-columns:1fr !important;}
+  .footer-bottom{flex-direction:column !important;text-align:center !important;gap:8px !important;}
+
+  /* Proof strip */
+  .proof-inner{flex-direction:column !important;align-items:center !important;}
   }
 
 @media(max-width:480px){
@@ -499,6 +526,17 @@ a{text-decoration:none;color:inherit;}
     grid-template-columns:1fr !important;
   }
 }
+
+/* ── 320px (smallest phones) ── */
+@media(max-width:360px){
+  .hero-logo-name{font-size:36px !important;}
+  .hero-h1{font-size:22px !important;}
+  .h2{font-size:20px !important;}
+  nav{padding:0 12px !important;}
+  .wrap{padding:0 12px !important;}
+  .btn-coral,.btn-wa,.btn-navy{font-size:14px !important;padding:13px 16px !important;}
+  .mob-link{font-size:14px !important;}
+}
 .hero{
   min-height:100vh;
   position:relative;
@@ -506,21 +544,13 @@ a{text-decoration:none;color:inherit;}
   display:flex;
   align-items:center;
   padding:110px 7% 80px;
-  overflow:hidden;
 }
 
 
 .hero-inner{width:60%;max-width:760px;text-align:left;position:relative;z-index:3;}
 
-
-
-
-
 @media(max-width:768px){
-  
-  .hero-inner{width:60%;max-width:760px;text-align:left;position:relative;z-index:3;}
-  
-  
+  .hero-inner{width:100% !important;max-width:100% !important;text-align:center !important;}
 }
 
 /* Ticker */
@@ -550,9 +580,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 32px;d
 .nav-link:hover{color:#fff;}
 .nav-cta{background:var(--coral,#FF5500);color:#fff;font-size:13px;font-weight:700;padding:10px 24px;border-radius:9px;box-shadow:0 4px 16px rgba(255,85,0,0.35);transition:transform 0.15s,box-shadow 0.2s;text-decoration:none;}
 .nav-cta:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(255,85,0,0.5);}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:101;position:relative;background:none;border:none;padding:0;}
-.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;}
-.mob-nav{display:none;position:fixed;top:70px;left:0;right:0;background:rgba(0,43,73,0.99);backdrop-filter:blur(20px);padding:20px 24px;flex-direction:column;gap:4px;z-index:9999;border-bottom:1px solid rgba(0,224,255,0.15);box-shadow:0 8px 32px rgba(0,0,0,0.3);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1001;position:relative;background:none;border:none;padding:8px;margin:-8px;touch-action:manipulation;-webkit-tap-highlight-color:transparent;}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all 0.3s ease;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mob-nav{display:none;position:fixed;top:70px;left:0;right:0;background:rgba(0,43,73,0.99);backdrop-filter:blur(20px);padding:20px 24px;flex-direction:column;gap:4px;z-index:10000;border-bottom:1px solid rgba(0,224,255,0.15);box-shadow:0 8px 32px rgba(0,0,0,0.3);max-height:calc(100vh - 70px);overflow-y:auto;}
 .mob-nav.open{display:flex !important;}
 .mob-link{font-size:15px;font-weight:600;color:rgba(255,255,255,0.85);padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.1);text-decoration:none;display:block;}
 .mob-cta{background:var(--coral,#FF5500);color:#fff;font-weight:700;padding:14px;border-radius:10px;text-align:center;margin-top:8px;font-size:15px;text-decoration:none;display:block;}
@@ -878,6 +911,17 @@ a[style*="background:#00E0FF"]:hover::after,a[style*="background:var(--cyan)"]:h
 @media(max-width:1100px){
   .nav-links{display:none !important;}
   .hamburger{display:flex !important;}
+}
+
+/* ── 1024px (tablets / iPad) ── */
+@media(max-width:1024px){
+  .hero-h1{font-size:42px !important;}
+  .hero-inner{width:70% !important;}
+  [style*="grid-template-columns:repeat(3"],[style*="grid-template-columns: repeat(3"]{
+    grid-template-columns:repeat(2,1fr) !important;
+  }
+  .pricing-grid{grid-template-columns:1fr 1fr !important;}
+  .hc-cta-grid{grid-template-columns:1fr 1fr !important;}
 }
 
 
@@ -1916,13 +1960,27 @@ var ro=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isInterse
 document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(function(el){ro.observe(el);});
 </script>
 <script>
-function toggleMob(){document.getElementById('mobNav').classList.toggle('open');}
-
-// Close dropdown when clicking outside
+function toggleMob(){
+  var nav = document.getElementById('mobNav');
+  var btn = document.getElementById('hamburgerBtn');
+  nav.classList.toggle('open');
+  btn.classList.toggle('open');
+}
+function closeMob(){
+  document.getElementById('mobNav').classList.remove('open');
+  document.getElementById('hamburgerBtn').classList.remove('open');
+}
+// Close mobile nav when clicking outside
 document.addEventListener('click', function(e){
-  
-    
-
+  var nav = document.getElementById('mobNav');
+  var btn = document.getElementById('hamburgerBtn');
+  if(nav && btn && nav.classList.contains('open')){
+    if(!nav.contains(e.target) && !btn.contains(e.target)){
+      nav.classList.remove('open');
+      btn.classList.remove('open');
+    }
+  }
+});
 </script>
 <script>
 // ── Intersection Observer for scroll reveals ──────────────────────────────────
