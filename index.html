@@ -1256,7 +1256,7 @@ function setCurrency(code, symbol, name){
 </div>
 </div>
 <!-- HERO -->
-<section class="hero" id="home" style="min-height:100vh;position:relative;display:flex;align-items:center;padding:0;">
+<section class="hero" id="home" style="min-height:100vh;position:relative;display:flex;align-items:center;padding:0;margin-bottom:0;">
 <!-- FULL BLEED BACKGROUND IMAGE -->
 <div style="position:absolute;inset:0;z-index:0;">
 <img alt="BluWav Growth Caribbean team" class="hero-img-reveal" src="hero-team.jpg?expires=1785418560&amp;signature=2cae191ba08460de3594f6aff64dbacd8e6d3763beb7585b4bf32a3a8682725a&amp;kid=prod-250922" style="width:100%;height:100%;object-fit:cover;object-position:25% center;display:block;filter:brightness(1.08) contrast(1.05) saturate(1.1);"/>
@@ -1300,13 +1300,14 @@ function setCurrency(code, symbol, name){
 </div>
 </section>
 <!-- Curved wave — sits BETWEEN hero and ticker, no overflow clipping -->
-<div style="background:transparent;margin-top:-90px;position:relative;z-index:10;line-height:0;">
+<div style="background:#000814;margin-top:-90px;position:relative;z-index:10;line-height:0;">
   <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:90px;display:block;">
+    <rect width="1440" height="90" fill="#000814"/>
     <path d="M0,0 Q360,90 720,45 Q1080,0 1440,60 L1440,90 L0,90 Z" fill="#FF5500"/>
   </svg>
 </div>
 <!-- PROOF STRIP, seamless ticker -->
-<div style="background:#FF5500;overflow:hidden;padding:0;margin-top:-2px;">
+<div style="background:#FF5500;overflow:hidden;padding:0;margin-top:-1px;">
 <div style="display:flex;align-items:center;white-space:nowrap;animation:ticker-seamless 30s linear infinite;">
 <span style="font-size:15px;font-weight:800;color:#fff;padding:16px 48px;display:inline-block;flex-shrink:0;">⚡ 48–72 Hour Delivery</span>
 <span style="color:rgba(255,255,255,0.4);font-size:18px;flex-shrink:0;">·</span>
