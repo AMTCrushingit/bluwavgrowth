@@ -83,9 +83,9 @@ footer{background:rgba(0,43,73,0.97);padding:48px 0 0;margin-top:80px;}
 <div class="hamburger" onclick="toggleMob()"><span></span><span></span><span></span></div>
 </nav>
 <div class="mob-nav" id="mobNav">
-<a class="mob-link" href="index.html" onclick="toggleMob()">Home</a>
-<a class="mob-link" href="the-wave.html" onclick="toggleMob()" style="color:#00E0FF;">The Wave</a>
-<a class="mob-cta" href="https://forms.gle/EcVVcffVTqLZpHURA" target="_blank" onclick="toggleMob()">Free Health Check</a>
+<a class="mob-link" href="index.html" onclick="closeMob()">Home</a>
+<a class="mob-link" href="the-wave.html" onclick="closeMob()" style="color:#00E0FF;">The Wave</a>
+<a class="mob-cta" href="https://forms.gle/EcVVcffVTqLZpHURA" target="_blank" onclick="closeMob()">Free Health Check</a>
 </div>
 <section class="article-hero" style="position:relative;"><div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,20,40,0.75) 0%,rgba(0,43,73,0.5) 100%);z-index:0;pointer-events:none;"></div>
 <div class="article-wrap" style="position:relative;z-index:2;">
@@ -353,6 +353,8 @@ function handleNLSubscribe(e, pid) {
 </div>
 <div class="footer-copy">© 2026 BluWav Growth · bluwavgrowth.com · Get Found. Get Chosen. Grow.</div>
 </footer>
-<script>function toggleMob(){var n=document.getElementById('mobNav');if(n)n.classList.toggle('open');}</script>
+<script>function toggleMob(){var n=document.getElementById('mobNav');var b=document.querySelector('.hamburger');if(n){n.classList.toggle('open');if(b)b.classList.toggle('open');}}
+function closeMob(){var n=document.getElementById('mobNav');var b=document.querySelector('.hamburger');if(n){n.classList.remove('open');if(b)b.classList.remove('open');}}
+document.addEventListener('click',function(e){var n=document.getElementById('mobNav');var b=document.querySelector('.hamburger');if(n&&b&&n.classList.contains('open')&&!n.contains(e.target)&&!b.contains(e.target)){n.classList.remove('open');if(b)b.classList.remove('open');}});</script>
 </body>
 </html>
