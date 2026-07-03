@@ -125,6 +125,10 @@ a{text-decoration:none;color:inherit;}
 /* ══════════════════════════════════════════
    COMPREHENSIVE MOBILE RESPONSIVE FIX
    ══════════════════════════════════════════ */
+@media(max-width:1100px){
+  .nav-links{display:none !important;}
+  .hamburger{display:flex !important;}
+}
 @media(max-width:768px){
   /* NAV */
   nav{padding:0 16px !important;height:60px !important;}
@@ -254,16 +258,21 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 48px;d
 .nav-link:hover{color:#fff;}
 .nav-cta{background:var(--coral,#FF5500);color:#fff;font-size:13px;font-weight:700;padding:10px 24px;border-radius:9px;box-shadow:0 4px 16px rgba(255,85,0,0.35);transition:transform 0.15s,box-shadow 0.2s;text-decoration:none;}
 .nav-cta:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(255,85,0,0.5);}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:101;position:relative;background:none;border:none;padding:0;}
-.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;}
-.mob-nav{display:none;position:fixed;top:70px;left:0;right:0;background:rgba(0,43,73,0.99);backdrop-filter:blur(20px);padding:20px 24px;flex-direction:column;gap:4px;z-index:9999;border-bottom:1px solid rgba(0,224,255,0.15);box-shadow:0 8px 32px rgba(0,0,0,0.3);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1001;position:relative;background:none;border:none;padding:8px;margin:-8px;touch-action:manipulation;-webkit-tap-highlight-color:transparent;}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all 0.3s ease;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mob-nav{display:none;position:fixed;top:70px;left:0;right:0;background:rgba(0,43,73,0.99);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);padding:20px 24px;flex-direction:column;gap:4px;z-index:10000;border-bottom:1px solid rgba(0,224,255,0.15);box-shadow:0 8px 32px rgba(0,0,0,0.3);max-height:calc(100vh - 70px);overflow-y:auto;}
 .mob-nav.open{display:flex !important;}
+.mob-link.wave{color:#00E0FF;}
+.mob-link.wave:hover{color:#00E0FF;background:rgba(0,224,255,0.08);}
 .mob-link{font-size:15px;font-weight:600;color:rgba(255,255,255,0.85);padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.1);text-decoration:none;display:block;}
 .mob-cta{background:var(--coral,#FF5500);color:#fff;font-weight:700;padding:14px;border-radius:10px;text-align:center;margin-top:8px;font-size:15px;text-decoration:none;display:block;}
 /* Dropdown */
 
 
-.hamburger{display:flex !important;}}
+
 
 /* ── SERVICES DROPDOWN (JS-powered, no gap issue) ── */
 
@@ -461,28 +470,32 @@ a[style*="background:#00E0FF"]:hover::after,a[style*="background:var(--cyan)"]:h
 <!-- NAV -->
 <nav id="mainNav">
 <div class="nav-logo" style="display:flex;flex-direction:column;align-items:flex-start;line-height:1;padding:4px 0;">
-  <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:300;letter-spacing:4px;line-height:1;color:#fff;">BLU<span style="color:#00E0FF;">WAV</span>&nbsp;<span style="color:#fff;">GROWTH</span></div>
-  <div style="font-size:9px;font-weight:600;color:#00E0FF;letter-spacing:0.5px;line-height:1.4;margin-top:3px;">Get Found. Get Chosen. Grow.</div>
+<div style="font-family:'Kaushan Script',cursive;font-size:26px;line-height:1;color:#fff;">Blu<span style="color:#00E0FF;">Wav</span></div>
+<div style="font-size:8px;font-weight:700;color:#00E0FF;letter-spacing:3px;text-transform:uppercase;line-height:1.4;margin-top:2px;">Get Found. Get Chosen. Grow.</div>
 </div>
 <div class="nav-links">
 <a class="nav-link" href="index.html">Home</a>
 <a class="nav-link" href="index.html#what-we-do">Services</a>
 <a class="nav-link" href="index.html#how-it-works">How It Works</a>
-<a class="nav-link" href="our-promise.html">Our Promise</a>
+<a class="nav-link" href="our-promise.html" style="color:#fff;font-weight:600;">Our Promise</a>
 <a class="nav-link" href="pricing.html">Pricing</a>
+<a class="nav-link" href="the-wave.html" style="color:#00E0FF;font-weight:700;">The Wave</a>
 <a class="nav-link" href="index.html#contact">Contact</a>
 <a class="nav-cta" href="https://forms.gle/EcVVcffVTqLZpHURA" target="_blank">Free Online Health Check</a>
 </div>
-<div class="hamburger" onclick="toggleMob()"><span></span><span></span><span></span></div>
+<button aria-label="Menu" class="hamburger" id="hamburgerBtn" onclick="toggleMob()"><span></span><span></span><span></span></button>
 </nav>
 <div class="mob-nav" id="mobNav">
-<a class="mob-link" href="index.html" onclick="toggleMob()">Home</a>
-<a class="mob-link" href="index.html#what-we-do" onclick="toggleMob()">Services</a>
-<a class="mob-link" href="index.html#how-it-works" onclick="toggleMob()">How It Works</a>
-<a class="mob-link" href="our-promise.html" onclick="toggleMob()">Our Promise</a>
-<a class="mob-link" href="pricing.html" onclick="toggleMob()">Pricing</a>
-<a class="mob-link" href="index.html#contact" onclick="toggleMob()">Contact</a>
-<a class="mob-cta" href="https://forms.gle/EcVVcffVTqLZpHURA" target="_blank" onclick="toggleMob()">Free Online Health Check</a>
+<div class="mob-nav-inner">
+<a class="mob-link" href="index.html" onclick="closeMob()">🏠 Home</a>
+<a class="mob-link" href="index.html#what-we-do" onclick="closeMob()">⚡ Services</a>
+<a class="mob-link" href="index.html#how-it-works" onclick="closeMob()">- How It Works</a>
+<a class="mob-link" href="our-promise.html" onclick="closeMob()">- Our Promise</a>
+<a class="mob-link" href="pricing.html" onclick="closeMob()">💰 Pricing</a>
+<a class="mob-link wave" href="the-wave.html" onclick="closeMob()">🌊 The Wave</a>
+<a class="mob-link" href="index.html#contact" onclick="closeMob()">📞 Contact</a>
+<a class="mob-cta" href="https://forms.gle/EcVVcffVTqLZpHURA" target="_blank" onclick="closeMob()">🩺 Check My Business for Free</a>
+</div>
 </div>
 <!-- HERO -->
 <section class="hero">
@@ -690,7 +703,7 @@ function handleNLSubscribe(e, pid) {
 </div>
 </div>
 <div class="footer-bottom">
-<div class="footer-bottom-text">&#169; 2026 <span>BluWav Growth</span> &#183; All rights reserved.</div>
+<div class="footer-bottom-text">&#169; 2026 <span>BluWav Caribbean</span> &#183; All rights reserved.</div>
 <div class="footer-bottom-text">Get Found. Get Chosen. Grow.</div>
 </div>
 </div>
@@ -698,13 +711,27 @@ function handleNLSubscribe(e, pid) {
 <a class="wa-float" href="https://wa.me/18682979960" title="WhatsApp Us">💬</a>
 
 <script>
-function toggleMob(){document.getElementById('mobNav').classList.toggle('open');}
-
-// Close dropdown when clicking outside
+function toggleMob(){
+  var nav = document.getElementById('mobNav');
+  var btn = document.getElementById('hamburgerBtn');
+  nav.classList.toggle('open');
+  if(btn) btn.classList.toggle('open');
+}
+function closeMob(){
+  document.getElementById('mobNav').classList.remove('open');
+  var btn = document.getElementById('hamburgerBtn');
+  if(btn) btn.classList.remove('open');
+}
 document.addEventListener('click', function(e){
-  
-    
-
+  var nav = document.getElementById('mobNav');
+  var btn = document.getElementById('hamburgerBtn');
+  if(nav && btn && nav.classList.contains('open')){
+    if(!nav.contains(e.target) && !btn.contains(e.target)){
+      nav.classList.remove('open');
+      btn.classList.remove('open');
+    }
+  }
+});
 </script>
 <script>
 // ── Intersection Observer for scroll reveals ──────────────────────────────────
