@@ -27,8 +27,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 48px;d
 .nav-link:hover{color:#fff;}
 .nav-cta{background:var(--coral);color:#fff;font-size:13px;font-weight:700;padding:10px 24px;border-radius:9px;transition:transform 0.15s;}
 .nav-cta:hover{transform:translateY(-1px);}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:0;}
-.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px;margin:-8px;touch-action:manipulation;-webkit-tap-highlight-color:transparent;}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all 0.3s ease;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
 .mob-nav{display:none;position:fixed;top:70px;left:0;right:0;background:rgba(0,43,73,0.99);padding:20px 24px;flex-direction:column;gap:4px;z-index:9999;border-bottom:1px solid rgba(0,224,255,0.15);}
 .mob-nav.open{display:flex!important;}
 .mob-link{font-size:15px;font-weight:600;color:rgba(255,255,255,0.85);padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.1);display:block;}
@@ -109,9 +112,9 @@ footer{background:rgba(0,43,73,0.97);padding:48px 0 0;margin-top:80px;}
 <div class="hamburger" onclick="toggleMob()"><span></span><span></span><span></span></div>
 </nav>
 <div class="mob-nav" id="mobNav">
-<a class="mob-link" href="index.html" onclick="toggleMob()">Home</a>
-<a class="mob-link" href="the-wave.html" onclick="toggleMob()" style="color:#00E0FF;">The Wave</a>
-<a class="mob-cta" href="https://forms.gle/EcVVcffVTqLZpHURA" target="_blank" onclick="toggleMob()">Free Health Check</a>
+<a class="mob-link" href="index.html" onclick="closeMob()">Home</a>
+<a class="mob-link" href="the-wave.html" onclick="closeMob()" style="color:#00E0FF;">The Wave</a>
+<a class="mob-cta" href="https://forms.gle/EcVVcffVTqLZpHURA" target="_blank" onclick="closeMob()">Free Health Check</a>
 </div>
 <!-- HERO -->
 <section class="article-hero" style="position:relative;"><div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,20,40,0.75) 0%,rgba(0,43,73,0.5) 100%);z-index:0;pointer-events:none;"></div>
@@ -316,6 +319,8 @@ function handleNLSubscribe(e, pid) {
 </div>
 <div class="footer-copy">© 2026 BluWav Growth · bluwavgrowth.com · Get Found. Get Chosen. Grow.</div>
 </footer>
-<script>function toggleMob(){var n=document.getElementById('mobNav');if(n)n.classList.toggle('open');}</script>
+<script>function toggleMob(){var n=document.getElementById('mobNav');var b=document.querySelector('.hamburger');if(n){n.classList.toggle('open');if(b)b.classList.toggle('open');}}
+function closeMob(){var n=document.getElementById('mobNav');var b=document.querySelector('.hamburger');if(n){n.classList.remove('open');if(b)b.classList.remove('open');}}
+document.addEventListener('click',function(e){var n=document.getElementById('mobNav');var b=document.querySelector('.hamburger');if(n&&b&&n.classList.contains('open')&&!n.contains(e.target)&&!b.contains(e.target)){n.classList.remove('open');if(b)b.classList.remove('open');}});</script>
 </body>
 </html>
