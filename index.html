@@ -473,6 +473,61 @@ a{text-decoration:none;color:inherit;}
 
   /* Wave */
 
+
+  /* ── Three Growth Systems: stack on mobile ── */
+  .growth-systems-grid{
+    grid-template-columns:1fr !important;
+    gap:16px !important;
+    align-items:stretch !important;
+  }
+  .growth-systems-grid > div{
+    transform:none !important;
+    margin-bottom:0 !important;
+  }
+
+  /* ── How It Works: stack steps vertically ── */
+  .how-it-works-steps{
+    grid-template-columns:1fr !important;
+    gap:40px !important;
+  }
+  /* Hide horizontal connector line on mobile */
+  .how-it-works-steps .connector-anim,
+  .how-it-works-steps [style*="position:absolute;top:52px"]{
+    display:none !important;
+  }
+  /* Add vertical connector between steps */
+  .how-it-works-steps > div{
+    padding:0 16px !important;
+    position:relative !important;
+  }
+  .how-it-works-steps > div:not(:last-child)::after{
+    content:'';
+    display:block;
+    width:2px;
+    height:32px;
+    background:linear-gradient(180deg,var(--cyan),var(--coral));
+    margin:16px auto 0;
+    border-radius:2px;
+  }
+
+  /* ── Why BluWav Works grid: 1 col on mobile ── */
+  [style*="grid-template-columns:repeat(2,1fr)"][style*="gap:24px"][style*="margin-bottom:64px"]{
+    grid-template-columns:1fr !important;
+    gap:12px !important;
+  }
+
+  /* ── CTA box padding reduction ── */
+  [style*="padding:56px"][style*="text-align:center"][style*="border-radius:24px"]{
+    padding:32px 20px !important;
+  }
+  [style*="padding:56px"] h3{
+    font-size:24px !important;
+  }
+
+  /* ── How It Works section padding ── */
+  #how-it-works{padding:72px 0 !important;}
+  #how-it-works .wrap > div:first-child{margin-bottom:48px !important;}
+
   /* Prevent horizontal overflow from wide elements */
   .proof-inner{padding:0 16px !important;gap:20px !important;}
   .ticker-track > div{padding:0 24px !important;}
@@ -965,6 +1020,89 @@ a[style*="background:#00E0FF"]:hover::after,a[style*="background:var(--cyan)"]:h
   .hero-para-2{font-size:11px !important;}
 }
 
+
+/* ══════════════════════════════════════════════════════════════════
+   CROSS-BROWSER COMPATIBILITY
+   Safari iOS · Chrome Android · Firefox Mobile
+   ══════════════════════════════════════════════════════════════════ */
+
+/* 1. Smooth scrolling — iOS Safari needs -webkit prefix */
+html{
+  scroll-behavior:smooth;
+  -webkit-overflow-scrolling:touch;
+}
+
+/* 2. Backdrop-filter — needs -webkit prefix for Safari */
+nav,
+.mob-nav,
+.hero-card{
+  -webkit-backdrop-filter:blur(20px);
+}
+
+/* 3. Prevent double-tap zoom on buttons/links (iOS Safari) */
+a,button,
+[onclick]{
+  touch-action:manipulation;
+}
+
+/* 4. Fix 100vh on mobile browsers (iOS Safari address bar issue) */
+.hero{
+  min-height:100svh;
+  min-height:-webkit-fill-available;
+}
+
+/* 5. Fix flexbox gap in older Safari (< 14.1) */
+@supports not (gap:1px){
+  .nav-links > *{margin-right:20px;}
+  .hero-btns > *{margin-right:12px;margin-bottom:12px;}
+}
+
+/* 6. Prevent text inflation on Android Chrome */
+body{
+  text-size-adjust:100%;
+  -webkit-text-size-adjust:100%;
+  -moz-text-size-adjust:100%;
+}
+
+/* 7. Fix sticky positioning on iOS Safari */
+nav{
+  position:-webkit-sticky;
+  position:fixed;
+}
+
+/* 8. Smooth momentum scrolling on iOS */
+.mob-nav{
+  -webkit-overflow-scrolling:touch;
+  overflow-y:auto;
+}
+
+/* 9. Fix animation performance — force GPU compositing */
+.step-anim,.step-anim-left,.step-anim-right,
+.hero-anim-1,.hero-anim-2,.hero-anim-3,.hero-anim-4,.hero-anim-5{
+  -webkit-transform:translateZ(0);
+  transform:translateZ(0);
+  will-change:opacity,transform;
+}
+
+/* 10. Fix input zoom on iOS (font-size must be >= 16px to prevent zoom) */
+@media(max-width:768px){
+  input,select,textarea{
+    font-size:16px !important;
+  }
+}
+
+/* 11. Fix button appearance on iOS Safari */
+button,
+input[type="submit"]{
+  -webkit-appearance:none;
+  appearance:none;
+}
+
+/* 12. Fix object-fit on older Android */
+.hero-img-reveal{
+  font-family:'object-fit:cover;object-position:25% center;';
+}
+
 </style>
 <meta content="index, follow" name="robots"/>
 <meta content="BluWav Caribbean | Digital Growth Agency for the Caribbean" property="og:title"/>
@@ -1374,7 +1512,7 @@ function setCurrency(code, symbol, name){
 <p style="font-size:16px;color:#64748b;line-height:1.75;max-width:600px;margin:0 auto;">BluWav offers three Growth Systems designed for different stages of your business. Each one builds on the last, adding more visibility, automation, and multi-channel reach.</p>
 </div>
 <!-- Three plans side by side, Current elevated -->
-<div style="display:grid;grid-template-columns:1fr 1.08fr 1fr;gap:20px;margin-bottom:64px;align-items:start;">
+<div class="growth-systems-grid" style="display:grid;grid-template-columns:1fr 1.08fr 1fr;gap:20px;margin-bottom:64px;align-items:start;">
 <!-- Ripple -->
 <div onmouseout="this.style.boxShadow='none';this.style.transform='translateY(0)'" onmouseover="this.style.boxShadow='0 12px 40px rgba(0,43,73,0.1)';this.style.transform='translateY(-4px)'" style="background:#f8faff;border-radius:20px;padding:32px 28px;border:1px solid rgba(0,43,73,0.08);display:flex;flex-direction:column;transition:all 0.2s;">
 <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#00E0FF;margin-bottom:6px;">Starter</div>
@@ -1496,7 +1634,7 @@ function setCurrency(code, symbol, name){
 <span class="eyebrow reveal" style="color:var(--cyan);">How It Works</span>
 <h2 class="reveal" style="font-family:'Playfair Display',serif;font-size:48px;font-weight:800;color:#fff;line-height:1.1;letter-spacing:-0.5px;margin-bottom:0;">Three Simple Steps.<br/><span style="color:var(--cyan);">Real Results.</span></h2>
 </div>
-<div class="reveal" style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;position:relative;">
+<div class="reveal how-it-works-steps" style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;position:relative;">
 <div class="connector-anim" style="position:absolute;top:52px;left:16.5%;right:16.5%;height:2px;background:linear-gradient(90deg,var(--cyan),var(--coral),var(--gold));z-index:0;border-radius:2px;"></div>
 <div class="step-anim-left step-delay-1" style="text-align:center;padding:0 32px;position:relative;z-index:1;">
 <div style="width:104px;height:104px;border-radius:50%;background:linear-gradient(135deg,var(--cyan),var(--navy));display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-size:36px;box-shadow:0 0 0 8px rgba(0,224,255,0.1),0 8px 32px rgba(0,224,255,0.3);border:3px solid rgba(255,255,255,0.1);animation:stepPulse1 3s ease-in-out infinite;">🔍</div>
