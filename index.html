@@ -5,13 +5,27 @@
 <meta content="ouWrssM2eCjOYgXMi6LAwfOOJftunNjcO5PxEJGp0i0" name="google-site-verification"/>
 <meta content="FEE9B5469C6A497A48F135B874E87252" name="msvalidate.01"/>
 <meta charset="utf-8"/>
+<!-- Resource hints for Caribbean mobile networks -->
+<link rel="preload" href="hero-team.jpg" as="image" fetchpriority="high"/>
+<link rel="preconnect" href="https://images.pexels.com"/>
+<link rel="preconnect" href="https://as1.ftcdn.net"/>
+<link rel="dns-prefetch" href="https://fonts.gstatic.com"/>
+<link rel="dns-prefetch" href="https://wa.me"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="theme-color" content="#002B49"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 <title>BluWav Caribbean | Get Found Online. Grow Your Business.</title>
 <meta content="BluWav Caribbean helps Caribbean businesses get found on Google, build professional websites, manage leads with CRM, and grow digitally. Free Online Health Check. Live in 48 hours from $700." name="description"/>
 <meta content="BluWav Growth, website design Trinidad, digital marketing Caribbean, CRM Caribbean, Google visibility Trinidad, bluwavgrowth.com" name="keywords"/>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800;900\&amp;family=Inter:wght@300;400;500;600;700;800\&amp;Kaushan+Script&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&amp;family=Sora:wght@700;800;900&amp;display=swap" rel="stylesheet"/>
+<!-- Preconnect for faster font loading -->
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<!-- Optimized font load: only weights used, display=swap prevents FOIT -->
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@700;800;900&family=Kaushan+Script&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
+<noscript><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@700;800;900&family=Kaushan+Script&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet"/></noscript>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
+/* Font loaded via <link> in <head> — @import removed for performance */
 
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
@@ -1446,6 +1460,76 @@ input[type="submit"]{
   .growth-systems-grid > div{padding:16px 12px !important;}
   .btn-coral,.btn-wa,.btn-navy{font-size:14px !important;padding:13px 16px !important;}
 }
+
+/* ════════════════════════════════════════════════════════════════════════════
+   PERFORMANCE OPTIMIZATIONS
+   Core Web Vitals: LCP · CLS · FID/INP
+   ════════════════════════════════════════════════════════════════════════════ */
+
+/* 1. Respect user's reduced-motion preference */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:0.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:0.01ms !important;
+    scroll-behavior:auto !important;
+  }
+}
+
+/* 2. Disable non-essential infinite animations on mobile (battery + jank) */
+@media(max-width:768px){
+  /* Keep: ticker (functional), hero entrance (one-shot) */
+  /* Disable: decorative pulses, glows, floats */
+  .wa-float{animation:none !important;}
+  [style*="animation:heroGlow"]{animation:none !important;}
+  [style*="animation:stepPulse"]{animation:none !important;}
+  [style*="animation:heroPulse"]{animation:none !important;}
+  [style*="animation:floatUp"]{animation:none !important;}
+  [style*="animation:px-move"]{animation:none !important;}
+  /* Simplify backdrop-filter on mobile (GPU intensive) */
+  .mob-nav{backdrop-filter:none !important;-webkit-backdrop-filter:none !important;}
+  /* Disable clip-path animations */
+  [style*="clip-path"]{clip-path:none !important;}
+}
+
+/* 3. Contain layout for CLS prevention */
+.hero{contain:layout style;}
+.trusted-stats-grid > div{contain:layout;}
+.growth-systems-grid > div{contain:layout;}
+
+/* 4. Font display optimization — prevent FOIT */
+@font-face{font-display:swap;}
+
+/* 5. Image rendering optimization */
+img{
+  content-visibility:auto;
+}
+.hero-img-reveal{
+  content-visibility:visible; /* LCP image — never defer */
+}
+
+/* 6. Reduce paint complexity on mobile */
+@media(max-width:768px){
+  /* Replace expensive backdrop-filter with solid bg */
+  nav{
+    background:rgba(0,43,73,0.98) !important;
+    backdrop-filter:none !important;
+    -webkit-backdrop-filter:none !important;
+  }
+  /* Simplify hero overlays */
+  .hero::before{display:none !important;}
+  /* Remove filter on decorative images */
+  [style*="mix-blend-mode:screen"]{display:none !important;}
+}
+
+/* 7. GPU compositing hints for animated elements */
+.ticker-track{
+  will-change:transform;
+  transform:translateZ(0);
+}
+nav{
+  will-change:auto; /* Don't promote nav — it's static */
+}
 </style>
 <meta content="index, follow" name="robots"/>
 <meta content="BluWav Caribbean | Digital Growth Agency for the Caribbean" property="og:title"/>
@@ -1602,11 +1686,11 @@ function setCurrency(code, symbol, name){
 <section class="hero" id="home" style="min-height:100vh;position:relative;display:flex;align-items:center;padding:0;margin-bottom:0;">
 <!-- FULL BLEED BACKGROUND IMAGE -->
 <div style="position:absolute;inset:0;z-index:0;">
-<img alt="BluWav Growth Caribbean team" class="hero-img-reveal" src="hero-team.jpg?expires=1785418560&amp;signature=2cae191ba08460de3594f6aff64dbacd8e6d3763beb7585b4bf32a3a8682725a&amp;kid=prod-250922" style="width:100%;height:100%;object-fit:cover;object-position:25% center;display:block;filter:brightness(1.08) contrast(1.05) saturate(1.1);"/>
+<img alt="BluWav Growth Caribbean team" class="hero-img-reveal" src="hero-team.jpg" fetchpriority="high" decoding="async" width="1920" height="1080" style="width:100%;height:100%;object-fit:cover;object-position:25% center;display:block;filter:brightness(1.08) contrast(1.05) saturate(1.1);"/>
 </div>
 <!-- Caribbean warmth overlay — full bleed, no hard edges -->
 <div style="position:absolute;inset:0;z-index:0;overflow:hidden;">
-  <img src="https://as1.ftcdn.net/v2/jpg/02/23/87/60/1000_F_223876044_UpFZ6XDNlSxj2Ix1w338z7atXCsZJd0e.jpg"
+  <img src="https://as1.ftcdn.net/v2/jpg/02/23/87/60/1000_F_223876044_UpFZ6XDNlSxj2Ix1w338z7atXCsZJd0e.jpg" loading="lazy" decoding="async" width="1920" height="1080"
        alt="Caribbean beach" style="width:100%;height:100%;object-fit:cover;object-position:center;opacity:0.07;filter:saturate(1.6) brightness(1.2);mix-blend-mode:screen;"/>
 </div>
 <!-- SEAMLESS GRADIENT OVERLAY: dark left → transparent right -->
@@ -1805,7 +1889,7 @@ function setCurrency(code, symbol, name){
 <section id="every-plan" style="position:relative;padding:120px 0;overflow:hidden;clip-path:polygon(0 5%,100% 0,100% 95%,0 100%);margin:-40px 0;">
 <!-- Background: Caribbean aerial photo -->
 <div style="position:absolute;inset:0;z-index:0;">
-<img alt="Caribbean" src="https://images.pexels.com/photos/1591373/pexels-photo-1591373.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1920&amp;h=1080&amp;dpr=2" style="width:100%;height:100%;object-fit:cover;object-position:center;filter:brightness(0.35) saturate(1.2);"/>
+<img alt="Caribbean" src="https://images.pexels.com/photos/1591373/pexels-photo-1591373.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&dpr=1" loading="lazy" decoding="async" width="1200" height="800" style="width:100%;height:100%;object-fit:cover;object-position:center;filter:brightness(0.35) saturate(1.2);"/>
 </div>
 <!-- Cyan gradient overlay -->
 <div style="position:absolute;inset:0;z-index:1;background:linear-gradient(135deg,rgba(0,43,73,0.92) 0%,rgba(0,30,60,0.85) 40%,rgba(0,194,216,0.25) 100%);"></div>
