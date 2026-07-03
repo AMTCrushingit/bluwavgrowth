@@ -6,8 +6,8 @@
 <meta content="FEE9B5469C6A497A48F135B874E87252" name="msvalidate.01"/>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>BluWav Growth | Built for the Caribbean. Ready for Growth.</title>
-<meta content="BluWav Growth helps Caribbean businesses get found on Google, build professional websites, manage leads with CRM, and grow digitally. Free Online Health Check. Live in 48 hours from $700." name="description"/>
+<title>BluWav Caribbean | Get Found Online. Grow Your Business.</title>
+<meta content="BluWav Caribbean helps Caribbean businesses get found on Google, build professional websites, manage leads with CRM, and grow digitally. Free Online Health Check. Live in 48 hours from $700." name="description"/>
 <meta content="BluWav Growth, website design Trinidad, digital marketing Caribbean, CRM Caribbean, Google visibility Trinidad, bluwavgrowth.com" name="keywords"/>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800;900\&amp;family=Inter:wght@300;400;500;600;700;800\&amp;Kaushan+Script&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&amp;family=Sora:wght@700;800;900&amp;display=swap" rel="stylesheet"/>
 <style>
@@ -366,7 +366,7 @@ a{text-decoration:none;color:inherit;}
 
   /* HERO */
   .hero{padding:90px 16px 60px !important;}
-  .hero-inner{width:60%;max-width:760px;text-align:left;position:relative;z-index:3;}
+  .hero-inner{width:100% !important;max-width:100% !important;text-align:center !important;}
   .hero-logo-name{font-size:48px !important;}
   .hero-h1{font-size:28px !important;letter-spacing:-0.5px !important;}
   .hero-tagline{font-size:15px !important;}
@@ -557,9 +557,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 32px;d
 .mob-link{font-size:15px;font-weight:600;color:rgba(255,255,255,0.85);padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.1);text-decoration:none;display:block;}
 .mob-cta{background:var(--coral,#FF5500);color:#fff;font-weight:700;padding:14px;border-radius:10px;text-align:center;margin-top:8px;font-size:15px;text-decoration:none;display:block;}
 /* Dropdown */
-
-
-.hamburger{display:flex !important;}}
 
 /* ── SERVICES DROPDOWN (JS-powered, no gap issue) ── */
 
@@ -926,21 +923,21 @@ a[style*="background:#00E0FF"]:hover::after,a[style*="background:var(--cyan)"]:h
 
 </style>
 <meta content="index, follow" name="robots"/>
-<meta content="BluWav Growth | Caribbean Digital Growth Agency" property="og:title"/>
-<meta content="Get your Caribbean business found online. Websites, Google visibility, WhatsApp Business, CRM and automation, delivered in 48 hours. Free Health Check." property="og:description"/>
+<meta content="BluWav Caribbean | Digital Growth Agency for the Caribbean" property="og:title"/>
+<meta content="BluWav Caribbean helps Caribbean businesses get found on Google, build professional websites, and automate lead follow-up. Free Online Health Check. Live in 48 hours." property="og:description"/>
 <meta content="https://bluwavgrowth.com" property="og:url"/>
 <meta content="website" property="og:type"/>
 <meta content="https://bluwavgrowth.com/hero-team.jpg" property="og:image"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="BluWav Growth | Caribbean Digital Growth Agency" name="twitter:title"/>
-<meta content="Get your Caribbean business found online. Free Health Check. 48-hour delivery." name="twitter:description"/>
+<meta content="BluWav Caribbean | Digital Growth Agency for the Caribbean" name="twitter:title"/>
+<meta content="Get your Caribbean business found online. Free Health Check. 48-hour delivery. BluWav Caribbean." name="twitter:description"/>
 <link href="https://bluwavgrowth.com" rel="canonical"/>
 <!-- Schema.org structured data -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "name": "BluWav Growth",
+  "name": "BluWav Caribbean",
   "description": "Caribbean digital growth agency offering websites, Google visibility, WhatsApp Business, CRM and automation for Caribbean MSMEs.",
   "url": "https://bluwavgrowth.com",
   "telephone": "+18682979960",
@@ -1077,7 +1074,7 @@ function setCurrency(code, symbol, name){
 </div>
 </div>
 <!-- HERO -->
-<section class="hero" id="home" style="min-height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;padding:0;">
+<section class="hero" id="home" style="min-height:100vh;position:relative;display:flex;align-items:center;padding:0;">
 <!-- FULL BLEED BACKGROUND IMAGE -->
 <div style="position:absolute;inset:0;z-index:0;">
 <img alt="BluWav Growth Caribbean team" class="hero-img-reveal" src="hero-team.jpg?expires=1785418560&amp;signature=2cae191ba08460de3594f6aff64dbacd8e6d3763beb7585b4bf32a3a8682725a&amp;kid=prod-250922" style="width:100%;height:100%;object-fit:cover;object-position:25% center;display:block;filter:brightness(1.08) contrast(1.05) saturate(1.1);"/>
@@ -1121,7 +1118,7 @@ function setCurrency(code, symbol, name){
 </div>
 </section>
 <!-- Curved wave — sits BETWEEN hero and ticker, no overflow clipping -->
-<div style="background:#FF5500;margin-top:-90px;position:relative;z-index:10;line-height:0;">
+<div style="background:transparent;margin-top:-90px;position:relative;z-index:10;line-height:0;">
   <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:90px;display:block;">
     <path d="M0,0 Q360,90 720,45 Q1080,0 1440,60 L1440,90 L0,90 Z" fill="#FF5500"/>
   </svg>
@@ -1687,27 +1684,48 @@ function submitContactForm(e) {
   var biz      = document.getElementById('cf-biz').value.trim();
   var wa       = document.getElementById('cf-wa').value.trim();
   var interest = document.getElementById('cf-interest').value;
+  var ts       = new Date().toISOString();
 
-  var lead = { fname:fname, biz:biz, wa:wa, interest:interest, ts: new Date().toISOString() };
+  // 1. Always save locally as backup
+  var lead = { fname:fname, biz:biz, wa:wa, interest:interest, ts:ts, source:'website_contact' };
   var leads = JSON.parse(localStorage.getItem('bluwav_leads') || '[]');
   leads.push(lead);
   localStorage.setItem('bluwav_leads', JSON.stringify(leads));
 
+  // 2. POST to Supabase CRM (non-blocking, graceful fallback when offline)
+  // TODO: Replace placeholder values below once Supabase recovers
+  var SUPABASE_URL  = 'https://YOUR_PROJECT.supabase.co';
+  var SUPABASE_ANON = 'YOUR_ANON_KEY';
+  if (SUPABASE_URL.indexOf('YOUR_PROJECT') === -1) {
+    fetch(SUPABASE_URL + '/rest/v1/leads', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': SUPABASE_ANON,
+        'Authorization': 'Bearer ' + SUPABASE_ANON,
+        'Prefer': 'return=minimal'
+      },
+      body: JSON.stringify({
+        full_name:  fname,
+        business:   biz,
+        whatsapp:   wa,
+        interest:   interest,
+        source:     'website_contact',
+        status:     'new',
+        created_at: ts
+      })
+    }).catch(function(err) {
+      console.warn('[BluWav CRM] Supabase offline, lead queued locally:', err.message);
+    });
+  }
+
+  // 3. WhatsApp notification + redirect
   var waMsg = encodeURIComponent(
-    'Hi BluWav Growth! 👋
-
-New enquiry from your website:
-
-' +
-    '👤 Name: ' + fname + '
-' +
-    '🏢 Business: ' + biz + '
-' +
-    '📱 WhatsApp: ' + wa + '
-' +
-    '📋 Interested in: ' + interest + '
-
-' +
+    'Hi BluWav Caribbean! New enquiry from your website:\n\n' +
+    'Name: ' + fname + '\n' +
+    'Business: ' + biz + '\n' +
+    'WhatsApp: ' + wa + '\n' +
+    'Interested in: ' + interest + '\n\n' +
     'Please follow up!'
   );
 
@@ -1730,27 +1748,48 @@ function submitContactForm(e) {
   var biz      = document.getElementById('cf-biz').value.trim();
   var wa       = document.getElementById('cf-wa').value.trim();
   var interest = document.getElementById('cf-interest').value;
+  var ts       = new Date().toISOString();
 
-  var lead = { fname:fname, biz:biz, wa:wa, interest:interest, ts: new Date().toISOString() };
+  // 1. Always save locally as backup
+  var lead = { fname:fname, biz:biz, wa:wa, interest:interest, ts:ts, source:'website_contact' };
   var leads = JSON.parse(localStorage.getItem('bluwav_leads') || '[]');
   leads.push(lead);
   localStorage.setItem('bluwav_leads', JSON.stringify(leads));
 
+  // 2. POST to Supabase CRM (non-blocking, graceful fallback when offline)
+  // TODO: Replace placeholder values below once Supabase recovers
+  var SUPABASE_URL  = 'https://YOUR_PROJECT.supabase.co';
+  var SUPABASE_ANON = 'YOUR_ANON_KEY';
+  if (SUPABASE_URL.indexOf('YOUR_PROJECT') === -1) {
+    fetch(SUPABASE_URL + '/rest/v1/leads', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': SUPABASE_ANON,
+        'Authorization': 'Bearer ' + SUPABASE_ANON,
+        'Prefer': 'return=minimal'
+      },
+      body: JSON.stringify({
+        full_name:  fname,
+        business:   biz,
+        whatsapp:   wa,
+        interest:   interest,
+        source:     'website_contact',
+        status:     'new',
+        created_at: ts
+      })
+    }).catch(function(err) {
+      console.warn('[BluWav CRM] Supabase offline, lead queued locally:', err.message);
+    });
+  }
+
+  // 3. WhatsApp notification + redirect
   var waMsg = encodeURIComponent(
-    'Hi BluWav Growth! 👋
-
-New enquiry from your website:
-
-' +
-    '👤 Name: ' + fname + '
-' +
-    '🏢 Business: ' + biz + '
-' +
-    '📱 WhatsApp: ' + wa + '
-' +
-    '📋 Interested in: ' + interest + '
-
-' +
+    'Hi BluWav Caribbean! New enquiry from your website:\n\n' +
+    'Name: ' + fname + '\n' +
+    'Business: ' + biz + '\n' +
+    'WhatsApp: ' + wa + '\n' +
+    'Interested in: ' + interest + '\n\n' +
     'Please follow up!'
   );
 
