@@ -70,17 +70,44 @@ footer{background:rgba(0,43,73,0.97);padding:48px 0 0;margin-top:80px;}
 <svg class="px-svg px-layer-2" preserveaspectratio="none" viewbox="0 0 1440 180" xmlns="http://www.w3.org/2000/svg"><path d="M0,135 C120,105 240,160 360,135 C480,105 600,160 720,135 C840,105 960,160 1080,135 C1200,105 1320,160 1440,135 C1560,105 1680,160 1800,135 C1920,105 2040,160 2160,135 L2160,180 L0,180 Z" fill="rgba(0,194,216,0.45)"></path></svg>
 <svg class="px-svg px-layer-3" preserveaspectratio="none" viewbox="0 0 1440 180" xmlns="http://www.w3.org/2000/svg"><path d="M0,148 C120,120 240,168 360,148 C480,120 600,168 720,148 C840,120 960,168 1080,148 C1200,120 1320,168 1440,148 C1560,120 1680,168 1800,148 C1920,120 2040,168 2160,148 L2160,180 L0,180 Z" fill="rgba(0,224,255,0.32)"></path></svg>
 </div>
-<nav>
-<div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:300;letter-spacing:4px;color:#fff;">BLU<span style="color:#00E0FF;">WAV</span> GROWTH</div>
+<nav id="mainNav">
+<div class="nav-logo" style="display:flex;flex-direction:column;align-items:flex-start;line-height:1;padding:4px 0;">
+<div style="font-family:'Kaushan Script',cursive;font-size:26px;line-height:1;color:#fff;">Blu<span style="color:#00E0FF;">Wav</span></div>
+<div style="font-size:8px;font-weight:700;color:#00E0FF;letter-spacing:3px;text-transform:uppercase;line-height:1.4;margin-top:2px;">Get Found. Get Chosen. Grow.</div>
+</div>
 <div class="nav-links">
-<a class="nav-link" href="index.html">Home</a>
-<a class="nav-link" href="index.html#what-we-do">Services</a>
+<a class="nav-link" href="#home">Home</a>
+<a class="nav-link" href="#what-we-do">Services</a>
+<a class="nav-link" href="#how-it-works">How It Works</a>
+<a class="nav-link" href="our-promise.html">Our Promise</a>
 <a class="nav-link" href="pricing.html">Pricing</a>
+<a class="nav-link" href="crm.html">CRM</a>
 <a class="nav-link" href="the-wave.html" style="color:#00E0FF;font-weight:700;">The Wave</a>
-<a class="nav-cta" href="https://forms.gle/EcVVcffVTqLZpHURA" target="_blank">Free Health Check</a>
+<a class="nav-link" href="#contact">Contact</a>
+<button id="currency-btn" onclick="openCurrency()" onmouseout="this.style.background='rgba(0,224,255,0.1)'" onmouseover="this.style.background='rgba(0,224,255,0.2)'" style="background:rgba(0,224,255,0.1);border:1px solid rgba(0,224,255,0.3);color:#00E0FF;font-size:12px;font-weight:700;padding:8px 14px;border-radius:20px;cursor:pointer;font-family:inherit;transition:all 0.2s;">🌍 USD ▾</button>
+<a class="nav-cta" href="https://forms.gle/EcVVcffVTqLZpHURA" target="_blank">Free Online Health Check</a>
 </div>
 <button aria-label="Menu" class="hamburger" id="hamburgerBtn" onclick="toggleMob()"><span></span><span></span><span></span></button>
 </nav>
+<div class="mob-nav" id="mobNav">
+<div class="mob-nav-inner">
+<a class="mob-link" href="#home" onclick="closeMob()">🏠 Home</a>
+<a class="mob-link sub" href="#how-it-works" onclick="closeMob()">- How It Works</a>
+<a class="mob-link sub" href="our-promise.html" onclick="closeMob()">- Our Promise</a>
+<div class="mob-divider"></div>
+<a class="mob-link" href="#what-we-do" onclick="closeMob()">⚡ Services</a>
+<a class="mob-link sub" href="#what-we-do" onclick="closeMob()">- Websites</a>
+<a class="mob-link sub" href="#what-we-do" onclick="closeMob()">- Visibility</a>
+<a class="mob-link sub" href="#what-we-do" onclick="closeMob()">- Automation</a>
+<a class="mob-link sub" href="#what-we-do" onclick="closeMob()">- Growth Systems</a>
+<div class="mob-divider"></div>
+<a class="mob-link" href="pricing.html" onclick="closeMob()">💰 Pricing</a>
+<a class="mob-link" href="crm.html" onclick="closeMob()">🗂️ CRM</a>
+<a class="mob-link wave" href="the-wave.html" onclick="closeMob()">🌊 The Wave</a>
+<a class="mob-link" href="#contact" onclick="closeMob()">📞 Contact</a>
+<a class="mob-cta" href="https://forms.gle/EcVVcffVTqLZpHURA" target="_blank" onclick="closeMob()">🩺 Check My Business for Free</a>
+</div>
+</div>
 <div class="mob-nav" id="mobNav">
 <a class="mob-link" href="index.html" onclick="closeMob()">Home</a>
 <a class="mob-link" href="the-wave.html" onclick="closeMob()" style="color:#00E0FF;">The Wave</a>
@@ -128,7 +155,7 @@ footer{background:rgba(0,43,73,0.97);padding:48px 0 0;margin-top:80px;}
 <p>The difference between a business WhatsApp and a personal one is immediately obvious to customers. A professional setup has a business name and logo, an instant greeting, clear information about services and hours, and quick replies that answer common questions without any manual effort.</p>
 <p>Customers who message a well-set-up WhatsApp Business account feel like they're dealing with a serious, organised business — even if it's a one-person operation. That first impression drives conversions.</p>
 <h2>WhatsApp Automation: The Game Changer for Caribbean Businesses</h2>
-<p>The real power of WhatsApp Business isn't just messaging — it's automation. Greeting messages that welcome new customers instantly, away messages that set expectations when you're unavailable, and quick replies that answer your most common questions in one tap.</p>
+<p>The real power of WhatsApp Business isn't just messaging — it's automation. And when WhatsApp is connected to a <a href="crm.html" style="color:#00E0FF;font-weight:700;text-decoration:underline;text-decoration-color:rgba(0,224,255,0.4);text-underline-offset:3px;">CRM like BluWav CRM</a>, every conversation is tracked automatically. Greeting messages that welcome new customers instantly, away messages that set expectations when you're unavailable, and quick replies that answer your most common questions in one tap.</p>
 <p>For Caribbean businesses that can't afford to miss a lead, automation means every customer gets a response — even at 2am on a Sunday. That's the difference between a lead that converts and one that goes to your competitor.</p>
 <h2>WhatsApp Business Catalog: Your Digital Storefront</h2>
 <p>The catalog feature turns WhatsApp into a mini-storefront. Customers can browse your products or services, see prices, and enquire — all without leaving the app. For Caribbean businesses selling products, offering services, or taking bookings, this is one of the highest-converting features available.</p>
