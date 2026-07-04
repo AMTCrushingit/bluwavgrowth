@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>You're on the Wave, BluWav Growth</title>
+<title>You're on the Wave! | BluWav Caribbean</title>
 <meta name="description" content="Thank you for reaching out to BluWav Growth. Here's what happens next.">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -96,10 +96,143 @@
 </head>
 <body>
 
-<nav>
-  <a href="index.html" class="nav-logo">Blu<span>Wav</span> Growth</a>
-  <a href="index.html" class="nav-home">← Back to Home</a>
+<nav id="mainNav">
+<div class="nav-logo" style="display:flex;flex-direction:column;align-items:flex-start;line-height:1;padding:4px 0;">
+<div style="font-family:'Kaushan Script',cursive;font-size:26px;line-height:1;color:#fff;">Blu<span style="color:#00E0FF;">Wav</span></div>
+<div style="font-size:8px;font-weight:700;color:#00E0FF;letter-spacing:3px;text-transform:uppercase;line-height:1.4;margin-top:2px;">Get Found. Get Chosen. Grow.</div>
+</div>
+<div class="nav-links">
+<a class="nav-link" href="#home">Home</a>
+<a class="nav-link" href="#what-we-do">Services</a>
+<a class="nav-link" href="#how-it-works">How It Works</a>
+<a class="nav-link" href="our-promise.html">Our Promise</a>
+<a class="nav-link" href="pricing.html">Pricing</a>
+<a class="nav-link" href="crm.html">CRM</a>
+<a class="nav-link" href="the-wave.html" style="color:#00E0FF;font-weight:700;">The Wave</a>
+<a class="nav-link" href="#contact">Contact</a>
+<button id="currency-btn" onclick="openCurrency()" onmouseout="this.style.background='rgba(0,224,255,0.1)'" onmouseover="this.style.background='rgba(0,224,255,0.2)'" style="background:rgba(0,224,255,0.1);border:1px solid rgba(0,224,255,0.3);color:#00E0FF;font-size:12px;font-weight:700;padding:8px 14px;border-radius:20px;cursor:pointer;font-family:inherit;transition:all 0.2s;">🌍 USD ▾</button>
+<a class="nav-cta" href="https://forms.gle/EcVVcffVTqLZpHURA" target="_blank">Free Online Health Check</a>
+</div>
+<button aria-label="Menu" class="hamburger" id="hamburgerBtn" onclick="toggleMob()"><span></span><span></span><span></span></button>
 </nav>
+<div class="mob-nav" id="mobNav">
+<div class="mob-nav-inner">
+<a class="mob-link" href="#home" onclick="closeMob()">🏠 Home</a>
+<a class="mob-link sub" href="#how-it-works" onclick="closeMob()">- How It Works</a>
+<a class="mob-link sub" href="our-promise.html" onclick="closeMob()">- Our Promise</a>
+<div class="mob-divider"></div>
+<a class="mob-link" href="#what-we-do" onclick="closeMob()">⚡ Services</a>
+<a class="mob-link sub" href="#what-we-do" onclick="closeMob()">- Websites</a>
+<a class="mob-link sub" href="#what-we-do" onclick="closeMob()">- Visibility</a>
+<a class="mob-link sub" href="#what-we-do" onclick="closeMob()">- Automation</a>
+<a class="mob-link sub" href="#what-we-do" onclick="closeMob()">- Growth Systems</a>
+<div class="mob-divider"></div>
+<a class="mob-link" href="pricing.html" onclick="closeMob()">💰 Pricing</a>
+<a class="mob-link" href="crm.html" onclick="closeMob()">🗂️ CRM</a>
+<a class="mob-link wave" href="the-wave.html" onclick="closeMob()">🌊 The Wave</a>
+<a class="mob-link" href="#contact" onclick="closeMob()">📞 Contact</a>
+<a class="mob-cta" href="https://forms.gle/EcVVcffVTqLZpHURA" target="_blank" onclick="closeMob()">🩺 Check My Business for Free</a>
+</div>
+</div>
+TYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You're on the Wave! | BluWav Caribbean</title>
+<meta name="description" content="Thank you for reaching out to BluWav Growth. Here's what happens next.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&family=Kaushan+Script&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Manrope',sans-serif;background:#001020;color:#fff;min-height:100vh;overflow-x:hidden;}
+  a{text-decoration:none;color:inherit;}
+  :root{
+    --cyan:#00E0FF;
+    --turq:#00C2D8;
+    --navy:#002B49;
+    --coral:#FF5500;
+    --gold:#F7C873;
+    --slate:#64748B;
+  }
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;padding:0 40px;display:flex;align-items:center;justify-content:space-between;background:rgba(0,16,32,0.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,224,255,0.08);}
+  .nav-logo{font-family:'Kaushan Script',cursive;font-size:24px;color:#fff;}
+  .nav-logo span{color:var(--cyan);}
+  .nav-home{font-size:13px;font-weight:700;color:rgba(255,255,255,0.5);transition:color 0.2s;}
+  .nav-home:hover{color:#fff;}
+
+  /* HERO */
+  .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:100px 28px 60px;position:relative;overflow:hidden;}
+  .hero::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(0,224,255,0.07) 0%,transparent 65%);pointer-events:none;}
+
+  .hero-inner{max-width:680px;margin:0 auto;text-align:center;position:relative;z-index:2;}
+
+  /* Checkmark animation */
+  .check-wrap{width:96px;height:96px;border-radius:50%;background:rgba(0,224,255,0.1);border:2px solid rgba(0,224,255,0.3);display:flex;align-items:center;justify-content:center;margin:0 auto 32px;animation:popIn 0.6s cubic-bezier(0.175,0.885,0.32,1.275) both;}
+  @keyframes popIn{0%{transform:scale(0);opacity:0;}100%{transform:scale(1);opacity:1;}}
+  .check-icon{font-size:44px;animation:fadeIn 0.4s 0.4s both;}
+  @keyframes fadeIn{from{opacity:0;transform:scale(0.5);}to{opacity:1;transform:scale(1);}}
+
+  .eyebrow{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:var(--gold);display:block;margin-bottom:16px;animation:slideUp 0.5s 0.2s both;}
+  @keyframes slideUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+
+  h1{font-size:42px;font-weight:900;line-height:1.1;letter-spacing:-1px;margin-bottom:16px;animation:slideUp 0.5s 0.3s both;}
+  h1 span{color:var(--cyan);}
+  .subtitle{font-size:17px;color:rgba(255,255,255,0.65);line-height:1.7;margin-bottom:48px;animation:slideUp 0.5s 0.4s both;}
+
+  /* Steps */
+  .steps{display:flex;flex-direction:column;gap:0;margin-bottom:48px;text-align:left;animation:slideUp 0.5s 0.5s both;}
+  .step{display:flex;gap:20px;align-items:flex-start;padding:24px 0;border-bottom:1px solid rgba(255,255,255,0.06);}
+  .step:last-child{border-bottom:none;}
+  .step-num{width:40px;height:40px;border-radius:50%;background:rgba(0,224,255,0.1);border:1.5px solid rgba(0,224,255,0.3);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;color:var(--cyan);flex-shrink:0;margin-top:2px;}
+  .step-content{}
+  .step-title{font-size:16px;font-weight:800;color:#fff;margin-bottom:4px;}
+  .step-desc{font-size:14px;color:rgba(255,255,255,0.55);line-height:1.6;}
+  .step-time{display:inline-block;font-size:11px;font-weight:700;color:var(--cyan);background:rgba(0,224,255,0.08);border:1px solid rgba(0,224,255,0.2);border-radius:20px;padding:2px 10px;margin-top:6px;}
+
+  /* CTA box */
+  .cta-box{background:rgba(255,255,255,0.04);border:1px solid rgba(0,224,255,0.15);border-radius:20px;padding:32px;margin-bottom:32px;animation:slideUp 0.5s 0.6s both;}
+  .cta-box h3{font-size:18px;font-weight:800;color:#fff;margin-bottom:8px;}
+  .cta-box p{font-size:14px;color:rgba(255,255,255,0.55);margin-bottom:20px;line-height:1.6;}
+  .cta-btns{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;}
+
+  .btn-wa{background:#25D366;color:#fff;font-size:15px;font-weight:800;padding:14px 28px;border-radius:11px;display:inline-flex;align-items:center;gap:8px;transition:transform 0.15s,box-shadow 0.2s;box-shadow:0 4px 20px rgba(37,211,102,0.3);}
+  .btn-wa:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(37,211,102,0.45);}
+  .btn-contract{background:transparent;color:var(--cyan);font-size:15px;font-weight:800;padding:14px 28px;border-radius:11px;border:2px solid rgba(0,224,255,0.4);display:inline-flex;align-items:center;gap:8px;transition:all 0.2s;}
+  .btn-contract:hover{background:rgba(0,224,255,0.08);border-color:var(--cyan);}
+
+  /* Reassurance */
+  .reassurance{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;animation:slideUp 0.5s 0.7s both;}
+  .re-item{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.4);font-weight:600;}
+  .re-dot{width:6px;height:6px;border-radius:50%;background:var(--cyan);flex-shrink:0;}
+
+  /* Wave */
+  .bw-wave-wrap{position:fixed;bottom:0;left:0;right:0;height:120px;pointer-events:none;z-index:0;overflow:hidden;}
+  .wave-svg{position:absolute;bottom:0;left:0;width:200%;animation:waveScroll 18s linear infinite;}
+  .wave-svg-2{position:absolute;bottom:0;left:0;width:200%;animation:waveScroll 26s linear infinite reverse;opacity:0.5;}
+  @keyframes waveScroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+
+  /* Footer */
+  footer{text-align:center;padding:40px 28px 160px;position:relative;z-index:2;}
+  .footer-logo{font-family:'Kaushan Script',cursive;font-size:22px;color:#fff;margin-bottom:8px;}
+  .footer-logo span{color:var(--cyan);}
+  .footer-copy{font-size:12px;color:rgba(255,255,255,0.2);}
+
+  @media(max-width:600px){
+    h1{font-size:30px;}
+    .cta-btns{flex-direction:column;}
+    .btn-wa,.btn-contract{justify-content:center;}
+    nav{padding:0 20px;}
+  }
+</style>
+</head>
+<body>
+
+
 
 <section class="hero">
   <div class="hero-inner">
@@ -187,9 +320,86 @@
 </div>
 
 <footer>
-  <div class="footer-logo">Blu<span>Wav</span> Growth</div>
-  <div class="footer-copy">© 2026 BluWav Growth · bluwavgrowth.com · Get Found. Get Chosen. Grow. · A Stratiix Group Company</div>
+<div class="wrap">
+<div class="footer-grid">
+
+<!-- Brand column -->
+<div>
+<div class="footer-brand-name">Blu<span>Wav</span></div>
+<div class="footer-brand-sub">Growth</div>
+<div class="footer-brand-tag">Get Found. Get Chosen. Grow.</div>
+<div style="font-size:10px;font-weight:700;color:var(--gold,#F7C873);letter-spacing:3px;text-transform:uppercase;margin-top:6px;">A Stratix Group Company</div>
+<p class="footer-desc">Caribbean-ready websites, Google visibility, CRM and automation. Built for Caribbean businesses by Caribbean experts.</p>
+<div style="margin-top:16px;"><a class="btn-wa" href="https://wa.me/18682979960" style="font-size:13px;padding:10px 18px;display:inline-flex;align-items:center;gap:6px;background:#25D366;color:#fff;border-radius:9px;text-decoration:none;font-weight:700;">💬 WhatsApp</a></div>
+</div>
+
+<!-- Services column -->
+<div>
+<div class="footer-heading">Services</div>
+<a class="footer-link" href="index.html#what-we-do">Professional Websites</a>
+<a class="footer-link" href="index.html#what-we-do">Google Visibility</a>
+<a class="footer-link" href="index.html#what-we-do">Automation</a>
+<a class="footer-link" href="index.html#what-we-do">Growth Systems</a>
+<a class="footer-link" href="pricing.html#crm">CRM Lite &amp; CRM Premium</a>
+</div>
+
+<!-- Company column -->
+<div>
+<div class="footer-heading">Company</div>
+<a class="footer-link" href="index.html#how-it-works">How It Works</a>
+<a class="footer-link" href="https://forms.gle/EcVVcffVTqLZpHURA" target="_blank">Free Health Check</a>
+<a class="footer-link" href="pricing.html">Pricing</a>
+<a class="footer-link" href="our-promise.html">Our Promise</a>
+<a class="footer-link" href="the-wave.html">The Wave</a>
+<a class="footer-link" href="index.html#contact">Contact Us</a>
+</div>
+
+<!-- Contact + Follow column -->
+<div>
+<div class="footer-heading">Contact</div>
+<a class="footer-link" href="tel:+18682979960">📞 +1 (868) 297-9960</a>
+<a class="footer-link" href="https://wa.me/18682979960">💬 WhatsApp</a>
+<a class="footer-link" href="mailto:hello@bluwavgrowth.com">✉️ hello@bluwavgrowth.com</a>
+<div class="footer-link" style="cursor:default;">🌐 Serving MSMEs across the Caribbean</div>
+<div style="margin-top:20px;">
+<div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.4);margin-bottom:12px;">Follow Us</div>
+<div style="display:flex;flex-direction:column;gap:8px;">
+<a class="footer-link" href="https://facebook.com/bluwavgrowth" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:8px;">
+<span style="width:28px;height:28px;border-radius:8px;background:#1877F2;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">f</span>
+<span>Facebook</span>
+</a>
+<div class="footer-link" style="display:flex;align-items:center;gap:8px;cursor:default;opacity:0.5;">
+<span style="width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">📷</span>
+<span>Instagram <span style="font-size:10px;color:var(--gold);font-weight:700;margin-left:4px;">Soon</span></span>
+</div>
+<div class="footer-link" style="display:flex;align-items:center;gap:8px;cursor:default;opacity:0.5;">
+<span style="width:28px;height:28px;border-radius:8px;background:#0A66C2;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;color:#fff;font-weight:800;font-size:11px;">in</span>
+<span>LinkedIn <span style="font-size:10px;color:var(--gold);font-weight:700;margin-left:4px;">Soon</span></span>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- /footer-grid -->
+<div class="footer-bottom">
+<div class="footer-bottom-text">&#169; 2026 <span>BluWav Caribbean</span> &#183; All rights reserved.</div>
+<div class="footer-bottom-text">Caribbean-Built Digital Growth Systems.</div>
+</div>
+</div><!-- /wrap -->
 </footer>
 
+<script>
+function closeMob(){
+  document.getElementById('mobNav').classList.remove('open');
+  var btn=document.getElementById('hamburgerBtn');
+  if(btn)btn.classList.remove('open');
+}
+function toggleMob(){
+  var nav=document.getElementById('mobNav');
+  var btn=document.getElementById('hamburgerBtn');
+  nav.classList.toggle('open');
+  if(btn)btn.classList.toggle('open');
+}
+</script>
 </body>
 </html>
