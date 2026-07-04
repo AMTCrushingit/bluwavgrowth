@@ -218,10 +218,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 48px;d
 .nav-link:hover{color:#fff;}
 .nav-cta{background:var(--coral,#FF5500);color:#fff;font-size:13px;font-weight:700;padding:10px 24px;border-radius:9px;box-shadow:0 4px 16px rgba(255,85,0,0.35);transition:transform 0.15s,box-shadow 0.2s;text-decoration:none;}
 .nav-cta:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(255,85,0,0.5);}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:101;position:relative;background:none;border:none;padding:0;}
-.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;}
-.mob-nav{display:none;position:fixed;top:70px;left:0;right:0;background:rgba(0,43,73,0.99);backdrop-filter:blur(20px);padding:20px 24px;flex-direction:column;gap:4px;z-index:9999;border-bottom:1px solid rgba(0,224,255,0.15);box-shadow:0 8px 32px rgba(0,0,0,0.3);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1001;position:relative;background:none;border:none;padding:8px;margin:-8px;touch-action:manipulation;-webkit-tap-highlight-color:transparent;}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all 0.3s ease;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mob-nav{display:none;position:fixed;top:70px;left:0;right:0;background:rgba(0,43,73,0.99);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);padding:20px 24px;flex-direction:column;gap:4px;z-index:10000;border-bottom:1px solid rgba(0,224,255,0.15);box-shadow:0 8px 32px rgba(0,0,0,0.3);max-height:calc(100vh - 70px);overflow-y:auto;}
 .mob-nav.open{display:flex !important;}
+.mob-link.wave{color:#00E0FF;}
+.mob-link.wave:hover{color:#00E0FF;background:rgba(0,224,255,0.08);}
 .mob-link{font-size:15px;font-weight:600;color:rgba(255,255,255,0.85);padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.1);text-decoration:none;display:block;}
 .mob-cta{background:var(--coral,#FF5500);color:#fff;font-weight:700;padding:14px;border-radius:10px;text-align:center;margin-top:8px;font-size:15px;text-decoration:none;display:block;}
 /* Dropdown */
@@ -440,8 +445,8 @@ a[style*="background:#00E0FF"]:hover::after,a[style*="background:var(--cyan)"]:h
 <!-- NAV -->
 <nav id="mainNav">
 <div class="nav-logo" style="display:flex;flex-direction:column;align-items:flex-start;line-height:1;padding:4px 0;">
-  <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:300;letter-spacing:4px;line-height:1;color:#fff;">BLU<span style="color:#00E0FF;">WAV</span>&nbsp;<span style="color:#fff;">GROWTH</span></div>
-  <div style="font-size:9px;font-weight:600;color:#00E0FF;letter-spacing:0.5px;line-height:1.4;margin-top:3px;">Get Found. Get Chosen. Grow.</div>
+<div style="font-family:'Kaushan Script',cursive;font-size:26px;line-height:1;color:#fff;">Blu<span style="color:#00E0FF;">Wav</span></div>
+<div style="font-size:8px;font-weight:700;color:#00E0FF;letter-spacing:3px;text-transform:uppercase;line-height:1.4;margin-top:2px;">Get Found. Get Chosen. Grow.</div>
 </div>
 <div class="nav-links">
 <a class="nav-link" href="index.html">Home</a>
@@ -450,36 +455,23 @@ a[style*="background:#00E0FF"]:hover::after,a[style*="background:var(--cyan)"]:h
 <a class="nav-link" href="our-promise.html">Our Promise</a>
 <a class="nav-link" href="pricing.html">Pricing</a>
 <a class="nav-link" href="index.html#contact">Contact</a>
-<a class="nav-cta" href="index.html#contact">Free Online Health Check</a>
+<a class="nav-link" href="the-wave.html" style="color:#00E0FF;font-weight:700;">The Wave</a>
+<a class="nav-cta" href="https://forms.gle/EcVVcffVTqLZpHURA" target="_blank">Free Online Health Check</a>
 </div>
-<div class="hamburger" onclick="toggleMob()"><span></span><span></span><span></span></div>
+<button aria-label="Menu" class="hamburger" id="hamburgerBtn" onclick="toggleMob()"><span></span><span></span><span></span></button>
 </nav>
 <div class="mob-nav" id="mobNav">
-<a class="mob-link" href="index.html" onclick="toggleMob()">Home</a>
-<a class="mob-link" href="index.html#what-we-do" onclick="toggleMob()">Services</a>
-<a class="mob-link" href="index.html#what-we-do" onclick="toggleMob()" style="padding-left:24px;font-size:13px;color:rgba(255,255,255,0.6);">&#8212; Websites</a>
-<a class="mob-link" href="index.html#what-we-do" onclick="toggleMob()" style="padding-left:24px;font-size:13px;color:rgba(255,255,255,0.6);">&#8212; Visibility</a>
-<a class="mob-link" href="index.html#what-we-do" onclick="toggleMob()" style="padding-left:24px;font-size:13px;color:rgba(255,255,255,0.6);">&#8212; Automation</a>
-<a class="mob-link" href="index.html#what-we-do" onclick="toggleMob()" style="padding-left:24px;font-size:13px;color:rgba(255,255,255,0.6);">&#8212; Growth Systems</a>
-<a class="mob-link" href="index.html#how-it-works" onclick="toggleMob()">How It Works</a>
-<a class="mob-link" href="our-promise.html" onclick="toggleMob()">Our Promise</a>
-<a class="mob-link" href="pricing.html" onclick="toggleMob()">Pricing</a>
-<a class="mob-link" href="index.html#contact" onclick="toggleMob()">Contact</a>
-<a class="mob-cta" href="index.html#contact" onclick="toggleMob()">Free Online Health Check</a>
+<div class="mob-nav-inner">
+<a class="mob-link" href="index.html" onclick="closeMob()">🏠 Home</a>
+<a class="mob-link" href="index.html#what-we-do" onclick="closeMob()">⚡ Services</a>
+<a class="mob-link" href="index.html#how-it-works" onclick="closeMob()">- How It Works</a>
+<a class="mob-link" href="our-promise.html" onclick="closeMob()">- Our Promise</a>
+<a class="mob-link" href="pricing.html" onclick="closeMob()">💰 Pricing</a>
+<a class="mob-link wave" href="the-wave.html" onclick="closeMob()">🌊 The Wave</a>
+<a class="mob-link" href="index.html#contact" onclick="closeMob()">📞 Contact</a>
+<a class="mob-cta" href="https://forms.gle/EcVVcffVTqLZpHURA" target="_blank" onclick="closeMob()">🩺 Check My Business for Free</a>
 </div>
-
-
-<!-- SLIM NAVY STRIP -->
-<div style="background:#002B49;border-bottom:1px solid rgba(0,224,255,0.2);padding:11px 0;text-align:center;margin-top:70px;">
-<div style="display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap;max-width:900px;margin:0 auto;padding:0 24px;">
-<span style="font-size:13px;font-weight:600;color:rgba(255,255,255,0.8);">⚡ 48–72 Hour Delivery</span>
-<span style="color:rgba(0,224,255,0.4);">·</span>
-<span style="font-size:13px;font-weight:600;color:rgba(255,255,255,0.8);">🌊 Caribbean-Built Systems</span>
-<span style="color:rgba(0,224,255,0.4);">·</span>
-<span style="font-size:13px;font-weight:600;color:rgba(255,255,255,0.8);">🔒 You Own Everything Forever</span>
-</div>
-</div>
-<!-- HERO -->
+</div>HERO -->
 <section style="background:linear-gradient(160deg,#002B49 0%,#003d5c 50%,#002B49 100%);padding:100px 48px 80px;text-align:center;position:relative;overflow:hidden;">
 <div style="position:absolute;top:-100px;right:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(0,224,255,0.12) 0%,transparent 70%);pointer-events:none;"></div>
 <div style="max-width:760px;margin:0 auto;position:relative;z-index:2;">
@@ -519,7 +511,7 @@ a[style*="background:#00E0FF"]:hover::after,a[style*="background:var(--cyan)"]:h
 <p style="font-size:16px;color:var(--slate);margin-bottom:56px;">Every plan includes a signed agreement. You own your website forever.</p>
 <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-bottom:48px;">
 <!-- Ripple -->
-<div onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 16px 48px rgba(0,43,73,0.1)'" style="background:#fff;border-radius:20px;padding:36px;border:2px solid var(--mist);display:flex;flex-direction:column;transition:all 0.2s;text-align:left;">
+<div onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 16px 48px rgba(0,43,73,0.1)'" style="background:#fff;border-radius:20px;padding:36px;border:2px solid #e2e8f0;display:flex;flex-direction:column;transition:all 0.2s;text-align:left;box-shadow:0 4px 24px rgba(0,43,73,0.06);">
 <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--slate);margin-bottom:6px;">Starter</div>
 <div style="font-size:22px;font-weight:800;color:var(--navy);margin-bottom:6px;font-family:'Manrope',sans-serif;">BluWav Ripple</div>
 <div style="font-family:'Manrope',sans-serif;font-size:36px;font-weight:900;color:var(--navy);letter-spacing:-1px;line-height:1;margin-bottom:4px;">$800</div>
@@ -544,7 +536,7 @@ a[style*="background:#00E0FF"]:hover::after,a[style*="background:var(--cyan)"]:h
 <a href="index.html#contact" onmouseout="this.style.transform='translateY(0)'" onmouseover="this.style.transform='translateY(-2px)'" style="display:block;background:var(--cyan);color:#fff;font-size:15px;font-weight:800;padding:14px 20px;border-radius:11px;text-decoration:none;text-align:center;box-shadow:0 4px 20px rgba(0,224,255,0.3);transition:all 0.2s;">Start Free →</a>
 </div>
 <!-- Current -->
-<div style="background:linear-gradient(135deg,#002B49,#003d5c);border-radius:20px;padding:36px;display:flex;flex-direction:column;position:relative;overflow:hidden;box-shadow:0 8px 40px rgba(0,43,73,0.3);text-align:left;">
+<div style="background:linear-gradient(145deg,#001f3f,#003366,#004080);border-radius:20px;padding:36px;display:flex;flex-direction:column;position:relative;overflow:hidden;box-shadow:0 16px 60px rgba(0,43,73,0.5),0 0 0 2px rgba(0,224,255,0.4),inset 0 1px 0 rgba(255,255,255,0.1);text-align:left;">
 <div style="position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--coral),var(--gold));color:#fff;font-size:11px;font-weight:800;padding:5px 20px;border-radius:0 0 12px 12px;white-space:nowrap;">⭐ Most Popular</div>
 <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--gold);margin-bottom:6px;margin-top:14px;">Growth</div>
 <div style="font-size:22px;font-weight:800;color:#fff;margin-bottom:6px;font-family:'Manrope',sans-serif;">BluWav Current</div>
@@ -566,7 +558,7 @@ a[style*="background:#00E0FF"]:hover::after,a[style*="background:var(--cyan)"]:h
 <a href="index.html#contact" onmouseout="this.style.transform='translateY(0)'" onmouseover="this.style.transform='translateY(-2px)'" style="display:block;background:var(--gold);color:var(--navy);font-size:15px;font-weight:800;padding:14px 20px;border-radius:11px;text-decoration:none;text-align:center;transition:all 0.2s;">Start Free →</a>
 </div>
 <!-- Surge -->
-<div style="background:linear-gradient(135deg,#001020,#002B49);border-radius:20px;padding:36px;display:flex;flex-direction:column;border:1px solid rgba(247,200,115,0.3);text-align:left;">
+<div style="background:linear-gradient(145deg,#0a0a1a,#001428,#002040);border-radius:20px;padding:36px;display:flex;flex-direction:column;border:2px solid rgba(247,200,115,0.5);text-align:left;box-shadow:0 16px 60px rgba(0,0,0,0.5),0 0 40px rgba(247,200,115,0.08),inset 0 1px 0 rgba(247,200,115,0.1);">
 <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--gold);margin-bottom:6px;">Full Transformation</div>
 <div style="font-size:22px;font-weight:800;color:#fff;margin-bottom:6px;font-family:'Manrope',sans-serif;">BluWav Surge</div>
 <div style="font-family:'Manrope',sans-serif;font-size:36px;font-weight:900;color:var(--gold);letter-spacing:-1px;line-height:1;margin-bottom:4px;">$2,500+</div>
@@ -587,7 +579,7 @@ a[style*="background:#00E0FF"]:hover::after,a[style*="background:var(--cyan)"]:h
 </div>
 <!-- Note under cards -->
 <div style="background:rgba(0,43,73,0.06);border:1px solid rgba(0,43,73,0.12);border-radius:16px;padding:24px 36px;max-width:860px;margin:0 auto;">
-<p style="font-size:15px;color:var(--navy);line-height:1.75;margin:0;">Every BluWav Growth System includes the essential tools your business needs to get found online, be chosen first, and grow… powered by AI and built for Caribbean MSMEs.<br/><strong>CRM is included in every plan. No monthly subscription. You own everything forever.</strong></p>
+<p style="font-size:15px;color:var(--navy);line-height:1.75;margin:0;">Every BluWav Growth System includes the essential tools your business needs to get found online, be chosen first, and grow… powered by AI and built for Caribbean MSMEs.</p>
 </div>
 </div>
 </section>
@@ -656,12 +648,6 @@ a[style*="background:#00E0FF"]:hover::after,a[style*="background:var(--cyan)"]:h
 </div>
 </div>
 
-<!-- Why CRM isn't free anymore -->
-<div style="background:rgba(0,43,73,0.06);border:1px solid rgba(0,43,73,0.12);border-radius:16px;padding:28px 36px;max-width:860px;margin:0 auto;">
-<div style="font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--coral);margin-bottom:10px;">&#11088; Why CRM Isn't Free Anymore</div>
-<p style="font-size:14px;color:var(--navy);line-height:1.75;margin:0 0 8px;">CRM Lite used to be included in every plan. Now, every client gets a 30&#8209;day trial, and then chooses the CRM that fits their business.</p>
-<p style="font-size:14px;color:var(--slate);line-height:1.75;margin:0;">This keeps BluWav's pricing clean, fair, and sustainable &mdash; while giving clients full control over their CRM investment.</p>
-</div>
 
 </div>
 </section>
@@ -827,7 +813,7 @@ a[style*="background:#00E0FF"]:hover::after,a[style*="background:var(--cyan)"]:h
 </div>
 </div>
 <div class="footer-bottom">
-<div class="footer-bottom-text">&#169; 2026 <span>BluWav Growth</span> &#183; All rights reserved.</div>
+<div class="footer-bottom-text">&#169; 2026 <span>BluWav Caribbean</span> &#183; All rights reserved.</div>
 <div class="footer-bottom-text">Get Found. Get Chosen. Grow.</div>
 </div>
 </div>
@@ -838,9 +824,27 @@ a[style*="background:#00E0FF"]:hover::after,a[style*="background:var(--cyan)"]:h
 
 
 <script>
-function toggleMob(){var n=document.getElementById('mobNav');if(n)n.classList.toggle('open');}
-
-
+function toggleMob(){
+  var nav = document.getElementById('mobNav');
+  var btn = document.getElementById('hamburgerBtn');
+  nav.classList.toggle('open');
+  if(btn) btn.classList.toggle('open');
+}
+function closeMob(){
+  document.getElementById('mobNav').classList.remove('open');
+  var btn = document.getElementById('hamburgerBtn');
+  if(btn) btn.classList.remove('open');
+}
+document.addEventListener('click', function(e){
+  var nav = document.getElementById('mobNav');
+  var btn = document.getElementById('hamburgerBtn');
+  if(nav && btn && nav.classList.contains('open')){
+    if(!nav.contains(e.target) && !btn.contains(e.target)){
+      nav.classList.remove('open');
+      btn.classList.remove('open');
+    }
+  }
+});
 </script>
 <script>
 // ── Intersection Observer for scroll reveals ──────────────────────────────────
