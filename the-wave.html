@@ -4,8 +4,10 @@
 <head>
 <meta content="FEE9B5469C6A497A48F135B874E87252" name="msvalidate.01"/>
 <meta charset="utf-8"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>The Wave | BluWav Growth, Insights for Caribbean Businesses</title>
+<title>The Wave | BluWav Caribbean — Insights for Caribbean Businesses</title>
 <meta content="Insights for Caribbean businesses riding the digital wave. Practical advice on websites, Google visibility, WhatsApp Business, CRM and automation." name="description"/>
 <meta content="The Wave | BluWav Growth" property="og:title"/>
 <meta content="Insights for Caribbean businesses riding the digital wave." property="og:description"/>
@@ -138,27 +140,39 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
 <div style="font-size:8px;font-weight:700;color:#00E0FF;letter-spacing:3px;text-transform:uppercase;line-height:1.4;margin-top:2px;">Get Found. Get Chosen. Grow.</div>
 </div>
 <div class="nav-links">
-<a class="nav-link" href="index.html">Home</a>
-<a class="nav-link" href="index.html#what-we-do">Services</a>
-<a class="nav-link" href="index.html#how-it-works">How It Works</a>
+<a class="nav-link" href="#home">Home</a>
+<a class="nav-link" href="#what-we-do">Services</a>
+<a class="nav-link" href="#how-it-works">How It Works</a>
 <a class="nav-link" href="our-promise.html">Our Promise</a>
 <a class="nav-link" href="pricing.html">Pricing</a>
+<a class="nav-link" href="crm.html">CRM</a>
 <a class="nav-link" href="the-wave.html" style="color:#00E0FF;font-weight:700;">The Wave</a>
-<a class="nav-link" href="index.html#contact">Contact</a>
+<a class="nav-link" href="#contact">Contact</a>
+<button id="currency-btn" onclick="openCurrency()" onmouseout="this.style.background='rgba(0,224,255,0.1)'" onmouseover="this.style.background='rgba(0,224,255,0.2)'" style="background:rgba(0,224,255,0.1);border:1px solid rgba(0,224,255,0.3);color:#00E0FF;font-size:12px;font-weight:700;padding:8px 14px;border-radius:20px;cursor:pointer;font-family:inherit;transition:all 0.2s;">🌍 USD ▾</button>
 <a class="nav-cta" href="https://forms.gle/EcVVcffVTqLZpHURA" target="_blank">Free Online Health Check</a>
 </div>
-<div class="hamburger" onclick="toggleMob()"><span></span><span></span><span></span></div>
+<button aria-label="Menu" class="hamburger" id="hamburgerBtn" onclick="toggleMob()"><span></span><span></span><span></span></button>
 </nav>
 <div class="mob-nav" id="mobNav">
-<a class="mob-link" href="index.html" onclick="closeMob()">Home</a>
-<a class="mob-link" href="index.html#what-we-do" onclick="closeMob()">Services</a>
-<a class="mob-link" href="index.html#how-it-works" onclick="closeMob()">How It Works</a>
-<a class="mob-link" href="our-promise.html" onclick="closeMob()">Our Promise</a>
-<a class="mob-link" href="pricing.html" onclick="closeMob()">Pricing</a>
-<a class="mob-link" href="the-wave.html" onclick="closeMob()" style="color:#00E0FF;">The Wave</a>
-<a class="mob-link" href="index.html#contact" onclick="closeMob()">Contact</a>
-<a class="mob-cta" href="https://forms.gle/EcVVcffVTqLZpHURA" target="_blank" onclick="closeMob()">Free Online Health Check</a>
+<div class="mob-nav-inner">
+<a class="mob-link" href="#home" onclick="closeMob()">🏠 Home</a>
+<a class="mob-link sub" href="#how-it-works" onclick="closeMob()">- How It Works</a>
+<a class="mob-link sub" href="our-promise.html" onclick="closeMob()">- Our Promise</a>
+<div class="mob-divider"></div>
+<a class="mob-link" href="#what-we-do" onclick="closeMob()">⚡ Services</a>
+<a class="mob-link sub" href="#what-we-do" onclick="closeMob()">- Websites</a>
+<a class="mob-link sub" href="#what-we-do" onclick="closeMob()">- Visibility</a>
+<a class="mob-link sub" href="#what-we-do" onclick="closeMob()">- Automation</a>
+<a class="mob-link sub" href="#what-we-do" onclick="closeMob()">- Growth Systems</a>
+<div class="mob-divider"></div>
+<a class="mob-link" href="pricing.html" onclick="closeMob()">💰 Pricing</a>
+<a class="mob-link" href="crm.html" onclick="closeMob()">🗂️ CRM</a>
+<a class="mob-link wave" href="the-wave.html" onclick="closeMob()">🌊 The Wave</a>
+<a class="mob-link" href="#contact" onclick="closeMob()">📞 Contact</a>
+<a class="mob-cta" href="https://forms.gle/EcVVcffVTqLZpHURA" target="_blank" onclick="closeMob()">🩺 Check My Business for Free</a>
 </div>
+</div>
+
 <!-- HERO -->
 <section class="blog-hero" style="background:none;padding:0;position:relative;overflow:hidden;min-height:480px;display:flex;align-items:center;">
 <!-- Real Caribbean ocean background -->
@@ -375,20 +389,28 @@ function handleWaveSubscribe(e) {
 <footer>
 <div class="wrap">
 <div class="footer-grid">
+
+<!-- Brand column -->
 <div>
 <div class="footer-brand-name">Blu<span>Wav</span></div>
 <div class="footer-brand-sub">Growth</div>
 <div class="footer-brand-tag">Get Found. Get Chosen. Grow.</div>
-<div style="font-size:10px;font-weight:700;color:var(--gold);letter-spacing:3px;text-transform:uppercase;margin-top:6px;">A Stratiix Group Company</div>
+<div style="font-size:10px;font-weight:700;color:var(--gold,#F7C873);letter-spacing:3px;text-transform:uppercase;margin-top:6px;">A Stratix Group Company</div>
 <p class="footer-desc">Caribbean-ready websites, Google visibility, CRM and automation. Built for Caribbean businesses by Caribbean experts.</p>
+<div style="margin-top:16px;"><a class="btn-wa" href="https://wa.me/18682979960" style="font-size:13px;padding:10px 18px;display:inline-flex;align-items:center;gap:6px;background:#25D366;color:#fff;border-radius:9px;text-decoration:none;font-weight:700;">💬 WhatsApp</a></div>
 </div>
+
+<!-- Services column -->
 <div>
 <div class="footer-heading">Services</div>
 <a class="footer-link" href="index.html#what-we-do">Professional Websites</a>
 <a class="footer-link" href="index.html#what-we-do">Google Visibility</a>
 <a class="footer-link" href="index.html#what-we-do">Automation</a>
 <a class="footer-link" href="index.html#what-we-do">Growth Systems</a>
+<a class="footer-link" href="pricing.html#crm">CRM Lite &amp; CRM Premium</a>
 </div>
+
+<!-- Company column -->
 <div>
 <div class="footer-heading">Company</div>
 <a class="footer-link" href="index.html#how-it-works">How It Works</a>
@@ -398,28 +420,62 @@ function handleWaveSubscribe(e) {
 <a class="footer-link" href="the-wave.html">The Wave</a>
 <a class="footer-link" href="index.html#contact">Contact Us</a>
 </div>
+
+<!-- Contact + Follow column -->
 <div>
 <div class="footer-heading">Contact</div>
 <a class="footer-link" href="tel:+18682979960">📞 +1 (868) 297-9960</a>
 <a class="footer-link" href="https://wa.me/18682979960">💬 WhatsApp</a>
 <a class="footer-link" href="mailto:hello@bluwavgrowth.com">✉️ hello@bluwavgrowth.com</a>
-<div class="footer-link" style="cursor:default;">🌍 MSMEs across the Caribbean</div>
-<div style="margin-top:16px;">
-<div class="footer-heading">Follow Us</div>
-<a class="footer-link" href="https://facebook.com/bluwavgrowth" style="display:flex;align-items:center;gap:8px;" target="_blank"><span style="width:24px;height:24px;border-radius:6px;background:#1877F2;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#fff;flex-shrink:0;">f</span>Facebook</a>
-<div class="footer-link" style="display:flex;align-items:center;gap:8px;opacity:0.4;cursor:default;"><span style="width:24px;height:24px;border-radius:6px;background:linear-gradient(135deg,#f09433,#dc2743,#bc1888);display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;flex-shrink:0;">📷</span>Instagram <span style="font-size:10px;color:var(--gold);margin-left:4px;">Soon</span></div>
-<div class="footer-link" style="display:flex;align-items:center;gap:8px;opacity:0.4;cursor:default;"><span style="width:24px;height:24px;border-radius:6px;background:#0A66C2;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;flex-shrink:0;">in</span>LinkedIn <span style="font-size:10px;color:var(--gold);margin-left:4px;">Soon</span></div>
+<div class="footer-link" style="cursor:default;">🌐 Serving MSMEs across the Caribbean</div>
+<div style="margin-top:20px;">
+<div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.4);margin-bottom:12px;">Follow Us</div>
+<div style="display:flex;flex-direction:column;gap:8px;">
+<a class="footer-link" href="https://facebook.com/bluwavgrowth" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:8px;">
+<span style="width:28px;height:28px;border-radius:8px;background:#1877F2;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">f</span>
+<span>Facebook</span>
+</a>
+<div class="footer-link" style="display:flex;align-items:center;gap:8px;cursor:default;opacity:0.5;">
+<span style="width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">📷</span>
+<span>Instagram <span style="font-size:10px;color:var(--gold);font-weight:700;margin-left:4px;">Soon</span></span>
+</div>
+<div class="footer-link" style="display:flex;align-items:center;gap:8px;cursor:default;opacity:0.5;">
+<span style="width:28px;height:28px;border-radius:8px;background:#0A66C2;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;color:#fff;font-weight:800;font-size:11px;">in</span>
+<span>LinkedIn <span style="font-size:10px;color:var(--gold);font-weight:700;margin-left:4px;">Soon</span></span>
 </div>
 </div>
 </div>
+</div>
+
+</div><!-- /footer-grid -->
 <div class="footer-bottom">
-<div class="footer-bottom-text">© 2026 <span>BluWav Growth</span> · All rights reserved.</div>
-<div class="footer-bottom-text">Get Found. Get Chosen. Grow.</div>
+<div class="footer-bottom-text">&#169; 2026 <span>BluWav Caribbean</span> &#183; All rights reserved.</div>
+<div class="footer-bottom-text">Caribbean-Built Digital Growth Systems.</div>
 </div>
-</div>
+</div><!-- /wrap -->
 </footer>
 <script>
-function toggleMob(){var n=document.getElementById('mobNav');if(n)n.classList.toggle('open');}
+function toggleMob(){
+  var nav=document.getElementById('mobNav');
+  var btn=document.getElementById('hamburgerBtn');
+  nav.classList.toggle('open');
+  if(btn)btn.classList.toggle('open');
+}
+function closeMob(){
+  document.getElementById('mobNav').classList.remove('open');
+  var btn=document.getElementById('hamburgerBtn');
+  if(btn)btn.classList.remove('open');
+}
+document.addEventListener('click',function(e){
+  var nav=document.getElementById('mobNav');
+  var btn=document.getElementById('hamburgerBtn');
+  if(nav&&btn&&nav.classList.contains('open')){
+    if(!nav.contains(e.target)&&!btn.contains(e.target)){
+      nav.classList.remove('open');
+      if(btn)btn.classList.remove('open');
+    }
+  }
+});
 </script>
 </body>
 </html>
