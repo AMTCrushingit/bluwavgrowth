@@ -5,6 +5,8 @@
 <meta name="google-site-verification" content="ouWrssM2eCjOYgXMi6LAwfOOJftunNjcO5PxEJGp0i0" />
 <meta name="msvalidate.01" content="FEE9B5469C6A497A48F135B874E87252" />
 <meta charset="utf-8"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>How It Works | ClientFlow Caribbean, Caribbean Digital Growth Agency</title>
 <meta content="See exactly how ClientFlow Caribbean builds your website and Google presence in 4 simple steps. From discovery to launch in 5–7 days. Starting at $500. No tech skills needed." name="description"/>
@@ -21,8 +23,7 @@
 <link href="https://www.clientflowcaribbean.com/how-it-works" rel="canonical"/>
 <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script\&Manrope:wght@300;400;500;600;700;800;900\&family=Inter:wght@300;400;500;600;700;800\&Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&amp;family=Sora:wght@700;800;900&amp;display=swap" rel="stylesheet"/>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
-
+/* Font loaded via <link> in <head> */
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{font-family:'Plus Jakarta Sans',sans-serif;background:#fff;color:#0B2C4D;overflow-x:hidden;}
@@ -544,29 +545,43 @@ a[style*="background:#00E0FF"]:hover::after,a[style*="background:var(--cyan)"]:h
 <!-- NAV -->
 <nav id="mainNav">
 <div class="nav-logo" style="display:flex;flex-direction:column;align-items:flex-start;line-height:1;padding:4px 0;">
-<div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:300;letter-spacing:4px;line-height:1;color:#fff;">BLU<span style="color:#00E0FF;">WAV</span> <span style="color:#fff;">GROWTH</span></div>
-<div style="font-size:9px;font-weight:600;color:#00E0FF;letter-spacing:0.5px;line-height:1.4;margin-top:3px;">Get Found. Get Chosen. Grow.</div>
+<div style="font-family:'Kaushan Script',cursive;font-size:26px;line-height:1;color:#fff;">Blu<span style="color:#00E0FF;">Wav</span></div>
+<div style="font-size:8px;font-weight:700;color:#00E0FF;letter-spacing:3px;text-transform:uppercase;line-height:1.4;margin-top:2px;">Get Found. Get Chosen. Grow.</div>
 </div>
 <div class="nav-links">
-<a class="nav-link" href="index.html">Home</a>
-<a class="nav-link" href="index.html#what-we-do">Services</a>
-<a class="nav-link" href="index.html#how-it-works">How It Works</a>
+<a class="nav-link" href="#home">Home</a>
+<a class="nav-link" href="#what-we-do">Services</a>
+<a class="nav-link" href="#how-it-works">How It Works</a>
 <a class="nav-link" href="our-promise.html">Our Promise</a>
 <a class="nav-link" href="pricing.html">Pricing</a>
-<a class="nav-link" href="index.html#contact">Contact</a>
+<a class="nav-link" href="crm.html">CRM</a>
+<a class="nav-link" href="the-wave.html" style="color:#00E0FF;font-weight:700;">The Wave</a>
+<a class="nav-link" href="#contact">Contact</a>
+<button id="currency-btn" onclick="openCurrency()" onmouseout="this.style.background='rgba(0,224,255,0.1)'" onmouseover="this.style.background='rgba(0,224,255,0.2)'" style="background:rgba(0,224,255,0.1);border:1px solid rgba(0,224,255,0.3);color:#00E0FF;font-size:12px;font-weight:700;padding:8px 14px;border-radius:20px;cursor:pointer;font-family:inherit;transition:all 0.2s;">🌍 USD ▾</button>
 <a class="nav-cta" href="https://forms.gle/EcVVcffVTqLZpHURA" target="_blank">Free Online Health Check</a>
 </div>
-<div class="hamburger" onclick="toggleMob()"><span></span><span></span><span></span></div>
+<button aria-label="Menu" class="hamburger" id="hamburgerBtn" onclick="toggleMob()"><span></span><span></span><span></span></button>
 </nav>
 <div class="mob-nav" id="mobNav">
-<a class="mob-link" href="index.html" onclick="toggleMob()">Home</a>
-<a class="mob-link" href="index.html#what-we-do" onclick="toggleMob()">Services</a>
-<a class="mob-link" href="index.html#how-it-works" onclick="toggleMob()">How It Works</a>
-<a class="mob-link" href="our-promise.html" onclick="toggleMob()">Our Promise</a>
-<a class="mob-link" href="pricing.html" onclick="toggleMob()">Pricing</a>
-<a class="mob-link" href="index.html#contact" onclick="toggleMob()">Contact</a>
-<a class="mob-cta" href="https://forms.gle/EcVVcffVTqLZpHURA" target="_blank" onclick="toggleMob()">Free Online Health Check</a>
+<div class="mob-nav-inner">
+<a class="mob-link" href="#home" onclick="closeMob()">🏠 Home</a>
+<a class="mob-link sub" href="#how-it-works" onclick="closeMob()">- How It Works</a>
+<a class="mob-link sub" href="our-promise.html" onclick="closeMob()">- Our Promise</a>
+<div class="mob-divider"></div>
+<a class="mob-link" href="#what-we-do" onclick="closeMob()">⚡ Services</a>
+<a class="mob-link sub" href="#what-we-do" onclick="closeMob()">- Websites</a>
+<a class="mob-link sub" href="#what-we-do" onclick="closeMob()">- Visibility</a>
+<a class="mob-link sub" href="#what-we-do" onclick="closeMob()">- Automation</a>
+<a class="mob-link sub" href="#what-we-do" onclick="closeMob()">- Growth Systems</a>
+<div class="mob-divider"></div>
+<a class="mob-link" href="pricing.html" onclick="closeMob()">💰 Pricing</a>
+<a class="mob-link" href="crm.html" onclick="closeMob()">🗂️ CRM</a>
+<a class="mob-link wave" href="the-wave.html" onclick="closeMob()">🌊 The Wave</a>
+<a class="mob-link" href="#contact" onclick="closeMob()">📞 Contact</a>
+<a class="mob-cta" href="https://forms.gle/EcVVcffVTqLZpHURA" target="_blank" onclick="closeMob()">🩺 Check My Business for Free</a>
 </div>
+</div>
+
 <!-- HERO -->
 <section style="background:linear-gradient(160deg,#002B49 0%,#003d5c 50%,#002B49 100%);padding:120px 48px 80px;text-align:center;position:relative;overflow:hidden;min-height:50vh;display:flex;align-items:center;">
 <div style="position:absolute;top:-100px;right:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(0,224,255,0.12) 0%,transparent 70%);pointer-events:none;"></div>
@@ -755,49 +770,97 @@ a[style*="background:#00E0FF"]:hover::after,a[style*="background:var(--cyan)"]:h
 </div>
 </section>
 <script>
-function toggleMob(){var n=document.getElementById('mobNav');if(n)n.classList.toggle('open');}
+function toggleMob(){
+  var nav=document.getElementById('mobNav');
+  var btn=document.getElementById('hamburgerBtn');
+  nav.classList.toggle('open');
+  if(btn)btn.classList.toggle('open');
+}
+function closeMob(){
+  document.getElementById('mobNav').classList.remove('open');
+  var btn=document.getElementById('hamburgerBtn');
+  if(btn)btn.classList.remove('open');
+}
+document.addEventListener('click',function(e){
+  var nav=document.getElementById('mobNav');
+  var btn=document.getElementById('hamburgerBtn');
+  if(nav&&btn&&nav.classList.contains('open')){
+    if(!nav.contains(e.target)&&!btn.contains(e.target)){
+      nav.classList.remove('open');
+      if(btn)btn.classList.remove('open');
+    }
+  }
+});
 
 
 </script><!-- FOOTER -->
 <footer>
 <div class="wrap">
 <div class="footer-grid">
+
+<!-- Brand column -->
 <div>
 <div class="footer-brand-name">Blu<span>Wav</span></div>
 <div class="footer-brand-sub">Growth</div>
 <div class="footer-brand-tag">Get Found. Get Chosen. Grow.</div>
-<div style="font-size:10px;font-weight:700;color:var(--gold,#F7C873);letter-spacing:3px;text-transform:uppercase;margin-top:6px;">A Stratiix Group Company</div>
+<div style="font-size:10px;font-weight:700;color:var(--gold,#F7C873);letter-spacing:3px;text-transform:uppercase;margin-top:6px;">A Stratix Group Company</div>
 <p class="footer-desc">Caribbean-ready websites, Google visibility, CRM and automation. Built for Caribbean businesses by Caribbean experts.</p>
-<div style="margin-top:16px;"><a class="btn-wa" href="https://wa.me/18682979960" style="font-size:13px;padding:10px 18px;display:inline-flex;align-items:center;gap:6px;background:#25D366;color:#fff;border-radius:9px;text-decoration:none;font-weight:700;">&#128172; WhatsApp</a></div>
+<div style="margin-top:16px;"><a class="btn-wa" href="https://wa.me/18682979960" style="font-size:13px;padding:10px 18px;display:inline-flex;align-items:center;gap:6px;background:#25D366;color:#fff;border-radius:9px;text-decoration:none;font-weight:700;">💬 WhatsApp</a></div>
 </div>
+
+<!-- Services column -->
 <div>
 <div class="footer-heading">Services</div>
 <a class="footer-link" href="index.html#what-we-do">Professional Websites</a>
 <a class="footer-link" href="index.html#what-we-do">Google Visibility</a>
 <a class="footer-link" href="index.html#what-we-do">Automation</a>
 <a class="footer-link" href="index.html#what-we-do">Growth Systems</a>
+<a class="footer-link" href="pricing.html#crm">CRM Lite &amp; CRM Premium</a>
 </div>
+
+<!-- Company column -->
 <div>
 <div class="footer-heading">Company</div>
 <a class="footer-link" href="index.html#how-it-works">How It Works</a>
 <a class="footer-link" href="https://forms.gle/EcVVcffVTqLZpHURA" target="_blank">Free Health Check</a>
 <a class="footer-link" href="pricing.html">Pricing</a>
 <a class="footer-link" href="our-promise.html">Our Promise</a>
+<a class="footer-link" href="the-wave.html">The Wave</a>
 <a class="footer-link" href="index.html#contact">Contact Us</a>
 </div>
+
+<!-- Contact + Follow column -->
 <div>
 <div class="footer-heading">Contact</div>
-<a class="footer-link" href="tel:+18682979960">&#128222; +1 (868) 297-9960</a>
-<a class="footer-link" href="https://wa.me/18682979960">&#128172; WhatsApp</a>
-<a class="footer-link" href="mailto:hello@bluwavgrowth.com">&#9993;&#65039; hello@bluwavgrowth.com</a>
-<div class="footer-link" style="cursor:default;">&#127757; MSMEs across the Caribbean</div>
+<a class="footer-link" href="tel:+18682979960">📞 +1 (868) 297-9960</a>
+<a class="footer-link" href="https://wa.me/18682979960">💬 WhatsApp</a>
+<a class="footer-link" href="mailto:hello@bluwavgrowth.com">✉️ hello@bluwavgrowth.com</a>
+<div class="footer-link" style="cursor:default;">🌐 Serving MSMEs across the Caribbean</div>
+<div style="margin-top:20px;">
+<div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.4);margin-bottom:12px;">Follow Us</div>
+<div style="display:flex;flex-direction:column;gap:8px;">
+<a class="footer-link" href="https://facebook.com/bluwavgrowth" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:8px;">
+<span style="width:28px;height:28px;border-radius:8px;background:#1877F2;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">f</span>
+<span>Facebook</span>
+</a>
+<div class="footer-link" style="display:flex;align-items:center;gap:8px;cursor:default;opacity:0.5;">
+<span style="width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">📷</span>
+<span>Instagram <span style="font-size:10px;color:var(--gold);font-weight:700;margin-left:4px;">Soon</span></span>
+</div>
+<div class="footer-link" style="display:flex;align-items:center;gap:8px;cursor:default;opacity:0.5;">
+<span style="width:28px;height:28px;border-radius:8px;background:#0A66C2;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;color:#fff;font-weight:800;font-size:11px;">in</span>
+<span>LinkedIn <span style="font-size:10px;color:var(--gold);font-weight:700;margin-left:4px;">Soon</span></span>
 </div>
 </div>
+</div>
+</div>
+
+</div><!-- /footer-grid -->
 <div class="footer-bottom">
-<div class="footer-bottom-text">&#169; 2026 <span>BluWav Growth</span> &#183; All rights reserved.</div>
-<div class="footer-bottom-text">Get Found. Get Chosen. Grow.</div>
+<div class="footer-bottom-text">&#169; 2026 <span>BluWav Caribbean</span> &#183; All rights reserved.</div>
+<div class="footer-bottom-text">Caribbean-Built Digital Growth Systems.</div>
 </div>
-</div>
+</div><!-- /wrap -->
 </footer>
 <script type="application/ld+json">
 {
@@ -827,13 +890,29 @@ document.addEventListener('click', function(e) {
 </script>
 
 <script>
-function toggleMob(){document.getElementById('mobNav').classList.toggle('open');}
+function toggleMob(){
+  var nav=document.getElementById('mobNav');
+  var btn=document.getElementById('hamburgerBtn');
+  nav.classList.toggle('open');
+  if(btn)btn.classList.toggle('open');
+}
+function closeMob(){
+  document.getElementById('mobNav').classList.remove('open');
+  var btn=document.getElementById('hamburgerBtn');
+  if(btn)btn.classList.remove('open');
+}
+document.addEventListener('click',function(e){
+  var nav=document.getElementById('mobNav');
+  var btn=document.getElementById('hamburgerBtn');
+  if(nav&&btn&&nav.classList.contains('open')){
+    if(!nav.contains(e.target)&&!btn.contains(e.target)){
+      nav.classList.remove('open');
+      if(btn)btn.classList.remove('open');
+    }
+  }
+});
 
 // Close dropdown when clicking outside
-document.addEventListener('click', function(e){
-  
-    
-
 </script>
 <script>
 // ── Intersection Observer for scroll reveals ──────────────────────────────────
