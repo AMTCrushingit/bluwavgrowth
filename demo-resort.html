@@ -3,6 +3,8 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Sunnyside Cove Resort, Negril, Jamaica</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
@@ -1138,36 +1140,44 @@
      NAVIGATION
 ══════════════════════════════════════════════════════ -->
 <nav id="mainNav">
-<div class="container">
-<div class="nav-inner">
-<a class="nav-logo" href="index.html">
-<span class="nav-logo-name">Sunnyside Cove</span>
-<span class="nav-logo-sub">✦ Negril, Jamaica ✦</span>
-</a>
-<ul class="nav-links">
-<li><a href="#rooms">Rooms</a></li>
-<li><a href="#experiences">Experiences</a></li>
-<li><a href="#about">About</a></li>
-<li><a class="nav-gallery-link" href="gallery.html">📸 Photo Wall</a></li>
-</ul>
-<div class="nav-actions">
-<a class="nav-book" href="booking.html">Book Now</a>
+<div class="nav-logo" style="display:flex;flex-direction:column;align-items:flex-start;line-height:1;padding:4px 0;">
+<div style="font-family:'Kaushan Script',cursive;font-size:26px;line-height:1;color:#fff;">Blu<span style="color:#00E0FF;">Wav</span></div>
+<div style="font-size:8px;font-weight:700;color:#00E0FF;letter-spacing:3px;text-transform:uppercase;line-height:1.4;margin-top:2px;">Get Found. Get Chosen. Grow.</div>
 </div>
-<div class="hamburger" onclick="toggleMobileNav()">
-<span></span><span></span><span></span>
+<div class="nav-links">
+<a class="nav-link" href="#home">Home</a>
+<a class="nav-link" href="#what-we-do">Services</a>
+<a class="nav-link" href="#how-it-works">How It Works</a>
+<a class="nav-link" href="our-promise.html">Our Promise</a>
+<a class="nav-link" href="pricing.html">Pricing</a>
+<a class="nav-link" href="crm.html">CRM</a>
+<a class="nav-link" href="the-wave.html" style="color:#00E0FF;font-weight:700;">The Wave</a>
+<a class="nav-link" href="#contact">Contact</a>
+<button id="currency-btn" onclick="openCurrency()" onmouseout="this.style.background='rgba(0,224,255,0.1)'" onmouseover="this.style.background='rgba(0,224,255,0.2)'" style="background:rgba(0,224,255,0.1);border:1px solid rgba(0,224,255,0.3);color:#00E0FF;font-size:12px;font-weight:700;padding:8px 14px;border-radius:20px;cursor:pointer;font-family:inherit;transition:all 0.2s;">🌍 USD ▾</button>
+<a class="nav-cta" href="https://forms.gle/EcVVcffVTqLZpHURA" target="_blank">Free Online Health Check</a>
 </div>
-</div>
-</div>
+<button aria-label="Menu" class="hamburger" id="hamburgerBtn" onclick="toggleMob()"><span></span><span></span><span></span></button>
 </nav>
-<!-- Mobile Nav -->
-<div class="mobile-nav" id="mobileNav">
-<button class="mobile-close" onclick="toggleMobileNav()">✕</button>
-<a href="#rooms" onclick="toggleMobileNav()">Rooms</a>
-<a href="#experiences" onclick="toggleMobileNav()">Experiences</a>
-<a href="#about" onclick="toggleMobileNav()">About</a>
-<a href="gallery.html" onclick="toggleMobileNav()">📸 Photo Wall</a>
-<a href="booking.html" onclick="toggleMobileNav()">Book Now</a>
+<div class="mob-nav" id="mobNav">
+<div class="mob-nav-inner">
+<a class="mob-link" href="#home" onclick="closeMob()">🏠 Home</a>
+<a class="mob-link sub" href="#how-it-works" onclick="closeMob()">- How It Works</a>
+<a class="mob-link sub" href="our-promise.html" onclick="closeMob()">- Our Promise</a>
+<div class="mob-divider"></div>
+<a class="mob-link" href="#what-we-do" onclick="closeMob()">⚡ Services</a>
+<a class="mob-link sub" href="#what-we-do" onclick="closeMob()">- Websites</a>
+<a class="mob-link sub" href="#what-we-do" onclick="closeMob()">- Visibility</a>
+<a class="mob-link sub" href="#what-we-do" onclick="closeMob()">- Automation</a>
+<a class="mob-link sub" href="#what-we-do" onclick="closeMob()">- Growth Systems</a>
+<div class="mob-divider"></div>
+<a class="mob-link" href="pricing.html" onclick="closeMob()">💰 Pricing</a>
+<a class="mob-link" href="crm.html" onclick="closeMob()">🗂️ CRM</a>
+<a class="mob-link wave" href="the-wave.html" onclick="closeMob()">🌊 The Wave</a>
+<a class="mob-link" href="#contact" onclick="closeMob()">📞 Contact</a>
+<a class="mob-cta" href="https://forms.gle/EcVVcffVTqLZpHURA" target="_blank" onclick="closeMob()">🩺 Check My Business for Free</a>
 </div>
+</div>
+
 <!-- ══════════════════════════════════════════════════════
      HERO
 ══════════════════════════════════════════════════════ -->
@@ -1718,58 +1728,72 @@
      FOOTER
 ══════════════════════════════════════════════════════ -->
 <footer>
-<div class="container">
-<div class="footer-top">
+<div class="wrap">
+<div class="footer-grid">
+
+<!-- Brand column -->
 <div>
-<div class="footer-brand-name">Sunnyside Cove</div>
-<div class="footer-brand-sub">✦ Negril, Jamaica ✦</div>
-<p class="footer-brand-desc">Where barefoot luxury meets the soul of Jamaica. All-inclusive resort on Seven Mile Beach, Negril. Open year-round.</p>
-<div class="footer-social">
-<div class="footer-social-btn">📘</div>
-<div class="footer-social-btn">📸</div>
-<div class="footer-social-btn">🐦</div>
-<div class="footer-social-btn">▶️</div>
+<div class="footer-brand-name">Blu<span>Wav</span></div>
+<div class="footer-brand-sub">Growth</div>
+<div class="footer-brand-tag">Get Found. Get Chosen. Grow.</div>
+<div style="font-size:10px;font-weight:700;color:var(--gold,#F7C873);letter-spacing:3px;text-transform:uppercase;margin-top:6px;">A Stratix Group Company</div>
+<p class="footer-desc">Caribbean-ready websites, Google visibility, CRM and automation. Built for Caribbean businesses by Caribbean experts.</p>
+<div style="margin-top:16px;"><a class="btn-wa" href="https://wa.me/18682979960" style="font-size:13px;padding:10px 18px;display:inline-flex;align-items:center;gap:6px;background:#25D366;color:#fff;border-radius:9px;text-decoration:none;font-weight:700;">💬 WhatsApp</a></div>
 </div>
-</div>
+
+<!-- Services column -->
 <div>
-<div class="footer-col-title">Explore</div>
-<ul class="footer-links">
-<li><a href="#rooms">Rooms &amp; Suites</a></li>
-<li><a href="#experiences">Experiences</a></li>
-<li><a href="#about">About the Resort</a></li>
-<li><a href="gallery.html">Photo Wall</a></li>
-<li><a href="booking.html">Book Now</a></li>
-</ul>
+<div class="footer-heading">Services</div>
+<a class="footer-link" href="index.html#what-we-do">Professional Websites</a>
+<a class="footer-link" href="index.html#what-we-do">Google Visibility</a>
+<a class="footer-link" href="index.html#what-we-do">Automation</a>
+<a class="footer-link" href="index.html#what-we-do">Growth Systems</a>
+<a class="footer-link" href="pricing.html#crm">CRM Lite &amp; CRM Premium</a>
 </div>
+
+<!-- Company column -->
 <div>
-<div class="footer-col-title">Information</div>
-<ul class="footer-links">
-<li><a href="#">Dining &amp; Bars</a></li>
-<li><a href="#">Spa &amp; Wellness</a></li>
-<li><a href="#">Weddings &amp; Events</a></li>
-<li><a href="#">Getting Here</a></li>
-<li><a href="#">FAQs</a></li>
-</ul>
+<div class="footer-heading">Company</div>
+<a class="footer-link" href="index.html#how-it-works">How It Works</a>
+<a class="footer-link" href="https://forms.gle/EcVVcffVTqLZpHURA" target="_blank">Free Health Check</a>
+<a class="footer-link" href="pricing.html">Pricing</a>
+<a class="footer-link" href="our-promise.html">Our Promise</a>
+<a class="footer-link" href="the-wave.html">The Wave</a>
+<a class="footer-link" href="index.html#contact">Contact Us</a>
 </div>
+
+<!-- Contact + Follow column -->
 <div>
-<div class="footer-col-title">Contact</div>
-<ul class="footer-links">
-<li><a href="#">📍 Seven Mile Beach, Negril</a></li>
-<li><a href="#">📞 +1 (876) 555-0247</a></li>
-<li><a href="#">✉️ hello@sunnysidecove.com</a></li>
-<li><a href="#">🕐 24/7 Concierge</a></li>
-</ul>
+<div class="footer-heading">Contact</div>
+<a class="footer-link" href="tel:+18682979960">📞 +1 (868) 297-9960</a>
+<a class="footer-link" href="https://wa.me/18682979960">💬 WhatsApp</a>
+<a class="footer-link" href="mailto:hello@bluwavgrowth.com">✉️ hello@bluwavgrowth.com</a>
+<div class="footer-link" style="cursor:default;">🌐 Serving MSMEs across the Caribbean</div>
+<div style="margin-top:20px;">
+<div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.4);margin-bottom:12px;">Follow Us</div>
+<div style="display:flex;flex-direction:column;gap:8px;">
+<a class="footer-link" href="https://facebook.com/bluwavgrowth" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:8px;">
+<span style="width:28px;height:28px;border-radius:8px;background:#1877F2;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">f</span>
+<span>Facebook</span>
+</a>
+<div class="footer-link" style="display:flex;align-items:center;gap:8px;cursor:default;opacity:0.5;">
+<span style="width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">📷</span>
+<span>Instagram <span style="font-size:10px;color:var(--gold);font-weight:700;margin-left:4px;">Soon</span></span>
+</div>
+<div class="footer-link" style="display:flex;align-items:center;gap:8px;cursor:default;opacity:0.5;">
+<span style="width:28px;height:28px;border-radius:8px;background:#0A66C2;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;color:#fff;font-weight:800;font-size:11px;">in</span>
+<span>LinkedIn <span style="font-size:10px;color:var(--gold);font-weight:700;margin-left:4px;">Soon</span></span>
 </div>
 </div>
+</div>
+</div>
+
+</div><!-- /footer-grid -->
 <div class="footer-bottom">
-<div class="footer-copy">© 2026 <span>Sunnyside Cove Resort</span>. All rights reserved. Negril, Jamaica.</div>
-<div class="footer-legal">
-<a href="#">Privacy Policy</a>
-<a href="#">Terms of Service</a>
-<a href="#">Cookie Policy</a>
+<div class="footer-bottom-text">&#169; 2026 <span>BluWav Caribbean</span> &#183; All rights reserved.</div>
+<div class="footer-bottom-text">Caribbean-Built Digital Growth Systems.</div>
 </div>
-</div>
-</div>
+</div><!-- /wrap -->
 </footer>
 <script>
   // Nav scroll
@@ -1779,7 +1803,12 @@
   });
 
   // Mobile nav
-  function toggleMobileNav() {
+  function closeMob(){
+  document.getElementById('mobNav').classList.remove('open');
+  var btn=document.getElementById('hamburgerBtn');
+  if(btn)btn.classList.remove('open');
+}
+function toggleMobileNav() {
     document.getElementById('mobileNav').classList.toggle('open');
   }
 
