@@ -29,7 +29,7 @@
 
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{font-family:'Plus Jakarta Sans',sans-serif;background:#F4F2ED;color:#1E1E1E;overflow-x:hidden;-webkit-text-size-adjust:100%;}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:#001828;color:#1E1E1E;overflow-x:hidden;-webkit-text-size-adjust:100%;}
 a{text-decoration:none;color:inherit;}
 :root{--navy:#002B49;--coral:#FF5500;--coral2:#e84d00;--gold:#F7C873;--gold2:#e8b85e;--cyan:#00E0FF;--turquoise:#00C2D8;--sand:#F4F2ED;--dark:#1E1E1E;--slate:#64748b;--white:#ffffff;--mist:#e8e4de;--max:1400px;}
 
@@ -648,7 +648,7 @@ a{text-decoration:none;color:inherit;}
 .hero{
   min-height:100vh;
   position:relative;
-  background:url('https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=2') center center/cover no-repeat;
+  background:#001828;
   display:flex;
   align-items:center;
   padding:110px 7% 80px;
@@ -1719,13 +1719,7 @@ function setCurrency(code, symbol, name){
 </div>
 </div>
 </section>
-<!-- Curved wave — seamless, no body bg gap possible -->
-<div style="position:relative;z-index:10;line-height:0;background:#001020;margin-top:-2px;">
-  <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:90px;display:block;">
-    <rect width="1440" height="90" fill="#001020"/>
-    <path d="M0,0 Q360,90 720,45 Q1080,0 1440,60 L1440,90 L0,90 Z" fill="#FF5500"/>
-  </svg>
-</div>
+<!-- Wave removed — seamless flat transition -->
 <!-- PROOF STRIP, seamless ticker -->
 <div style="background:#FF5500;overflow:hidden;padding:0;margin-top:0;">
 <div style="display:flex;align-items:center;white-space:nowrap;animation:ticker-seamless 30s linear infinite;">
@@ -1756,7 +1750,7 @@ function setCurrency(code, symbol, name){
 <!-- Caribbean aerial background -->
 <div style="position:absolute;inset:0;background:url('beach-hero.png') center 65%/cover no-repeat;"></div>
 <!-- Warm light overlay — not dark -->
-<div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,20,45,0.88) 0%,rgba(0,43,73,0.80) 50%,rgba(0,20,45,0.85) 100%);"></div>
+<div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,20,45,0.60) 0%,rgba(0,43,73,0.52) 50%,rgba(0,20,45,0.58) 100%);"></div>
 <!-- Wave top edge -->
 <div style="position:absolute;top:0;left:0;right:0;height:60px;overflow:hidden;">
   <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="width:100%;height:100%;">
