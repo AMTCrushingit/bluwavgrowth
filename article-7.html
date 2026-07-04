@@ -106,21 +106,44 @@ function toggleMob(){
 </head>
 <body>
 <!-- NAV -->
-<nav>
-<a class="nav-logo" href="index.html">Blu<span>Wav</span> Growth</a>
+<nav id="mainNav">
+<div class="nav-logo" style="display:flex;flex-direction:column;align-items:flex-start;line-height:1;padding:4px 0;">
+<div style="font-family:'Kaushan Script',cursive;font-size:26px;line-height:1;color:#fff;">Blu<span style="color:#00E0FF;">Wav</span></div>
+<div style="font-size:8px;font-weight:700;color:#00E0FF;letter-spacing:3px;text-transform:uppercase;line-height:1.4;margin-top:2px;">Get Found. Get Chosen. Grow.</div>
+</div>
 <div class="nav-links">
-<a class="nav-link" href="index.html">Home</a>
-<a class="nav-link" href="how-it-works.html">Services</a>
+<a class="nav-link" href="#home">Home</a>
+<a class="nav-link" href="#what-we-do">Services</a>
+<a class="nav-link" href="#how-it-works">How It Works</a>
+<a class="nav-link" href="our-promise.html">Our Promise</a>
 <a class="nav-link" href="pricing.html">Pricing</a>
 <a class="nav-link" href="crm.html">CRM</a>
 <a class="nav-link" href="the-wave.html" style="color:#00E0FF;font-weight:700;">The Wave</a>
-<a class="nav-link" href="index.html#contact">Contact</a>
+<a class="nav-link" href="#contact">Contact</a>
+<button id="currency-btn" onclick="openCurrency()" onmouseout="this.style.background='rgba(0,224,255,0.1)'" onmouseover="this.style.background='rgba(0,224,255,0.2)'" style="background:rgba(0,224,255,0.1);border:1px solid rgba(0,224,255,0.3);color:#00E0FF;font-size:12px;font-weight:700;padding:8px 14px;border-radius:20px;cursor:pointer;font-family:inherit;transition:all 0.2s;">🌍 USD ▾</button>
 <a class="nav-cta" href="https://forms.gle/EcVVcffVTqLZpHURA" target="_blank">Free Online Health Check</a>
 </div>
-<button aria-label="Menu" class="hamburger" id="hamburgerBtn" onclick="toggleMob()">
-<span></span><span></span><span></span>
-</button>
+<button aria-label="Menu" class="hamburger" id="hamburgerBtn" onclick="toggleMob()"><span></span><span></span><span></span></button>
 </nav>
+<div class="mob-nav" id="mobNav">
+<div class="mob-nav-inner">
+<a class="mob-link" href="#home" onclick="closeMob()">🏠 Home</a>
+<a class="mob-link sub" href="#how-it-works" onclick="closeMob()">- How It Works</a>
+<a class="mob-link sub" href="our-promise.html" onclick="closeMob()">- Our Promise</a>
+<div class="mob-divider"></div>
+<a class="mob-link" href="#what-we-do" onclick="closeMob()">⚡ Services</a>
+<a class="mob-link sub" href="#what-we-do" onclick="closeMob()">- Websites</a>
+<a class="mob-link sub" href="#what-we-do" onclick="closeMob()">- Visibility</a>
+<a class="mob-link sub" href="#what-we-do" onclick="closeMob()">- Automation</a>
+<a class="mob-link sub" href="#what-we-do" onclick="closeMob()">- Growth Systems</a>
+<div class="mob-divider"></div>
+<a class="mob-link" href="pricing.html" onclick="closeMob()">💰 Pricing</a>
+<a class="mob-link" href="crm.html" onclick="closeMob()">🗂️ CRM</a>
+<a class="mob-link wave" href="the-wave.html" onclick="closeMob()">🌊 The Wave</a>
+<a class="mob-link" href="#contact" onclick="closeMob()">📞 Contact</a>
+<a class="mob-cta" href="https://forms.gle/EcVVcffVTqLZpHURA" target="_blank" onclick="closeMob()">🩺 Check My Business for Free</a>
+</div>
+</div>
 <div class="mob-nav" id="mobNav">
 <a class="mob-link" href="index.html" onclick="document.getElementById('mobNav').classList.remove('open')">Home</a>
 <a class="mob-link" href="how-it-works.html" onclick="document.getElementById('mobNav').classList.remove('open')">Services</a>
@@ -162,7 +185,7 @@ function toggleMob(){
 <p>Want to understand how each piece works? Read <a href="article-2.html" style="color:#00E0FF;font-weight:700;text-decoration:underline;text-decoration-color:rgba(0,224,255,0.4);text-underline-offset:3px;">how Google Business Profile works</a>, <a href="article-3.html" style="color:#00E0FF;font-weight:700;text-decoration:underline;text-decoration-color:rgba(0,224,255,0.4);text-underline-offset:3px;">how to set up WhatsApp Business properly</a>, and <a href="article-1.html" style="color:#00E0FF;font-weight:700;text-decoration:underline;text-decoration-color:rgba(0,224,255,0.4);text-underline-offset:3px;">why most Caribbean businesses are invisible online</a>.</p>
 <h2>What Happens Next</h2>
 <p>Once these five things are in place, your business starts showing up where Caribbean customers are already searching. The first enquiry usually comes within 48 hours. After that, the system keeps working — every search, every review, every WhatsApp message building on the last.</p>
-<p>The businesses that grow fastest from here are the ones that add a proper website and a CRM to capture and follow up on every lead. That's where <a href="index.html#how-it-works" style="color:#00E0FF;font-weight:700;text-decoration:underline;text-decoration-color:rgba(0,224,255,0.4);text-underline-offset:3px;">BluWav's Growth Systems</a> come in.</p>
+<p>The businesses that grow fastest from here are the ones that add a proper website and a <a href="crm.html" style="color:#00E0FF;font-weight:700;text-decoration:underline;text-decoration-color:rgba(0,224,255,0.4);text-underline-offset:3px;">CRM</a> to capture and follow up on every lead. That's where <a href="pricing.html" style="color:#00E0FF;font-weight:700;text-decoration:underline;text-decoration-color:rgba(0,224,255,0.4);text-underline-offset:3px;">BluWav's Growth Systems</a> come in — and <a href="index.html#how-it-works" style="color:#00E0FF;font-weight:700;text-decoration:underline;text-decoration-color:rgba(0,224,255,0.4);text-underline-offset:3px;">BluWav's Growth Systems</a> come in.</p>
 <h2>The Real Secret</h2>
 <p>The businesses that win online are not the ones with the fanciest websites. They are the ones who showed up, stayed consistent, and made it easy for customers to reach them.</p>
 <p>You do not need to be perfect. You need to be present.</p>
