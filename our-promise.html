@@ -53,8 +53,10 @@ a{text-decoration:none;color:inherit;}
 
 
 /* HERO */
-.hero{background:url('our-promise-hero.jpg') center 20%/cover no-repeat;padding:140px 48px 80px;position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,20,45,0.88) 0%,rgba(0,43,73,0.82) 100%);z-index:1;pointer-events:none;}
+.hero{background:url('our-promise-hero.jpg') center 20%/cover no-repeat;padding:140px 48px 80px;position:relative;overflow:hidden;z-index:1;}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,20,45,0.90) 0%,rgba(0,43,73,0.82) 100%);z-index:0;pointer-events:none;}
+.hero-inner{position:relative;z-index:2;max-width:var(--max);margin:0 auto;text-align:center;}
+
 
 .hero-inner{max-width:var(--max);margin:0 auto;text-align:center;position:relative;z-index:2;}
 
@@ -442,29 +444,14 @@ a[style*="background:#00E0FF"]:hover::after,a[style*="background:var(--cyan)"]:h
 }
 100%{transform:translateX(-50%);}}
 /* ── BluWav Signature Wave, Parallax ── */
-@keyframes px-move-1{from{transform:translateX(0);}to{transform:translateX(-720px);}}
-@keyframes px-move-2{from{transform:translateX(0);}to{transform:translateX(-720px);}}
-@keyframes px-move-3{from{transform:translateX(0);}to{transform:translateX(-720px);}}
-.parallax-wrap{
-  position:fixed;
-  bottom:0;
-  left:0;
-  right:0;
-  height:180px;
-  z-index:0;
-  pointer-events:none;
-  overflow:hidden;
-}
-.px-svg{
-  position:absolute;
-  bottom:0;
-  left:0;
-  width:200%;
-  height:100%;
-}
-.px-layer-1{animation:px-move-1 22s linear infinite;opacity:0.15;}
-.px-layer-2{animation:px-move-2 15s linear infinite;opacity:0.22;}
-.px-layer-3{animation:px-move-3 10s linear infinite;opacity:0.30;}
+to{transform:translateX(-720px);}}
+to{transform:translateX(-720px);}}
+to{transform:translateX(-720px);}}
+
+
+
+
+
 
 </style>
 <meta name="robots" content="index, follow"/>
@@ -506,6 +493,7 @@ a[style*="background:#00E0FF"]:hover::after,a[style*="background:var(--cyan)"]:h
 <a class="mob-cta" href="https://forms.gle/EcVVcffVTqLZpHURA" target="_blank" onclick="closeMob()">🩺 Check My Business for Free</a>
 </div>
 </div>
+
 
 
 
@@ -852,20 +840,7 @@ document.addEventListener('click', function(e){
 </script>
 <!-- BluWav Signature Wave -->
 
-<div class="parallax-wrap">
-  <!-- Layer 1: back, slowest, navy -->
-  <svg class="px-svg px-layer-1" viewBox="0 0 1440 180" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,120 C120,90 240,150 360,120 C480,90 600,150 720,120 C840,90 960,150 1080,120 C1200,90 1320,150 1440,120 C1560,90 1680,150 1800,120 C1920,90 2040,150 2160,120 L2160,180 L0,180 Z" fill="rgba(0,43,73,0.7)"/>
-  </svg>
-  <!-- Layer 2: middle, turquoise -->
-  <svg class="px-svg px-layer-2" viewBox="0 0 1440 180" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,135 C120,105 240,160 360,135 C480,105 600,160 720,135 C840,105 960,160 1080,135 C1200,105 1320,160 1440,135 C1560,105 1680,160 1800,135 C1920,105 2040,160 2160,135 L2160,180 L0,180 Z" fill="rgba(0,194,216,0.45)"/>
-  </svg>
-  <!-- Layer 3: front, fastest, cyan -->
-  <svg class="px-svg px-layer-3" viewBox="0 0 1440 180" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,148 C120,120 240,168 360,148 C480,120 600,168 720,148 C840,120 960,168 1080,148 C1200,120 1320,168 1440,148 C1560,120 1680,168 1800,148 C1920,120 2040,168 2160,148 L2160,180 L0,180 Z" fill="rgba(0,224,255,0.32)"/>
-  </svg>
-</div>
+
 
 </body>
 </html>
