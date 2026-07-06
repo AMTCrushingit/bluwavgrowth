@@ -1563,6 +1563,11 @@ nav{
     gap:24px !important;
   }
 }
+
+/* Hero para nowrap override on mobile */
+@media(max-width:768px){
+  .hero-para-2{white-space:normal !important;font-size:12px !important;}
+}
 </style>
 <meta content="index, follow" name="robots"/>
 <meta property="og:title" content="BluWav Growth | Website Design & Digital Growth for Caribbean Businesses"/>
@@ -1706,11 +1711,11 @@ function setCurrency(code, symbol, name){
        src="hero-candidate-1.jpg" 
        fetchpriority="high" decoding="async" 
        width="1400" height="798"
-       style="width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;filter:brightness(0.85) contrast(1.05) saturate(1.1);"/>
+       style="width:100%;height:100%;object-fit:cover;object-position:65% center;display:block;filter:brightness(0.95) contrast(1.05) saturate(1.1);"/>
 </div>
 <!-- Caribbean warmth overlay removed -->
 <!-- SEAMLESS GRADIENT OVERLAY: dark left → transparent right -->
-<div style="position:absolute;inset:0;z-index:1;background:linear-gradient(to right,rgba(0,8,20,0.97) 0%,rgba(0,20,45,0.92) 20%,rgba(0,35,65,0.75) 40%,rgba(0,43,73,0.40) 60%,rgba(0,43,73,0.10) 75%,transparent 90%);"></div>
+<div style="position:absolute;inset:0;z-index:1;background:linear-gradient(to right,rgba(0,8,20,0.92) 0%,rgba(0,20,45,0.82) 20%,rgba(0,35,65,0.55) 40%,rgba(0,43,73,0.20) 60%,transparent 80%);"></div>
 <!-- Top darkening for readability -->
 <div style="position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom,rgba(0,8,20,0.4) 0%,transparent 30%,transparent 70%,rgba(0,8,20,0.3) 100%);"></div>
 <!-- Cyan glow accent -->
@@ -1727,9 +1732,10 @@ function setCurrency(code, symbol, name){
 <!-- Headline -->
 <h1 class="hero-h1 hero-anim-3" style="font-size:54px;text-align:left;margin-bottom:18px;line-height:1.06;">Get Your Business Found Online…<br/><span class="gold">and Chosen First.</span></h1>
 <!-- Subheadline -->
-<p class="hero-anim-4 hero-para-1" style="text-align:left;max-width:600px;margin-bottom:14px;font-size:17px;line-height:1.65;color:rgba(255,255,255,0.9);font-weight:400;">We build your website, boost your Google visibility, and automate your follow-ups.<br><span style="color:var(--gold);font-weight:700;">Most clients go live in 48 hours.</span></p>
+<p class="hero-anim-4 hero-para-1" style="text-align:left;max-width:600px;margin-bottom:14px;font-size:17px;line-height:1.65;color:rgba(255,255,255,0.9);font-weight:400;">We build your website, boost your Google visibility, and automate your follow-ups.</p>
+<p class="hero-anim-4 hero-para-1" style="text-align:left;max-width:600px;margin-bottom:8px;font-size:17px;line-height:1.4;color:var(--gold);font-weight:700;">Most clients go live in 48 hours.</p>
 <!-- Health check copy -->
-<p class="hero-anim-4 hero-para-2" style="text-align:left;max-width:620px;margin-bottom:12px;font-size:14px;line-height:1.7;color:rgba(0,224,255,0.9);font-weight:600;">Our free Health Check shows you exactly why customers are choosing your competitor right now.</p>
+<p class="hero-anim-4 hero-para-2" style="text-align:left;max-width:100%;margin-bottom:12px;font-size:13px;line-height:1.4;color:rgba(0,224,255,0.9);font-weight:600;white-space:nowrap;">Our free Health Check shows you exactly why customers are choosing your competitor right now.</p>
 <!-- CTA -->
 <div class="hero-anim-5" style="margin-bottom:32px;">
 <a class="hero-cta-pulse" href="https://forms.gle/EcVVcffVTqLZpHURA" target="_blank" onmouseout="this.style.transform='translateY(0)'" onmouseover="this.style.transform='translateY(-3px)'" style="background:#FF5500;color:#fff;font-size:17px;font-weight:800;padding:18px 48px;border-radius:12px;display:inline-block;text-align:center;letter-spacing:0.3px;text-decoration:none;transition:transform 0.15s;">Check My Business for Free</a>
