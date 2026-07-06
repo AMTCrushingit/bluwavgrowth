@@ -69,8 +69,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 32px;
   position:absolute;inset:0;z-index:0;
 }
 .op-hero-bg img{
-  width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block;
-  filter:brightness(0.75);
+  width:100%;height:100%;object-fit:cover;object-position:center 35%;display:block;
+  filter:brightness(1.0) saturate(1.1);
 }
 .op-hero-overlay{
   position:absolute;inset:0;z-index:1;
@@ -164,26 +164,36 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
   </div>
   <div class="op-hero-overlay"></div>
   <div class="op-hero-inner">
-    <span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:var(--gold);display:block;margin-bottom:16px;">Our Promise</span>
-    <h1 style="font-family:'Playfair Display',serif;font-size:54px;font-weight:800;color:#fff;line-height:1.12;letter-spacing:-0.5px;margin-bottom:20px;">Our Promise to<br/><span style="color:var(--coral);">Caribbean Businesses</span></h1>
-    <p style="font-size:18px;color:rgba(255,255,255,0.85);line-height:1.7;max-width:600px;margin:0 auto 32px;">You deserve digital tools built for how the Caribbean really works. Fast. Simple. Designed for growth.</p>
-    <p style="font-size:14px;font-weight:700;color:var(--cyan);letter-spacing:0.5px;margin-bottom:36px;">Websites &nbsp;&middot;&nbsp; Visibility &nbsp;&middot;&nbsp; CRM &nbsp;&middot;&nbsp; Automation &nbsp;&middot;&nbsp; Growth Systems</p>
-    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+    <!-- Eyebrow -->
+    <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.15);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.3);border-radius:20px;padding:6px 16px;margin-bottom:20px;">
+      <span style="width:6px;height:6px;border-radius:50%;background:#F7C873;display:inline-block;"></span>
+      <span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#fff;">Our Promise to You</span>
+    </div>
+    <!-- Headline — elegant, not heavy -->
+    <h1 style="font-family:'Playfair Display',serif;font-size:52px;font-weight:700;color:#fff;line-height:1.15;letter-spacing:-0.3px;margin-bottom:16px;max-width:580px;text-shadow:0 2px 20px rgba(0,0,0,0.3);">
+      Built on trust.<br/>Delivered with care.<br/><span style="color:#F7C873;font-style:italic;">Every single time.</span>
+    </h1>
+    <!-- Subheadline -->
+    <p style="font-size:17px;color:rgba(255,255,255,0.90);line-height:1.7;max-width:480px;margin-bottom:32px;text-shadow:0 1px 8px rgba(0,0,0,0.3);">
+      You deserve digital tools built for how the Caribbean really works — fast, simple, and designed for growth.
+    </p>
+    <!-- CTAs -->
+    <div style="display:flex;gap:12px;flex-wrap:wrap;">
       <a href="https://forms.gle/EcVVcffVTqLZpHURA" target="_blank"
-         style="background:var(--coral);color:#fff;font-size:16px;font-weight:800;padding:16px 36px;border-radius:12px;box-shadow:0 4px 28px rgba(255,85,0,0.45);transition:transform 0.15s;display:inline-flex;align-items:center;gap:8px;"
+         style="background:#FF5500;color:#fff;font-size:15px;font-weight:800;padding:14px 32px;border-radius:10px;box-shadow:0 4px 20px rgba(255,85,0,0.4);transition:transform 0.15s;display:inline-flex;align-items:center;gap:8px;"
          onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
         Get Your Free Health Check &#8594;
       </a>
       <a href="#promise-content"
-         style="background:rgba(255,255,255,0.12);color:#fff;font-size:15px;font-weight:600;padding:15px 32px;border-radius:11px;border:1px solid rgba(255,255,255,0.25);transition:all 0.2s;display:inline-block;">
-        See How We Help
+         style="background:rgba(255,255,255,0.18);color:#fff;font-size:15px;font-weight:600;padding:14px 28px;border-radius:10px;border:1px solid rgba(255,255,255,0.35);backdrop-filter:blur(8px);transition:all 0.2s;display:inline-block;">
+        See Our Commitments
       </a>
     </div>
   </div>
 </section>
 
 <!-- SIX COMMITMENTS -->
-<section id="promise-content" style="background:#001828;padding:100px 0;">
+<section id="promise-content" style="background:#002B49;padding:100px 0;">
 <div class="wrap">
   <div style="text-align:center;margin-bottom:56px;">
     <span class="eyebrow reveal" style="color:var(--cyan);">Six Unbreakable Commitments</span>
@@ -269,7 +279,7 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
 </section>
 
 <!-- CTA -->
-<section style="background:linear-gradient(135deg,#002B49,#003d5c);padding:100px 0;">
+<section style="background:linear-gradient(135deg,#003d5c,#005a7a);padding:100px 0;">
 <div class="wrap" style="text-align:center;">
   <span class="eyebrow reveal" style="color:var(--gold);display:block;text-align:center;">Ready to Start?</span>
   <h2 class="h2 reveal" style="color:#fff;margin-top:8px;margin-bottom:16px;">Ready to work with a team<br/>that keeps its promises?</h2>
