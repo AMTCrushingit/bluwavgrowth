@@ -2,7 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://bluwavgrowth.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://bluwavgrowth.com/pricing.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://bluwavgrowth.com/our-promise.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://bluwavgrowth.com/crm.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://bluwavgrowth.com/crm.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://bluwavgrowth.com/the-wave.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://bluwavgrowth.com/our-promise.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://bluwavgrowth.com/how-it-works.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://bluwavgrowth.com/article-1.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://bluwavgrowth.com/article-2.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://bluwavgrowth.com/article-3.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://bluwavgrowth.com/article-4.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://bluwavgrowth.com/article-5.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://bluwavgrowth.com/article-6.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://bluwavgrowth.com/article-7.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://bluwavgrowth.com/free-audit.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://bluwavgrowth.com/thank-you.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
 </urlset>
