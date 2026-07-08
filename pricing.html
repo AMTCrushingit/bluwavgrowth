@@ -300,17 +300,15 @@ body{font-family:'Inter',sans-serif;}
 h1,h2,h3,h4,h5,h6,.h2,.h1,
 .hero-h1,.hero-logo-name,.footer-brand-name,
 .hero-logo-sub,.eyebrow,
-[style*="font-family:'Playfair Display'"],
-[style*="font-family:'Sora'"],
-[style*="font-family:'Playfair Display'"],
-[style*="font-family:'Sora'"] {
-  font-family:'Manrope',sans-serif !important;
-}
+/* Playfair Display and Sora preserved — no override */
+/* Scoped font overrides — excludes footer to preserve Kaushan Script logo */
 .nav-link,.mob-link,.mob-cta,.nav-cta,
-p,.lead,.footer-link,.footer-desc,
-input,button,select,textarea{
-  font-family:'Inter',sans-serif !important;
+input,select,textarea{
+  font-family:'Plus Jakarta Sans',sans-serif !important;
 }
+/* Footer fonts — must NOT be overridden */
+.footer-brand-name{font-family:'Kaushan Script',cursive !important;}
+.footer-link,.footer-desc,.footer-heading,.footer-bottom-text{font-family:'Plus Jakarta Sans',sans-serif !important;}
 
 
 @media(max-width:768px){
