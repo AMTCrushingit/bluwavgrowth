@@ -1682,10 +1682,7 @@ nav{
     text-align:center !important;
   }
 
-  /* Hide "How it works" box inside hero on mobile — too cluttered */
-  .hero-how-it-works{
-    display:none !important;
-  }
+
 
   /* Orange wave — reduce height on mobile */
   .hero svg{
@@ -1834,13 +1831,16 @@ function setCurrency(code, symbol, name){
   </svg>
 </div>
 
-<div class="hero-how-it-works" style="text-align:center;margin-top:32px;padding:20px;background:rgba(0,43,73,0.06);border-radius:14px;max-width:600px;margin-left:auto;margin-right:auto;">
-  <p style="font-size:14px;color:#64748b;line-height:1.7;">
-    <strong style="color:#002B49;">How it works:</strong> Click Apply, tell us about your business, and we'll WhatsApp you within 48 hours with your confirmed scope and invoice. No payment until you approve.
-  </p>
-  <a href="apply.html" style="display:inline-block;margin-top:12px;font-size:13px;font-weight:700;color:#FF5500;text-decoration:none;">See the full process →</a>
-</div>
+
 </section>
+
+<!-- HOW IT WORKS TEASER — below hero -->
+<div style="background:#002B49;padding:16px 24px;text-align:center;border-bottom:1px solid rgba(0,224,255,0.1);">
+  <p style="font-size:13px;color:rgba(255,255,255,0.65);line-height:1.6;margin:0;">
+    <strong style="color:#fff;">How it works:</strong> Tell us about your business → We WhatsApp you within 48 hours with your scope &amp; invoice → No payment until you approve.
+    <a href="apply.html" style="color:#00E0FF;font-weight:700;text-decoration:none;margin-left:8px;white-space:nowrap;">See the full process →</a>
+  </p>
+</div>
 
 <!-- PROOF STRIP, seamless ticker -->
 <div style="background:#FF5500;overflow:hidden;padding:0;margin-top:0;position:relative;z-index:5;">
