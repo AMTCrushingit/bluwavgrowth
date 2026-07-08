@@ -22,7 +22,7 @@
 <meta content="https://bluwavgrowth.com/article-7.html" property="og:url"/>
 <link href="https://bluwavgrowth.com/article-7.html" rel="canonical"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&amp;family=Inter:wght@400;500;600&amp;family=Kaushan+Script&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=Kaushan+Script&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -77,14 +77,14 @@
   .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:24px;}
   .related-card{background:#f8fafc;border-radius:14px;padding:20px;border:1px solid #e2e8f0;transition:all 0.2s;}
   .related-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,43,73,0.08);}
-  footer{background:rgba(0,43,73,0.97);padding:48px 0 0;}
-  .footer-inner{max-width:1200px;margin:0 auto;padding:0 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;padding-bottom:32px;}
-  .footer-brand{font-family:'Kaushan Script',cursive;font-size:28px;color:#fff;}
-  .footer-brand span{color:var(--cyan);}
-  .footer-links-row{display:flex;gap:24px;flex-wrap:wrap;}
-  .footer-link{font-size:13px;color:rgba(255,255,255,0.5);transition:color 0.2s;}
-  .footer-link:hover{color:#fff;}
-  .footer-copy{border-top:1px solid rgba(255,255,255,0.06);padding:16px 48px;max-width:1200px;margin:0 auto;font-size:12px;color:rgba(255,255,255,0.3);}
+  
+  
+  
+  
+  
+  
+  
+  
   .wa-float{position:fixed;bottom:24px;right:24px;z-index:200;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 20px rgba(37,211,102,0.45);}
 
   @media(max-width:768px){
@@ -94,10 +94,29 @@
     .article-hero{padding:100px 20px 60px;}
     .article-wrap{padding:0 16px;}
     .related-grid{grid-template-columns:1fr;}
-    .footer-inner{padding:0 20px 32px;}
-    .footer-copy{padding:16px 20px;}
+    
+    
     .step-block{padding:24px 20px;}
   }
+/* ── CANONICAL FOOTER CSS ── */
+footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;}
+.footer-heading{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.4);margin-bottom:16px;}
+.footer-brand-name{font-family:'Kaushan Script',cursive;font-size:34px;color:#fff;line-height:1;margin-bottom:6px;}
+.footer-brand-name span{color:#00E0FF;}
+.footer-brand-sub{font-size:9px;font-weight:700;color:#F7C873;letter-spacing:5px;text-transform:uppercase;margin-bottom:12px;}
+.footer-brand-tag{font-size:12px;font-weight:500;color:#00E0FF;letter-spacing:1px;margin-bottom:6px;}
+.footer-desc{font-size:13px;color:rgba(255,255,255,0.4);line-height:1.65;margin-top:12px;}
+.footer-link{display:block;font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:8px;transition:color 0.2s,transform 0.2s;text-decoration:none;}
+.footer-link:hover{color:#fff;transform:translateX(4px);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding:20px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.footer-bottom-text{font-size:12px;color:rgba(255,255,255,0.3);}
+.footer-bottom-text span{color:#00E0FF;}
+/* Footer font overrides — prevent Inter body font bleeding in */
+footer,.footer-brand-name,.footer-link,.footer-desc,.footer-heading,.footer-bottom-text{font-family:'Plus Jakarta Sans',sans-serif;}
+.footer-brand-name{font-family:'Kaushan Script',cursive !important;}
+@media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:600px){.footer-grid{grid-template-columns:1fr !important;}.footer-bottom{flex-direction:column;text-align:center;gap:8px;}}
 </style>
 </meta></meta><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "How to Get Your First Customer Online in 48 Hours", "description": "A practical, step-by-step guide for Caribbean businesses to get their first online customer in 48 hours. No tech skills needed.", "url": "https://bluwavgrowth.com/article-7.html", "image": "https://bluwavgrowth.com/hero-team.jpg", "datePublished": "2026-07-02", "dateModified": "2026-07-02", "author": {"@type": "Organization", "name": "BluWav Growth", "url": "https://bluwavgrowth.com"}, "publisher": {"@type": "Organization", "name": "BluWav Growth", "url": "https://bluwavgrowth.com", "logo": {"@type": "ImageObject", "url": "https://bluwavgrowth.com/wave-logo.png"}}, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://bluwavgrowth.com/article-7.html"}}function closeMob(){
   document.getElementById('mobNav').classList.remove('open');
