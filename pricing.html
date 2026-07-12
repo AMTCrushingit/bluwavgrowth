@@ -497,6 +497,17 @@ a[style*="background:#00E0FF"]:hover::after,a[style*="background:var(--cyan)"]:h
 .btn-elite{background:linear-gradient(135deg,var(--cyan),#007a85);color:#fff;font-size:15px;font-weight:800;padding:16px 36px;border-radius:12px;display:inline-flex;align-items:center;gap:8px;transition:transform 0.15s,box-shadow 0.2s;box-shadow:0 4px 28px rgba(0,194,209,0.35);}
 .btn-elite:hover{transform:translateY(-2px);box-shadow:0 8px 40px rgba(0,194,209,0.5);}
 @keyframes glow
+
+/* CRM 3-col grid mobile */
+@media(max-width:900px){
+  .crm-options-section .crm-options-wrap > div[style*="grid-template-columns:1fr 1.15fr 1fr"]{
+    grid-template-columns:1fr !important;
+    gap:20px !important;
+  }
+  .crm-options-section .crm-options-wrap > div[style*="grid-template-columns:1fr 1.15fr 1fr"] > div[style*="transform:translateY(-8px)"]{
+    transform:none !important;
+  }
+}
 </style>
 <meta name="robots" content="index, follow"/>
 <meta property="og:title" content="BluWav Growth Pricing — Caribbean Digital Growth Systems"/>
@@ -692,81 +703,138 @@ HERO -->
 <!-- CRM OPTIONS SECTION -->
 <div id="crm-options"></div>
 <section class="crm-options-section" style="background:#f0f9ff;padding:80px 0;">
-<div class="crm-options-wrap" style="max-width:1100px;margin:0 auto;padding:0 48px;">
+<div class="crm-options-wrap" style="max-width:1200px;margin:0 auto;padding:0 48px;">
 
 <!-- Header -->
-<div style="text-align:center;margin-bottom:48px;">
-<span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;color:var(--cyan);display:block;margin-bottom:12px;">CRM Options</span>
-<h2 style="font-size:42px;font-weight:800;color:var(--navy);margin-bottom:16px;font-family:'Manrope',sans-serif;">Choose Your CRM</h2>
-<p style="font-size:15px;color:var(--slate);font-style:italic;max-width:640px;margin:0 auto;line-height:1.75;">⭐ Every BluWav Growth plan includes a 30-day trial of CRM Lite — experience lead tracking, customer management, and automation before you choose.</p>
+<div style="text-align:center;margin-bottom:16px;">
+  <span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;color:var(--cyan);display:block;margin-bottom:12px;">CRM Options</span>
+  <h2 style="font-size:42px;font-weight:800;color:var(--navy);margin-bottom:16px;font-family:'Manrope',sans-serif;">Choose Your CRM</h2>
+  <p style="font-size:15px;color:var(--slate);font-style:italic;max-width:640px;margin:0 auto;line-height:1.75;">⭐ Every BluWav Growth plan includes a 30-day trial of CRM Solo — experience lead tracking and customer management before you choose your plan.</p>
 </div>
 
-<!-- Two CRM cards -->
-<div class="crm-cards-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:48px;">
+<!-- 3-col grid -->
+<div style="display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:24px;margin-bottom:48px;align-items:start;">
 
-<!-- CRM Lite -->
-<div class="crm-card" style="background:#fff;border-radius:20px;padding:36px;border:2px solid var(--mist);display:flex;flex-direction:column;">
-<div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--slate);margin-bottom:6px;">Own It Forever</div>
-<div style="font-size:22px;font-weight:800;color:var(--navy);margin-bottom:6px;font-family:'Manrope',sans-serif;">&#127754; CRM Lite</div>
-<div style="font-family:'Manrope',sans-serif;font-size:36px;font-weight:900;color:var(--navy);letter-spacing:-1px;line-height:1;margin-bottom:4px;">$999</div>
-<div style="font-size:12px;color:var(--slate);margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid var(--mist);">One-time fee &mdash; you own the CRM as it exists today.</div>
-<div style="font-size:12px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;">Includes:</div>
-<div style="display:flex;flex-direction:column;gap:8px;font-size:13px;color:var(--dark);margin-bottom:20px;flex:1;">
-<div><span style="color:var(--cyan);font-weight:800;margin-right:8px;">&#10003;</span>Contact management</div>
-<div><span style="color:var(--cyan);font-weight:800;margin-right:8px;">&#10003;</span>Lead tracking</div>
-<div><span style="color:var(--cyan);font-weight:800;margin-right:8px;">&#10003;</span>Basic automation</div>
-<div><span style="color:var(--cyan);font-weight:800;margin-right:8px;">&#10003;</span>Basic reporting</div>
-<div><span style="color:var(--cyan);font-weight:800;margin-right:8px;">&#10003;</span>WhatsApp integration</div>
-<div><span style="color:var(--cyan);font-weight:800;margin-right:8px;">&#10003;</span>Bug fixes &amp; security updates</div>
-<div><span style="color:var(--cyan);font-weight:800;margin-right:8px;">&#10003;</span>You own your data forever</div>
-</div>
-<div style="font-size:12px;font-weight:800;color:var(--slate);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">Does NOT include:</div>
-<div style="display:flex;flex-direction:column;gap:6px;font-size:13px;color:var(--slate);margin-bottom:24px;">
-<div><span style="margin-right:8px;">&#8211;</span>Future upgrades</div>
-<div><span style="margin-right:8px;">&#8211;</span>New features or modules</div>
-<div><span style="margin-right:8px;">&#8211;</span>New dashboards or templates</div>
-<div><span style="margin-right:8px;">&#8211;</span>Premium support</div>
-</div>
-<a href="apply.html?plan=crm-lite" style="display:block;background:var(--cyan);color:#fff;font-size:15px;font-weight:800;padding:14px 20px;border-radius:11px;text-decoration:none;text-align:center;box-shadow:0 4px 20px rgba(0,224,255,0.3);transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">Apply for CRM Lite &#8594;</a>
-</div>
+<!-- ── CARD 1: CRM SOLO (discourage) ─────────────────────────────────── -->
+<div class="crm-card" style="background:#fff;border-radius:20px;padding:32px;border:2px solid #e2e8f0;display:flex;flex-direction:column;opacity:0.92;">
 
-<!-- CRM Premium — aligned with CRM Lite styling -->
-<div class="elite-card elite-card-premium" style="animation:glow 4s ease-in-out infinite;display:flex;flex-direction:column;">
-<div style="position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--coral),var(--gold));color:#fff;font-size:11px;font-weight:800;padding:5px 20px;border-radius:0 0 12px 12px;white-space:nowrap;">&#11088; Recommended</div>
-<!-- Label — matches Lite: 11px/800/uppercase/slate-equivalent -->
-<div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.5);margin-bottom:6px;margin-top:14px;">Continuous Upgrades</div>
-<!-- Name — matches Lite: 22px/800/Manrope -->
-<div style="font-family:'Manrope',sans-serif;font-size:22px;font-weight:800;color:#fff;margin-bottom:6px;">🖤 CRM Premium</div>
-<!-- Price — matches Lite: 36px/900/Manrope, single line -->
-<div style="font-family:'Manrope',sans-serif;font-size:36px;font-weight:900;color:var(--cyan);letter-spacing:-1px;line-height:1;margin-bottom:4px;">$299 <span style="font-size:16px;font-weight:600;color:rgba(255,255,255,0.45);">setup</span> + $79<span style="font-size:16px;font-weight:600;color:rgba(255,255,255,0.45);">/month</span></div>
-<!-- Sub-text — matches Lite: 12px, muted -->
-<div style="font-size:12px;color:rgba(255,255,255,0.45);margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,0.1);">Setup fee waived when upgrading from your trial (save $299)</div>
-<!-- Section label — matches Lite: 12px/800/uppercase/navy-equivalent -->
-<div style="font-size:12px;font-weight:800;color:#fff;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;">Everything in Lite, plus:</div>
-<!-- Features — matches Lite: 13px, cyan ✓ span, white text, flex col, gap:8px -->
-<div style="display:flex;flex-direction:column;gap:8px;font-size:13px;color:rgba(255,255,255,0.88);margin-bottom:24px;flex:1;">
-<div><span style="color:var(--cyan);font-weight:800;margin-right:8px;">&#10003;</span>All future upgrades</div>
-<div><span style="color:var(--cyan);font-weight:800;margin-right:8px;">&#10003;</span>All new features &amp; modules</div>
-<div><span style="color:var(--cyan);font-weight:800;margin-right:8px;">&#10003;</span>Advanced automation</div>
-<div><span style="color:var(--cyan);font-weight:800;margin-right:8px;">&#10003;</span>Advanced reporting</div>
-<div><span style="color:var(--cyan);font-weight:800;margin-right:8px;">&#10003;</span>Priority support</div>
-<div><span style="color:var(--cyan);font-weight:800;margin-right:8px;">&#10003;</span>Integration updates</div>
-<div><span style="color:var(--cyan);font-weight:800;margin-right:8px;">&#10003;</span>New dashboards &amp; templates</div>
-<div><span style="color:var(--cyan);font-weight:800;margin-right:8px;">&#10003;</span>Ongoing improvements</div>
-</div>
-<!-- CTA — matches Lite: 15px/800, block, same padding/radius -->
-<a href="apply.html?plan=crm-premium"
-   style="display:block;background:linear-gradient(135deg,var(--cyan),#007a85);color:#fff;font-size:15px;font-weight:800;padding:14px 20px;border-radius:11px;text-decoration:none;text-align:center;box-shadow:0 4px 20px rgba(0,194,209,0.35);transition:all 0.2s;"
-   onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
-  Upgrade to CRM Premium &#8594;
-</a>
-</div>
+  <!-- Warning banner -->
+  <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:10px;padding:8px 14px;margin-bottom:16px;display:flex;align-items:center;gap:8px;">
+    <span style="font-size:14px;">⚠️</span>
+    <span style="font-size:12px;font-weight:700;color:#856404;">Basic features only — no automation</span>
+  </div>
+
+  <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--slate);margin-bottom:6px;">Solo Starter</div>
+  <div style="font-family:'Manrope',sans-serif;font-size:22px;font-weight:800;color:var(--navy);margin-bottom:6px;">🌱 CRM Solo</div>
+  <div style="font-family:'Manrope',sans-serif;font-size:36px;font-weight:900;color:var(--slate);letter-spacing:-1px;line-height:1;margin-bottom:4px;">$39<span style="font-size:16px;font-weight:600;">/month</span></div>
+  <div style="font-size:12px;color:var(--slate);margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid #e2e8f0;">Billed monthly · Cancel anytime</div>
+
+  <div style="font-size:12px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">Includes:</div>
+  <div style="display:flex;flex-direction:column;gap:7px;font-size:13px;color:var(--dark);margin-bottom:16px;flex:1;">
+    <div><span style="color:var(--cyan);font-weight:800;margin-right:8px;">✓</span>25 contacts</div>
+    <div><span style="color:var(--cyan);font-weight:800;margin-right:8px;">✓</span>Lead tracking</div>
+    <div><span style="color:var(--cyan);font-weight:800;margin-right:8px;">✓</span>Basic contact management</div>
+    <div><span style="color:var(--cyan);font-weight:800;margin-right:8px;">✓</span>1 user only</div>
+    <div><span style="color:var(--cyan);font-weight:800;margin-right:8px;">✓</span>Email support (72hr response)</div>
+  </div>
+
+  <div style="font-size:12px;font-weight:800;color:#dc2626;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Not included:</div>
+  <div style="display:flex;flex-direction:column;gap:5px;font-size:12px;color:#94a3b8;margin-bottom:20px;">
+    <div><span style="color:#dc2626;margin-right:8px;">✗</span>Automation</div>
+    <div><span style="color:#dc2626;margin-right:8px;">✗</span>Pipeline tracking</div>
+    <div><span style="color:#dc2626;margin-right:8px;">✗</span>Reports &amp; analytics</div>
+    <div><span style="color:#dc2626;margin-right:8px;">✗</span>Team members</div>
+    <div><span style="color:#dc2626;margin-right:8px;">✗</span>WhatsApp integration</div>
+  </div>
+
+  <a href="apply.html?plan=crm-solo"
+     style="display:block;background:#e2e8f0;color:#64748b;font-size:14px;font-weight:700;padding:13px 20px;border-radius:11px;text-decoration:none;text-align:center;transition:all 0.2s;"
+     onmouseover="this.style.background='#cbd5e1'" onmouseout="this.style.background='#e2e8f0'">
+    Start Solo Trial →
+  </a>
+  <p style="font-size:11px;color:#94a3b8;text-align:center;margin-top:10px;font-style:italic;">Most users upgrade to Premium within 14 days</p>
 </div>
 
+<!-- ── CARD 2: CRM PREMIUM (king) ─────────────────────────────────────── -->
+<div class="elite-card elite-card-premium" style="animation:glow 4s ease-in-out infinite;display:flex;flex-direction:column;transform:translateY(-8px);box-shadow:0 24px 80px rgba(0,194,209,0.25);">
+
+  <!-- Most Popular badge -->
+  <div style="position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--coral),var(--gold));color:#fff;font-size:11px;font-weight:800;padding:5px 20px;border-radius:0 0 12px 12px;white-space:nowrap;">⭐ Most Popular — Best Value</div>
+
+  <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.5);margin-bottom:6px;margin-top:14px;">Complete CRM</div>
+  <div style="font-family:'Manrope',sans-serif;font-size:22px;font-weight:800;color:#fff;margin-bottom:6px;">🖤 CRM Premium</div>
+  <div style="font-family:'Manrope',sans-serif;font-size:36px;font-weight:900;color:var(--cyan);letter-spacing:-1px;line-height:1;margin-bottom:4px;">$79<span style="font-size:16px;font-weight:600;color:rgba(255,255,255,0.45);">/month</span></div>
+  <div style="font-size:12px;color:rgba(255,255,255,0.45);margin-bottom:4px;">$299 setup fee · waived on trial upgrade</div>
+  <div style="background:rgba(0,224,255,0.1);border:1px solid rgba(0,224,255,0.2);border-radius:8px;padding:8px 12px;margin-bottom:16px;font-size:12px;color:var(--cyan);font-weight:700;">🎯 Setup fee waived when upgrading from your 30-day trial</div>
+  <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:16px;margin-bottom:12px;"></div>
+
+  <div style="font-size:12px;font-weight:800;color:#fff;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;">Everything in Solo, plus:</div>
+  <div style="display:flex;flex-direction:column;gap:8px;font-size:13px;color:rgba(255,255,255,0.88);margin-bottom:24px;flex:1;">
+    <div><span style="color:var(--cyan);font-weight:800;margin-right:8px;">✓</span>Unlimited contacts</div>
+    <div><span style="color:var(--cyan);font-weight:800;margin-right:8px;">✓</span>Full pipeline (Lead → Quote → Won)</div>
+    <div><span style="color:var(--cyan);font-weight:800;margin-right:8px;">✓</span>Automated follow-ups (30/60/90 days)</div>
+    <div><span style="color:var(--cyan);font-weight:800;margin-right:8px;">✓</span>WhatsApp integration</div>
+    <div><span style="color:var(--cyan);font-weight:800;margin-right:8px;">✓</span>Revenue &amp; aging reports</div>
+    <div><span style="color:var(--cyan);font-weight:800;margin-right:8px;">✓</span>5 team members</div>
+    <div><span style="color:var(--cyan);font-weight:800;margin-right:8px;">✓</span>Document storage</div>
+    <div><span style="color:var(--cyan);font-weight:800;margin-right:8px;">✓</span>Data export</div>
+    <div><span style="color:var(--cyan);font-weight:800;margin-right:8px;">✓</span>All future features included</div>
+    <div><span style="color:var(--cyan);font-weight:800;margin-right:8px;">✓</span>Priority support (24hr · email &amp; SMS)</div>
+  </div>
+
+  <a href="apply.html?plan=crm-premium"
+     style="display:block;background:linear-gradient(135deg,var(--cyan),#007a85);color:#fff;font-size:15px;font-weight:800;padding:16px 20px;border-radius:11px;text-decoration:none;text-align:center;box-shadow:0 4px 24px rgba(0,194,209,0.45);transition:all 0.2s;"
+     onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 40px rgba(0,194,209,0.6)'"
+     onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 24px rgba(0,194,209,0.45)'">
+    Start Free Trial — CRM Premium →
+  </a>
+  <p style="font-size:11px;color:rgba(255,255,255,0.4);text-align:center;margin-top:10px;">30-day free trial · No credit card required</p>
+</div>
+
+<!-- ── CARD 3: WHITE-LABEL (agency) ───────────────────────────────────── -->
+<div class="crm-card" style="background:linear-gradient(145deg,#0a0a1a,#001428,#002040);border-radius:20px;padding:32px;border:2px solid rgba(247,200,115,0.3);display:flex;flex-direction:column;box-shadow:0 8px 40px rgba(0,0,0,0.4);">
+
+  <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--gold);margin-bottom:6px;">Agency Partner</div>
+  <div style="font-family:'Manrope',sans-serif;font-size:22px;font-weight:800;color:#fff;margin-bottom:6px;">🏢 White-Label</div>
+  <div style="font-family:'Manrope',sans-serif;font-size:36px;font-weight:900;color:var(--gold);letter-spacing:-1px;line-height:1;margin-bottom:4px;">$397<span style="font-size:16px;font-weight:600;color:rgba(255,255,255,0.45);">/month</span></div>
+  <div style="font-size:12px;color:rgba(255,255,255,0.45);margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,0.1);">+ $499 one-time setup · Annual contract</div>
+
+  <div style="font-size:12px;font-weight:800;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;">Agency Benefits:</div>
+  <div style="display:flex;flex-direction:column;gap:7px;font-size:13px;color:rgba(255,255,255,0.8);margin-bottom:20px;flex:1;">
+    <div><span style="color:var(--gold);font-weight:800;margin-right:8px;">✓</span>Your logo &amp; domain — clients never see BluWav</div>
+    <div><span style="color:var(--gold);font-weight:800;margin-right:8px;">✓</span>Unlimited client accounts</div>
+    <div><span style="color:var(--gold);font-weight:800;margin-right:8px;">✓</span>Charge $297–$997/mo per client</div>
+    <div><span style="color:var(--gold);font-weight:800;margin-right:8px;">✓</span>Super Admin dashboard</div>
+    <div><span style="color:var(--gold);font-weight:800;margin-right:8px;">✓</span>85–95% client retention</div>
+    <div><span style="color:var(--gold);font-weight:800;margin-right:8px;">✓</span>White-glove onboarding</div>
+    <div><span style="color:var(--gold);font-weight:800;margin-right:8px;">✓</span>Dedicated account manager</div>
+  </div>
+
+  <!-- Revenue example -->
+  <div style="background:rgba(247,200,115,0.1);border:1px solid rgba(247,200,115,0.25);border-radius:12px;padding:14px 16px;margin-bottom:20px;">
+    <div style="font-size:11px;font-weight:800;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Revenue Example</div>
+    <div style="font-size:14px;color:#fff;font-weight:700;">20 clients × $497/mo</div>
+    <div style="font-family:'Sora',sans-serif;font-size:22px;font-weight:900;color:var(--gold);">= $9,940 MRR</div>
+    <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-top:2px;">for your agency</div>
+  </div>
+
+  <a href="mailto:hello@bluwavgrowth.com?subject=White-Label CRM Enquiry — BluWav Growth&body=Hi BluWav Growth team,%0A%0AI'm interested in the White-Label CRM partnership.%0A%0AAgency name:%0ALocation:%0AEstimated clients:%0A%0AThank you."
+     style="display:block;background:linear-gradient(135deg,var(--coral),#e84d00);color:#fff;font-size:15px;font-weight:800;padding:14px 20px;border-radius:11px;text-decoration:none;text-align:center;box-shadow:0 4px 20px rgba(255,85,0,0.35);transition:all 0.2s;"
+     onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+    Book a Demo Call →
+  </a>
+  <p style="font-size:11px;color:rgba(255,255,255,0.35);text-align:center;margin-top:10px;">Annual contract · White-glove setup included</p>
+</div>
+
+</div><!-- /3-col grid -->
+
+<!-- Bottom note -->
+<div style="text-align:center;padding:16px 20px;background:#fff;border-radius:14px;box-shadow:0 2px 12px rgba(0,43,73,0.06);">
+  <p style="font-size:13px;color:var(--slate);">💳 <strong style="color:var(--navy);">Accepted:</strong> WiPay (Caribbean cards) &nbsp;·&nbsp; PayPal &nbsp;·&nbsp; Bank Transfer &nbsp;·&nbsp; Linx &nbsp;·&nbsp; <strong style="color:var(--navy);">All plans include a 30-day free trial</strong></p>
+</div>
 
 </div>
 </section>
-
 
 <!-- HOW TO GET STARTED -->
 <section style="background:#F4F2ED;padding:60px 0 0;" class="process-section">
@@ -972,7 +1040,7 @@ HERO -->
 </details>
 <details style="border-bottom:1px solid var(--mist);padding:20px 0;">
 <summary style="font-size:16px;font-weight:700;color:var(--navy);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;font-family:'Manrope',sans-serif;">Is there a monthly fee?<span style="color:var(--coral);font-size:18px;margin-left:12px;">+</span></summary>
-<p style="font-size:14px;color:var(--slate);line-height:1.75;margin-top:12px;">Hosting is included for 6 months. After that, it's $200 every 6 months for secure hosting, SSL, updates, and support. CRM Lite is available after your trial for $999 one&#8209;time, or you can upgrade to CRM Premium for $299 installation + $79/month.</p>
+<p style="font-size:14px;color:var(--slate);line-height:1.75;margin-top:12px;">Hosting is included for 6 months. After that, it's $200 every 6 months for secure hosting, SSL, updates, and support. CRM Solo is available at $39/month, or upgrade to CRM Premium for $299 setup + $79/month for the full experience with automation, unlimited contacts, and team features.</p>
 </details>
 <details style="border-bottom:1px solid var(--mist);padding:20px 0;">
 <summary style="font-size:16px;font-weight:700;color:var(--navy);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;font-family:'Manrope',sans-serif;">What's included in every plan?<span style="color:var(--coral);font-size:18px;margin-left:12px;">+</span></summary>
