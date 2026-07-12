@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Billing &amp; Plan — BluWav CRM</title>
+<style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy-deep:   #0A0E1A;
+      --navy-mid:    #0F1628;
+      --navy-light:  #161E35;
+      --navy-border: #1E2A45;
+      --cyan:        #00C8E0;
+      --cyan-glow:   rgba(0,200,224,0.12);
+      --orange:      #FF6B2B;
+      --orange-glow: rgba(255,107,43,0.12);
+      --gold:        #C9A84C;
+      --gold-light:  #E8C96A;
+      --gold-glow:   rgba(201,168,76,0.12);
+      --success:     #22C55E;
+      --error:       #EF4444;
+      --text-primary:#FFFFFF;
+      --text-secondary:#B0BAD0;
+      --text-muted:  #6B7A99;
+      --font-display: Georgia, 'Times New Roman', serif;
+      --font-body:    system-ui, -apple-system, 'Segoe UI', sans-serif;
+      --radius-sm:   6px;
+      --radius-md:   12px;
+      --radius-lg:   20px;
+      --radius-xl:   28px;
+      --transition:  all 0.2s cubic-bezier(0.4,0,0.2,1);
+      --shadow-card: 0 4px 24px rgba(0,0,0,0.4);
+      --shadow-gold: 0 0 24px rgba(201,168,76,0.15), 0 4px 16px rgba(0,0,0,0.4);
+      --shadow-cyan: 0 0 24px rgba(0,200,224,0.2), 0 4px 16px rgba(0,0,0,0.4);
+    }
+    html, body { min-height:100%; font-family:var(--font-body); background:var(--navy-deep); color:var(--text-primary); -webkit-font-smoothing:antialiased; }
+    ::-webkit-scrollbar { width:5px; } ::-webkit-scrollbar-track { background:var(--navy-deep); } ::-webkit-scrollbar-thumb { background:var(--navy-border); border-radius:3px; }
+
+    /* ── Shell ── */
+    .shell { display:grid; grid-template-columns:220px 1fr; grid-template-rows:56px 1fr; min-height:100vh; }
+
+    /* ── Topbar ── */
+    .topbar { grid-column:1/-1; background:rgba(10,14,26,0.98); border-bottom:1px solid var(--navy-border); display:flex; align-items:center; gap:16px; padding:0 20px; z-index:100; backdrop-filter:blur(12px); }
+    .logo { display:flex; flex-direction:column; align-items:flex-start; gap:1px; text-decoration:none; margin-right:8px; }
+    .logo-wm { font-family:var(--font-display); font-size:1.35rem; font-weight:700; line-height:1; }
+    .logo-wm .blu { color:#fff; } .logo-wm .wav { color:var(--cyan); }
+    .logo-sub { font-size:0.45rem; font-weight:700; letter-spacing:0.28em; color:var(--gold); text-transform:uppercase; display:flex; align-items:center; gap:4px; }
+    .logo-sub::before,.logo-sub::after { content:''; display:block; width:12px; height:1px; background:var(--gold); opacity:.5; }
+    .tb-actions { margin-left:auto; display:flex; align-items:center; gap:8px; }
+    .ib { width:32px; height:32px; border-radius:var(--radius-sm); background:transparent; border:1px solid transparent; color:var(--text-muted); cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:0.9rem; transition:var(--transition); }
+    .ib:hover { background:var(--navy-light); border-color:var(--navy-border); color:var(--text-primary); }
+    .tb-div { width:1px; height:24px; background:var(--navy-border); }
+    .user-chip { display:flex; align-items:center; gap:8px; padding:4px 10px 4px 4px; border-radius:var(--radius-md); cursor:pointer; transition:var(--transition); border:1px solid transparent; }
+    .user-chip:hover { background:var(--navy-light); border-color:var(--navy-border); }
+    .ua { width:28px; height:28px; border-radius:50%; background:linear-gradient(135deg,var(--cyan),#0099B0); display:flex; align-items:center; justify-content:center; font-size:0.7rem; font-weight:700; color:var(--navy-deep); }
+    .un { font-size:0.78rem; font-weight:600; color:var(--text-primary); line-height:1.2; }
+    .ur { font-size:0.62rem; color:var(--gold); }
+
+    /* ── Sidebar ── */
+    .sidebar { background:rgba(10,14,26,0.95); border-right:1px solid var(--navy-border); padding:16px 10px; display:flex; flex-direction:column; gap:2px; overflow-y:auto; }
+    .ns { font-size:0.6rem; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:var(--text-muted); padding:10px 10px 4px; }
+    .ni { display:flex; align-items:center; gap:9px; padding:8px 10px; border-radius:var(--radius-md); cursor:pointer; transition:var(--transition); color:var(--text-muted); font-size:0.82rem; font-weight:500; text-decoration:none; border:1px solid transparent; }
+    .ni:hover { background:var(--navy-light); color:var(--text-primary); }
+    .ni.active { background:var(--gold-glow); color:var(--gold); font-weight:600; border-color:rgba(201,168,76,0.15); }
+    .ni-icon { font-size:0.9rem; width:18px; text-align:center; flex-shrink:0; }
+    .sb-bottom { margin-top:auto; padding-top:12px; border-top:1px solid var(--navy-border); }
+
+    /* ── Main ── */
+    .main { padding:28px 32px; overflow-y:auto; display:flex; flex-direction:column; gap:24px; background: radial-gradient(ellipse at 90% 10%, rgba(201,168,76,0.04) 0%, transparent 50%), radial-gradient(ellipse at 10% 90%, rgba(0,200,224,0.03) 0%, transparent 50%), var(--navy-deep); }
+
+    /* ── Buttons ── */
+    .btn { display:inline-flex; align-items:center; gap:6px; padding:10px 20px; border-radius:var(--radius-md); font-family:var(--font-body); font-size:0.85rem; font-weight:600; cursor:pointer; border:none; transition:var(--transition); text-decoration:none; white-space:nowrap; }
+    .btn-primary { background:linear-gradient(135deg,#00C8E0,#0099B0); color:var(--navy-deep); box-shadow:var(--shadow-cyan); }
+    .btn-primary:hover { transform:translateY(-1px); box-shadow:0 0 32px rgba(0,200,224,0.4); }
+    .btn-gold { background:linear-gradient(135deg,#C9A84C,#E8C96A,#C9A84C); color:var(--navy-deep); box-shadow:var(--shadow-gold); }
+    .btn-gold:hover { transform:translateY(-1px); box-shadow:0 0 32px rgba(201,168,76,0.4); }
+    .btn-outline { background:transparent; color:var(--text-secondary); border:1px solid var(--navy-border); }
+    .btn-outline:hover { border-color:var(--cyan); color:var(--cyan); background:var(--cyan-glow); }
+    .btn-ghost { background:transparent; color:var(--text-muted); border:1px solid transparent; }
+    .btn-ghost:hover { background:var(--navy-light); color:var(--text-primary); }
+    .btn-danger { background:rgba(239,68,68,0.1); color:#EF4444; border:1px solid rgba(239,68,68,0.25); }
+    .btn-danger:hover { background:rgba(239,68,68,0.2); }
+    .btn-sm { padding:7px 14px; font-size:0.78rem; }
+    .btn-lg { padding:14px 28px; font-size:0.95rem; }
+    .btn-full { width:100%; justify-content:center; }
+
+    /* ── Cards ── */
+    .card { background:linear-gradient(135deg,#0F1628,#131B30); border:1px solid var(--navy-border); border-radius:var(--radius-lg); }
+
+    /* ── Badges ── */
+    .badge { display:inline-flex; align-items:center; gap:3px; padding:3px 9px; border-radius:100px; font-size:0.65rem; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; }
+    .badge-gold { background:var(--gold-glow); color:var(--gold); border:1px solid rgba(201,168,76,0.3); }
+    .badge-cyan { background:var(--cyan-glow); color:var(--cyan); border:1px solid rgba(0,200,224,0.3); }
+    .badge-orange { background:var(--orange-glow); color:var(--orange); border:1px solid rgba(255,107,43,0.3); }
+    .badge-success { background:rgba(34,197,94,0.1); color:var(--success); border:1px solid rgba(34,197,94,0.3); }
+    .badge-muted { background:rgba(107,122,153,0.1); color:var(--text-muted); border:1px solid rgba(107,122,153,0.2); }
+
+    /* ── Page Header ── */
+    .ph { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; }
+    .ph-left .greeting { font-size:0.78rem; color:var(--text-muted); margin-bottom:3px; }
+    .ph-left h1 { font-family:var(--font-display); font-size:1.5rem; font-weight:700; }
+    .ph-right { display:flex; gap:8px; flex-shrink:0; }
+
+    /* ── Trial Hero ── */
+    .trial-hero {
+      background:linear-gradient(135deg,rgba(255,107,43,0.06),rgba(201,168,76,0.04));
+      border:1px solid rgba(255,107,43,0.3);
+      border-radius:var(--radius-xl);
+      padding:32px 36px;
+      display:flex; align-items:center; justify-content:space-between; gap:24px;
+      position:relative; overflow:hidden;
+    }
+    .trial-hero::before { content:''; position:absolute; top:-40px; right:-40px; width:180px; height:180px; background:radial-gradient(circle,rgba(255,107,43,0.08) 0%,transparent 70%); pointer-events:none; }
+    .th-left { display:flex; align-items:center; gap:20px; }
+    .th-icon { width:56px; height:56px; background:linear-gradient(135deg,rgba(255,107,43,0.15),rgba(201,168,76,0.1)); border:1px solid rgba(255,107,43,0.3); border-radius:var(--radius-lg); display:flex; align-items:center; justify-content:center; font-size:1.6rem; flex-shrink:0; }
+    .th-text h2 { font-family:var(--font-display); font-size:1.3rem; color:var(--text-primary); margin-bottom:4px; }
+    .th-text p { font-size:0.82rem; color:var(--text-secondary); line-height:1.5; }
+    .th-right { text-align:right; flex-shrink:0; }
+    .trial-countdown { font-size:2.5rem; font-weight:700; color:var(--orange); line-height:1; }
+    .trial-countdown-label { font-size:0.72rem; color:var(--text-muted); margin-bottom:12px; }
+    .trial-bar-wrap { width:180px; height:6px; background:var(--navy-border); border-radius:100px; overflow:hidden; margin-bottom:12px; }
+    .trial-bar-fill { height:100%; background:linear-gradient(90deg,var(--orange),var(--gold)); width:100%; border-radius:100px; }
+
+    /* ── Plan Cards Grid ── */
+    .plans-grid { display:grid; grid-template-columns:1fr 1.08fr 1fr; gap:16px; }
+
+    .plan-card {
+      background:linear-gradient(135deg,#0F1628,#131B30);
+      border:1px solid var(--navy-border);
+      border-radius:var(--radius-xl);
+      padding:28px 24px;
+      position:relative;
+      transition:var(--transition);
+      cursor:pointer;
+    }
+    .plan-card:hover { transform:translateY(-2px); box-shadow:var(--shadow-card); }
+    .plan-card.current { border-color:rgba(255,107,43,0.4); box-shadow:0 0 32px rgba(255,107,43,0.06); cursor:default; }
+    .plan-card.current:hover { transform:none; }
+    .plan-card.featured { border-color:rgba(201,168,76,0.4); box-shadow:var(--shadow-gold); }
+
+    .plan-ribbon { position:absolute; top:-1px; left:50%; transform:translateX(-50%); background:linear-gradient(135deg,#C9A84C,#E8C96A,#C9A84C); color:var(--navy-deep); font-size:0.62rem; font-weight:800; text-transform:uppercase; letter-spacing:0.1em; padding:4px 16px; border-radius:0 0 10px 10px; }
+    .current-ribbon { background:linear-gradient(135deg,var(--orange),#E05520); color:#fff; }
+
+    .plan-icon { width:44px; height:44px; border-radius:var(--radius-md); display:flex; align-items:center; justify-content:center; font-size:1.2rem; margin-bottom:14px; }
+    .plan-name { font-family:var(--font-display); font-size:1.1rem; font-weight:700; color:var(--text-primary); margin-bottom:4px; }
+    .plan-tagline { font-size:0.75rem; color:var(--text-muted); margin-bottom:20px; line-height:1.5; }
+
+    .plan-price { display:flex; align-items:baseline; gap:3px; margin-bottom:4px; }
+    .plan-price .cur { font-size:0.9rem; font-weight:700; color:var(--text-secondary); }
+    .plan-price .amt { font-size:2.2rem; font-weight:700; color:var(--text-primary); line-height:1; }
+    .plan-price .per { font-size:0.78rem; color:var(--text-muted); }
+    .plan-setup { font-size:0.72rem; color:var(--text-muted); margin-bottom:20px; }
+    .plan-setup .fee { color:var(--orange); font-weight:700; }
+
+    .plan-divider { height:1px; background:var(--navy-border); margin:16px 0; }
+
+    .plan-features { display:flex; flex-direction:column; gap:8px; margin-bottom:20px; }
+    .pf { display:flex; align-items:center; gap:8px; font-size:0.78rem; color:var(--text-secondary); }
+    .pf-check { width:16px; height:16px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.55rem; flex-shrink:0; }
+    .pf-check.y { background:rgba(34,197,94,0.12); color:var(--success); border:1px solid rgba(34,197,94,0.3); }
+    .pf-check.g { background:var(--gold-glow); color:var(--gold); border:1px solid rgba(201,168,76,0.3); }
+    .pf-check.n { background:rgba(107,122,153,0.08); color:var(--text-muted); border:1px solid rgba(107,122,153,0.2); }
+
+    /* ── Current Plan Detail ── */
+    .current-plan-detail {
+      background:linear-gradient(135deg,rgba(201,168,76,0.05),rgba(0,200,224,0.03));
+      border:1px solid rgba(201,168,76,0.25);
+      border-radius:var(--radius-xl);
+      padding:28px 32px;
+      display:grid;
+      grid-template-columns:1fr 1fr 1fr;
+      gap:24px;
+    }
+    .cpd-item { }
+    .cpd-label { font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-muted); margin-bottom:6px; }
+    .cpd-value { font-size:1rem; font-weight:700; color:var(--text-primary); }
+    .cpd-sub { font-size:0.72rem; color:var(--text-muted); margin-top:2px; }
+
+    /* ── Payment Method ── */
+    .payment-card {
+      background:linear-gradient(135deg,#141414,#1e1e1e);
+      border:1px solid var(--gold);
+      border-radius:var(--radius-lg);
+      padding:20px 24px;
+      display:flex; align-items:center; justify-content:space-between; gap:16px;
+      box-shadow:var(--shadow-gold);
+    }
+    .pm-left { display:flex; align-items:center; gap:16px; }
+    .pm-icon { width:48px; height:32px; background:linear-gradient(135deg,#1a1a2e,#16213e); border:1px solid rgba(201,168,76,0.3); border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:1.1rem; }
+    .pm-info h4 { font-size:0.88rem; font-weight:700; color:var(--text-primary); margin-bottom:2px; }
+    .pm-info p { font-size:0.72rem; color:var(--text-muted); }
+    .pm-right { display:flex; align-items:center; gap:10px; }
+
+    /* ── Invoice Table ── */
+    .inv-table { width:100%; border-collapse:collapse; }
+    .inv-table th { font-size:0.65rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-muted); padding:10px 16px; text-align:left; border-bottom:1px solid var(--navy-border); }
+    .inv-table td { padding:13px 16px; font-size:0.82rem; color:var(--text-secondary); border-bottom:1px solid rgba(30,42,69,0.4); vertical-align:middle; }
+    .inv-table tr:hover td { background:var(--navy-light); }
+    .inv-table tr:last-child td { border-bottom:none; }
+
+    /* ── Section Header ── */
+    .sec-hd { display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; }
+    .sec-title { font-size:0.95rem; font-weight:700; color:var(--text-primary); display:flex; align-items:center; gap:8px; }
+    .sec-sub { font-size:0.78rem; color:var(--text-muted); margin-top:2px; }
+
+    /* ── Usage Bars ── */
+    .usage-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .usage-item { }
+    .usage-hd { display:flex; justify-content:space-between; margin-bottom:6px; }
+    .usage-lbl { font-size:0.78rem; color:var(--text-secondary); }
+    .usage-val { font-size:0.78rem; font-weight:600; color:var(--text-primary); }
+    .usage-track { height:8px; background:var(--navy-border); border-radius:100px; overflow:hidden; }
+    .usage-fill { height:100%; border-radius:100px; transition:width 0.6s ease; }
+    .usage-sub { font-size:0.68rem; color:var(--text-muted); margin-top:4px; }
+
+    /* ── Cancel Section ── */
+    .cancel-box { background:rgba(239,68,68,0.04); border:1px solid rgba(239,68,68,0.2); border-radius:var(--radius-lg); padding:24px 28px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .cancel-text h4 { font-size:0.9rem; font-weight:700; color:var(--text-primary); margin-bottom:4px; }
+    .cancel-text p { font-size:0.78rem; color:var(--text-muted); line-height:1.5; }
+
+    /* ── Modal ── */
+    .modal-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.75); z-index:500; align-items:center; justify-content:center; backdrop-filter:blur(4px); padding:20px; }
+    .modal-overlay.open { display:flex; }
+    .modal { background:#0F1628; border:1px solid var(--navy-border); border-radius:var(--radius-xl); width:100%; max-width:520px; max-height:90vh; overflow-y:auto; }
+    .modal-hd { padding:24px 28px 20px; border-bottom:1px solid var(--navy-border); display:flex; align-items:center; justify-content:space-between; }
+    .modal-hd h3 { font-family:var(--font-display); font-size:1.2rem; color:var(--text-primary); }
+    .modal-close { background:none; border:none; color:var(--text-muted); font-size:1.1rem; cursor:pointer; transition:var(--transition); }
+    .modal-close:hover { color:var(--text-primary); }
+    .modal-body { padding:24px 28px; }
+    .modal-footer { padding:16px 28px 24px; display:flex; gap:10px; justify-content:flex-end; border-top:1px solid var(--navy-border); }
+
+    /* ── Form ── */
+    .fg { display:flex; flex-direction:column; gap:5px; margin-bottom:16px; }
+    .fl { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-secondary); }
+    .fi { background:var(--navy-deep); border:1px solid var(--navy-border); border-radius:var(--radius-md); color:var(--text-primary); font-family:var(--font-body); font-size:0.85rem; padding:10px 14px; outline:none; transition:var(--transition); width:100%; }
+    .fi:focus { border-color:var(--cyan); box-shadow:0 0 0 3px var(--cyan-glow); }
+    .fi::placeholder { color:var(--text-muted); }
+    .fg-row { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+
+    /* ── Responsive ── */
+    @media(max-width:1000px) { .plans-grid{grid-template-columns:1fr;max-width:440px;} .current-plan-detail{grid-template-columns:1fr 1fr;} .usage-grid{grid-template-columns:1fr;} }
+    @media(max-width:768px) { .shell{grid-template-columns:1fr;} .sidebar{display:none;} .main{padding:20px 16px;} .trial-hero{flex-direction:column;} .th-right{text-align:left;} .cancel-box{flex-direction:column;align-items:flex-start;} }
+  </style>
+</head>
+<body>
+<div class="shell">
+<!-- ══ TOPBAR ══ -->
+<header class="topbar">
+<a class="logo" href="enhanced-crm.html">
+<span class="logo-wm"><span class="blu">Blu</span><span class="wav">Wav</span></span>
+<span class="logo-sub">CRM</span>
+</a>
+<div style="font-size:0.82rem;color:var(--text-muted);">← <a href="enhanced-crm.html" style="color:var(--cyan);text-decoration:none;">Back to Dashboard</a></div>
+<div class="tb-actions">
+<button class="ib">🔔</button>
+<div class="tb-div"></div>
+<div class="user-chip">
+<div class="ua">JW</div>
+<div><div class="un">Jordan Williams</div><div class="ur">👑 Administrator</div></div>
+<span style="color:var(--text-muted);font-size:0.65rem;margin-left:4px;">▾</span>
+</div>
+</div>
+</header>
+<!-- ══ SIDEBAR ══ -->
+<aside class="sidebar">
+<div class="ns">Main</div>
+<a class="ni" href="enhanced-crm.html"><span class="ni-icon">📊</span> Dashboard</a>
+<a class="ni" href="enhanced-crm.html"><span class="ni-icon">👥</span> Contacts</a>
+<a class="ni" href="enhanced-crm.html"><span class="ni-icon">💼</span> Deals</a>
+<a class="ni" href="enhanced-crm.html"><span class="ni-icon">📈</span> Reports</a>
+<div class="ns">Organization</div>
+<a class="ni" href="enhanced-crm.html"><span class="ni-icon">🏢</span> Org Setup</a>
+<a class="ni" href="enhanced-crm.html"><span class="ni-icon">⚙️</span> Settings</a>
+<a class="ni active"><span class="ni-icon">💳</span> Billing</a>
+<div class="sb-bottom">
+<a class="ni" href="login.html" style="color:var(--text-muted);"><span class="ni-icon">🚪</span> Log Out</a>
+</div>
+</aside>
+<!-- ══ MAIN ══ -->
+<main class="main">
+<!-- Page Header -->
+<div class="ph">
+<div class="ph-left">
+<div class="greeting">Account Management</div>
+<h1>Billing &amp; Plan</h1>
+</div>
+<div class="ph-right">
+<button class="btn btn-outline btn-sm">📄 Download Invoice</button>
+<button class="btn btn-gold btn-sm" onclick="openModal('upgrade')">⬆️ Upgrade Plan</button>
+</div>
+</div>
+<!-- Trial Hero Banner -->
+<div class="trial-hero">
+<div class="th-left">
+<div class="th-icon">🎉</div>
+<div class="th-text">
+<h2>Your Free Trial is Active</h2>
+<p>You have full access to BluWav CRM for 7 days — no credit card required.<br/>After your trial, activate your plan to keep your data and continue growing.</p>
+</div>
+</div>
+<div class="th-right">
+<div class="trial-countdown">7</div>
+<div class="trial-countdown-label">days remaining</div>
+<div class="trial-bar-wrap"><div class="trial-bar-fill"></div></div>
+<button class="btn btn-gold btn-sm btn-full" onclick="openModal('activate')">🚀 Activate Plan Now</button>
+</div>
+</div>
+<!-- Current Plan Detail -->
+<div>
+<div class="sec-hd">
+<div><div class="sec-title">🖤 Current Plan</div><div class="sec-sub">What's included in your trial</div></div>
+</div>
+<div class="current-plan-detail">
+<div class="cpd-item">
+<div class="cpd-label">Plan</div>
+<div class="cpd-value">BluWav Pro <span class="badge badge-orange" style="vertical-align:middle;">Trial</span></div>
+<div class="cpd-sub">Full access during trial period</div>
+</div>
+<div class="cpd-item">
+<div class="cpd-label">Trial Ends</div>
+<div class="cpd-value">June 30, 2026</div>
+<div class="cpd-sub">7 days from signup</div>
+</div>
+<div class="cpd-item">
+<div class="cpd-label">After Trial</div>
+<div class="cpd-value">$99 setup + $29<span style="font-size:0.75rem;font-weight:400;color:var(--text-muted);">/mo</span></div>
+<div class="cpd-sub">No contract · Cancel anytime</div>
+</div>
+<div class="cpd-item">
+<div class="cpd-label">Organization</div>
+<div class="cpd-value">Sunrise Digital Ltd.</div>
+<div class="cpd-sub">sunrisedigital.bluwavcrm.com</div>
+</div>
+<div class="cpd-item">
+<div class="cpd-label">Admin</div>
+<div class="cpd-value">Jordan Williams</div>
+<div class="cpd-sub">jordan@sunrisedigital.tt</div>
+</div>
+<div class="cpd-item">
+<div class="cpd-label">Billing Cycle</div>
+<div class="cpd-value">Monthly</div>
+<div class="cpd-sub">Billed on the 1st each month</div>
+</div>
+</div>
+</div>
+<!-- Plan Options -->
+<div>
+<div class="sec-hd">
+<div><div class="sec-title">📦 Choose Your Plan</div><div class="sec-sub">Activate after your trial ends — or upgrade now</div></div>
+<div style="display:flex;gap:6px;background:var(--navy-mid);border:1px solid var(--navy-border);border-radius:100px;padding:4px;">
+<button class="btn btn-sm" id="tog-monthly" onclick="setToggle('monthly')" style="border-radius:100px;background:var(--navy-light);color:var(--text-primary);border:none;">Monthly</button>
+<button class="btn btn-sm" id="tog-annual" onclick="setToggle('annual')" style="border-radius:100px;background:transparent;color:var(--text-muted);border:none;">Annual <span style="font-size:0.6rem;background:var(--orange-glow);color:var(--orange);padding:1px 5px;border-radius:100px;">Save 20%</span></button>
+</div>
+</div>
+<div class="plans-grid">
+<!-- Starter -->
+<div class="plan-card" onclick="selectPlan('starter')">
+<div class="plan-icon" style="background:var(--navy-light);border:1px solid var(--navy-border);">🌱</div>
+<div class="plan-name">Starter</div>
+<div class="plan-tagline">Solo operators &amp; freelancers getting started.</div>
+<div class="plan-price"><span class="cur">US$</span><span class="amt" data-a="23" data-m="29">29</span><span class="per">/mo</span></div>
+<div class="plan-setup">+ <span class="fee">$99</span> one-time setup</div>
+<button class="btn btn-outline btn-full btn-sm" onclick="event.stopPropagation();openModal('activate')">Select Starter</button>
+<div class="plan-divider"></div>
+<div class="plan-features">
+<div class="pf"><div class="pf-check y">✓</div>Up to 500 contacts</div>
+<div class="pf"><div class="pf-check y">✓</div>Sales pipeline</div>
+<div class="pf"><div class="pf-check y">✓</div>Email integration</div>
+<div class="pf"><div class="pf-check y">✓</div>1 user seat</div>
+<div class="pf"><div class="pf-check n">–</div><span style="color:var(--text-muted);">WhatsApp</span></div>
+<div class="pf"><div class="pf-check n">–</div><span style="color:var(--text-muted);">Automations</span></div>
+</div>
+</div>
+<!-- BluWav Pro (Featured) -->
+<div class="plan-card featured" onclick="selectPlan('pro')">
+<div class="plan-ribbon">⭐ Most Popular</div>
+<div class="plan-icon" style="background:linear-gradient(135deg,#1a1a1a,#2a2a2a);border:1px solid var(--gold);">🖤</div>
+<div class="plan-name" style="color:var(--gold);">BluWav Pro</div>
+<div class="plan-tagline">The full BluWav experience for growing Caribbean MSMEs.</div>
+<div class="plan-price"><span class="cur" style="color:var(--gold);">US$</span><span class="amt" data-a="23" data-m="29" style="color:var(--text-primary);">29</span><span class="per">/mo</span></div>
+<div class="plan-setup">+ <span class="fee">$99</span> one-time setup</div>
+<button class="btn btn-gold btn-full btn-sm" onclick="event.stopPropagation();openModal('activate')">🚀 Activate BluWav Pro</button>
+<div class="plan-divider" style="background:rgba(201,168,76,0.2);"></div>
+<div class="plan-features">
+<div class="pf"><div class="pf-check g">✓</div><strong style="color:var(--text-primary);">Unlimited contacts</strong></div>
+<div class="pf"><div class="pf-check g">✓</div>Sales pipeline &amp; deals</div>
+<div class="pf"><div class="pf-check g">✓</div>Email integration</div>
+<div class="pf"><div class="pf-check g">✓</div><strong style="color:var(--text-primary);">Up to 5 user seats</strong></div>
+<div class="pf"><div class="pf-check g">✓</div><strong style="color:var(--text-primary);">WhatsApp integration</strong></div>
+<div class="pf"><div class="pf-check g">✓</div><strong style="color:var(--text-primary);">Email automations</strong></div>
+<div class="pf"><div class="pf-check g">✓</div>Advanced reports</div>
+<div class="pf"><div class="pf-check g">✓</div>Priority support</div>
+</div>
+</div>
+<!-- Enterprise -->
+<div class="plan-card" onclick="openModal('enterprise')">
+<div class="plan-icon" style="background:var(--cyan-glow);border:1px solid rgba(0,200,224,0.3);">🏢</div>
+<div class="plan-name">Enterprise</div>
+<div class="plan-tagline">Custom solutions for larger teams &amp; agencies.</div>
+<div style="font-size:1.8rem;font-weight:700;color:var(--text-primary);margin-bottom:4px;">Custom</div>
+<div class="plan-setup" style="margin-bottom:20px;">Tailored pricing for your team</div>
+<button class="btn btn-outline btn-full btn-sm" onclick="event.stopPropagation();openModal('enterprise')">Contact Us →</button>
+<div class="plan-divider"></div>
+<div class="plan-features">
+<div class="pf"><div class="pf-check y">✓</div>Everything in Pro</div>
+<div class="pf"><div class="pf-check y">✓</div>Unlimited user seats</div>
+<div class="pf"><div class="pf-check y">✓</div>Custom branding</div>
+<div class="pf"><div class="pf-check y">✓</div>Dedicated account manager</div>
+<div class="pf"><div class="pf-check y">✓</div>API access</div>
+<div class="pf"><div class="pf-check y">✓</div>SLA guarantee</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Usage -->
+<div>
+<div class="sec-hd">
+<div><div class="sec-title">📊 Usage This Month</div><div class="sec-sub">Trial period — all limits are at maximum</div></div>
+</div>
+<div class="card" style="padding:24px 28px;">
+<div class="usage-grid">
+<div class="usage-item">
+<div class="usage-hd"><span class="usage-lbl">Contacts</span><span class="usage-val">142 / Unlimited</span></div>
+<div class="usage-track"><div class="usage-fill" style="width:14%;background:linear-gradient(90deg,var(--cyan),#0099B0);"></div></div>
+<div class="usage-sub">142 contacts stored</div>
+</div>
+<div class="usage-item">
+<div class="usage-hd"><span class="usage-lbl">User Seats</span><span class="usage-val">2 / 5</span></div>
+<div class="usage-track"><div class="usage-fill" style="width:40%;background:linear-gradient(90deg,var(--gold),#E8C96A);"></div></div>
+<div class="usage-sub">2 of 5 seats used</div>
+</div>
+<div class="usage-item">
+<div class="usage-hd"><span class="usage-lbl">Emails Sent</span><span class="usage-val">47 / 1,000</span></div>
+<div class="usage-track"><div class="usage-fill" style="width:5%;background:linear-gradient(90deg,var(--cyan),#0099B0);"></div></div>
+<div class="usage-sub">953 remaining this month</div>
+</div>
+<div class="usage-item">
+<div class="usage-hd"><span class="usage-lbl">Automations</span><span class="usage-val">3 / 20</span></div>
+<div class="usage-track"><div class="usage-fill" style="width:15%;background:linear-gradient(90deg,var(--orange),var(--gold));"></div></div>
+<div class="usage-sub">3 active automations</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Payment Method -->
+<div>
+<div class="sec-hd">
+<div><div class="sec-title">💳 Payment Method</div><div class="sec-sub">Added after trial activation</div></div>
+<button class="btn btn-outline btn-sm" onclick="openModal('addCard')">+ Add Card</button>
+</div>
+<div class="payment-card">
+<div class="pm-left">
+<div class="pm-icon">💳</div>
+<div class="pm-info">
+<h4>No payment method on file</h4>
+<p>Add a card to activate your plan after the trial ends. Your card will not be charged during the trial.</p>
+</div>
+</div>
+<button class="btn btn-gold btn-sm" onclick="openModal('addCard')">Add Payment Method</button>
+</div>
+</div>
+<!-- Invoice History -->
+<div>
+<div class="sec-hd">
+<div><div class="sec-title">🧾 Invoice History</div><div class="sec-sub">Your billing history will appear here after activation</div></div>
+<button class="btn btn-ghost btn-sm">📤 Export All</button>
+</div>
+<div class="card" style="overflow:hidden;">
+<table class="inv-table">
+<thead>
+<tr>
+<th>Invoice</th>
+<th>Date</th>
+<th>Description</th>
+<th>Amount</th>
+<th>Status</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="6" style="color:var(--text-muted);font-style:italic;">
+<div style="text-align:center;padding:24px;color:var(--text-muted);font-size:0.82rem;">
+                  🧾 No invoices yet — your first invoice will appear here after your trial ends and you activate your plan.
+                </div>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- Sample future invoice (hidden, shown after activation) -->
+<div id="sampleInvoice" style="display:none;">
+<table class="inv-table">
+<tbody>
+<tr>
+<td style="color:var(--cyan);font-weight:600;">#INV-0001</td>
+<td>Jul 1, 2026</td>
+<td>BluWav Pro — Setup Fee</td>
+<td style="color:var(--text-primary);font-weight:600;">$99.00</td>
+<td><span class="badge badge-success">Paid</span></td>
+<td><button class="btn btn-ghost btn-sm">📄 PDF</button></td>
+</tr>
+<tr>
+<td style="color:var(--cyan);font-weight:600;">#INV-0002</td>
+<td>Jul 1, 2026</td>
+<td>BluWav Pro — Monthly Subscription</td>
+<td style="color:var(--text-primary);font-weight:600;">$29.00</td>
+<td><span class="badge badge-success">Paid</span></td>
+<td><button class="btn btn-ghost btn-sm">📄 PDF</button></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Cancel -->
+<div class="cancel-box">
+<div class="cancel-text">
+<h4>Cancel Subscription</h4>
+<p>You can cancel anytime — no penalties, no fees. Your data will be available for 30 days after cancellation. During your trial, simply let it expire and you won't be charged.</p>
+</div>
+<button class="btn btn-danger" onclick="openModal('cancel')">Cancel Subscription</button>
+</div>
+</main>
+</div>
+<!-- ══════════════════════════════════════
+     MODALS
+══════════════════════════════════════ -->
+<!-- Activate Plan -->
+<div class="modal-overlay" id="modal-activate">
+<div class="modal">
+<div class="modal-hd"><h3>🚀 Activate BluWav Pro</h3><button class="modal-close" onclick="closeModal('activate')">✕</button></div>
+<div class="modal-body">
+<div style="background:var(--gold-glow);border:1px solid rgba(201,168,76,0.3);border-radius:var(--radius-md);padding:16px 18px;margin-bottom:20px;">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+<span style="font-size:0.85rem;font-weight:700;color:var(--text-primary);">BluWav Pro Plan</span>
+<span class="badge badge-gold">Most Popular</span>
+</div>
+<div style="font-size:0.78rem;color:var(--text-muted);margin-bottom:12px;">Unlimited contacts · 5 seats · WhatsApp · Automations · Priority support</div>
+<div style="display:flex;justify-content:space-between;font-size:0.82rem;color:var(--text-secondary);padding-top:10px;border-top:1px solid rgba(201,168,76,0.2);">
+<span>One-time setup fee</span><span style="color:var(--orange);font-weight:700;">$99.00</span>
+</div>
+<div style="display:flex;justify-content:space-between;font-size:0.82rem;color:var(--text-secondary);margin-top:6px;">
+<span>Monthly subscription</span><span style="color:var(--text-primary);font-weight:700;">$29.00/mo</span>
+</div>
+<div style="display:flex;justify-content:space-between;font-size:0.88rem;font-weight:700;color:var(--text-primary);margin-top:10px;padding-top:10px;border-top:1px solid rgba(201,168,76,0.2);">
+<span>Due today</span><span style="color:var(--gold);">$128.00</span>
+</div>
+</div>
+<div class="fg"><label class="fl">Cardholder Name</label><input class="fi" placeholder="Name on card"/></div>
+<div class="fg"><label class="fl">Card Number</label><input class="fi" maxlength="19" placeholder="1234 5678 9012 3456"/></div>
+<div class="fg-row">
+<div class="fg"><label class="fl">Expiry</label><input class="fi" maxlength="7" placeholder="MM / YY"/></div>
+<div class="fg"><label class="fl">CVV</label><input class="fi" maxlength="4" placeholder="•••" type="password"/></div>
+</div>
+<div style="font-size:0.72rem;color:var(--text-muted);display:flex;align-items:center;gap:6px;margin-top:4px;">🔒 Payments are encrypted and processed securely. No contract — cancel anytime.</div>
+</div>
+<div class="modal-footer">
+<button class="btn btn-ghost" onclick="closeModal('activate')">Cancel</button>
+<button class="btn btn-gold" onclick="processPayment()">🚀 Activate — Pay $128.00</button>
+</div>
+</div>
+</div>
+<!-- Add Card -->
+<div class="modal-overlay" id="modal-addCard">
+<div class="modal">
+<div class="modal-hd"><h3>💳 Add Payment Method</h3><button class="modal-close" onclick="closeModal('addCard')">✕</button></div>
+<div class="modal-body">
+<p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:20px;">Your card will be saved securely. You won't be charged until your trial ends.</p>
+<div class="fg"><label class="fl">Cardholder Name</label><input class="fi" placeholder="Name on card"/></div>
+<div class="fg"><label class="fl">Card Number</label><input class="fi" maxlength="19" placeholder="1234 5678 9012 3456"/></div>
+<div class="fg-row">
+<div class="fg"><label class="fl">Expiry</label><input class="fi" maxlength="7" placeholder="MM / YY"/></div>
+<div class="fg"><label class="fl">CVV</label><input class="fi" maxlength="4" placeholder="•••" type="password"/></div>
+</div>
+<div style="font-size:0.72rem;color:var(--text-muted);display:flex;align-items:center;gap:6px;">🔒 Encrypted and stored securely. Never shared.</div>
+</div>
+<div class="modal-footer">
+<button class="btn btn-ghost" onclick="closeModal('addCard')">Cancel</button>
+<button class="btn btn-primary" onclick="saveCard()">Save Card</button>
+</div>
+</div>
+</div>
+<!-- Upgrade -->
+<div class="modal-overlay" id="modal-upgrade">
+<div class="modal">
+<div class="modal-hd"><h3>⬆️ Upgrade Your Plan</h3><button class="modal-close" onclick="closeModal('upgrade')">✕</button></div>
+<div class="modal-body">
+<p style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:20px;">You're currently on the <strong style="color:var(--orange);">Free Trial</strong>. Activate BluWav Pro to unlock all features and keep your data.</p>
+<div onclick="closeModal('upgrade');openModal('activate')" style="background:var(--gold-glow);border:1px solid rgba(201,168,76,0.3);border-radius:var(--radius-md);padding:16px 18px;margin-bottom:16px;cursor:pointer;">
+<div style="display:flex;justify-content:space-between;align-items:center;">
+<div><div style="font-weight:700;color:var(--gold);margin-bottom:3px;">🖤 BluWav Pro</div><div style="font-size:0.75rem;color:var(--text-muted);">Unlimited contacts · 5 seats · WhatsApp · Automations</div></div>
+<div style="text-align:right;"><div style="font-size:1.1rem;font-weight:700;color:var(--text-primary);">$29<span style="font-size:0.7rem;font-weight:400;color:var(--text-muted);">/mo</span></div><div style="font-size:0.68rem;color:var(--orange);">+ $99 setup</div></div>
+</div>
+</div>
+<div onclick="closeModal('upgrade');openModal('enterprise')" style="background:var(--cyan-glow);border:1px solid rgba(0,200,224,0.2);border-radius:var(--radius-md);padding:16px 18px;cursor:pointer;">
+<div style="display:flex;justify-content:space-between;align-items:center;">
+<div><div style="font-weight:700;color:var(--cyan);margin-bottom:3px;">🏢 Enterprise</div><div style="font-size:0.75rem;color:var(--text-muted);">Unlimited seats · Custom branding · API · Dedicated manager</div></div>
+<div style="text-align:right;"><div style="font-size:1.1rem;font-weight:700;color:var(--text-primary);">Custom</div><div style="font-size:0.68rem;color:var(--text-muted);">Contact us</div></div>
+</div>
+</div>
+</div>
+<div class="modal-footer"><button class="btn btn-ghost" onclick="closeModal('upgrade')">Close</button></div>
+</div>
+</div>
+<!-- Enterprise -->
+<div class="modal-overlay" id="modal-enterprise">
+<div class="modal">
+<div class="modal-hd"><h3>🏢 Enterprise Enquiry</h3><button class="modal-close" onclick="closeModal('enterprise')">✕</button></div>
+<div class="modal-body">
+<p style="font-size:0.82rem;color:var(--text-secondary);margin-bottom:20px;">Tell us about your team and we'll put together a custom plan that fits your needs.</p>
+<div class="fg"><label class="fl">Full Name</label><input class="fi" value="Jordan Williams"/></div>
+<div class="fg"><label class="fl">Business Email</label><input class="fi" type="email" value="jordan@sunrisedigital.tt"/></div>
+<div class="fg-row">
+<div class="fg"><label class="fl">Team Size</label>
+<select class="fi" style="appearance:none;cursor:pointer;">
+<option>5–10 people</option><option>11–25 people</option><option>26–50 people</option><option>50+ people</option>
+</select>
+</div>
+<div class="fg"><label class="fl">Country</label>
+<select class="fi" style="appearance:none;cursor:pointer;">
+<option selected="">Trinidad and Tobago</option><option>Barbados</option><option>Jamaica</option><option>Other</option>
+</select>
+</div>
+</div>
+<div class="fg"><label class="fl">What do you need?</label><textarea class="fi" placeholder="Tell us about your requirements…" rows="3" style="resize:vertical;"></textarea></div>
+</div>
+<div class="modal-footer">
+<button class="btn btn-ghost" onclick="closeModal('enterprise')">Cancel</button>
+<button class="btn btn-primary" onclick="sendEnquiry()">Send Enquiry →</button>
+</div>
+</div>
+</div>
+<!-- Cancel -->
+<div class="modal-overlay" id="modal-cancel">
+<div class="modal">
+<div class="modal-hd"><h3>😔 Cancel Subscription</h3><button class="modal-close" onclick="closeModal('cancel')">✕</button></div>
+<div class="modal-body">
+<div style="background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.2);border-radius:var(--radius-md);padding:16px 18px;margin-bottom:20px;">
+<p style="font-size:0.82rem;color:var(--text-secondary);line-height:1.6;">You're currently on a <strong style="color:var(--orange);">free trial</strong> — you won't be charged if you simply let it expire. If you cancel now, your account will be deactivated immediately and your data will be held for 30 days.</p>
+</div>
+<div class="fg">
+<label class="fl">Reason for cancelling (optional)</label>
+<select class="fi" style="appearance:none;cursor:pointer;">
+<option>— Select a reason —</option>
+<option>Too expensive</option>
+<option>Missing features I need</option>
+<option>Switching to another CRM</option>
+<option>Business is closing</option>
+<option>Just testing / evaluating</option>
+<option>Other</option>
+</select>
+</div>
+<div class="fg"><label class="fl">Any feedback for us?</label><textarea class="fi" placeholder="We'd love to know how we can improve…" rows="3" style="resize:vertical;"></textarea></div>
+</div>
+<div class="modal-footer">
+<button class="btn btn-ghost" onclick="closeModal('cancel')">Keep My Account</button>
+<button class="btn btn-danger" onclick="confirmCancel()">Yes, Cancel Account</button>
+</div>
+</div>
+</div>
+<script>
+  /* ── Toggle billing ── */
+  function setToggle(mode) {
+    const isAnnual = mode === 'annual';
+    document.getElementById('tog-monthly').style.background = isAnnual ? 'transparent' : 'var(--navy-light)';
+    document.getElementById('tog-monthly').style.color = isAnnual ? 'var(--text-muted)' : 'var(--text-primary)';
+    document.getElementById('tog-annual').style.background = isAnnual ? 'var(--navy-light)' : 'transparent';
+    document.getElementById('tog-annual').style.color = isAnnual ? 'var(--text-primary)' : 'var(--text-muted)';
+    document.querySelectorAll('.amt').forEach(el => {
+      el.textContent = isAnnual ? el.dataset.a : el.dataset.m;
+    });
+  }
+
+  /* ── Plan selection ── */
+  function selectPlan(plan) {
+    document.querySelectorAll('.plan-card').forEach(c => c.style.outline = 'none');
+    event.currentTarget.style.outline = '2px solid var(--cyan)';
+  }
+
+  /* ── Modals ── */
+  function openModal(id) {
+    const m = document.getElementById('modal-' + id);
+    if (m) m.classList.add('open');
+  }
+  function closeModal(id) {
+    const m = document.getElementById('modal-' + id);
+    if (m) m.classList.remove('open');
+  }
+  document.querySelectorAll('.modal-overlay').forEach(o => {
+    o.addEventListener('click', e => { if (e.target === o) o.classList.remove('open'); });
+  });
+
+  /* ── Payment ── */
+  function processPayment() {
+    const btn = document.querySelector('#modal-activate .btn-gold');
+    btn.textContent = '⏳ Processing…';
+    btn.disabled = true;
+    setTimeout(() => {
+      closeModal('activate');
+      // Show sample invoices
+      document.querySelector('.inv-table tbody').innerHTML = '';
+      document.getElementById('sampleInvoice').style.display = 'block';
+      // Update trial hero
+      document.querySelector('.trial-hero').innerHTML = `
+        <div class="th-left">
+          <div class="th-icon">✅</div>
+          <div class="th-text">
+            <h2>BluWav Pro — Active</h2>
+            <p>Your plan is active. Next billing date: <strong style="color:var(--gold);">August 1, 2026</strong> · $29.00/month</p>
+          </div>
+        </div>
+        <div class="th-right">
+          <span class="badge badge-success" style="font-size:0.8rem;padding:6px 14px;">✓ Plan Active</span>
+        </div>
+      `;
+      document.querySelector('.trial-hero').style.borderColor = 'rgba(34,197,94,0.3)';
+      document.querySelector('.trial-hero').style.background = 'linear-gradient(135deg,rgba(34,197,94,0.05),rgba(0,200,224,0.03))';
+    }, 1800);
+  }
+
+  function saveCard() {
+    const btn = document.querySelector('#modal-addCard .btn-primary');
+    btn.textContent = '✓ Saved!';
+    btn.style.background = 'linear-gradient(135deg,#22C55E,#16A34A)';
+    setTimeout(() => closeModal('addCard'), 1200);
+  }
+
+  function sendEnquiry() {
+    const btn = document.querySelector('#modal-enterprise .btn-primary');
+    btn.textContent = '✓ Sent!';
+    btn.style.background = 'linear-gradient(135deg,#22C55E,#16A34A)';
+    setTimeout(() => closeModal('enterprise'), 1200);
+  }
+
+  function confirmCancel() {
+    closeModal('cancel');
+    document.querySelector('.trial-hero').innerHTML = `
+      <div class="th-left">
+        <div class="th-icon">😔</div>
+        <div class="th-text">
+          <h2>Account Cancelled</h2>
+          <p>Your account has been deactivated. Your data will be held for 30 days. We're sorry to see you go.</p>
+        </div>
+      </div>
+      <div class="th-right">
+        <button class="btn btn-outline btn-sm" onclick="openModal('activate')">Reactivate Account</button>
+      </div>
+    `;
+    document.querySelector('.trial-hero').style.borderColor = 'rgba(239,68,68,0.3)';
+    document.querySelector('.trial-hero').style.background = 'rgba(239,68,68,0.04)';
+  }
+</script>
+</body>
+</html>

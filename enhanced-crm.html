@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BluWav CRM — Dashboard</title>
+<style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy-deep:   #0A0E1A;
+      --navy-mid:    #0F1628;
+      --navy-light:  #161E35;
+      --navy-border: #1E2A45;
+      --cyan:        #00C8E0;
+      --cyan-glow:   rgba(0,200,224,0.12);
+      --orange:      #FF6B2B;
+      --orange-glow: rgba(255,107,43,0.12);
+      --gold:        #C9A84C;
+      --gold-light:  #E8C96A;
+      --gold-glow:   rgba(201,168,76,0.12);
+      --success:     #22C55E;
+      --error:       #EF4444;
+      --warning:     #F59E0B;
+      --text-primary:#FFFFFF;
+      --text-secondary:#B0BAD0;
+      --text-muted:  #6B7A99;
+      --font-display: Georgia, 'Times New Roman', serif;
+      --font-body:    system-ui, -apple-system, 'Segoe UI', sans-serif;
+      --radius-sm:   6px;
+      --radius-md:   12px;
+      --radius-lg:   20px;
+      --radius-xl:   28px;
+      --transition:  all 0.2s cubic-bezier(0.4,0,0.2,1);
+      --shadow-card: 0 4px 24px rgba(0,0,0,0.4);
+    }
+    html, body { height: 100%; font-family: var(--font-body); background: var(--navy-deep); color: var(--text-primary); -webkit-font-smoothing: antialiased; }
+    ::-webkit-scrollbar { width: 5px; height: 5px; }
+    ::-webkit-scrollbar-track { background: var(--navy-deep); }
+    ::-webkit-scrollbar-thumb { background: var(--navy-border); border-radius: 3px; }
+
+    /* ══ SHELL ══ */
+    .shell { display: grid; grid-template-columns: 220px 1fr; grid-template-rows: 56px 1fr; height: 100vh; overflow: hidden; }
+
+    /* ══ TOPBAR ══ */
+    .topbar {
+      grid-column: 1/-1;
+      background: rgba(10,14,26,0.98);
+      border-bottom: 1px solid var(--navy-border);
+      display: flex; align-items: center; gap: 16px;
+      padding: 0 20px;
+      position: relative; z-index: 200;
+      backdrop-filter: blur(12px);
+    }
+    .logo { display: flex; flex-direction: column; align-items: flex-start; gap: 1px; text-decoration: none; margin-right: 8px; }
+    .logo-wm { font-family: var(--font-display); font-size: 1.35rem; font-weight: 700; line-height: 1; }
+    .logo-wm .blu { color: #fff; } .logo-wm .wav { color: var(--cyan); }
+    .logo-sub { font-size: 0.45rem; font-weight: 700; letter-spacing: 0.28em; color: var(--gold); text-transform: uppercase; display: flex; align-items: center; gap: 4px; }
+    .logo-sub::before,.logo-sub::after { content:''; display:block; width:12px; height:1px; background:var(--gold); opacity:.5; }
+
+    .search-wrap { flex: 1; max-width: 360px; position: relative; }
+    .search-wrap input { width:100%; background:var(--navy-light); border:1px solid var(--navy-border); border-radius:var(--radius-md); color:var(--text-primary); font-size:0.82rem; padding:7px 14px 7px 34px; outline:none; transition:var(--transition); font-family:var(--font-body); }
+    .search-wrap input:focus { border-color:var(--cyan); box-shadow:0 0 0 3px var(--cyan-glow); }
+    .search-wrap input::placeholder { color:var(--text-muted); }
+    .search-wrap .si { position:absolute; left:11px; top:50%; transform:translateY(-50%); font-size:0.8rem; color:var(--text-muted); pointer-events:none; }
+
+    .tb-actions { margin-left:auto; display:flex; align-items:center; gap:6px; }
+    .ib { width:32px; height:32px; border-radius:var(--radius-sm); background:transparent; border:1px solid transparent; color:var(--text-muted); cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:0.9rem; transition:var(--transition); position:relative; }
+    .ib:hover { background:var(--navy-light); border-color:var(--navy-border); color:var(--text-primary); }
+    .ndot { position:absolute; top:5px; right:5px; width:6px; height:6px; background:var(--orange); border-radius:50%; border:1.5px solid var(--navy-deep); }
+    .tb-div { width:1px; height:24px; background:var(--navy-border); }
+    .user-chip { display:flex; align-items:center; gap:8px; padding:4px 10px 4px 4px; border-radius:var(--radius-md); cursor:pointer; transition:var(--transition); border:1px solid transparent; }
+    .user-chip:hover { background:var(--navy-light); border-color:var(--navy-border); }
+    .ua { width:28px; height:28px; border-radius:50%; background:linear-gradient(135deg,var(--cyan),#0099B0); display:flex; align-items:center; justify-content:center; font-size:0.7rem; font-weight:700; color:var(--navy-deep); flex-shrink:0; }
+    .un { font-size:0.78rem; font-weight:600; color:var(--text-primary); line-height:1.2; }
+    .ur { font-size:0.62rem; color:var(--gold); }
+
+    /* ══ SIDEBAR ══ */
+    .sidebar { background:rgba(10,14,26,0.95); border-right:1px solid var(--navy-border); padding:16px 10px; display:flex; flex-direction:column; gap:2px; overflow-y:auto; }
+    .ns { font-size:0.6rem; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:var(--text-muted); padding:10px 10px 4px; }
+    .ni { display:flex; align-items:center; gap:9px; padding:8px 10px; border-radius:var(--radius-md); cursor:pointer; transition:var(--transition); color:var(--text-muted); font-size:0.82rem; font-weight:500; text-decoration:none; position:relative; border:1px solid transparent; }
+    .ni:hover { background:var(--navy-light); color:var(--text-primary); }
+    .ni.active { background:var(--cyan-glow); color:var(--cyan); font-weight:600; border-color:rgba(0,200,224,0.15); }
+    .ni.active::before { content:''; position:absolute; left:0; top:20%; height:60%; width:2px; background:var(--cyan); border-radius:0 2px 2px 0; }
+    .ni-icon { font-size:0.9rem; width:18px; text-align:center; flex-shrink:0; }
+    .nb { margin-left:auto; background:var(--orange); color:#fff; font-size:0.6rem; font-weight:700; padding:1px 5px; border-radius:100px; }
+    .sb-bottom { margin-top:auto; padding-top:12px; border-top:1px solid var(--navy-border); }
+    .trial-w { background:linear-gradient(135deg,rgba(255,107,43,0.08),rgba(201,168,76,0.05)); border:1px solid rgba(255,107,43,0.25); border-radius:var(--radius-md); padding:12px; margin-bottom:6px; }
+    .tw-label { font-size:0.62rem; color:var(--orange); font-weight:700; text-transform:uppercase; letter-spacing:0.08em; }
+    .tw-days { font-size:1.3rem; font-weight:700; color:var(--text-primary); line-height:1; margin:3px 0; }
+    .tw-sub { font-size:0.68rem; color:var(--text-muted); margin-bottom:8px; }
+    .tw-bar { height:3px; background:var(--navy-border); border-radius:100px; overflow:hidden; }
+    .tw-fill { height:100%; background:linear-gradient(90deg,var(--orange),var(--gold)); width:100%; border-radius:100px; }
+
+    /* ══ MAIN ══ */
+    .main { overflow-y:auto; padding:24px 28px; display:flex; flex-direction:column; gap:20px; }
+
+    /* ══ PAGE HEADER ══ */
+    .ph { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; }
+    .ph-left .greeting { font-size:0.78rem; color:var(--text-muted); margin-bottom:3px; }
+    .ph-left h1 { font-family:var(--font-display); font-size:1.5rem; font-weight:700; color:var(--text-primary); }
+    .ph-right { display:flex; gap:8px; flex-shrink:0; }
+
+    /* ══ BUTTONS ══ */
+    .btn { display:inline-flex; align-items:center; gap:6px; padding:9px 18px; border-radius:var(--radius-md); font-family:var(--font-body); font-size:0.82rem; font-weight:600; cursor:pointer; border:none; transition:var(--transition); text-decoration:none; white-space:nowrap; }
+    .btn-primary { background:linear-gradient(135deg,#00C8E0,#0099B0); color:var(--navy-deep); box-shadow:0 0 16px rgba(0,200,224,0.2); }
+    .btn-primary:hover { transform:translateY(-1px); box-shadow:0 0 24px rgba(0,200,224,0.35); }
+    .btn-gold { background:linear-gradient(135deg,#C9A84C,#E8C96A,#C9A84C); color:var(--navy-deep); box-shadow:0 0 16px rgba(201,168,76,0.2); }
+    .btn-gold:hover { transform:translateY(-1px); box-shadow:0 0 24px rgba(201,168,76,0.35); }
+    .btn-outline { background:transparent; color:var(--text-secondary); border:1px solid var(--navy-border); }
+    .btn-outline:hover { border-color:var(--cyan); color:var(--cyan); background:var(--cyan-glow); }
+    .btn-ghost { background:transparent; color:var(--text-muted); border:1px solid transparent; }
+    .btn-ghost:hover { background:var(--navy-light); color:var(--text-primary); }
+    .btn-sm { padding:6px 12px; font-size:0.75rem; }
+    .btn-danger { background:rgba(239,68,68,0.1); color:#EF4444; border:1px solid rgba(239,68,68,0.25); }
+    .btn-danger:hover { background:rgba(239,68,68,0.2); }
+
+    /* ══ STATS ══ */
+    .stats-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+    .stat { background:linear-gradient(135deg,#0F1628,#131B30); border:1px solid var(--navy-border); border-radius:var(--radius-lg); padding:18px 20px; transition:var(--transition); cursor:default; }
+    .stat:hover { transform:translateY(-1px); box-shadow:var(--shadow-card); }
+    .stat.c { border-top:2px solid var(--cyan); }
+    .stat.g { border-top:2px solid var(--gold); }
+    .stat.o { border-top:2px solid var(--orange); }
+    .stat.s { border-top:2px solid var(--success); }
+    .stat-hd { display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; }
+    .stat-lbl { font-size:0.68rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.08em; }
+    .stat-val { font-size:1.7rem; font-weight:700; color:var(--text-primary); line-height:1; margin-bottom:5px; }
+    .stat-chg { font-size:0.7rem; display:flex; align-items:center; gap:3px; }
+    .up { color:var(--success); } .dn { color:var(--error); } .nt { color:var(--text-muted); }
+
+    /* ══ PANELS ══ */
+    .panel { background:linear-gradient(135deg,#0F1628,#131B30); border:1px solid var(--navy-border); border-radius:var(--radius-lg); overflow:hidden; }
+    .panel-hd { padding:16px 20px; border-bottom:1px solid var(--navy-border); display:flex; align-items:center; justify-content:space-between; }
+    .panel-title { font-size:0.88rem; font-weight:700; color:var(--text-primary); display:flex; align-items:center; gap:7px; }
+    .panel-body { padding:18px 20px; }
+
+    /* ══ TWO-COL ══ */
+    .two-col { display:grid; grid-template-columns:1fr 320px; gap:16px; }
+
+    /* ══ PIPELINE ══ */
+    .pipe-cols { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+    .pipe-col-hd { display:flex; align-items:center; justify-content:space-between; margin-bottom:8px; }
+    .pipe-col-lbl { font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; }
+    .pipe-cnt { font-size:0.65rem; background:var(--navy-light); color:var(--text-muted); padding:1px 6px; border-radius:100px; }
+    .deal { background:var(--navy-deep); border:1px solid var(--navy-border); border-radius:var(--radius-md); padding:10px 12px; margin-bottom:7px; cursor:pointer; transition:var(--transition); }
+    .deal:hover { border-color:var(--cyan); transform:translateY(-1px); }
+    .deal-name { font-size:0.78rem; font-weight:600; color:var(--text-primary); margin-bottom:3px; }
+    .deal-co { font-size:0.68rem; color:var(--text-muted); margin-bottom:6px; }
+    .deal-val { font-size:0.8rem; font-weight:700; color:var(--cyan); }
+    .deal-date { font-size:0.65rem; color:var(--text-muted); margin-top:3px; }
+
+    /* ══ ACTIVITY ══ */
+    .act-item { display:flex; gap:10px; padding:10px 0; border-bottom:1px solid var(--navy-border); }
+    .act-item:last-child { border-bottom:none; }
+    .act-dot { width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.75rem; flex-shrink:0; margin-top:1px; }
+    .act-dot.c { background:var(--cyan-glow); border:1px solid rgba(0,200,224,0.25); }
+    .act-dot.g { background:var(--gold-glow); border:1px solid rgba(201,168,76,0.25); }
+    .act-dot.o { background:var(--orange-glow); border:1px solid rgba(255,107,43,0.25); }
+    .act-dot.s { background:rgba(34,197,94,0.1); border:1px solid rgba(34,197,94,0.25); }
+    .act-txt { font-size:0.78rem; color:var(--text-secondary); line-height:1.5; }
+    .act-txt strong { color:var(--text-primary); }
+    .act-time { font-size:0.67rem; color:var(--text-muted); margin-top:2px; }
+
+    /* ══ QUICK ACTIONS ══ */
+    .qa-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+    .qa { background:linear-gradient(135deg,#0F1628,#131B30); border:1px solid var(--navy-border); border-radius:var(--radius-lg); padding:16px 14px; text-align:center; cursor:pointer; transition:var(--transition); }
+    .qa:hover { border-color:var(--cyan); background:var(--cyan-glow); transform:translateY(-2px); box-shadow:0 0 20px rgba(0,200,224,0.15); }
+    .qa-icon { font-size:1.3rem; margin-bottom:6px; }
+    .qa-lbl { font-size:0.74rem; font-weight:600; color:var(--text-muted); }
+    .qa:hover .qa-lbl { color:var(--cyan); }
+
+    /* ══ TABLE ══ */
+    .tbl { width:100%; border-collapse:collapse; }
+    .tbl th { font-size:0.65rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-muted); padding:9px 14px; text-align:left; border-bottom:1px solid var(--navy-border); }
+    .tbl td { padding:11px 14px; font-size:0.8rem; color:var(--text-secondary); border-bottom:1px solid rgba(30,42,69,0.4); vertical-align:middle; }
+    .tbl tr:hover td { background:var(--navy-light); }
+    .tbl tr:last-child td { border-bottom:none; }
+    .cnc { display:flex; align-items:center; gap:9px; }
+    .cav { width:30px; height:30px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.7rem; font-weight:700; flex-shrink:0; }
+    .cn { font-weight:600; color:var(--text-primary); font-size:0.82rem; }
+    .ce { font-size:0.68rem; color:var(--text-muted); }
+
+    /* ══ BADGES ══ */
+    .badge { display:inline-flex; align-items:center; gap:3px; padding:2px 8px; border-radius:100px; font-size:0.65rem; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; }
+    .badge-cyan { background:var(--cyan-glow); color:var(--cyan); border:1px solid rgba(0,200,224,0.25); }
+    .badge-gold { background:var(--gold-glow); color:var(--gold); border:1px solid rgba(201,168,76,0.25); }
+    .badge-orange { background:var(--orange-glow); color:var(--orange); border:1px solid rgba(255,107,43,0.25); }
+    .badge-success { background:rgba(34,197,94,0.1); color:var(--success); border:1px solid rgba(34,197,94,0.25); }
+    .badge-muted { background:rgba(107,122,153,0.1); color:var(--text-muted); border:1px solid rgba(107,122,153,0.2); }
+
+    /* ══ MODAL OVERLAY ══ */
+    .modal-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.75); z-index:500; align-items:center; justify-content:center; backdrop-filter:blur(4px); padding:20px; }
+    .modal-overlay.open { display:flex; }
+    .modal { background:#0F1628; border:1px solid var(--navy-border); border-radius:var(--radius-xl); width:100%; max-width:560px; max-height:90vh; overflow-y:auto; position:relative; }
+    .modal-hd { padding:24px 28px 20px; border-bottom:1px solid var(--navy-border); display:flex; align-items:center; justify-content:space-between; }
+    .modal-hd h3 { font-family:var(--font-display); font-size:1.2rem; color:var(--text-primary); }
+    .modal-close { background:none; border:none; color:var(--text-muted); font-size:1.1rem; cursor:pointer; transition:var(--transition); }
+    .modal-close:hover { color:var(--text-primary); }
+    .modal-body { padding:24px 28px; }
+    .modal-footer { padding:16px 28px 24px; display:flex; gap:10px; justify-content:flex-end; border-top:1px solid var(--navy-border); }
+
+    /* ══ FORM ══ */
+    .fg { display:flex; flex-direction:column; gap:5px; margin-bottom:16px; }
+    .fl { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-secondary); }
+    .fl .req { color:var(--orange); }
+    .fi, .fs, .fta { background:var(--navy-deep); border:1px solid var(--navy-border); border-radius:var(--radius-md); color:var(--text-primary); font-family:var(--font-body); font-size:0.85rem; padding:10px 14px; outline:none; transition:var(--transition); width:100%; }
+    .fi:focus,.fs:focus,.fta:focus { border-color:var(--cyan); box-shadow:0 0 0 3px var(--cyan-glow); }
+    .fi::placeholder,.fta::placeholder { color:var(--text-muted); }
+    .fs { appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236B7A99' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 12px center; padding-right:32px; cursor:pointer; }
+    .fs option { background:var(--navy-mid); }
+    .fta { resize:vertical; min-height:80px; }
+    .fg-row { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    .fhint { font-size:0.7rem; color:var(--text-muted); }
+
+    /* ══ ORG SETUP PANEL ══ */
+    .org-setup-banner {
+      background:linear-gradient(135deg,rgba(201,168,76,0.06),rgba(0,200,224,0.04));
+      border:1px solid rgba(201,168,76,0.3);
+      border-radius:var(--radius-lg);
+      padding:20px 24px;
+      display:flex; align-items:center; justify-content:space-between; gap:20px;
+      box-shadow:0 0 32px rgba(201,168,76,0.06);
+    }
+    .org-setup-banner .ob-left { display:flex; align-items:center; gap:14px; }
+    .ob-icon { width:44px; height:44px; background:linear-gradient(135deg,#1a1a1a,#2a2a2a); border:1px solid var(--gold); border-radius:var(--radius-md); display:flex; align-items:center; justify-content:center; font-size:1.2rem; flex-shrink:0; }
+    .ob-text h3 { font-size:0.9rem; font-weight:700; color:var(--text-primary); margin-bottom:3px; }
+    .ob-text p { font-size:0.78rem; color:var(--text-muted); }
+    .ob-progress { display:flex; align-items:center; gap:10px; }
+    .ob-steps { display:flex; gap:4px; }
+    .ob-step { width:8px; height:8px; border-radius:50%; background:var(--navy-border); transition:var(--transition); }
+    .ob-step.done { background:var(--gold); }
+    .ob-step.active { background:var(--cyan); }
+
+    /* ══ ORG SETUP WIZARD (inline) ══ */
+    .wizard-wrap { display:none; }
+    .wizard-wrap.open { display:block; }
+    .wizard-tabs { display:flex; gap:0; border-bottom:1px solid var(--navy-border); margin-bottom:0; overflow-x:auto; }
+    .wtab { padding:12px 18px; font-size:0.78rem; font-weight:600; color:var(--text-muted); cursor:pointer; border-bottom:2px solid transparent; transition:var(--transition); white-space:nowrap; }
+    .wtab.active { color:var(--cyan); border-bottom-color:var(--cyan); }
+    .wtab.done { color:var(--success); }
+    .wpanel { display:none; padding:24px; }
+    .wpanel.active { display:block; }
+    .wizard-nav { display:flex; justify-content:space-between; align-items:center; padding:16px 24px; border-top:1px solid var(--navy-border); }
+    .wizard-nav .step-info { font-size:0.75rem; color:var(--text-muted); }
+
+    /* ══ CONTACTS VIEW ══ */
+    .contacts-view { display:none; }
+    .contacts-view.active { display:flex; flex-direction:column; gap:16px; }
+
+    /* ══ DEALS VIEW ══ */
+    .deals-view { display:none; }
+    .deals-view.active { display:flex; flex-direction:column; gap:16px; }
+
+    /* ══ REPORTS VIEW ══ */
+    .reports-view { display:none; }
+    .reports-view.active { display:flex; flex-direction:column; gap:16px; }
+
+    /* ══ SETTINGS VIEW ══ */
+    .settings-view { display:none; }
+    .settings-view.active { display:flex; flex-direction:column; gap:16px; }
+
+    /* ══ METRIC BARS ══ */
+    .metric-bar-wrap { display:flex; flex-direction:column; gap:12px; }
+    .metric-bar { }
+    .mb-hd { display:flex; justify-content:space-between; margin-bottom:5px; font-size:0.78rem; }
+    .mb-lbl { color:var(--text-secondary); }
+    .mb-val { color:var(--text-primary); font-weight:600; }
+    .mb-track { height:6px; background:var(--navy-border); border-radius:100px; overflow:hidden; }
+    .mb-fill { height:100%; border-radius:100px; }
+
+    /* ══ SETTINGS TABS ══ */
+    .stabs { display:flex; gap:4px; flex-wrap:wrap; margin-bottom:20px; }
+    .stab { padding:7px 14px; border-radius:var(--radius-md); font-size:0.78rem; font-weight:600; cursor:pointer; transition:var(--transition); color:var(--text-muted); border:1px solid transparent; }
+    .stab:hover { background:var(--navy-light); color:var(--text-primary); }
+    .stab.active { background:var(--cyan-glow); color:var(--cyan); border-color:rgba(0,200,224,0.2); }
+
+    /* ══ TOGGLE SWITCH ══ */
+    .toggle-row { display:flex; align-items:center; justify-content:space-between; padding:12px 0; border-bottom:1px solid var(--navy-border); }
+    .toggle-row:last-child { border-bottom:none; }
+    .toggle-info h4 { font-size:0.85rem; font-weight:600; color:var(--text-primary); margin-bottom:2px; }
+    .toggle-info p { font-size:0.75rem; color:var(--text-muted); }
+    .toggle { width:40px; height:22px; background:var(--navy-border); border-radius:100px; position:relative; cursor:pointer; transition:var(--transition); flex-shrink:0; }
+    .toggle.on { background:var(--cyan); }
+    .toggle::after { content:''; position:absolute; top:3px; left:3px; width:16px; height:16px; background:#fff; border-radius:50%; transition:var(--transition); }
+    .toggle.on::after { left:21px; }
+
+    /* ══ RESPONSIVE ══ */
+    @media(max-width:1100px) { .stats-grid{grid-template-columns:repeat(2,1fr);} .two-col{grid-template-columns:1fr;} .pipe-cols{grid-template-columns:repeat(2,1fr);} .qa-grid{grid-template-columns:repeat(2,1fr);} }
+    @media(max-width:768px) { .shell{grid-template-columns:1fr;} .sidebar{display:none;} .main{padding:16px;} .stats-grid{grid-template-columns:1fr 1fr;} }
+  </style>
+</head>
+<body>
+<div class="shell">
+<!-- ══ TOPBAR ══ -->
+<header class="topbar">
+<a class="logo" href="#">
+<span class="logo-wm"><span class="blu">Blu</span><span class="wav">Wav</span></span>
+<span class="logo-sub">CRM</span>
+</a>
+<div class="search-wrap">
+<span class="si">🔍</span>
+<input placeholder="Search contacts, deals, companies…" type="text"/>
+</div>
+<div class="tb-actions">
+<button class="ib" title="Notifications">🔔<span class="ndot"></span></button>
+<button class="ib" onclick="showView('settings')" title="Help">⚙️</button>
+<div class="tb-div"></div>
+<div class="user-chip" onclick="showView('settings')">
+<div class="ua">JW</div>
+<div>
+<div class="un">Jordan Williams</div>
+<div class="ur">👑 Administrator</div>
+</div>
+<span style="color:var(--text-muted);font-size:0.65rem;margin-left:4px;">▾</span>
+</div>
+</div>
+</header>
+<!-- ══ SIDEBAR ══ -->
+<aside class="sidebar">
+<div class="ns">Main</div>
+<a class="ni active" id="nav-dashboard" onclick="showView('dashboard')">
+<span class="ni-icon">📊</span> Dashboard
+    </a>
+<a class="ni" id="nav-contacts" onclick="showView('contacts')">
+<span class="ni-icon">👥</span> Contacts
+      <span class="nb">142</span>
+</a>
+<a class="ni" id="nav-deals" onclick="showView('deals')">
+<span class="ni-icon">💼</span> Deals
+      <span class="nb">8</span>
+</a>
+<a class="ni" onclick="showView('dashboard')">
+<span class="ni-icon">🏢</span> Companies
+    </a>
+<a class="ni" onclick="showView('dashboard')">
+<span class="ni-icon">✅</span> Tasks
+    </a>
+<a class="ni" onclick="showView('dashboard')">
+<span class="ni-icon">📅</span> Calendar
+    </a>
+<div class="ns">Communicate</div>
+<a class="ni" onclick="showView('dashboard')"><span class="ni-icon">📧</span> Email</a>
+<a class="ni" onclick="showView('dashboard')"><span class="ni-icon">💬</span> WhatsApp</a>
+<a class="ni" onclick="showView('dashboard')"><span class="ni-icon">🤖</span> Automations</a>
+<div class="ns">Insights</div>
+<a class="ni" id="nav-reports" onclick="showView('reports')"><span class="ni-icon">📈</span> Reports</a>
+<div class="ns">Organization</div>
+<a class="ni" id="nav-org" onclick="showView('org')"><span class="ni-icon">🏢</span> Org Setup</a>
+<a class="ni" id="nav-settings" onclick="showView('settings')"><span class="ni-icon">⚙️</span> Settings</a>
+<a class="ni" href="billing.html"><span class="ni-icon">💳</span> Billing</a>
+<div class="sb-bottom">
+<div class="trial-w">
+<div class="tw-label">🎉 Free Trial</div>
+<div class="tw-days">7 days</div>
+<div class="tw-sub">remaining · No card needed</div>
+<div class="tw-bar"><div class="tw-fill"></div></div>
+</div>
+<a class="ni" href="billing.html" style="color:var(--gold);">
+<span class="ni-icon">⬆️</span> Upgrade Plan
+      </a>
+<a class="ni" href="login.html" style="color:var(--text-muted);">
+<span class="ni-icon">🚪</span> Log Out
+      </a>
+</div>
+</aside>
+<!-- ══ MAIN ══ -->
+<main class="main" id="mainContent">
+<!-- ════════════════════════════════
+         DASHBOARD VIEW
+    ════════════════════════════════ -->
+<div id="view-dashboard">
+<div class="ph">
+<div class="ph-left">
+<div class="greeting">Monday, 23 June 2026</div>
+<h1>Good morning, Jordan 👋</h1>
+</div>
+<div class="ph-right">
+<button class="btn btn-outline btn-sm">📥 Import</button>
+<button class="btn btn-primary btn-sm" onclick="openModal('addContact')">+ Add Contact</button>
+</div>
+</div>
+<!-- Org Setup Banner -->
+<div class="org-setup-banner" id="orgBanner">
+<div class="ob-left">
+<div class="ob-icon">🖤</div>
+<div class="ob-text">
+<h3>Complete your organization setup</h3>
+<p>Add your logo, team members, and preferences to get the most out of BluWav CRM.</p>
+</div>
+</div>
+<div style="display:flex;align-items:center;gap:12px;">
+<div class="ob-progress">
+<div class="ob-steps">
+<div class="ob-step done"></div>
+<div class="ob-step done"></div>
+<div class="ob-step active"></div>
+<div class="ob-step"></div>
+<div class="ob-step"></div>
+</div>
+<span style="font-size:0.72rem;color:var(--text-muted);">2/5 done</span>
+</div>
+<button class="btn btn-gold btn-sm" onclick="showView('org')">Continue Setup →</button>
+<button class="btn btn-ghost btn-sm" onclick="document.getElementById('orgBanner').style.display='none'">✕</button>
+</div>
+</div>
+<!-- Stats -->
+<div class="stats-grid">
+<div class="stat c">
+<div class="stat-hd"><span class="stat-lbl">Total Contacts</span><span>👥</span></div>
+<div class="stat-val">142</div>
+<div class="stat-chg up">↑ 12 this month</div>
+</div>
+<div class="stat g">
+<div class="stat-hd"><span class="stat-lbl">Open Deals</span><span>💼</span></div>
+<div class="stat-val">8</div>
+<div class="stat-chg up">↑ 3 new this week</div>
+</div>
+<div class="stat o">
+<div class="stat-hd"><span class="stat-lbl">Pipeline Value</span><span>💰</span></div>
+<div class="stat-val">$48.2K</div>
+<div class="stat-chg up">↑ 18% vs last month</div>
+</div>
+<div class="stat s">
+<div class="stat-hd"><span class="stat-lbl">Deals Won</span><span>🏆</span></div>
+<div class="stat-val">5</div>
+<div class="stat-chg nt">This month</div>
+</div>
+</div>
+<!-- Quick Actions -->
+<div class="qa-grid">
+<div class="qa" onclick="openModal('addContact')"><div class="qa-icon">➕</div><div class="qa-lbl">New Contact</div></div>
+<div class="qa" onclick="openModal('addDeal')"><div class="qa-icon">💼</div><div class="qa-lbl">New Deal</div></div>
+<div class="qa" onclick="openModal('sendEmail')"><div class="qa-icon">📧</div><div class="qa-lbl">Send Email</div></div>
+<div class="qa" onclick="openModal('addTask')"><div class="qa-icon">✅</div><div class="qa-lbl">Add Task</div></div>
+</div>
+<!-- Pipeline + Activity -->
+<div class="two-col">
+<div class="panel">
+<div class="panel-hd">
+<div class="panel-title">💼 Sales Pipeline</div>
+<button class="btn btn-ghost btn-sm" onclick="showView('deals')">View All →</button>
+</div>
+<div class="panel-body">
+<div class="pipe-cols">
+<div>
+<div class="pipe-col-hd"><span class="pipe-col-lbl" style="color:var(--text-muted);">Lead</span><span class="pipe-cnt">2</span></div>
+<div class="deal"><div class="deal-name">Website Redesign</div><div class="deal-co">Sunrise Digital</div><div class="deal-val">$4,500</div><div class="deal-date">Jun 18</div></div>
+<div class="deal"><div class="deal-name">Social Media Pkg</div><div class="deal-co">Tropic Eats</div><div class="deal-val">$1,200</div><div class="deal-date">Jun 20</div></div>
+</div>
+<div>
+<div class="pipe-col-hd"><span class="pipe-col-lbl" style="color:var(--cyan);">Qualified</span><span class="pipe-cnt">1</span></div>
+<div class="deal" style="border-color:rgba(0,200,224,0.2);"><div class="deal-name">CRM Setup</div><div class="deal-co">Island Realty</div><div class="deal-val">$8,000</div><div class="deal-date">Follow-up Jun 25</div></div>
+</div>
+<div>
+<div class="pipe-col-hd"><span class="pipe-col-lbl" style="color:var(--gold);">Proposal</span><span class="pipe-cnt">2</span></div>
+<div class="deal" style="border-color:rgba(201,168,76,0.2);"><div class="deal-name">Annual Retainer</div><div class="deal-co">BluSky Logistics</div><div class="deal-val">$24,000</div><div class="deal-date">Sent Jun 21</div></div>
+<div class="deal" style="border-color:rgba(201,168,76,0.2);"><div class="deal-name">SEO Package</div><div class="deal-co">Carib Wellness</div><div class="deal-val">$3,600</div><div class="deal-date">Sent Jun 22</div></div>
+</div>
+<div>
+<div class="pipe-col-hd"><span class="pipe-col-lbl" style="color:var(--success);">Won ✓</span><span class="pipe-cnt">1</span></div>
+<div class="deal" style="border-color:rgba(34,197,94,0.2);"><div class="deal-name">E-Commerce Store</div><div class="deal-co">Mango &amp; Co.</div><div class="deal-val" style="color:var(--success);">$7,100</div><div class="deal-date">Closed Jun 19 🎉</div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="panel">
+<div class="panel-hd"><div class="panel-title">⚡ Activity</div><button class="btn btn-ghost btn-sm">All →</button></div>
+<div class="panel-body" style="padding:0 20px;">
+<div class="act-item"><div class="act-dot s">🏆</div><div><div class="act-txt"><strong>Deal Won</strong> — Mango &amp; Co. $7,100</div><div class="act-time">Today, 9:14 AM</div></div></div>
+<div class="act-item"><div class="act-dot c">📧</div><div><div class="act-txt"><strong>Email sent</strong> to Sarah Chen</div><div class="act-time">Today, 8:45 AM</div></div></div>
+<div class="act-item"><div class="act-dot g">💼</div><div><div class="act-txt"><strong>New deal</strong> — BluSky Logistics $24K</div><div class="act-time">Yesterday, 4:30 PM</div></div></div>
+<div class="act-item"><div class="act-dot o">👤</div><div><div class="act-txt"><strong>3 contacts</strong> imported from CSV</div><div class="act-time">Yesterday, 2:10 PM</div></div></div>
+<div class="act-item"><div class="act-dot c">✅</div><div><div class="act-txt"><strong>Task done</strong> — Island Realty onboarding kit</div><div class="act-time">Jun 21, 11:00 AM</div></div></div>
+<div class="act-item"><div class="act-dot g">🤖</div><div><div class="act-txt"><strong>Automation</strong> — Welcome email sent ×2</div><div class="act-time">Jun 20, 9:00 AM</div></div></div>
+</div>
+</div>
+</div>
+<!-- Contacts Table -->
+<div class="panel">
+<div class="panel-hd">
+<div class="panel-title">👥 Recent Contacts</div>
+<div style="display:flex;gap:8px;">
+<button class="btn btn-ghost btn-sm">Filter</button>
+<button class="btn btn-primary btn-sm" onclick="openModal('addContact')">+ Add</button>
+</div>
+</div>
+<div style="overflow-x:auto;">
+<table class="tbl">
+<thead><tr><th>Name</th><th>Company</th><th>Status</th><th>Last Contact</th><th>Value</th><th>Actions</th></tr></thead>
+<tbody>
+<tr>
+<td><div class="cnc"><div class="cav" style="background:linear-gradient(135deg,#00C8E0,#0099B0);color:var(--navy-deep);">SC</div><div><div class="cn">Sarah Chen</div><div class="ce">sarah@islandrealty.com</div></div></div></td>
+<td>Island Realty</td><td><span class="badge badge-gold">Proposal</span></td><td>Today</td>
+<td style="color:var(--cyan);font-weight:600;">$8,000</td>
+<td><div style="display:flex;gap:5px;"><button class="btn btn-ghost btn-sm" onclick="openModal('sendEmail')">📧</button><button class="btn btn-ghost btn-sm" onclick="openModal('editContact')">✏️</button></div></td>
+</tr>
+<tr>
+<td><div class="cnc"><div class="cav" style="background:linear-gradient(135deg,#C9A84C,#E8C96A);color:var(--navy-deep);">MJ</div><div><div class="cn">Marcus James</div><div class="ce">marcus@bluskylogi.com</div></div></div></td>
+<td>BluSky Logistics</td><td><span class="badge badge-cyan">Qualified</span></td><td>Yesterday</td>
+<td style="color:var(--cyan);font-weight:600;">$24,000</td>
+<td><div style="display:flex;gap:5px;"><button class="btn btn-ghost btn-sm" onclick="openModal('sendEmail')">📧</button><button class="btn btn-ghost btn-sm" onclick="openModal('editContact')">✏️</button></div></td>
+</tr>
+<tr>
+<td><div class="cnc"><div class="cav" style="background:linear-gradient(135deg,#FF6B2B,#E05520);color:#fff;">AT</div><div><div class="cn">Alicia Thomas</div><div class="ce">alicia@mangoco.tt</div></div></div></td>
+<td>Mango &amp; Co.</td><td><span class="badge badge-success">Won ✓</span></td><td>Jun 19</td>
+<td style="color:var(--success);font-weight:600;">$7,100</td>
+<td><div style="display:flex;gap:5px;"><button class="btn btn-ghost btn-sm" onclick="openModal('sendEmail')">📧</button><button class="btn btn-ghost btn-sm" onclick="openModal('editContact')">✏️</button></div></td>
+</tr>
+<tr>
+<td><div class="cnc"><div class="cav" style="background:linear-gradient(135deg,#6B7A99,#4a5568);color:#fff;">RB</div><div><div class="cn">Ryan Baptiste</div><div class="ce">ryan@tropiceats.com</div></div></div></td>
+<td>Tropic Eats</td><td><span class="badge badge-muted">Lead</span></td><td>Jun 20</td>
+<td style="color:var(--text-muted);font-weight:600;">$1,200</td>
+<td><div style="display:flex;gap:5px;"><button class="btn btn-ghost btn-sm" onclick="openModal('sendEmail')">📧</button><button class="btn btn-ghost btn-sm" onclick="openModal('editContact')">✏️</button></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div><!-- /dashboard -->
+<!-- ════════════════════════════════
+         CONTACTS VIEW
+    ════════════════════════════════ -->
+<div id="view-contacts" style="display:none;">
+<div class="ph">
+<div class="ph-left"><div class="greeting">All Contacts</div><h1>Contact Manager</h1></div>
+<div class="ph-right">
+<button class="btn btn-outline btn-sm">📥 Import CSV</button>
+<button class="btn btn-outline btn-sm">📤 Export</button>
+<button class="btn btn-primary btn-sm" onclick="openModal('addContact')">+ New Contact</button>
+</div>
+</div>
+<div class="panel">
+<div class="panel-hd">
+<div style="display:flex;gap:8px;flex-wrap:wrap;">
+<button class="btn btn-outline btn-sm" style="border-color:var(--cyan);color:var(--cyan);">All (142)</button>
+<button class="btn btn-ghost btn-sm">Leads (38)</button>
+<button class="btn btn-ghost btn-sm">Qualified (24)</button>
+<button class="btn btn-ghost btn-sm">Customers (67)</button>
+<button class="btn btn-ghost btn-sm">Inactive (13)</button>
+</div>
+<input class="fi" placeholder="🔍 Search contacts…" style="max-width:220px;padding:7px 12px;" type="text"/>
+</div>
+<div style="overflow-x:auto;">
+<table class="tbl">
+<thead><tr><th><input type="checkbox"/></th><th>Name</th><th>Company</th><th>Phone</th><th>Status</th><th>Last Contact</th><th>Deal Value</th><th>Actions</th></tr></thead>
+<tbody>
+<tr><td><input type="checkbox"/></td><td><div class="cnc"><div class="cav" style="background:linear-gradient(135deg,#00C8E0,#0099B0);color:var(--navy-deep);">SC</div><div><div class="cn">Sarah Chen</div><div class="ce">sarah@islandrealty.com</div></div></div></td><td>Island Realty</td><td>+1 (868) 555-0101</td><td><span class="badge badge-gold">Proposal</span></td><td>Today</td><td style="color:var(--cyan);font-weight:600;">$8,000</td><td><div style="display:flex;gap:4px;"><button class="btn btn-ghost btn-sm" onclick="openModal('sendEmail')">📧</button><button class="btn btn-ghost btn-sm" onclick="openModal('editContact')">✏️</button><button class="btn btn-danger btn-sm">🗑</button></div></td></tr>
+<tr><td><input type="checkbox"/></td><td><div class="cnc"><div class="cav" style="background:linear-gradient(135deg,#C9A84C,#E8C96A);color:var(--navy-deep);">MJ</div><div><div class="cn">Marcus James</div><div class="ce">marcus@bluskylogi.com</div></div></div></td><td>BluSky Logistics</td><td>+1 (868) 555-0202</td><td><span class="badge badge-cyan">Qualified</span></td><td>Yesterday</td><td style="color:var(--cyan);font-weight:600;">$24,000</td><td><div style="display:flex;gap:4px;"><button class="btn btn-ghost btn-sm" onclick="openModal('sendEmail')">📧</button><button class="btn btn-ghost btn-sm" onclick="openModal('editContact')">✏️</button><button class="btn btn-danger btn-sm">🗑</button></div></td></tr>
+<tr><td><input type="checkbox"/></td><td><div class="cnc"><div class="cav" style="background:linear-gradient(135deg,#FF6B2B,#E05520);color:#fff;">AT</div><div><div class="cn">Alicia Thomas</div><div class="ce">alicia@mangoco.tt</div></div></div></td><td>Mango &amp; Co.</td><td>+1 (868) 555-0303</td><td><span class="badge badge-success">Won ✓</span></td><td>Jun 19</td><td style="color:var(--success);font-weight:600;">$7,100</td><td><div style="display:flex;gap:4px;"><button class="btn btn-ghost btn-sm" onclick="openModal('sendEmail')">📧</button><button class="btn btn-ghost btn-sm" onclick="openModal('editContact')">✏️</button><button class="btn btn-danger btn-sm">🗑</button></div></td></tr>
+<tr><td><input type="checkbox"/></td><td><div class="cnc"><div class="cav" style="background:linear-gradient(135deg,#6B7A99,#4a5568);color:#fff;">RB</div><div><div class="cn">Ryan Baptiste</div><div class="ce">ryan@tropiceats.com</div></div></div></td><td>Tropic Eats</td><td>+1 (868) 555-0404</td><td><span class="badge badge-muted">Lead</span></td><td>Jun 20</td><td style="color:var(--text-muted);font-weight:600;">$1,200</td><td><div style="display:flex;gap:4px;"><button class="btn btn-ghost btn-sm" onclick="openModal('sendEmail')">📧</button><button class="btn btn-ghost btn-sm" onclick="openModal('editContact')">✏️</button><button class="btn btn-danger btn-sm">🗑</button></div></td></tr>
+</tbody>
+</table>
+</div>
+<div style="padding:14px 20px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--navy-border);">
+<span style="font-size:0.75rem;color:var(--text-muted);">Showing 4 of 142 contacts</span>
+<div style="display:flex;gap:6px;">
+<button class="btn btn-ghost btn-sm">← Prev</button>
+<button class="btn btn-outline btn-sm" style="border-color:var(--cyan);color:var(--cyan);">1</button>
+<button class="btn btn-ghost btn-sm">2</button>
+<button class="btn btn-ghost btn-sm">3</button>
+<button class="btn btn-ghost btn-sm">Next →</button>
+</div>
+</div>
+</div>
+</div>
+<!-- ════════════════════════════════
+         DEALS VIEW
+    ════════════════════════════════ -->
+<div id="view-deals" style="display:none;">
+<div class="ph">
+<div class="ph-left"><div class="greeting">Sales Pipeline</div><h1>Deal Manager</h1></div>
+<div class="ph-right">
+<button class="btn btn-outline btn-sm">📊 Reports</button>
+<button class="btn btn-primary btn-sm" onclick="openModal('addDeal')">+ New Deal</button>
+</div>
+</div>
+<div class="stats-grid">
+<div class="stat c"><div class="stat-hd"><span class="stat-lbl">Total Pipeline</span><span>💰</span></div><div class="stat-val">$48.2K</div><div class="stat-chg up">↑ 18%</div></div>
+<div class="stat g"><div class="stat-hd"><span class="stat-lbl">Avg Deal Size</span><span>📊</span></div><div class="stat-val">$6,025</div><div class="stat-chg nt">8 open deals</div></div>
+<div class="stat s"><div class="stat-hd"><span class="stat-lbl">Won This Month</span><span>🏆</span></div><div class="stat-val">$7,100</div><div class="stat-chg up">↑ 1 deal</div></div>
+<div class="stat o"><div class="stat-hd"><span class="stat-lbl">Win Rate</span><span>🎯</span></div><div class="stat-val">62%</div><div class="stat-chg up">↑ 5% vs last mo</div></div>
+</div>
+<div class="panel">
+<div class="panel-hd"><div class="panel-title">💼 All Deals — Kanban View</div><div style="display:flex;gap:6px;"><button class="btn btn-ghost btn-sm">🗂 List</button><button class="btn btn-outline btn-sm" style="border-color:var(--cyan);color:var(--cyan);">📋 Board</button></div></div>
+<div class="panel-body">
+<div class="pipe-cols" style="grid-template-columns:repeat(4,1fr);">
+<div>
+<div class="pipe-col-hd"><span class="pipe-col-lbl" style="color:var(--text-muted);">Lead</span><span class="pipe-cnt">2</span></div>
+<div class="deal" onclick="openModal('viewDeal')"><div class="deal-name">Website Redesign</div><div class="deal-co">Sunrise Digital</div><div class="deal-val">$4,500</div><div class="deal-date">Added Jun 18</div></div>
+<div class="deal" onclick="openModal('viewDeal')"><div class="deal-name">Social Media Pkg</div><div class="deal-co">Tropic Eats</div><div class="deal-val">$1,200</div><div class="deal-date">Added Jun 20</div></div>
+<button class="btn btn-ghost btn-sm" onclick="openModal('addDeal')" style="width:100%;margin-top:4px;">+ Add Deal</button>
+</div>
+<div>
+<div class="pipe-col-hd"><span class="pipe-col-lbl" style="color:var(--cyan);">Qualified</span><span class="pipe-cnt">1</span></div>
+<div class="deal" onclick="openModal('viewDeal')" style="border-color:rgba(0,200,224,0.2);"><div class="deal-name">CRM Setup</div><div class="deal-co">Island Realty</div><div class="deal-val">$8,000</div><div class="deal-date">Follow-up Jun 25</div></div>
+<button class="btn btn-ghost btn-sm" onclick="openModal('addDeal')" style="width:100%;margin-top:4px;">+ Add Deal</button>
+</div>
+<div>
+<div class="pipe-col-hd"><span class="pipe-col-lbl" style="color:var(--gold);">Proposal</span><span class="pipe-cnt">2</span></div>
+<div class="deal" onclick="openModal('viewDeal')" style="border-color:rgba(201,168,76,0.2);"><div class="deal-name">Annual Retainer</div><div class="deal-co">BluSky Logistics</div><div class="deal-val">$24,000</div><div class="deal-date">Sent Jun 21</div></div>
+<div class="deal" onclick="openModal('viewDeal')" style="border-color:rgba(201,168,76,0.2);"><div class="deal-name">SEO Package</div><div class="deal-co">Carib Wellness</div><div class="deal-val">$3,600</div><div class="deal-date">Sent Jun 22</div></div>
+<button class="btn btn-ghost btn-sm" onclick="openModal('addDeal')" style="width:100%;margin-top:4px;">+ Add Deal</button>
+</div>
+<div>
+<div class="pipe-col-hd"><span class="pipe-col-lbl" style="color:var(--success);">Won ✓</span><span class="pipe-cnt">1</span></div>
+<div class="deal" onclick="openModal('viewDeal')" style="border-color:rgba(34,197,94,0.2);"><div class="deal-name">E-Commerce Store</div><div class="deal-co">Mango &amp; Co.</div><div class="deal-val" style="color:var(--success);">$7,100</div><div class="deal-date">Closed Jun 19 🎉</div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ════════════════════════════════
+         REPORTS VIEW
+    ════════════════════════════════ -->
+<div id="view-reports" style="display:none;">
+<div class="ph">
+<div class="ph-left"><div class="greeting">Analytics</div><h1>Reports &amp; Insights</h1></div>
+<div class="ph-right"><button class="btn btn-outline btn-sm">📤 Export PDF</button></div>
+</div>
+<div class="stats-grid">
+<div class="stat c"><div class="stat-hd"><span class="stat-lbl">Revenue (MTD)</span><span>💰</span></div><div class="stat-val">$7,100</div><div class="stat-chg up">↑ 22% vs last mo</div></div>
+<div class="stat g"><div class="stat-hd"><span class="stat-lbl">New Leads</span><span>🎯</span></div><div class="stat-val">38</div><div class="stat-chg up">↑ 8 this week</div></div>
+<div class="stat s"><div class="stat-hd"><span class="stat-lbl">Conversion Rate</span><span>📈</span></div><div class="stat-val">62%</div><div class="stat-chg up">↑ 5%</div></div>
+<div class="stat o"><div class="stat-hd"><span class="stat-lbl">Avg Response Time</span><span>⚡</span></div><div class="stat-val">2.4h</div><div class="stat-chg nt">Target: &lt;4h</div></div>
+</div>
+<div class="two-col">
+<div class="panel">
+<div class="panel-hd"><div class="panel-title">📊 Pipeline by Stage</div></div>
+<div class="panel-body">
+<div class="metric-bar-wrap">
+<div class="metric-bar"><div class="mb-hd"><span class="mb-lbl">Lead</span><span class="mb-val">$5,700 · 2 deals</span></div><div class="mb-track"><div class="mb-fill" style="width:12%;background:var(--text-muted);"></div></div></div>
+<div class="metric-bar"><div class="mb-hd"><span class="mb-lbl">Qualified</span><span class="mb-val">$8,000 · 1 deal</span></div><div class="mb-track"><div class="mb-fill" style="width:17%;background:var(--cyan);"></div></div></div>
+<div class="metric-bar"><div class="mb-hd"><span class="mb-lbl">Proposal</span><span class="mb-val">$27,600 · 2 deals</span></div><div class="mb-track"><div class="mb-fill" style="width:57%;background:var(--gold);"></div></div></div>
+<div class="metric-bar"><div class="mb-hd"><span class="mb-lbl">Won</span><span class="mb-val">$7,100 · 1 deal</span></div><div class="mb-track"><div class="mb-fill" style="width:15%;background:var(--success);"></div></div></div>
+</div>
+</div>
+</div>
+<div class="panel">
+<div class="panel-hd"><div class="panel-title">🏆 Top Performers</div></div>
+<div class="panel-body" style="padding:0 20px;">
+<div class="act-item"><div class="act-dot g">👑</div><div><div class="act-txt"><strong>Jordan Williams</strong> — 5 deals closed</div><div class="act-time">$7,100 revenue · Admin</div></div></div>
+<div class="act-item"><div class="act-dot c">⭐</div><div><div class="act-txt"><strong>Kezia Phillip</strong> — 3 deals in proposal</div><div class="act-time">$27,600 pipeline · Sales Rep</div></div></div>
+<div class="act-item"><div class="act-dot o">🎯</div><div><div class="act-txt"><strong>Devon Charles</strong> — 2 new leads</div><div class="act-time">$5,700 pipeline · Sales Rep</div></div></div>
+</div>
+</div>
+</div>
+<div class="panel">
+<div class="panel-hd"><div class="panel-title">📅 Monthly Revenue Trend</div></div>
+<div class="panel-body">
+<div style="display:flex;align-items:flex-end;gap:8px;height:120px;padding-top:10px;">
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;"><div style="flex:1;width:100%;background:var(--navy-border);border-radius:4px 4px 0 0;display:flex;align-items:flex-end;"><div style="width:100%;background:linear-gradient(180deg,var(--cyan),#0099B0);border-radius:4px 4px 0 0;height:40%;"></div></div><span style="font-size:0.6rem;color:var(--text-muted);">Jan</span></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;"><div style="flex:1;width:100%;background:var(--navy-border);border-radius:4px 4px 0 0;display:flex;align-items:flex-end;"><div style="width:100%;background:linear-gradient(180deg,var(--cyan),#0099B0);border-radius:4px 4px 0 0;height:55%;"></div></div><span style="font-size:0.6rem;color:var(--text-muted);">Feb</span></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;"><div style="flex:1;width:100%;background:var(--navy-border);border-radius:4px 4px 0 0;display:flex;align-items:flex-end;"><div style="width:100%;background:linear-gradient(180deg,var(--cyan),#0099B0);border-radius:4px 4px 0 0;height:45%;"></div></div><span style="font-size:0.6rem;color:var(--text-muted);">Mar</span></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;"><div style="flex:1;width:100%;background:var(--navy-border);border-radius:4px 4px 0 0;display:flex;align-items:flex-end;"><div style="width:100%;background:linear-gradient(180deg,var(--cyan),#0099B0);border-radius:4px 4px 0 0;height:70%;"></div></div><span style="font-size:0.6rem;color:var(--text-muted);">Apr</span></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;"><div style="flex:1;width:100%;background:var(--navy-border);border-radius:4px 4px 0 0;display:flex;align-items:flex-end;"><div style="width:100%;background:linear-gradient(180deg,var(--cyan),#0099B0);border-radius:4px 4px 0 0;height:60%;"></div></div><span style="font-size:0.6rem;color:var(--text-muted);">May</span></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;"><div style="flex:1;width:100%;background:var(--navy-border);border-radius:4px 4px 0 0;display:flex;align-items:flex-end;"><div style="width:100%;background:linear-gradient(180deg,var(--gold),#C9A84C);border-radius:4px 4px 0 0;height:85%;"></div></div><span style="font-size:0.6rem;color:var(--gold);">Jun ★</span></div>
+</div>
+</div>
+</div>
+</div>
+<!-- ════════════════════════════════
+         ORG SETUP VIEW
+    ════════════════════════════════ -->
+<div id="view-org" style="display:none;">
+<div class="ph">
+<div class="ph-left"><div class="greeting">Organization</div><h1>Organization Setup</h1></div>
+<div class="ph-right"><button class="btn btn-primary btn-sm" onclick="saveOrg()">💾 Save Changes</button></div>
+</div>
+<div class="panel">
+<div class="wizard-tabs">
+<div class="wtab done" onclick="switchWTab(0)">✓ Business Info</div>
+<div class="wtab done" onclick="switchWTab(1)">✓ Branding</div>
+<div class="wtab active" onclick="switchWTab(2)">Administrator</div>
+<div class="wtab" onclick="switchWTab(3)">Team &amp; Permissions</div>
+<div class="wtab" onclick="switchWTab(4)">Preferences</div>
+</div>
+<!-- Tab 0: Business Info -->
+<div class="wpanel active" id="wtab-0">
+<div class="fg-row">
+<div class="fg"><label class="fl">Organization Name <span class="req">*</span></label><input class="fi" value="Sunrise Digital Ltd."/></div>
+<div class="fg"><label class="fl">Trading Name</label><input class="fi" value="Sunrise Digital"/></div>
+</div>
+<div class="fg-row">
+<div class="fg"><label class="fl">Industry</label><select class="fs"><option selected="">Technology &amp; IT</option><option>Retail &amp; E-Commerce</option><option>Professional Services</option><option>Real Estate</option></select></div>
+<div class="fg"><label class="fl">Business Size</label><select class="fs"><option selected="">Micro (2–9 employees)</option><option>Small (10–49)</option><option>Medium (50–249)</option></select></div>
+</div>
+<div class="fg-row">
+<div class="fg"><label class="fl">Business Email <span class="req">*</span></label><input class="fi" type="email" value="hello@sunrisedigital.tt"/></div>
+<div class="fg"><label class="fl">Primary Phone</label><input class="fi" value="+1 (868) 555-0100"/></div>
+</div>
+<div class="fg-row">
+<div class="fg"><label class="fl">Website</label><input class="fi" value="https://sunrisedigital.tt"/></div>
+<div class="fg"><label class="fl">CRM Subdomain</label><div style="display:flex;"><input class="fi" style="border-radius:var(--radius-md) 0 0 var(--radius-md);border-right:none;" value="sunrisedigital"/><span style="background:var(--navy-light);border:1px solid var(--navy-border);border-left:none;padding:10px 12px;border-radius:0 var(--radius-md) var(--radius-md) 0;font-size:0.78rem;color:var(--text-muted);white-space:nowrap;">.bluwavcrm.com</span></div></div>
+</div>
+<div class="fg"><label class="fl">Business Description</label><textarea class="fta">Caribbean-based digital agency specializing in web design, CRM setup, and online growth for MSMEs.</textarea></div>
+</div>
+<!-- Tab 1: Branding -->
+<div class="wpanel" id="wtab-1">
+<div class="fg-row">
+<div class="fg">
+<label class="fl">Organization Logo</label>
+<div onmouseout="this.style.borderColor='var(--navy-border)'" onmouseover="this.style.borderColor='var(--cyan)'" style="border:2px dashed var(--navy-border);border-radius:var(--radius-md);padding:28px;text-align:center;cursor:pointer;transition:var(--transition);">
+<div style="font-size:1.8rem;margin-bottom:6px;">📁</div>
+<div style="font-size:0.8rem;color:var(--text-secondary);">Click to upload logo</div>
+<div style="font-size:0.7rem;color:var(--text-muted);margin-top:3px;">PNG, SVG · Max 5MB</div>
+</div>
+</div>
+<div class="fg">
+<label class="fl">Brand Colors</label>
+<div style="display:flex;flex-direction:column;gap:10px;">
+<div style="display:flex;align-items:center;gap:10px;"><input style="width:40px;height:40px;border-radius:6px;border:2px solid var(--navy-border);cursor:pointer;padding:2px;background:transparent;" type="color" value="#00C8E0"/><input class="fi" style="flex:1;" value="#00C8E0"/><span class="badge badge-cyan">Primary</span></div>
+<div style="display:flex;align-items:center;gap:10px;"><input style="width:40px;height:40px;border-radius:6px;border:2px solid var(--navy-border);cursor:pointer;padding:2px;background:transparent;" type="color" value="#C9A84C"/><input class="fi" style="flex:1;" value="#C9A84C"/><span class="badge badge-gold">Accent</span></div>
+<div style="display:flex;align-items:center;gap:10px;"><input style="width:40px;height:40px;border-radius:6px;border:2px solid var(--navy-border);cursor:pointer;padding:2px;background:transparent;" type="color" value="#FF6B2B"/><input class="fi" style="flex:1;" value="#FF6B2B"/><span class="badge badge-orange">CTA</span></div>
+</div>
+</div>
+</div>
+<div class="fg"><label class="fl">Business Tagline</label><input class="fi" placeholder="e.g. Growing businesses, one relationship at a time."/></div>
+<div class="fg"><label class="fl">Email Footer Text</label><textarea class="fta" rows="2">© 2026 Sunrise Digital Ltd. · All rights reserved.</textarea></div>
+</div>
+<!-- Tab 2: Administrator -->
+<div class="wpanel" id="wtab-2">
+<div style="background:var(--gold-glow);border:1px solid rgba(201,168,76,0.3);border-radius:var(--radius-md);padding:14px 18px;margin-bottom:20px;font-size:0.8rem;color:var(--gold-light);line-height:1.6;">
+<strong style="color:var(--gold);">👑 Administrator Account</strong> — You have full access to all settings, users, billing, and data. This account was created when you signed up.
+          </div>
+<div class="fg-row">
+<div class="fg"><label class="fl">First Name <span class="req">*</span></label><input class="fi" value="Jordan"/></div>
+<div class="fg"><label class="fl">Last Name <span class="req">*</span></label><input class="fi" value="Williams"/></div>
+</div>
+<div class="fg-row">
+<div class="fg"><label class="fl">Job Title</label><input class="fi" value="CEO"/></div>
+<div class="fg"><label class="fl">Direct Phone</label><input class="fi" value="+1 (868) 555-0100"/></div>
+</div>
+<div class="fg-row">
+<div class="fg"><label class="fl">Admin Email <span class="req">*</span></label><input class="fi" type="email" value="jordan@sunrisedigital.tt"/></div>
+<div class="fg"><label class="fl">Change Password</label><input class="fi" placeholder="Leave blank to keep current" type="password"/></div>
+</div>
+</div>
+<!-- Tab 3: Team -->
+<div class="wpanel" id="wtab-3">
+<div style="margin-bottom:20px;">
+<label class="fl" style="margin-bottom:10px;display:block;">Invite Team Members</label>
+<div id="inviteRows">
+<div style="display:grid;grid-template-columns:1fr 1fr auto;gap:10px;margin-bottom:10px;align-items:end;">
+<input class="fi" placeholder="email@yourbusiness.com" type="email"/>
+<select class="fs"><option>Sales Rep</option><option>Account Manager</option><option>Support Agent</option><option>Manager</option><option>Admin</option><option>View Only</option></select>
+<button class="btn btn-danger btn-sm">✕</button>
+</div>
+</div>
+<button class="btn btn-ghost btn-sm" onclick="addInviteRow()">+ Add Team Member</button>
+</div>
+<div>
+<label class="fl" style="margin-bottom:10px;display:block;">Current Team</label>
+<table class="tbl">
+<thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Status</th><th>Actions</th></tr></thead>
+<tbody>
+<tr><td><div class="cnc"><div class="cav" style="background:linear-gradient(135deg,#00C8E0,#0099B0);color:var(--navy-deep);">JW</div><div class="cn">Jordan Williams</div></div></td><td style="font-size:0.75rem;">jordan@sunrisedigital.tt</td><td><span class="badge badge-gold">👑 Admin</span></td><td><span class="badge badge-success">Active</span></td><td>—</td></tr>
+<tr><td><div class="cnc"><div class="cav" style="background:linear-gradient(135deg,#6B7A99,#4a5568);color:#fff;">KP</div><div class="cn">Kezia Phillip</div></div></td><td style="font-size:0.75rem;">kezia@sunrisedigital.tt</td><td><span class="badge badge-cyan">Sales Rep</span></td><td><span class="badge badge-success">Active</span></td><td><button class="btn btn-danger btn-sm">Remove</button></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Tab 4: Preferences -->
+<div class="wpanel" id="wtab-4">
+<div class="fg-row">
+<div class="fg"><label class="fl">Timezone</label><select class="fs"><option selected="">Atlantic Time — Trinidad &amp; Tobago (UTC-4)</option><option>Atlantic Time — Barbados (UTC-4)</option><option>Eastern Time — Jamaica (UTC-5)</option><option>Eastern Time — US (UTC-5)</option></select></div>
+<div class="fg"><label class="fl">Currency</label><select class="fs"><option selected="">TTD — Trinidad &amp; Tobago Dollar</option><option>USD — US Dollar</option><option>BBD — Barbadian Dollar</option><option>JMD — Jamaican Dollar</option></select></div>
+</div>
+<div class="fg-row">
+<div class="fg"><label class="fl">Date Format</label><select class="fs"><option selected="">DD/MM/YYYY</option><option>MM/DD/YYYY</option><option>YYYY-MM-DD</option></select></div>
+<div class="fg"><label class="fl">Language</label><select class="fs"><option selected="">English</option><option>Spanish</option><option>French</option></select></div>
+</div>
+<label class="fl" style="margin-bottom:10px;display:block;">Notifications</label>
+<div class="toggle-row"><div class="toggle-info"><h4>New lead assigned</h4><p>Get notified when a lead is assigned to you</p></div><div class="toggle on" onclick="this.classList.toggle('on')"></div></div>
+<div class="toggle-row"><div class="toggle-info"><h4>Deal stage changes</h4><p>Alert when a deal moves to a new stage</p></div><div class="toggle on" onclick="this.classList.toggle('on')"></div></div>
+<div class="toggle-row"><div class="toggle-info"><h4>Task reminders</h4><p>Reminders for upcoming and overdue tasks</p></div><div class="toggle on" onclick="this.classList.toggle('on')"></div></div>
+<div class="toggle-row"><div class="toggle-info"><h4>Weekly summary</h4><p>Weekly digest of pipeline and activity</p></div><div class="toggle" onclick="this.classList.toggle('on')"></div></div>
+</div>
+<div class="wizard-nav">
+<button class="btn btn-ghost btn-sm" disabled="" id="wPrevBtn" onclick="wNav(-1)">← Previous</button>
+<span class="step-info" id="wStepInfo">Step 3 of 5</span>
+<button class="btn btn-primary btn-sm" id="wNextBtn" onclick="wNav(1)">Next →</button>
+</div>
+</div>
+</div>
+<!-- ════════════════════════════════
+         SETTINGS VIEW
+    ════════════════════════════════ -->
+<div id="view-settings" style="display:none;">
+<div class="ph">
+<div class="ph-left"><div class="greeting">Configuration</div><h1>Settings</h1></div>
+<div class="ph-right"><button class="btn btn-primary btn-sm">💾 Save</button></div>
+</div>
+<div class="stabs">
+<div class="stab active" onclick="switchStab(this,'s-profile')">Profile</div>
+<div class="stab" onclick="switchStab(this,'s-security')">Security</div>
+<div class="stab" onclick="switchStab(this,'s-integrations')">Integrations</div>
+<div class="stab" onclick="switchStab(this,'s-notifications')">Notifications</div>
+</div>
+<div class="panel" id="s-profile">
+<div class="panel-hd"><div class="panel-title">👤 Profile Settings</div></div>
+<div class="panel-body">
+<div class="fg-row">
+<div class="fg"><label class="fl">First Name</label><input class="fi" value="Jordan"/></div>
+<div class="fg"><label class="fl">Last Name</label><input class="fi" value="Williams"/></div>
+</div>
+<div class="fg-row">
+<div class="fg"><label class="fl">Email</label><input class="fi" type="email" value="jordan@sunrisedigital.tt"/></div>
+<div class="fg"><label class="fl">Phone</label><input class="fi" value="+1 (868) 555-0100"/></div>
+</div>
+<div class="fg"><label class="fl">Job Title</label><input class="fi" value="CEO"/></div>
+</div>
+</div>
+<div class="panel" id="s-security" style="display:none;">
+<div class="panel-hd"><div class="panel-title">🔐 Security</div></div>
+<div class="panel-body">
+<div class="fg"><label class="fl">Current Password</label><input class="fi" placeholder="Enter current password" type="password"/></div>
+<div class="fg-row">
+<div class="fg"><label class="fl">New Password</label><input class="fi" placeholder="Min. 8 characters" type="password"/></div>
+<div class="fg"><label class="fl">Confirm Password</label><input class="fi" placeholder="Repeat new password" type="password"/></div>
+</div>
+<div class="toggle-row"><div class="toggle-info"><h4>Two-Factor Authentication</h4><p>Add an extra layer of security to your account</p></div><div class="toggle" onclick="this.classList.toggle('on')"></div></div>
+<div class="toggle-row"><div class="toggle-info"><h4>Login Alerts</h4><p>Email me when a new device logs in</p></div><div class="toggle on" onclick="this.classList.toggle('on')"></div></div>
+</div>
+</div>
+<div class="panel" id="s-integrations" style="display:none;">
+<div class="panel-hd"><div class="panel-title">🔗 Integrations</div></div>
+<div class="panel-body">
+<div class="toggle-row"><div class="toggle-info"><h4>Google Workspace</h4><p>Sync contacts and calendar with Google</p></div><div class="toggle on" onclick="this.classList.toggle('on')"></div></div>
+<div class="toggle-row"><div class="toggle-info"><h4>WhatsApp Business</h4><p>Send messages directly from CRM</p></div><div class="toggle" onclick="this.classList.toggle('on')"></div></div>
+<div class="toggle-row"><div class="toggle-info"><h4>Mailchimp</h4><p>Sync contacts with email campaigns</p></div><div class="toggle" onclick="this.classList.toggle('on')"></div></div>
+<div class="toggle-row"><div class="toggle-info"><h4>Zapier</h4><p>Connect with 5,000+ apps via Zapier</p></div><div class="toggle" onclick="this.classList.toggle('on')"></div></div>
+</div>
+</div>
+<div class="panel" id="s-notifications" style="display:none;">
+<div class="panel-hd"><div class="panel-title">🔔 Notification Preferences</div></div>
+<div class="panel-body">
+<div class="toggle-row"><div class="toggle-info"><h4>New lead assigned</h4><p>Email + in-app</p></div><div class="toggle on" onclick="this.classList.toggle('on')"></div></div>
+<div class="toggle-row"><div class="toggle-info"><h4>Deal stage changes</h4><p>In-app only</p></div><div class="toggle on" onclick="this.classList.toggle('on')"></div></div>
+<div class="toggle-row"><div class="toggle-info"><h4>Task reminders</h4><p>Email + in-app</p></div><div class="toggle on" onclick="this.classList.toggle('on')"></div></div>
+<div class="toggle-row"><div class="toggle-info"><h4>Weekly digest</h4><p>Email every Monday</p></div><div class="toggle" onclick="this.classList.toggle('on')"></div></div>
+<div class="toggle-row"><div class="toggle-info"><h4>Monthly analytics</h4><p>Email on 1st of month</p></div><div class="toggle" onclick="this.classList.toggle('on')"></div></div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- ══════════════════════════════════════
+     MODALS
+══════════════════════════════════════ -->
+<!-- Add Contact -->
+<div class="modal-overlay" id="modal-addContact">
+<div class="modal">
+<div class="modal-hd"><h3>➕ New Contact</h3><button class="modal-close" onclick="closeModal('addContact')">✕</button></div>
+<div class="modal-body">
+<div class="fg-row"><div class="fg"><label class="fl">First Name <span class="req">*</span></label><input class="fi" placeholder="e.g. Sarah"/></div><div class="fg"><label class="fl">Last Name <span class="req">*</span></label><input class="fi" placeholder="e.g. Chen"/></div></div>
+<div class="fg-row"><div class="fg"><label class="fl">Email</label><input class="fi" placeholder="sarah@company.com" type="email"/></div><div class="fg"><label class="fl">Phone</label><input class="fi" placeholder="+1 (868) 000-0000"/></div></div>
+<div class="fg-row"><div class="fg"><label class="fl">Company</label><input class="fi" placeholder="Company name"/></div><div class="fg"><label class="fl">Status</label><select class="fs"><option>Lead</option><option>Qualified</option><option>Proposal</option><option>Customer</option></select></div></div>
+<div class="fg"><label class="fl">Notes</label><textarea class="fta" placeholder="Any notes about this contact…"></textarea></div>
+</div>
+<div class="modal-footer"><button class="btn btn-ghost" onclick="closeModal('addContact')">Cancel</button><button class="btn btn-primary" onclick="closeModal('addContact')">Save Contact</button></div>
+</div>
+</div>
+<!-- Edit Contact -->
+<div class="modal-overlay" id="modal-editContact">
+<div class="modal">
+<div class="modal-hd"><h3>✏️ Edit Contact</h3><button class="modal-close" onclick="closeModal('editContact')">✕</button></div>
+<div class="modal-body">
+<div class="fg-row"><div class="fg"><label class="fl">First Name</label><input class="fi" value="Sarah"/></div><div class="fg"><label class="fl">Last Name</label><input class="fi" value="Chen"/></div></div>
+<div class="fg-row"><div class="fg"><label class="fl">Email</label><input class="fi" type="email" value="sarah@islandrealty.com"/></div><div class="fg"><label class="fl">Phone</label><input class="fi" value="+1 (868) 555-0101"/></div></div>
+<div class="fg-row"><div class="fg"><label class="fl">Company</label><input class="fi" value="Island Realty"/></div><div class="fg"><label class="fl">Status</label><select class="fs"><option>Lead</option><option>Qualified</option><option selected="">Proposal</option><option>Customer</option></select></div></div>
+<div class="fg"><label class="fl">Notes</label><textarea class="fta">Interested in full CRM setup. Follow up after proposal review.</textarea></div>
+</div>
+<div class="modal-footer"><button class="btn btn-danger" onclick="closeModal('editContact')">🗑 Delete</button><button class="btn btn-ghost" onclick="closeModal('editContact')">Cancel</button><button class="btn btn-primary" onclick="closeModal('editContact')">Save Changes</button></div>
+</div>
+</div>
+<!-- Add Deal -->
+<div class="modal-overlay" id="modal-addDeal">
+<div class="modal">
+<div class="modal-hd"><h3>💼 New Deal</h3><button class="modal-close" onclick="closeModal('addDeal')">✕</button></div>
+<div class="modal-body">
+<div class="fg"><label class="fl">Deal Name <span class="req">*</span></label><input class="fi" placeholder="e.g. Website Redesign"/></div>
+<div class="fg-row"><div class="fg"><label class="fl">Contact</label><select class="fs"><option>Sarah Chen</option><option>Marcus James</option><option>Alicia Thomas</option><option>Ryan Baptiste</option></select></div><div class="fg"><label class="fl">Company</label><input class="fi" placeholder="Company name"/></div></div>
+<div class="fg-row"><div class="fg"><label class="fl">Deal Value (USD)</label><input class="fi" placeholder="0.00" type="number"/></div><div class="fg"><label class="fl">Stage</label><select class="fs"><option>Lead</option><option>Qualified</option><option>Proposal</option><option>Won</option><option>Lost</option></select></div></div>
+<div class="fg-row"><div class="fg"><label class="fl">Expected Close Date</label><input class="fi" type="date"/></div><div class="fg"><label class="fl">Assigned To</label><select class="fs"><option>Jordan Williams</option><option>Kezia Phillip</option></select></div></div>
+<div class="fg"><label class="fl">Notes</label><textarea class="fta" placeholder="Deal notes…"></textarea></div>
+</div>
+<div class="modal-footer"><button class="btn btn-ghost" onclick="closeModal('addDeal')">Cancel</button><button class="btn btn-primary" onclick="closeModal('addDeal')">Create Deal</button></div>
+</div>
+</div>
+<!-- View Deal -->
+<div class="modal-overlay" id="modal-viewDeal">
+<div class="modal">
+<div class="modal-hd"><h3>💼 Annual Retainer</h3><button class="modal-close" onclick="closeModal('viewDeal')">✕</button></div>
+<div class="modal-body">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;">
+<div><div style="font-size:0.68rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:3px;">Value</div><div style="font-size:1.4rem;font-weight:700;color:var(--cyan);">$24,000</div></div>
+<div><div style="font-size:0.68rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:3px;">Stage</div><span class="badge badge-gold">Proposal</span></div>
+<div><div style="font-size:0.68rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:3px;">Contact</div><div style="font-size:0.85rem;color:var(--text-primary);">Marcus James</div></div>
+<div><div style="font-size:0.68rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:3px;">Close Date</div><div style="font-size:0.85rem;color:var(--text-primary);">Jul 15, 2026</div></div>
+</div>
+<div style="display:flex;gap:8px;flex-wrap:wrap;">
+<button class="btn btn-primary btn-sm">Move to Won ✓</button>
+<button class="btn btn-outline btn-sm" onclick="openModal('sendEmail');closeModal('viewDeal')">📧 Send Email</button>
+<button class="btn btn-ghost btn-sm">📝 Add Note</button>
+<button class="btn btn-danger btn-sm">Mark Lost</button>
+</div>
+</div>
+<div class="modal-footer"><button class="btn btn-ghost" onclick="closeModal('viewDeal')">Close</button><button class="btn btn-outline" onclick="closeModal('viewDeal')">✏️ Edit Deal</button></div>
+</div>
+</div>
+<!-- Send Email -->
+<div class="modal-overlay" id="modal-sendEmail">
+<div class="modal">
+<div class="modal-hd"><h3>📧 Send Email</h3><button class="modal-close" onclick="closeModal('sendEmail')">✕</button></div>
+<div class="modal-body">
+<div class="fg"><label class="fl">To</label><input class="fi" value="sarah@islandrealty.com"/></div>
+<div class="fg"><label class="fl">Subject</label><input class="fi" placeholder="Email subject…"/></div>
+<div class="fg"><label class="fl">Template</label><select class="fs"><option>— No template —</option><option>Follow-up after meeting</option><option>Proposal sent</option><option>Welcome email</option><option>Check-in</option></select></div>
+<div class="fg"><label class="fl">Message</label><textarea class="fta" placeholder="Write your message…" rows="5"></textarea></div>
+</div>
+<div class="modal-footer"><button class="btn btn-ghost" onclick="closeModal('sendEmail')">Cancel</button><button class="btn btn-outline btn-sm">💾 Save Draft</button><button class="btn btn-primary" onclick="closeModal('sendEmail')">Send Email →</button></div>
+</div>
+</div>
+<!-- Add Task -->
+<div class="modal-overlay" id="modal-addTask">
+<div class="modal">
+<div class="modal-hd"><h3>✅ New Task</h3><button class="modal-close" onclick="closeModal('addTask')">✕</button></div>
+<div class="modal-body">
+<div class="fg"><label class="fl">Task Title <span class="req">*</span></label><input class="fi" placeholder="e.g. Send proposal to Island Realty"/></div>
+<div class="fg-row"><div class="fg"><label class="fl">Due Date</label><input class="fi" type="date"/></div><div class="fg"><label class="fl">Priority</label><select class="fs"><option>Normal</option><option>High</option><option>Urgent</option></select></div></div>
+<div class="fg-row"><div class="fg"><label class="fl">Assign To</label><select class="fs"><option>Jordan Williams</option><option>Kezia Phillip</option></select></div><div class="fg"><label class="fl">Related Contact</label><select class="fs"><option>— None —</option><option>Sarah Chen</option><option>Marcus James</option></select></div></div>
+<div class="fg"><label class="fl">Notes</label><textarea class="fta" placeholder="Task details…"></textarea></div>
+</div>
+<div class="modal-footer"><button class="btn btn-ghost" onclick="closeModal('addTask')">Cancel</button><button class="btn btn-primary" onclick="closeModal('addTask')">Create Task</button></div>
+</div>
+</div>
+<script>
+  /* ── View Switching ── */
+  const views = ['dashboard','contacts','deals','reports','org','settings'];
+
+  function showView(v) {
+    views.forEach(id => {
+      const el = document.getElementById('view-' + id);
+      if (el) el.style.display = (id === v) ? 'block' : 'none';
+    });
+    document.querySelectorAll('.ni').forEach(n => n.classList.remove('active'));
+    const nav = document.getElementById('nav-' + v);
+    if (nav) nav.classList.add('active');
+    document.getElementById('mainContent').scrollTop = 0;
+  }
+
+  /* ── Modals ── */
+  function openModal(id) {
+    const m = document.getElementById('modal-' + id);
+    if (m) m.classList.add('open');
+  }
+
+  function closeModal(id) {
+    const m = document.getElementById('modal-' + id);
+    if (m) m.classList.remove('open');
+  }
+
+  // Close on overlay click
+  document.querySelectorAll('.modal-overlay').forEach(overlay => {
+    overlay.addEventListener('click', e => {
+      if (e.target === overlay) overlay.classList.remove('open');
+    });
+  });
+
+  /* ── Org Wizard Tabs ── */
+  let wStep = 2;
+  const wTotal = 5;
+
+  function switchWTab(idx) {
+    document.querySelectorAll('.wtab').forEach((t, i) => {
+      t.classList.remove('active');
+      if (i < idx) t.classList.add('done');
+      else if (i === idx) t.classList.add('active');
+    });
+    document.querySelectorAll('.wpanel').forEach((p, i) => {
+      p.classList.toggle('active', i === idx);
+    });
+    wStep = idx;
+    updateWNav();
+  }
+
+  function wNav(dir) {
+    const next = wStep + dir;
+    if (next >= 0 && next < wTotal) switchWTab(next);
+  }
+
+  function updateWNav() {
+    document.getElementById('wPrevBtn').disabled = wStep === 0;
+    document.getElementById('wStepInfo').textContent = `Step ${wStep + 1} of ${wTotal}`;
+    const nextBtn = document.getElementById('wNextBtn');
+    if (wStep === wTotal - 1) {
+      nextBtn.textContent = '💾 Save & Finish';
+      nextBtn.onclick = saveOrg;
+    } else {
+      nextBtn.textContent = 'Next →';
+      nextBtn.onclick = () => wNav(1);
+    }
+  }
+
+  function saveOrg() {
+    const btn = document.getElementById('wNextBtn');
+    btn.textContent = '✓ Saved!';
+    btn.style.background = 'linear-gradient(135deg,#22C55E,#16A34A)';
+    setTimeout(() => {
+      btn.textContent = 'Next →';
+      btn.style.background = '';
+      showView('dashboard');
+    }, 1500);
+  }
+
+  /* ── Settings Tabs ── */
+  function switchStab(el, panelId) {
+    document.querySelectorAll('.stab').forEach(t => t.classList.remove('active'));
+    el.classList.add('active');
+    ['s-profile','s-security','s-integrations','s-notifications'].forEach(id => {
+      const p = document.getElementById(id);
+      if (p) p.style.display = (id === panelId) ? 'block' : 'none';
+    });
+  }
+
+  /* ── Team Invite Rows ── */
+  function addInviteRow() {
+    const container = document.getElementById('inviteRows');
+    const row = document.createElement('div');
+    row.style.cssText = 'display:grid;grid-template-columns:1fr 1fr auto;gap:10px;margin-bottom:10px;align-items:end;';
+    row.innerHTML = `
+      <input class="fi" type="email" placeholder="email@yourbusiness.com" />
+      <select class="fs"><option>Sales Rep</option><option>Account Manager</option><option>Support Agent</option><option>Manager</option><option>Admin</option><option>View Only</option></select>
+      <button class="btn btn-danger btn-sm" onclick="this.closest('div').remove()">✕</button>
+    `;
+    container.appendChild(row);
+  }
+
+  /* ── Init ── */
+  updateWNav();
+</script>
+</body>
+</html>
