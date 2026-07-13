@@ -543,12 +543,18 @@ function selectPlan(id, name) {
 (function(){
   var params = new URLSearchParams(window.location.search);
   var plan = params.get('plan');
-  var planMap = {
-    'ripple':      ['ripple',      'Ripple — $1,800+'],
-    'current':     ['current',     'Current — $3,500+'],
-    'surge':       ['surge',       'Surge — $5,000+'],
-    'crm-lite':    ['crm-lite',    'CRM Lite — $999 one-time'],
-    'crm-premium': ['crm-premium', 'CRM Premium — $299 setup + $179/month']
+    var planMap = {
+    'ripple':        ['ripple',        'Ripple — $1,800+'],
+    'current':       ['current',       'Current — $3,500+'],
+    'surge':         ['surge',         'Surge — $5,000+'],
+    'crm-lite':      ['crm-lite',      'CRM Lite — $99/month'],
+    'crm-premium':   ['crm-premium',   'CRM Premium — $299 setup + $179/month'],
+    'crm-solo':      ['crm-solo',      'CRM Solo — $999 one-time'],
+    'sales-agent':   ['crm-premium',   'Sales Agent — Commission-Based Role'],
+    'referral':      ['crm-lite',      'Referral Partner — Tier 1 (10%)'],
+    'affiliate':     ['crm-lite',      'Affiliate Partner — Tier 2 (15%)'],
+    'strategic':     ['crm-premium',   'Strategic Partner — Tier 4 (20% + volume)'],
+    'partner-info':  ['crm-lite',      'Partner Programme Information Request']
   };
   if(plan && planMap[plan]){
     selectPlan(planMap[plan][0], planMap[plan][1]);
