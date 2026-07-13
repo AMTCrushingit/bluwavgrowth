@@ -212,10 +212,10 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
 
   <div class="plan-cards" id="planCards">
     <!-- Ripple -->
-    <div class="plan-card" id="card-ripple" onclick="selectPlan('ripple','Ripple — $1,200+')">
+    <div class="plan-card" id="card-ripple" onclick="selectPlan('ripple','Ripple — $1,800+')">
       <span class="plan-badge" style="color:#00C2D8;">🌊 Starter</span>
       <div class="plan-name">Ripple</div>
-      <div class="plan-price" style="color:#00C2D8;">$1,200<span style="font-size:16px;font-weight:600;color:#64748b;">+</span></div>
+      <div class="plan-price" style="color:#00C2D8;">$1,800<span style="font-size:16px;font-weight:600;color:#64748b;">+</span></div>
       <div class="plan-desc">Get found online. Professional website, Google visibility, and WhatsApp Business — all set up and ready in 48–72 hours.</div>
       <ul class="plan-features">
         <li>Professional website (5 pages)</li>
@@ -228,10 +228,10 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
     </div>
 
     <!-- Current -->
-    <div class="plan-card" id="card-current" onclick="selectPlan('current','Current — $2,500+')">
+    <div class="plan-card" id="card-current" onclick="selectPlan('current','Current — $3,500+')">
       <span class="plan-badge" style="color:var(--gold);">⭐ Most Popular</span>
       <div class="plan-name">Current</div>
-      <div class="plan-price" style="color:var(--gold);">$2,500<span style="font-size:16px;font-weight:600;color:#64748b;">+</span></div>
+      <div class="plan-price" style="color:var(--gold);">$3,500<span style="font-size:16px;font-weight:600;color:#64748b;">+</span></div>
       <div class="plan-desc">Everything in Ripple plus advanced SEO, automation, and a full CRM setup to turn visitors into paying customers automatically.</div>
       <ul class="plan-features">
         <li>Everything in Ripple</li>
@@ -245,10 +245,10 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
     </div>
 
     <!-- Surge -->
-    <div class="plan-card" id="card-surge" onclick="selectPlan('surge','Surge — $4,500+')">
+    <div class="plan-card" id="card-surge" onclick="selectPlan('surge','Surge — $5,000+')">
       <span class="plan-badge" style="color:var(--coral);">🔥 Full Growth</span>
       <div class="plan-name">Surge</div>
-      <div class="plan-price" style="color:var(--coral);">$4,500<span style="font-size:16px;font-weight:600;color:#64748b;">+</span></div>
+      <div class="plan-price" style="color:var(--coral);">$5,000<span style="font-size:16px;font-weight:600;color:#64748b;">+</span></div>
       <div class="plan-desc">The complete BluWav Growth System. Full website, full automation, CRM Premium, and ongoing support — built to scale your business.</div>
       <ul class="plan-features">
         <li>Everything in Current</li>
@@ -271,10 +271,10 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
       <div class="plan-desc" style="font-size:12px;">Own your CRM outright. Contact management, lead tracking, WhatsApp integration, basic automation.</div>
       <div style="margin-top:16px;padding:10px;background:rgba(0,194,216,0.08);border-radius:10px;font-size:12px;color:#00C2D8;font-weight:700;text-align:center;">Click to select</div>
     </div>
-    <div class="plan-card" id="card-crm-premium" onclick="selectPlan('crm-premium','CRM Premium — $299 setup + $79/month')">
+    <div class="plan-card" id="card-crm-premium" onclick="selectPlan('crm-premium','CRM Premium — $299 setup + $179/month')">
       <span class="plan-badge" style="color:var(--coral);">🖤 CRM Premium</span>
       <div class="plan-name" style="font-size:18px;">CRM Premium</div>
-      <div class="plan-price" style="font-size:22px;color:var(--coral);">$299 <span style="font-size:14px;font-weight:600;color:#64748b;">+ $79/mo</span></div>
+      <div class="plan-price" style="font-size:22px;color:var(--coral);">$299 <span style="font-size:14px;font-weight:600;color:#64748b;">+ $179/mo</span></div>
       <div class="plan-desc" style="font-size:12px;">Continuous upgrades, advanced automation, priority support. Your CRM grows with your business.</div>
       <div style="margin-top:16px;padding:10px;background:rgba(255,85,0,0.08);border-radius:10px;font-size:12px;color:var(--coral);font-weight:700;text-align:center;">Click to select</div>
     </div>
@@ -544,11 +544,11 @@ function selectPlan(id, name) {
   var params = new URLSearchParams(window.location.search);
   var plan = params.get('plan');
   var planMap = {
-    'ripple':      ['ripple',      'Ripple — $1,200+'],
-    'current':     ['current',     'Current — $2,500+'],
-    'surge':       ['surge',       'Surge — $4,500+'],
+    'ripple':      ['ripple',      'Ripple — $1,800+'],
+    'current':     ['current',     'Current — $3,500+'],
+    'surge':       ['surge',       'Surge — $5,000+'],
     'crm-lite':    ['crm-lite',    'CRM Lite — $999 one-time'],
-    'crm-premium': ['crm-premium', 'CRM Premium — $299 setup + $79/month']
+    'crm-premium': ['crm-premium', 'CRM Premium — $299 setup + $179/month']
   };
   if(plan && planMap[plan]){
     selectPlan(planMap[plan][0], planMap[plan][1]);
