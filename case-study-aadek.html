@@ -178,6 +178,14 @@ footer .footer-grid{gap:56px !important;}
 </style>
 </head>
 <body>
+<div id="cs-progress" style="position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#FF5500,#F7C873);width:0%;z-index:9999;transition:width 0.1s;"></div>
+<script>
+window.addEventListener('scroll',function(){
+  var pct=(window.scrollY/(document.body.scrollHeight-window.innerHeight))*100;
+  document.getElementById('cs-progress').style.width=Math.min(pct,100)+'%';
+});
+</script>
+
 
 <nav id="mainNav">
 <div class="nav-logo" style="display:flex;flex-direction:column;align-items:flex-start;line-height:1;padding:4px 0;">
@@ -330,6 +338,105 @@ footer .footer-grid{gap:56px !important;}
           <div class="ba-item"><span class="ba-item-icon">📞</span><div class="ba-item-text"><strong>Clear conversion path</strong> — "Engage Us" CTA, project enquiry form with service selector, 48-hour response commitment</div></div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Visual Before/After mockup -->
+<section style="padding:72px 0;background:#fff;">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center;margin-bottom:40px;">
+      <span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:4px;color:var(--coral);display:block;margin-bottom:14px;">Visual Comparison</span>
+      <h2 style="font-family:'Manrope',sans-serif;font-size:clamp(24px,4vw,36px);font-weight:800;color:var(--navy);line-height:1.15;">The Transformation at a Glance</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;" class="reveal">
+
+      <!-- BEFORE mockup -->
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+          <span style="background:rgba(255,85,0,0.1);color:#FF5500;font-size:11px;font-weight:900;padding:4px 12px;border-radius:20px;text-transform:uppercase;letter-spacing:1px;">Before</span>
+          <span style="font-size:13px;color:var(--slate);">aadek.com — old site</span>
+        </div>
+        <div style="background:#f8f9fa;border:2px solid #e2e8f0;border-radius:12px;overflow:hidden;">
+          <!-- Browser chrome -->
+          <div style="background:#e2e8f0;padding:10px 16px;display:flex;align-items:center;gap:8px;">
+            <div style="display:flex;gap:5px;"><div style="width:10px;height:10px;border-radius:50%;background:#ff5f57;"></div><div style="width:10px;height:10px;border-radius:50%;background:#febc2e;"></div><div style="width:10px;height:10px;border-radius:50%;background:#28c840;"></div></div>
+            <div style="flex:1;background:#fff;border-radius:4px;padding:4px 10px;font-size:11px;color:#94a3b8;">aadek.com</div>
+          </div>
+          <!-- Old site mockup -->
+          <div style="padding:24px;background:#fff;">
+            <div style="background:#f1f5f9;border-radius:6px;padding:16px;margin-bottom:12px;">
+              <div style="height:12px;background:#cbd5e1;border-radius:3px;width:60%;margin-bottom:8px;"></div>
+              <div style="height:8px;background:#e2e8f0;border-radius:3px;width:90%;margin-bottom:6px;"></div>
+              <div style="height:8px;background:#e2e8f0;border-radius:3px;width:75%;"></div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px;">
+              <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:12px;">
+                <div style="height:8px;background:#e2e8f0;border-radius:3px;width:80%;margin-bottom:6px;"></div>
+                <div style="font-size:9px;color:#94a3b8;line-height:1.4;">You will find the latest information about our company here...</div>
+              </div>
+              <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:12px;">
+                <div style="height:8px;background:#e2e8f0;border-radius:3px;width:80%;margin-bottom:6px;"></div>
+                <div style="font-size:9px;color:#94a3b8;line-height:1.4;">You will find the latest information about our company here...</div>
+              </div>
+              <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:12px;">
+                <div style="height:8px;background:#e2e8f0;border-radius:3px;width:80%;margin-bottom:6px;"></div>
+                <div style="font-size:9px;color:#94a3b8;line-height:1.4;">You will find the latest information about our company here...</div>
+              </div>
+            </div>
+            <div style="background:#f1f5f9;border-radius:6px;padding:12px;">
+              <div style="height:8px;background:#e2e8f0;border-radius:3px;width:50%;margin-bottom:6px;"></div>
+              <div style="height:8px;background:#e2e8f0;border-radius:3px;width:70%;"></div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:12px;padding:12px 16px;background:rgba(255,85,0,0.05);border-radius:8px;border:1px solid rgba(255,85,0,0.1);">
+          <div style="font-size:12px;color:#FF5500;font-weight:700;">❌ Placeholder text · No credentials · No CTA · No brand</div>
+        </div>
+      </div>
+
+      <!-- AFTER mockup -->
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+          <span style="background:rgba(34,197,94,0.1);color:#22c55e;font-size:11px;font-weight:900;padding:4px 12px;border-radius:20px;text-transform:uppercase;letter-spacing:1px;">After</span>
+          <span style="font-size:13px;color:var(--slate);">aadek.com — new site by BluWav</span>
+        </div>
+        <div style="background:#0A1628;border:2px solid rgba(201,168,76,0.3);border-radius:12px;overflow:hidden;">
+          <!-- Browser chrome -->
+          <div style="background:#0D1E35;padding:10px 16px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(255,255,255,0.08);">
+            <div style="display:flex;gap:5px;"><div style="width:10px;height:10px;border-radius:50%;background:#ff5f57;"></div><div style="width:10px;height:10px;border-radius:50%;background:#febc2e;"></div><div style="width:10px;height:10px;border-radius:50%;background:#28c840;"></div></div>
+            <div style="flex:1;background:rgba(255,255,255,0.06);border-radius:4px;padding:4px 10px;font-size:11px;color:rgba(255,255,255,0.4);">aadek.com</div>
+          </div>
+          <!-- New site mockup -->
+          <div style="padding:20px;">
+            <!-- Nav -->
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+              <div style="display:flex;align-items:center;gap:6px;"><div style="width:20px;height:20px;background:linear-gradient(135deg,#C9A84C,#E8C97A);border-radius:4px;"></div><div style="font-size:10px;font-weight:900;color:#fff;letter-spacing:1px;">AADEK</div></div>
+              <div style="display:flex;gap:8px;"><div style="height:6px;background:rgba(255,255,255,0.2);border-radius:3px;width:30px;"></div><div style="height:6px;background:rgba(255,255,255,0.2);border-radius:3px;width:30px;"></div><div style="height:6px;background:rgba(255,255,255,0.2);border-radius:3px;width:30px;"></div><div style="height:6px;background:#C9A84C;border-radius:3px;width:40px;"></div></div>
+            </div>
+            <!-- Hero -->
+            <div style="margin-bottom:14px;">
+              <div style="height:6px;background:rgba(201,168,76,0.4);border-radius:3px;width:40%;margin-bottom:8px;"></div>
+              <div style="height:14px;background:rgba(255,255,255,0.9);border-radius:3px;width:85%;margin-bottom:6px;"></div>
+              <div style="height:14px;background:rgba(255,255,255,0.7);border-radius:3px;width:65%;margin-bottom:10px;"></div>
+              <div style="height:8px;background:rgba(255,255,255,0.3);border-radius:3px;width:90%;margin-bottom:4px;"></div>
+              <div style="height:8px;background:rgba(255,255,255,0.3);border-radius:3px;width:75%;margin-bottom:12px;"></div>
+              <div style="display:flex;gap:8px;"><div style="height:24px;background:#C9A84C;border-radius:5px;width:80px;"></div><div style="height:24px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:5px;width:70px;"></div></div>
+            </div>
+            <!-- 3 division cards -->
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;">
+              <div style="background:rgba(201,168,76,0.1);border-top:2px solid #C9A84C;border-radius:4px;padding:8px;"><div style="height:6px;background:#C9A84C;border-radius:2px;width:60%;margin-bottom:4px;"></div><div style="height:4px;background:rgba(255,255,255,0.2);border-radius:2px;width:90%;"></div></div>
+              <div style="background:rgba(79,195,212,0.1);border-top:2px solid #4FC3D4;border-radius:4px;padding:8px;"><div style="height:6px;background:#4FC3D4;border-radius:2px;width:60%;margin-bottom:4px;"></div><div style="height:4px;background:rgba(255,255,255,0.2);border-radius:2px;width:90%;"></div></div>
+              <div style="background:rgba(74,127,165,0.1);border-top:2px solid #4A7FA5;border-radius:4px;padding:8px;"><div style="height:6px;background:#4A7FA5;border-radius:2px;width:60%;margin-bottom:4px;"></div><div style="height:4px;background:rgba(255,255,255,0.2);border-radius:2px;width:90%;"></div></div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:12px;padding:12px 16px;background:rgba(34,197,94,0.05);border-radius:8px;border:1px solid rgba(34,197,94,0.15);">
+          <div style="font-size:12px;color:#22c55e;font-weight:700;">✓ Premium brand · PE credentials · 3 divisions · Clear CTA</div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -488,6 +595,89 @@ footer .footer-grid{gap:56px !important;}
   </div>
 </section>
 
+
+<!-- Inline contact form — after quote, high intent moment -->
+<section style="padding:72px 0;background:var(--sand);">
+  <div class="wrap">
+    <div style="max-width:720px;margin:0 auto;">
+      <div class="reveal" style="text-align:center;margin-bottom:36px;">
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2);border-radius:20px;padding:6px 16px;margin-bottom:16px;">
+          <span style="width:7px;height:7px;border-radius:50%;background:#22c55e;animation:pulse 2s infinite;display:inline-block;"></span>
+          <span style="font-size:11px;font-weight:800;color:#22c55e;text-transform:uppercase;letter-spacing:2px;">Currently Accepting New Clients</span>
+        </div>
+        <h2 style="font-family:'Manrope',sans-serif;font-size:clamp(24px,4vw,36px);font-weight:800;color:var(--navy);line-height:1.15;margin-bottom:12px;">Want the Same Results<br/>for Your Business?</h2>
+        <p style="font-size:15px;color:var(--slate);line-height:1.8;">Tell us about your business. We'll review your online presence and WhatsApp you within 48 hours with a clear plan — free, no commitment.</p>
+      </div>
+      <div class="reveal" style="background:#fff;border-radius:20px;padding:40px;box-shadow:0 4px 32px rgba(0,43,73,0.08);border:1px solid var(--mist);">
+        <form onsubmit="submitCaseStudyForm(event)">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+            <div>
+              <label style="display:block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--slate);margin-bottom:6px;">Your Name</label>
+              <input type="text" placeholder="Andrea Tanguay" required style="width:100%;padding:13px 16px;border:1.5px solid #e2e8f0;border-radius:9px;font-size:14px;font-family:'Plus Jakarta Sans',sans-serif;color:var(--navy);outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#002B49'" onblur="this.style.borderColor='#e2e8f0'"/>
+            </div>
+            <div>
+              <label style="display:block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--slate);margin-bottom:6px;">WhatsApp Number</label>
+              <input type="tel" placeholder="+1 (868) 000-0000" required style="width:100%;padding:13px 16px;border:1.5px solid #e2e8f0;border-radius:9px;font-size:14px;font-family:'Plus Jakarta Sans',sans-serif;color:var(--navy);outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#002B49'" onblur="this.style.borderColor='#e2e8f0'"/>
+            </div>
+          </div>
+          <div style="margin-bottom:16px;">
+            <label style="display:block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--slate);margin-bottom:6px;">Business Name</label>
+            <input type="text" placeholder="Your Business Name" required style="width:100%;padding:13px 16px;border:1.5px solid #e2e8f0;border-radius:9px;font-size:14px;font-family:'Plus Jakarta Sans',sans-serif;color:var(--navy);outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#002B49'" onblur="this.style.borderColor='#e2e8f0'"/>
+          </div>
+          <div style="margin-bottom:20px;">
+            <label style="display:block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--slate);margin-bottom:6px;">What do you need?</label>
+            <select style="width:100%;padding:13px 16px;border:1.5px solid #e2e8f0;border-radius:9px;font-size:14px;font-family:'Plus Jakarta Sans',sans-serif;color:var(--navy);outline:none;background:#fff;appearance:none;">
+              <option>Professional website (like AADEK)</option>
+              <option>Website + Google visibility</option>
+              <option>Full growth system (website + CRM + automation)</option>
+              <option>CRM only</option>
+              <option>Not sure — I need a health check first</option>
+            </select>
+          </div>
+          <button type="submit" id="cs-submit-btn" style="width:100%;background:#FF5500;color:#fff;font-size:16px;font-weight:800;padding:16px;border-radius:11px;border:none;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all 0.2s;box-shadow:0 4px 20px rgba(255,85,0,0.3);" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+            Get My Free Health Check →
+          </button>
+          <div style="display:flex;gap:20px;justify-content:center;margin-top:14px;flex-wrap:wrap;">
+            <span style="font-size:12px;color:var(--slate);display:flex;align-items:center;gap:5px;"><span style="color:#22c55e;">✓</span> Free</span>
+            <span style="font-size:12px;color:var(--slate);display:flex;align-items:center;gap:5px;"><span style="color:#22c55e;">✓</span> No commitment</span>
+            <span style="font-size:12px;color:var(--slate);display:flex;align-items:center;gap:5px;"><span style="color:#22c55e;">✓</span> WhatsApp response in 48h</span>
+          </div>
+        </form>
+        <!-- WhatsApp alternative -->
+        <div style="margin-top:24px;padding-top:20px;border-top:1px solid #e2e8f0;text-align:center;">
+          <p style="font-size:13px;color:var(--slate);margin-bottom:12px;">Prefer to chat directly?</p>
+          <a href="https://wa.me/18682979960?text=Hi%20BluWav%20Growth!%20I%20saw%20the%20AADEK%20case%20study%20and%20I%27d%20like%20to%20discuss%20my%20project."
+             target="_blank"
+             style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;font-size:14px;font-weight:800;padding:12px 28px;border-radius:10px;text-decoration:none;transition:all 0.2s;"
+             onmouseover="this.style.transform='translateY(-1px)'" onmouseout="this.style.transform='translateY(0)'">
+            💬 WhatsApp Us Now
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+function submitCaseStudyForm(e){
+  e.preventDefault();
+  var btn = document.getElementById('cs-submit-btn');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+  // Send to Formspree
+  var formData = new FormData(e.target);
+  fetch('https://formspree.io/f/xpwzgvkd', {
+    method:'POST', body:formData, headers:{'Accept':'application/json'}
+  }).then(function(){
+    btn.textContent = '✓ Sent! We'll WhatsApp you within 48 hours';
+    btn.style.background = '#22c55e';
+    btn.style.boxShadow = '0 4px 20px rgba(34,197,94,0.3)';
+  }).catch(function(){
+    btn.textContent = 'Get My Free Health Check →';
+    btn.disabled = false;
+  });
+}
+</script>
+
 <!-- DELIVERABLES -->
 <section style="padding:80px 0;background:var(--sand);">
   <div class="wrap">
@@ -540,7 +730,13 @@ footer .footer-grid{gap:56px !important;}
       <a href="https://forms.gle/EcVVcffVTqLZpHURA" target="_blank" style="background:var(--coral);color:#fff;font-size:15px;font-weight:800;padding:16px 36px;border-radius:12px;box-shadow:0 4px 24px rgba(255,85,0,0.4);transition:all 0.2s;display:inline-block;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">Get Your Free Health Check →</a>
       <a href="apply.html" style="background:rgba(255,255,255,0.1);color:#fff;font-size:15px;font-weight:700;padding:16px 36px;border-radius:12px;border:1.5px solid rgba(255,255,255,0.2);transition:all 0.2s;display:inline-block;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.2)';this.style.color='#fff'">View Our Packages</a>
     </div>
-    <p style="font-size:12px;color:rgba(255,255,255,0.4);text-align:center;margin-top:20px;">Free · No commitment · Results in 48 hours</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:16px;">
+      <a href="https://wa.me/18682979960?text=Hi%20BluWav%20Growth!%20I%20saw%20the%20AADEK%20case%20study%20and%20I%27d%20like%20to%20discuss%20my%20project." target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;font-size:14px;font-weight:800;padding:14px 28px;border-radius:11px;text-decoration:none;transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">💬 WhatsApp Us Directly</a>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:16px;">
+      <span style="width:7px;height:7px;border-radius:50%;background:#22c55e;animation:pulse 2s infinite;display:inline-block;"></span>
+      <p style="font-size:12px;color:rgba(255,255,255,0.5);">Currently accepting new clients · Free health check · Results in 48 hours</p>
+    </div>
   </div>
 </section>
 
@@ -622,5 +818,43 @@ function closeMob(){document.getElementById('mobNav').classList.remove('open');v
 document.addEventListener('click',function(e){var nav=document.getElementById('mobNav');var btn=document.getElementById('hamburgerBtn');if(nav&&btn&&nav.classList.contains('open')){if(!nav.contains(e.target)&&!btn.contains(e.target)){nav.classList.remove('open');if(btn)btn.classList.remove('open');}}}); 
 (function(){var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});})();
 </script>
+
+<!-- Sticky bottom CTA bar -->
+<div id="sticky-cta" style="position:fixed;bottom:0;left:0;right:0;z-index:500;background:linear-gradient(135deg,#002B49,#003d5c);border-top:1px solid rgba(0,224,255,0.2);padding:14px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;box-shadow:0 -4px 24px rgba(0,0,0,0.3);transform:translateY(100%);transition:transform 0.4s ease;">
+  <div style="display:flex;align-items:center;gap:14px;">
+    <div style="width:8px;height:8px;border-radius:50%;background:#22c55e;animation:pulse 2s infinite;flex-shrink:0;"></div>
+    <div>
+      <div style="font-size:14px;font-weight:800;color:#fff;">Ready to transform your digital presence?</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.55);">Currently accepting new clients · Delivered in 48 hours · Starting from $1,800</div>
+    </div>
+  </div>
+  <div style="display:flex;gap:10px;flex-shrink:0;flex-wrap:wrap;">
+    <a href="https://wa.me/18682979960?text=Hi%20BluWav%20Growth!%20I%20saw%20the%20AADEK%20case%20study%20and%20I%27d%20like%20to%20discuss%20my%20project."
+       target="_blank"
+       style="display:inline-flex;align-items:center;gap:7px;background:#25D366;color:#fff;font-size:13px;font-weight:800;padding:10px 20px;border-radius:8px;text-decoration:none;white-space:nowrap;">
+      💬 WhatsApp Us
+    </a>
+    <a href="apply.html"
+       style="display:inline-flex;align-items:center;gap:7px;background:#FF5500;color:#fff;font-size:13px;font-weight:800;padding:10px 20px;border-radius:8px;text-decoration:none;white-space:nowrap;">
+      Apply Now →
+    </a>
+    <button onclick="document.getElementById('sticky-cta').style.transform='translateY(100%)'" style="background:rgba(255,255,255,0.1);border:none;color:rgba(255,255,255,0.5);font-size:18px;cursor:pointer;padding:8px 12px;border-radius:6px;line-height:1;">×</button>
+  </div>
+</div>
+<script>
+// Show sticky bar after scrolling 40% of page
+(function(){
+  var bar = document.getElementById('sticky-cta');
+  var shown = false;
+  window.addEventListener('scroll', function(){
+    var pct = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+    if(pct > 0.35 && !shown){
+      bar.style.transform = 'translateY(0)';
+      shown = true;
+    }
+  });
+})();
+</script>
+
 </body>
 </html>
