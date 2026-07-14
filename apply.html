@@ -120,6 +120,12 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
 @media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;}}
 @media(max-width:600px){.footer-grid{grid-template-columns:1fr!important;}.footer-bottom{flex-direction:column;text-align:center;gap:8px;}}
 .wa-float{position:fixed;bottom:80px;right:24px;z-index:200;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 20px rgba(37,211,102,0.45);}
+
+/* Footer — full width like AADEK */
+footer .wrap{max-width:1600px !important;padding:0 64px !important;}
+footer .footer-grid{gap:56px !important;}
+@media(max-width:1024px){footer .wrap{padding:0 32px !important;}}
+@media(max-width:768px){footer .wrap{padding:0 20px !important;}}
 </style>
 <!-- Meta Pixel Code -->
 <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1945068829544650');fbq('track','PageView');</script>
