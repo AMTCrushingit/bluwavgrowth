@@ -657,6 +657,29 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;padding:0 32px;d
 </div>
 </div>
 <script>
+
+// Show/hide domain field based on website selection
+function toggleDomain(val){
+  var group = document.getElementById('domainGroup');
+  var input = document.getElementById('domainInput');
+  if(val === 'needs' || val === 'fine'){
+    group.style.display = 'block';
+    input.required = true;
+    // Animate in
+    group.style.opacity = '0';
+    group.style.transform = 'translateY(-8px)';
+    setTimeout(function(){
+      group.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+      group.style.opacity = '1';
+      group.style.transform = 'translateY(0)';
+    }, 10);
+  } else {
+    group.style.display = 'none';
+    input.required = false;
+    input.value = '';
+  }
+}
+
 // Scroll reveal
 (function(){
   var obs=new IntersectionObserver(function(entries){
