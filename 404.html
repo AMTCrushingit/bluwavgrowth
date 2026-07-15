@@ -78,6 +78,131 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
 @media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr!important;padding-left:32px!important;padding-right:32px!important;}.footer-bottom{padding:20px 32px!important;}}
 @media(max-width:600px){.footer-grid{grid-template-columns:1fr!important;padding-left:20px!important;padding-right:20px!important;}.footer-bottom{flex-direction:column;text-align:center;gap:8px;padding:20px!important;}}
 .wa-float{position:fixed;bottom:80px;right:24px;z-index:200;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 20px rgba(37,211,102,0.45);}
+
+/* ── OCEAN WAVE ANIMATION ── */
+@keyframes wave1{
+  0%{transform:translateX(0) translateZ(0) scaleY(1);}
+  50%{transform:translateX(-25%) translateZ(0) scaleY(0.85);}
+  100%{transform:translateX(-50%) translateZ(0) scaleY(1);}
+}
+@keyframes wave2{
+  0%{transform:translateX(0) translateZ(0) scaleY(1);}
+  50%{transform:translateX(-30%) translateZ(0) scaleY(1.1);}
+  100%{transform:translateX(-50%) translateZ(0) scaleY(1);}
+}
+@keyframes wave3{
+  0%{transform:translateX(0) translateZ(0) scaleY(1);}
+  50%{transform:translateX(-20%) translateZ(0) scaleY(0.9);}
+  100%{transform:translateX(-50%) translateZ(0) scaleY(1);}
+}
+@keyframes bobFloat{
+  0%,100%{transform:translateY(0) rotate(-2deg);}
+  50%{transform:translateY(-12px) rotate(2deg);}
+}
+@keyframes bubbleRise{
+  0%{transform:translateY(0) scale(1);opacity:0.6;}
+  100%{transform:translateY(-80px) scale(0.3);opacity:0;}
+}
+@keyframes shimmer{
+  0%,100%{opacity:0.3;}
+  50%{opacity:0.7;}
+}
+
+.ocean-container{
+  position:relative;
+  width:100%;
+  height:200px;
+  overflow:hidden;
+  background:linear-gradient(to bottom,#001828 0%,#002B49 100%);
+  flex-shrink:0;
+}
+
+/* Stars/particles in the ocean bg */
+.ocean-container::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;bottom:0;
+  background:
+    radial-gradient(circle,rgba(0,224,255,0.15) 1px,transparent 1px) 10% 20%/80px 80px,
+    radial-gradient(circle,rgba(0,224,255,0.1) 1px,transparent 1px) 40% 60%/60px 60px,
+    radial-gradient(circle,rgba(0,224,255,0.08) 1px,transparent 1px) 70% 30%/100px 100px;
+  animation:shimmer 4s ease-in-out infinite;
+}
+
+.wave-wrapper{
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:160px;
+}
+
+/* Each wave layer uses a wide SVG path repeated */
+.wave-layer{
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:200%;
+  height:100%;
+}
+
+.wave-layer-1{
+  animation:wave1 6s linear infinite;
+  opacity:1;
+  z-index:3;
+}
+.wave-layer-2{
+  animation:wave2 9s linear infinite;
+  opacity:0.7;
+  z-index:2;
+}
+.wave-layer-3{
+  animation:wave3 12s linear infinite;
+  opacity:0.5;
+  z-index:1;
+}
+
+/* Floating boat/buoy emoji */
+.ocean-float{
+  position:absolute;
+  top:20px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:36px;
+  animation:bobFloat 3s ease-in-out infinite;
+  z-index:10;
+  filter:drop-shadow(0 4px 8px rgba(0,0,0,0.4));
+}
+
+/* Bubbles */
+.bubble{
+  position:absolute;
+  border-radius:50%;
+  background:rgba(0,224,255,0.2);
+  border:1px solid rgba(0,224,255,0.3);
+  animation:bubbleRise 3s ease-in infinite;
+}
+.bubble:nth-child(1){width:8px;height:8px;left:20%;bottom:20px;animation-delay:0s;animation-duration:3s;}
+.bubble:nth-child(2){width:5px;height:5px;left:35%;bottom:30px;animation-delay:0.8s;animation-duration:2.5s;}
+.bubble:nth-child(3){width:10px;height:10px;left:55%;bottom:15px;animation-delay:1.5s;animation-duration:3.5s;}
+.bubble:nth-child(4){width:6px;height:6px;left:70%;bottom:25px;animation-delay:0.3s;animation-duration:2.8s;}
+.bubble:nth-child(5){width:4px;height:4px;left:80%;bottom:35px;animation-delay:2s;animation-duration:3.2s;}
+.bubble:nth-child(6){width:7px;height:7px;left:10%;bottom:40px;animation-delay:1s;animation-duration:2.6s;}
+
+/* Text in ocean */
+.ocean-text{
+  position:absolute;
+  bottom:16px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:11px;
+  font-weight:700;
+  color:rgba(0,224,255,0.5);
+  letter-spacing:3px;
+  text-transform:uppercase;
+  white-space:nowrap;
+  z-index:10;
+}
 </style>
 </head>
 <body>
@@ -113,7 +238,14 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
 
 <!-- 404 HERO -->
 <div class="error-hero">
-  <div class="error-inner">
+  <!-- Floating particles -->
+<div style="position:absolute;inset:0;pointer-events:none;overflow:hidden;">
+  <div style="position:absolute;top:20%;left:15%;font-size:20px;opacity:0.15;animation:bobFloat 4s ease-in-out infinite;">🌊</div>
+  <div style="position:absolute;top:60%;left:80%;font-size:14px;opacity:0.1;animation:bobFloat 5s ease-in-out infinite 1s;">🌊</div>
+  <div style="position:absolute;top:40%;left:5%;font-size:12px;opacity:0.08;animation:bobFloat 6s ease-in-out infinite 2s;">🌊</div>
+  <div style="position:absolute;top:75%;left:60%;font-size:16px;opacity:0.1;animation:bobFloat 4.5s ease-in-out infinite 0.5s;">🌊</div>
+</div>
+<div class="error-inner">
     <div class="error-num">404</div>
     <span class="error-wave">Oops!</span>
     <h1 class="error-title">This page got lost at sea.</h1>
@@ -123,6 +255,41 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
       <a class="btn-outline" href="https://forms.gle/EcVVcffVTqLZpHURA" target="_blank">Get a Free Health Check</a>
     </div>
   </div>
+</div>
+
+
+<!-- ANIMATED OCEAN WAVE -->
+<div class="ocean-container">
+  <!-- Floating boat -->
+  <div class="ocean-float">⛵</div>
+
+  <!-- Bubbles -->
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+
+  <!-- Wave layers -->
+  <div class="wave-wrapper">
+    <!-- Wave 1 — front, darkest, fastest -->
+    <svg class="wave-layer wave-layer-1" viewBox="0 0 1440 160" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,80 C120,120 240,40 360,80 C480,120 600,40 720,80 C840,120 960,40 1080,80 C1200,120 1320,40 1440,80 L1440,160 L0,160 Z" fill="rgba(0,43,73,0.95)"/>
+      <path d="M0,100 C120,60 240,140 360,100 C480,60 600,140 720,100 C840,60 960,140 1080,100 C1200,60 1320,140 1440,100 L1440,160 L0,160 Z" fill="rgba(0,30,55,0.6)"/>
+    </svg>
+    <!-- Wave 2 — middle, cyan tint -->
+    <svg class="wave-layer wave-layer-2" viewBox="0 0 1440 160" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,90 C180,50 360,130 540,90 C720,50 900,130 1080,90 C1260,50 1440,130 1440,90 L1440,160 L0,160 Z" fill="rgba(0,194,216,0.15)"/>
+    </svg>
+    <!-- Wave 3 — back, lightest, slowest -->
+    <svg class="wave-layer wave-layer-3" viewBox="0 0 1440 160" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,70 C240,110 480,30 720,70 C960,110 1200,30 1440,70 L1440,160 L0,160 Z" fill="rgba(0,224,255,0.08)"/>
+    </svg>
+  </div>
+
+  <!-- Ocean label -->
+  <div class="ocean-text">🌊 &nbsp; Lost at sea &nbsp; 🌊</div>
 </div>
 
 <!-- QUICK LINKS -->
