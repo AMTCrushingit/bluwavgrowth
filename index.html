@@ -1580,6 +1580,54 @@ footer .wrap{max-width:1600px !important;padding:0 64px !important;}
 footer .footer-grid{gap:56px !important;}
 @media(max-width:1024px){footer .wrap{padding:0 32px !important;}}
 @media(max-width:768px){footer .wrap{padding:0 20px !important;}}
+
+/* ── HEALTH CHECK SECTION MOBILE FIXES ── */
+@media(max-width:768px){
+  /* Main 2-col grid → single column */
+  .hc-main-grid{
+    grid-template-columns:1fr !important;
+    gap:40px !important;
+  }
+  /* Health check section padding */
+  #health-check{
+    padding:48px 0 80px !important;
+  }
+  /* Form heading */
+  #health-check h2{
+    font-size:28px !important;
+  }
+  /* What We Check 4-card grid → 2-col */
+  .wc-cards-grid{
+    grid-template-columns:1fr 1fr !important;
+    gap:12px !important;
+  }
+  /* What you receive dark bar → stack */
+  .wc-result-grid{
+    grid-template-columns:1fr !important;
+    gap:24px !important;
+    padding:24px 20px !important;
+  }
+  /* Form inputs full width */
+  #health-check input,
+  #health-check select,
+  #health-check textarea{
+    font-size:16px !important;
+  }
+  /* Plan cards in right column */
+  .reveal-right .h2{
+    font-size:28px !important;
+  }
+}
+@media(max-width:480px){
+  /* 4-card grid → 1-col on very small screens */
+  .wc-cards-grid{
+    grid-template-columns:1fr !important;
+  }
+  /* Health check form padding */
+  #health-check .wrap > div > div:first-child{
+    padding:0 !important;
+  }
+}
 </style>
 <meta content="index, follow" name="robots"/>
 <meta property="og:title" content="BluWav Growth | Website Design & Digital Growth for Caribbean Businesses"/>
@@ -2066,7 +2114,7 @@ function setCurrency(code, symbol, name){
 <!-- Cyan accent line top -->
 <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,#00E0FF,#00C2D8,transparent);z-index:2;"></div>
 <div style="max-width:1200px;margin:0 auto;padding:0 48px;position:relative;z-index:3;">
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;">
+<div class="hc-main-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;">
 <!-- Left: headline + description -->
 <div class="reveal-left">
 <span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:#00E0FF;display:block;margin-bottom:16px;">Every Plan</span>
@@ -2422,7 +2470,7 @@ function setCurrency(code, symbol, name){
   </div>
 
   <!-- What you receive -->
-  <div style="background:#002B49;border-radius:20px;padding:36px 40px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin-bottom:0;">
+  <div class="wc-result-grid" style="background:#002B49;border-radius:20px;padding:36px 40px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin-bottom:0;">
     <div>
       <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:#00E0FF;margin-bottom:12px;">What You Receive</div>
       <h3 style="font-family:'Manrope',sans-serif;font-size:22px;font-weight:800;color:#fff;margin-bottom:16px;line-height:1.3;">A clear WhatsApp summary — within 48 hours</h3>
@@ -2459,7 +2507,7 @@ function setCurrency(code, symbol, name){
 <!-- HEALTH CHECK, 2-col: form left, plans right -->
 <section id="health-check" style="background:#F4F2ED;padding:60px 0 120px;">
 <div class="wrap">
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;">
+<div class="hc-main-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;">
 <div class="reveal-left">
 <span class="eyebrow reveal-up">Free Health Check</span>
 <h2 class="h2 reveal-up" style="font-size:40px;">Is Your Business<br/>Healthy Online?</h2>
