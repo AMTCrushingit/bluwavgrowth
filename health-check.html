@@ -186,20 +186,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;padding:0 32px;d
 .wave-divider{line-height:0;overflow:hidden;}
 .wave-divider svg{display:block;width:100%;}
 
-/* ── FOOTER ── */
-footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;max-width:1600px;margin:0 auto;padding-left:64px;padding-right:64px;}
-.footer-heading{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.4);margin-bottom:16px;}
-.footer-brand-name{font-family:'Kaushan Script',cursive;font-size:34px;color:#fff;line-height:1;margin-bottom:6px;}
-.footer-brand-name span{color:#00E0FF;}
-.footer-brand-sub{font-size:9px;font-weight:700;color:#F7C873;letter-spacing:5px;text-transform:uppercase;margin-bottom:12px;}
-.footer-brand-tag{font-size:12px;font-weight:500;color:#00E0FF;letter-spacing:1px;margin-bottom:6px;}
-.footer-desc{font-size:13px;color:rgba(255,255,255,0.4);line-height:1.65;margin-top:12px;}
-.footer-link{display:block;font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:8px;transition:color 0.2s,transform 0.2s;}
-.footer-link:hover{color:#fff;transform:translateX(4px);}
-.footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding:20px 64px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;max-width:1600px;margin:0 auto;}
-.footer-bottom-text{font-size:12px;color:rgba(255,255,255,0.3);}
-.wa-float{position:fixed;bottom:80px;right:24px;z-index:200;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 20px rgba(37,211,102,0.45);}
+
 
 /* ── MOBILE ── */
 @media(max-width:900px){
@@ -238,7 +225,7 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
 <div class="nav-trust-item"><span>✓</span> Results in 48 hours</div>
 <div class="nav-trust-item"><span>✓</span> No commitment</div>
 </div>
-<a class="nav-cta-sm" href="#form">Get My Free Check →</a>
+<a class="nav-cta-sm" href="#form">Get My Free Digital Health Check →</a>
 </nav>
 <!-- ══ HERO ══════════════════════════════════════════════════════════════ -->
 <section class="hero" id="home">
@@ -275,7 +262,7 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
 </div>
 <!-- Right: form -->
 <div class="form-card" id="form">
-<div class="form-title">Get Your Free Health Check</div>
+<div class="form-title">Get Your Free Digital Health Check</div>
 <div class="form-sub">Takes 2 minutes. We'll WhatsApp you a full report within 48 hours.</div>
 <form id="hcForm" onsubmit="submitHC(event)">
 <div class="form-row">
@@ -336,8 +323,7 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
 </select>
 </div>
 <button class="submit-btn" id="hcSubmitBtn" type="submit">
-          🔍 Check My Business for Free →
-        </button>
+          🔍 Get My Free Digital Health Check →</button>
 <div class="form-trust">
 <div class="form-trust-item"><span class="dot">●</span> Free forever</div>
 <div class="form-trust-item"><span class="dot">●</span> No credit card</div>
@@ -348,6 +334,33 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
 </div>
 </div>
 </section>
+
+<!-- FULL-SCREEN HUMAN IMAGE — frustrated businessman -->
+<div style="position:relative;height:520px;overflow:hidden;">
+  <img src="stressed-man-tropical.jpg"
+       alt="Caribbean business owner frustrated — invisible online"
+       loading="lazy"
+       style="width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;filter:brightness(0.75) saturate(1.1);"/>
+  <!-- Dark overlay — stronger on left for text -->
+  <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(0,8,20,0.92) 0%,rgba(0,20,45,0.75) 40%,rgba(0,20,45,0.3) 70%,transparent 100%);"></div>
+  <!-- Bottom fade -->
+  <div style="position:absolute;bottom:0;left:0;right:0;height:120px;background:linear-gradient(to bottom,transparent,#002B49);"></div>
+  <!-- Content overlay -->
+  <div style="position:absolute;inset:0;display:flex;align-items:center;padding:0 8%;">
+    <div style="max-width:560px;">
+      <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:4px;color:var(--coral);margin-bottom:16px;">Sound familiar?</div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,44px);font-weight:800;color:#fff;line-height:1.15;margin-bottom:20px;">
+        "I know I need to be online.<br/>I just don't know <span style="color:var(--coral);">where to start.</span>"
+      </h2>
+      <p style="font-size:16px;color:rgba(255,255,255,0.75);line-height:1.8;margin-bottom:28px;">Every day, Caribbean business owners lose customers to competitors who got online first. The good news? A free 48-hour health check shows you exactly what to fix — and in what order.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <a href="#form" style="display:inline-flex;align-items:center;gap:8px;background:var(--coral);color:#fff;font-size:15px;font-weight:800;padding:14px 32px;border-radius:11px;box-shadow:0 4px 24px rgba(255,85,0,0.4);transition:all 0.2s;text-decoration:none;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">Get My Free Digital Health Check →</a>
+        <a href="https://wa.me/18682979960" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);color:#fff;font-size:15px;font-weight:700;padding:14px 28px;border-radius:11px;border:1.5px solid rgba(255,255,255,0.2);transition:all 0.2s;text-decoration:none;" onmouseover="this.style.borderColor='var(--cyan)';this.style.color='var(--cyan)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.2)';this.style.color='#fff'">💬 WhatsApp Us</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Wave divider -->
 <div class="wave-divider" style="background:#002B49;">
 <svg preserveaspectratio="none" viewbox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg">
@@ -625,52 +638,12 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
 <h2 class="cta-title">Stop Losing Customers<br/>to Competitors Who Got Online First</h2>
 <p class="cta-sub">Get your free digital health check today. We'll tell you exactly where you stand — and what to do about it — in 48 hours.</p>
 <div class="cta-btns">
-<a class="btn-primary" href="#form">🔍 Get My Free Health Check →</a>
+<a class="btn-primary" href="#form">🔍 Get My Free Digital Health Check →</a>
 <a class="btn-wa" href="https://wa.me/18682979960?text=Hi%20BluWav%20Growth!%20I%27d%20like%20to%20get%20a%20free%20digital%20health%20check%20for%20my%20business." target="_blank">💬 WhatsApp Us Instead</a>
 </div>
 <p style="font-size:12px;color:rgba(255,255,255,0.35);margin-top:20px;">✓ Free · ✓ No credit card · ✓ Results in 48 hours · ✓ No commitment</p>
 </div>
 </section>
-<!-- FOOTER -->
-<footer>
-<div class="footer-grid">
-<div>
-<div class="footer-brand-name">Blu<span>Wav</span></div>
-<div class="footer-brand-sub">Growth</div>
-<div class="footer-brand-tag">Get Found. Get Chosen. Grow.</div>
-<div style="font-size:10px;font-weight:700;color:var(--gold);letter-spacing:3px;text-transform:uppercase;margin-top:6px;">A Stratiix Group Company</div>
-<p class="footer-desc">Caribbean-ready websites, Google visibility, CRM and automation. Built for Caribbean businesses by Caribbean experts.</p>
-</div>
-<div>
-<div class="footer-heading">Services</div>
-<a class="footer-link" href="index.html#what-we-do">Professional Websites</a>
-<a class="footer-link" href="index.html#what-we-do">Google Visibility</a>
-<a class="footer-link" href="index.html#what-we-do">Automation</a>
-<a class="footer-link" href="pricing.html">Growth Systems</a>
-<a class="footer-link" href="crm.html">BluWav CRM</a>
-</div>
-<div>
-<div class="footer-heading">Company</div>
-<a class="footer-link" href="index.html">Home</a>
-<a class="footer-link" href="pricing.html">Pricing</a>
-<a class="footer-link" href="our-promise.html">Our Promise</a>
-<a class="footer-link" href="the-wave.html">The Wave</a>
-<a class="footer-link" href="careers.html">Careers</a>
-<a class="footer-link" href="case-study-aadek.html">Case Study</a>
-</div>
-<div>
-<div class="footer-heading">Contact</div>
-<a class="footer-link" href="tel:+18682979960">📞 +1 (868) 297-9960</a>
-<a class="footer-link" href="https://wa.me/18682979960">💬 WhatsApp</a>
-<a class="footer-link" href="mailto:hello@bluwavgrowth.com">✉️ hello@bluwavgrowth.com</a>
-<div class="footer-link" style="cursor:default;">🌐 Serving businesses worldwide</div>
-</div>
-</div>
-<div class="footer-bottom">
-<div class="footer-bottom-text">© 2026 BluWav Growth · All rights reserved.</div>
-<div class="footer-bottom-text">Caribbean-Built Digital Growth Systems.  ·  <a href="privacy.html" style="color:rgba(255,255,255,0.3);text-decoration:none;">Privacy Policy</a></div>
-</div>
-</footer>
 <a class="wa-float" href="https://wa.me/18682979960" title="WhatsApp Us">💬</a>
 <!-- STICKY BAR -->
 <div id="sticky-hc">
@@ -679,7 +652,7 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
 <div class="sticky-sub">Get your free digital health check — results in 48 hours</div>
 </div>
 <div style="display:flex;align-items:center;gap:10px;">
-<a class="sticky-btn" href="#form">Get My Free Check →</a>
+<a class="sticky-btn" href="#form">Get My Free Digital Health Check →</a>
 <button class="sticky-close" onclick="document.getElementById('sticky-hc').classList.remove('show')">×</button>
 </div>
 </div>
@@ -729,7 +702,7 @@ function submitHC(e){
   btn.style.opacity='0.8';
 
   var formData=new FormData(e.target);
-  formData.append('_subject','🔍 New Free Health Check Request — BluWav Growth');
+  formData.append('_subject','🔍 New Free Digital Health Check Request — BluWav Growth');
   formData.append('_replyto',formData.get('email')||'');
 
   fetch('https://formspree.io/f/xpwzgvkd',{
@@ -746,11 +719,18 @@ function submitHC(e){
     // Scroll to confirmation
     e.target.insertAdjacentHTML('afterend','<div style="margin-top:20px;padding:20px;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);border-radius:12px;text-align:center;"><div style="font-size:28px;margin-bottom:8px;">🎉</div><div style="font-size:15px;font-weight:800;color:#fff;margin-bottom:4px;">You\'re on the wave!</div><div style="font-size:13px;color:rgba(255,255,255,0.6);">We\'ll review your business and WhatsApp you within 48 hours. Keep an eye on your messages!</div></div>');
   }).catch(function(){
-    btn.textContent='🔍 Check My Business for Free →';
+    btn.textContent='🔍 Get My Free Digital Health Check →';
     btn.disabled=false;
     btn.style.opacity='1';
   });
 }
 </script>
+
+<!-- Minimal close bar — no distractions -->
+<div style="background:#001020;padding:20px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;border-top:1px solid rgba(255,255,255,0.06);">
+  <div style="font-family:'Kaushan Script',cursive;font-size:18px;color:#fff;">Blu<span style="color:#00E0FF;">Wav</span> <span style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.4);letter-spacing:3px;text-transform:uppercase;font-family:'Plus Jakarta Sans',sans-serif;">Growth</span></div>
+  <div style="font-size:12px;color:rgba(255,255,255,0.3);">© 2026 BluWav Growth · <a href="privacy.html" style="color:rgba(255,255,255,0.3);text-decoration:none;">Privacy Policy</a> · <a href="index.html" style="color:rgba(255,255,255,0.3);text-decoration:none;">Back to site</a></div>
+</div>
+
 </body>
 </html>
