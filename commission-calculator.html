@@ -164,8 +164,8 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
 <body>
 
 <!-- LOCK SCREEN -->
-<div id="lockScreen" style="position:fixed;inset:0;z-index:99999;background:linear-gradient(160deg,#001020 0%,#002B49 50%,#003d5c 100%);display:flex;align-items:center;justify-content:center;padding:24px;">
-  <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(0,224,255,0.25);border-radius:24px;padding:48px 40px;text-align:center;max-width:440px;width:100%;">
+<div id="lockScreen" style="position:fixed;top:0;left:0;right:0;bottom:0;z-index:2147483647;background:linear-gradient(160deg,#001020 0%,#002B49 50%,#003d5c 100%);display:flex;align-items:center;justify-content:center;padding:24px;pointer-events:all;">
+  <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(0,224,255,0.25);border-radius:24px;padding:48px 40px;text-align:center;max-width:440px;width:100%;pointer-events:all;position:relative;z-index:2147483647;">
     <div style="font-size:52px;margin-bottom:20px;">&#128272;</div>
     <div style="font-family:Manrope,sans-serif;font-size:26px;font-weight:900;color:#fff;margin-bottom:10px;">Agent Portal</div>
     <div style="font-size:14px;color:rgba(255,255,255,0.6);margin-bottom:28px;line-height:1.65;">BluWav Growth Sales Agents only.<br/>Enter your access code to continue.</div>
@@ -191,173 +191,149 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
   </div>
 </div>
 
-<!-- Inline lock script — runs immediately, no dependencies -->
+<!-- Lock script -->
 <script>
-(function() {
-  var CODE         = 'BLUWAV2026';
-  var MAX_TRIES    = 5;
-  var tries        = MAX_TRIES;
-  var locked       = false;
-  var timer        = null;
-  var ANDREA_WA    = '16478702599';
-  var ANDREA_EMAIL = 'hello@bluwavgrowth.com';
+document.addEventListener("DOMContentLoaded", function() {
+  var CODE      = "BLUWAV2026";
+  var MAX_TRIES = 5;
+  var tries     = MAX_TRIES;
+  var locked    = false;
+  var timer     = null;
 
-  function getEl(id) { return document.getElementById(id); }
+  var lockScreen = document.getElementById("lockScreen");
+  var input      = document.getElementById("lockCode");
+  var btn        = document.getElementById("lockBtn");
+  var errDiv     = document.getElementById("lockError");
+
+  // Ensure lock screen is on top and clickable
+  if (lockScreen) {
+    lockScreen.style.zIndex        = "2147483647";
+    lockScreen.style.pointerEvents = "all";
+  }
 
   function showErr(msg, isError) {
-    var el = getEl('lockError');
-    if (!el) return;
-    el.innerHTML = msg;
-    el.style.display     = 'block';
-    el.style.background  = isError ? 'rgba(239,68,68,0.15)' : 'rgba(247,200,115,0.15)';
-    el.style.borderColor = isError ? 'rgba(239,68,68,0.4)'  : 'rgba(247,200,115,0.4)';
-    el.style.color       = isError ? '#fca5a5' : '#F7C873';
+    if (!errDiv) return;
+    errDiv.innerHTML     = msg;
+    errDiv.style.display = "block";
+    errDiv.style.background  = isError ? "rgba(239,68,68,0.15)"  : "rgba(247,200,115,0.15)";
+    errDiv.style.borderColor = isError ? "rgba(239,68,68,0.4)"   : "rgba(247,200,115,0.4)";
+    errDiv.style.color       = isError ? "#fca5a5" : "#F7C873";
   }
 
-  function notifyLockout(failedAttempts, ts) {
-    // WhatsApp notification to Andrea
-    var msg = encodeURIComponent(
-      'SECURITY ALERT - BluWav Agent Portal
-
-'
-      + 'An account has been locked out.
-'
-      + 'Failed attempts: ' + failedAttempts + '
-'
-      + 'Time: ' + ts + '
-'
-      + 'Page: commission-calculator.html
-
-'
-      + 'This may be an unauthorized access attempt.'
-    );
-    // Open WA silently via image ping (no popup)
-    var ping = new Image();
-    ping.src = 'https://wa.me/' + ANDREA_WA + '?text=' + msg;
-    // Also send via Formspree
-    var fd = new FormData();
-    fd.append('_subject', 'SECURITY ALERT: Agent Portal Lockout - ' + failedAttempts + ' failed attempts');
-    fd.append('event', 'lockout');
-    fd.append('failed_attempts', failedAttempts);
-    fd.append('timestamp', ts);
-    fd.append('page', 'commission-calculator.html');
-    fd.append('_replyto', ANDREA_EMAIL);
-    fetch('https://formspree.io/f/xpwzgvkd', {method:'POST', body:fd, headers:{'Accept':'application/json'}})
-      .catch(function(){});
+  function notifyLockout() {
+    var ts  = new Date().toLocaleString();
+    var fd  = new FormData();
+    fd.append("_subject", "SECURITY ALERT: Agent Portal Lockout - " + MAX_TRIES + " failed attempts");
+    fd.append("event",           "lockout");
+    fd.append("failed_attempts", MAX_TRIES);
+    fd.append("timestamp",       ts);
+    fd.append("page",            window.location.href);
+    fd.append("_replyto",        "hello@bluwavgrowth.com");
+    fetch("https://formspree.io/f/xpwzgvkd", {
+      method: "POST", body: fd, headers: {"Accept": "application/json"}
+    }).catch(function(){});
   }
 
-  window.doCheckCode = function() {
+  function doCheck() {
     if (locked) return;
-    var input = getEl('lockCode');
-    var btn   = getEl('lockBtn');
-    if (!input || !btn) return;
-    var v = (input.value || '').trim().toUpperCase();
+    if (!input || !btn) { alert("Page error - please refresh."); return; }
+
+    var v = (input.value || "").trim().toUpperCase();
 
     if (!v) {
-      showErr('Please enter your access code.', false);
+      showErr("Please enter your access code.", false);
       input.focus();
       return;
     }
 
     if (v === CODE) {
-      // SUCCESS
-      getEl('lockError').style.display = 'none';
-      btn.textContent      = 'Unlocking...';
-      btn.style.background = '#22c55e';
-      btn.style.boxShadow  = '0 4px 20px rgba(34,197,94,0.5)';
-      input.style.borderColor = '#22c55e';
-      try { sessionStorage.setItem('bw_auth', '1'); } catch(e) {}
+      if (errDiv) errDiv.style.display = "none";
+      btn.textContent      = "Unlocking...";
+      btn.style.background = "#22c55e";
+      btn.style.boxShadow  = "0 4px 20px rgba(34,197,94,0.5)";
+      if (input) input.style.borderColor = "#22c55e";
+      try { sessionStorage.setItem("bw_auth", "1"); } catch(ex) {}
       setTimeout(function() {
-        getEl('lockScreen').style.display = 'none';
+        if (lockScreen) lockScreen.style.display = "none";
       }, 500);
       return;
     }
 
-    // WRONG
+    // Wrong
     tries = tries - 1;
-    input.value = '';
-    input.style.borderColor = '#ef4444';
-    input.style.background  = 'rgba(239,68,68,0.12)';
-    setTimeout(function() {
-      if (!locked) {
-        input.style.borderColor = 'rgba(255,255,255,0.25)';
-        input.style.background  = 'rgba(255,255,255,0.12)';
-      }
-    }, 2000);
+    if (input) {
+      input.value = "";
+      input.style.borderColor = "#ef4444";
+      input.style.background  = "rgba(239,68,68,0.12)";
+      setTimeout(function() {
+        if (!locked && input) {
+          input.style.borderColor = "rgba(255,255,255,0.25)";
+          input.style.background  = "rgba(255,255,255,0.12)";
+        }
+      }, 2000);
+    }
 
     if (tries <= 0) {
-      // LOCKOUT
-      locked        = true;
-      input.disabled = true;
-      btn.disabled   = true;
-      btn.style.opacity = '0.5';
-      btn.style.cursor  = 'not-allowed';
-      var ts = new Date().toLocaleString();
-      notifyLockout(MAX_TRIES, ts);
+      locked = true;
+      if (input) input.disabled = true;
+      if (btn)   { btn.disabled = true; btn.style.opacity = "0.5"; btn.style.cursor = "not-allowed"; }
+      notifyLockout();
       var secs = 300;
-      showErr('Too many incorrect attempts. Locked for 5 minutes. <a href="https://wa.me/16478702599" target="_blank" style="color:#fca5a5;font-weight:800;text-decoration:underline;">WhatsApp Andrea</a> for your code.', true);
+      showErr("Too many incorrect attempts. Locked for 5 minutes. <a href=\"https://wa.me/16478702599\" target=\"_blank\" style=\"color:#fca5a5;font-weight:800;text-decoration:underline;\">WhatsApp Andrea</a>", true);
       timer = setInterval(function() {
         secs = secs - 1;
         if (secs <= 0) {
           clearInterval(timer);
-          locked         = false;
-          tries          = MAX_TRIES;
-          input.disabled = false;
-          btn.disabled   = false;
-          btn.style.opacity  = '1';
-          btn.style.cursor   = 'pointer';
-          btn.textContent    = 'Unlock Portal →';
-          btn.style.background = '#FF5500';
-          btn.style.boxShadow  = '0 4px 20px rgba(255,85,0,0.4)';
-          showErr('You can try again now.', false);
-          input.focus();
+          locked = false; tries = MAX_TRIES;
+          if (input) { input.disabled = false; input.style.borderColor = "rgba(255,255,255,0.25)"; input.style.background = "rgba(255,255,255,0.12)"; }
+          if (btn)   { btn.disabled = false; btn.style.opacity = "1"; btn.style.cursor = "pointer"; btn.textContent = "Unlock Portal →"; btn.style.background = "#FF5500"; btn.style.boxShadow = "0 4px 20px rgba(255,85,0,0.4)"; }
+          showErr("You can try again now.", false);
+          if (input) input.focus();
         } else {
-          var m = Math.floor(secs / 60);
-          var s = secs % 60;
-          getEl('lockError').innerHTML =
-            '❌ Locked out. Try again in ' + m + ':' + (s < 10 ? '0' : '') + s +
-            '. <a href="https://wa.me/16478702599" target="_blank" style="color:#fca5a5;font-weight:800;text-decoration:underline;">WhatsApp Andrea</a>';
+          var m = Math.floor(secs / 60), s = secs % 60;
+          if (errDiv) errDiv.innerHTML = "❌ Locked out. Try again in " + m + ":" + (s < 10 ? "0" : "") + s + ". <a href=\"https://wa.me/16478702599\" target=\"_blank\" style=\"color:#fca5a5;font-weight:800;text-decoration:underline;\">WhatsApp Andrea</a>";
         }
       }, 1000);
     } else {
-      var word = tries === 1 ? 'attempt' : 'attempts';
-      showErr('❌ Incorrect code. ' + tries + ' ' + word + ' remaining before lockout.', true);
-      input.focus();
+      var word = tries === 1 ? "attempt" : "attempts";
+      showErr("❌ Incorrect code. " + tries + " " + word + " remaining before lockout.", true);
+      if (input) input.focus();
     }
-  };
+  }
 
-  // Enter key support
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Enter' && getEl('lockScreen') && getEl('lockScreen').style.display !== 'none') {
-      window.doCheckCode();
-    }
-  });
+  // Wire up button
+  if (btn) {
+    btn.addEventListener("click", function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      doCheck();
+    });
+  }
 
-  // Clear error on typing
-  document.addEventListener('input', function(e) {
-    if (e.target && e.target.id === 'lockCode') {
-      var err = getEl('lockError');
-      if (err) err.style.display = 'none';
-      e.target.style.borderColor = 'rgba(255,255,255,0.25)';
-      e.target.style.background  = 'rgba(255,255,255,0.12)';
-    }
-  });
+  // Wire up Enter key
+  if (input) {
+    input.addEventListener("keydown", function(e) {
+      if (e.key === "Enter") { e.preventDefault(); doCheck(); }
+    });
+    // Clear error on typing
+    input.addEventListener("input", function() {
+      if (errDiv) errDiv.style.display = "none";
+      input.style.borderColor = "rgba(255,255,255,0.25)";
+      input.style.background  = "rgba(255,255,255,0.12)";
+    });
+    // Focus
+    setTimeout(function() { input.focus(); }, 100);
+  }
 
   // Auto-unlock if already authenticated
   try {
-    if (sessionStorage.getItem('bw_auth') === '1') {
-      getEl('lockScreen').style.display = 'none';
-      return;
+    if (sessionStorage.getItem("bw_auth") === "1") {
+      if (lockScreen) lockScreen.style.display = "none";
     }
-  } catch(e) {}
-
-  // Focus input
-  setTimeout(function() {
-    var inp = getEl('lockCode');
-    if (inp) inp.focus();
-  }, 200);
-})();
+  } catch(ex) {}
+});
 </script>
+
 
 <nav id="mainNav">
 <div class="nav-logo" style="display:flex;flex-direction:column;align-items:flex-start;line-height:1;padding:4px 0;">
