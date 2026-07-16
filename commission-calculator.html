@@ -759,27 +759,68 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
 <a class="wa-float" href="https://wa.me/18682979960" title="WhatsApp Us">💬</a>
 
 <script>
-// ── ACCESS CODE ───────────────────────────────────────────────────────────
-// Code: BLUWAV2026 (share only with signed agents)
+// ── ACCESS CODE ─────────────────────────────────────────────────────────
 var ACCESS_CODE = 'BLUWAV2026';
+
 function checkCode() {
-  var v = document.getElementById('lockCode').value.trim().toUpperCase();
-  if(v === ACCESS_CODE) {
-    document.getElementById('lockScreen').style.display = 'none';
-    sessionStorage.setItem('bw_agent_auth','1');
+  var input = document.getElementById('lockCode');
+  var btn   = document.getElementById('lockBtn');
+  var err   = document.getElementById('lockError');
+  var v     = (input.value || '').trim().toUpperCase();
+
+  if (!v) {
+    err.innerHTML = '&#9888;&#65039; Please enter your access code.';
+    err.style.display = 'block';
+    input.focus();
+    return;
+  }
+
+  if (v === ACCESS_CODE) {
+    btn.textContent = 'Unlocking...';
+    btn.style.background = '#22c55e';
+    err.style.display = 'none';
+    setTimeout(function() {
+      document.getElementById('lockScreen').style.display = 'none';
+      try { sessionStorage.setItem('bw_agent_auth', '1'); } catch(e) {}
+    }, 400);
   } else {
-    document.getElementById('lockError').style.display = 'block';
-    document.getElementById('lockCode').value = '';
-    document.getElementById('lockCode').focus();
+    err.innerHTML = '&#10060; Incorrect code. Please try again or <a href="https://wa.me/18682979960" target="_blank" style="color:#fca5a5;font-weight:800;">WhatsApp Andrea</a>.';
+    err.style.display = 'block';
+    input.style.borderColor = '#ef4444';
+    input.style.background  = 'rgba(239,68,68,0.12)';
+    input.select();
+    setTimeout(function() {
+      input.style.borderColor = 'rgba(255,255,255,0.25)';
+      input.style.background  = 'rgba(255,255,255,0.12)';
+    }, 2500);
   }
 }
-document.getElementById('lockCode').addEventListener('keydown', function(e) {
-  if(e.key === 'Enter') checkCode();
-});
-// Auto-unlock if already authenticated this session
-if(sessionStorage.getItem('bw_agent_auth') === '1') {
-  document.getElementById('lockScreen').style.display = 'none';
+
+function clearLockError() {
+  var err   = document.getElementById('lockError');
+  var input = document.getElementById('lockCode');
+  if (err)   err.style.display = 'none';
+  if (input) {
+    input.style.borderColor = 'rgba(255,255,255,0.25)';
+    input.style.background  = 'rgba(255,255,255,0.12)';
+  }
 }
+
+// Auto-unlock if already authenticated this session
+(function() {
+  try {
+    if (sessionStorage.getItem('bw_agent_auth') === '1') {
+      document.getElementById('lockScreen').style.display = 'none';
+      return;
+    }
+  } catch(e) {}
+  // Focus input after short delay
+  setTimeout(function() {
+    var inp = document.getElementById('lockCode');
+    var ls  = document.getElementById('lockScreen');
+    if (inp && ls && ls.style.display !== 'none') inp.focus();
+  }, 350);
+})();
 
 // ── NAV ───────────────────────────────────────────────────────────────────
 function toggleMob(){var n=document.getElementById('mobNav'),b=document.getElementById('hamburgerBtn');n.classList.toggle('open');if(b)b.classList.toggle('open');}
