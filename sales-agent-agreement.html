@@ -213,10 +213,10 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
         <div class="party-detail" style="color:var(--slate);font-style:italic;font-size:12px;">Complete the form below to populate your details.</div>
       </div>
     </div>
-    <div style="margin-bottom:24px;font-size:14px;color:#374151;">
-      <strong style="color:var(--navy);">Agreement Date:</strong> ___________________________
-      &nbsp;&nbsp;&nbsp;
-      <strong style="color:var(--navy);">Partner Tier:</strong> ___________________________
+    <div style="margin-bottom:24px;font-size:14px;color:#374151;background:#EFF6FF;border-radius:10px;padding:14px 18px;border:1px solid #E2E8F0;">
+      <strong style="color:var(--navy);">Agreement Date:</strong> <span id="displayDate" style="color:var(--coral);font-weight:700;">Will populate on signing</span>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <strong style="color:var(--navy);">Partner Tier:</strong> <span id="displayTier" style="color:var(--coral);font-weight:700;">Tier 2 — Sales Agent</span>
     </div>
     <div class="agreement-body">
       <div class="section-num">1. Overview</div>
@@ -233,7 +233,7 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
           <tr><td><strong>Tier 4 — White-Label Partner</strong></td><td>Resells BluWav CRM under own brand.</td><td>20% on first 3 months recurring</td></tr>
         </tbody>
       </table>
-      <p><strong>Selected Tier for this Agreement:</strong> ___________________________</p>
+      <p><strong>Selected Tier for this Agreement:</strong> <span style="color:var(--coral);font-weight:700;">Tier 2 — Sales Agent (20% on Growth Systems + 20% CRM recurring for 3 months)</span></p>
       <div class="section-num">3. Commission Structure</div>
       <p><strong>3.1 Growth System Commissions (One-Time Setup Fee)</strong></p>
       <table class="agreement-table">
@@ -338,24 +338,26 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
       </ul>
       <div class="section-num">11. Signatures</div>
       <p>By signing below, both parties confirm they have read, understood, and agreed to all terms of this Sales Agent Agreement.</p>
-      <table class="sig-table">
-        <tr>
-          <td>
-            <div style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--navy);margin-bottom:12px;">BluWav Growth</div>
-            <div class="sig-line">Signature: ___________________________</div>
-            <div class="sig-line">Name: Andrea M. Tanguay</div>
-            <div class="sig-line">Title: Founder &amp; CEO</div>
-            <div class="sig-line">Date: ___________________________</div>
-          </td>
-          <td>
-            <div style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--navy);margin-bottom:12px;">Sales Agent</div>
-            <div class="sig-line">Signature: ___________________________</div>
-            <div class="sig-line">Name: ___________________________</div>
-            <div class="sig-line">Title: ___________________________</div>
-            <div class="sig-line">Date: ___________________________</div>
-          </td>
-        </tr>
-      </table>
+      <div style="background:#EFF6FF;border:1px solid #E2E8F0;border-radius:12px;padding:20px;margin-top:20px;">
+        <div style="font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--navy);margin-bottom:14px;">Section 11 — Signatures</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+          <div style="background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:18px;">
+            <div style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--slate);margin-bottom:12px;">BluWav Growth</div>
+            <div style="font-size:13px;color:#374151;margin-bottom:8px;"><strong style="color:var(--navy);">Signature:</strong> <em style="color:var(--slate);">Countersigned on acceptance</em></div>
+            <div style="font-size:13px;color:#374151;margin-bottom:8px;"><strong style="color:var(--navy);">Name:</strong> Andrea M. Tanguay</div>
+            <div style="font-size:13px;color:#374151;margin-bottom:8px;"><strong style="color:var(--navy);">Title:</strong> Founder &amp; CEO</div>
+            <div style="font-size:13px;color:#374151;"><strong style="color:var(--navy);">Date:</strong> <span id="sec11Date" style="color:var(--coral);font-weight:700;">Will populate on signing</span></div>
+          </div>
+          <div style="background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:18px;">
+            <div style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--slate);margin-bottom:12px;">Sales Agent</div>
+            <div style="font-size:13px;color:#374151;margin-bottom:8px;"><strong style="color:var(--navy);">Signature:</strong> <span id="sec11Sig" style="color:var(--coral);font-weight:700;">Will populate on signing</span></div>
+            <div style="font-size:13px;color:#374151;margin-bottom:8px;"><strong style="color:var(--navy);">Name:</strong> <span id="sec11Name" style="color:var(--coral);font-weight:700;">Will populate on signing</span></div>
+            <div style="font-size:13px;color:#374151;margin-bottom:8px;"><strong style="color:var(--navy);">Territory:</strong> <span id="sec11Territory" style="color:var(--coral);font-weight:700;">Will populate on signing</span></div>
+            <div style="font-size:13px;color:#374151;"><strong style="color:var(--navy);">Date:</strong> <span id="sec11AgentDate" style="color:var(--coral);font-weight:700;">Will populate on signing</span></div>
+          </div>
+        </div>
+        <div style="margin-top:14px;font-size:11px;color:var(--slate);font-style:italic;text-align:center;">These fields auto-populate when you complete and submit the form below. A full legal audit trail (timestamp, IP, session token) is recorded on submission.</div>
+      </div>
       <div class="footer-note">
         Questions? Contact us at info@bluwavgrowth.com or WhatsApp +1 (868) 297-9960<br/>
         <strong>bluwavgrowth.com</strong> &nbsp;|&nbsp; Get Found. Get Chosen. Grow.<br/>
@@ -405,14 +407,12 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
       </div>
 
       <div class="form-group">
-        <label class="form-label" for="fTier">Partner Tier <span class="req">*</span></label>
-        <select class="form-select" id="fTier" name="tier" required>
-          <option value="" disabled selected>Select your tier</option>
-          <option value="Tier 1 — Referral Partner (10%)">Tier 1 — Referral Partner (10%)</option>
-          <option value="Tier 2 — Sales Agent (20% + bonuses)">Tier 2 — Sales Agent (20% + bonuses)</option>
-          <option value="Tier 3 — Strategic Partner (20% + volume bonuses)">Tier 3 — Strategic Partner (20% + volume bonuses)</option>
-          <option value="Tier 4 — White-Label Partner (20% recurring x 3 months)">Tier 4 — White-Label Partner (20% recurring x 3 months)</option>
-        </select>
+        <label class="form-label">Partner Tier</label>
+        <div style="padding:14px 16px;background:#EFF6FF;border:2px solid rgba(0,194,209,0.3);border-radius:10px;font-size:15px;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:10px;">
+          <span style="font-size:18px;">⭐</span>
+          Tier 2 — Sales Agent &nbsp;·&nbsp; <span style="color:var(--coral);">20% commission + performance bonuses</span>
+        </div>
+        <input type="hidden" id="fTier" name="tier" value="Tier 2 — Sales Agent (20% + bonuses)"/>
       </div>
 
       <!-- AGREE + SIGNATURE -->
@@ -614,6 +614,52 @@ function getSigData(){
   return null;
 }
 
+// ── LIVE UPDATE AGREEMENT DISPLAY ────────────────────────────────────────
+function updateAgreementDisplay() {
+  var now = new Date();
+  var dateStr = now.toLocaleDateString('en-GB', {day:'numeric', month:'long', year:'numeric'});
+  var timeStr = now.toLocaleTimeString('en-GB', {hour:'2-digit', minute:'2-digit'});
+  var fullDateTime = dateStr + ' at ' + timeStr + ' UTC';
+
+  // Update date fields
+  var dEl = document.getElementById('displayDate');
+  var s11d = document.getElementById('sec11Date');
+  var s11ad = document.getElementById('sec11AgentDate');
+  if(dEl) dEl.textContent = fullDateTime;
+  if(s11d) s11d.textContent = fullDateTime;
+  if(s11ad) s11ad.textContent = fullDateTime;
+
+  // Update name in section 11
+  var fn = document.getElementById('fName') ? document.getElementById('fName').value.trim() : '';
+  var ln = document.getElementById('lName') ? document.getElementById('lName').value.trim() : '';
+  var fullName = (fn + ' ' + ln).trim() || 'Will populate on signing';
+  var s11n = document.getElementById('sec11Name');
+  if(s11n) s11n.textContent = fullName || 'Will populate on signing';
+
+  // Update territory
+  var terr = document.getElementById('fTerritory') ? document.getElementById('fTerritory').value.trim() : '';
+  var s11t = document.getElementById('sec11Territory');
+  if(s11t) s11t.textContent = terr || 'Will populate on signing';
+
+  // Update sig name in section 11
+  var sn = document.getElementById('fSigName') ? document.getElementById('fSigName').value.trim() : '';
+  var s11s = document.getElementById('sec11Sig');
+  if(s11s) s11s.textContent = sn ? '✓ Drawn — "' + sn + '"' : 'Will populate on signing';
+}
+
+// Wire up live updates
+document.addEventListener('DOMContentLoaded', function() {
+  updateAgreementDisplay();
+  setInterval(updateAgreementDisplay, 30000); // refresh date every 30s
+  ['fName','fLName','fTerritory','fSigName'].forEach(function(id) {
+    var el = document.getElementById(id);
+    if(el) el.addEventListener('input', updateAgreementDisplay);
+  });
+  // Also update when sig name changes
+  var sn = document.getElementById('fSigName');
+  if(sn) sn.addEventListener('input', updateAgreementDisplay);
+});
+
 // ── AUDIT TRAIL ───────────────────────────────────────────────────────────
 async function getAudit(){
   var a={};
@@ -654,6 +700,10 @@ async function handleSubmit(e){
   if(!sigName){alert('Please print your full legal name below your signature.');document.getElementById('fSigName').focus();return;}
 
   var btn=document.getElementById('fSubmit');
+  // Update section 11 with drawn sig name before collecting audit
+  var sn2 = document.getElementById('fSigName').value.trim();
+  var s11s2 = document.getElementById('sec11Sig');
+  if(s11s2 && sn2) s11s2.textContent = '✓ Drawn — "' + sn2 + '"';
   btn.textContent='Collecting audit data...';
   btn.disabled=true;
 
