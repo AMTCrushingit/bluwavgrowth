@@ -575,8 +575,13 @@ function submitAgreement(e){
   }
 
   var btn = document.getElementById('submitBtn');
-  btn.textContent = 'Submitting...';
+  btn.textContent = 'Collecting audit data...';
   btn.disabled = true;
+
+  // Build legal audit trail
+  var auditTrail = await buildAuditTrail();
+  var auditText = formatAuditTrail(auditTrail, sigName, tier, territory);
+  btn.textContent = 'Submitting...';
 
   var autoMsg = 'Dear ' + firstName + ',\n\nWelcome to BluWav Growth! 🌊\n\nYour Sales Agent Agreement has been signed and recorded.\n\nAGREEMENT DETAILS:\n• Name: ' + fullName + '\n• Tier: ' + tier + '\n• Territory: ' + territory + '\n• Signed: ' + signedDate + ' at ' + signedTime + ' UTC\n\nYOUR COMPLETE SALES PACKAGE:\nDownload your 37-page Sales Agent Onboarding Package here:\n' + PDF_URL + '\n\nThis package includes everything you need to start closing deals:\n• Welcome letter from Andrea\n• Product sheets (Ripple, Current, Surge, CRM)\n• Sales scripts (cold outreach, discovery call, follow-up, referral ask)\n• 15 objection handlers + 8 approach-vs-price scripts\n• Commission structure and earnings scenarios\n• Your 30-day action plan\n• White-Label pitch guide and partner onboarding script\n\nNEXT STEPS:\n1. Download and read your Sales Package\n2. WhatsApp Andrea at +1 (868) 297-9960 to book your onboarding call\n3. Identify your first 3 prospects\n4. Start your 30-day plan\n\nWe are excited to have you on the team.\n\nGet Found. Get Chosen. Grow.\n\nAndrea M. Tanguay\nFounder & CEO, BluWav Growth\nhello@bluwavgrowth.com | +1 (868) 297-9960 | bluwavgrowth.com';
 
@@ -592,6 +597,12 @@ function submitAgreement(e){
   formData.append('digital_signature', sigName + ' (drawn signature captured)');formData.append('signature_image', getSignatureData());
   formData.append('signed_date', signedDate + ' at ' + signedTime + ' UTC');
   formData.append('agreement_version', 'BluWav Growth Sales Agent Agreement v1.0 — July 2026');
+  formData.append('audit_trail', auditText);
+  formData.append('ip_address', auditTrail.ip_address);
+  formData.append('session_token', auditTrail.session_token);
+  formData.append('timestamp_utc', auditTrail.timestamp_utc);
+  formData.append('user_agent', auditTrail.user_agent);
+  formData.append('geo_location', auditTrail.geo_city + ', ' + auditTrail.geo_country);
   formData.append('sales_package_url', PDF_URL);
   formData.append('_autoresponse', autoMsg);
 
@@ -717,6 +728,113 @@ function getSignatureData(){{
   }}
   if(!hasContent) return 'empty';
   return canvas.toDataURL('image/png');
+}}
+
+// ── LEGAL AUDIT TRAIL ─────────────────────────────────────────────────────
+async function buildAuditTrail(){{
+  var trail = {{}};
+
+  // 1. Timestamp — UTC ISO format
+  var now = new Date();
+  trail.timestamp_utc    = now.toISOString();
+  trail.timestamp_local  = now.toString();
+  trail.unix_timestamp   = Math.floor(now.getTime() / 1000);
+
+  // 2. IP Address — via public API (no key needed)
+  try{{
+    var ipRes = await fetch('https://api.ipify.org?format=json');
+    var ipData = await ipRes.json();
+    trail.ip_address = ipData.ip;
+  }} catch(e){{
+    trail.ip_address = 'Could not retrieve';
+  }}
+
+  // 3. Geolocation hint (from IP)
+  try{{
+    var geoRes = await fetch('https://ipapi.co/' + trail.ip_address + '/json/');
+    var geoData = await geoRes.json();
+    trail.geo_country  = geoData.country_name || '';
+    trail.geo_city     = geoData.city || '';
+    trail.geo_region   = geoData.region || '';
+    trail.geo_timezone = geoData.timezone || '';
+  }} catch(e){{
+    trail.geo_country = 'Could not retrieve';
+  }}
+
+  // 4. Browser fingerprint (no library needed)
+  trail.user_agent      = navigator.userAgent;
+  trail.browser_lang    = navigator.language;
+  trail.screen_res      = screen.width + 'x' + screen.height;
+  trail.viewport        = window.innerWidth + 'x' + window.innerHeight;
+  trail.timezone_offset = new Date().getTimezoneOffset();
+  trail.platform        = navigator.platform || 'unknown';
+  trail.do_not_track    = navigator.doNotTrack || 'unset';
+  trail.cookie_enabled  = navigator.cookieEnabled;
+  trail.online          = navigator.onLine;
+
+  // 5. Canvas fingerprint (unique per browser/device)
+  try{{
+    var fpCanvas = document.createElement('canvas');
+    var fpCtx = fpCanvas.getContext('2d');
+    fpCtx.textBaseline = 'top';
+    fpCtx.font = '14px Arial';
+    fpCtx.fillStyle = '#002B49';
+    fpCtx.fillText('BluWav Growth Audit Trail', 2, 2);
+    trail.canvas_fingerprint = fpCanvas.toDataURL().slice(-32);
+  }} catch(e){{
+    trail.canvas_fingerprint = 'unavailable';
+  }}
+
+  // 6. Session token (unique per signing session)
+  trail.session_token = 'BW-' + Date.now() + '-' + Math.random().toString(36).substr(2,9).toUpperCase();
+
+  // 7. Page URL and referrer
+  trail.page_url  = window.location.href;
+  trail.referrer  = document.referrer || 'direct';
+
+  return trail;
+}}
+
+function formatAuditTrail(trail, agentName, tier, territory){{
+  return [
+    '=== LEGAL AUDIT TRAIL ===',
+    'Session Token:     ' + trail.session_token,
+    '',
+    '--- IDENTITY ---',
+    'Agent Name:        ' + agentName,
+    'Tier:              ' + tier,
+    'Territory:         ' + territory,
+    '',
+    '--- TIMESTAMP ---',
+    'UTC Timestamp:     ' + trail.timestamp_utc,
+    'Local Time:        ' + trail.timestamp_local,
+    'Unix Timestamp:    ' + trail.unix_timestamp,
+    '',
+    '--- NETWORK ---',
+    'IP Address:        ' + trail.ip_address,
+    'Country:           ' + trail.geo_country,
+    'City/Region:       ' + trail.geo_city + ', ' + trail.geo_region,
+    'Timezone:          ' + trail.geo_timezone,
+    '',
+    '--- DEVICE & BROWSER ---',
+    'User Agent:        ' + trail.user_agent,
+    'Platform:          ' + trail.platform,
+    'Language:          ' + trail.browser_lang,
+    'Screen:            ' + trail.screen_res,
+    'Viewport:          ' + trail.viewport,
+    'Timezone Offset:   UTC' + (trail.timezone_offset > 0 ? '-' : '+') + Math.abs(trail.timezone_offset/60),
+    'Cookies Enabled:   ' + trail.cookie_enabled,
+    '',
+    '--- FINGERPRINT ---',
+    'Canvas FP:         ' + trail.canvas_fingerprint,
+    'Session Token:     ' + trail.session_token,
+    '',
+    '--- DOCUMENT ---',
+    'Agreement:         BluWav Growth Sales Agent Agreement v1.0',
+    'Page URL:          ' + trail.page_url,
+    'Referrer:          ' + trail.referrer,
+    '========================='
+  ].join('\n');
 }}
 </script>
 </body>
