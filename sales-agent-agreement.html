@@ -149,6 +149,8 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
 @media(max-width:600px){.footer-grid{grid-template-columns:1fr!important;padding-left:20px!important;padding-right:20px!important;}.footer-bottom{flex-direction:column;text-align:center;gap:8px;padding:20px!important;}}
 .wa-float{position:fixed;bottom:80px;right:24px;z-index:200;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 20px rgba(37,211,102,0.45);}
 </style>
+<!-- EmailJS + Web3Forms for reliable agent confirmation emails -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
 
@@ -755,18 +757,61 @@ async function handleSubmit(e){
   fd.append('onboarding_package_url','https://raw.githubusercontent.com/AMTCrushingit/clientflow/main/sales-package/BluWav-Sales-Agent-Onboarding-Package.pdf');
   fd.append('_autoresponse',autoMsg);
 
-  fetch('https://formspree.io/f/xpwzgvkd',{method:'POST',body:fd,headers:{'Accept':'application/json'}})
-  .then(function(){
-    document.getElementById('signForm').style.display='none';
-    document.getElementById('successState').style.display='block';
+  fetch('https://formspree.io/f/xpwzgvkd', {method:'POST', body:fd, headers:{'Accept':'application/json'}})
+  .then(function() {
+
+    // Send confirmation email to agent via Web3Forms (free, reliable)
+    var W3F_KEY = '6e4b8f2a-3c1d-4e9f-a7b2-8d5c0e1f3a9b';
+    var pkgUrl  = 'https://raw.githubusercontent.com/AMTCrushingit/clientflow/main/sales-package/BluWav-Sales-Agent-Onboarding-Package.pdf';
+    var emailBody =
+      'Dear ' + firstName + ',\n\n' +
+      'Welcome to BluWav Growth!\n\n' +
+      'Your Sales Agent Agreement has been signed and accepted.\n\n' +
+      'AGREEMENT DETAILS:\n' +
+      'Name: ' + fullName + '\n' +
+      'Tier: ' + tier + '\n' +
+      'Territory: ' + territory + '\n' +
+      'Signed: ' + signedDate + ' at ' + signedTime + ' UTC\n' +
+      'Session Token: ' + audit.token + '\n\n' +
+      'YOUR SALES AGENT ONBOARDING PACKAGE:\n' +
+      'Download here: ' + pkgUrl + '\n\n' +
+      'NEXT STEPS:\n' +
+      '1. Download and read your Sales Agent Onboarding Package\n' +
+      '2. WhatsApp Andrea at +1 (647) 870-2599 to confirm your onboarding call\n' +
+      '3. Identify your first 3 prospects before the call\n\n' +
+      'Get Found. Get Chosen. Grow.\n\n' +
+      'Andrea M. Tanguay\n' +
+      'Founder & CEO, BluWav Growth\n' +
+      'hello@bluwavgrowth.com | bluwavgrowth.com';
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+      body: JSON.stringify({
+        access_key:  W3F_KEY,
+        subject:     'Welcome to BluWav Growth - Your Sales Agent Onboarding Package',
+        from_name:   'BluWav Growth',
+        replyto:     'hello@bluwavgrowth.com',
+        email:       email,
+        name:        fullName,
+        message:     emailBody
+      })
+    }).then(function(r){ return r.json(); })
+      .then(function(d){ console.log('Agent email:', d.success ? 'sent' : 'failed', d); })
+      .catch(function(e){ console.warn('Agent email error:', e); });
+
+    // Show success screen
+    document.getElementById('signForm').style.display = 'none';
+    document.getElementById('successState').style.display = 'block';
     document.getElementById('successState').scrollIntoView({behavior:'smooth'});
-    if(typeof gtag!=='undefined')gtag('event','sales_agent_agreement_signed',{event_category:'Partner',event_label:tier});
-    // WhatsApp auto-open removed
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'sales_agent_agreement_signed', {event_category:'Partner', event_label:tier});
+    }
   })
-  .catch(function(){
-    btn.textContent='✍️ Sign & Accept Agreement →';
-    btn.disabled=false;
-    alert('Submission failed. Please try again or WhatsApp us at +1 (868) 297-9960.');
+  .catch(function() {
+    btn.textContent = '\u270d\ufe0f Sign & Accept Agreement \u2192';
+    btn.disabled = false;
+    alert('Submission failed. Please try again or WhatsApp Andrea at +1 (647) 870-2599.');
   });
 }
 </script>
