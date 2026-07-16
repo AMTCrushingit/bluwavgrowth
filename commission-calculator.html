@@ -759,170 +759,266 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
 <a class="wa-float" href="https://wa.me/18682979960" title="WhatsApp Us">💬</a>
 
 <script>
-// ── ACCESS CODE ─────────────────────────────────────────────────────────
-var ACCESS_CODE = 'BLUWAV2026';
+/* ============================================================
+   LOCK SCREEN — 5 attempt limit, 5-min lockout, clear feedback
+   ============================================================ */
+var ACCESS_CODE  = 'BLUWAV2026';
+var MAX_ATTEMPTS = 5;
+var attemptsLeft = MAX_ATTEMPTS;
+var lockedOut    = false;
+var lockTimer    = null;
 
 function checkCode() {
+  if (lockedOut) return;
+
   var input = document.getElementById('lockCode');
   var btn   = document.getElementById('lockBtn');
   var err   = document.getElementById('lockError');
-  var v     = (input.value || '').trim().toUpperCase();
+
+  if (!input || !btn || !err) {
+    alert('Page error — please refresh and try again.');
+    return;
+  }
+
+  var v = (input.value || '').trim().toUpperCase();
 
   if (!v) {
-    err.innerHTML = '&#9888;&#65039; Please enter your access code.';
-    err.style.display = 'block';
+    showLockMsg('Please enter your access code.', 'warn');
     input.focus();
     return;
   }
 
   if (v === ACCESS_CODE) {
-    btn.textContent = 'Unlocking...';
+    /* ---- CORRECT ---- */
+    err.style.display    = 'none';
+    btn.textContent      = 'Unlocking...';
     btn.style.background = '#22c55e';
-    err.style.display = 'none';
+    btn.style.boxShadow  = '0 4px 20px rgba(34,197,94,0.5)';
+    input.style.borderColor = '#22c55e';
+    try { sessionStorage.setItem('bw_agent_auth', '1'); } catch(ex) {}
     setTimeout(function() {
       document.getElementById('lockScreen').style.display = 'none';
-      try { sessionStorage.setItem('bw_agent_auth', '1'); } catch(e) {}
-    }, 400);
-  } else {
-    err.innerHTML = '&#10060; Incorrect code. Please try again or <a href="https://wa.me/18682979960" target="_blank" style="color:#fca5a5;font-weight:800;">WhatsApp Andrea</a>.';
-    err.style.display = 'block';
-    input.style.borderColor = '#ef4444';
-    input.style.background  = 'rgba(239,68,68,0.12)';
-    input.select();
-    setTimeout(function() {
+    }, 500);
+    return;
+  }
+
+  /* ---- WRONG CODE ---- */
+  attemptsLeft = attemptsLeft - 1;
+  input.value = '';
+  input.style.borderColor = '#ef4444';
+  input.style.background  = 'rgba(239,68,68,0.12)';
+  setTimeout(function() {
+    if (!lockedOut) {
       input.style.borderColor = 'rgba(255,255,255,0.25)';
       input.style.background  = 'rgba(255,255,255,0.12)';
-    }, 2500);
+    }
+  }, 2000);
+
+  if (attemptsLeft <= 0) {
+    /* ---- LOCKOUT ---- */
+    lockedOut      = true;
+    input.disabled = true;
+    btn.disabled   = true;
+    btn.style.opacity = '0.5';
+    btn.style.cursor  = 'not-allowed';
+    var secs = 300;
+    showLockMsg('Too many incorrect attempts. Locked for 5 minutes. WhatsApp Andrea at +1 (868) 297-9960 for your code.', 'error');
+    lockTimer = setInterval(function() {
+      secs = secs - 1;
+      if (secs <= 0) {
+        clearInterval(lockTimer);
+        lockedOut      = false;
+        attemptsLeft   = MAX_ATTEMPTS;
+        input.disabled = false;
+        btn.disabled   = false;
+        btn.style.opacity  = '1';
+        btn.style.cursor   = 'pointer';
+        btn.textContent    = 'Unlock Portal →';
+        btn.style.background = '';
+        btn.style.boxShadow  = '';
+        showLockMsg('You can try again now.', 'warn');
+        input.focus();
+      } else {
+        var m = Math.floor(secs / 60);
+        var s = secs % 60;
+        var pad = s < 10 ? '0' : '';
+        document.getElementById('lockError').innerHTML =
+          '❌ Locked out. Try again in ' + m + ':' + pad + s +
+          '. <a href="https://wa.me/18682979960" target="_blank" style="color:#fca5a5;font-weight:800;text-decoration:underline;">WhatsApp Andrea</a>';
+      }
+    }, 1000);
+  } else {
+    var word = attemptsLeft === 1 ? 'attempt' : 'attempts';
+    showLockMsg('❌ Incorrect access code. ' + attemptsLeft + ' ' + word + ' remaining before lockout.', 'error');
+    input.focus();
+  }
+}
+
+function showLockMsg(msg, type) {
+  var err = document.getElementById('lockError');
+  if (!err) return;
+  err.innerHTML = msg;
+  err.style.display = 'block';
+  if (type === 'error') {
+    err.style.background  = 'rgba(239,68,68,0.15)';
+    err.style.borderColor = 'rgba(239,68,68,0.4)';
+    err.style.color       = '#fca5a5';
+  } else {
+    err.style.background  = 'rgba(247,200,115,0.15)';
+    err.style.borderColor = 'rgba(247,200,115,0.4)';
+    err.style.color       = '#F7C873';
   }
 }
 
 function clearLockError() {
   var err   = document.getElementById('lockError');
   var input = document.getElementById('lockCode');
-  if (err)   err.style.display = 'none';
-  if (input) {
+  if (err) err.style.display = 'none';
+  if (input && !lockedOut) {
     input.style.borderColor = 'rgba(255,255,255,0.25)';
     input.style.background  = 'rgba(255,255,255,0.12)';
   }
 }
 
-// Auto-unlock if already authenticated this session
+/* Auto-unlock if already authenticated this session */
 (function() {
   try {
     if (sessionStorage.getItem('bw_agent_auth') === '1') {
       document.getElementById('lockScreen').style.display = 'none';
       return;
     }
-  } catch(e) {}
-  // Focus input after short delay
+  } catch(ex) {}
   setTimeout(function() {
     var inp = document.getElementById('lockCode');
-    var ls  = document.getElementById('lockScreen');
-    if (inp && ls && ls.style.display !== 'none') inp.focus();
-  }, 350);
+    if (inp) inp.focus();
+  }, 300);
 })();
 
-// ── NAV ───────────────────────────────────────────────────────────────────
-function toggleMob(){var n=document.getElementById('mobNav'),b=document.getElementById('hamburgerBtn');n.classList.toggle('open');if(b)b.classList.toggle('open');}
-function closeMob(){document.getElementById('mobNav').classList.remove('open');var b=document.getElementById('hamburgerBtn');if(b)b.classList.remove('open');}
-document.addEventListener('click',function(e){var n=document.getElementById('mobNav'),b=document.getElementById('hamburgerBtn');if(n&&b&&n.classList.contains('open')){if(!n.contains(e.target)&&!b.contains(e.target)){n.classList.remove('open');if(b)b.classList.remove('open');}}}); 
+/* ============================================================
+   NAV
+   ============================================================ */
+function toggleMob() {
+  var n = document.getElementById('mobNav');
+  var b = document.getElementById('hamburgerBtn');
+  if (n) n.classList.toggle('open');
+  if (b) b.classList.toggle('open');
+}
+function closeMob() {
+  var n = document.getElementById('mobNav');
+  var b = document.getElementById('hamburgerBtn');
+  if (n) n.classList.remove('open');
+  if (b) b.classList.remove('open');
+}
+document.addEventListener('click', function(e) {
+  var n = document.getElementById('mobNav');
+  var b = document.getElementById('hamburgerBtn');
+  if (n && b && n.classList.contains('open')) {
+    if (!n.contains(e.target) && !b.contains(e.target)) {
+      n.classList.remove('open');
+      b.classList.remove('open');
+    }
+  }
+});
 
-// ── TABS ──────────────────────────────────────────────────────────────────
+/* ============================================================
+   TABS
+   ============================================================ */
 function switchTab(id) {
-  document.querySelectorAll('.tab-btn').forEach(function(b,i) {
-    b.classList.toggle('active', ['calculator','payout','scenarios','reference'][i] === id);
-  });
+  var ids  = ['calculator','payout','scenarios','reference'];
+  var btns = document.querySelectorAll('.tab-btn');
+  btns.forEach(function(b, i) { b.classList.toggle('active', ids[i] === id); });
   document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
-  document.getElementById('tab-'+id).classList.add('active');
-  window.scrollTo({top:0,behavior:'smooth'});
+  var panel = document.getElementById('tab-' + id);
+  if (panel) panel.classList.add('active');
+  window.scrollTo({top: 0, behavior: 'smooth'});
 }
 
-// ── COMMISSION LOGIC ──────────────────────────────────────────────────────
+/* ============================================================
+   COMMISSION DATA
+   ============================================================ */
 var PACKAGES = {
-  'Ripple ($1,800)':   {price:1800,  type:'growth'},
-  'Ripple ($2,000)':   {price:2000,  type:'growth'},
-  'Ripple ($2,500)':   {price:2500,  type:'growth'},
-  'Current ($3,000)':  {price:3000,  type:'growth'},
-  'Current ($3,500)':  {price:3500,  type:'growth'},
-  'Current ($4,000)':  {price:4000,  type:'growth'},
-  'Surge ($5,000)':    {price:5000,  type:'growth'},
-  'Surge ($6,000)':    {price:6000,  type:'growth'},
-  'Surge ($7,500)':    {price:7500,  type:'growth'},
-  'Custom Amount':     {price:0,     type:'growth', custom:true},
+  'Ripple ($1,800)':  {price: 1800},
+  'Ripple ($2,000)':  {price: 2000},
+  'Ripple ($2,500)':  {price: 2500},
+  'Current ($3,000)': {price: 3000},
+  'Current ($3,500)': {price: 3500},
+  'Current ($4,000)': {price: 4000},
+  'Surge ($5,000)':   {price: 5000},
+  'Surge ($6,000)':   {price: 6000},
+  'Surge ($7,500)':   {price: 7500},
+  'Custom Amount':    {price: 0, custom: true}
 };
 var CRM_PACKAGES = {
-  'CRM Lite ($99/mo)':      {monthly:99},
-  'CRM Premium ($179/mo)':  {monthly:179},
-  'White-Label ($697/mo)':  {monthly:697},
+  'CRM Lite ($99/mo)':     {monthly: 99},
+  'CRM Premium ($179/mo)': {monthly: 179},
+  'White-Label ($697/mo)': {monthly: 697}
 };
 var BONUS_TIERS = [
-  {min:10, bonus:1000},
-  {min:7,  bonus:750},
-  {min:5,  bonus:400},
-  {min:3,  bonus:150},
+  {min: 10, bonus: 1000},
+  {min: 7,  bonus: 750},
+  {min: 5,  bonus: 400},
+  {min: 3,  bonus: 150}
 ];
 
-// ── DEAL MANAGEMENT ───────────────────────────────────────────────────────
 var dealCount = 0;
 var crmCount  = 0;
 
 function addDeal() {
-  dealCount++;
-  var id = 'deal_' + dealCount;
+  dealCount = dealCount + 1;
+  var id   = 'deal_' + dealCount;
   var opts = Object.keys(PACKAGES).map(function(k) {
-    return '<option value="'+k+'">'+k+'</option>';
+    return '<option value="' + k + '">' + k + '</option>';
   }).join('');
-  var html = '<div class="deal-entry" id="'+id+'">'
+  var html = '<div class="deal-entry" id="' + id + '">'
     + '<div class="deal-entry-header">'
-    + '<span class="deal-num">Deal #'+dealCount+'</span>'
-    + '<button type="button" class="deal-remove" onclick="removeDeal(''+id+'')">Remove</button>'
+    + '<span class="deal-num">Deal #' + dealCount + '</span>'
+    + '<button type="button" class="deal-remove" onclick="removeDeal('' + id + '')">Remove</button>'
     + '</div>'
     + '<div class="form-row-3">'
-    + '<div class="form-group"><label class="form-label">Client / Business Name</label>'
+    + '<div class="form-group"><label class="form-label">Client Name</label>'
     + '<input class="form-input" type="text" placeholder="Client name" data-field="client"/></div>'
     + '<div class="form-group"><label class="form-label">Package</label>'
-    + '<select class="form-select" data-field="package" onchange="handlePackageChange(this,''+id+'')">'
-    + opts + '</select></div>'
-    + '<div class="form-group custom-price-wrap" id="cp_'+id+'" style="display:none;">'
-    + '<label class="form-label">Custom Sale Price ($)</label>'
+    + '<select class="form-select" data-field="package" onchange="handlePackageChange(this,'' + id + '')">' + opts + '</select></div>'
+    + '<div class="form-group" id="cp_' + id + '" style="display:none;">'
+    + '<label class="form-label">Custom Price ($)</label>'
     + '<input class="form-input" type="number" placeholder="0" min="0" data-field="customprice"/></div>'
-    + '<div class="form-group" id="upsell_'+id+'">'
-    + '<label class="form-label">Upsell? (+$50 bonus)</label>'
+    + '<div class="form-group">'
+    + '<label class="form-label">Upsell? (+$50)</label>'
     + '<select class="form-select" data-field="upsell">'
     + '<option value="no">No upsell</option>'
-    + '<option value="yes">Yes — upsell from lower tier</option>'
+    + '<option value="yes">Yes - upsell</option>'
     + '</select></div>'
     + '</div></div>';
   document.getElementById('dealsList').insertAdjacentHTML('beforeend', html);
 }
 
 function handlePackageChange(sel, id) {
-  var isCustom = sel.value === 'Custom Amount';
-  document.getElementById('cp_'+id).style.display = isCustom ? 'block' : 'none';
+  var wrap = document.getElementById('cp_' + id);
+  if (wrap) wrap.style.display = sel.value === 'Custom Amount' ? 'block' : 'none';
 }
 
 function removeDeal(id) {
   var el = document.getElementById(id);
-  if(el) el.remove();
+  if (el) el.remove();
 }
 
 function addCRM() {
-  crmCount++;
-  var id = 'crm_' + crmCount;
+  crmCount = crmCount + 1;
+  var id   = 'crm_' + crmCount;
   var opts = Object.keys(CRM_PACKAGES).map(function(k) {
-    return '<option value="'+k+'">'+k+'</option>';
+    return '<option value="' + k + '">' + k + '</option>';
   }).join('');
-  var html = '<div class="deal-entry" id="'+id+'">'
+  var html = '<div class="deal-entry" id="' + id + '">'
     + '<div class="deal-entry-header">'
-    + '<span class="deal-num">CRM Client #'+crmCount+'</span>'
-    + '<button type="button" class="deal-remove" onclick="removeDeal(''+id+'')">Remove</button>'
+    + '<span class="deal-num">CRM Client #' + crmCount + '</span>'
+    + '<button type="button" class="deal-remove" onclick="removeDeal('' + id + '')">Remove</button>'
     + '</div>'
     + '<div class="form-row-3">'
-    + '<div class="form-group"><label class="form-label">Client / Business Name</label>'
+    + '<div class="form-group"><label class="form-label">Client Name</label>'
     + '<input class="form-input" type="text" placeholder="Client name" data-field="client"/></div>'
     + '<div class="form-group"><label class="form-label">CRM Package</label>'
-    + '<select class="form-select" data-field="crmpackage">'+opts+'</select></div>'
-    + '<div class="form-group"><label class="form-label">Month # (1, 2, or 3)</label>'
+    + '<select class="form-select" data-field="crmpackage">' + opts + '</select></div>'
+    + '<div class="form-group"><label class="form-label">Month # (1-3)</label>'
     + '<select class="form-select" data-field="crmmonth">'
     + '<option value="1">Month 1</option>'
     + '<option value="2">Month 2</option>'
@@ -932,181 +1028,182 @@ function addCRM() {
   document.getElementById('crmList').insertAdjacentHTML('beforeend', html);
 }
 
-// ── CALCULATE ─────────────────────────────────────────────────────────────
+/* ============================================================
+   CALCULATE
+   ============================================================ */
 var lastCalcResult = null;
 
 function calculate() {
-  var rows = [];
-  var growthTotal = 0;
-  var growthCount = 0;
-  var upsellCount = 0;
+  var rows           = [];
+  var growthTotal    = 0;
+  var growthCount    = 0;
+  var upsellCount    = 0;
+  var crmTotal       = 0;
+  var crmClientCount = 0;
 
-  // Growth deals
   document.querySelectorAll('#dealsList .deal-entry').forEach(function(entry) {
-    var client  = (entry.querySelector('[data-field="client"]') || {}).value || 'Unnamed';
-    var pkg     = (entry.querySelector('[data-field="package"]') || {}).value || '';
-    var upsell  = (entry.querySelector('[data-field="upsell"]') || {}).value || 'no';
-    var custEl  = entry.querySelector('[data-field="customprice"]');
-    var price   = 0;
-    if(pkg === 'Custom Amount') {
-      price = parseFloat((custEl || {}).value || 0);
-    } else if(PACKAGES[pkg]) {
+    var clientEl = entry.querySelector('[data-field="client"]');
+    var pkgEl    = entry.querySelector('[data-field="package"]');
+    var upsellEl = entry.querySelector('[data-field="upsell"]');
+    var custEl   = entry.querySelector('[data-field="customprice"]');
+    var client   = clientEl ? (clientEl.value || 'Unnamed') : 'Unnamed';
+    var pkg      = pkgEl ? pkgEl.value : '';
+    var upsell   = upsellEl ? upsellEl.value : 'no';
+    var price    = 0;
+    if (pkg === 'Custom Amount') {
+      price = parseFloat(custEl ? (custEl.value || 0) : 0);
+    } else if (PACKAGES[pkg]) {
       price = PACKAGES[pkg].price;
     }
-    if(price > 0) {
+    if (price > 0) {
       var comm = price * 0.20;
-      growthTotal += comm;
-      growthCount++;
-      if(upsell === 'yes') upsellCount++;
-      rows.push({client:client, type:'Growth — '+pkg, sale:'$'+price.toLocaleString(), rate:'20%', comm:comm});
+      growthTotal = growthTotal + comm;
+      growthCount = growthCount + 1;
+      if (upsell === 'yes') upsellCount = upsellCount + 1;
+      rows.push({client: client, type: 'Growth - ' + pkg, sale: '$' + price.toLocaleString(), rate: '20%', comm: comm});
     }
   });
 
-  // CRM clients
-  var crmTotal = 0;
-  var crmClientCount = 0;
   document.querySelectorAll('#crmList .deal-entry').forEach(function(entry) {
-    var client  = (entry.querySelector('[data-field="client"]') || {}).value || 'Unnamed';
-    var pkg     = (entry.querySelector('[data-field="crmpackage"]') || {}).value || '';
-    var month   = parseInt((entry.querySelector('[data-field="crmmonth"]') || {}).value || 1);
-    if(CRM_PACKAGES[pkg]) {
+    var clientEl = entry.querySelector('[data-field="client"]');
+    var pkgEl    = entry.querySelector('[data-field="crmpackage"]');
+    var monthEl  = entry.querySelector('[data-field="crmmonth"]');
+    var client   = clientEl ? (clientEl.value || 'Unnamed') : 'Unnamed';
+    var pkg      = pkgEl ? pkgEl.value : '';
+    var month    = monthEl ? parseInt(monthEl.value) : 1;
+    if (CRM_PACKAGES[pkg]) {
       var monthly = CRM_PACKAGES[pkg].monthly;
-      var comm = monthly * 0.20;
-      crmTotal += comm;
-      crmClientCount++;
-      rows.push({client:client, type:'CRM — '+pkg+' (Mo.'+month+')', sale:'$'+monthly+'/mo', rate:'20%', comm:comm});
+      var comm    = monthly * 0.20;
+      crmTotal       = crmTotal + comm;
+      crmClientCount = crmClientCount + 1;
+      rows.push({client: client, type: 'CRM - ' + pkg + ' (Mo.' + month + ')', sale: '$' + monthly + '/mo', rate: '20%', comm: comm});
     }
   });
 
-  // Performance bonus
   var bonus = 0;
   var bonusLabel = '';
-  for(var i=0; i<BONUS_TIERS.length; i++) {
-    if(growthCount >= BONUS_TIERS[i].min) {
-      bonus = BONUS_TIERS[i].bonus;
-      bonusLabel = growthCount + ' deals → +$' + bonus + ' bonus';
+  for (var i = 0; i < BONUS_TIERS.length; i++) {
+    if (growthCount >= BONUS_TIERS[i].min) {
+      bonus      = BONUS_TIERS[i].bonus;
+      bonusLabel = growthCount + ' deals = +$' + bonus + ' bonus';
       break;
     }
   }
 
-  // Upsell bonus
-  var upsellBonus = upsellCount * 50;
+  var upsellBonus  = upsellCount * 50;
+  var crmPerfBonus = crmClientCount >= 3 ? crmTotal * 0.25 : 0;
+  var total        = growthTotal + crmTotal + bonus + upsellBonus + crmPerfBonus;
 
-  // CRM performance reward (3+ clients = 25% instead of 20%)
-  var crmPerfBonus = 0;
-  if(crmClientCount >= 3) {
-    // Extra 5% on all CRM (25% - 20% = 5% extra)
-    crmPerfBonus = crmTotal * 0.25; // 5% extra on top of 20% already counted
-    // Actually recalculate: 25% instead of 20% = 25% total
-    // crmTotal was at 20%, so extra = crmTotal * (5/20) = crmTotal * 0.25
-  }
-
-  var total = growthTotal + crmTotal + bonus + upsellBonus + crmPerfBonus;
-
-  // Render breakdown table
   var tbody = document.getElementById('breakdownBody');
   tbody.innerHTML = '';
-  rows.forEach(function(r) {
-    tbody.insertAdjacentHTML('beforeend',
-      '<tr><td>'+r.client+'</td><td>'+r.type+'</td><td>'+r.sale+'</td><td>'+r.rate+'</td>'
-      +'<td class="amount">$'+r.comm.toFixed(2)+'</td></tr>'
-    );
-  });
-  if(rows.length === 0) {
-    tbody.insertAdjacentHTML('beforeend','<tr><td colspan="5" style="text-align:center;color:#94a3b8;font-style:italic;">No deals entered</td></tr>');
+  if (rows.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:#94a3b8;font-style:italic;padding:16px;">No deals entered yet</td></tr>';
+  } else {
+    rows.forEach(function(r) {
+      tbody.insertAdjacentHTML('beforeend',
+        '<tr><td>' + r.client + '</td><td>' + r.type + '</td><td>' + r.sale + '</td><td>' + r.rate + '</td>'
+        + '<td class="amount">$' + r.comm.toFixed(2) + '</td></tr>'
+      );
+    });
   }
 
-  // Update result fields
   document.getElementById('rGrowth').textContent = '$' + growthTotal.toFixed(2);
   document.getElementById('rCRM').textContent    = '$' + crmTotal.toFixed(2);
   document.getElementById('rBonus').textContent  = '$' + bonus.toFixed(2);
   document.getElementById('rTotal').textContent  = '$' + total.toFixed(2);
 
   var upsellRow = document.getElementById('upsellRow');
-  if(upsellBonus > 0) {
+  if (upsellBonus > 0) {
     upsellRow.style.display = 'flex';
     document.getElementById('rUpsell').textContent = '+$' + upsellBonus.toFixed(2);
   } else { upsellRow.style.display = 'none'; }
 
   var crmPerfRow = document.getElementById('crmPerfRow');
-  if(crmPerfBonus > 0) {
+  if (crmPerfBonus > 0) {
     crmPerfRow.style.display = 'flex';
     document.getElementById('rCRMPerf').textContent = '+$' + crmPerfBonus.toFixed(2);
   } else { crmPerfRow.style.display = 'none'; }
 
-  // Badges
   var badgeWrap = document.getElementById('bonusBadgeWrap');
   badgeWrap.innerHTML = '';
-  if(bonusLabel) badgeWrap.insertAdjacentHTML('beforeend','<div class="bonus-badge">🏆 '+bonusLabel+'</div> ');
-  if(crmClientCount >= 3) badgeWrap.insertAdjacentHTML('beforeend','<div class="bonus-badge">🗂️ CRM Performance Reward — 25% rate unlocked!</div>');
-  if(upsellBonus > 0) badgeWrap.insertAdjacentHTML('beforeend','<div class="bonus-badge">⬆️ Upsell bonus: +$'+upsellBonus+'</div>');
+  if (bonusLabel)         badgeWrap.insertAdjacentHTML('beforeend', '<div class="bonus-badge">&#127942; ' + bonusLabel + '</div> ');
+  if (crmClientCount >= 3) badgeWrap.insertAdjacentHTML('beforeend', '<div class="bonus-badge">&#128450; CRM Performance Reward - 25% rate unlocked!</div>');
+  if (upsellBonus > 0)    badgeWrap.insertAdjacentHTML('beforeend', '<div class="bonus-badge">&#11014; Upsell bonus: +$' + upsellBonus + '</div>');
 
-  document.getElementById('resultsPanel').style.display = 'block';
-  document.getElementById('resultsPanel').scrollIntoView({behavior:'smooth',block:'start'});
+  var panel = document.getElementById('resultsPanel');
+  panel.style.display = 'block';
+  panel.scrollIntoView({behavior: 'smooth', block: 'start'});
 
-  // Store for payout tab
   lastCalcResult = {
-    period: document.getElementById('calcMonth').value,
-    growth: growthTotal,
-    crm: crmTotal + crmPerfBonus,
-    bonus: bonus + upsellBonus,
-    total: total,
+    period:    document.getElementById('calcMonth').value,
+    growth:    growthTotal,
+    crm:       crmTotal + crmPerfBonus,
+    bonus:     bonus + upsellBonus,
+    total:     total,
     agentName: document.getElementById('agentName').value
   };
 }
 
 function sendToPayoutTab() {
-  if(!lastCalcResult) return;
+  if (!lastCalcResult) return;
   switchTab('payout');
-  document.getElementById('pName').value = lastCalcResult.agentName || '';
-  document.getElementById('pPeriod').value = lastCalcResult.period || '';
-  document.getElementById('pGrowthTotal').value = lastCalcResult.growth.toFixed(2);
-  document.getElementById('pCRMTotal').value = lastCalcResult.crm.toFixed(2);
-  document.getElementById('pBonusTotal').value = lastCalcResult.bonus.toFixed(2);
+  var pn = document.getElementById('pName');
+  var pp = document.getElementById('pPeriod');
+  var pg = document.getElementById('pGrowthTotal');
+  var pc = document.getElementById('pCRMTotal');
+  var pb = document.getElementById('pBonusTotal');
+  if (pn) pn.value = lastCalcResult.agentName || '';
+  if (pp) pp.value = lastCalcResult.period || '';
+  if (pg) pg.value = lastCalcResult.growth.toFixed(2);
+  if (pc) pc.value = lastCalcResult.crm.toFixed(2);
+  if (pb) pb.value = lastCalcResult.bonus.toFixed(2);
   updatePayoutTotal();
-
-  // Show summary
   var ps = document.getElementById('payoutSummary');
-  ps.style.display = 'block';
-  document.getElementById('psPeriod').textContent = lastCalcResult.period || '—';
-  document.getElementById('psGrowth').textContent = '$' + lastCalcResult.growth.toFixed(2);
-  document.getElementById('psCRM').textContent    = '$' + lastCalcResult.crm.toFixed(2);
-  document.getElementById('psBonus').textContent  = '$' + lastCalcResult.bonus.toFixed(2);
-  document.getElementById('psTotal').textContent  = '$' + lastCalcResult.total.toFixed(2);
+  if (ps) {
+    ps.style.display = 'block';
+    document.getElementById('psPeriod').textContent = lastCalcResult.period || '-';
+    document.getElementById('psGrowth').textContent = '$' + lastCalcResult.growth.toFixed(2);
+    document.getElementById('psCRM').textContent    = '$' + lastCalcResult.crm.toFixed(2);
+    document.getElementById('psBonus').textContent  = '$' + lastCalcResult.bonus.toFixed(2);
+    document.getElementById('psTotal').textContent  = '$' + lastCalcResult.total.toFixed(2);
+  }
 }
 
 function updatePayoutTotal() {
   var g = parseFloat(document.getElementById('pGrowthTotal').value || 0);
   var c = parseFloat(document.getElementById('pCRMTotal').value || 0);
   var b = parseFloat(document.getElementById('pBonusTotal').value || 0);
-  var t = g + c + b;
-  document.getElementById('pTotalDisplay').textContent = '$' + t.toFixed(2);
+  document.getElementById('pTotalDisplay').textContent = '$' + (g + c + b).toFixed(2);
 }
 ['pGrowthTotal','pCRMTotal','pBonusTotal'].forEach(function(id) {
   var el = document.getElementById(id);
-  if(el) el.addEventListener('input', updatePayoutTotal);
+  if (el) el.addEventListener('input', updatePayoutTotal);
 });
 
-// ── PAYOUT DEAL ENTRIES ───────────────────────────────────────────────────
+/* ============================================================
+   PAYOUT DEALS
+   ============================================================ */
 var pdCount = 0;
 function addPayoutDeal() {
-  pdCount++;
-  var id = 'pd_' + pdCount;
-  var html = '<div class="deal-entry" id="'+id+'" style="margin-bottom:10px;">'
+  pdCount = pdCount + 1;
+  var id   = 'pd_' + pdCount;
+  var html = '<div class="deal-entry" id="' + id + '" style="margin-bottom:10px;">'
     + '<div class="deal-entry-header">'
-    + '<span class="deal-num">Item #'+pdCount+'</span>'
-    + '<button type="button" class="deal-remove" onclick="removeDeal(''+id+'')">Remove</button>'
+    + '<span class="deal-num">Item #' + pdCount + '</span>'
+    + '<button type="button" class="deal-remove" onclick="removeDeal('' + id + '')">Remove</button>'
     + '</div>'
     + '<div class="form-row">'
-    + '<div class="form-group"><label class="form-label">Client / Business Name</label>'
-    + '<input class="form-input" type="text" placeholder="Client name" data-field="client"/></div>'
+    + '<div class="form-group"><label class="form-label">Client Name</label>'
+    + '<input class="form-input" type="text" placeholder="Client name"/></div>'
     + '<div class="form-group"><label class="form-label">Package / Type</label>'
     + '<input class="form-input" type="text" placeholder="e.g. Ripple, CRM Lite Month 1"/></div>'
     + '</div></div>';
   document.getElementById('payoutDealsList').insertAdjacentHTML('beforeend', html);
 }
 
-// ── PAYOUT SUBMIT ─────────────────────────────────────────────────────────
+/* ============================================================
+   PAYOUT SUBMIT
+   ============================================================ */
 function submitPayout(e) {
   e.preventDefault();
   var name    = document.getElementById('pName').value.trim();
@@ -1121,28 +1218,57 @@ function submitPayout(e) {
   var details = document.getElementById('pPayDetails').value.trim();
   var notes   = document.getElementById('pNotes').value.trim();
 
-  if(!name || !email || !wa || !period || !method || !details) {
+  if (!name || !email || !wa || !period || !method || !details) {
     alert('Please fill in all required fields.');
     return;
   }
-  if(total < 50) {
+  if (total < 50) {
     alert('Minimum payout is $50 USD. Your total is $' + total.toFixed(2) + '.');
     return;
   }
 
-  // Collect deal items
   var dealItems = [];
   document.querySelectorAll('#payoutDealsList .deal-entry').forEach(function(entry) {
     var inputs = entry.querySelectorAll('input');
-    if(inputs[0] && inputs[0].value) dealItems.push(inputs[0].value + (inputs[1] ? ' — ' + inputs[1].value : ''));
+    if (inputs[0] && inputs[0].value) {
+      dealItems.push(inputs[0].value + (inputs[1] ? ' - ' + inputs[1].value : ''));
+    }
   });
 
   var btn = document.getElementById('payoutSubmitBtn');
   btn.textContent = 'Submitting...';
-  btn.disabled = true;
+  btn.disabled    = true;
+
+  var autoReply = 'Hi ' + name.split(' ')[0] + ',
+
+'
+    + 'Your payout request has been received!
+
+'
+    + 'PAYOUT DETAILS:
+'
+    + 'Period: ' + period + '
+'
+    + 'Growth Commission: $' + growth.toFixed(2) + '
+'
+    + 'CRM Commission: $' + crm.toFixed(2) + '
+'
+    + 'Bonuses: $' + bonus.toFixed(2) + '
+'
+    + 'Total: $' + total.toFixed(2) + '
+'
+    + 'Payment Method: ' + method + '
+
+'
+    + 'Andrea will confirm within 24 hours via WhatsApp.
+'
+    + 'Payment processed within 7 business days.
+
+'
+    + 'BluWav Growth - Get Found. Get Chosen. Grow.';
 
   var fd = new FormData();
-  fd.append('_subject', '💸 Payout Request — ' + name + ' — $' + total.toFixed(2));
+  fd.append('_subject', 'Payout Request - ' + name + ' - $' + total.toFixed(2));
   fd.append('_replyto', email);
   fd.append('agent_name', name);
   fd.append('email', email);
@@ -1157,145 +1283,129 @@ function submitPayout(e) {
   fd.append('deals_claimed', dealItems.join(' | ') || 'See notes');
   fd.append('notes', notes || 'None');
   fd.append('submitted_at', new Date().toISOString());
-  fd.append('_autoresponse',
-    'Hi ' + name.split(' ')[0] + ',\n\n'
-    + 'Your payout request has been received! 🎉\n\n'
-    + 'PAYOUT DETAILS:\n'
-    + '• Period: ' + period + '\n'
-    + '• Growth Commission: $' + growth.toFixed(2) + '\n'
-    + '• CRM Commission: $' + crm.toFixed(2) + '\n'
-    + '• Bonuses: $' + bonus.toFixed(2) + '\n'
-    + '• Total: $' + total.toFixed(2) + '\n'
-    + '• Payment Method: ' + method + '\n\n'
-    + 'NEXT STEPS:\n'
-    + '• Andrea will review and confirm within 24 hours via WhatsApp\n'
-    + '• Payment will be processed within 7 business days\n\n'
-    + 'Questions? WhatsApp +1 (868) 297-9960\n\n'
-    + 'BluWav Growth — Get Found. Get Chosen. Grow.'
-  );
+  fd.append('_autoresponse', autoReply);
 
-  fetch('https://formspree.io/f/xpwzgvkd', {method:'POST',body:fd,headers:{'Accept':'application/json'}})
-  .then(function() {
+  fetch('https://formspree.io/f/xpwzgvkd', {
+    method: 'POST', body: fd, headers: {'Accept': 'application/json'}
+  }).then(function() {
     document.getElementById('payoutForm').style.display = 'none';
-    document.getElementById('payoutSuccess').classList.add('show');
-    document.getElementById('payoutSuccess').scrollIntoView({behavior:'smooth'});
-    var wm = encodeURIComponent('💸 Payout Request Submitted!\n\nAgent: '+name+'\nPeriod: '+period+'\nTotal: $'+total.toFixed(2)+'\nMethod: '+method+'\nDetails: '+details);
-    setTimeout(function(){window.open('https://wa.me/18682979960?text='+wm,'_blank');},1500);
-  })
-  .catch(function() {
-    btn.textContent = '💸 Submit Payout Request →';
-    btn.disabled = false;
-    alert('Submission failed. Please try again or WhatsApp Andrea at +1 (868) 297-9960.');
+    var suc = document.getElementById('payoutSuccess');
+    suc.classList.add('show');
+    suc.scrollIntoView({behavior: 'smooth'});
+    var wm = encodeURIComponent('Payout Request Submitted!
+
+Agent: ' + name + '
+Period: ' + period + '
+Total: $' + total.toFixed(2) + '
+Method: ' + method);
+    setTimeout(function() { window.open('https://wa.me/18682979960?text=' + wm, '_blank'); }, 1500);
+  }).catch(function() {
+    btn.textContent = 'Submit Payout Request';
+    btn.disabled    = false;
+    alert('Submission failed. Please WhatsApp Andrea at +1 (868) 297-9960.');
   });
 }
 
-// ── SCENARIOS ─────────────────────────────────────────────────────────────
+/* ============================================================
+   SCENARIOS
+   ============================================================ */
 var SCENARIOS = {
   starter: {
-    name:'Getting Started — 2 Ripple Deals',
-    items:[
+    name: 'Getting Started - 2 Ripple Deals',
+    items: [
       {label:'Ripple Deal #1', type:'Growth', sale:'$1,800', rate:'20%', comm:360},
-      {label:'Ripple Deal #2', type:'Growth', sale:'$1,800', rate:'20%', comm:360},
+      {label:'Ripple Deal #2', type:'Growth', sale:'$1,800', rate:'20%', comm:360}
     ],
     bonus:0, bonusLabel:'', total:720
   },
   growing: {
-    name:'Growing — 3 Deals + 2 CRM Clients',
-    items:[
-      {label:'Ripple Deal', type:'Growth', sale:'$1,800', rate:'20%', comm:360},
-      {label:'Current Deal', type:'Growth', sale:'$3,000', rate:'20%', comm:600},
-      {label:'Ripple Deal', type:'Growth', sale:'$1,800', rate:'20%', comm:360},
-      {label:'CRM Lite Client', type:'CRM', sale:'$99/mo', rate:'20%', comm:20},
-      {label:'CRM Premium Client', type:'CRM', sale:'$179/mo', rate:'20%', comm:36},
+    name: 'Growing - 3 Deals + 2 CRM Clients',
+    items: [
+      {label:'Ripple Deal',        type:'Growth', sale:'$1,800', rate:'20%', comm:360},
+      {label:'Current Deal',       type:'Growth', sale:'$3,000', rate:'20%', comm:600},
+      {label:'Ripple Deal',        type:'Growth', sale:'$1,800', rate:'20%', comm:360},
+      {label:'CRM Lite Client',    type:'CRM',    sale:'$99/mo', rate:'20%', comm:20},
+      {label:'CRM Premium Client', type:'CRM',    sale:'$179/mo',rate:'20%', comm:36}
     ],
-    bonus:150, bonusLabel:'3 deals → +$150 bonus', total:1526
+    bonus:150, bonusLabel:'3 deals = +$150 bonus', total:1526
   },
   solid: {
-    name:'Solid Month — 5 Deals + Bonus',
-    items:[
-      {label:'Ripple Deal x2', type:'Growth', sale:'$1,800 x2', rate:'20%', comm:720},
-      {label:'Current Deal x2', type:'Growth', sale:'$3,000 x2', rate:'20%', comm:1200},
-      {label:'Surge Deal', type:'Growth', sale:'$5,000', rate:'20%', comm:1000},
+    name: 'Solid Month - 5 Deals + Bonus',
+    items: [
+      {label:'Ripple x2',  type:'Growth', sale:'$1,800 x2', rate:'20%', comm:720},
+      {label:'Current x2', type:'Growth', sale:'$3,000 x2', rate:'20%', comm:1200},
+      {label:'Surge',      type:'Growth', sale:'$5,000',    rate:'20%', comm:1000}
     ],
-    bonus:400, bonusLabel:'5 deals → +$400 bonus', total:3320
+    bonus:400, bonusLabel:'5 deals = +$400 bonus', total:3320
   },
   strong: {
-    name:'Strong Month — 7 Deals + CRM + Bonuses',
-    items:[
-      {label:'Ripple x3', type:'Growth', sale:'$1,800 x3', rate:'20%', comm:1080},
-      {label:'Current x2', type:'Growth', sale:'$3,000 x2', rate:'20%', comm:1200},
-      {label:'Surge x2', type:'Growth', sale:'$5,000 x2', rate:'20%', comm:2000},
-      {label:'CRM Lite x2', type:'CRM', sale:'$99/mo x2', rate:'20%', comm:40},
-      {label:'CRM Premium', type:'CRM', sale:'$179/mo', rate:'20%', comm:36},
+    name: 'Strong Month - 7 Deals + CRM + Bonuses',
+    items: [
+      {label:'Ripple x3',   type:'Growth', sale:'$1,800 x3', rate:'20%', comm:1080},
+      {label:'Current x2',  type:'Growth', sale:'$3,000 x2', rate:'20%', comm:1200},
+      {label:'Surge x2',    type:'Growth', sale:'$5,000 x2', rate:'20%', comm:2000},
+      {label:'CRM Lite x2', type:'CRM',    sale:'$99/mo x2', rate:'20%', comm:40},
+      {label:'CRM Premium', type:'CRM',    sale:'$179/mo',   rate:'20%', comm:36}
     ],
-    bonus:750, bonusLabel:'7 deals → +$750 bonus', total:5106
+    bonus:750, bonusLabel:'7 deals = +$750 bonus', total:5106
   },
   top: {
-    name:'Top Performer — 10+ Deals',
-    items:[
-      {label:'Ripple x3', type:'Growth', sale:'$1,800 x3', rate:'20%', comm:1080},
-      {label:'Current x4', type:'Growth', sale:'$3,000 x4', rate:'20%', comm:2400},
-      {label:'Surge x3', type:'Growth', sale:'$5,000 x3', rate:'20%', comm:3000},
-      {label:'CRM Premium x2', type:'CRM', sale:'$179/mo x2', rate:'20%', comm:72},
+    name: 'Top Performer - 10+ Deals',
+    items: [
+      {label:'Ripple x3',      type:'Growth', sale:'$1,800 x3', rate:'20%', comm:1080},
+      {label:'Current x4',     type:'Growth', sale:'$3,000 x4', rate:'20%', comm:2400},
+      {label:'Surge x3',       type:'Growth', sale:'$5,000 x3', rate:'20%', comm:3000},
+      {label:'CRM Premium x2', type:'CRM',    sale:'$179/mo x2',rate:'20%', comm:72}
     ],
-    bonus:1000, bonusLabel:'10+ deals → +$1,000 bonus', total:7552
+    bonus:1000, bonusLabel:'10+ deals = +$1,000 bonus', total:7552
   },
   crm: {
-    name:'CRM Specialist — 3+ CRM Clients (25% Rate)',
-    items:[
+    name: 'CRM Specialist - 3+ Clients (25% Rate)',
+    items: [
       {label:'CRM Lite x2', type:'CRM', sale:'$99/mo x2', rate:'25%', comm:50},
-      {label:'CRM Premium', type:'CRM', sale:'$179/mo', rate:'25%', comm:45},
-      {label:'White-Label', type:'CRM', sale:'$697/mo', rate:'25%', comm:174},
+      {label:'CRM Premium', type:'CRM', sale:'$179/mo',   rate:'25%', comm:45},
+      {label:'White-Label', type:'CRM', sale:'$697/mo',   rate:'25%', comm:174}
     ],
-    bonus:0, bonusLabel:'3+ CRM clients → 25% rate unlocked!', total:269
-  },
+    bonus:0, bonusLabel:'3+ CRM clients = 25% rate unlocked!', total:269
+  }
 };
-var currentScenario = null;
 
 function loadScenario(key) {
-  currentScenario = key;
   var s = SCENARIOS[key];
+  if (!s) return;
   document.querySelectorAll('.scenario-card').forEach(function(c) { c.classList.remove('active'); });
   event.currentTarget.classList.add('active');
-
   var html = '<table class="breakdown-table"><thead><tr><th>Item</th><th>Type</th><th>Sale</th><th>Rate</th><th style="text-align:right;">Commission</th></tr></thead><tbody>';
   s.items.forEach(function(r) {
-    html += '<tr><td>'+r.label+'</td><td>'+r.type+'</td><td>'+r.sale+'</td><td>'+r.rate+'</td><td class="amount">$'+r.comm.toFixed(2)+'</td></tr>';
+    html += '<tr><td>' + r.label + '</td><td>' + r.type + '</td><td>' + r.sale + '</td><td>' + r.rate + '</td><td class="amount">$' + r.comm.toFixed(2) + '</td></tr>';
   });
   html += '</tbody></table>';
-  if(s.bonusLabel) html += '<div class="bonus-badge" style="margin-top:12px;">🏆 '+s.bonusLabel+'</div>';
-
+  if (s.bonusLabel) html += '<div class="bonus-badge" style="margin-top:12px;">' + s.bonusLabel + '</div>';
   document.getElementById('scenTitle').textContent = s.name;
   document.getElementById('scenBreakdown').innerHTML = html;
   document.getElementById('scenTotal').textContent = '$' + s.total.toLocaleString();
-  document.getElementById('scenarioDetail').style.display = 'block';
-  document.getElementById('scenarioDetail').scrollIntoView({behavior:'smooth',block:'start'});
+  var det = document.getElementById('scenarioDetail');
+  det.style.display = 'block';
+  det.scrollIntoView({behavior: 'smooth', block: 'start'});
 }
 
 function loadScenarioToCalc() {
   switchTab('calculator');
-  // Clear existing
-  document.getElementById('dealsList').innerHTML = '';
-  document.getElementById('crmList').innerHTML = '';
-  dealCount = 0; crmCount = 0;
-  // Add a note
-  alert('Scenario loaded! Add your actual deals in the calculator above to get your exact commission.');
+  alert('Add your actual deals in the calculator to get your exact commission.');
 }
 
-function printResults() {
-  window.print();
-}
+function printResults() { window.print(); }
 
-// ── INIT ──────────────────────────────────────────────────────────────────
-// Set default month to current
+/* ============================================================
+   INIT
+   ============================================================ */
 (function() {
   var now = new Date();
-  var m = now.getFullYear() + '-' + String(now.getMonth()+1).padStart(2,'0');
-  var cm = document.getElementById('calcMonth');
-  var pm = document.getElementById('pPeriod');
-  if(cm) cm.value = m;
-  if(pm) pm.value = m;
-  // Add first deal and CRM by default
+  var m   = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0');
+  var cm  = document.getElementById('calcMonth');
+  var pm  = document.getElementById('pPeriod');
+  if (cm) cm.value = m;
+  if (pm) pm.value = m;
   addDeal();
   addCRM();
 })();
