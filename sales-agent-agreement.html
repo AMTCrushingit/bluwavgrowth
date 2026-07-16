@@ -453,7 +453,7 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
     <div style="font-size:64px;margin-bottom:20px;">🎉</div>
     <h2 style="font-family:'Manrope',sans-serif;font-size:28px;font-weight:800;color:var(--navy);margin-bottom:12px;">Welcome to BluWav Growth!</h2>
     <p style="font-size:16px;color:var(--slate);line-height:1.8;max-width:480px;margin:0 auto 28px;">Your Sales Agent Agreement has been signed and accepted. Check your email, your confirmation and BluWav Growth Sales Agent Sales Agent Sales Agent Onboarding Package are on their way.</p>
-    <a style="display:inline-flex;align-items:center;gap:10px;background:var(--navy);color:#fff;font-size:15px;font-weight:800;padding:16px 36px;border-radius:12px;text-decoration:none;box-shadow:0 4px 20px rgba(0,43,73,0.3);" href="https://raw.githubusercontent.com/AMTCrushingit/clientflow/main/sales-package/BluWav-Complete-Sales-Package.pdf" target="_blank">
+    <a style="display:inline-flex;align-items:center;gap:10px;background:var(--navy);color:#fff;font-size:15px;font-weight:800;padding:16px 36px;border-radius:12px;text-decoration:none;box-shadow:0 4px 20px rgba(0,43,73,0.3);" href="https://raw.githubusercontent.com/AMTCrushingit/clientflow/main/sales-package/BluWav-Sales-Agent-Onboarding-Package.pdf" target="_blank">
       📥 Download Your Sales Agent Sales Agent Sales Agent Onboarding Package
     </a>
     <div class="next-steps">
@@ -725,7 +725,7 @@ async function handleSubmit(e){
     '========================='
   ].join('\n');
 
-  var autoMsg='Dear '+fName+',\n\nWelcome to BluWav Growth! 🌊\n\nYour Sales Agent Agreement has been signed and accepted.\n\nAGREEMENT DETAILS:\n• Name: '+fullName+'\n• Tier: '+tier+'\n• Territory: '+territory+'\n• Signed: '+signedDate+' at '+signedTime+' UTC\n• Session Token: '+audit.token+'\n• IP Address: '+audit.ip+'\n\nYOUR ONBOARDING & SALES PACKAGE:\nDownload your Sales Agent Sales Agent Sales Agent Onboarding Package here:\nhttps://raw.githubusercontent.com/AMTCrushingit/clientflow/main/sales-package/BluWav-Complete-Sales-Package.pdf\n\nThis 37-page package includes everything you need to start closing deals:\n• Welcome letter from Andrea\n• Product sheets (Ripple, Current, Surge, CRM)\n• Sales scripts and objection handler\n• Commission structure and earnings scenarios\n• Your 30-day action plan\n\nNEXT STEPS:\n1. Download and read your Sales Agent Sales Agent Onboarding Package\n2. WhatsApp Andrea at +1 (868) 297-9960 to confirm your onboarding call slot\n3. Identify your first 3 prospects before the call\n\nGet Found. Get Chosen. Grow.\n\nAndrea M. Tanguay\nFounder & CEO, BluWav Growth\nhello@bluwavgrowth.com | +1 (868) 297-9960 | bluwavgrowth.com';
+  var autoMsg='Dear '+fName+',\n\nWelcome to BluWav Growth! 🌊\n\nYour Sales Agent Agreement has been signed and accepted.\n\nAGREEMENT DETAILS:\n• Name: '+fullName+'\n• Tier: '+tier+'\n• Territory: '+territory+'\n• Signed: '+signedDate+' at '+signedTime+' UTC\n• Session Token: '+audit.token+'\n• IP Address: '+audit.ip+'\n\nYOUR ONBOARDING & SALES PACKAGE:\nDownload your Sales Agent Sales Agent Sales Agent Onboarding Package here:\nhttps://raw.githubusercontent.com/AMTCrushingit/clientflow/main/sales-package/BluWav-Sales-Agent-Onboarding-Package.pdf\n\nThis 37-page package includes everything you need to start closing deals:\n• Welcome letter from Andrea\n• Product sheets (Ripple, Current, Surge, CRM)\n• Sales scripts and objection handler\n• Commission structure and earnings scenarios\n• Your 30-day action plan\n\nNEXT STEPS:\n1. Download and read your Sales Agent Sales Agent Onboarding Package\n2. WhatsApp Andrea at +1 (868) 297-9960 to confirm your onboarding call slot\n3. Identify your first 3 prospects before the call\n\nGet Found. Get Chosen. Grow.\n\nAndrea M. Tanguay\nFounder & CEO, BluWav Growth\nhello@bluwavgrowth.com | +1 (868) 297-9960 | bluwavgrowth.com';
 
   btn.textContent='Submitting...';
 
@@ -746,7 +746,7 @@ async function handleSubmit(e){
   fd.append('user_agent',audit.ua);
   fd.append('audit_trail',auditText);
   fd.append('agreement_version','BluWav Growth Sales Agent Agreement v1.0, July 2026');
-  fd.append('onboarding_package_url','https://raw.githubusercontent.com/AMTCrushingit/clientflow/main/sales-package/BluWav-Complete-Sales-Package.pdf');
+  fd.append('onboarding_package_url','https://raw.githubusercontent.com/AMTCrushingit/clientflow/main/sales-package/BluWav-Sales-Agent-Onboarding-Package.pdf');
   fd.append('_autoresponse',autoMsg);
 
   fetch('https://formspree.io/f/xpwzgvkd',{method:'POST',body:fd,headers:{'Accept':'application/json'}})
