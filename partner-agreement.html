@@ -116,6 +116,26 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
 @media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr!important;padding-left:32px!important;padding-right:32px!important;}.footer-bottom{padding:20px 32px!important;}}
 @media(max-width:600px){.footer-grid{grid-template-columns:1fr!important;padding-left:20px!important;padding-right:20px!important;}.footer-bottom{flex-direction:column;text-align:center;gap:8px;padding:20px!important;}}
 .wa-float{position:fixed;bottom:80px;right:24px;z-index:200;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 20px rgba(37,211,102,0.45);}
+
+/* ── SIGNATURE PAD ── */
+.sig-pad-wrap{margin-top:16px;}
+.sig-pad-label{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--slate);margin-bottom:8px;display:block;}
+.sig-pad-container{position:relative;border:2px solid #e2e8f0;border-radius:12px;background:#fff;overflow:hidden;transition:border-color 0.2s;}
+.sig-pad-container.active{border-color:var(--coral);}
+.sig-pad-container.signed{border-color:#22c55e;}
+#signatureCanvas{display:block;width:100%;height:160px;cursor:crosshair;touch-action:none;}
+.sig-pad-toolbar{display:flex;align-items:center;justify-content:space-between;padding:8px 14px;background:#F8FAFC;border-top:1px solid #e2e8f0;}
+.sig-pad-hint{font-size:11px;color:var(--slate);font-style:italic;}
+.sig-pad-clear{background:none;border:1px solid #e2e8f0;color:var(--slate);font-size:12px;font-weight:700;padding:5px 14px;border-radius:6px;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all 0.2s;}
+.sig-pad-clear:hover{border-color:var(--coral);color:var(--coral);}
+.sig-pad-status{font-size:11px;font-weight:700;margin-top:6px;}
+.sig-pad-status.empty{color:var(--slate);}
+.sig-pad-status.done{color:#22c55e;}
+.sig-name-confirm{margin-top:14px;}
+.sig-name-label{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--slate);margin-bottom:6px;display:block;}
+.sig-name-input{width:100%;padding:12px 16px;border:1.5px solid #e2e8f0;border-radius:10px;font-size:15px;font-family:'Plus Jakarta Sans',sans-serif;color:var(--navy);background:#fff;transition:border-color 0.2s;outline:none;}
+.sig-name-input:focus{border-color:var(--cyan);}
+.sig-legal-note{font-size:11px;color:var(--slate);margin-top:8px;line-height:1.6;font-style:italic;}
 </style>
 </head>
 <body>
@@ -404,10 +424,21 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
           <input type="checkbox" id="agreeCheck" required/>
           <label for="agreeCheck">I have read, understood, and agree to all terms of the BluWav Growth Sales Agent Agreement as displayed above. I understand that this constitutes a legally binding digital agreement between myself and BluWav Growth.</label>
         </div>
-        <div class="sig-group">
-          <span class="sig-input-label">Digital Signature — Type your full legal name <span style="color:var(--coral);">*</span></span>
-          <input class="sig-input" type="text" id="signature" placeholder="Your Full Name" required/>
-          <div class="sig-note">By typing your name above, you are providing your digital signature and agreeing to the terms of this Agreement. Date and time will be recorded automatically.</div>
+        <div class="sig-pad-wrap">
+          <span class="sig-pad-label">Your Signature <span style="color:var(--coral);">*</span></span>
+          <div class="sig-pad-container" id="sigPadContainer">
+            <canvas id="signatureCanvas" width="800" height="160"></canvas>
+            <div class="sig-pad-toolbar">
+              <span class="sig-pad-hint" id="sigHint">✏️ Draw your signature above using your mouse or finger</span>
+              <button type="button" class="sig-pad-clear" onclick="clearSignature()">Clear</button>
+            </div>
+          </div>
+          <div class="sig-pad-status empty" id="sigStatus">No signature yet — please sign above</div>
+          <div class="sig-name-confirm">
+            <span class="sig-name-label">Print Your Full Legal Name <span style="color:var(--coral);">*</span></span>
+            <input class="sig-name-input" type="text" id="sigName" placeholder="Your Full Name" required/>
+            <div class="sig-legal-note">By drawing your signature and printing your name above, you are providing a legally binding digital signature and confirming your agreement to all terms. The date, time, and your signature image will be recorded and included in the confirmation email sent to both parties.</div>
+          </div>
         </div>
       </div>
       <button class="submit-btn" type="submit" id="submitBtn">
@@ -558,7 +589,7 @@ function submitAgreement(e){
   formData.append('business', business || 'Not provided');
   formData.append('territory', territory);
   formData.append('tier', tier);
-  formData.append('digital_signature', signature);
+  formData.append('digital_signature', sigName + ' (drawn signature captured)');formData.append('signature_image', getSignatureData());
   formData.append('signed_date', signedDate + ' at ' + signedTime + ' UTC');
   formData.append('agreement_version', 'BluWav Growth Sales Agent Agreement v1.0 — July 2026');
   formData.append('sales_package_url', PDF_URL);
@@ -581,6 +612,112 @@ function submitAgreement(e){
     alert('There was an issue submitting. Please try again or WhatsApp us at +1 (868) 297-9960.');
   });
 }
+
+// ── SIGNATURE PAD ─────────────────────────────────────────────────────────
+(function(){{
+  var canvas = document.getElementById('signatureCanvas');
+  if(!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var drawing = false;
+  var hasSig = false;
+  var container = document.getElementById('sigPadContainer');
+  var status = document.getElementById('sigStatus');
+  var hint = document.getElementById('sigHint');
+
+  // Set canvas resolution for retina displays
+  function resizeCanvas(){{
+    var rect = canvas.getBoundingClientRect();
+    var dpr = window.devicePixelRatio || 1;
+    canvas.width = rect.width * dpr;
+    canvas.height = rect.height * dpr;
+    ctx.scale(dpr, dpr);
+    ctx.strokeStyle = '#002B49';
+    ctx.lineWidth = 2.5;
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+  }}
+  resizeCanvas();
+  window.addEventListener('resize', function(){{ if(!hasSig) resizeCanvas(); }});
+
+  function getPos(e){{
+    var rect = canvas.getBoundingClientRect();
+    if(e.touches){{
+      return {{
+        x: e.touches[0].clientX - rect.left,
+        y: e.touches[0].clientY - rect.top
+      }};
+    }}
+    return {{x: e.clientX - rect.left, y: e.clientY - rect.top}};
+  }}
+
+  function startDraw(e){{
+    e.preventDefault();
+    drawing = true;
+    var pos = getPos(e);
+    ctx.beginPath();
+    ctx.moveTo(pos.x, pos.y);
+    container.classList.add('active');
+    hint.textContent = '✏️ Keep drawing...';
+  }}
+
+  function draw(e){{
+    if(!drawing) return;
+    e.preventDefault();
+    var pos = getPos(e);
+    ctx.lineTo(pos.x, pos.y);
+    ctx.stroke();
+    hasSig = true;
+  }}
+
+  function endDraw(e){{
+    if(!drawing) return;
+    drawing = false;
+    if(hasSig){{
+      container.classList.remove('active');
+      container.classList.add('signed');
+      status.textContent = '✓ Signature captured';
+      status.className = 'sig-pad-status done';
+      hint.textContent = '✓ Signature drawn — clear and redraw if needed';
+    }}
+  }}
+
+  // Mouse events
+  canvas.addEventListener('mousedown', startDraw);
+  canvas.addEventListener('mousemove', draw);
+  canvas.addEventListener('mouseup', endDraw);
+  canvas.addEventListener('mouseleave', endDraw);
+
+  // Touch events (mobile)
+  canvas.addEventListener('touchstart', startDraw, {{passive:false}});
+  canvas.addEventListener('touchmove', draw, {{passive:false}});
+  canvas.addEventListener('touchend', endDraw);
+}})();
+
+function clearSignature(){{
+  var canvas = document.getElementById('signatureCanvas');
+  var ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  var container = document.getElementById('sigPadContainer');
+  var status = document.getElementById('sigStatus');
+  var hint = document.getElementById('sigHint');
+  container.classList.remove('active','signed');
+  status.textContent = 'No signature yet — please sign above';
+  status.className = 'sig-pad-status empty';
+  hint.textContent = '✏️ Draw your signature above using your mouse or finger';
+}}
+
+function getSignatureData(){{
+  var canvas = document.getElementById('signatureCanvas');
+  // Check if canvas is blank
+  var ctx = canvas.getContext('2d');
+  var data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+  var hasContent = false;
+  for(var i=3; i<data.length; i+=4){{
+    if(data[i] > 0){{ hasContent = true; break; }}
+  }}
+  if(!hasContent) return 'empty';
+  return canvas.toDataURL('image/png');
+}}
 </script>
 </body>
 </html>
