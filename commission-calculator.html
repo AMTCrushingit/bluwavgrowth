@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="theme-color" content="#002B49"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>Commission Calculator & Payout Request | BluWav Growth</title>
+<meta name="description" content="BluWav Growth Sales Agent Commission Calculator and Payout Request System. Agents only."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@700;800;900&family=Kaushan+Script&display=swap" rel="stylesheet"/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1F2YQ0NWT7"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-1F2YQ0NWT7');</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:#F4F2ED;color:#1E1E1E;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+:root{
+  --navy:#002B49;--coral:#FF5500;--gold:#F7C873;--cyan:#00E0FF;
+  --cyan2:#00C2D8;--sand:#F4F2ED;--slate:#64748b;--mist:#e8e4de;
+  --green:#22c55e;--max:1100px;
+}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 32px;display:flex;align-items:center;justify-content:space-between;background:rgba(0,43,73,0.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,224,255,0.15);box-shadow:0 2px 24px rgba(0,0,0,0.3);}
+.nav-logo{display:flex;flex-direction:column;align-items:flex-start;line-height:1;padding:4px 0;}
+.nav-links{display:flex;align-items:center;gap:20px;}
+.nav-link{font-size:12px;font-weight:500;color:rgba(255,255,255,0.65);transition:color 0.2s;text-decoration:none;white-space:nowrap;}
+.nav-link:hover{color:#fff;}
+.nav-cta{background:var(--coral);color:#fff;font-size:13px;font-weight:700;padding:10px 24px;border-radius:9px;transition:transform 0.15s;text-decoration:none;}
+.nav-cta:hover{transform:translateY(-1px);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px;margin:-8px;}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all 0.3s ease;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mob-nav{display:none;position:fixed;top:70px;left:0;right:0;background:rgba(0,43,73,0.99);backdrop-filter:blur(20px);padding:20px 24px;flex-direction:column;gap:4px;z-index:10000;border-bottom:1px solid rgba(0,224,255,0.15);max-height:calc(100vh - 70px);overflow-y:auto;}
+.mob-nav.open{display:flex!important;}
+.mob-link{font-size:15px;font-weight:600;color:rgba(255,255,255,0.85);padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.1);display:block;}
+.mob-link.wave{color:#00E0FF;}
+.mob-cta{background:var(--coral);color:#fff;font-weight:700;padding:14px;border-radius:10px;text-align:center;margin-top:8px;font-size:15px;display:block;}
+@media(max-width:1100px){.nav-links{display:none!important;}.hamburger{display:flex!important;}}
+@media(max-width:768px){nav{padding:0 16px!important;height:60px!important;}.mob-nav{top:60px!important;}}
+
+/* LAYOUT */
+.wrap{max-width:var(--max);margin:0 auto;padding:0 48px;}
+@media(max-width:768px){.wrap{padding:0 16px!important;}}
+
+/* LOCK SCREEN */
+#lockScreen{
+  position:fixed;inset:0;z-index:9999;
+  background:linear-gradient(160deg,#001020 0%,#002B49 50%,#003d5c 100%);
+  display:flex;align-items:center;justify-content:center;
+  padding:24px;
+}
+.lock-card{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(0,224,255,0.2);
+  border-radius:24px;
+  padding:48px 40px;
+  text-align:center;
+  max-width:420px;
+  width:100%;
+  backdrop-filter:blur(12px);
+}
+.lock-icon{font-size:48px;margin-bottom:20px;}
+.lock-title{font-family:'Manrope',sans-serif;font-size:24px;font-weight:800;color:#fff;margin-bottom:8px;}
+.lock-sub{font-size:14px;color:rgba(255,255,255,0.55);margin-bottom:28px;line-height:1.6;}
+.lock-input{
+  width:100%;padding:16px;
+  background:rgba(255,255,255,0.08);
+  border:2px solid rgba(255,255,255,0.15);
+  border-radius:12px;
+  font-size:18px;font-weight:700;
+  color:#fff;text-align:center;
+  letter-spacing:4px;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  outline:none;
+  transition:border-color 0.2s;
+  -webkit-appearance:none;
+}
+.lock-input:focus{border-color:var(--cyan);}
+.lock-input::placeholder{color:rgba(255,255,255,0.3);letter-spacing:2px;font-size:14px;font-weight:400;}
+.lock-btn{
+  width:100%;margin-top:14px;
+  background:var(--coral);color:#fff;
+  font-size:16px;font-weight:800;
+  padding:16px;border-radius:12px;
+  border:none;cursor:pointer;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  transition:all 0.2s;
+  box-shadow:0 4px 20px rgba(255,85,0,0.35);
+}
+.lock-btn:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(255,85,0,0.5);}
+.lock-error{color:#ef4444;font-size:13px;margin-top:10px;display:none;}
+.lock-hint{font-size:12px;color:rgba(255,255,255,0.35);margin-top:16px;}
+
+/* HERO BAND */
+.page-hero{
+  background:linear-gradient(135deg,#002B49,#003d5c);
+  padding:100px 48px 48px;
+  position:relative;overflow:hidden;
+}
+.page-hero::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(0,224,255,0.06) 0%,transparent 70%);pointer-events:none;}
+@media(max-width:768px){.page-hero{padding:90px 20px 40px;}}
+
+/* TABS */
+.tabs{display:flex;gap:0;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 16px rgba(0,43,73,0.08);margin:32px 0;border:1px solid var(--mist);}
+.tab-btn{flex:1;padding:16px 20px;font-size:14px;font-weight:700;color:var(--slate);background:#fff;border:none;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all 0.2s;border-right:1px solid var(--mist);}
+.tab-btn:last-child{border-right:none;}
+.tab-btn.active{background:var(--navy);color:#fff;}
+.tab-btn:hover:not(.active){background:#F8FAFC;color:var(--navy);}
+.tab-panel{display:none;}
+.tab-panel.active{display:block;}
+
+/* CARDS */
+.card{background:#fff;border-radius:20px;padding:32px;box-shadow:0 4px 24px rgba(0,43,73,0.07);border:1px solid var(--mist);margin-bottom:24px;}
+.card-title{font-family:'Manrope',sans-serif;font-size:18px;font-weight:800;color:var(--navy);margin-bottom:6px;}
+.card-sub{font-size:13px;color:var(--slate);margin-bottom:24px;line-height:1.6;}
+
+/* FORM ELEMENTS */
+.form-group{margin-bottom:18px;}
+.form-label{display:block;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--slate);margin-bottom:7px;}
+.form-label .req{color:var(--coral);}
+.form-input{width:100%;padding:13px 16px;border:2px solid #e2e8f0;border-radius:10px;font-size:15px;font-family:'Plus Jakarta Sans',sans-serif;color:#1E1E1E;background:#fff;transition:border-color 0.2s;outline:none;-webkit-appearance:none;}
+.form-input:focus{border-color:var(--cyan);}
+.form-input::placeholder{color:#94a3b8;}
+.form-select{width:100%;padding:13px 16px;border:2px solid #e2e8f0;border-radius:10px;font-size:15px;font-family:'Plus Jakarta Sans',sans-serif;color:#1E1E1E;background:#fff;outline:none;-webkit-appearance:none;appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23002B49' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;}
+.form-select:focus{border-color:var(--cyan);}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+@media(max-width:600px){.form-row{grid-template-columns:1fr!important;}}
+.form-row-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+@media(max-width:768px){.form-row-3{grid-template-columns:1fr!important;}}
+
+/* DEAL ENTRY */
+.deal-entry{background:#F8FAFC;border:1px solid #E2E8F0;border-radius:14px;padding:20px;margin-bottom:14px;position:relative;}
+.deal-entry-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+.deal-num{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--slate);}
+.deal-remove{background:none;border:1px solid #e2e8f0;color:#94a3b8;font-size:12px;font-weight:700;padding:4px 12px;border-radius:6px;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all 0.2s;}
+.deal-remove:hover{border-color:#ef4444;color:#ef4444;}
+.add-deal-btn{display:flex;align-items:center;gap:8px;background:rgba(0,43,73,0.06);border:2px dashed rgba(0,43,73,0.2);color:var(--navy);font-size:14px;font-weight:700;padding:14px 20px;border-radius:12px;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all 0.2s;width:100%;justify-content:center;margin-bottom:24px;}
+.add-deal-btn:hover{background:rgba(0,43,73,0.1);border-color:var(--navy);}
+
+/* RESULTS */
+.results-panel{background:linear-gradient(135deg,#002B49,#003d5c);border-radius:20px;padding:32px;color:#fff;margin-top:24px;}
+.results-title{font-family:'Manrope',sans-serif;font-size:18px;font-weight:800;color:#fff;margin-bottom:20px;display:flex;align-items:center;gap:10px;}
+.result-row{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.08);}
+.result-row:last-child{border-bottom:none;}
+.result-label{font-size:14px;color:rgba(255,255,255,0.7);}
+.result-value{font-size:16px;font-weight:800;color:#fff;}
+.result-value.highlight{color:var(--gold);font-size:20px;}
+.result-value.green{color:#4ade80;}
+.result-value.cyan{color:var(--cyan);}
+.total-row{background:rgba(255,255,255,0.06);border-radius:12px;padding:16px 20px;margin-top:16px;display:flex;align-items:center;justify-content:space-between;}
+.total-label{font-size:14px;font-weight:800;color:rgba(255,255,255,0.8);text-transform:uppercase;letter-spacing:1px;}
+.total-value{font-family:'Sora',sans-serif;font-size:36px;font-weight:900;color:var(--gold);}
+.bonus-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(247,200,115,0.15);border:1px solid rgba(247,200,115,0.3);border-radius:20px;padding:5px 14px;font-size:12px;font-weight:800;color:var(--gold);margin-top:12px;}
+.breakdown-table{width:100%;border-collapse:collapse;margin-top:16px;font-size:13px;}
+.breakdown-table th{padding:8px 12px;text-align:left;color:rgba(255,255,255,0.5);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;border-bottom:1px solid rgba(255,255,255,0.1);}
+.breakdown-table td{padding:10px 12px;color:rgba(255,255,255,0.85);border-bottom:1px solid rgba(255,255,255,0.06);}
+.breakdown-table tr:last-child td{border-bottom:none;}
+.breakdown-table .amount{font-weight:800;color:var(--gold);text-align:right;}
+
+/* SCENARIO CARDS */
+.scenario-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px;}
+.scenario-card{background:#fff;border:2px solid var(--mist);border-radius:14px;padding:20px;cursor:pointer;transition:all 0.2s;text-align:center;}
+.scenario-card:hover{border-color:var(--cyan2);transform:translateY(-2px);}
+.scenario-card.active{border-color:var(--coral);background:rgba(255,85,0,0.03);}
+.scenario-icon{font-size:28px;margin-bottom:8px;}
+.scenario-name{font-size:13px;font-weight:800;color:var(--navy);margin-bottom:4px;}
+.scenario-earn{font-family:'Sora',sans-serif;font-size:22px;font-weight:900;color:var(--coral);}
+.scenario-desc{font-size:11px;color:var(--slate);margin-top:4px;}
+@media(max-width:768px){.scenario-grid{grid-template-columns:1fr!important;}}
+
+/* PAYOUT FORM */
+.payout-summary{background:#EFF6FF;border:1px solid rgba(0,194,216,0.3);border-radius:14px;padding:20px 24px;margin-bottom:24px;}
+.payout-summary-title{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--cyan2);margin-bottom:12px;}
+.payout-line{display:flex;justify-content:space-between;align-items:center;padding:6px 0;font-size:14px;}
+.payout-line-label{color:var(--slate);}
+.payout-line-value{font-weight:800;color:var(--navy);}
+.payout-total-line{display:flex;justify-content:space-between;align-items:center;padding:12px 0 0;border-top:1px solid rgba(0,194,216,0.2);margin-top:8px;}
+.payout-total-label{font-size:14px;font-weight:800;color:var(--navy);}
+.payout-total-value{font-family:'Sora',sans-serif;font-size:28px;font-weight:900;color:var(--coral);}
+
+/* DEAL LOG TABLE */
+.deal-log{width:100%;border-collapse:collapse;font-size:13px;}
+.deal-log th{background:#EFF6FF;color:var(--navy);font-weight:800;padding:10px 14px;text-align:left;border:1px solid #E2E8F0;font-size:11px;text-transform:uppercase;letter-spacing:1px;}
+.deal-log td{padding:10px 14px;border:1px solid #E2E8F0;color:#374151;vertical-align:top;}
+.deal-log tr:nth-child(even) td{background:#F8FAFC;}
+.deal-log .amount-cell{font-weight:800;color:var(--coral);text-align:right;}
+.deal-log .status-paid{background:rgba(34,197,94,0.1);color:#16a34a;font-size:11px;font-weight:800;padding:3px 10px;border-radius:20px;}
+.deal-log .status-pending{background:rgba(247,200,115,0.15);color:#C49A00;font-size:11px;font-weight:800;padding:3px 10px;border-radius:20px;}
+
+/* SUBMIT BUTTONS */
+.submit-btn{width:100%;background:var(--coral);color:#fff;font-size:16px;font-weight:800;padding:17px;border-radius:12px;border:none;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all 0.2s;box-shadow:0 4px 24px rgba(255,85,0,0.35);margin-top:8px;-webkit-appearance:none;}
+.submit-btn:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(255,85,0,0.5);}
+.submit-btn:disabled{opacity:0.6;cursor:not-allowed;transform:none;}
+.calc-btn{width:100%;background:var(--navy);color:#fff;font-size:15px;font-weight:800;padding:15px;border-radius:12px;border:none;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all 0.2s;margin-top:8px;-webkit-appearance:none;}
+.calc-btn:hover{background:#003d5c;transform:translateY(-1px);}
+
+/* SUCCESS */
+.success-msg{display:none;background:#F0FFF4;border:2px solid rgba(34,197,94,0.3);border-radius:14px;padding:24px;text-align:center;margin-top:16px;}
+.success-msg.show{display:block;}
+
+/* COMMISSION REFERENCE */
+.ref-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.ref-card{background:#F8FAFC;border:1px solid #E2E8F0;border-radius:14px;padding:20px;}
+.ref-card-title{font-size:13px;font-weight:800;color:var(--navy);margin-bottom:12px;text-transform:uppercase;letter-spacing:1px;}
+.ref-table{width:100%;border-collapse:collapse;font-size:13px;}
+.ref-table th{padding:7px 10px;text-align:left;color:var(--slate);font-size:11px;font-weight:700;border-bottom:1px solid #E2E8F0;}
+.ref-table td{padding:8px 10px;color:#374151;border-bottom:1px solid #F1F5F9;}
+.ref-table tr:last-child td{border-bottom:none;}
+.ref-table .rate{font-weight:800;color:var(--coral);}
+@media(max-width:768px){.ref-grid{grid-template-columns:1fr!important;}}
+
+/* WA FLOAT */
+.wa-float{position:fixed;bottom:80px;right:24px;z-index:200;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 20px rgba(37,211,102,0.45);}
+
+/* FOOTER */
+footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;max-width:1600px;margin:0 auto;padding-left:64px;padding-right:64px;}
+.footer-heading{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.4);margin-bottom:16px;}
+.footer-brand-name{font-family:'Kaushan Script',cursive;font-size:34px;color:#fff;line-height:1;margin-bottom:6px;}
+.footer-brand-name span{color:#00E0FF;}
+.footer-brand-sub{font-size:9px;font-weight:700;color:#F7C873;letter-spacing:5px;text-transform:uppercase;margin-bottom:12px;}
+.footer-brand-tag{font-size:12px;font-weight:500;color:#00E0FF;letter-spacing:1px;margin-bottom:6px;}
+.footer-desc{font-size:13px;color:rgba(255,255,255,0.4);line-height:1.65;margin-top:12px;}
+.footer-link{display:block;font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:8px;transition:color 0.2s,transform 0.2s;text-decoration:none;}
+.footer-link:hover{color:#fff;transform:translateX(4px);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding:20px 64px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;max-width:1600px;margin:0 auto;}
+.footer-bottom-text{font-size:12px;color:rgba(255,255,255,0.3);}
+@media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr!important;padding-left:32px!important;padding-right:32px!important;}.footer-bottom{padding:20px 32px!important;}}
+@media(max-width:600px){.footer-grid{grid-template-columns:1fr!important;padding-left:20px!important;padding-right:20px!important;}.footer-bottom{flex-direction:column;text-align:center;gap:8px;padding:20px!important;}}
+</style>
+</head>
+<body>
+
+<!-- LOCK SCREEN -->
+<div id="lockScreen">
+  <div class="lock-card">
+    <div class="lock-icon">🔐</div>
+    <div class="lock-title">Agent Portal</div>
+    <div class="lock-sub">This area is for BluWav Growth Sales Agents only. Enter your access code to continue.</div>
+    <input class="lock-input" type="password" id="lockCode" placeholder="Enter access code" maxlength="20" autocomplete="off"/>
+    <button class="lock-btn" onclick="checkCode()">Access Portal →</button>
+    <div class="lock-error" id="lockError">Incorrect code. Please try again or WhatsApp Andrea.</div>
+    <div class="lock-hint">Don't have your code? WhatsApp +1 (868) 297-9960</div>
+  </div>
+</div>
+
+<nav id="mainNav">
+<div class="nav-logo" style="display:flex;flex-direction:column;align-items:flex-start;line-height:1;padding:4px 0;">
+<div style="font-family:'Kaushan Script',cursive;font-size:26px;line-height:1;color:#fff;">Blu<span style="color:#00E0FF;">Wav</span></div>
+<div style="font-size:8px;font-weight:700;color:#00E0FF;letter-spacing:3px;text-transform:uppercase;line-height:1.4;margin-top:2px;">Get Found. Get Chosen. Grow.</div>
+</div>
+<div class="nav-links">
+<a class="nav-link" style="color:#fff;font-weight:700;border-bottom:2px solid #FF5500;padding-bottom:2px;" href="index.html">Home</a>
+<a class="nav-link" href="index.html#what-we-do">Services</a>
+<a class="nav-link" href="pricing.html">Pricing</a>
+<a class="nav-link" href="crm.html">BluWav CRM</a>
+<a class="nav-link" href="the-wave.html" style="color:#00E0FF;font-weight:700;">The Wave</a>
+<a class="nav-link" href="index.html#contact">Contact</a>
+<a class="nav-cta" href="https://forms.gle/EcVVcffVTqLZpHURA" target="_blank">Free Business Health Check</a>
+</div>
+<button aria-label="Menu" class="hamburger" id="hamburgerBtn" onclick="toggleMob()"><span></span><span></span><span></span></button>
+</nav>
+<div class="mob-nav" id="mobNav">
+<div class="mob-nav-inner">
+<a class="mob-link" href="index.html" onclick="closeMob()">🏠 Home</a>
+<a class="mob-link" href="index.html#what-we-do" onclick="closeMob()">⚡ Services</a>
+<a class="mob-link" href="index.html#how-it-works" onclick="closeMob()" style="padding-left:24px;font-size:13px;color:rgba(255,255,255,0.6);">&#8212; How It Works</a>
+<a class="mob-link" href="pricing.html" onclick="closeMob()">💰 Pricing</a>
+<a class="mob-link" href="crm.html" onclick="closeMob()">🗂️ BluWav CRM</a>
+<a class="mob-link wave" href="the-wave.html" onclick="closeMob()">🌊 The Wave</a>
+<a class="mob-link" href="index.html#contact" onclick="closeMob()">📞 Contact</a>
+<a class="mob-cta" href="https://forms.gle/EcVVcffVTqLZpHURA" target="_blank" onclick="closeMob()">🩺 Get My Free Digital Health Check</a>
+</div>
+</div>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div style="max-width:var(--max);margin:0 auto;position:relative;z-index:1;">
+    <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(0,224,255,0.1);border:1px solid rgba(0,224,255,0.2);border-radius:20px;padding:5px 14px;font-size:11px;font-weight:800;color:#00E0FF;text-transform:uppercase;letter-spacing:2px;margin-bottom:18px;">💰 Agent Portal</div>
+    <h1 style="font-family:'Manrope',sans-serif;font-size:clamp(28px,4vw,42px);font-weight:900;color:#fff;line-height:1.15;margin-bottom:12px;">Commission Calculator<br/>&amp; Payout Request</h1>
+    <p style="font-size:16px;color:rgba(255,255,255,0.6);max-width:520px;line-height:1.75;">Calculate your earnings, preview bonuses, and submit payout requests — all in one place. Payouts processed within 7 business days.</p>
+    <div style="display:flex;gap:20px;flex-wrap:wrap;margin-top:20px;">
+      <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.6);"><span style="color:var(--green);">✓</span> Real-time calculation</div>
+      <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.6);"><span style="color:var(--green);">✓</span> Bonuses auto-applied</div>
+      <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.6);"><span style="color:var(--green);">✓</span> Payout in 7 business days</div>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN CONTENT -->
+<section style="padding:40px 0 80px;background:#F4F2ED;">
+<div class="wrap">
+
+  <!-- TABS -->
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab('calculator')">🧮 Commission Calculator</button>
+    <button class="tab-btn" onclick="switchTab('payout')">💸 Request Payout</button>
+    <button class="tab-btn" onclick="switchTab('scenarios')">📊 Earnings Scenarios</button>
+    <button class="tab-btn" onclick="switchTab('reference')">📋 Commission Reference</button>
+  </div>
+
+  <!-- ══ TAB 1: CALCULATOR ══════════════════════════════════════════════ -->
+  <div class="tab-panel active" id="tab-calculator">
+
+    <div class="card">
+      <div class="card-title">Your Details</div>
+      <div class="card-sub">Enter your name and the deals you closed this month. Bonuses are calculated automatically.</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="agentName">Your Name <span class="req">*</span></label>
+          <input class="form-input" type="text" id="agentName" placeholder="Your full name"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="calcMonth">Month / Period</label>
+          <input class="form-input" type="month" id="calcMonth"/>
+        </div>
+      </div>
+    </div>
+
+    <!-- GROWTH SYSTEM DEALS -->
+    <div class="card">
+      <div class="card-title">Growth System Deals</div>
+      <div class="card-sub">Add each Growth System deal you closed. Commission is 20% of the sale price.</div>
+      <div id="dealsList"></div>
+      <button class="add-deal-btn" onclick="addDeal()">+ Add a Deal</button>
+    </div>
+
+    <!-- CRM DEALS -->
+    <div class="card">
+      <div class="card-title">CRM Clients (Monthly Recurring)</div>
+      <div class="card-sub">Enter CRM clients whose monthly payments have cleared. Commission is 20% of monthly fee for the first 3 months. If you have 3+ CRM clients within 60 days, the rate upgrades to 25%.</div>
+      <div id="crmList"></div>
+      <button class="add-deal-btn" onclick="addCRM()">+ Add a CRM Client</button>
+    </div>
+
+    <!-- CALCULATE -->
+    <button class="calc-btn" onclick="calculate()">🧮 Calculate My Commission →</button>
+
+    <!-- RESULTS -->
+    <div class="results-panel" id="resultsPanel" style="display:none;">
+      <div class="results-title">💰 Your Commission Breakdown</div>
+
+      <div id="breakdownTableWrap">
+        <table class="breakdown-table">
+          <thead><tr><th>Deal / Client</th><th>Type</th><th>Sale / Monthly</th><th>Rate</th><th class="amount" style="text-align:right;">Commission</th></tr></thead>
+          <tbody id="breakdownBody"></tbody>
+        </table>
+      </div>
+
+      <div style="margin-top:20px;">
+        <div class="result-row">
+          <span class="result-label">Growth System Commission</span>
+          <span class="result-value" id="rGrowth">$0</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">CRM Recurring Commission</span>
+          <span class="result-value cyan" id="rCRM">$0</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Performance Bonus</span>
+          <span class="result-value green" id="rBonus">$0</span>
+        </div>
+        <div class="result-row" id="upsellRow" style="display:none;">
+          <span class="result-label">Upsell Bonus</span>
+          <span class="result-value green" id="rUpsell">$0</span>
+        </div>
+        <div class="result-row" id="crmPerfRow" style="display:none;">
+          <span class="result-label">CRM Performance Reward (25% rate)</span>
+          <span class="result-value green" id="rCRMPerf">$0</span>
+        </div>
+      </div>
+
+      <div class="total-row">
+        <div class="total-label">Total Earned This Period</div>
+        <div class="total-value" id="rTotal">$0</div>
+      </div>
+
+      <div id="bonusBadgeWrap" style="margin-top:12px;"></div>
+
+      <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap;">
+        <button onclick="sendToPayoutTab()" style="flex:1;background:var(--coral);color:#fff;font-size:14px;font-weight:800;padding:14px;border-radius:10px;border:none;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all 0.2s;" onmouseover="this.style.transform='translateY(-1px)'" onmouseout="this.style.transform='translateY(0)'">
+          💸 Request This Payout →
+        </button>
+        <button onclick="printResults()" style="flex:1;background:rgba(255,255,255,0.1);color:#fff;font-size:14px;font-weight:700;padding:14px;border-radius:10px;border:1.5px solid rgba(255,255,255,0.2);cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--cyan)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.2)'">
+          🖨️ Print / Save PDF
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ TAB 2: PAYOUT REQUEST ══════════════════════════════════════════ -->
+  <div class="tab-panel" id="tab-payout">
+    <div class="card">
+      <div class="card-title">Submit a Payout Request</div>
+      <div class="card-sub">Complete this form to request your commission payout. Payouts are processed within 7 business days of submission. Minimum payout: $50 USD.</div>
+
+      <!-- Pre-filled summary (from calculator) -->
+      <div class="payout-summary" id="payoutSummary" style="display:none;">
+        <div class="payout-summary-title">📊 From Your Calculator</div>
+        <div class="payout-line"><span class="payout-line-label">Period</span><span class="payout-line-value" id="psPeriod">—</span></div>
+        <div class="payout-line"><span class="payout-line-label">Growth System Commission</span><span class="payout-line-value" id="psGrowth">$0</span></div>
+        <div class="payout-line"><span class="payout-line-label">CRM Commission</span><span class="payout-line-value" id="psCRM">$0</span></div>
+        <div class="payout-line"><span class="payout-line-label">Bonuses</span><span class="payout-line-value" id="psBonus">$0</span></div>
+        <div class="payout-total-line">
+          <span class="payout-total-label">Total Requested</span>
+          <span class="payout-total-value" id="psTotal">$0</span>
+        </div>
+      </div>
+
+      <form id="payoutForm" onsubmit="submitPayout(event)" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="pName">Your Full Name <span class="req">*</span></label>
+            <input class="form-input" type="text" id="pName" placeholder="Your full name" required/>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="pEmail">Email Address <span class="req">*</span></label>
+            <input class="form-input" type="email" id="pEmail" placeholder="you@email.com" required/>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="pWhatsApp">WhatsApp Number <span class="req">*</span></label>
+            <input class="form-input" type="tel" id="pWhatsApp" placeholder="+1 (868) 000-0000" required/>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="pPeriod">Payout Period <span class="req">*</span></label>
+            <input class="form-input" type="month" id="pPeriod" required/>
+          </div>
+        </div>
+
+        <!-- DEALS CLAIMED -->
+        <div class="form-group">
+          <label class="form-label">Deals / Clients Claimed <span class="req">*</span></label>
+          <div id="payoutDealsList"></div>
+          <button type="button" class="add-deal-btn" onclick="addPayoutDeal()" style="margin-bottom:0;">+ Add a Deal or CRM Client</button>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="pGrowthTotal">Growth System Commission ($) <span class="req">*</span></label>
+            <input class="form-input" type="number" id="pGrowthTotal" placeholder="0.00" min="0" step="0.01"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="pCRMTotal">CRM Commission ($)</label>
+            <input class="form-input" type="number" id="pCRMTotal" placeholder="0.00" min="0" step="0.01"/>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="pBonusTotal">Bonuses Claimed ($)</label>
+            <input class="form-input" type="number" id="pBonusTotal" placeholder="0.00" min="0" step="0.01"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Total Requested</label>
+            <div style="padding:13px 16px;background:#EFF6FF;border:2px solid rgba(0,194,216,0.3);border-radius:10px;font-family:'Sora',sans-serif;font-size:22px;font-weight:900;color:var(--coral);" id="pTotalDisplay">$0.00</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="pPayMethod">Preferred Payment Method <span class="req">*</span></label>
+          <select class="form-select" id="pPayMethod" required>
+            <option value="" disabled selected>Select payment method</option>
+            <option value="WiPay (Caribbean)">WiPay (Caribbean)</option>
+            <option value="PayPal">PayPal</option>
+            <option value="Bank Transfer (TT)">Bank Transfer (Trinidad)</option>
+            <option value="Bank Transfer (International)">Bank Transfer (International)</option>
+            <option value="Linx">Linx</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="pPayDetails">Payment Details <span class="req">*</span></label>
+          <input class="form-input" type="text" id="pPayDetails" placeholder="e.g. PayPal email, account number, or WiPay phone" required/>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="pNotes">Additional Notes</label>
+          <textarea class="form-input" id="pNotes" rows="3" placeholder="Any notes about this payout request..." style="resize:vertical;min-height:80px;"></textarea>
+        </div>
+
+        <div style="background:#FFF7ED;border:1px solid rgba(255,85,0,0.2);border-radius:10px;padding:14px 18px;margin-bottom:20px;font-size:13px;color:#374151;line-height:1.6;">
+          <strong style="color:var(--coral);">⚠️ Important:</strong> By submitting this request, you confirm that all deals listed have been paid and cleared by the client. Commission on deals where payment has not cleared will not be processed. Minimum payout is $50 USD.
+        </div>
+
+        <button class="submit-btn" type="submit" id="payoutSubmitBtn">💸 Submit Payout Request →</button>
+        <p style="font-size:12px;color:var(--slate);text-align:center;margin-top:10px;">Processed within 7 business days · You'll receive a WhatsApp confirmation</p>
+      </form>
+
+      <div class="success-msg" id="payoutSuccess">
+        <div style="font-size:40px;margin-bottom:12px;">🎉</div>
+        <div style="font-size:18px;font-weight:800;color:var(--navy);margin-bottom:8px;">Payout Request Submitted!</div>
+        <div style="font-size:14px;color:var(--slate);line-height:1.7;">Your request has been sent to Andrea. You'll receive a WhatsApp confirmation within 24 hours and payment within 7 business days.</div>
+        <div style="margin-top:16px;">
+          <a href="https://wa.me/18682979960?text=Hi%20Andrea!%20I%20just%20submitted%20a%20payout%20request%20via%20the%20agent%20portal." target="_blank"
+             style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;font-size:14px;font-weight:800;padding:12px 24px;border-radius:10px;text-decoration:none;">
+            💬 WhatsApp Andrea to Follow Up
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ TAB 3: SCENARIOS ═══════════════════════════════════════════════ -->
+  <div class="tab-panel" id="tab-scenarios">
+    <div class="card">
+      <div class="card-title">Earnings Scenarios</div>
+      <div class="card-sub">See what you could earn at different activity levels. Click a scenario to load it into the calculator.</div>
+
+      <div class="scenario-grid">
+        <div class="scenario-card" onclick="loadScenario('starter')">
+          <div class="scenario-icon">🌱</div>
+          <div class="scenario-name">Getting Started</div>
+          <div class="scenario-earn">$720</div>
+          <div class="scenario-desc">2 Ripple deals/month</div>
+        </div>
+        <div class="scenario-card" onclick="loadScenario('growing')">
+          <div class="scenario-icon">📈</div>
+          <div class="scenario-name">Growing</div>
+          <div class="scenario-earn">$1,780</div>
+          <div class="scenario-desc">3 deals + 2 CRM clients</div>
+        </div>
+        <div class="scenario-card" onclick="loadScenario('solid')">
+          <div class="scenario-icon">⭐</div>
+          <div class="scenario-name">Solid Month</div>
+          <div class="scenario-earn">$2,780</div>
+          <div class="scenario-desc">5 deals + bonus unlocked</div>
+        </div>
+        <div class="scenario-card" onclick="loadScenario('strong')">
+          <div class="scenario-icon">🔥</div>
+          <div class="scenario-name">Strong Month</div>
+          <div class="scenario-earn">$4,300</div>
+          <div class="scenario-desc">7 deals + CRM + bonuses</div>
+        </div>
+        <div class="scenario-card" onclick="loadScenario('top')">
+          <div class="scenario-icon">🏆</div>
+          <div class="scenario-name">Top Performer</div>
+          <div class="scenario-earn">$6,500+</div>
+          <div class="scenario-desc">10+ deals + full bonuses</div>
+        </div>
+        <div class="scenario-card" onclick="loadScenario('crm')">
+          <div class="scenario-icon">🗂️</div>
+          <div class="scenario-name">CRM Specialist</div>
+          <div class="scenario-earn">$1,200+</div>
+          <div class="scenario-desc">3+ CRM clients (25% rate)</div>
+        </div>
+      </div>
+
+      <!-- Scenario detail -->
+      <div id="scenarioDetail" style="display:none;">
+        <div class="results-panel">
+          <div class="results-title" id="scenTitle">Scenario</div>
+          <div id="scenBreakdown"></div>
+          <div class="total-row">
+            <div class="total-label">Monthly Earnings</div>
+            <div class="total-value" id="scenTotal">$0</div>
+          </div>
+          <div style="margin-top:16px;">
+            <button onclick="loadScenarioToCalc()" style="background:var(--coral);color:#fff;font-size:14px;font-weight:800;padding:13px 28px;border-radius:10px;border:none;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;">
+              Load into Calculator →
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ TAB 4: REFERENCE ═══════════════════════════════════════════════ -->
+  <div class="tab-panel" id="tab-reference">
+    <div class="card">
+      <div class="card-title">Commission Reference Guide</div>
+      <div class="card-sub">Your complete commission structure at a glance.</div>
+
+      <div class="ref-grid">
+        <div class="ref-card">
+          <div class="ref-card-title">🌊 Growth System Deals</div>
+          <table class="ref-table">
+            <thead><tr><th>Package</th><th>Sale Price</th><th class="rate">Commission</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Ripple</strong></td><td>$1,800+</td><td class="rate">$360+</td></tr>
+              <tr><td><strong>Current</strong></td><td>$3,000+</td><td class="rate">$600+</td></tr>
+              <tr><td><strong>Surge</strong></td><td>$5,000+</td><td class="rate">$1,000+</td></tr>
+            </tbody>
+          </table>
+          <div style="font-size:11px;color:var(--slate);margin-top:10px;">Rate: 20% of sale price. No commission on setup fees.</div>
+        </div>
+
+        <div class="ref-card">
+          <div class="ref-card-title">🗂️ CRM Recurring (3 months)</div>
+          <table class="ref-table">
+            <thead><tr><th>Package</th><th>Monthly Fee</th><th class="rate">Your Cut</th></tr></thead>
+            <tbody>
+              <tr><td><strong>CRM Lite</strong></td><td>$99/mo</td><td class="rate">$20/mo</td></tr>
+              <tr><td><strong>CRM Premium</strong></td><td>$179/mo</td><td class="rate">$36/mo</td></tr>
+              <tr><td><strong>White-Label</strong></td><td>$697/mo</td><td class="rate">$139/mo</td></tr>
+            </tbody>
+          </table>
+          <div style="font-size:11px;color:var(--slate);margin-top:10px;">Rate: 20% for 3 months. 25% if 3+ CRM clients in 60 days.</div>
+        </div>
+
+        <div class="ref-card">
+          <div class="ref-card-title">🏆 Performance Bonuses</div>
+          <table class="ref-table">
+            <thead><tr><th>Deals/Month</th><th class="rate">Flat Bonus</th></tr></thead>
+            <tbody>
+              <tr><td>3–4 deals</td><td class="rate">+$150</td></tr>
+              <tr><td>5–6 deals</td><td class="rate">+$400</td></tr>
+              <tr><td>7–9 deals</td><td class="rate">+$750</td></tr>
+              <tr><td>10+ deals</td><td class="rate">+$1,000</td></tr>
+            </tbody>
+          </table>
+          <div style="font-size:11px;color:var(--slate);margin-top:10px;">Upsell bonus: +$50 per package upgrade. Referral chain: +$75.</div>
+        </div>
+
+        <div class="ref-card">
+          <div class="ref-card-title">📋 Payment Rules</div>
+          <table class="ref-table">
+            <tbody>
+              <tr><td>Payment timeline</td><td class="rate">7 business days</td></tr>
+              <tr><td>Minimum payout</td><td class="rate">$50 USD</td></tr>
+              <tr><td>Currency</td><td class="rate">USD</td></tr>
+              <tr><td>CRM commission starts</td><td class="rate">On first client payment</td></tr>
+              <tr><td>Refund reversal window</td><td class="rate">14 days</td></tr>
+              <tr><td>Setup fees</td><td class="rate">Not commissionable</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<footer>
+<div class="wrap">
+<div class="footer-grid">
+
+<!-- Brand column -->
+<div>
+<div class="footer-brand-name">Blu<span>Wav</span></div>
+<div class="footer-brand-sub">Growth</div>
+<div class="footer-brand-tag">Get Found. Get Chosen. Grow.</div>
+<div style="font-size:10px;font-weight:700;color:var(--gold,#F7C873);letter-spacing:3px;text-transform:uppercase;margin-top:6px;">A Stratiix Group Company</div>
+<p class="footer-desc">Professional websites, Google visibility, CRM and automation. Built for ambitious businesses worldwide.</p>
+<div style="margin-top:16px;"><a class="btn-wa" href="https://wa.me/18682979960" style="font-size:13px;padding:10px 18px;display:inline-flex;align-items:center;gap:6px;background:#25D366;color:#fff;border-radius:9px;text-decoration:none;font-weight:700;">💬 WhatsApp</a></div>
+</div>
+
+<!-- Services column -->
+<div>
+<div class="footer-heading">Services</div>
+<a class="footer-link" href="index.html#what-we-do">Professional Websites</a>
+<a class="footer-link" href="index.html#what-we-do">Google Visibility</a>
+<a class="footer-link" href="index.html#what-we-do">Automation</a>
+<a class="footer-link" href="index.html#what-we-do">Growth Systems</a>
+<a class="footer-link" href="pricing.html#crm">BluWav CRM</a>
+</div>
+
+<!-- Company column -->
+<div>
+<div class="footer-heading">Company</div>
+<a class="footer-link" href="index.html#how-it-works">How It Works</a>
+<a class="footer-link" href="health-check.html">Free Business Health Check</a>
+<a class="footer-link" href="pricing.html">Pricing</a>
+<a class="footer-link" href="our-promise.html">Our Promise</a>
+<a class="footer-link" href="the-wave.html">The Wave</a>
+<a class="footer-link" href="case-study-aadek.html">Case Study: AADEK</a>
+<a class="footer-link" href="index.html#contact">Contact Us</a>
+<a class="footer-link" href="careers.html">Careers</a>
+<a class="footer-link" href="sales-agent-agreement.html">Sales Agent Agreement</a>
+</div>
+
+<!-- Contact + Follow column -->
+<div>
+<div class="footer-heading">Contact</div>
+<a class="footer-link" href="tel:+18682979960">📞 +1 (868) 297-9960</a>
+<a class="footer-link" href="https://wa.me/18682979960">💬 WhatsApp</a>
+<a class="footer-link" href="mailto:hello@bluwavgrowth.com">✉️ hello@bluwavgrowth.com</a>
+<div class="footer-link" style="cursor:default;">🌐 Serving businesses worldwide</div>
+<div style="margin-top:20px;">
+<div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.4);margin-bottom:12px;">Follow Us</div>
+<div style="display:flex;flex-direction:column;gap:8px;">
+<a class="footer-link" href="https://facebook.com/bluwavgrowth" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:8px;">
+<span style="width:28px;height:28px;border-radius:8px;background:#1877F2;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">f</span>
+<span>Facebook</span>
+</a>
+<a class="footer-link" href="https://www.instagram.com/bluwavgrowth/" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:8px;">
+<span style="width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">📷</span>
+<span>Instagram</span>
+</a>
+<div class="footer-link" style="display:flex;align-items:center;gap:8px;cursor:default;opacity:0.5;">
+<span style="width:28px;height:28px;border-radius:8px;background:#0A66C2;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;color:#fff;font-weight:800;font-size:11px;">in</span>
+<span>LinkedIn <span style="font-size:10px;color:var(--gold);font-weight:700;margin-left:4px;">Soon</span></span>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- /footer-grid -->
+<div class="footer-bottom">
+<div class="footer-bottom-text">&#169; 2026 <span>BluWav Growth</span> &#183; All rights reserved.</div>
+<div class="footer-bottom-text">Global Digital Growth Systems. &nbsp;·&nbsp; <a href="privacy.html" style="color:rgba(255,255,255,0.3);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.3)'">Privacy Policy</a></div>
+</div>
+</div><!-- /wrap -->
+</footer>
+
+<a class="wa-float" href="https://wa.me/18682979960" title="WhatsApp Us">💬</a>
+
+<script>
+// ── ACCESS CODE ───────────────────────────────────────────────────────────
+// Code: BLUWAV2026 (share only with signed agents)
+var ACCESS_CODE = 'BLUWAV2026';
+function checkCode() {
+  var v = document.getElementById('lockCode').value.trim().toUpperCase();
+  if(v === ACCESS_CODE) {
+    document.getElementById('lockScreen').style.display = 'none';
+    sessionStorage.setItem('bw_agent_auth','1');
+  } else {
+    document.getElementById('lockError').style.display = 'block';
+    document.getElementById('lockCode').value = '';
+    document.getElementById('lockCode').focus();
+  }
+}
+document.getElementById('lockCode').addEventListener('keydown', function(e) {
+  if(e.key === 'Enter') checkCode();
+});
+// Auto-unlock if already authenticated this session
+if(sessionStorage.getItem('bw_agent_auth') === '1') {
+  document.getElementById('lockScreen').style.display = 'none';
+}
+
+// ── NAV ───────────────────────────────────────────────────────────────────
+function toggleMob(){var n=document.getElementById('mobNav'),b=document.getElementById('hamburgerBtn');n.classList.toggle('open');if(b)b.classList.toggle('open');}
+function closeMob(){document.getElementById('mobNav').classList.remove('open');var b=document.getElementById('hamburgerBtn');if(b)b.classList.remove('open');}
+document.addEventListener('click',function(e){var n=document.getElementById('mobNav'),b=document.getElementById('hamburgerBtn');if(n&&b&&n.classList.contains('open')){if(!n.contains(e.target)&&!b.contains(e.target)){n.classList.remove('open');if(b)b.classList.remove('open');}}}); 
+
+// ── TABS ──────────────────────────────────────────────────────────────────
+function switchTab(id) {
+  document.querySelectorAll('.tab-btn').forEach(function(b,i) {
+    b.classList.toggle('active', ['calculator','payout','scenarios','reference'][i] === id);
+  });
+  document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+  document.getElementById('tab-'+id).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ── COMMISSION LOGIC ──────────────────────────────────────────────────────
+var PACKAGES = {
+  'Ripple ($1,800)':   {price:1800,  type:'growth'},
+  'Ripple ($2,000)':   {price:2000,  type:'growth'},
+  'Ripple ($2,500)':   {price:2500,  type:'growth'},
+  'Current ($3,000)':  {price:3000,  type:'growth'},
+  'Current ($3,500)':  {price:3500,  type:'growth'},
+  'Current ($4,000)':  {price:4000,  type:'growth'},
+  'Surge ($5,000)':    {price:5000,  type:'growth'},
+  'Surge ($6,000)':    {price:6000,  type:'growth'},
+  'Surge ($7,500)':    {price:7500,  type:'growth'},
+  'Custom Amount':     {price:0,     type:'growth', custom:true},
+};
+var CRM_PACKAGES = {
+  'CRM Lite ($99/mo)':      {monthly:99},
+  'CRM Premium ($179/mo)':  {monthly:179},
+  'White-Label ($697/mo)':  {monthly:697},
+};
+var BONUS_TIERS = [
+  {min:10, bonus:1000},
+  {min:7,  bonus:750},
+  {min:5,  bonus:400},
+  {min:3,  bonus:150},
+];
+
+// ── DEAL MANAGEMENT ───────────────────────────────────────────────────────
+var dealCount = 0;
+var crmCount  = 0;
+
+function addDeal() {
+  dealCount++;
+  var id = 'deal_' + dealCount;
+  var opts = Object.keys(PACKAGES).map(function(k) {
+    return '<option value="'+k+'">'+k+'</option>';
+  }).join('');
+  var html = '<div class="deal-entry" id="'+id+'">'
+    + '<div class="deal-entry-header">'
+    + '<span class="deal-num">Deal #'+dealCount+'</span>'
+    + '<button type="button" class="deal-remove" onclick="removeDeal(''+id+'')">Remove</button>'
+    + '</div>'
+    + '<div class="form-row-3">'
+    + '<div class="form-group"><label class="form-label">Client / Business Name</label>'
+    + '<input class="form-input" type="text" placeholder="Client name" data-field="client"/></div>'
+    + '<div class="form-group"><label class="form-label">Package</label>'
+    + '<select class="form-select" data-field="package" onchange="handlePackageChange(this,''+id+'')">'
+    + opts + '</select></div>'
+    + '<div class="form-group custom-price-wrap" id="cp_'+id+'" style="display:none;">'
+    + '<label class="form-label">Custom Sale Price ($)</label>'
+    + '<input class="form-input" type="number" placeholder="0" min="0" data-field="customprice"/></div>'
+    + '<div class="form-group" id="upsell_'+id+'">'
+    + '<label class="form-label">Upsell? (+$50 bonus)</label>'
+    + '<select class="form-select" data-field="upsell">'
+    + '<option value="no">No upsell</option>'
+    + '<option value="yes">Yes — upsell from lower tier</option>'
+    + '</select></div>'
+    + '</div></div>';
+  document.getElementById('dealsList').insertAdjacentHTML('beforeend', html);
+}
+
+function handlePackageChange(sel, id) {
+  var isCustom = sel.value === 'Custom Amount';
+  document.getElementById('cp_'+id).style.display = isCustom ? 'block' : 'none';
+}
+
+function removeDeal(id) {
+  var el = document.getElementById(id);
+  if(el) el.remove();
+}
+
+function addCRM() {
+  crmCount++;
+  var id = 'crm_' + crmCount;
+  var opts = Object.keys(CRM_PACKAGES).map(function(k) {
+    return '<option value="'+k+'">'+k+'</option>';
+  }).join('');
+  var html = '<div class="deal-entry" id="'+id+'">'
+    + '<div class="deal-entry-header">'
+    + '<span class="deal-num">CRM Client #'+crmCount+'</span>'
+    + '<button type="button" class="deal-remove" onclick="removeDeal(''+id+'')">Remove</button>'
+    + '</div>'
+    + '<div class="form-row-3">'
+    + '<div class="form-group"><label class="form-label">Client / Business Name</label>'
+    + '<input class="form-input" type="text" placeholder="Client name" data-field="client"/></div>'
+    + '<div class="form-group"><label class="form-label">CRM Package</label>'
+    + '<select class="form-select" data-field="crmpackage">'+opts+'</select></div>'
+    + '<div class="form-group"><label class="form-label">Month # (1, 2, or 3)</label>'
+    + '<select class="form-select" data-field="crmmonth">'
+    + '<option value="1">Month 1</option>'
+    + '<option value="2">Month 2</option>'
+    + '<option value="3">Month 3</option>'
+    + '</select></div>'
+    + '</div></div>';
+  document.getElementById('crmList').insertAdjacentHTML('beforeend', html);
+}
+
+// ── CALCULATE ─────────────────────────────────────────────────────────────
+var lastCalcResult = null;
+
+function calculate() {
+  var rows = [];
+  var growthTotal = 0;
+  var growthCount = 0;
+  var upsellCount = 0;
+
+  // Growth deals
+  document.querySelectorAll('#dealsList .deal-entry').forEach(function(entry) {
+    var client  = (entry.querySelector('[data-field="client"]') || {}).value || 'Unnamed';
+    var pkg     = (entry.querySelector('[data-field="package"]') || {}).value || '';
+    var upsell  = (entry.querySelector('[data-field="upsell"]') || {}).value || 'no';
+    var custEl  = entry.querySelector('[data-field="customprice"]');
+    var price   = 0;
+    if(pkg === 'Custom Amount') {
+      price = parseFloat((custEl || {}).value || 0);
+    } else if(PACKAGES[pkg]) {
+      price = PACKAGES[pkg].price;
+    }
+    if(price > 0) {
+      var comm = price * 0.20;
+      growthTotal += comm;
+      growthCount++;
+      if(upsell === 'yes') upsellCount++;
+      rows.push({client:client, type:'Growth — '+pkg, sale:'$'+price.toLocaleString(), rate:'20%', comm:comm});
+    }
+  });
+
+  // CRM clients
+  var crmTotal = 0;
+  var crmClientCount = 0;
+  document.querySelectorAll('#crmList .deal-entry').forEach(function(entry) {
+    var client  = (entry.querySelector('[data-field="client"]') || {}).value || 'Unnamed';
+    var pkg     = (entry.querySelector('[data-field="crmpackage"]') || {}).value || '';
+    var month   = parseInt((entry.querySelector('[data-field="crmmonth"]') || {}).value || 1);
+    if(CRM_PACKAGES[pkg]) {
+      var monthly = CRM_PACKAGES[pkg].monthly;
+      var comm = monthly * 0.20;
+      crmTotal += comm;
+      crmClientCount++;
+      rows.push({client:client, type:'CRM — '+pkg+' (Mo.'+month+')', sale:'$'+monthly+'/mo', rate:'20%', comm:comm});
+    }
+  });
+
+  // Performance bonus
+  var bonus = 0;
+  var bonusLabel = '';
+  for(var i=0; i<BONUS_TIERS.length; i++) {
+    if(growthCount >= BONUS_TIERS[i].min) {
+      bonus = BONUS_TIERS[i].bonus;
+      bonusLabel = growthCount + ' deals → +$' + bonus + ' bonus';
+      break;
+    }
+  }
+
+  // Upsell bonus
+  var upsellBonus = upsellCount * 50;
+
+  // CRM performance reward (3+ clients = 25% instead of 20%)
+  var crmPerfBonus = 0;
+  if(crmClientCount >= 3) {
+    // Extra 5% on all CRM (25% - 20% = 5% extra)
+    crmPerfBonus = crmTotal * 0.25; // 5% extra on top of 20% already counted
+    // Actually recalculate: 25% instead of 20% = 25% total
+    // crmTotal was at 20%, so extra = crmTotal * (5/20) = crmTotal * 0.25
+  }
+
+  var total = growthTotal + crmTotal + bonus + upsellBonus + crmPerfBonus;
+
+  // Render breakdown table
+  var tbody = document.getElementById('breakdownBody');
+  tbody.innerHTML = '';
+  rows.forEach(function(r) {
+    tbody.insertAdjacentHTML('beforeend',
+      '<tr><td>'+r.client+'</td><td>'+r.type+'</td><td>'+r.sale+'</td><td>'+r.rate+'</td>'
+      +'<td class="amount">$'+r.comm.toFixed(2)+'</td></tr>'
+    );
+  });
+  if(rows.length === 0) {
+    tbody.insertAdjacentHTML('beforeend','<tr><td colspan="5" style="text-align:center;color:#94a3b8;font-style:italic;">No deals entered</td></tr>');
+  }
+
+  // Update result fields
+  document.getElementById('rGrowth').textContent = '$' + growthTotal.toFixed(2);
+  document.getElementById('rCRM').textContent    = '$' + crmTotal.toFixed(2);
+  document.getElementById('rBonus').textContent  = '$' + bonus.toFixed(2);
+  document.getElementById('rTotal').textContent  = '$' + total.toFixed(2);
+
+  var upsellRow = document.getElementById('upsellRow');
+  if(upsellBonus > 0) {
+    upsellRow.style.display = 'flex';
+    document.getElementById('rUpsell').textContent = '+$' + upsellBonus.toFixed(2);
+  } else { upsellRow.style.display = 'none'; }
+
+  var crmPerfRow = document.getElementById('crmPerfRow');
+  if(crmPerfBonus > 0) {
+    crmPerfRow.style.display = 'flex';
+    document.getElementById('rCRMPerf').textContent = '+$' + crmPerfBonus.toFixed(2);
+  } else { crmPerfRow.style.display = 'none'; }
+
+  // Badges
+  var badgeWrap = document.getElementById('bonusBadgeWrap');
+  badgeWrap.innerHTML = '';
+  if(bonusLabel) badgeWrap.insertAdjacentHTML('beforeend','<div class="bonus-badge">🏆 '+bonusLabel+'</div> ');
+  if(crmClientCount >= 3) badgeWrap.insertAdjacentHTML('beforeend','<div class="bonus-badge">🗂️ CRM Performance Reward — 25% rate unlocked!</div>');
+  if(upsellBonus > 0) badgeWrap.insertAdjacentHTML('beforeend','<div class="bonus-badge">⬆️ Upsell bonus: +$'+upsellBonus+'</div>');
+
+  document.getElementById('resultsPanel').style.display = 'block';
+  document.getElementById('resultsPanel').scrollIntoView({behavior:'smooth',block:'start'});
+
+  // Store for payout tab
+  lastCalcResult = {
+    period: document.getElementById('calcMonth').value,
+    growth: growthTotal,
+    crm: crmTotal + crmPerfBonus,
+    bonus: bonus + upsellBonus,
+    total: total,
+    agentName: document.getElementById('agentName').value
+  };
+}
+
+function sendToPayoutTab() {
+  if(!lastCalcResult) return;
+  switchTab('payout');
+  document.getElementById('pName').value = lastCalcResult.agentName || '';
+  document.getElementById('pPeriod').value = lastCalcResult.period || '';
+  document.getElementById('pGrowthTotal').value = lastCalcResult.growth.toFixed(2);
+  document.getElementById('pCRMTotal').value = lastCalcResult.crm.toFixed(2);
+  document.getElementById('pBonusTotal').value = lastCalcResult.bonus.toFixed(2);
+  updatePayoutTotal();
+
+  // Show summary
+  var ps = document.getElementById('payoutSummary');
+  ps.style.display = 'block';
+  document.getElementById('psPeriod').textContent = lastCalcResult.period || '—';
+  document.getElementById('psGrowth').textContent = '$' + lastCalcResult.growth.toFixed(2);
+  document.getElementById('psCRM').textContent    = '$' + lastCalcResult.crm.toFixed(2);
+  document.getElementById('psBonus').textContent  = '$' + lastCalcResult.bonus.toFixed(2);
+  document.getElementById('psTotal').textContent  = '$' + lastCalcResult.total.toFixed(2);
+}
+
+function updatePayoutTotal() {
+  var g = parseFloat(document.getElementById('pGrowthTotal').value || 0);
+  var c = parseFloat(document.getElementById('pCRMTotal').value || 0);
+  var b = parseFloat(document.getElementById('pBonusTotal').value || 0);
+  var t = g + c + b;
+  document.getElementById('pTotalDisplay').textContent = '$' + t.toFixed(2);
+}
+['pGrowthTotal','pCRMTotal','pBonusTotal'].forEach(function(id) {
+  var el = document.getElementById(id);
+  if(el) el.addEventListener('input', updatePayoutTotal);
+});
+
+// ── PAYOUT DEAL ENTRIES ───────────────────────────────────────────────────
+var pdCount = 0;
+function addPayoutDeal() {
+  pdCount++;
+  var id = 'pd_' + pdCount;
+  var html = '<div class="deal-entry" id="'+id+'" style="margin-bottom:10px;">'
+    + '<div class="deal-entry-header">'
+    + '<span class="deal-num">Item #'+pdCount+'</span>'
+    + '<button type="button" class="deal-remove" onclick="removeDeal(''+id+'')">Remove</button>'
+    + '</div>'
+    + '<div class="form-row">'
+    + '<div class="form-group"><label class="form-label">Client / Business Name</label>'
+    + '<input class="form-input" type="text" placeholder="Client name" data-field="client"/></div>'
+    + '<div class="form-group"><label class="form-label">Package / Type</label>'
+    + '<input class="form-input" type="text" placeholder="e.g. Ripple, CRM Lite Month 1"/></div>'
+    + '</div></div>';
+  document.getElementById('payoutDealsList').insertAdjacentHTML('beforeend', html);
+}
+
+// ── PAYOUT SUBMIT ─────────────────────────────────────────────────────────
+function submitPayout(e) {
+  e.preventDefault();
+  var name    = document.getElementById('pName').value.trim();
+  var email   = document.getElementById('pEmail').value.trim();
+  var wa      = document.getElementById('pWhatsApp').value.trim();
+  var period  = document.getElementById('pPeriod').value;
+  var growth  = parseFloat(document.getElementById('pGrowthTotal').value || 0);
+  var crm     = parseFloat(document.getElementById('pCRMTotal').value || 0);
+  var bonus   = parseFloat(document.getElementById('pBonusTotal').value || 0);
+  var total   = growth + crm + bonus;
+  var method  = document.getElementById('pPayMethod').value;
+  var details = document.getElementById('pPayDetails').value.trim();
+  var notes   = document.getElementById('pNotes').value.trim();
+
+  if(!name || !email || !wa || !period || !method || !details) {
+    alert('Please fill in all required fields.');
+    return;
+  }
+  if(total < 50) {
+    alert('Minimum payout is $50 USD. Your total is $' + total.toFixed(2) + '.');
+    return;
+  }
+
+  // Collect deal items
+  var dealItems = [];
+  document.querySelectorAll('#payoutDealsList .deal-entry').forEach(function(entry) {
+    var inputs = entry.querySelectorAll('input');
+    if(inputs[0] && inputs[0].value) dealItems.push(inputs[0].value + (inputs[1] ? ' — ' + inputs[1].value : ''));
+  });
+
+  var btn = document.getElementById('payoutSubmitBtn');
+  btn.textContent = 'Submitting...';
+  btn.disabled = true;
+
+  var fd = new FormData();
+  fd.append('_subject', '💸 Payout Request — ' + name + ' — $' + total.toFixed(2));
+  fd.append('_replyto', email);
+  fd.append('agent_name', name);
+  fd.append('email', email);
+  fd.append('whatsapp', wa);
+  fd.append('period', period);
+  fd.append('growth_commission', '$' + growth.toFixed(2));
+  fd.append('crm_commission', '$' + crm.toFixed(2));
+  fd.append('bonuses', '$' + bonus.toFixed(2));
+  fd.append('total_requested', '$' + total.toFixed(2));
+  fd.append('payment_method', method);
+  fd.append('payment_details', details);
+  fd.append('deals_claimed', dealItems.join(' | ') || 'See notes');
+  fd.append('notes', notes || 'None');
+  fd.append('submitted_at', new Date().toISOString());
+  fd.append('_autoresponse',
+    'Hi ' + name.split(' ')[0] + ',\n\n'
+    + 'Your payout request has been received! 🎉\n\n'
+    + 'PAYOUT DETAILS:\n'
+    + '• Period: ' + period + '\n'
+    + '• Growth Commission: $' + growth.toFixed(2) + '\n'
+    + '• CRM Commission: $' + crm.toFixed(2) + '\n'
+    + '• Bonuses: $' + bonus.toFixed(2) + '\n'
+    + '• Total: $' + total.toFixed(2) + '\n'
+    + '• Payment Method: ' + method + '\n\n'
+    + 'NEXT STEPS:\n'
+    + '• Andrea will review and confirm within 24 hours via WhatsApp\n'
+    + '• Payment will be processed within 7 business days\n\n'
+    + 'Questions? WhatsApp +1 (868) 297-9960\n\n'
+    + 'BluWav Growth — Get Found. Get Chosen. Grow.'
+  );
+
+  fetch('https://formspree.io/f/xpwzgvkd', {method:'POST',body:fd,headers:{'Accept':'application/json'}})
+  .then(function() {
+    document.getElementById('payoutForm').style.display = 'none';
+    document.getElementById('payoutSuccess').classList.add('show');
+    document.getElementById('payoutSuccess').scrollIntoView({behavior:'smooth'});
+    var wm = encodeURIComponent('💸 Payout Request Submitted!\n\nAgent: '+name+'\nPeriod: '+period+'\nTotal: $'+total.toFixed(2)+'\nMethod: '+method+'\nDetails: '+details);
+    setTimeout(function(){window.open('https://wa.me/18682979960?text='+wm,'_blank');},1500);
+  })
+  .catch(function() {
+    btn.textContent = '💸 Submit Payout Request →';
+    btn.disabled = false;
+    alert('Submission failed. Please try again or WhatsApp Andrea at +1 (868) 297-9960.');
+  });
+}
+
+// ── SCENARIOS ─────────────────────────────────────────────────────────────
+var SCENARIOS = {
+  starter: {
+    name:'Getting Started — 2 Ripple Deals',
+    items:[
+      {label:'Ripple Deal #1', type:'Growth', sale:'$1,800', rate:'20%', comm:360},
+      {label:'Ripple Deal #2', type:'Growth', sale:'$1,800', rate:'20%', comm:360},
+    ],
+    bonus:0, bonusLabel:'', total:720
+  },
+  growing: {
+    name:'Growing — 3 Deals + 2 CRM Clients',
+    items:[
+      {label:'Ripple Deal', type:'Growth', sale:'$1,800', rate:'20%', comm:360},
+      {label:'Current Deal', type:'Growth', sale:'$3,000', rate:'20%', comm:600},
+      {label:'Ripple Deal', type:'Growth', sale:'$1,800', rate:'20%', comm:360},
+      {label:'CRM Lite Client', type:'CRM', sale:'$99/mo', rate:'20%', comm:20},
+      {label:'CRM Premium Client', type:'CRM', sale:'$179/mo', rate:'20%', comm:36},
+    ],
+    bonus:150, bonusLabel:'3 deals → +$150 bonus', total:1526
+  },
+  solid: {
+    name:'Solid Month — 5 Deals + Bonus',
+    items:[
+      {label:'Ripple Deal x2', type:'Growth', sale:'$1,800 x2', rate:'20%', comm:720},
+      {label:'Current Deal x2', type:'Growth', sale:'$3,000 x2', rate:'20%', comm:1200},
+      {label:'Surge Deal', type:'Growth', sale:'$5,000', rate:'20%', comm:1000},
+    ],
+    bonus:400, bonusLabel:'5 deals → +$400 bonus', total:3320
+  },
+  strong: {
+    name:'Strong Month — 7 Deals + CRM + Bonuses',
+    items:[
+      {label:'Ripple x3', type:'Growth', sale:'$1,800 x3', rate:'20%', comm:1080},
+      {label:'Current x2', type:'Growth', sale:'$3,000 x2', rate:'20%', comm:1200},
+      {label:'Surge x2', type:'Growth', sale:'$5,000 x2', rate:'20%', comm:2000},
+      {label:'CRM Lite x2', type:'CRM', sale:'$99/mo x2', rate:'20%', comm:40},
+      {label:'CRM Premium', type:'CRM', sale:'$179/mo', rate:'20%', comm:36},
+    ],
+    bonus:750, bonusLabel:'7 deals → +$750 bonus', total:5106
+  },
+  top: {
+    name:'Top Performer — 10+ Deals',
+    items:[
+      {label:'Ripple x3', type:'Growth', sale:'$1,800 x3', rate:'20%', comm:1080},
+      {label:'Current x4', type:'Growth', sale:'$3,000 x4', rate:'20%', comm:2400},
+      {label:'Surge x3', type:'Growth', sale:'$5,000 x3', rate:'20%', comm:3000},
+      {label:'CRM Premium x2', type:'CRM', sale:'$179/mo x2', rate:'20%', comm:72},
+    ],
+    bonus:1000, bonusLabel:'10+ deals → +$1,000 bonus', total:7552
+  },
+  crm: {
+    name:'CRM Specialist — 3+ CRM Clients (25% Rate)',
+    items:[
+      {label:'CRM Lite x2', type:'CRM', sale:'$99/mo x2', rate:'25%', comm:50},
+      {label:'CRM Premium', type:'CRM', sale:'$179/mo', rate:'25%', comm:45},
+      {label:'White-Label', type:'CRM', sale:'$697/mo', rate:'25%', comm:174},
+    ],
+    bonus:0, bonusLabel:'3+ CRM clients → 25% rate unlocked!', total:269
+  },
+};
+var currentScenario = null;
+
+function loadScenario(key) {
+  currentScenario = key;
+  var s = SCENARIOS[key];
+  document.querySelectorAll('.scenario-card').forEach(function(c) { c.classList.remove('active'); });
+  event.currentTarget.classList.add('active');
+
+  var html = '<table class="breakdown-table"><thead><tr><th>Item</th><th>Type</th><th>Sale</th><th>Rate</th><th style="text-align:right;">Commission</th></tr></thead><tbody>';
+  s.items.forEach(function(r) {
+    html += '<tr><td>'+r.label+'</td><td>'+r.type+'</td><td>'+r.sale+'</td><td>'+r.rate+'</td><td class="amount">$'+r.comm.toFixed(2)+'</td></tr>';
+  });
+  html += '</tbody></table>';
+  if(s.bonusLabel) html += '<div class="bonus-badge" style="margin-top:12px;">🏆 '+s.bonusLabel+'</div>';
+
+  document.getElementById('scenTitle').textContent = s.name;
+  document.getElementById('scenBreakdown').innerHTML = html;
+  document.getElementById('scenTotal').textContent = '$' + s.total.toLocaleString();
+  document.getElementById('scenarioDetail').style.display = 'block';
+  document.getElementById('scenarioDetail').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function loadScenarioToCalc() {
+  switchTab('calculator');
+  // Clear existing
+  document.getElementById('dealsList').innerHTML = '';
+  document.getElementById('crmList').innerHTML = '';
+  dealCount = 0; crmCount = 0;
+  // Add a note
+  alert('Scenario loaded! Add your actual deals in the calculator above to get your exact commission.');
+}
+
+function printResults() {
+  window.print();
+}
+
+// ── INIT ──────────────────────────────────────────────────────────────────
+// Set default month to current
+(function() {
+  var now = new Date();
+  var m = now.getFullYear() + '-' + String(now.getMonth()+1).padStart(2,'0');
+  var cm = document.getElementById('calcMonth');
+  var pm = document.getElementById('pPeriod');
+  if(cm) cm.value = m;
+  if(pm) pm.value = m;
+  // Add first deal and CRM by default
+  addDeal();
+  addCRM();
+})();
+</script>
+</body>
+</html>
