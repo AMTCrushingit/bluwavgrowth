@@ -1697,6 +1697,41 @@ footer .footer-grid{gap:56px !important;}
   #comparison [style*="grid-template-columns:auto 1fr auto"]{grid-template-columns:1fr!important;text-align:center;}
   #comparison [style*="grid-template-columns:auto 1fr auto"] > a{margin:0 auto;}
 }
+
+@media(max-width:768px){
+  #comparison [style*="grid-template-columns:1fr auto 1fr"]{
+    grid-template-columns:1fr!important;
+    gap:0!important;
+  }
+  #comparison [style*="border-radius:24px 0 0 24px"]{
+    border-radius:20px 20px 0 0!important;
+    border-right:2px solid #fecaca!important;
+    border-bottom:none!important;
+  }
+  #comparison [style*="border-radius:0 24px 24px 0"]{
+    border-radius:0 0 20px 20px!important;
+    border-left:2px solid #86efac!important;
+    border-top:none!important;
+  }
+  #comparison [style*="width:64px"]{
+    width:100%!important;
+    height:48px!important;
+    flex-direction:row!important;
+    border-left:2px solid #e2e8f0!important;
+    border-right:2px solid #e2e8f0!important;
+    border-top:none!important;
+    border-bottom:none!important;
+  }
+  #comparison [style*="grid-template-columns:auto 1fr auto"]{
+    grid-template-columns:1fr!important;
+    text-align:center!important;
+  }
+  #comparison [style*="grid-template-columns:auto 1fr auto"] > a{
+    margin:0 auto!important;
+  }
+  #comparison .dark-header{padding:60px 20px 80px!important;}
+}
+
 </style>
 <meta content="index, follow" name="robots"/>
 <meta property="og:title" content="BluWav Growth | Website Design & Digital Growth for Modern Businesses"/>
@@ -2402,130 +2437,161 @@ function setCurrency(code, symbol, name){
 </div>
 </section>
 <!-- BEFORE / AFTER, interactive toggle -->
-<section id="comparison" style="background:var(--sand);padding:100px 0;">
-<div class="wrap">
+<section id="comparison" style="background:var(--sand);padding:0 0 100px;overflow:hidden;">
 
-  <!-- Header -->
-  <div style="text-align:center;margin-bottom:56px;" class="reveal anim-fade-up">
-    <span class="eyebrow">The Difference We Make</span>
-    <h2 class="h2" style="font-size:clamp(32px,5vw,48px);margin-bottom:14px;">See the Transformation.</h2>
-    <p style="font-size:17px;color:var(--slate);max-width:480px;margin:0 auto;">Two realities. One choice. See exactly what changes when a modern business gets the right digital system.</p>
-  </div>
+  <!-- DARK HEADER BAND with visual interest -->
+  <div style="background:linear-gradient(135deg,#001828 0%,#002B49 60%,#003d5c 100%);padding:80px 48px 100px;position:relative;overflow:hidden;margin-bottom:-48px;">
+    <!-- Decorative circles -->
+    <div style="position:absolute;top:-80px;right:-80px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(255,85,0,0.08) 0%,transparent 70%);pointer-events:none;"></div>
+    <div style="position:absolute;bottom:-60px;left:-60px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(0,194,216,0.07) 0%,transparent 70%);pointer-events:none;"></div>
+    <!-- Grid texture -->
+    <div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(0,224,255,0.03) 39px,rgba(0,224,255,0.03) 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(0,224,255,0.03) 39px,rgba(0,224,255,0.03) 40px);pointer-events:none;"></div>
 
-  <!-- Two-column comparison -->
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch;" class="reveal anim-fade-up">
-
-    <!-- LEFT: Without BluWav -->
-    <div style="background:#fff;border-radius:24px;overflow:hidden;border:2px solid #fecaca;box-shadow:0 4px 24px rgba(239,68,68,0.08);">
-      <!-- Header bar -->
-      <div style="background:linear-gradient(135deg,#fef2f2,#fee2e2);padding:20px 28px;border-bottom:1px solid #fecaca;display:flex;align-items:center;gap:12px;">
-        <div style="width:36px;height:36px;border-radius:50%;background:#ef4444;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:900;color:#fff;flex-shrink:0;">&#10005;</div>
-        <div>
-          <div style="font-size:13px;font-weight:900;color:#991b1b;text-transform:uppercase;letter-spacing:1px;">Without BluWav</div>
-          <div style="font-size:12px;color:#b91c1c;margin-top:1px;">The current reality for most businesses</div>
-        </div>
+    <div style="max-width:1200px;margin:0 auto;text-align:center;position:relative;z-index:1;">
+      <!-- Eyebrow badge -->
+      <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,85,0,0.12);border:1px solid rgba(255,85,0,0.3);border-radius:20px;padding:6px 18px;margin-bottom:20px;">
+        <span style="width:7px;height:7px;border-radius:50%;background:#FF5500;display:inline-block;animation:bw-pulse 2s infinite;"></span>
+        <span style="font-size:11px;font-weight:800;color:#FF5500;text-transform:uppercase;letter-spacing:3px;">The Difference We Make</span>
       </div>
-      <!-- Pain points -->
-      <div style="padding:28px;">
-        <div style="display:flex;flex-direction:column;gap:12px;">
-          <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:#fef2f2;border-radius:12px;border:1px solid #fecaca;">
-            <span style="width:28px;height:28px;border-radius:50%;background:#ef4444;display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;font-weight:900;flex-shrink:0;">&#10005;</span>
-            <span style="font-size:14px;font-weight:600;color:#374151;">Invisible on Google</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:#fef2f2;border-radius:12px;border:1px solid #fecaca;">
-            <span style="width:28px;height:28px;border-radius:50%;background:#ef4444;display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;font-weight:900;flex-shrink:0;">&#10005;</span>
-            <span style="font-size:14px;font-weight:600;color:#374151;">Outdated or no website</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:#fef2f2;border-radius:12px;border:1px solid #fecaca;">
-            <span style="width:28px;height:28px;border-radius:50%;background:#ef4444;display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;font-weight:900;flex-shrink:0;">&#10005;</span>
-            <span style="font-size:14px;font-weight:600;color:#374151;">Missed calls and enquiries</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:#fef2f2;border-radius:12px;border:1px solid #fecaca;">
-            <span style="width:28px;height:28px;border-radius:50%;background:#ef4444;display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;font-weight:900;flex-shrink:0;">&#10005;</span>
-            <span style="font-size:14px;font-weight:600;color:#374151;">Losing customers to competitors daily</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:#fef2f2;border-radius:12px;border:1px solid #fecaca;">
-            <span style="width:28px;height:28px;border-radius:50%;background:#ef4444;display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;font-weight:900;flex-shrink:0;">&#10005;</span>
-            <span style="font-size:14px;font-weight:600;color:#374151;">No follow-up system</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:#fef2f2;border-radius:12px;border:1px solid #fecaca;">
-            <span style="width:28px;height:28px;border-radius:50%;background:#ef4444;display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;font-weight:900;flex-shrink:0;">&#10005;</span>
-            <span style="font-size:14px;font-weight:600;color:#374151;">Slow or no growth</span>
-          </div>
+
+      <!-- Main heading -->
+      <h2 style="font-family:'Manrope',sans-serif;font-size:clamp(32px,5vw,54px);font-weight:900;color:#fff;line-height:1.1;letter-spacing:-1px;margin-bottom:16px;">
+        Two Realities.<br/>
+        <span style="color:#FF5500;">One Choice.</span>
+      </h2>
+      <p style="font-size:17px;color:rgba(255,255,255,0.65);max-width:520px;margin:0 auto 32px;line-height:1.8;">See exactly what changes when a modern business gets the right digital system, versus staying invisible online.</p>
+
+      <!-- Before/After labels -->
+      <div style="display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;">
+        <div style="display:flex;align-items:center;gap:8px;background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.3);border-radius:10px;padding:8px 18px;">
+          <span style="font-size:16px;">&#128683;</span>
+          <span style="font-size:13px;font-weight:800;color:#fca5a5;">Without BluWav</span>
         </div>
-        <!-- Outcome -->
-        <div style="margin-top:20px;padding:16px 18px;background:#fef2f2;border-radius:12px;border-left:4px solid #ef4444;">
-          <div style="font-size:13px;font-weight:800;color:#991b1b;margin-bottom:4px;">The result</div>
-          <div style="font-size:14px;color:#7f1d1d;line-height:1.6;">Customers search for what you offer, find your competitor instead, and you never know what you missed.</div>
+        <div style="font-size:20px;color:rgba(255,255,255,0.3);font-weight:900;">VS</div>
+        <div style="display:flex;align-items:center;gap:8px;background:rgba(34,197,94,0.12);border:1px solid rgba(34,197,94,0.3);border-radius:10px;padding:8px 18px;">
+          <span style="font-size:16px;">&#9989;</span>
+          <span style="font-size:13px;font-weight:800;color:#86efac;">With BluWav</span>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- RIGHT: With BluWav -->
-    <div style="background:#fff;border-radius:24px;overflow:hidden;border:2px solid #86efac;box-shadow:0 4px 24px rgba(34,197,94,0.10);">
-      <!-- Header bar -->
-      <div style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);padding:20px 28px;border-bottom:1px solid #86efac;display:flex;align-items:center;gap:12px;">
-        <div style="width:36px;height:36px;border-radius:50%;background:#22c55e;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:900;color:#fff;flex-shrink:0;">&#10003;</div>
-        <div>
-          <div style="font-size:13px;font-weight:900;color:#166534;text-transform:uppercase;letter-spacing:1px;">With BluWav</div>
-          <div style="font-size:12px;color:#15803d;margin-top:1px;">What changes in 48 hours</div>
+  <!-- TWO-COLUMN CARDS — overlap the dark band -->
+  <div style="max-width:1200px;margin:0 auto;padding:0 48px;">
+    <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:0;align-items:stretch;position:relative;" class="reveal anim-fade-up">
+
+      <!-- LEFT: Without BluWav -->
+      <div style="background:#fff;border-radius:24px 0 0 24px;overflow:hidden;border:2px solid #fecaca;border-right:none;box-shadow:-8px 8px 40px rgba(239,68,68,0.10);">
+        <div style="background:linear-gradient(135deg,#fef2f2,#fee2e2);padding:22px 28px;border-bottom:1px solid #fecaca;display:flex;align-items:center;gap:12px;">
+          <div style="width:38px;height:38px;border-radius:50%;background:#ef4444;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:900;color:#fff;flex-shrink:0;">&#10005;</div>
+          <div>
+            <div style="font-size:13px;font-weight:900;color:#991b1b;text-transform:uppercase;letter-spacing:1px;">Without BluWav</div>
+            <div style="font-size:11px;color:#b91c1c;margin-top:1px;">The reality for most businesses today</div>
+          </div>
+        </div>
+        <div style="padding:28px 28px 24px;">
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="display:flex;align-items:center;gap:12px;padding:13px 16px;background:#fef2f2;border-radius:10px;border:1px solid #fecaca;">
+              <span style="width:26px;height:26px;border-radius:50%;background:#ef4444;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;font-weight:900;flex-shrink:0;">&#10005;</span>
+              <span style="font-size:14px;font-weight:600;color:#374151;">Invisible on Google and Maps</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:13px 16px;background:#fef2f2;border-radius:10px;border:1px solid #fecaca;">
+              <span style="width:26px;height:26px;border-radius:50%;background:#ef4444;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;font-weight:900;flex-shrink:0;">&#10005;</span>
+              <span style="font-size:14px;font-weight:600;color:#374151;">Outdated or no website</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:13px 16px;background:#fef2f2;border-radius:10px;border:1px solid #fecaca;">
+              <span style="width:26px;height:26px;border-radius:50%;background:#ef4444;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;font-weight:900;flex-shrink:0;">&#10005;</span>
+              <span style="font-size:14px;font-weight:600;color:#374151;">Missed calls and enquiries</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:13px 16px;background:#fef2f2;border-radius:10px;border:1px solid #fecaca;">
+              <span style="width:26px;height:26px;border-radius:50%;background:#ef4444;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;font-weight:900;flex-shrink:0;">&#10005;</span>
+              <span style="font-size:14px;font-weight:600;color:#374151;">Losing customers to competitors daily</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:13px 16px;background:#fef2f2;border-radius:10px;border:1px solid #fecaca;">
+              <span style="width:26px;height:26px;border-radius:50%;background:#ef4444;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;font-weight:900;flex-shrink:0;">&#10005;</span>
+              <span style="font-size:14px;font-weight:600;color:#374151;">No follow-up system</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:13px 16px;background:#fef2f2;border-radius:10px;border:1px solid #fecaca;">
+              <span style="width:26px;height:26px;border-radius:50%;background:#ef4444;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;font-weight:900;flex-shrink:0;">&#10005;</span>
+              <span style="font-size:14px;font-weight:600;color:#374151;">Slow or no growth</span>
+            </div>
+          </div>
+          <div style="margin-top:20px;padding:16px 18px;background:#fef2f2;border-radius:12px;border-left:4px solid #ef4444;">
+            <div style="font-size:12px;font-weight:800;color:#991b1b;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">The outcome</div>
+            <div style="font-size:13px;color:#7f1d1d;line-height:1.65;">Customers search for what you offer, find your competitor instead, and you never know what you missed.</div>
+          </div>
         </div>
       </div>
-      <!-- Wins -->
-      <div style="padding:28px;">
-        <div style="display:flex;flex-direction:column;gap:12px;">
-          <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:#f0fdf4;border-radius:12px;border:1px solid #86efac;">
-            <span style="width:28px;height:28px;border-radius:50%;background:#22c55e;display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;font-weight:900;flex-shrink:0;">&#10003;</span>
-            <span style="font-size:14px;font-weight:600;color:#374151;">Found on Google, Maps, and search</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:#f0fdf4;border-radius:12px;border:1px solid #86efac;">
-            <span style="width:28px;height:28px;border-radius:50%;background:#22c55e;display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;font-weight:900;flex-shrink:0;">&#10003;</span>
-            <span style="font-size:14px;font-weight:600;color:#374151;">Professional website live in 48 hours</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:#f0fdf4;border-radius:12px;border:1px solid #86efac;">
-            <span style="width:28px;height:28px;border-radius:50%;background:#22c55e;display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;font-weight:900;flex-shrink:0;">&#10003;</span>
-            <span style="font-size:14px;font-weight:600;color:#374151;">Every enquiry captured and followed up</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:#f0fdf4;border-radius:12px;border:1px solid #86efac;">
-            <span style="width:28px;height:28px;border-radius:50%;background:#22c55e;display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;font-weight:900;flex-shrink:0;">&#10003;</span>
-            <span style="font-size:14px;font-weight:600;color:#374151;">Customers choose you over competitors</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:#f0fdf4;border-radius:12px;border:1px solid #86efac;">
-            <span style="width:28px;height:28px;border-radius:50%;background:#22c55e;display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;font-weight:900;flex-shrink:0;">&#10003;</span>
-            <span style="font-size:14px;font-weight:600;color:#374151;">Automated follow-ups via WhatsApp</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:#f0fdf4;border-radius:12px;border:1px solid #86efac;">
-            <span style="width:28px;height:28px;border-radius:50%;background:#22c55e;display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;font-weight:900;flex-shrink:0;">&#10003;</span>
-            <span style="font-size:14px;font-weight:600;color:#374151;">Consistent, measurable growth</span>
+
+      <!-- VS DIVIDER -->
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:64px;background:linear-gradient(to bottom,#fef2f2,#f0fdf4);border-top:2px solid #e2e8f0;border-bottom:2px solid #e2e8f0;position:relative;z-index:2;">
+        <div style="width:48px;height:48px;border-radius:50%;background:var(--navy);border:3px solid #fff;box-shadow:0 4px 20px rgba(0,43,73,0.25);display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-size:13px;font-weight:900;color:#fff;letter-spacing:0.5px;">VS</div>
+      </div>
+
+      <!-- RIGHT: With BluWav -->
+      <div style="background:#fff;border-radius:0 24px 24px 0;overflow:hidden;border:2px solid #86efac;border-left:none;box-shadow:8px 8px 40px rgba(34,197,94,0.10);">
+        <div style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);padding:22px 28px;border-bottom:1px solid #86efac;display:flex;align-items:center;gap:12px;">
+          <div style="width:38px;height:38px;border-radius:50%;background:#22c55e;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:900;color:#fff;flex-shrink:0;">&#10003;</div>
+          <div>
+            <div style="font-size:13px;font-weight:900;color:#166534;text-transform:uppercase;letter-spacing:1px;">With BluWav</div>
+            <div style="font-size:11px;color:#15803d;margin-top:1px;">What changes in 48 hours</div>
           </div>
         </div>
-        <!-- Outcome -->
-        <div style="margin-top:20px;padding:16px 18px;background:#f0fdf4;border-radius:12px;border-left:4px solid #22c55e;">
-          <div style="font-size:13px;font-weight:800;color:#166534;margin-bottom:4px;">The result</div>
-          <div style="font-size:14px;color:#14532d;line-height:1.6;">Your business shows up, gets chosen, and grows, even while you sleep.</div>
+        <div style="padding:28px 28px 24px;">
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="display:flex;align-items:center;gap:12px;padding:13px 16px;background:#f0fdf4;border-radius:10px;border:1px solid #86efac;">
+              <span style="width:26px;height:26px;border-radius:50%;background:#22c55e;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;font-weight:900;flex-shrink:0;">&#10003;</span>
+              <span style="font-size:14px;font-weight:600;color:#374151;">Found on Google, Maps, and search</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:13px 16px;background:#f0fdf4;border-radius:10px;border:1px solid #86efac;">
+              <span style="width:26px;height:26px;border-radius:50%;background:#22c55e;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;font-weight:900;flex-shrink:0;">&#10003;</span>
+              <span style="font-size:14px;font-weight:600;color:#374151;">Professional website live in 48 hours</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:13px 16px;background:#f0fdf4;border-radius:10px;border:1px solid #86efac;">
+              <span style="width:26px;height:26px;border-radius:50%;background:#22c55e;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;font-weight:900;flex-shrink:0;">&#10003;</span>
+              <span style="font-size:14px;font-weight:600;color:#374151;">Every enquiry captured and followed up</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:13px 16px;background:#f0fdf4;border-radius:10px;border:1px solid #86efac;">
+              <span style="width:26px;height:26px;border-radius:50%;background:#22c55e;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;font-weight:900;flex-shrink:0;">&#10003;</span>
+              <span style="font-size:14px;font-weight:600;color:#374151;">Customers choose you over competitors</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:13px 16px;background:#f0fdf4;border-radius:10px;border:1px solid #86efac;">
+              <span style="width:26px;height:26px;border-radius:50%;background:#22c55e;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;font-weight:900;flex-shrink:0;">&#10003;</span>
+              <span style="font-size:14px;font-weight:600;color:#374151;">Automated follow-ups via WhatsApp</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:13px 16px;background:#f0fdf4;border-radius:10px;border:1px solid #86efac;">
+              <span style="width:26px;height:26px;border-radius:50%;background:#22c55e;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;font-weight:900;flex-shrink:0;">&#10003;</span>
+              <span style="font-size:14px;font-weight:600;color:#374151;">Consistent, measurable growth</span>
+            </div>
+          </div>
+          <div style="margin-top:20px;padding:16px 18px;background:#f0fdf4;border-radius:12px;border-left:4px solid #22c55e;">
+            <div style="font-size:12px;font-weight:800;color:#166534;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">The outcome</div>
+            <div style="font-size:13px;color:#14532d;line-height:1.65;">Your business shows up, gets chosen, and grows, even while you sleep.</div>
+          </div>
         </div>
       </div>
+
+    </div>
+
+    <!-- Testimonial strip -->
+    <div style="margin-top:28px;background:var(--navy);border-radius:20px;padding:28px 36px;display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:center;" class="reveal anim-fade-up">
+      <div style="width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--coral),#e84d00);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;">&#128172;</div>
+      <div>
+        <div style="font-size:15px;font-style:italic;color:#fff;line-height:1.65;margin-bottom:8px;">"I didn't realise how many customers I was losing until I started getting them."</div>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;">
+          <span style="font-size:12px;font-weight:800;color:var(--gold);">&#9733; Live in 48 hours</span>
+          <span style="font-size:12px;font-weight:800;color:var(--gold);">&#9733; Top 3 Google results in 90 days</span>
+          <span style="font-size:12px;font-weight:800;color:var(--gold);">&#9733; 40+ reviews collected</span>
+          <span style="font-size:12px;font-weight:800;color:var(--gold);">&#9733; 3x weekly enquiries</span>
+        </div>
+      </div>
+      <a href="https://forms.gle/EcVVcffVTqLZpHURA" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:var(--coral);color:#fff;font-size:14px;font-weight:800;padding:13px 26px;border-radius:11px;white-space:nowrap;box-shadow:0 4px 20px rgba(255,85,0,0.35);transition:all 0.2s;flex-shrink:0;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">Check My Business Free &#8594;</a>
     </div>
 
   </div>
 
-  <!-- Testimonial strip -->
-  <div style="margin-top:32px;background:var(--navy);border-radius:20px;padding:32px 36px;display:grid;grid-template-columns:auto 1fr auto;gap:28px;align-items:center;flex-wrap:wrap;" class="reveal anim-fade-up">
-    <div style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--coral),#e84d00);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;">&#128172;</div>
-    <div>
-      <div style="font-size:16px;font-style:italic;color:#fff;line-height:1.65;margin-bottom:8px;">"I didn't realise how many customers I was losing until I started getting them."</div>
-      <div style="display:flex;gap:16px;flex-wrap:wrap;">
-        <span style="font-size:12px;font-weight:800;color:var(--gold);">&#9733; Live in 48 hours</span>
-        <span style="font-size:12px;font-weight:800;color:var(--gold);">&#9733; Top 3 Google results in 90 days</span>
-        <span style="font-size:12px;font-weight:800;color:var(--gold);">&#9733; 40+ reviews collected</span>
-        <span style="font-size:12px;font-weight:800;color:var(--gold);">&#9733; 3x weekly enquiries</span>
-      </div>
-    </div>
-    <a href="https://forms.gle/EcVVcffVTqLZpHURA" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:var(--coral);color:#fff;font-size:14px;font-weight:800;padding:14px 28px;border-radius:11px;white-space:nowrap;box-shadow:0 4px 20px rgba(255,85,0,0.35);transition:all 0.2s;flex-shrink:0;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">Check My Business Free &#8594;</a>
-  </div>
-
-</div>
 </section>
+
 
 <!-- HOW IT WORKS, dark grid bg, 3 steps with connector -->
 <section id="how-it-works" style="background:#001828;padding:120px 0;position:relative;overflow:hidden;">
