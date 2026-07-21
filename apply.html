@@ -358,28 +358,65 @@ footer .footer-grid{gap:56px !important;}
     </div>
   </div>
 
-  <!-- Also CRM standalone -->
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:40px;">
-    <div class="plan-card" id="card-crm-lite" onclick="selectPlan('crm-lite','CRM Lite, $199 onboarding + $99/month')">
-      <span class="plan-badge" style="color:#00C2D8;">🗂️ CRM Only</span>
-      <div class="plan-name" style="font-size:18px;">CRM Lite</div>
-      <div class="plan-price" style="font-size:22px;color:#00C2D8;">$999 <span style="font-size:14px;font-weight:600;color:#64748b;">one-time</span></div>
-      <div class="plan-desc" style="font-size:12px;">Own your CRM outright. Contact management, lead tracking, WhatsApp integration, basic automation.</div>
-      <div style="margin-top:16px;padding:10px;background:rgba(0,194,216,0.08);border-radius:10px;font-size:12px;color:#00C2D8;font-weight:700;text-align:center;">Click to select</div>
+  <!-- CRM Standalone Plans -->
+  <div style="margin-bottom:12px;">
+    <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--cyan);margin-bottom:4px;">&#9679; For Growing Businesses</div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:16px;">
+    <div class="plan-card" id="card-crm-starter" onclick="selectPlan('crm-starter','CRM Starter, $99 onboarding + $59/month')">
+      <span class="plan-badge" style="color:#00C2D8;">&#127754; CRM Starter</span>
+      <div class="plan-name" style="font-size:17px;">CRM Starter</div>
+      <div class="plan-price" style="font-size:20px;color:#00C2D8;">$59<span style="font-size:13px;font-weight:600;color:#64748b;">/mo</span></div>
+      <div style="font-size:11px;color:#64748b;margin-bottom:6px;">$99 one-time onboarding</div>
+      <div class="plan-desc" style="font-size:12px;">25 contacts, lead tracking, basic contact management. Perfect for solo operators.</div>
+      <div style="margin-top:14px;padding:9px;background:rgba(0,194,216,0.08);border-radius:10px;font-size:12px;color:#00C2D8;font-weight:700;text-align:center;">Click to select</div>
     </div>
-    <div class="plan-card" id="card-crm-premium" onclick="selectPlan('crm-premium','CRM Premium, $299 onboarding + $199/month')">
-      <span class="plan-badge" style="color:var(--coral);">🖤 CRM Premium</span>
-      <div class="plan-name" style="font-size:18px;">CRM Premium</div>
-      <div class="plan-price" style="font-size:22px;color:var(--coral);">$299 <span style="font-size:14px;font-weight:600;color:#64748b;">+ $199/mo</span></div>
-      <div class="plan-desc" style="font-size:12px;">Continuous upgrades, advanced automation, priority support. Your CRM grows with your business.</div>
-      <div style="margin-top:16px;padding:10px;background:rgba(255,85,0,0.08);border-radius:10px;font-size:12px;color:var(--coral);font-weight:700;text-align:center;">Click to select</div>
+    <div class="plan-card" id="card-crm-lite" onclick="selectPlan('crm-lite','CRM Lite, $199 onboarding + $99/month')">
+      <span class="plan-badge" style="color:#00C2D8;">&#128188; CRM Lite</span>
+      <div class="plan-name" style="font-size:17px;">CRM Lite</div>
+      <div class="plan-price" style="font-size:20px;color:#00C2D8;">$99<span style="font-size:13px;font-weight:600;color:#64748b;">/mo</span></div>
+      <div style="font-size:11px;color:#64748b;margin-bottom:6px;">$199 one-time onboarding &middot; or $990/yr</div>
+      <div class="plan-desc" style="font-size:12px;">250 contacts, pipeline tracking, basic automation, 2 team members.</div>
+      <div style="margin-top:14px;padding:9px;background:rgba(0,194,216,0.08);border-radius:10px;font-size:12px;color:#00C2D8;font-weight:700;text-align:center;">Click to select</div>
+    </div>
+    <div class="plan-card" id="card-crm-premium" onclick="selectPlan('crm-premium','CRM Premium, $299 onboarding + $179/month')">
+      <span class="plan-badge" style="color:var(--coral);">&#11088; CRM Premium</span>
+      <div class="plan-name" style="font-size:17px;">CRM Premium</div>
+      <div class="plan-price" style="font-size:20px;color:var(--coral);">$179<span style="font-size:13px;font-weight:600;color:#64748b;">/mo</span></div>
+      <div style="font-size:11px;color:#64748b;margin-bottom:6px;">$299 one-time onboarding &middot; or $1,990/yr</div>
+      <div class="plan-desc" style="font-size:12px;">Unlimited contacts, full pipeline, WhatsApp, automation, 5 team members. Introductory rate &mdash; locks in for life.</div>
+      <div style="margin-top:14px;padding:9px;background:rgba(255,85,0,0.08);border-radius:10px;font-size:12px;color:var(--coral);font-weight:700;text-align:center;">Click to select</div>
     </div>
   </div>
 
-  <!-- APPLICATION FORM -->
-  <div style="text-align:center;margin-bottom:32px;">
-    <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:var(--coral);margin-bottom:10px;">Step 2, Tell Us About Your Business</div>
-    <h2 style="font-family:'Manrope',sans-serif;font-size:28px;font-weight:800;color:#002B49;">Complete Your Application</h2>
+  <div style="margin-bottom:12px;margin-top:8px;">
+    <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--gold);margin-bottom:4px;">&#9679; For Teams &amp; Agencies</div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:40px;">
+    <div class="plan-card" id="card-crm-enterprise" onclick="selectPlan('crm-enterprise','CRM Enterprise, $599 onboarding + $499/month')">
+      <span class="plan-badge" style="color:#00C2D8;">&#127963; Enterprise</span>
+      <div class="plan-name" style="font-size:17px;">CRM Enterprise</div>
+      <div class="plan-price" style="font-size:20px;color:#00C2D8;">$499<span style="font-size:13px;font-weight:600;color:#64748b;">/mo</span></div>
+      <div style="font-size:11px;color:#64748b;margin-bottom:6px;">$599 white-glove onboarding</div>
+      <div class="plan-desc" style="font-size:12px;">Unlimited team members, custom workflows, API access, dedicated account manager, SLA guarantee.</div>
+      <div style="margin-top:14px;padding:9px;background:rgba(0,194,216,0.08);border-radius:10px;font-size:12px;color:#00C2D8;font-weight:700;text-align:center;">Click to select</div>
+    </div>
+    <div class="plan-card" id="card-white-label" onclick="selectPlan('white-label','White-Label CRM, $699 onboarding + $697/month')">
+      <span class="plan-badge" style="color:var(--gold);">&#127962; White-Label</span>
+      <div class="plan-name" style="font-size:17px;">White-Label CRM</div>
+      <div class="plan-price" style="font-size:20px;color:var(--gold);">$697<span style="font-size:13px;font-weight:600;color:#64748b;">/mo</span></div>
+      <div style="font-size:11px;color:#64748b;margin-bottom:6px;">$699 onboarding &middot; Annual contract</div>
+      <div class="plan-desc" style="font-size:12px;">Your logo, your domain. Unlimited client accounts, Super Admin dashboard. Clients never see BluWav.</div>
+      <div style="margin-top:14px;padding:9px;background:rgba(247,200,115,0.1);border-radius:10px;font-size:12px;color:var(--gold);font-weight:700;text-align:center;">Click to select</div>
+    </div>
+    <div class="plan-card" id="card-nonprofit" onclick="selectPlan('nonprofit','Nonprofit CRM Premium, $99/month (no setup fee)')">
+      <span class="plan-badge" style="color:#16a34a;">&#127807; Nonprofit Rate</span>
+      <div class="plan-name" style="font-size:17px;">Nonprofit Premium</div>
+      <div class="plan-price" style="font-size:20px;color:#16a34a;">$99<span style="font-size:13px;font-weight:600;color:#64748b;">/mo</span></div>
+      <div style="font-size:11px;color:#64748b;margin-bottom:6px;">No setup fee &middot; Proof of status required</div>
+      <div class="plan-desc" style="font-size:12px;">Full CRM Premium for registered nonprofits. Same features, community rate. Email registration number to confirm.</div>
+      <div style="margin-top:14px;padding:9px;background:rgba(34,197,94,0.08);border-radius:10px;font-size:12px;color:#16a34a;font-weight:700;text-align:center;">Click to select</div>
+    </div>
   </div>
 
   <div class="apply-form">
@@ -643,8 +680,13 @@ function selectPlan(id, name) {
     'ripple':        ['ripple',        'Ripple, $1,800+'],
     'current':       ['current',       'Current, $3,000+'],
     'surge':         ['surge',         'Surge, $5,000+'],
+    'crm-starter':   ['crm-starter',   'CRM Starter, $99 onboarding + $59/month'],
+    'crm-starter':   ['crm-starter',   'CRM Starter, $99 onboarding + $59/month'],
     'crm-lite':      ['crm-lite',      'CRM Lite, $199 onboarding + $99/month'],
-    'crm-premium':   ['crm-premium',   'CRM Premium, $299 onboarding + $199/month'],
+    'crm-premium':   ['crm-premium',   'CRM Premium, $299 onboarding + $179/month'],
+    'crm-enterprise':['crm-enterprise', 'CRM Enterprise, $599 onboarding + $499/month'],
+    'white-label':   ['white-label',   'White-Label CRM, $699 onboarding + $697/month'],
+    'nonprofit':     ['nonprofit',     'Nonprofit CRM Premium, $99/month (no setup fee)'],
     'crm-solo':      ['crm-solo',      'CRM Solo, $999 one-time'],
     'sales-agent':   ['crm-premium',   'Sales Agent, Commission-Based Role'],
     'referral':      ['crm-lite',      'Referral Partner, Tier 1 (10%)'],
