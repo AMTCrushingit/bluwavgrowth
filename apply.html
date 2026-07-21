@@ -86,6 +86,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 32px;d
 @media(max-width:768px){
   #selectedPlanDisplay{position:sticky;bottom:16px;z-index:50;box-shadow:0 8px 32px rgba(0,0,0,0.4);}
   .plan-card{margin-top:8px;}
+  .plan-card.selected::before{top:10px;right:12px;left:auto;transform:none;font-size:10px;padding:3px 10px;}
+}
+@media(max-width:768px){
+  #selectedPlanDisplay{position:sticky;bottom:16px;z-index:50;box-shadow:0 8px 32px rgba(0,0,0,0.4);}
+  .plan-card{margin-top:8px;}
 }
 
 /* FORM */
@@ -468,7 +473,7 @@ footer .footer-grid{gap:56px !important;}
       <div class="form-row">
         <div class="form-group">
           <label class="form-label" for="whatsapp">WhatsApp Number <span>*</span></label>
-          <input class="form-input" id="whatsapp" name="whatsapp" placeholder="+1 (868) 000-0000" required type="tel" inputmode="tel" autocomplete="tel"/>
+          <input class="form-input" id="whatsapp" name="whatsapp" placeholder="+1 (868) 000-0000" required type="tel" inputmode="tel" autocomplete="tel" inputmode="tel" autocomplete="tel"/>
         </div>
         <div class="form-group">
           <label class="form-label" for="email">Email Address <span>*</span></label>
@@ -814,14 +819,13 @@ function updateSelectionDisplay() {
 // Form submission, sends to Formspree (confirmation email) + WhatsApp notification
 function submitForm(e) {
   e.preventDefault();
-  var pkg = document.getElementById('selectedPackage').value;
-  if(!pkg || Object.keys(selectedPlans).length === 0){
-    // Show inline error instead of alert
+  // Rebuild pkg from selectedPlans at submit time (source of truth)
+  var pkg = Object.keys(selectedPlans).map(function(id){ return selectedPlans[id]; }).join(' + ');
+  document.getElementById('selectedPackage').value = pkg;
+
+  if(Object.keys(selectedPlans).length === 0 || !pkg){
     var errEl = document.getElementById('planSelectError');
-    if(errEl){
-      errEl.style.display = 'flex';
-      setTimeout(function(){ errEl.style.display = 'none'; }, 4000);
-    }
+    if(errEl){ errEl.style.display = 'flex'; setTimeout(function(){ errEl.style.display = 'none'; }, 4000); }
     window.scrollTo({top: document.getElementById('planCards').getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth'});
     return;
   }
