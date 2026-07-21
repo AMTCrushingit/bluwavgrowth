@@ -447,7 +447,7 @@ footer{background:rgba(0,43,73,0.97);padding:36px 0 0;}
 </div>
 <div class="footer-bottom">
 <div class="footer-bottom-text">© 2026 <span>BluWav Growth</span> · All rights reserved.</div>
-<div class="footer-bottom-text">hello@bluwavgrowth.com  ·  +1 (868) 297-9960</div>
+<div class="footer-bottom-text">hello@bluwavgrowth.com  ·  hello@bluwavgrowth.com</div>
 </div>
 </footer>
 <a class="wa-float" href="https://wa.me/18682979960" title="WhatsApp Us">💬</a>
@@ -658,7 +658,7 @@ function submitHC() {
     '✓ Your search rankings & keyword gaps\n' +
     '✓ Your lead capture & follow-up system\n\n' +
     'No commitment. No sales pitch. Just honest, practical advice.\n\n' +
-    'Questions? WhatsApp us at +1 (868) 297-9960\n\n' +
+    'Questions? WhatsApp us at hello@bluwavgrowth.com\n\n' +
     'Built for growth. Ready for the world.\n' +
     '— The BluWav Growth Team\n' +
     'hello@bluwavgrowth.com | bluwavgrowth.com'
@@ -668,7 +668,7 @@ function submitHC() {
   function proceed(){
     if(submitted) return;
     submitted = true;
-    window.open('https://wa.me/18682979960?text='+waMsg,'_blank');
+    // WA notification removed — Formspree email handles team notification
     // Hide all steps, show success
     document.querySelectorAll('.step').forEach(function(s){s.style.display='none';});
     document.getElementById('successState').style.display='block';
