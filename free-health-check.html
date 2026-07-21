@@ -578,6 +578,40 @@ function selectChallenge(el) {
 }
 
 // ── FORM SUBMISSION ───────────────────────────────────────────────────────────
+
+// ── SUPABASE CRM INSERT ───────────────────────────────────────────────────────
+function insertToCRM(leadData) {
+  fetch('https://izyuupdmlzcphvdpigrs.supabase.co/rest/v1/leads', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml6eXV1cGRtbHpjcGh2ZHBpZ3JzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEzMjEwNDcsImV4cCI6MjA5Njg5NzA0N30.cmrOK8uAMZKzB1wPZAt7ClEpuUBEkx1PFy49MkhEyog',
+      'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml6eXV1cGRtbHpjcGh2ZHBpZ3JzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEzMjEwNDcsImV4cCI6MjA5Njg5NzA0N30.cmrOK8uAMZKzB1wPZAt7ClEpuUBEkx1PFy49MkhEyog',
+      'Prefer': 'return=minimal'
+    },
+    body: JSON.stringify(leadData)
+  })
+  .then(function(r){ console.log('CRM lead saved, status:', r.status); })
+  .catch(function(e){ console.warn('CRM insert failed (non-blocking):', e); });
+}
+
+
+// SUPABASE CRM INSERT
+function insertToCRM(lead) {
+  fetch('https://izyuupdmlzcphvdpigrs.supabase.co/rest/v1/leads', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml6eXV1cGRtbHpjcGh2ZHBpZ3JzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEzMjEwNDcsImV4cCI6MjA5Njg5NzA0N30.cmrOK8uAMZKzB1wPZAt7ClEpuUBEkx1PFy49MkhEyog',
+      'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml6eXV1cGRtbHpjcGh2ZHBpZ3JzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEzMjEwNDcsImV4cCI6MjA5Njg5NzA0N30.cmrOK8uAMZKzB1wPZAt7ClEpuUBEkx1PFy49MkhEyog',
+      'Prefer': 'return=minimal'
+    },
+    body: JSON.stringify(lead)
+  })
+  .then(function(r){ console.log('CRM lead saved, status:', r.status); })
+  .catch(function(e){ console.warn('CRM insert failed (non-blocking):', e); });
+}
+
 function submitHC() {
   var goal = document.getElementById('hcGoal').value;
   if (!goal) { document.getElementById('step3Error').style.display='block'; return; }
@@ -663,6 +697,29 @@ function submitHC() {
     '— The BluWav Growth Team\n' +
     'hello@bluwavgrowth.com | bluwavgrowth.com'
   );
+
+  // Insert lead into BluWav CRM (non-blocking)
+  insertToCRM({
+    full_name:    fullName,
+    business:     biz,
+    whatsapp:     wa,
+    email:        email,
+    interest:     goal,
+    island:       '',
+    source:       source,
+    status:       'new',
+    raw_response: {
+      lead_code:    leadCode,
+      lead_score:   scoring.score,
+      lead_tag:     scoring.tag,
+      industry:     industry,
+      website:      website||'',
+      utm_source:   utmSrc,
+      utm_medium:   utmMed,
+      utm_campaign: utmCamp,
+      referrer:     ref
+    }
+  });
 
   var submitted = false;
   function proceed(){
