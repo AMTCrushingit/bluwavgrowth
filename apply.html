@@ -107,8 +107,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 32px;d
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
 @media(max-width:600px){.form-row{grid-template-columns:1fr;}}
 .submit-btn{width:100%;background:var(--coral);color:#fff;font-size:17px;font-weight:800;padding:18px;border-radius:12px;border:none;cursor:pointer;transition:all 0.2s;box-shadow:0 4px 24px rgba(255,85,0,0.35);font-family:'Plus Jakarta Sans',sans-serif;margin-top:8px;}
-.submit-btn:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(255,85,0,0.5);}
-.submit-btn:active{transform:translateY(0);}
+.submit-btn:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 8px 32px rgba(255,85,0,0.5);}
+.submit-btn:active:not(:disabled){transform:translateY(0);}
+.submit-btn:disabled{background:#94a3b8;box-shadow:none;cursor:not-allowed;opacity:0.7;}
+.submit-btn.needs-plan{background:#94a3b8;box-shadow:none;cursor:not-allowed;}
+#submitPlanError{display:none;align-items:center;gap:10px;background:rgba(255,85,0,0.08);border:2px solid rgba(255,85,0,0.5);border-radius:12px;padding:14px 18px;margin-top:12px;animation:shake 0.4s ease;}
+@keyframes shake{0%,100%{transform:translateX(0);}20%,60%{transform:translateX(-6px);}40%,80%{transform:translateX(6px);}}
 .form-note{font-size:12px;color:#64748b;text-align:center;margin-top:12px;line-height:1.6;}
 
 /* TRUST BAR */
@@ -458,11 +462,6 @@ footer .footer-grid{gap:56px !important;}
     </div>
 
     <!-- Inline error -->
-    <div id="planSelectError" style="display:none;align-items:center;gap:10px;background:rgba(255,85,0,0.1);border:1px solid rgba(255,85,0,0.4);border-radius:10px;padding:12px 20px;margin-bottom:16px;">
-      <span style="font-size:16px;">&#9888;</span>
-      <span style="font-size:14px;font-weight:700;color:#FF5500;">Please select at least one package before submitting.</span>
-    </div>
-
     <!-- Scroll hint -->
     <div id="scrollHint" style="display:none;align-items:center;justify-content:center;gap:10px;background:rgba(0,224,255,0.08);border:1px solid rgba(0,224,255,0.2);border-radius:10px;padding:12px 20px;margin-bottom:20px;cursor:pointer;" onclick="document.getElementById('applyForm').scrollIntoView({behavior:'smooth',block:'start'})">
       <span style="font-size:13px;font-weight:700;color:#00E0FF;">&#10003; Plan selected &mdash; scroll down to fill in your details</span>
@@ -561,10 +560,22 @@ footer .footer-grid{gap:56px !important;}
         </select>
       </div>
 
-      <button class="submit-btn" type="submit" id="submitBtn">
-        Submit My Application →
+      <!-- Submit area error -->
+      <div id="submitPlanError" style="display:none;align-items:center;gap:12px;background:rgba(255,85,0,0.08);border:2px solid rgba(255,85,0,0.5);border-radius:12px;padding:14px 18px;margin-top:12px;">
+        <span style="font-size:22px;flex-shrink:0;">&#9888;</span>
+        <div style="flex:1;">
+          <div style="font-size:14px;font-weight:800;color:#FF5500;margin-bottom:2px;">No package selected</div>
+          <div style="font-size:13px;color:#64748b;">Please scroll up and select at least one Growth Package or CRM plan before submitting.</div>
+        </div>
+        <a href="#planCards" onclick="window.scrollTo({top:document.getElementById('planCards').getBoundingClientRect().top+window.scrollY-80,behavior:'smooth'});return false;" style="font-size:13px;font-weight:800;color:#FF5500;text-decoration:none;white-space:nowrap;flex-shrink:0;">Choose plan &#8593;</a>
+      </div>
+
+      <button class="submit-btn needs-plan" type="submit" id="submitBtn" title="Please select a package above first">
+        Select a Package Above to Continue &#8593;
       </button>
       <p class="form-note">
+        &#10003; No payment required now &nbsp;&#183;&nbsp; &#10003; We'll WhatsApp you within 48 hours &nbsp;&#183;&nbsp; &#10003; No commitment until you approve your invoice
+      </p>
         ✓ No payment required now &nbsp;·&nbsp; ✓ We'll WhatsApp you within 48 hours &nbsp;·&nbsp; ✓ No commitment until you approve your invoice
       </p>
     </form>
@@ -788,13 +799,25 @@ function updateSelectionDisplay() {
   // Update hidden input with all selected plans joined
   hiddenInput.value = keys.map(function(id){ return selectedPlans[id]; }).join(' + ');
 
-  // Show scroll hint after first selection instead of auto-scrolling
-  if (keys.length === 1) {
-    var hint = document.getElementById('scrollHint');
-    if(hint) hint.style.display = 'flex';
-  } else if (keys.length === 0) {
-    var hint = document.getElementById('scrollHint');
-    if(hint) hint.style.display = 'none';
+  // Show scroll hint after first selection
+  var hint = document.getElementById('scrollHint');
+  if(hint) hint.style.display = keys.length > 0 ? 'flex' : 'none';
+
+  // Update submit button state
+  var btn = document.getElementById('submitBtn');
+  var submitErr = document.getElementById('submitPlanError');
+  if (keys.length > 0) {
+    btn.classList.remove('needs-plan');
+    btn.disabled = false;
+    btn.textContent = 'Submit My Application →';
+    btn.title = '';
+    if(submitErr) submitErr.style.display = 'none';
+  } else {
+    btn.classList.add('needs-plan');
+    btn.disabled = false;
+    btn.textContent = 'Select a Package Above to Continue ↑';
+    btn.title = 'Please select a package above first';
+    if(submitErr) submitErr.style.display = 'none';
   }
 }
 
@@ -837,9 +860,16 @@ function submitForm(e) {
   document.getElementById('selectedPackage').value = pkg;
 
   if(Object.keys(selectedPlans).length === 0 || !pkg){
-    var errEl = document.getElementById('planSelectError');
-    if(errEl){ errEl.style.display = 'flex'; setTimeout(function(){ errEl.style.display = 'none'; }, 4000); }
-    window.scrollTo({top: document.getElementById('planCards').getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth'});
+    // Show error near submit button
+    var submitErr = document.getElementById('submitPlanError');
+    if(submitErr){
+      submitErr.style.display = 'flex';
+      submitErr.scrollIntoView({behavior:'smooth', block:'center'});
+      // Shake animation re-trigger
+      submitErr.style.animation = 'none';
+      submitErr.offsetHeight; // reflow
+      submitErr.style.animation = 'shake 0.4s ease';
+    }
     return;
   }
 
