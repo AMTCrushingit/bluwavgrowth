@@ -1732,6 +1732,33 @@ footer .footer-grid{gap:56px !important;}
   #comparison .dark-header{padding:60px 20px 80px!important;}
 }
 
+/* ── Nav Active State ── */
+.nav-link.nav-active{color:#fff !important;font-weight:700 !important;}
+.nav-link.nav-active::after{width:100% !important;background:#FF5500 !important;}
+.mob-link.mob-active{color:#fff !important;font-weight:800 !important;border-left:3px solid #FF5500;padding-left:12px;}
+/* ── BluWav Page Animations ── */
+@keyframes bw-fade-up{from{opacity:0;transform:translateY(32px);}to{opacity:1;transform:translateY(0);}}
+@keyframes bw-fade-left{from{opacity:0;transform:translateX(-28px);}to{opacity:1;transform:translateX(0);}}
+@keyframes bw-fade-right{from{opacity:0;transform:translateX(28px);}to{opacity:1;transform:translateX(0);}}
+@keyframes bw-scale-in{from{opacity:0;transform:scale(0.93);}to{opacity:1;transform:scale(1);}}
+@keyframes bw-count{from{opacity:0;}to{opacity:1;}}
+.bw-reveal{opacity:0;transform:translateY(28px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1);}
+.bw-reveal.bw-in{opacity:1;transform:translateY(0);}
+.bw-reveal-left{opacity:0;transform:translateX(-28px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1);}
+.bw-reveal-left.bw-in{opacity:1;transform:translateX(0);}
+.bw-reveal-right{opacity:0;transform:translateX(28px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1);}
+.bw-reveal-right.bw-in{opacity:1;transform:translateX(0);}
+.bw-reveal-scale{opacity:0;transform:scale(0.93);transition:opacity 0.6s cubic-bezier(0.22,1,0.36,1),transform 0.6s cubic-bezier(0.22,1,0.36,1);}
+.bw-reveal-scale.bw-in{opacity:1;transform:scale(1);}
+.bw-delay-1{transition-delay:0.08s!important;}
+.bw-delay-2{transition-delay:0.16s!important;}
+.bw-delay-3{transition-delay:0.24s!important;}
+.bw-delay-4{transition-delay:0.32s!important;}
+.bw-delay-5{transition-delay:0.40s!important;}
+.bw-delay-6{transition-delay:0.48s!important;}
+@media(prefers-reduced-motion:reduce){
+  .bw-reveal,.bw-reveal-left,.bw-reveal-right,.bw-reveal-scale{opacity:1!important;transform:none!important;transition:none!important;}
+}
 </style>
 <meta content="index, follow" name="robots"/>
 <meta property="og:title" content="BluWav Growth | Website Design & Digital Growth for Modern Businesses"/>
@@ -1932,25 +1959,25 @@ function setCurrency(code, symbol, name){
 <div style="font-size:8px;font-weight:700;color:#00E0FF;letter-spacing:3px;text-transform:uppercase;line-height:1.4;margin-top:2px;">Get Found. Get Chosen. Grow.</div>
 </div>
 <div class="nav-links">
-<a class="nav-link" style="color:#fff;font-weight:700;border-bottom:2px solid #FF5500;padding-bottom:2px;" href="index.html">Home</a>
-<a class="nav-link" href="index.html#what-we-do">Services</a>
-<a class="nav-link" href="pricing.html">Pricing</a>
-<a class="nav-link" href="crm.html">BluWav CRM</a>
-<a class="nav-link" href="the-wave.html" style="color:#00E0FF;font-weight:700;">The Wave</a>
-<a class="nav-link" href="index.html#contact">Contact</a>
+<a class="nav-link" data-page="home" href="index.html">Home</a>
+<a class="nav-link" data-page="home" href="index.html#what-we-do">Services</a>
+<a class="nav-link" data-page="pricing" href="pricing.html">Pricing</a>
+<a class="nav-link" data-page="crm" href="crm.html">BluWav CRM</a>
+<a class="nav-link" data-page="wave" href="the-wave.html" style="color:#00E0FF;font-weight:700;">The Wave</a>
+<a class="nav-link" data-page="home" href="index.html#contact">Contact</a>
 <a class="nav-cta" href="https://forms.gle/EcVVcffVTqLZpHURA" target="_blank">Free Business Health Check</a>
 </div>
 <button aria-label="Menu" class="hamburger" id="hamburgerBtn" onclick="toggleMob()"><span></span><span></span><span></span></button>
 </nav>
 <div class="mob-nav" id="mobNav">
 <div class="mob-nav-inner">
-<a class="mob-link" href="index.html" onclick="closeMob()">🏠 Home</a>
-<a class="mob-link" href="index.html#what-we-do" onclick="closeMob()">⚡ Services</a>
-<a class="mob-link" href="index.html#how-it-works" onclick="closeMob()" style="padding-left:24px;font-size:13px;color:rgba(255,255,255,0.6);">&#8212; How It Works</a>
-<a class="mob-link" href="pricing.html" onclick="closeMob()">💰 Pricing</a>
-<a class="mob-link" href="crm.html" onclick="closeMob()">🗂️ BluWav CRM</a>
-<a class="mob-link wave" href="the-wave.html" onclick="closeMob()">🌊 The Wave</a>
-<a class="mob-link" href="index.html#contact" onclick="closeMob()">📞 Contact</a>
+<a class="mob-link" data-page="home" href="index.html" onclick="closeMob()">🏠 Home</a>
+<a class="mob-link" data-page="home" href="index.html#what-we-do" onclick="closeMob()">⚡ Services</a>
+<a class="mob-link" data-page="home" href="index.html#how-it-works" onclick="closeMob()" style="padding-left:24px;font-size:13px;color:rgba(255,255,255,0.6);">&#8212; How It Works</a>
+<a class="mob-link" data-page="pricing" href="pricing.html" onclick="closeMob()">💰 Pricing</a>
+<a class="mob-link" data-page="crm" href="crm.html" onclick="closeMob()">🗂️ BluWav CRM</a>
+<a class="mob-link wave" data-page="wave" href="the-wave.html" onclick="closeMob()">🌊 The Wave</a>
+<a class="mob-link" data-page="home" href="index.html#contact" onclick="closeMob()">📞 Contact</a>
 <a class="mob-cta" href="https://forms.gle/EcVVcffVTqLZpHURA" target="_blank" onclick="closeMob()">🩺 Get My Free Digital Health Check</a>
 </div>
 </div>
@@ -2070,28 +2097,28 @@ function setCurrency(code, symbol, name){
   <!-- Stats grid -->
   <div class="trusted-stats-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;">
     <!-- Stat 1 -->
-    <div class="reveal anim-fade-up" style="text-align:center;background:rgba(0,20,45,0.72);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:36px 20px;transition:transform 0.2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+    <div class="reveal anim-fade-up bw-reveal bw-delay-1" style="text-align:center;background:rgba(0,20,45,0.72);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:36px 20px;transition:transform 0.2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
       <div style="font-size:32px;margin-bottom:8px;">🌊</div>
       <div style="font-family:'Manrope',sans-serif;font-size:52px;font-weight:900;color:#00E0FF;line-height:1;margin-bottom:8px;">50+</div>
       <div style="font-size:15px;font-weight:800;color:#fff;margin-bottom:4px;">Businesses Served</div>
       <div style="font-size:12px;color:rgba(255,255,255,0.85);line-height:1.5;">Across 5 countries</div>
     </div>
     <!-- Stat 2 -->
-    <div class="reveal anim-fade-up" style="text-align:center;background:rgba(0,20,45,0.72);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:36px 20px;transition:transform 0.2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+    <div class="reveal anim-fade-up bw-reveal bw-delay-2" style="text-align:center;background:rgba(0,20,45,0.72);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:36px 20px;transition:transform 0.2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
       <div style="font-size:32px;margin-bottom:8px;">⚡</div>
       <div style="font-family:'Manrope',sans-serif;font-size:52px;font-weight:900;color:#F7C873;line-height:1;margin-bottom:8px;">48h</div>
       <div style="font-size:15px;font-weight:800;color:#fff;margin-bottom:4px;">Average Delivery</div>
       <div style="font-size:12px;color:rgba(255,255,255,0.85);line-height:1.5;">From brief to live</div>
     </div>
     <!-- Stat 3 -->
-    <div class="reveal anim-fade-up" style="text-align:center;background:rgba(0,20,45,0.72);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:36px 20px;transition:transform 0.2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+    <div class="reveal anim-fade-up bw-reveal bw-delay-3" style="text-align:center;background:rgba(0,20,45,0.72);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:36px 20px;transition:transform 0.2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
       <div style="font-size:32px;margin-bottom:8px;">🇹🇹</div>
       <div style="font-family:'Manrope',sans-serif;font-size:52px;font-weight:900;color:#FF5500;line-height:1;margin-bottom:8px;">5+</div>
       <div style="font-size:15px;font-weight:800;color:#fff;margin-bottom:4px;">Years Experience</div>
       <div style="font-size:12px;color:rgba(255,255,255,0.85);line-height:1.5;">Global digital expertise</div>
     </div>
     <!-- Stat 4 -->
-    <div class="reveal anim-fade-up" style="text-align:center;background:rgba(0,20,45,0.72);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:36px 20px;transition:transform 0.2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+    <div class="reveal anim-fade-up bw-reveal bw-delay-4" style="text-align:center;background:rgba(0,20,45,0.72);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:36px 20px;transition:transform 0.2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
       <div style="font-size:32px;margin-bottom:8px;">🔑</div>
       <div style="font-family:'Manrope',sans-serif;font-size:52px;font-weight:900;color:#00C2D8;line-height:1;margin-bottom:8px;">100%</div>
       <div style="font-size:15px;font-weight:800;color:#fff;margin-bottom:4px;">You Own Everything</div>
@@ -2136,17 +2163,17 @@ function setCurrency(code, symbol, name){
 <a class="btn-coral" href="https://forms.gle/EcVVcffVTqLZpHURA" target="_blank">Check My Business for Free →</a>
 </div>
 <div class="reveal-right" style="display:flex;flex-direction:column;gap:20px;">
-<div onmouseout="this.style.transform='translateX(0)';this.style.background='rgba(255,85,0,0.08)'" onmouseover="this.style.transform='translateX(8px)';this.style.background='rgba(255,85,0,0.14)'" style="background:rgba(255,85,0,0.08);border:1px solid rgba(255,85,0,0.2);border-left:4px solid var(--coral);border-radius:16px;padding:24px 28px;transition:all 0.3s;">
+<div onmouseout="this.style.transform='translateX(0)';this.style.background='rgba(255,85,0,0.08)'" onmouseover="this.style.transform='translateX(8px)';this.style.background='rgba(255,85,0,0.14)'" style="background:rgba(255,85,0,0.08);border:1px solid rgba(255,85,0,0.2);border-left:4px solid var(--coral);border-radius:16px;padding:24px 28px;transition:all 0.3s;" class="bw-reveal bw-delay-1">
 <div style="font-size:22px;margin-bottom:10px;">🔍</div>
 <div style="font-size:17px;font-weight:800;color:#fff;margin-bottom:6px;">Not Showing Up on Google</div>
 <div style="font-size:14px;color:rgba(255,255,255,0.5);line-height:1.6;">Customers never find your business, they find your competitor instead.</div>
 </div>
-<div onmouseout="this.style.transform='translateX(0)';this.style.background='rgba(255,85,0,0.08)'" onmouseover="this.style.transform='translateX(8px)';this.style.background='rgba(255,85,0,0.14)'" style="background:rgba(255,85,0,0.08);border:1px solid rgba(255,85,0,0.2);border-left:4px solid var(--coral);border-radius:16px;padding:24px 28px;transition:all 0.3s;">
+<div onmouseout="this.style.transform='translateX(0)';this.style.background='rgba(255,85,0,0.08)'" onmouseover="this.style.transform='translateX(8px)';this.style.background='rgba(255,85,0,0.14)'" style="background:rgba(255,85,0,0.08);border:1px solid rgba(255,85,0,0.2);border-left:4px solid var(--coral);border-radius:16px;padding:24px 28px;transition:all 0.3s;" class="bw-reveal bw-delay-2">
 <div style="font-size:22px;margin-bottom:10px;">🌐</div>
 <div style="font-size:17px;font-weight:800;color:#fff;margin-bottom:6px;">Outdated or No Website</div>
 <div style="font-size:14px;color:rgba(255,255,255,0.5);line-height:1.6;">Customers lose trust in seconds when your online presence looks unprofessional.</div>
 </div>
-<div onmouseout="this.style.transform='translateX(0)';this.style.background='rgba(255,85,0,0.08)'" onmouseover="this.style.transform='translateX(8px)';this.style.background='rgba(255,85,0,0.14)'" style="background:rgba(255,85,0,0.08);border:1px solid rgba(255,85,0,0.2);border-left:4px solid var(--coral);border-radius:16px;padding:24px 28px;transition:all 0.3s;">
+<div onmouseout="this.style.transform='translateX(0)';this.style.background='rgba(255,85,0,0.08)'" onmouseover="this.style.transform='translateX(8px)';this.style.background='rgba(255,85,0,0.14)'" style="background:rgba(255,85,0,0.08);border:1px solid rgba(255,85,0,0.2);border-left:4px solid var(--coral);border-radius:16px;padding:24px 28px;transition:all 0.3s;" class="bw-reveal bw-delay-3">
 <div style="font-size:22px;margin-bottom:10px;">📞</div>
 <div style="font-size:17px;font-weight:800;color:#fff;margin-bottom:6px;">Missed Calls and Enquiries</div>
 <div style="font-size:14px;color:rgba(255,255,255,0.5);line-height:1.6;">Revenue slips away daily when there’s no system to capture and follow up on leads.</div>
@@ -2363,7 +2390,7 @@ function setCurrency(code, symbol, name){
 <!-- Three plans side by side, Current elevated -->
 <div class="growth-systems-grid" style="display:grid;grid-template-columns:1fr 1.08fr 1fr;gap:20px;margin-bottom:64px;align-items:start;">
 <!-- Ripple -->
-<div onmouseout="this.style.boxShadow='none';this.style.transform='translateY(0)'" onmouseover="this.style.boxShadow='0 12px 40px rgba(0,43,73,0.1)';this.style.transform='translateY(-4px)'" style="background:#f8faff;border-radius:20px;padding:32px 28px;border:1px solid rgba(0,43,73,0.08);display:flex;flex-direction:column;transition:all 0.2s;">
+<div class="bw-reveal bw-delay-1" onmouseout="this.style.boxShadow='none';this.style.transform='translateY(0)'" onmouseover="this.style.boxShadow='0 12px 40px rgba(0,43,73,0.1)';this.style.transform='translateY(-4px)'" style="background:#f8faff;border-radius:20px;padding:32px 28px;border:1px solid rgba(0,43,73,0.08);display:flex;flex-direction:column;transition:all 0.2s;">
 <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#00E0FF;margin-bottom:6px;">Starter</div>
 <h4 style="font-size:24px;font-weight:800;color:#002B49;margin-bottom:8px;font-family:'Manrope',sans-serif;">Ripple</h4>
 <p style="font-size:13px;color:#64748b;line-height:1.65;margin-bottom:16px;flex:1;">Get online fast with the essentials that help customers find you.</p>
@@ -2373,7 +2400,7 @@ function setCurrency(code, symbol, name){
 <a href="pricing.html" style="display:block;text-align:center;font-size:12px;color:#64748b;margin-top:10px;text-decoration:underline;">See what's included</a>
 </div>
 <!-- Current, elevated, most popular -->
-<div style="background:#002B49;border-radius:20px;padding:36px 28px;display:flex;flex-direction:column;position:relative;overflow:hidden;box-shadow:0 20px 60px rgba(0,43,73,0.35);border:2px solid rgba(0,224,255,0.2);position:relative;">
+<div class="bw-reveal bw-delay-2" style="background:#002B49;border-radius:20px;padding:36px 28px;display:flex;flex-direction:column;position:relative;overflow:hidden;box-shadow:0 20px 60px rgba(0,43,73,0.35);border:2px solid rgba(0,224,255,0.2);position:relative;">
 <div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#00E0FF,#00C2D8,#F7C873);"></div>
 <div style="position:absolute;top:14px;right:14px;background:linear-gradient(135deg,#FF5500,#F7C873);color:#fff;font-size:10px;font-weight:800;padding:4px 12px;border-radius:20px;white-space:nowrap;">⭐ Most Popular</div>
 <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#F7C873;margin-bottom:6px;margin-top:10px;">Growth</div>
@@ -2385,7 +2412,7 @@ function setCurrency(code, symbol, name){
 <a href="pricing.html" style="display:block;text-align:center;font-size:12px;color:rgba(255,255,255,0.4);margin-top:10px;text-decoration:underline;">See what's included</a>
 </div>
 <!-- Surge -->
-<div onmouseout="this.style.boxShadow='none';this.style.transform='translateY(0)'" onmouseover="this.style.boxShadow='0 12px 40px rgba(0,43,73,0.2)';this.style.transform='translateY(-4px)'" style="background:linear-gradient(135deg,#001020,#002B49);border-radius:20px;padding:32px 28px;border:1px solid rgba(247,200,115,0.2);display:flex;flex-direction:column;transition:all 0.2s;">
+<div class="bw-reveal bw-delay-3" onmouseout="this.style.boxShadow='none';this.style.transform='translateY(0)'" onmouseover="this.style.boxShadow='0 12px 40px rgba(0,43,73,0.2)';this.style.transform='translateY(-4px)'" style="background:linear-gradient(135deg,#001020,#002B49);border-radius:20px;padding:32px 28px;border:1px solid rgba(247,200,115,0.2);display:flex;flex-direction:column;transition:all 0.2s;">
 <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#F7C873;margin-bottom:6px;">Full Transformation</div>
 <h4 style="font-size:24px;font-weight:800;color:#fff;margin-bottom:8px;font-family:'Manrope',sans-serif;">Surge</h4>
 <p style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.65;margin-bottom:16px;flex:1;">Scale across multiple channels with advanced automation and multi-search visibility.</p>
@@ -3424,5 +3451,49 @@ document.addEventListener('click',function(e){
 })();
 </script>
 
+<script>
+/* ── BluWav Nav Active State ── */
+(function(){
+  var path = window.location.pathname.split('/').pop() || 'index.html';
+  var map = {
+    'index.html':'home','':'home',
+    'pricing.html':'pricing',
+    'crm.html':'crm',
+    'the-wave.html':'wave',
+    'careers.html':'careers',
+    'our-promise.html':'promise',
+    'how-it-works.html':'how',
+    'case-study-aadek.html':'case',
+    'health-check.html':'health',
+    'free-audit.html':'audit',
+    'apply.html':'apply',
+    'contact.html':'contact'
+  };
+  var key = map[path] || path.replace('.html','');
+  document.querySelectorAll('.nav-link[data-page]').forEach(function(el){
+    if(el.getAttribute('data-page') === key){
+      el.classList.add('nav-active');
+    }
+  });
+  document.querySelectorAll('.mob-link[data-page]').forEach(function(el){
+    if(el.getAttribute('data-page') === key){
+      el.classList.add('mob-active');
+    }
+  });
+})();
+</script>
+<script>
+/* ── BluWav Scroll Animations ── */
+(function(){
+  var els = document.querySelectorAll('.bw-reveal,.bw-reveal-left,.bw-reveal-right,.bw-reveal-scale');
+  if(!els.length) return;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('bw-in');io.unobserve(e.target);}
+    });
+  },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(el){io.observe(el);});
+})();
+</script>
 </body>
 </html>

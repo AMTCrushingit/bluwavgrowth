@@ -553,6 +553,33 @@ a[style*="background:#00E0FF"]:hover::after,a[style*="background:var(--cyan)"]:h
 .px-layer-2{animation:px-move-2 15s linear infinite;opacity:0.22;}
 .px-layer-3{animation:px-move-3 10s linear infinite;opacity:0.30;}
 
+/* ── Nav Active State ── */
+.nav-link.nav-active{color:#fff !important;font-weight:700 !important;}
+.nav-link.nav-active::after{width:100% !important;background:#FF5500 !important;}
+.mob-link.mob-active{color:#fff !important;font-weight:800 !important;border-left:3px solid #FF5500;padding-left:12px;}
+/* ── BluWav Page Animations ── */
+@keyframes bw-fade-up{from{opacity:0;transform:translateY(32px);}to{opacity:1;transform:translateY(0);}}
+@keyframes bw-fade-left{from{opacity:0;transform:translateX(-28px);}to{opacity:1;transform:translateX(0);}}
+@keyframes bw-fade-right{from{opacity:0;transform:translateX(28px);}to{opacity:1;transform:translateX(0);}}
+@keyframes bw-scale-in{from{opacity:0;transform:scale(0.93);}to{opacity:1;transform:scale(1);}}
+@keyframes bw-count{from{opacity:0;}to{opacity:1;}}
+.bw-reveal{opacity:0;transform:translateY(28px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1);}
+.bw-reveal.bw-in{opacity:1;transform:translateY(0);}
+.bw-reveal-left{opacity:0;transform:translateX(-28px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1);}
+.bw-reveal-left.bw-in{opacity:1;transform:translateX(0);}
+.bw-reveal-right{opacity:0;transform:translateX(28px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1);}
+.bw-reveal-right.bw-in{opacity:1;transform:translateX(0);}
+.bw-reveal-scale{opacity:0;transform:scale(0.93);transition:opacity 0.6s cubic-bezier(0.22,1,0.36,1),transform 0.6s cubic-bezier(0.22,1,0.36,1);}
+.bw-reveal-scale.bw-in{opacity:1;transform:scale(1);}
+.bw-delay-1{transition-delay:0.08s!important;}
+.bw-delay-2{transition-delay:0.16s!important;}
+.bw-delay-3{transition-delay:0.24s!important;}
+.bw-delay-4{transition-delay:0.32s!important;}
+.bw-delay-5{transition-delay:0.40s!important;}
+.bw-delay-6{transition-delay:0.48s!important;}
+@media(prefers-reduced-motion:reduce){
+  .bw-reveal,.bw-reveal-left,.bw-reveal-right,.bw-reveal-scale{opacity:1!important;transform:none!important;transition:none!important;}
+}
 </style>
 <!-- NAV -->
 <nav id="mainNav">
@@ -561,25 +588,25 @@ a[style*="background:#00E0FF"]:hover::after,a[style*="background:var(--cyan)"]:h
 <div style="font-size:8px;font-weight:700;color:#00E0FF;letter-spacing:3px;text-transform:uppercase;line-height:1.4;margin-top:2px;">Get Found. Get Chosen. Grow.</div>
 </div>
 <div class="nav-links">
-<a class="nav-link" href="index.html">Home</a>
-<a class="nav-link" href="index.html#what-we-do">Services</a>
-<a class="nav-link" href="pricing.html">Pricing</a>
-<a class="nav-link" href="crm.html">BluWav CRM</a>
-<a class="nav-link" href="the-wave.html" style="color:#00E0FF;font-weight:700;">The Wave</a>
-<a class="nav-link" href="index.html#contact">Contact</a>
+<a class="nav-link" data-page="home" href="index.html">Home</a>
+<a class="nav-link" data-page="home" href="index.html#what-we-do">Services</a>
+<a class="nav-link" data-page="pricing" href="pricing.html">Pricing</a>
+<a class="nav-link" data-page="crm" href="crm.html">BluWav CRM</a>
+<a class="nav-link" data-page="wave" href="the-wave.html" style="color:#00E0FF;font-weight:700;">The Wave</a>
+<a class="nav-link" data-page="home" href="index.html#contact">Contact</a>
 <a class="nav-cta" href="https://forms.gle/EcVVcffVTqLZpHURA" target="_blank">Free Online Health Check</a>
 </div>
 <button aria-label="Menu" class="hamburger" id="hamburgerBtn" onclick="toggleMob()"><span></span><span></span><span></span></button>
 </nav>
 <div class="mob-nav" id="mobNav">
 <div class="mob-nav-inner">
-<a class="mob-link" href="index.html" onclick="closeMob()">🏠 Home</a>
-<a class="mob-link" href="index.html#what-we-do" onclick="closeMob()">⚡ Services</a>
-<a class="mob-link" href="index.html#how-it-works" onclick="closeMob()" style="padding-left:24px;font-size:13px;color:rgba(255,255,255,0.6);">&#8212; How It Works</a>
-<a class="mob-link" href="pricing.html" onclick="closeMob()">💰 Pricing</a>
-<a class="mob-link" href="crm.html" onclick="closeMob()">🗂️ BluWav CRM</a>
-<a class="mob-link wave" href="the-wave.html" onclick="closeMob()">🌊 The Wave</a>
-<a class="mob-link" href="index.html#contact" onclick="closeMob()">📞 Contact</a>
+<a class="mob-link" data-page="home" href="index.html" onclick="closeMob()">🏠 Home</a>
+<a class="mob-link" data-page="home" href="index.html#what-we-do" onclick="closeMob()">⚡ Services</a>
+<a class="mob-link" data-page="home" href="index.html#how-it-works" onclick="closeMob()" style="padding-left:24px;font-size:13px;color:rgba(255,255,255,0.6);">&#8212; How It Works</a>
+<a class="mob-link" data-page="pricing" href="pricing.html" onclick="closeMob()">💰 Pricing</a>
+<a class="mob-link" data-page="crm" href="crm.html" onclick="closeMob()">🗂️ BluWav CRM</a>
+<a class="mob-link wave" data-page="wave" href="the-wave.html" onclick="closeMob()">🌊 The Wave</a>
+<a class="mob-link" data-page="home" href="index.html#contact" onclick="closeMob()">📞 Contact</a>
 <a class="mob-cta" href="https://forms.gle/EcVVcffVTqLZpHURA" target="_blank" onclick="closeMob()">🩺 Check My Business for Free</a>
 </div>
 </div>
@@ -994,5 +1021,49 @@ document.addEventListener('click',function(e){
   </svg>
 </div>
 
+<script>
+/* ── BluWav Nav Active State ── */
+(function(){
+  var path = window.location.pathname.split('/').pop() || 'index.html';
+  var map = {
+    'index.html':'home','':'home',
+    'pricing.html':'pricing',
+    'crm.html':'crm',
+    'the-wave.html':'wave',
+    'careers.html':'careers',
+    'our-promise.html':'promise',
+    'how-it-works.html':'how',
+    'case-study-aadek.html':'case',
+    'health-check.html':'health',
+    'free-audit.html':'audit',
+    'apply.html':'apply',
+    'contact.html':'contact'
+  };
+  var key = map[path] || path.replace('.html','');
+  document.querySelectorAll('.nav-link[data-page]').forEach(function(el){
+    if(el.getAttribute('data-page') === key){
+      el.classList.add('nav-active');
+    }
+  });
+  document.querySelectorAll('.mob-link[data-page]').forEach(function(el){
+    if(el.getAttribute('data-page') === key){
+      el.classList.add('mob-active');
+    }
+  });
+})();
+</script>
+<script>
+/* ── BluWav Scroll Animations ── */
+(function(){
+  var els = document.querySelectorAll('.bw-reveal,.bw-reveal-left,.bw-reveal-right,.bw-reveal-scale');
+  if(!els.length) return;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('bw-in');io.unobserve(e.target);}
+    });
+  },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(el){io.observe(el);});
+})();
+</script>
 </body>
 </html>
