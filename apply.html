@@ -441,18 +441,31 @@ footer .footer-grid{gap:56px !important;}
   </div>
 
   <div class="apply-form">
-    <!-- Selected plan display -->
-    <div id="selectedPlanDisplay" style="background:linear-gradient(135deg,#002B49,#003d5c);border-radius:12px;padding:16px 20px;margin-bottom:28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
-      <div>
-        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.5);margin-bottom:4px;">Selected Package</div>
-        <div id="selectedPlanName" style="font-size:18px;font-weight:800;color:#fff;">No package selected yet, choose above ↑</div>
+  <div class="apply-form">
+    <!-- Multi-select summary panel -->
+    <div id="selectedPlanDisplay" style="background:linear-gradient(135deg,#002B49,#003d5c);border-radius:16px;padding:20px 24px;margin-bottom:16px;border:1px solid rgba(0,224,255,0.15);">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:12px;">
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.5);">Your Selection</div>
+        <a href="#planCards" onclick="window.scrollTo({top:document.getElementById('planCards').getBoundingClientRect().top+window.scrollY-80,behavior:'smooth'});return false;" style="font-size:12px;color:#00E0FF;font-weight:700;text-decoration:none;">&#8593; Change selection</a>
       </div>
-      <a href="#planCards" onclick="window.scrollTo({top:document.getElementById('planCards').getBoundingClientRect().top+window.scrollY-80,behavior:'smooth'});return false;" style="font-size:13px;color:#00E0FF;font-weight:700;text-decoration:none;">&#8593; Change selection</a>
+      <div id="selectedPlansList">
+        <div style="font-size:15px;font-weight:600;color:rgba(255,255,255,0.45);font-style:italic;">No package selected yet &mdash; choose above &#8593;</div>
+      </div>
+      <div id="selectionTotal" style="display:none;margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.1);align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+        <div style="font-size:12px;font-weight:700;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1px;">We'll confirm exact pricing via WhatsApp</div>
+        <div style="font-size:13px;font-weight:800;color:#22c55e;">&#10003; Ready to submit</div>
+      </div>
     </div>
 
-    <!-- Scroll hint — appears after first selection -->
+    <!-- Inline error -->
+    <div id="planSelectError" style="display:none;align-items:center;gap:10px;background:rgba(255,85,0,0.1);border:1px solid rgba(255,85,0,0.4);border-radius:10px;padding:12px 20px;margin-bottom:16px;">
+      <span style="font-size:16px;">&#9888;</span>
+      <span style="font-size:14px;font-weight:700;color:#FF5500;">Please select at least one package before submitting.</span>
+    </div>
+
+    <!-- Scroll hint -->
     <div id="scrollHint" style="display:none;align-items:center;justify-content:center;gap:10px;background:rgba(0,224,255,0.08);border:1px solid rgba(0,224,255,0.2);border-radius:10px;padding:12px 20px;margin-bottom:20px;cursor:pointer;" onclick="document.getElementById('applyForm').scrollIntoView({behavior:'smooth',block:'start'})">
-      <span style="font-size:13px;font-weight:700;color:#00E0FF;">&#10003; Plan selected &mdash; click here to fill in your details below</span>
+      <span style="font-size:13px;font-weight:700;color:#00E0FF;">&#10003; Plan selected &mdash; scroll down to fill in your details</span>
       <span style="color:#00E0FF;font-size:16px;">&#8595;</span>
     </div>
 
