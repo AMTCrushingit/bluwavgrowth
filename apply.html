@@ -72,7 +72,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 32px;d
 .plan-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,43,73,0.12);}
 .plan-card.selected{border-color:var(--coral);box-shadow:0 0 0 4px rgba(255,85,0,0.12);}
 .plan-card.selected::before{content:'✓ Added';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--coral);color:#fff;font-size:11px;font-weight:800;padding:4px 14px;border-radius:20px;white-space:nowrap;}
-.plan-card{cursor:pointer;user-select:none;}
+.plan-card{cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent;}
+.plan-card:active{transform:scale(0.98);opacity:0.9;}
 .plan-badge{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;display:block;}
 .plan-name{font-family:'Manrope',sans-serif;font-size:22px;font-weight:900;color:#002B49;margin-bottom:4px;}
 .plan-price{font-family:'Sora',sans-serif;font-size:28px;font-weight:900;margin-bottom:8px;}
@@ -430,7 +431,13 @@ footer .footer-grid{gap:56px !important;}
         <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.5);margin-bottom:4px;">Selected Package</div>
         <div id="selectedPlanName" style="font-size:18px;font-weight:800;color:#fff;">No package selected yet, choose above ↑</div>
       </div>
-      <a href="#planCards" style="font-size:13px;color:#00E0FF;font-weight:700;text-decoration:none;">Change →</a>
+      <a href="#planCards" onclick="window.scrollTo({top:document.getElementById('planCards').getBoundingClientRect().top+window.scrollY-80,behavior:'smooth'});return false;" style="font-size:13px;color:#00E0FF;font-weight:700;text-decoration:none;">&#8593; Change selection</a>
+    </div>
+
+    <!-- Scroll hint — appears after first selection -->
+    <div id="scrollHint" style="display:none;align-items:center;justify-content:center;gap:10px;background:rgba(0,224,255,0.08);border:1px solid rgba(0,224,255,0.2);border-radius:10px;padding:12px 20px;margin-bottom:20px;cursor:pointer;" onclick="document.getElementById('applyForm').scrollIntoView({behavior:'smooth',block:'start'})">
+      <span style="font-size:13px;font-weight:700;color:#00E0FF;">&#10003; Plan selected &mdash; click here to fill in your details below</span>
+      <span style="color:#00E0FF;font-size:16px;">&#8595;</span>
     </div>
 
     <form id="applyForm" onsubmit="submitForm(event)">
@@ -663,19 +670,63 @@ document.addEventListener('click',function(e){
 // Multi-select plan tracking
 var selectedPlans = {};
 
+// CRM tiers — only one can be selected at a time
+var crmTiers = ['crm-starter','crm-lite','crm-premium','crm-enterprise','nonprofit'];
+// Growth packages — only one at a time
+var growthTiers = ['ripple','current','surge'];
+
 function selectPlan(id, name) {
   var card = document.getElementById('card-'+id);
   if (!card) return;
 
-  // Toggle selection
+  // Toggle off if already selected
   if (selectedPlans[id]) {
     delete selectedPlans[id];
     card.classList.remove('selected');
-  } else {
-    selectedPlans[id] = name;
-    card.classList.add('selected');
+    updateSelectionDisplay();
+    return;
   }
 
+  // Mutual exclusion: deselect other CRM tiers if selecting a CRM plan
+  if (crmTiers.indexOf(id) !== -1) {
+    crmTiers.forEach(function(tid) {
+      if (selectedPlans[tid]) {
+        delete selectedPlans[tid];
+        var tc = document.getElementById('card-'+tid);
+        if(tc) tc.classList.remove('selected');
+      }
+    });
+  }
+
+  // Mutual exclusion: deselect other growth packages if selecting a growth plan
+  if (growthTiers.indexOf(id) !== -1) {
+    growthTiers.forEach(function(tid) {
+      if (selectedPlans[tid]) {
+        delete selectedPlans[tid];
+        var tc = document.getElementById('card-'+tid);
+        if(tc) tc.classList.remove('selected');
+      }
+    });
+  }
+
+  // White-label is standalone — deselect other CRM tiers
+  if (id === 'white-label') {
+    crmTiers.forEach(function(tid) {
+      if (selectedPlans[tid]) {
+        delete selectedPlans[tid];
+        var tc = document.getElementById('card-'+tid);
+        if(tc) tc.classList.remove('selected');
+      }
+    });
+    if (selectedPlans['white-label']) {
+      delete selectedPlans['white-label'];
+      var wlc = document.getElementById('card-white-label');
+      if(wlc) wlc.classList.remove('selected');
+    }
+  }
+
+  selectedPlans[id] = name;
+  card.classList.add('selected');
   updateSelectionDisplay();
 }
 
@@ -708,11 +759,13 @@ function updateSelectionDisplay() {
   // Update hidden input with all selected plans joined
   hiddenInput.value = keys.map(function(id){ return selectedPlans[id]; }).join(' + ');
 
-  // Scroll to form after first selection
+  // Show scroll hint after first selection instead of auto-scrolling
   if (keys.length === 1) {
-    setTimeout(function(){
-      document.getElementById('applyForm').scrollIntoView({behavior:'smooth',block:'start'});
-    }, 400);
+    var hint = document.getElementById('scrollHint');
+    if(hint) hint.style.display = 'flex';
+  } else if (keys.length === 0) {
+    var hint = document.getElementById('scrollHint');
+    if(hint) hint.style.display = 'none';
   }
 }
 
@@ -724,7 +777,6 @@ function updateSelectionDisplay() {
     'ripple':        ['ripple',        'Ripple Growth System, $1,800+'],
     'current':       ['current',       'Current, $3,000+'],
     'surge':         ['surge',         'Surge, $5,000+'],
-    'crm-starter':   ['crm-starter',   'CRM Starter, $99 onboarding + $59/month'],
     'crm-starter':   ['crm-starter',   'CRM Starter, $99 onboarding + $59/month'],
     'crm-lite':      ['crm-lite',      'CRM Lite, $199 onboarding + $99/month'],
     'crm-premium':   ['crm-premium',   'CRM Premium, $299 onboarding + $179/month'],
