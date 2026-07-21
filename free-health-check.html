@@ -6,11 +6,11 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="#002B49" name="theme-color"/>
 <title>Free Digital Health Check | BluWav Growth</title>
-<meta content="Get a free digital health check for your business. We'll review your Google presence, website, and online visibility — and WhatsApp you results within 48 hours." name="description"/>
+<meta content="Find out exactly where your business stands online. Free digital health check — Google, website, leads. Results via WhatsApp within 24 hours." name="description"/>
 <meta content="index, follow" name="robots"/>
 <link href="https://bluwavgrowth.com/free-health-check.html" rel="canonical"/>
 <meta content="Free Digital Health Check — BluWav Growth" property="og:title"/>
-<meta content="Find out exactly where your business stands online. Free. No commitment. Results via WhatsApp in 48 hours." property="og:description"/>
+<meta content="Find out exactly where your business stands online. Free. No commitment. Results via WhatsApp within 24 hours." property="og:description"/>
 <meta content="https://bluwavgrowth.com/free-health-check.html" property="og:url"/>
 <meta content="website" property="og:type"/>
 <meta content="https://bluwavgrowth.com/hero-team.jpg" property="og:image"/>
@@ -36,8 +36,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 48px;d
 .nav-link::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:#00E0FF;transition:width 0.3s ease;border-radius:2px;}
 .nav-link:hover{color:#fff;}
 .nav-link:hover::after{width:100%;}
-.nav-link.nav-active{color:#fff!important;font-weight:700!important;}
-.nav-link.nav-active::after{width:100%!important;background:#FF5500!important;}
 .nav-cta{background:var(--coral);color:#fff;font-size:13px;font-weight:700;padding:10px 24px;border-radius:9px;box-shadow:0 4px 16px rgba(255,85,0,0.35);transition:transform 0.15s;text-decoration:none;}
 .nav-cta:hover{transform:translateY(-1px);}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1001;background:none;border:none;padding:8px;margin:-8px;touch-action:manipulation;}
@@ -54,70 +52,105 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 48px;d
 @media(max-width:768px){nav{padding:0 16px!important;height:60px!important;}.mob-nav{top:60px!important;}}
 
 /* HERO */
-.hc-hero{background:linear-gradient(135deg,#001828 0%,#002B49 60%,#003d5c 100%);padding:120px 24px 80px;text-align:center;position:relative;overflow:hidden;}
+.hc-hero{background:linear-gradient(135deg,#001828 0%,#002B49 60%,#003d5c 100%);padding:100px 24px 60px;position:relative;overflow:hidden;}
 .hc-hero::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(0,224,255,0.07) 0%,transparent 70%);pointer-events:none;}
-.hc-hero::after{content:'';position:absolute;bottom:-80px;left:-80px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(255,85,0,0.05) 0%,transparent 70%);pointer-events:none;}
 
-/* SOURCE BADGE */
-.source-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(247,200,115,0.12);border:1px solid rgba(247,200,115,0.3);border-radius:20px;padding:5px 14px;font-size:11px;font-weight:800;color:var(--gold);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:20px;}
+/* WHAT WE CHECK — above fold */
+.check-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:860px;margin:0 auto 40px;}
+.check-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:20px;display:flex;align-items:flex-start;gap:14px;}
+.check-card-icon{font-size:22px;flex-shrink:0;margin-top:2px;}
+.check-card-title{font-size:14px;font-weight:800;color:#fff;margin-bottom:4px;}
+.check-card-desc{font-size:12px;color:rgba(255,255,255,0.6);line-height:1.55;}
 
-/* FORM CARD */
-.hc-card{background:#fff;border-radius:24px;padding:48px;max-width:640px;margin:0 auto;box-shadow:0 24px 80px rgba(0,0,0,0.25);position:relative;z-index:2;}
-.form-group{margin-bottom:20px;}
-.form-label{display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px;letter-spacing:0.3px;}
+/* TESTIMONIALS */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:860px;margin:0 auto 40px;}
+.testi-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:20px;}
+.testi-stars{color:var(--coral);font-size:13px;letter-spacing:2px;margin-bottom:10px;}
+.testi-quote{font-size:13px;color:rgba(255,255,255,0.8);line-height:1.65;font-style:italic;margin-bottom:12px;}
+.testi-name{font-size:12px;font-weight:800;color:#fff;}
+.testi-role{font-size:11px;color:rgba(255,255,255,0.45);}
+
+/* MULTI-STEP FORM */
+.hc-card{background:#fff;border-radius:20px;padding:40px;max-width:580px;margin:0 auto;box-shadow:0 24px 80px rgba(0,0,0,0.3);position:relative;z-index:2;}
+.step{display:none;}
+.step.active{display:block;}
+
+/* PROGRESS BAR */
+.progress-wrap{margin-bottom:28px;}
+.progress-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+.progress-step-text{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--coral);}
+.progress-pct{font-size:11px;font-weight:700;color:var(--slate);}
+.progress-bar{height:4px;background:#e2e8f0;border-radius:4px;overflow:hidden;}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--coral),var(--gold));border-radius:4px;transition:width 0.4s ease;}
+
+/* FORM ELEMENTS */
+.form-group{margin-bottom:18px;}
+.form-label{display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px;}
 .form-label span{color:var(--coral);}
 .form-input,.form-select{width:100%;padding:13px 16px;border:2px solid #e2e8f0;border-radius:10px;font-size:15px;font-family:inherit;color:var(--dark);background:#fff;transition:border 0.2s,box-shadow 0.2s;outline:none;}
 .form-input:focus,.form-select:focus{border-color:var(--cyan);box-shadow:0 0 0 3px rgba(0,224,255,0.12);}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-.submit-btn{width:100%;background:linear-gradient(135deg,var(--coral),#e84d00);color:#fff;font-size:17px;font-weight:900;padding:18px;border-radius:12px;border:none;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all 0.2s;box-shadow:0 6px 32px rgba(255,85,0,0.4);margin-top:8px;letter-spacing:0.3px;}
-.submit-btn:hover{transform:translateY(-2px);box-shadow:0 10px 40px rgba(255,85,0,0.55);}
-.submit-btn:active{transform:translateY(0);}
-.form-note{font-size:12px;color:var(--slate);text-align:center;margin-top:12px;line-height:1.6;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
 
-/* WHAT WE CHECK */
-.check-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:900px;margin:0 auto;}
-.check-card{background:#fff;border-radius:16px;padding:28px;border:1px solid var(--mist);box-shadow:0 2px 16px rgba(0,43,73,0.06);}
-.check-icon{font-size:28px;margin-bottom:12px;}
-.check-title{font-family:'Manrope',sans-serif;font-size:16px;font-weight:800;color:var(--navy);margin-bottom:6px;}
-.check-desc{font-size:13px;color:var(--slate);line-height:1.65;}
+/* CHALLENGE CARDS */
+.challenge-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:4px;}
+.challenge-card{border:2px solid #e2e8f0;border-radius:10px;padding:12px 14px;cursor:pointer;transition:all 0.2s;font-size:13px;font-weight:600;color:var(--slate);text-align:left;background:#fff;display:flex;align-items:center;gap:8px;}
+.challenge-card:hover{border-color:var(--cyan);color:var(--navy);}
+.challenge-card.selected{border-color:var(--coral);background:rgba(255,85,0,0.05);color:var(--coral);font-weight:800;}
+.challenge-card .cc-icon{font-size:16px;flex-shrink:0;}
 
-/* TRUST STRIP */
-.trust-strip{background:var(--navy);padding:20px 48px;}
-.trust-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap;}
-.trust-item{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:rgba(255,255,255,0.85);}
-.trust-dot{width:1px;height:20px;background:rgba(255,255,255,0.2);}
+/* BUTTONS */
+.btn-next{width:100%;background:linear-gradient(135deg,var(--coral),#e84d00);color:#fff;font-size:16px;font-weight:800;padding:16px;border-radius:11px;border:none;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all 0.2s;box-shadow:0 6px 28px rgba(255,85,0,0.35);margin-top:8px;}
+.btn-next:hover{transform:translateY(-2px);box-shadow:0 10px 36px rgba(255,85,0,0.5);}
+.btn-back{background:none;border:none;font-size:13px;font-weight:700;color:var(--slate);cursor:pointer;padding:8px 0;font-family:inherit;transition:color 0.2s;}
+.btn-back:hover{color:var(--navy);}
+.form-note{font-size:12px;color:var(--slate);text-align:center;margin-top:10px;line-height:1.6;}
+
+/* WHY FREE */
+.why-free{background:rgba(0,224,255,0.06);border:1px solid rgba(0,224,255,0.15);border-radius:10px;padding:12px 16px;margin-bottom:20px;font-size:13px;color:var(--slate);line-height:1.6;}
+.why-free strong{color:var(--navy);}
 
 /* SUCCESS STATE */
-.success-state{display:none;text-align:center;padding:48px 32px;}
+.success-state{display:none;text-align:center;padding:40px 24px;}
 
-/* SOCIAL PROOF */
-.proof-bar{background:var(--sand);padding:48px;}
-.proof-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:var(--navy);border-radius:16px;overflow:hidden;}
-.proof-stat{padding:28px 20px;text-align:center;border-right:1px solid rgba(255,255,255,0.08);}
+/* TRUST STRIP */
+.trust-strip{background:var(--navy);padding:18px 24px;}
+.trust-inner{max-width:860px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;}
+.trust-item{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:700;color:rgba(255,255,255,0.85);}
+.trust-dot{width:1px;height:18px;background:rgba(255,255,255,0.2);}
+
+/* PROOF STATS */
+.proof-bar{background:var(--sand);padding:40px 24px;}
+.proof-inner{max-width:860px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);background:var(--navy);border-radius:16px;overflow:hidden;}
+.proof-stat{padding:24px 16px;text-align:center;border-right:1px solid rgba(255,255,255,0.08);}
 .proof-stat:last-child{border-right:none;}
-.proof-num{font-family:'Manrope',sans-serif;font-size:32px;font-weight:900;color:var(--cyan);line-height:1;margin-bottom:6px;}
+.proof-num{font-family:'Manrope',sans-serif;font-size:30px;font-weight:900;color:var(--cyan);line-height:1;margin-bottom:5px;}
 .proof-label{font-size:11px;font-weight:700;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1px;}
 
 /* FOOTER */
-footer{background:rgba(0,43,73,0.97);padding:40px 0 0;}
-.footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding:20px 48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+footer{background:rgba(0,43,73,0.97);padding:36px 0 0;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding:18px 48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
 .footer-bottom-text{font-size:12px;color:rgba(255,255,255,0.3);}
 .footer-bottom-text span{color:#00E0FF;}
 
 /* WA FLOAT */
-.wa-float{position:fixed;bottom:80px;right:24px;z-index:200;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 20px rgba(37,211,102,0.45);animation:waPulse 2.5s ease-in-out infinite;}
+.wa-float{position:fixed;bottom:24px;right:24px;z-index:200;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 20px rgba(37,211,102,0.45);animation:waPulse 2.5s ease-in-out infinite;text-decoration:none;}
 @keyframes waPulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.45);}50%{box-shadow:0 4px 40px rgba(37,211,102,0.8),0 0 0 8px rgba(37,211,102,0.1);}}
 
+/* SOURCE BADGE */
+.source-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(247,200,115,0.12);border:1px solid rgba(247,200,115,0.3);border-radius:20px;padding:5px 14px;font-size:11px;font-weight:800;color:var(--gold);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:16px;}
+
 @media(max-width:768px){
-  .hc-hero{padding:90px 16px 60px;}
+  .hc-hero{padding:80px 16px 48px;}
   .hc-card{padding:28px 20px;border-radius:16px;}
-  .form-row{grid-template-columns:1fr;}
   .check-grid{grid-template-columns:1fr;}
-  .trust-strip{padding:20px 16px;}
+  .testi-grid{grid-template-columns:1fr;}
+  .form-row{grid-template-columns:1fr;}
+  .challenge-grid{grid-template-columns:1fr;}
+  .trust-strip{padding:16px;}
   .trust-dot{display:none;}
   .proof-inner{grid-template-columns:1fr 1fr;}
   .proof-stat{border-right:none;border-bottom:1px solid rgba(255,255,255,0.08);}
-  .footer-bottom{padding:20px 16px;flex-direction:column;text-align:center;}
+  .footer-bottom{padding:18px 16px;flex-direction:column;text-align:center;}
 }
 @media(max-width:480px){
   .proof-inner{grid-template-columns:1fr;}
@@ -133,79 +166,166 @@ footer{background:rgba(0,43,73,0.97);padding:40px 0 0;}
 <div style="font-size:8px;font-weight:700;color:#00E0FF;letter-spacing:3px;text-transform:uppercase;line-height:1.4;margin-top:2px;">Get Found. Get Chosen. Grow.</div>
 </div>
 <div class="nav-links">
-<a class="nav-link" data-page="home" href="index.html">Home</a>
-<a class="nav-link" data-page="home" href="index.html#what-we-do">Services</a>
-<a class="nav-link" data-page="pricing" href="pricing.html">Pricing</a>
-<a class="nav-link" data-page="crm" href="crm.html">BluWav CRM</a>
-<a class="nav-link" data-page="wave" href="the-wave.html" style="color:#00E0FF;font-weight:700;">The Wave</a>
-<a class="nav-link" data-page="home" href="index.html#contact">Contact</a>
+<a class="nav-link" href="index.html">Home</a>
+<a class="nav-link" href="index.html#what-we-do">Services</a>
+<a class="nav-link" href="pricing.html">Pricing</a>
+<a class="nav-link" href="crm.html">BluWav CRM</a>
+<a class="nav-link" href="the-wave.html" style="color:#00E0FF;font-weight:700;">The Wave</a>
+<a class="nav-link" href="index.html#contact">Contact</a>
 <a class="nav-cta" href="free-health-check.html">Free Health Check</a>
 </div>
 <button aria-label="Menu" class="hamburger" id="hamburgerBtn" onclick="toggleMob()"><span></span><span></span><span></span></button>
 </nav>
 <div class="mob-nav" id="mobNav">
-<a class="mob-link" data-page="home" href="index.html" onclick="closeMob()">🏠 Home</a>
-<a class="mob-link" data-page="home" href="index.html#what-we-do" onclick="closeMob()">⚡ Services</a>
-<a class="mob-link" data-page="pricing" href="pricing.html" onclick="closeMob()">💰 Pricing</a>
-<a class="mob-link" data-page="crm" href="crm.html" onclick="closeMob()">📄 BluWav CRM</a>
-<a class="mob-link wave" data-page="wave" href="the-wave.html" onclick="closeMob()">🌊 The Wave</a>
-<a class="mob-link" data-page="home" href="index.html#contact" onclick="closeMob()">📞 Contact</a>
+<a class="mob-link" href="index.html" onclick="closeMob()">🏠 Home</a>
+<a class="mob-link" href="index.html#what-we-do" onclick="closeMob()">⚡ Services</a>
+<a class="mob-link" href="pricing.html" onclick="closeMob()">💰 Pricing</a>
+<a class="mob-link" href="crm.html" onclick="closeMob()">📄 BluWav CRM</a>
+<a class="mob-link wave" href="the-wave.html" onclick="closeMob()">🌊 The Wave</a>
+<a class="mob-link" href="index.html#contact" onclick="closeMob()">📞 Contact</a>
 <a class="mob-cta" href="free-health-check.html" onclick="closeMob()">🩺 Get My Free Health Check</a>
 </div>
 <!-- HERO -->
 <section class="hc-hero">
-<div style="position:relative;z-index:2;">
-<div class="source-badge" id="sourceBadge" style="display:none;">
-<span>●</span> <span id="sourceBadgeText"></span>
+<div style="max-width:860px;margin:0 auto;position:relative;z-index:2;">
+<!-- Source badge (shown for tracked traffic) -->
+<div class="source-badge" id="sourceBadge" style="display:none;"><span>●</span> <span id="sourceBadgeText"></span></div>
+<!-- Headline -->
+<div style="text-align:center;margin-bottom:32px;">
+<div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:var(--gold);margin-bottom:14px;">100% Free · No Commitment · Results in 24 Hours</div>
+<h1 style="font-family:'Manrope',sans-serif;font-size:clamp(28px,5vw,52px);font-weight:900;color:#fff;line-height:1.1;letter-spacing:-1px;margin-bottom:14px;">Find Out Exactly Where<br/>Your Business Stands Online.</h1>
+<p style="font-size:clamp(14px,2.5vw,17px);color:rgba(255,255,255,0.7);line-height:1.7;max-width:520px;margin:0 auto;">We review your Google presence, website, and lead system — then WhatsApp you a personalised report <strong style="color:#fff;">within 24 hours.</strong> No sales pitch. Just honest advice.</p>
 </div>
-<div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:var(--gold);margin-bottom:16px;">100% Free · No Commitment</div>
-<h1 style="font-family:'Manrope',sans-serif;font-size:clamp(30px,5vw,54px);font-weight:900;color:#fff;line-height:1.1;letter-spacing:-1px;margin-bottom:16px;">Find Out Exactly Where<br/>Your Business Stands Online.</h1>
-<p style="font-size:clamp(15px,2.5vw,18px);color:rgba(255,255,255,0.75);line-height:1.7;max-width:560px;margin:0 auto 40px;">We'll review your Google presence, website, and digital visibility — then WhatsApp you a personalised report within 48 hours. No sales pitch. Just honest advice.</p>
-<!-- FORM CARD -->
+<!-- SOCIAL PROOF — above fold -->
+<div style="display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:32px;">
+<div style="display:flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:rgba(255,255,255,0.85);"><span style="color:var(--coral);">★★★★★</span> 5-star rated</div>
+<div style="width:1px;height:16px;background:rgba(255,255,255,0.2);"></div>
+<div style="font-size:13px;font-weight:700;color:rgba(255,255,255,0.85);">✓ 50+ businesses assessed</div>
+<div style="width:1px;height:16px;background:rgba(255,255,255,0.2);"></div>
+<div style="font-size:13px;font-weight:700;color:rgba(255,255,255,0.85);">✓ Globally delivered</div>
+</div>
+<!-- WHAT WE CHECK — above the form -->
+<div class="check-grid">
+<div class="check-card">
+<div class="check-card-icon">🔍</div>
+<div>
+<div class="check-card-title">Google Visibility</div>
+<div class="check-card-desc">Are you showing up when customers search for what you offer? We check your Google Business Profile, map listing, and local search presence.</div>
+</div>
+</div>
+<div class="check-card">
+<div class="check-card-icon">🌐</div>
+<div>
+<div class="check-card-title">Website Performance</div>
+<div class="check-card-desc">Does your site load fast, work on mobile, and turn visitors into enquiries? We review speed, design, and conversion clarity.</div>
+</div>
+</div>
+<div class="check-card">
+<div class="check-card-icon">📊</div>
+<div>
+<div class="check-card-title">Search Performance</div>
+<div class="check-card-desc">Are you ranking for the right keywords? We identify the gaps your competitors are exploiting and where your biggest opportunities are.</div>
+</div>
+</div>
+<div class="check-card">
+<div class="check-card-icon">⚙️</div>
+<div>
+<div class="check-card-title">Lead Capture System</div>
+<div class="check-card-desc">When someone finds you, can they easily reach you? We check your WhatsApp setup, contact forms, and follow-up system.</div>
+</div>
+</div>
+</div>
+<!-- TESTIMONIALS — above fold -->
+<div class="testi-grid">
+<div class="testi-card">
+<div class="testi-stars">★★★★★</div>
+<div class="testi-quote">“We went from invisible on Google to 3–5 new enquiries a week. BluWav set everything up in 48 hours.”</div>
+<div class="testi-name">Sarah L.</div>
+<div class="testi-role">Operations Manager · Professional Services</div>
+</div>
+<div class="testi-card">
+<div class="testi-stars">★★★★★</div>
+<div class="testi-quote">“The Health Check showed me exactly what was wrong. Within a week we had a new website and 40+ Google reviews.”</div>
+<div class="testi-name">Marcus D.</div>
+<div class="testi-role">Managing Director · Construction &amp; Engineering</div>
+</div>
+<div class="testi-card">
+<div class="testi-stars">★★★★★</div>
+<div class="testi-quote">“I own my website, my CRM, everything. No monthly fees unless I choose them. That’s exactly what I needed.”</div>
+<div class="testi-name">Michelle A.</div>
+<div class="testi-role">Director · Hospitality Group</div>
+</div>
+</div>
+<!-- WHY FREE -->
+<div class="why-free" style="max-width:580px;margin:0 auto 24px;">
+<strong>Why is this free?</strong> We offer this because great advice builds trust. When you’re ready to grow, you’ll think of BluWav first. No catch. No obligation.
+  </div>
+<!-- MULTI-STEP FORM CARD -->
 <div class="hc-card">
-<!-- Form state -->
-<div id="formState">
-<div style="text-align:left;margin-bottom:28px;">
-<div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--coral);margin-bottom:8px;">Takes 90 seconds</div>
-<h2 style="font-family:'Manrope',sans-serif;font-size:22px;font-weight:800;color:var(--navy);">Tell us about your business</h2>
+<!-- Hidden tracking fields -->
+<input id="hcSource" type="hidden" value="direct"/>
+<input id="hcUtmSource" type="hidden" value=""/>
+<input id="hcUtmMedium" type="hidden" value=""/>
+<input id="hcUtmCampaign" type="hidden" value=""/>
+<input id="hcUtmContent" type="hidden" value=""/>
+<input id="hcLeadCode" type="hidden" value=""/>
+<input id="hcReferrer" type="hidden" value=""/>
+<input id="hcScore" type="hidden" value=""/>
+<input id="hcScoreTag" type="hidden" value=""/>
+<!-- ── STEP 1: Contact details ── -->
+<div class="step active" id="step1">
+<div class="progress-wrap">
+<div class="progress-label">
+<span class="progress-step-text">Step 1 of 3 — Your Details</span>
+<span class="progress-pct">33%</span>
 </div>
-<form id="hcForm" novalidate="" onsubmit="submitHC(event)">
-<!-- Hidden tracking fields — auto-populated from URL params -->
-<input id="hcSource" name="source" type="hidden" value="direct"/>
-<input id="hcUtmSource" name="utm_source" type="hidden" value=""/>
-<input id="hcUtmMedium" name="utm_medium" type="hidden" value=""/>
-<input id="hcUtmCampaign" name="utm_campaign" type="hidden" value=""/>
-<input id="hcUtmContent" name="utm_content" type="hidden" value=""/>
-<input id="hcLeadCode" name="lead_code" type="hidden" value=""/>
-<input id="hcReferrer" name="referrer" type="hidden" value=""/>
+<div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:33%;"></div></div>
+</div>
+<h2 style="font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;color:var(--navy);margin-bottom:6px;">Let’s start with you</h2>
+<p style="font-size:14px;color:var(--slate);margin-bottom:24px;">Takes 90 seconds. Results via WhatsApp within 24 hours.</p>
 <div class="form-row">
 <div class="form-group">
 <label class="form-label" for="hcFirst">First Name <span>*</span></label>
-<input autocomplete="given-name" class="form-input" id="hcFirst" name="first_name" placeholder="Andrea" required="" type="text"/>
+<input autocomplete="given-name" class="form-input" id="hcFirst" placeholder="Your first name" type="text"/>
 </div>
 <div class="form-group">
 <label class="form-label" for="hcLast">Last Name <span>*</span></label>
-<input autocomplete="family-name" class="form-input" id="hcLast" name="last_name" placeholder="Tanguay" required="" type="text"/>
+<input autocomplete="family-name" class="form-input" id="hcLast" placeholder="Your last name" type="text"/>
 </div>
 </div>
 <div class="form-group">
 <label class="form-label" for="hcWa">WhatsApp Number <span>*</span></label>
-<input autocomplete="tel" class="form-input" id="hcWa" inputmode="tel" name="whatsapp" placeholder="+1 (868) 000-0000" required="" type="tel"/>
-<div style="font-size:11px;color:var(--slate);margin-top:5px;">💬 We'll send your results here within 48 hours</div>
+<input autocomplete="tel" class="form-input" id="hcWa" inputmode="tel" placeholder="+1 (xxx) xxx-xxxx" type="tel"/>
+<div style="font-size:11px;color:var(--slate);margin-top:5px;">💬 We’ll send your results here within 24 hours</div>
 </div>
 <div class="form-group">
 <label class="form-label" for="hcEmail">Email Address <span>*</span></label>
-<input autocomplete="email" class="form-input" id="hcEmail" inputmode="email" name="email" placeholder="you@yourbusiness.com" required="" type="email"/>
+<input autocomplete="email" class="form-input" id="hcEmail" inputmode="email" placeholder="you@yourbusiness.com" type="email"/>
 </div>
+<div id="step1Error" style="display:none;background:rgba(255,85,0,0.08);border:1px solid rgba(255,85,0,0.3);border-radius:10px;padding:10px 14px;margin-bottom:14px;font-size:13px;color:#FF5500;font-weight:700;">⚠ Please fill in all fields above.</div>
+<button class="btn-next" onclick="goStep(2)">Continue →</button>
+<p class="form-note">✓ Free  ·  ✓ No commitment  ·  ✓ No spam, ever</p>
+</div>
+<!-- ── STEP 2: Business details ── -->
+<div class="step" id="step2">
+<div class="progress-wrap">
+<div class="progress-label">
+<span class="progress-step-text">Step 2 of 3 — Your Business</span>
+<span class="progress-pct">66%</span>
+</div>
+<div class="progress-bar"><div class="progress-fill" style="width:66%;"></div></div>
+</div>
+<h2 style="font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;color:var(--navy);margin-bottom:6px;">Tell us about your business</h2>
+<p style="font-size:14px;color:var(--slate);margin-bottom:24px;">This helps us give you a more accurate review.</p>
 <div class="form-group">
 <label class="form-label" for="hcBiz">Business Name <span>*</span></label>
-<input class="form-input" id="hcBiz" name="business_name" placeholder="Your Business Name" required="" type="text"/>
+<input class="form-input" id="hcBiz" placeholder="Your business name" type="text"/>
 </div>
 <div class="form-row">
 <div class="form-group">
 <label class="form-label" for="hcIndustry">Industry <span>*</span></label>
-<select class="form-select" id="hcIndustry" name="industry" required="">
-<option value="">Select your industry</option>
+<select class="form-select" id="hcIndustry">
+<option value="">Select industry</option>
 <option>Restaurant / Food &amp; Beverage</option>
 <option>Salon / Beauty / Wellness</option>
 <option>Retail / Shop</option>
@@ -222,119 +342,96 @@ footer{background:rgba(0,43,73,0.97);padding:40px 0 0;}
 </select>
 </div>
 <div class="form-group">
-<label class="form-label" for="hcWebsite">Current Website (if any)</label>
-<input autocomplete="url" class="form-input" id="hcWebsite" name="website" placeholder="https://yourbusiness.com" type="url"/>
+<label class="form-label" for="hcWebsite">Current Website</label>
+<input autocomplete="url" class="form-input" id="hcWebsite" placeholder="https://yourbusiness.com" type="url"/>
 </div>
 </div>
-<div class="form-group">
-<label class="form-label" for="hcGoal">Biggest challenge right now?</label>
-<select class="form-select" id="hcGoal" name="goal">
-<option value="">Select one</option>
-<option>Not showing up on Google</option>
-<option>No website or outdated website</option>
-<option>Not getting enough leads</option>
-<option>Losing leads — no follow-up system</option>
-<option>Need to grow faster</option>
-<option>Just exploring options</option>
-</select>
+<div id="step2Error" style="display:none;background:rgba(255,85,0,0.08);border:1px solid rgba(255,85,0,0.3);border-radius:10px;padding:10px 14px;margin-bottom:14px;font-size:13px;color:#FF5500;font-weight:700;">⚠ Please fill in your business name and industry.</div>
+<button class="btn-next" onclick="goStep(3)">Continue →</button>
+<div style="text-align:center;margin-top:10px;"><button class="btn-back" onclick="goStep(1)">← Back</button></div>
 </div>
-<!-- Inline error -->
-<div id="hcError" style="display:none;background:rgba(255,85,0,0.08);border:1px solid rgba(255,85,0,0.3);border-radius:10px;padding:12px 16px;margin-bottom:16px;font-size:13px;color:#FF5500;font-weight:700;">
-            ⚠ Please fill in all required fields before submitting.
-          </div>
-<button class="submit-btn" id="hcSubmitBtn" type="submit">
-            Get My Free Digital Health Check →
-          </button>
-<p class="form-note">✓ Free  ·  ✓ No commitment  ·  ✓ Results via WhatsApp in 48 hours  ·  ✓ No spam, ever</p>
-</form>
+<!-- ── STEP 3: Challenge + submit ── -->
+<div class="step" id="step3">
+<div class="progress-wrap">
+<div class="progress-label">
+<span class="progress-step-text">Step 3 of 3 — Your Challenge</span>
+<span class="progress-pct">Almost done!</span>
 </div>
-<!-- Success state -->
+<div class="progress-bar"><div class="progress-fill" style="width:90%;"></div></div>
+</div>
+<h2 style="font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;color:var(--navy);margin-bottom:6px;">What’s your biggest challenge?</h2>
+<p style="font-size:14px;color:var(--slate);margin-bottom:20px;">Select the one that fits best — this helps us prioritise your review.</p>
+<div class="challenge-grid" id="challengeGrid">
+<button class="challenge-card" data-val="Not showing up on Google" onclick="selectChallenge(this)" type="button">
+<span class="cc-icon">🔍</span> Not showing up on Google
+        </button>
+<button class="challenge-card" data-val="No website or outdated website" onclick="selectChallenge(this)" type="button">
+<span class="cc-icon">🌐</span> No website / outdated site
+        </button>
+<button class="challenge-card" data-val="Not getting enough leads" onclick="selectChallenge(this)" type="button">
+<span class="cc-icon">📊</span> Not getting enough leads
+        </button>
+<button class="challenge-card" data-val="Losing leads — no follow-up system" onclick="selectChallenge(this)" type="button">
+<span class="cc-icon">💬</span> Losing leads, no follow-up
+        </button>
+<button class="challenge-card" data-val="Need to grow faster" onclick="selectChallenge(this)" type="button">
+<span class="cc-icon">🚀</span> Need to grow faster
+        </button>
+<button class="challenge-card" data-val="Just exploring options" onclick="selectChallenge(this)" type="button">
+<span class="cc-icon">🔎</span> Just exploring options
+        </button>
+</div>
+<input id="hcGoal" type="hidden" value=""/>
+<div id="step3Error" style="display:none;background:rgba(255,85,0,0.08);border:1px solid rgba(255,85,0,0.3);border-radius:10px;padding:10px 14px;margin-bottom:14px;font-size:13px;color:#FF5500;font-weight:700;">⚠ Please select your biggest challenge.</div>
+<button class="btn-next" id="hcSubmitBtn" onclick="submitHC()" style="margin-top:16px;">
+        Get My Free Health Check →
+      </button>
+<p class="form-note">✓ Free  ·  ✓ Results within 24 hours  ·  ✓ No spam, ever</p>
+<div style="text-align:center;margin-top:10px;"><button class="btn-back" onclick="goStep(2)">← Back</button></div>
+</div>
+<!-- ── SUCCESS STATE ── -->
 <div class="success-state" id="successState">
-<div style="font-size:64px;margin-bottom:20px;">🌊</div>
-<h2 style="font-family:'Manrope',sans-serif;font-size:26px;font-weight:800;color:var(--navy);margin-bottom:12px;">You're on the Wave!</h2>
-<p style="font-size:16px;color:var(--slate);line-height:1.7;margin-bottom:24px;">We've received your health check request. Expect a WhatsApp message from us within 48 hours with your personalised digital review.</p>
+<div style="font-size:56px;margin-bottom:16px;">🌊</div>
+<h2 style="font-family:'Manrope',sans-serif;font-size:24px;font-weight:800;color:var(--navy);margin-bottom:10px;">You’re on the Wave!</h2>
+<p style="font-size:15px;color:var(--slate);line-height:1.7;margin-bottom:24px;">We’ve received your health check request. Expect a WhatsApp message from us <strong>within 24 hours</strong> with your personalised digital review.</p>
 <div style="background:linear-gradient(135deg,#002B49,#003d5c);border-radius:14px;padding:20px 24px;margin-bottom:24px;text-align:left;">
 <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--gold);margin-bottom:12px;">What happens next</div>
 <div style="display:flex;flex-direction:column;gap:10px;">
-<div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.85);"><span style="color:var(--cyan);font-weight:800;flex-shrink:0;">1.</span>We review your Google presence, website, and online visibility</div>
-<div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.85);"><span style="color:var(--cyan);font-weight:800;flex-shrink:0;">2.</span>We WhatsApp you within 48 hours with your personalised results</div>
+<div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.85);"><span style="color:var(--cyan);font-weight:800;flex-shrink:0;">1.</span>We review your Google presence, website, and lead system</div>
+<div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.85);"><span style="color:var(--cyan);font-weight:800;flex-shrink:0;">2.</span>We WhatsApp you within 24 hours with your personalised results</div>
 <div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.85);"><span style="color:var(--cyan);font-weight:800;flex-shrink:0;">3.</span>No obligation — just honest, practical advice</div>
 </div>
 </div>
 <a href="pricing.html" onmouseout="this.style.transform='translateY(0)'" onmouseover="this.style.transform='translateY(-2px)'" style="display:inline-flex;align-items:center;gap:8px;background:var(--coral);color:#fff;font-size:15px;font-weight:800;padding:14px 28px;border-radius:11px;text-decoration:none;transition:all 0.2s;">View Our Packages →</a>
 </div>
-</div>
+</div><!-- /hc-card -->
 </div>
 </section>
 <!-- TRUST STRIP -->
 <div class="trust-strip">
 <div class="trust-inner">
-<div class="trust-item"><span style="font-size:16px;">⚡</span> Results within 48 hours</div>
+<div class="trust-item"><span style="font-size:15px;">⚡</span> Results within 24 hours</div>
 <div class="trust-dot"></div>
-<div class="trust-item"><span style="font-size:16px;">🔒</span> No commitment required</div>
+<div class="trust-item"><span style="font-size:15px;">🔒</span> No commitment required</div>
 <div class="trust-dot"></div>
-<div class="trust-item"><span style="font-size:16px;">💬</span> Delivered via WhatsApp</div>
+<div class="trust-item"><span style="font-size:15px;">💬</span> Delivered via WhatsApp</div>
 <div class="trust-dot"></div>
-<div class="trust-item"><span style="color:#22c55e;font-size:16px;">✓</span> 100% free, always</div>
+<div class="trust-item"><span style="color:#22c55e;font-size:15px;">✓</span> 100% free, always</div>
 </div>
 </div>
-<!-- WHAT WE CHECK -->
-<section style="background:#fff;padding:80px 24px;">
-<div style="max-width:900px;margin:0 auto;">
-<div style="text-align:center;margin-bottom:48px;">
-<div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;color:var(--cyan);margin-bottom:12px;">What We Review</div>
-<h2 style="font-family:'Manrope',sans-serif;font-size:clamp(22px,4vw,34px);font-weight:800;color:var(--navy);margin-bottom:12px;">Your Free Digital Health Check Covers</h2>
-<p style="font-size:16px;color:var(--slate);max-width:520px;margin:0 auto;line-height:1.75;">Four areas that determine whether customers find you, trust you, and choose you.</p>
-</div>
-<div class="check-grid">
-<div class="check-card">
-<div class="check-icon">🔍</div>
-<div class="check-title">Google Visibility</div>
-<div class="check-desc">Is your Google Business Profile set up, optimised, and showing up when customers search for what you offer? We check your local search presence and map listing.</div>
-</div>
-<div class="check-card">
-<div class="check-icon">🌐</div>
-<div class="check-title">Website Performance</div>
-<div class="check-desc">Does your website load fast, work on mobile, and convert visitors into enquiries? We review your site's speed, design, and call-to-action clarity.</div>
-</div>
-<div class="check-card">
-<div class="check-icon">📊</div>
-<div class="check-title">Search Performance</div>
-<div class="check-desc">Are you showing up for the right keywords? We assess your organic search visibility and identify the biggest gaps your competitors are exploiting.</div>
-</div>
-<div class="check-card">
-<div class="check-icon">⚙️</div>
-<div class="check-title">Lead Capture System</div>
-<div class="check-desc">When a customer finds you, can they easily contact you? We check your WhatsApp setup, contact forms, and whether you have a system to follow up on leads.</div>
-</div>
-</div>
-</div>
-</section>
-<!-- SOCIAL PROOF -->
+<!-- PROOF STATS -->
 <div class="proof-bar">
 <div class="proof-inner">
-<div class="proof-stat">
-<div class="proof-num">50+</div>
-<div class="proof-label">Businesses Served</div>
-</div>
-<div class="proof-stat">
-<div class="proof-num">48h</div>
-<div class="proof-label">Average Delivery</div>
-</div>
-<div class="proof-stat">
-<div class="proof-num">5+</div>
-<div class="proof-label">Years Experience</div>
-</div>
-<div class="proof-stat">
-<div class="proof-num">100%</div>
-<div class="proof-label">Client Ownership</div>
-</div>
+<div class="proof-stat"><div class="proof-num">50+</div><div class="proof-label">Businesses Served</div></div>
+<div class="proof-stat"><div class="proof-num">24h</div><div class="proof-label">Results Delivered</div></div>
+<div class="proof-stat"><div class="proof-num">5+</div><div class="proof-label">Years Experience</div></div>
+<div class="proof-stat"><div class="proof-num">100%</div><div class="proof-label">Client Ownership</div></div>
 </div>
 </div>
 <!-- FOOTER -->
 <footer>
-<div style="max-width:1200px;margin:0 auto;padding:40px 48px 0;">
-<div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;padding-bottom:32px;">
+<div style="max-width:1200px;margin:0 auto;padding:36px 48px 0;">
+<div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;padding-bottom:28px;">
 <div>
 <div style="font-family:'Kaushan Script',cursive;font-size:28px;color:#fff;line-height:1;">Blu<span style="color:#00E0FF;">Wav</span></div>
 <div style="font-size:9px;font-weight:700;color:var(--gold);letter-spacing:4px;text-transform:uppercase;margin-top:4px;">A Stratiix Group Company</div>
@@ -343,7 +440,7 @@ footer{background:rgba(0,43,73,0.97);padding:40px 0 0;}
 <a href="index.html" onmouseout="this.style.color='rgba(255,255,255,0.5)'" onmouseover="this.style.color='#fff'" style="font-size:13px;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;">Home</a>
 <a href="pricing.html" onmouseout="this.style.color='rgba(255,255,255,0.5)'" onmouseover="this.style.color='#fff'" style="font-size:13px;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;">Pricing</a>
 <a href="crm.html" onmouseout="this.style.color='rgba(255,255,255,0.5)'" onmouseover="this.style.color='#fff'" style="font-size:13px;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;">BluWav CRM</a>
-<a href="contract.html" onmouseout="this.style.color='rgba(255,255,255,0.5)'" onmouseover="this.style.color='#fff'" style="font-size:13px;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;">Contract</a>
+<a href="index.html#contact" onmouseout="this.style.color='rgba(255,255,255,0.5)'" onmouseover="this.style.color='#fff'" style="font-size:13px;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;">Contact</a>
 <a href="privacy.html" onmouseout="this.style.color='rgba(255,255,255,0.5)'" onmouseover="this.style.color='#fff'" style="font-size:13px;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;">Privacy</a>
 </div>
 </div>
@@ -361,112 +458,129 @@ function closeMob(){document.getElementById('mobNav').classList.remove('open');v
 document.addEventListener('click',function(e){var n=document.getElementById('mobNav'),b=document.getElementById('hamburgerBtn');if(n&&b&&n.classList.contains('open')&&!n.contains(e.target)&&!b.contains(e.target)){n.classList.remove('open');if(b)b.classList.remove('open');}});
 
 // ── SOURCE TRACKING ───────────────────────────────────────────────────────────
-// Maps UTM source|medium combinations to readable source codes
 var SOURCE_MAP = {
-  'facebook|cpc':         { code: 'FB_AD',    label: 'Facebook Ad' },
-  'facebook|paid':        { code: 'FB_AD',    label: 'Facebook Ad' },
-  'instagram|cpc':        { code: 'IG_AD',    label: 'Instagram Ad' },
-  'instagram|paid':       { code: 'IG_AD',    label: 'Instagram Ad' },
-  'facebook|social':      { code: 'FB_POST',  label: 'Facebook' },
-  'facebook|post':        { code: 'FB_POST',  label: 'Facebook Post' },
-  'instagram|social':     { code: 'IG_POST',  label: 'Instagram' },
-  'instagram|post':       { code: 'IG_POST',  label: 'Instagram Post' },
-  'whatsapp|chat':        { code: 'WA_CHAT',  label: 'WhatsApp Chat' },
-  'whatsapp|broadcast':   { code: 'WA_BCAST', label: 'WhatsApp Broadcast' },
-  'whatsapp|message':     { code: 'WA_MSG',   label: 'WhatsApp' },
-  'email|newsletter':     { code: 'EMAIL_NL', label: 'Newsletter' },
-  'email|campaign':       { code: 'EMAIL_CAM',label: 'Email Campaign' },
-  'google|cpc':           { code: 'GOOG_AD',  label: 'Google Ad' },
-  'google|organic':       { code: 'GOOG_ORG', label: 'Google Search' },
-  'bing|cpc':             { code: 'BING_AD',  label: 'Bing Ad' },
-  'linktree|bio':         { code: 'LINKTREE', label: 'Linktree' },
-  'website|nav':          { code: 'SITE_NAV', label: 'Website' },
-  'website|cta':          { code: 'SITE_CTA', label: 'Website CTA' },
-  'website|banner':       { code: 'SITE_BNR', label: 'Website Banner' },
+  'facebook|cpc':       {code:'FB_AD',    label:'Facebook Ad'},
+  'facebook|paid':      {code:'FB_AD',    label:'Facebook Ad'},
+  'instagram|cpc':      {code:'IG_AD',    label:'Instagram Ad'},
+  'instagram|paid':     {code:'IG_AD',    label:'Instagram Ad'},
+  'facebook|social':    {code:'FB_POST',  label:'Facebook Post'},
+  'facebook|post':      {code:'FB_POST',  label:'Facebook Post'},
+  'instagram|social':   {code:'IG_POST',  label:'Instagram Post'},
+  'instagram|post':     {code:'IG_POST',  label:'Instagram Post'},
+  'whatsapp|chat':      {code:'WA_CHAT',  label:'WhatsApp Chat'},
+  'whatsapp|broadcast': {code:'WA_BCAST', label:'WhatsApp Broadcast'},
+  'whatsapp|message':   {code:'WA_MSG',   label:'WhatsApp'},
+  'email|newsletter':   {code:'EMAIL_NL', label:'Newsletter'},
+  'email|campaign':     {code:'EMAIL_CAM',label:'Email Campaign'},
+  'google|cpc':         {code:'GOOG_AD',  label:'Google Ad'},
+  'google|organic':     {code:'GOOG_ORG', label:'Google Search'},
+  'bing|cpc':           {code:'BING_AD',  label:'Bing Ad'},
+  'linktree|bio':       {code:'LINKTREE', label:'Linktree'},
+  'website|cta':        {code:'SITE_CTA', label:'Website CTA'},
 };
 
-function detectSource() {
-  var params      = new URLSearchParams(window.location.search);
-  var utmSource   = (params.get('utm_source')   || '').toLowerCase().trim();
-  var utmMedium   = (params.get('utm_medium')   || '').toLowerCase().trim();
-  var utmCampaign = (params.get('utm_campaign') || '').toLowerCase().trim();
-  var utmContent  = (params.get('utm_content')  || '').toLowerCase().trim();
-  var ref         = document.referrer || '';
-
-  // Try exact UTM key match first
-  var key = utmSource + '|' + utmMedium;
-  var sourceInfo = SOURCE_MAP[key];
-
-  // Fallback: partial UTM source match
-  if (!sourceInfo && utmSource) {
-    if (utmSource.includes('facebook') || utmSource === 'fb') {
-      sourceInfo = utmMedium.includes('ad') || utmMedium.includes('cpc') || utmMedium.includes('paid')
-        ? { code: 'FB_AD', label: 'Facebook Ad' }
-        : { code: 'FB_POST', label: 'Facebook' };
-    } else if (utmSource.includes('instagram') || utmSource === 'ig') {
-      sourceInfo = utmMedium.includes('ad') || utmMedium.includes('cpc') || utmMedium.includes('paid')
-        ? { code: 'IG_AD', label: 'Instagram Ad' }
-        : { code: 'IG_POST', label: 'Instagram' };
-    } else if (utmSource.includes('whatsapp') || utmSource === 'wa') {
-      sourceInfo = { code: 'WA_LINK', label: 'WhatsApp' };
-    } else if (utmSource.includes('google')) {
-      sourceInfo = { code: 'GOOG_AD', label: 'Google' };
-    } else {
-      // Generic UTM source
-      sourceInfo = { code: utmSource.toUpperCase().replace(/[^A-Z0-9]/g,'_').substring(0,12), label: utmSource };
-    }
+function detectSource(){
+  var p=new URLSearchParams(window.location.search);
+  var us=(p.get('utm_source')||p.get('src')||'').toLowerCase().trim();
+  var um=(p.get('utm_medium')||'').toLowerCase().trim();
+  var uc=(p.get('utm_campaign')||'').toLowerCase().trim();
+  var uct=(p.get('utm_content')||'').toLowerCase().trim();
+  var ref=document.referrer||'';
+  var key=us+'|'+um;
+  var si=SOURCE_MAP[key];
+  if(!si&&us){
+    if(us.includes('facebook')||us==='fb') si=um.includes('ad')||um.includes('cpc')||um.includes('paid')?{code:'FB_AD',label:'Facebook Ad'}:{code:'FB_POST',label:'Facebook'};
+    else if(us.includes('instagram')||us==='ig') si=um.includes('ad')||um.includes('cpc')||um.includes('paid')?{code:'IG_AD',label:'Instagram Ad'}:{code:'IG_POST',label:'Instagram'};
+    else if(us.includes('whatsapp')||us==='wa') si={code:'WA_LINK',label:'WhatsApp'};
+    else if(us.includes('google')) si={code:'GOOG_AD',label:'Google'};
+    else si={code:us.toUpperCase().replace(/[^A-Z0-9]/g,'_').substring(0,12),label:us};
   }
-
-  // Fallback: detect from HTTP referrer
-  if (!sourceInfo) {
-    if (ref.includes('facebook.com') || ref.includes('fb.com') || ref.includes('l.facebook')) {
-      sourceInfo = { code: 'FB_REF', label: 'Facebook' };
-    } else if (ref.includes('instagram.com')) {
-      sourceInfo = { code: 'IG_REF', label: 'Instagram' };
-    } else if (ref.includes('google.com')) {
-      sourceInfo = { code: 'GOOG_REF', label: 'Google' };
-    } else if (ref.includes('bluwavgrowth.com')) {
-      sourceInfo = { code: 'SITE_REF', label: 'BluWav Website' };
-    } else if (ref) {
-      sourceInfo = { code: 'REF_OTHER', label: 'Referral' };
-    } else {
-      sourceInfo = { code: 'DIRECT', label: 'Direct' };
-    }
+  if(!si){
+    if(ref.includes('facebook.com')||ref.includes('fb.com')) si={code:'FB_REF',label:'Facebook'};
+    else if(ref.includes('instagram.com')) si={code:'IG_REF',label:'Instagram'};
+    else if(ref.includes('google.com')) si={code:'GOOG_REF',label:'Google'};
+    else if(ref.includes('bluwavgrowth.com')) si={code:'SITE_REF',label:'BluWav Website'};
+    else if(ref) si={code:'REF_OTHER',label:'Referral'};
+    else si={code:'DIRECT',label:'Direct'};
   }
-
-  // Generate unique lead code: SOURCECODE_BASE36TIMESTAMP
-  var ts = Date.now().toString(36).toUpperCase();
-  var leadCode = sourceInfo.code + '_' + ts;
-
-  // Populate hidden fields
-  document.getElementById('hcSource').value      = sourceInfo.code;
-  document.getElementById('hcUtmSource').value   = utmSource;
-  document.getElementById('hcUtmMedium').value   = utmMedium;
-  document.getElementById('hcUtmCampaign').value = utmCampaign;
-  document.getElementById('hcUtmContent').value  = utmContent;
-  document.getElementById('hcLeadCode').value    = leadCode;
-  document.getElementById('hcReferrer').value    = ref.substring(0, 200); // cap length
-
-  // Show source badge for tracked (non-direct) sources
-  var hiddenSources = ['DIRECT', 'SITE_REF', 'SITE_NAV', 'SITE_CTA', 'SITE_BNR'];
-  if (hiddenSources.indexOf(sourceInfo.code) === -1) {
-    var badge = document.getElementById('sourceBadge');
-    var badgeText = document.getElementById('sourceBadgeText');
-    if (badge && badgeText) {
-      badgeText.textContent = 'From ' + sourceInfo.label;
-      badge.style.display = 'inline-flex';
-    }
+  var ts=Date.now().toString(36).toUpperCase();
+  var lc=si.code+'_'+ts;
+  document.getElementById('hcSource').value=si.code;
+  document.getElementById('hcUtmSource').value=us;
+  document.getElementById('hcUtmMedium').value=um;
+  document.getElementById('hcUtmCampaign').value=uc;
+  document.getElementById('hcUtmContent').value=uct;
+  document.getElementById('hcLeadCode').value=lc;
+  document.getElementById('hcReferrer').value=ref.substring(0,200);
+  var hidden=['DIRECT','SITE_REF','SITE_NAV','SITE_CTA'];
+  if(hidden.indexOf(si.code)===-1){
+    var b=document.getElementById('sourceBadge'),bt=document.getElementById('sourceBadgeText');
+    if(b&&bt){bt.textContent='From '+si.label;b.style.display='inline-flex';}
   }
+  return {si:si,lc:lc};
+}
+var trackingData=detectSource();
 
-  return { sourceInfo: sourceInfo, leadCode: leadCode };
+// ── LEAD SCORING ──────────────────────────────────────────────────────────────
+// Scores lead 1-100 based on challenge + source. HOT/WARM/NURTURE tag.
+function scoreLead(goal, source) {
+  var score = 50; // base
+  // Challenge scoring
+  var hotGoals = ['Not getting enough leads','Losing leads — no follow-up system','Need to grow faster'];
+  var warmGoals = ['Not showing up on Google','No website or outdated website'];
+  if (hotGoals.indexOf(goal) !== -1) score += 30;
+  else if (warmGoals.indexOf(goal) !== -1) score += 15;
+  else score -= 10; // just exploring
+  // Source scoring
+  if (source.indexOf('AD') !== -1) score += 15; // paid traffic = higher intent
+  else if (source.indexOf('WA') !== -1) score += 10; // WhatsApp = warm
+  else if (source === 'DIRECT') score += 5;
+  score = Math.min(100, Math.max(1, score));
+  var tag = score >= 75 ? 'HOT' : score >= 50 ? 'WARM' : 'NURTURE';
+  return {score: score, tag: tag};
 }
 
-// Run immediately on page load
-var trackingData = detectSource();
+// ── MULTI-STEP NAVIGATION ─────────────────────────────────────────────────────
+var currentStep = 1;
+
+function goStep(n) {
+  // Validate before advancing
+  if (n > currentStep) {
+    if (currentStep === 1) {
+      var f=document.getElementById('hcFirst').value.trim();
+      var l=document.getElementById('hcLast').value.trim();
+      var w=document.getElementById('hcWa').value.trim();
+      var e=document.getElementById('hcEmail').value.trim();
+      var err=document.getElementById('step1Error');
+      if (!f||!l||!w||!e) { err.style.display='block'; return; }
+      err.style.display='none';
+    }
+    if (currentStep === 2) {
+      var biz=document.getElementById('hcBiz').value.trim();
+      var ind=document.getElementById('hcIndustry').value;
+      var err=document.getElementById('step2Error');
+      if (!biz||!ind) { err.style.display='block'; return; }
+      err.style.display='none';
+    }
+  }
+  document.getElementById('step'+currentStep).classList.remove('active');
+  currentStep = n;
+  document.getElementById('step'+currentStep).classList.add('active');
+  document.querySelector('.hc-card').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+// ── CHALLENGE CARD SELECTION ──────────────────────────────────────────────────
+function selectChallenge(el) {
+  document.querySelectorAll('.challenge-card').forEach(function(c){c.classList.remove('selected');});
+  el.classList.add('selected');
+  document.getElementById('hcGoal').value = el.getAttribute('data-val');
+  document.getElementById('step3Error').style.display = 'none';
+}
 
 // ── FORM SUBMISSION ───────────────────────────────────────────────────────────
-function submitHC(e) {
-  e.preventDefault();
+function submitHC() {
+  var goal = document.getElementById('hcGoal').value;
+  if (!goal) { document.getElementById('step3Error').style.display='block'; return; }
 
   var first    = document.getElementById('hcFirst').value.trim();
   var last     = document.getElementById('hcLast').value.trim();
@@ -475,7 +589,6 @@ function submitHC(e) {
   var biz      = document.getElementById('hcBiz').value.trim();
   var industry = document.getElementById('hcIndustry').value;
   var website  = document.getElementById('hcWebsite').value.trim();
-  var goal     = document.getElementById('hcGoal').value;
   var source   = document.getElementById('hcSource').value;
   var leadCode = document.getElementById('hcLeadCode').value;
   var utmSrc   = document.getElementById('hcUtmSource').value;
@@ -484,13 +597,10 @@ function submitHC(e) {
   var utmCont  = document.getElementById('hcUtmContent').value;
   var ref      = document.getElementById('hcReferrer').value;
 
-  // Validate required fields
-  if (!first || !last || !wa || !email || !biz || !industry) {
-    var errEl = document.getElementById('hcError');
-    if (errEl) { errEl.style.display = 'block'; errEl.scrollIntoView({behavior:'smooth',block:'center'}); }
-    return;
-  }
-  document.getElementById('hcError').style.display = 'none';
+  // Score the lead
+  var scoring = scoreLead(goal, source);
+  document.getElementById('hcScore').value = scoring.score;
+  document.getElementById('hcScoreTag').value = scoring.tag;
 
   var btn = document.getElementById('hcSubmitBtn');
   btn.textContent = 'Sending...';
@@ -498,51 +608,50 @@ function submitHC(e) {
 
   var fullName = first + ' ' + last;
 
-  // ── Fire conversion events ──
-  if (typeof gtag !== 'undefined') {
-    gtag('event', 'generate_lead', { event_category: 'Health Check', event_label: source, value: 1 });
-  }
-  if (typeof fbq !== 'undefined') {
-    fbq('track', 'Lead', { content_name: 'Free Health Check', content_category: source });
-  }
+  // Fire conversion events
+  if(typeof gtag!=='undefined') gtag('event','generate_lead',{event_category:'Health Check',event_label:source,value:1});
+  if(typeof fbq!=='undefined') fbq('track','Lead',{content_name:'Free Health Check',content_category:source});
 
-  // ── Build WhatsApp notification to BluWav team ──
+  // WhatsApp notification to BluWav team
+  var scoreEmoji = scoring.tag==='HOT' ? '&#128308;' : scoring.tag==='WARM' ? '&#128993;' : '&#128994;';
   var waMsg = '%F0%9F%8C%8A *New Health Check Lead*%0A%0A'
-    + '*Lead Code:* '   + encodeURIComponent(leadCode)                          + '%0A'
-    + '*Source:* '      + encodeURIComponent(source)                            + '%0A'
-    + '*UTM:* '         + encodeURIComponent(utmSrc+'/'+utmMed+'/'+utmCamp)    + '%0A'
-    + '*Content:* '     + encodeURIComponent(utmCont || 'n/a')                 + '%0A%0A'
-    + '*Name:* '        + encodeURIComponent(fullName)                          + '%0A'
-    + '*Business:* '    + encodeURIComponent(biz)                               + '%0A'
-    + '*Industry:* '    + encodeURIComponent(industry)                          + '%0A'
-    + '*WhatsApp:* '    + encodeURIComponent(wa)                                + '%0A'
-    + '*Email:* '       + encodeURIComponent(email)                             + '%0A'
-    + '*Website:* '     + encodeURIComponent(website || 'None provided')        + '%0A'
-    + '*Challenge:* '   + encodeURIComponent(goal || 'Not specified')           + '%0A'
-    + '*Referrer:* '    + encodeURIComponent(ref || 'Direct');
+    + '*' + scoring.tag + ' LEAD* (Score: ' + scoring.score + '/100)%0A%0A'
+    + '*Lead Code:* '   + encodeURIComponent(leadCode)                       + '%0A'
+    + '*Source:* '      + encodeURIComponent(source)                         + '%0A'
+    + '*UTM:* '         + encodeURIComponent(utmSrc+'/'+utmMed+'/'+utmCamp) + '%0A%0A'
+    + '*Name:* '        + encodeURIComponent(fullName)                       + '%0A'
+    + '*Business:* '    + encodeURIComponent(biz)                            + '%0A'
+    + '*Industry:* '    + encodeURIComponent(industry)                       + '%0A'
+    + '*WhatsApp:* '    + encodeURIComponent(wa)                             + '%0A'
+    + '*Email:* '       + encodeURIComponent(email)                          + '%0A'
+    + '*Website:* '     + encodeURIComponent(website||'None')                + '%0A'
+    + '*Challenge:* '   + encodeURIComponent(goal)                           + '%0A'
+    + '*Referrer:* '    + encodeURIComponent(ref||'Direct');
 
-  // ── POST to Formspree ──
+  // Formspree submission
   var formData = new FormData();
   formData.append('_replyto',      email);
   formData.append('email',         email);
-  formData.append('_subject',      'New Health Check — ' + biz + ' [' + leadCode + ']');
+  formData.append('_subject',      '[' + scoring.tag + '] Health Check — ' + biz + ' [' + leadCode + ']');
   formData.append('name',          fullName);
   formData.append('whatsapp',      wa);
   formData.append('business',      biz);
   formData.append('industry',      industry);
-  formData.append('website',       website || 'None');
-  formData.append('goal',          goal || 'Not specified');
+  formData.append('website',       website||'None');
+  formData.append('goal',          goal);
   formData.append('source',        source);
   formData.append('lead_code',     leadCode);
+  formData.append('lead_score',    scoring.score);
+  formData.append('lead_tag',      scoring.tag);
   formData.append('utm_source',    utmSrc);
   formData.append('utm_medium',    utmMed);
   formData.append('utm_campaign',  utmCamp);
   formData.append('utm_content',   utmCont);
-  formData.append('referrer',      ref || 'Direct');
+  formData.append('referrer',      ref||'Direct');
   formData.append('_template',     'table');
   formData.append('_autoresponse',
-    'Hi ' + first + ', thank you for requesting your free Digital Health Check! \n\n' +
-    'We\'ve received your request and will WhatsApp you at ' + wa + ' within 48 hours with your personalised results.\n\n' +
+    'Hi ' + first + ', thank you for requesting your free Digital Health Check!\n\n' +
+    'We\'ve received your request and will WhatsApp you at ' + wa + ' within 24 hours with your personalised results.\n\n' +
     'What we\'ll review:\n' +
     '✓ Your Google Business Profile & local search visibility\n' +
     '✓ Your website performance & mobile experience\n' +
@@ -555,48 +664,39 @@ function submitHC(e) {
     'hello@bluwavgrowth.com | bluwavgrowth.com'
   );
 
-  // ── Dedup + 8s timeout ──
   var submitted = false;
-  function proceed() {
-    if (submitted) return;
+  function proceed(){
+    if(submitted) return;
     submitted = true;
-    window.open('https://wa.me/18682979960?text=' + waMsg, '_blank');
-    document.getElementById('formState').style.display = 'none';
-    var ss = document.getElementById('successState');
-    ss.style.display = 'block';
-    document.querySelector('.hc-card').scrollIntoView({behavior:'smooth', block:'start'});
+    window.open('https://wa.me/18682979960?text='+waMsg,'_blank');
+    // Hide all steps, show success
+    document.querySelectorAll('.step').forEach(function(s){s.style.display='none';});
+    document.getElementById('successState').style.display='block';
+    document.querySelector('.hc-card').scrollIntoView({behavior:'smooth',block:'start'});
   }
 
   var timeout = setTimeout(proceed, 8000);
-  fetch('https://formspree.io/f/xpwzgvkd', {
-    method: 'POST', body: formData, headers: { 'Accept': 'application/json' }
-  })
-  .then(function() { clearTimeout(timeout); proceed(); })
-  .catch(function() { clearTimeout(timeout); proceed(); });
+  fetch('https://formspree.io/f/xpwzgvkd',{method:'POST',body:formData,headers:{'Accept':'application/json'}})
+  .then(function(){clearTimeout(timeout);proceed();})
+  .catch(function(){clearTimeout(timeout);proceed();});
 
-  // Re-enable on back navigation
-  window.addEventListener('pageshow', function(ev) {
-    if (ev.persisted) { btn.disabled = false; btn.textContent = 'Get My Free Digital Health Check \u2192'; }
+  window.addEventListener('pageshow',function(ev){
+    if(ev.persisted){btn.disabled=false;btn.textContent='Get My Free Health Check \u2192';}
   });
 }
 
 // ── SCROLL ANIMATIONS ─────────────────────────────────────────────────────────
 (function(){
-  var els = document.querySelectorAll('.check-card,.proof-stat');
-  if (!els.length) return;
-  var io = new IntersectionObserver(function(entries){
+  var els=document.querySelectorAll('.check-card,.testi-card,.proof-stat');
+  if(!els.length) return;
+  var io=new IntersectionObserver(function(entries){
     entries.forEach(function(e){
-      if (e.isIntersecting) {
-        e.target.style.opacity = '1';
-        e.target.style.transform = 'translateY(0)';
-        io.unobserve(e.target);
-      }
+      if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';io.unobserve(e.target);}
     });
-  }, {threshold: 0.1});
-  els.forEach(function(el, i){
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(24px)';
-    el.style.transition = 'opacity 0.6s cubic-bezier(0.22,1,0.36,1) ' + (i * 0.08) + 's,transform 0.6s cubic-bezier(0.22,1,0.36,1) ' + (i * 0.08) + 's';
+  },{threshold:0.1});
+  els.forEach(function(el,i){
+    el.style.opacity='0';el.style.transform='translateY(20px)';
+    el.style.transition='opacity 0.5s cubic-bezier(0.22,1,0.36,1) '+(i*0.06)+'s,transform 0.5s cubic-bezier(0.22,1,0.36,1) '+(i*0.06)+'s';
     io.observe(el);
   });
 })();
