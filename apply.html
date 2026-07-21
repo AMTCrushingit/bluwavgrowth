@@ -71,7 +71,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 32px;d
 .plan-card{border:2px solid transparent;border-radius:18px;padding:28px 24px;cursor:pointer;transition:all 0.2s;background:#fff;position:relative;}
 .plan-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,43,73,0.12);}
 .plan-card.selected{border-color:var(--coral);box-shadow:0 0 0 4px rgba(255,85,0,0.12);}
-.plan-card.selected::before{content:'✓ Added';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--coral);color:#fff;font-size:11px;font-weight:800;padding:4px 14px;border-radius:20px;white-space:nowrap;}
+.plan-card.selected::before{content:'✓ Added';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--coral);color:#fff;font-size:11px;font-weight:800;padding:4px 14px;border-radius:20px;white-space:nowrap;z-index:10;}
+@media(max-width:768px){.plan-card.selected::before{top:10px;right:12px;left:auto;transform:none;font-size:10px;padding:3px 10px;}}
 .plan-card{cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent;}
 .plan-card:active{transform:scale(0.98);opacity:0.9;}
 .plan-badge{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;display:block;}
@@ -82,6 +83,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 32px;d
 .plan-features li{padding:4px 0;display:flex;align-items:flex-start;gap:8px;}
 .plan-features li::before{content:'✓';color:#00C2D8;font-weight:900;flex-shrink:0;margin-top:1px;}
 @media(max-width:768px){.plan-cards{grid-template-columns:1fr;}}
+@media(max-width:768px){
+  #selectedPlanDisplay{position:sticky;bottom:16px;z-index:50;box-shadow:0 8px 32px rgba(0,0,0,0.4);}
+  .plan-card{margin-top:8px;}
+}
 
 /* FORM */
 .apply-form{background:#fff;border-radius:20px;padding:40px;box-shadow:0 4px 32px rgba(0,43,73,0.08);}
@@ -363,6 +368,12 @@ footer .footer-grid{gap:56px !important;}
     </div>
   </div>
 
+  <!-- Inline plan selection error -->
+  <div id="planSelectError" style="display:none;align-items:center;gap:10px;background:rgba(255,85,0,0.1);border:1px solid rgba(255,85,0,0.4);border-radius:10px;padding:12px 20px;margin-bottom:16px;">
+    <span style="font-size:16px;">&#9888;</span>
+    <span style="font-size:14px;font-weight:700;color:#FF5500;">Please select at least one package before submitting.</span>
+  </div>
+
   <!-- CRM Standalone Plans -->
   <div style="margin-bottom:12px;">
     <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--cyan);margin-bottom:4px;">&#9679; For Growing Businesses</div>
@@ -457,7 +468,7 @@ footer .footer-grid{gap:56px !important;}
       <div class="form-row">
         <div class="form-group">
           <label class="form-label" for="whatsapp">WhatsApp Number <span>*</span></label>
-          <input class="form-input" id="whatsapp" name="whatsapp" placeholder="+1 (868) 000-0000" required type="tel"/>
+          <input class="form-input" id="whatsapp" name="whatsapp" placeholder="+1 (868) 000-0000" required type="tel" inputmode="tel" autocomplete="tel"/>
         </div>
         <div class="form-group">
           <label class="form-label" for="email">Email Address <span>*</span></label>
@@ -805,14 +816,23 @@ function submitForm(e) {
   e.preventDefault();
   var pkg = document.getElementById('selectedPackage').value;
   if(!pkg || Object.keys(selectedPlans).length === 0){
-    alert('Please select at least one package above before submitting.');
-    document.getElementById('planCards').scrollIntoView({behavior:'smooth'});
+    // Show inline error instead of alert
+    var errEl = document.getElementById('planSelectError');
+    if(errEl){
+      errEl.style.display = 'flex';
+      setTimeout(function(){ errEl.style.display = 'none'; }, 4000);
+    }
+    window.scrollTo({top: document.getElementById('planCards').getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth'});
     return;
   }
 
   var btn = document.getElementById('submitBtn');
   btn.textContent = 'Sending your application...';
   btn.disabled = true;
+  // Re-enable if user navigates back (bfcache)
+  window.addEventListener('pageshow', function(e){
+    if(e.persisted){ btn.disabled = false; btn.textContent = 'Submit My Application →'; }
+  });
 
   // Collect form data
   var firstName = document.getElementById('firstName').value;
@@ -869,29 +889,35 @@ function submitForm(e) {
     "hello@bluwavgrowth.com | bluwavgrowth.com"
   );
 
-  // POST to Formspree
+  // POST to Formspree with 8s timeout
+  var submitted = false;
+  function proceedAfterSubmit() {
+    if (submitted) return;
+    submitted = true;
+    var waUrl = 'https://wa.me/18682979960?text=' + waMsg;
+    window.open(waUrl, '_blank');
+    setTimeout(function(){
+      window.location.href = 'thank-you.html?applied=1&pkg=' + encodeURIComponent(pkg) + '&email=' + encodeURIComponent(email);
+    }, 600);
+  }
+
+  // Timeout fallback — if network hangs for 8s, proceed anyway via WhatsApp
+  var submitTimeout = setTimeout(function() {
+    proceedAfterSubmit();
+  }, 8000);
+
   fetch('https://formspree.io/f/xpwzgvkd', {
     method: 'POST',
     body: formData,
     headers: { 'Accept': 'application/json' }
   })
-  .then(function(response) {
-    // Whether Formspree succeeds or not, proceed to thank-you
-    // Open WhatsApp notification to BluWav team in background
-    var waUrl = 'https://wa.me/18682979960?text=' + waMsg;
-    window.open(waUrl, '_blank');
-    // Redirect to thank-you page
-    setTimeout(function(){
-      window.location.href = 'thank-you.html?applied=1&pkg=' + encodeURIComponent(pkg) + '&email=' + encodeURIComponent(email);
-    }, 600);
+  .then(function() {
+    clearTimeout(submitTimeout);
+    proceedAfterSubmit();
   })
   .catch(function() {
-    // Formspree failed, still proceed, WhatsApp is the backup
-    var waUrl = 'https://wa.me/18682979960?text=' + waMsg;
-    window.open(waUrl, '_blank');
-    setTimeout(function(){
-      window.location.href = 'thank-you.html?applied=1&pkg=' + encodeURIComponent(pkg) + '&email=' + encodeURIComponent(email);
-    }, 600);
+    clearTimeout(submitTimeout);
+    proceedAfterSubmit();
   });
 }
 </script>
