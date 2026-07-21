@@ -71,7 +71,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 32px;d
 .plan-card{border:2px solid transparent;border-radius:18px;padding:28px 24px;cursor:pointer;transition:all 0.2s;background:#fff;position:relative;}
 .plan-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,43,73,0.12);}
 .plan-card.selected{border-color:var(--coral);box-shadow:0 0 0 4px rgba(255,85,0,0.12);}
-.plan-card.selected::before{content:'✓ Selected';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--coral);color:#fff;font-size:11px;font-weight:800;padding:4px 14px;border-radius:20px;white-space:nowrap;}
+.plan-card.selected::before{content:'✓ Added';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--coral);color:#fff;font-size:11px;font-weight:800;padding:4px 14px;border-radius:20px;white-space:nowrap;}
+.plan-card{cursor:pointer;user-select:none;}
 .plan-badge{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;display:block;}
 .plan-name{font-family:'Manrope',sans-serif;font-size:22px;font-weight:900;color:#002B49;margin-bottom:4px;}
 .plan-price{font-family:'Sora',sans-serif;font-size:28px;font-weight:900;margin-bottom:8px;}
@@ -259,11 +260,14 @@ footer .footer-grid{gap:56px !important;}
   <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:var(--gold);margin-bottom:14px;">Apply for a Growth Package</div>
   <h1 style="font-family:'Manrope',sans-serif;font-size:42px;font-weight:900;color:#fff;line-height:1.15;margin-bottom:16px;">Let's Get Your Business<br/>Growing Online</h1>
   <p style="font-size:17px;color:rgba(255,255,255,0.75);line-height:1.7;margin-bottom:28px;">Tell us about your business and the package you want. We'll WhatsApp you within 48 hours with your invoice and next steps. No commitment until you're ready.</p>
-  <div class="trust-bar">
-    <div class="trust-item"><span class="trust-icon">⚡</span> Response within 48 hours</div>
-    <div class="trust-item"><span class="trust-icon">🔒</span> No payment until you approve</div>
-    <div class="trust-item"><span class="trust-icon">💬</span> We'll WhatsApp you directly</div>
-    <div class="trust-item"><span class="trust-icon">✅</span> No lock-in. Ever.</div>
+  <div style="display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;margin-top:8px;">
+    <div style="display:flex;align-items:center;gap:7px;font-size:13px;font-weight:700;color:rgba(255,255,255,0.85);"><span style="font-size:15px;">&#9889;</span> Response within 48 hours</div>
+    <div style="width:1px;height:16px;background:rgba(255,255,255,0.2);"></div>
+    <div style="display:flex;align-items:center;gap:7px;font-size:13px;font-weight:700;color:rgba(255,255,255,0.85);"><span style="font-size:15px;">&#128274;</span> No payment until you approve</div>
+    <div style="width:1px;height:16px;background:rgba(255,255,255,0.2);"></div>
+    <div style="display:flex;align-items:center;gap:7px;font-size:13px;font-weight:700;color:rgba(255,255,255,0.85);"><span style="font-size:15px;">&#128172;</span> We'll WhatsApp you directly</div>
+    <div style="width:1px;height:16px;background:rgba(255,255,255,0.2);"></div>
+    <div style="display:flex;align-items:center;gap:7px;font-size:13px;font-weight:700;color:rgba(255,255,255,0.85);"><span style="color:#22c55e;font-size:15px;">&#10003;</span> No lock-in. Ever.</div>
   </div>
 </div>
 </section>
@@ -656,20 +660,60 @@ document.addEventListener('click',function(e){
   }
 });
 
-// Plan selection
+// Multi-select plan tracking
+var selectedPlans = {};
+
 function selectPlan(id, name) {
-  // Remove selected from all
-  document.querySelectorAll('.plan-card').forEach(function(c){c.classList.remove('selected');});
-  // Select clicked
-  document.getElementById('card-'+id).classList.add('selected');
-  // Update hidden input
-  document.getElementById('selectedPackage').value = name;
-  // Update display
-  document.getElementById('selectedPlanName').textContent = name;
-  // Scroll to form
-  setTimeout(function(){
-    document.getElementById('applyForm').scrollIntoView({behavior:'smooth',block:'start'});
-  }, 300);
+  var card = document.getElementById('card-'+id);
+  if (!card) return;
+
+  // Toggle selection
+  if (selectedPlans[id]) {
+    delete selectedPlans[id];
+    card.classList.remove('selected');
+  } else {
+    selectedPlans[id] = name;
+    card.classList.add('selected');
+  }
+
+  updateSelectionDisplay();
+}
+
+function updateSelectionDisplay() {
+  var list = document.getElementById('selectedPlansList');
+  var total = document.getElementById('selectionTotal');
+  var hiddenInput = document.getElementById('selectedPackage');
+  var keys = Object.keys(selectedPlans);
+
+  if (keys.length === 0) {
+    list.innerHTML = '<div style="font-size:16px;font-weight:700;color:rgba(255,255,255,0.5);font-style:italic;">No package selected yet &mdash; choose above &#8593;</div>';
+    if(total) total.style.display = 'none';
+    hiddenInput.value = '';
+    return;
+  }
+
+  // Build list of selected plans
+  var html = '';
+  keys.forEach(function(id) {
+    html += '<div style="display:flex;align-items:center;gap:10px;">' +
+      '<span style="color:#00E0FF;font-size:14px;font-weight:800;">&#10003;</span>' +
+      '<span style="font-size:15px;font-weight:700;color:#fff;">' + selectedPlans[id] + '</span>' +
+      '</div>';
+  });
+  list.innerHTML = html;
+
+  // Show total bar
+  if(total) total.style.display = 'flex';
+
+  // Update hidden input with all selected plans joined
+  hiddenInput.value = keys.map(function(id){ return selectedPlans[id]; }).join(' + ');
+
+  // Scroll to form after first selection
+  if (keys.length === 1) {
+    setTimeout(function(){
+      document.getElementById('applyForm').scrollIntoView({behavior:'smooth',block:'start'});
+    }, 400);
+  }
 }
 
 // Pre-select plan from URL param
@@ -677,7 +721,7 @@ function selectPlan(id, name) {
   var params = new URLSearchParams(window.location.search);
   var plan = params.get('plan');
     var planMap = {
-    'ripple':        ['ripple',        'Ripple, $1,800+'],
+    'ripple':        ['ripple',        'Ripple Growth System, $1,800+'],
     'current':       ['current',       'Current, $3,000+'],
     'surge':         ['surge',         'Surge, $5,000+'],
     'crm-starter':   ['crm-starter',   'CRM Starter, $99 onboarding + $59/month'],
@@ -695,7 +739,12 @@ function selectPlan(id, name) {
     'partner-info':  ['crm-lite',      'Partner Programme Information Request']
   };
   if(plan && planMap[plan]){
-    selectPlan(planMap[plan][0], planMap[plan][1]);
+    var pid = planMap[plan][0];
+    var pname = planMap[plan][1];
+    selectedPlans[pid] = pname;
+    var card = document.getElementById('card-'+pid);
+    if(card) card.classList.add('selected');
+    updateSelectionDisplay();
   }
 })();
 
@@ -703,8 +752,8 @@ function selectPlan(id, name) {
 function submitForm(e) {
   e.preventDefault();
   var pkg = document.getElementById('selectedPackage').value;
-  if(!pkg){
-    alert('Please select a package above before submitting.');
+  if(!pkg || Object.keys(selectedPlans).length === 0){
+    alert('Please select at least one package above before submitting.');
     document.getElementById('planCards').scrollIntoView({behavior:'smooth'});
     return;
   }
