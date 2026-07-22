@@ -304,7 +304,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;padding:0 32px;d
 <span class="highlight">Invisible</span> to<br/>
 <span class="cyan">Customers Online?</span>
 </h1>
-<p class="hero-sub">Business owners, every day you're not showing up on Google, your competitor is winning the customer that should have been yours. Find out exactly where your business stands, free, in 48 hours.</p>
+<p class="hero-sub">Business owners, every day you're not showing up on Google, your competitor is winning the customer that should have been yours. Find out exactly where your business stands, free, in 24 hours.</p>
 <div class="hero-proof">
 <div class="hero-proof-item"><span class="check">✓</span> 50+ businesses checked worldwide</div>
 <div class="hero-proof-item"><span class="check">✓</span> WhatsApp results in 24 hours</div>
@@ -326,7 +326,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;padding:0 32px;d
 <!-- Right: form -->
 <div class="form-card" id="form">
 <div class="form-title">Get Your Free Digital Health Check</div>
-<div class="form-sub">If you run a business, start here. We'll WhatsApp you a full report within 48 hours.</div>
+<div class="form-sub">If you run a business, start here. We'll WhatsApp you a full report within 24 hours.</div>
 <form id="hcForm" onsubmit="submitHC(event)">
 <div class="form-row">
 <div class="form-group">
@@ -402,12 +402,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;padding:0 32px;d
 <input type="hidden" id="hcUtmCampaign" name="utm_campaign" value=""/>
 <input type="hidden" id="hcLeadCode" name="lead_code" value=""/>
 <input type="hidden" id="hcReferrer" name="referrer" value=""/>
+<input type="hidden" id="hcSource" name="source" value="direct"/>
+<input type="hidden" id="hcUtmSource" name="utm_source" value=""/>
+<input type="hidden" id="hcUtmMedium" name="utm_medium" value=""/>
+<input type="hidden" id="hcUtmCampaign" name="utm_campaign" value=""/>
+<input type="hidden" id="hcLeadCode" name="lead_code" value=""/>
+<input type="hidden" id="hcReferrer" name="referrer" value=""/>
 <button class="submit-btn" id="hcSubmitBtn" type="submit">
           🔍 Check Your Business's Digital Visibility, Free</button>
 <div class="form-trust">
 <div class="form-trust-item"><span class="dot">●</span> Free forever</div>
 <div class="form-trust-item"><span class="dot">●</span> No credit card</div>
-<div class="form-trust-item"><span class="dot">●</span> WhatsApp in 48h</div>
+<div class="form-trust-item"><span class="dot">●</span> Results in 24h</div>
 <div class="form-trust-item"><span class="dot">●</span> No commitment</div>
 </div>
 </form>
@@ -524,7 +530,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;padding:0 32px;d
 <div class="get-visual-icon">📊</div>
 <div>
 <div class="get-visual-title">Your Digital Health Report</div>
-<div class="get-visual-sub">Delivered via WhatsApp · 48 hours</div>
+<div class="get-visual-sub">Results delivered · 24 hours</div>
 </div>
 </div>
 <div class="rating-row">
@@ -624,7 +630,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;padding:0 32px;d
 </div>
 <div class="proof-card reveal">
 <div class="proof-stars">★★★★★</div>
-<p class="proof-quote">"We went from invisible on Google to getting 3–5 new enquiries a week. BluWav set everything up in 48 hours. The health check was the wake-up call I needed."</p>
+<p class="proof-quote">"We went from invisible on Google to getting 3–5 new enquiries a week. BluWav set everything up in 24 hours. The health check was the wake-up call I needed."</p>
 <div class="proof-author">
 <div class="proof-avatar">K</div>
 <div>
@@ -652,7 +658,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;padding:0 32px;d
 <div class="stat-label">Businesses Checked</div>
 </div>
 <div class="stat-item">
-<div class="stat-num">48h</div>
+<div class="stat-num">24h</div>
 <div class="stat-label">Average Delivery</div>
 </div>
 <div class="stat-item">
@@ -696,7 +702,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;padding:0 32px;d
 <div class="how-step">
 <div class="how-step-num">3</div>
 <div class="how-step-title">WhatsApp Report</div>
-<p class="how-step-desc">You receive a clear, plain-English report directly to your WhatsApp within 48 hours.</p>
+<p class="how-step-desc">You receive a clear, plain-English report directly to your WhatsApp within 24 hours.</p>
 <span class="how-step-time">48 HOURS</span>
 </div>
 <div class="how-step">
@@ -716,7 +722,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;padding:0 32px;d
       Accepting new health checks now
     </div>
 <h2 class="cta-title">Business owners ,<br/>Stop Losing Customers<br/>to Competitors Who Got Online First</h2>
-<p class="cta-sub">For business owners and modern businesses ready to grow, get your Free Digital Health Check today. We'll tell you exactly where your business stands and what to do about it in 48 hours.</p>
+<p class="cta-sub">For business owners and modern businesses ready to grow, get your Free Digital Health Check today. We'll tell you exactly where your business stands and what to do about it in 24 hours.</p>
 <div class="cta-btns">
 <a class="btn-primary" href="#form">🔍 Check Your Business's Digital Visibility, Free</a>
 <a class="btn-wa" href="https://wa.me/18682979960?text=Hi%20BluWav%20Growth!%20I%27d%20like%20to%20get%20a%20free%20digital%20health%20check%20for%20my%20business." target="_blank">💬 WhatsApp Us Instead</a>
@@ -876,6 +882,31 @@ function insertToCRM(lead){
   }).then(function(r){console.log('CRM:',r.status);}).catch(function(e){console.warn('CRM fail:',e);});
 }
 
+
+// SOURCE TRACKING
+var SOURCE_MAP={'facebook|cpc':{code:'FB_AD'},'instagram|cpc':{code:'IG_AD'},'facebook|social':{code:'FB_POST'},'instagram|social':{code:'IG_POST'},'whatsapp|chat':{code:'WA_CHAT'},'whatsapp|broadcast':{code:'WA_BCAST'},'email|newsletter':{code:'EMAIL_NL'},'google|cpc':{code:'GOOG_AD'},'google|organic':{code:'GOOG_ORG'}};
+(function(){
+  var p=new URLSearchParams(window.location.search);
+  var us=(p.get('utm_source')||p.get('src')||'').toLowerCase().trim();
+  var um=(p.get('utm_medium')||'').toLowerCase().trim();
+  var uc=(p.get('utm_campaign')||'').toLowerCase().trim();
+  var ref=document.referrer||'';
+  var si=SOURCE_MAP[us+'|'+um];
+  if(!si&&us){if(us.includes('facebook'))si={code:'FB_AD'};else if(us.includes('instagram'))si={code:'IG_AD'};else if(us.includes('whatsapp'))si={code:'WA_LINK'};else si={code:us.toUpperCase().replace(/[^A-Z0-9]/g,'_').substring(0,12)};}
+  if(!si){if(ref.includes('facebook.com'))si={code:'FB_REF'};else if(ref.includes('instagram.com'))si={code:'IG_REF'};else if(ref.includes('google.com'))si={code:'GOOG_REF'};else if(ref.includes('bluwavgrowth.com'))si={code:'SITE_REF'};else si={code:'DIRECT'};}
+  var lc=si.code+'_'+Date.now().toString(36).toUpperCase();
+  var sv=function(id,v){var el=document.getElementById(id);if(el)el.value=v;};
+  sv('hcSource',si.code);sv('hcUtmSource',us);sv('hcUtmMedium',um);sv('hcUtmCampaign',uc);sv('hcLeadCode',lc);sv('hcReferrer',ref.substring(0,200));
+})();
+
+// SUPABASE CRM
+function insertToCRM(lead){
+  fetch('https://izyuupdmlzcphvdpigrs.supabase.co/rest/v1/leads',{
+    method:'POST',headers:{'Content-Type':'application/json','apikey':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml6eXV1cGRtbHpjcGh2ZHBpZ3JzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEzMjEwNDcsImV4cCI6MjA5Njg5NzA0N30.cmrOK8uAMZKzB1wPZAt7ClEpuUBEkx1PFy49MkhEyog','Authorization':'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml6eXV1cGRtbHpjcGh2ZHBpZ3JzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEzMjEwNDcsImV4cCI6MjA5Njg5NzA0N30.cmrOK8uAMZKzB1wPZAt7ClEpuUBEkx1PFy49MkhEyog','Prefer':'return=minimal'},
+    body:JSON.stringify(lead)
+  }).then(function(r){console.log('CRM:',r.status);}).catch(function(e){console.warn('CRM fail:',e);});
+}
+
 function submitHC(e){
   e.preventDefault();
   var btn=document.getElementById('hcSubmitBtn');
@@ -913,6 +944,9 @@ function submitHC(e){
   var lc2=document.getElementById('hcLeadCode')?document.getElementById('hcLeadCode').value:'DIRECT';
   insertToCRM({full_name:(formData.get('first-name')||'')+ ' '+(formData.get('last-name')||''),business:formData.get('business')||'',whatsapp:formData.get('whatsapp')||'',email:formData.get('email')||'',interest:formData.get('website-status')||'Health Check',island:formData.get('location')||'',source:src2,status:'new',raw_response:{lead_code:lc2,utm_source:document.getElementById('hcUtmSource')?document.getElementById('hcUtmSource').value:'',utm_medium:document.getElementById('hcUtmMedium')?document.getElementById('hcUtmMedium').value:'',referrer:document.getElementById('hcReferrer')?document.getElementById('hcReferrer').value:''}});
 
+  var src2=document.getElementById('hcSource')?document.getElementById('hcSource').value:'direct';
+  var lc2=document.getElementById('hcLeadCode')?document.getElementById('hcLeadCode').value:'DIRECT';
+  insertToCRM({full_name:(formData.get('first-name')||'')+ ' '+(formData.get('last-name')||''),business:formData.get('business')||'',whatsapp:formData.get('whatsapp')||'',email:formData.get('email')||'',interest:formData.get('website-status')||'Health Check',island:formData.get('location')||'',source:src2,status:'new',raw_response:{lead_code:lc2,utm_source:document.getElementById('hcUtmSource')?document.getElementById('hcUtmSource').value:'',utm_medium:document.getElementById('hcUtmMedium')?document.getElementById('hcUtmMedium').value:'',referrer:document.getElementById('hcReferrer')?document.getElementById('hcReferrer').value:''}});
   fetch('https://formspree.io/f/xpwzgvkd',{
     method:'POST',body:formData,headers:{'Accept':'application/json'}
   }).then(function(){
