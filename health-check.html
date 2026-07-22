@@ -331,25 +331,29 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;padding:0 32px;d
 <div class="form-row">
 <div class="form-group">
 <label class="form-label">First Name *</label>
-<input class="form-input" placeholder="Your first name" required="" type="text"/>
+<input class="form-input" name="first-name" placeholder="Your first name" required="" type="text" autocomplete="given-name"/>
 </div>
 <div class="form-group">
 <label class="form-label">Last Name *</label>
-<input class="form-input" placeholder="Your last name" required="" type="text"/>
+<input class="form-input" name="last-name" placeholder="Your last name" required="" type="text" autocomplete="family-name"/>
 </div>
 </div>
 <div class="form-group">
 <label class="form-label">WhatsApp Number *</label>
-<input class="form-input" placeholder="+1 (xxx) xxx-xxxx" required="" type="tel"/>
+<input class="form-input" name="whatsapp" placeholder="+1 (xxx) xxx-xxxx" required="" type="tel" inputmode="tel" autocomplete="tel"/>
+</div>
+<div class="form-group">
+<label class="form-label">Email Address *</label>
+<input class="form-input" name="email" placeholder="you@yourbusiness.com" required="" type="email" inputmode="email" autocomplete="email"/>
 </div>
 <div class="form-group">
 <label class="form-label">Business Name *</label>
-<input class="form-input" placeholder="Your Business Name" required="" type="text"/>
+<input class="form-input" name="business" placeholder="Your Business Name" required="" type="text"/>
 </div>
 <div class="form-row">
 <div class="form-group">
 <label class="form-label">Industry</label>
-<select class="form-select">
+<select class="form-select" name="industry">
 <option>Restaurant / Food</option>
 <option>Salon / Beauty</option>
 <option>Retail / Shop</option>
@@ -384,7 +388,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;padding:0 32px;d
 </div>
 <div class="form-group">
 <label class="form-label">Do you have a website?</label>
-<select class="form-select" id="websiteSelect" onchange="toggleDomain(this.value)">
+<select class="form-select" id="websiteSelect" name="website-status" onchange="toggleDomain(this.value)">
 <option value="none">No website yet</option>
 <option value="needs">Yes, needs improvement</option>
 <option value="fine">Yes, I think it's fine</option>
@@ -396,12 +400,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;padding:0 32px;d
   <input class="form-input" id="domainInput" type="url" placeholder="https://yourbusiness.com"/>
   <div style="font-size:11px;color:rgba(255,255,255,0.35);margin-top:5px;">We'll review your site as part of the health check</div>
 </div>
-<input type="hidden" id="hcSource" name="source" value="direct"/>
-<input type="hidden" id="hcUtmSource" name="utm_source" value=""/>
-<input type="hidden" id="hcUtmMedium" name="utm_medium" value=""/>
-<input type="hidden" id="hcUtmCampaign" name="utm_campaign" value=""/>
-<input type="hidden" id="hcLeadCode" name="lead_code" value=""/>
-<input type="hidden" id="hcReferrer" name="referrer" value=""/>
 <input type="hidden" id="hcSource" name="source" value="direct"/>
 <input type="hidden" id="hcUtmSource" name="utm_source" value=""/>
 <input type="hidden" id="hcUtmMedium" name="utm_medium" value=""/>
