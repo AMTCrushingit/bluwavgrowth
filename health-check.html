@@ -318,7 +318,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;padding:0 32px;d
 <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#C49A00,#F7C873);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:#fff;border:2px solid #002B49;">M</div>
 </div>
 <div>
-<div style="font-size:13px;font-weight:700;color:#fff;">Kezia, Ricardo &amp; Michelle</div>
+<div style="font-size:13px;font-weight:700;color:#fff;">Sarah, Marcus &amp; Michelle</div>
 <div style="font-size:11px;color:rgba(255,255,255,0.5);">Got their free check last week ⭐⭐⭐⭐⭐</div>
 </div>
 </div>
@@ -331,16 +331,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;padding:0 32px;d
 <div class="form-row">
 <div class="form-group">
 <label class="form-label">First Name *</label>
-<input class="form-input" placeholder="Andrea" required="" type="text"/>
+<input class="form-input" placeholder="Your first name" required="" type="text"/>
 </div>
 <div class="form-group">
 <label class="form-label">Last Name *</label>
-<input class="form-input" placeholder="Tanguay" required="" type="text"/>
+<input class="form-input" placeholder="Your last name" required="" type="text"/>
 </div>
 </div>
 <div class="form-group">
 <label class="form-label">WhatsApp Number *</label>
-<input class="form-input" placeholder="+1 (868) 000-0000" required="" type="tel"/>
+<input class="form-input" placeholder="+1 (xxx) xxx-xxxx" required="" type="tel"/>
 </div>
 <div class="form-group">
 <label class="form-label">Business Name *</label>
@@ -362,18 +362,23 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;padding:0 32px;d
 </select>
 </div>
 <div class="form-group">
-<label class="form-label">Island / Location</label>
-<select class="form-select">
-<option>Trinidad</option>
-<option>Tobago</option>
-<option>Barbados</option>
-<option>Jamaica</option>
-<option>Guyana</option>
-<option>Bahamas</option>
-<option>St. Lucia</option>
-<option>Caribbean</option>
-<option>Canada</option>
+<label class="form-label">Country / Region</label>
+<select class="form-select" id="hcLocation" name="location">
+<option value="">Select your location</option>
 <option>United States</option>
+<option>United Kingdom</option>
+<option>Canada</option>
+<option>Australia</option>
+<option>Caribbean (Trinidad &amp; Tobago)</option>
+<option>Caribbean (Barbados)</option>
+<option>Caribbean (Jamaica)</option>
+<option>Caribbean (Other)</option>
+<option>Latin America</option>
+<option>Europe</option>
+<option>Africa</option>
+<option>Middle East</option>
+<option>Asia Pacific</option>
+<option>Other</option>
 </select>
 </div>
 </div>
@@ -391,6 +396,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;padding:0 32px;d
   <input class="form-input" id="domainInput" type="url" placeholder="https://yourbusiness.com"/>
   <div style="font-size:11px;color:rgba(255,255,255,0.35);margin-top:5px;">We'll review your site as part of the health check</div>
 </div>
+<input type="hidden" id="hcSource" name="source" value="direct"/>
+<input type="hidden" id="hcUtmSource" name="utm_source" value=""/>
+<input type="hidden" id="hcUtmMedium" name="utm_medium" value=""/>
+<input type="hidden" id="hcUtmCampaign" name="utm_campaign" value=""/>
+<input type="hidden" id="hcLeadCode" name="lead_code" value=""/>
+<input type="hidden" id="hcReferrer" name="referrer" value=""/>
 <button class="submit-btn" id="hcSubmitBtn" type="submit">
           🔍 Check Your Business's Digital Visibility, Free</button>
 <div class="form-trust">
@@ -607,7 +618,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;padding:0 32px;d
 <div class="proof-avatar">R</div>
 <div>
 <div class="proof-name">Ricardo T.</div>
-<div class="proof-role">Contractor · San Fernando, Trinidad</div>
+<div class="proof-role">Contractor · Construction &amp; Engineering</div>
 </div>
 </div>
 </div>
@@ -618,7 +629,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;padding:0 32px;d
 <div class="proof-avatar">K</div>
 <div>
 <div class="proof-name">Kezia M.</div>
-<div class="proof-role">Salon Owner · Port of Spain, Trinidad</div>
+<div class="proof-role">Salon Owner · Wellness &amp; Beauty</div>
 </div>
 </div>
 </div>
@@ -629,7 +640,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;padding:0 32px;d
 <div class="proof-avatar">M</div>
 <div>
 <div class="proof-name">Michelle A.</div>
-<div class="proof-role">Restaurant Owner · Barbados</div>
+<div class="proof-role">Restaurant Owner · Hospitality Group</div>
 </div>
 </div>
 </div>
@@ -839,6 +850,32 @@ function insertToCRM(lead) {
   .catch(function(e){ console.warn('CRM insert failed (non-blocking):', e); });
 }
 
+
+// SOURCE TRACKING
+var SOURCE_MAP={'facebook|cpc':{code:'FB_AD',label:'Facebook Ad'},'instagram|cpc':{code:'IG_AD',label:'Instagram Ad'},'facebook|social':{code:'FB_POST',label:'Facebook Post'},'instagram|social':{code:'IG_POST',label:'Instagram Post'},'whatsapp|chat':{code:'WA_CHAT',label:'WhatsApp Chat'},'whatsapp|broadcast':{code:'WA_BCAST',label:'WhatsApp Broadcast'},'email|newsletter':{code:'EMAIL_NL',label:'Newsletter'},'google|cpc':{code:'GOOG_AD',label:'Google Ad'},'google|organic':{code:'GOOG_ORG',label:'Google Search'}};
+(function(){
+  var p=new URLSearchParams(window.location.search);
+  var us=(p.get('utm_source')||p.get('src')||'').toLowerCase().trim();
+  var um=(p.get('utm_medium')||'').toLowerCase().trim();
+  var uc=(p.get('utm_campaign')||'').toLowerCase().trim();
+  var ref=document.referrer||'';
+  var si=SOURCE_MAP[us+'|'+um];
+  if(!si&&us){if(us.includes('facebook')||us==='fb')si={code:'FB_AD',label:'Facebook'};else if(us.includes('instagram')||us==='ig')si={code:'IG_AD',label:'Instagram'};else if(us.includes('whatsapp'))si={code:'WA_LINK',label:'WhatsApp'};else si={code:us.toUpperCase().replace(/[^A-Z0-9]/g,'_').substring(0,12),label:us};}
+  if(!si){if(ref.includes('facebook.com'))si={code:'FB_REF',label:'Facebook'};else if(ref.includes('instagram.com'))si={code:'IG_REF',label:'Instagram'};else if(ref.includes('google.com'))si={code:'GOOG_REF',label:'Google'};else if(ref.includes('bluwavgrowth.com'))si={code:'SITE_REF',label:'BluWav'};else si={code:'DIRECT',label:'Direct'};}
+  var lc=si.code+'_'+Date.now().toString(36).toUpperCase();
+  var sv=function(id,v){var el=document.getElementById(id);if(el)el.value=v;};
+  sv('hcSource',si.code);sv('hcUtmSource',us);sv('hcUtmMedium',um);sv('hcUtmCampaign',uc);sv('hcLeadCode',lc);sv('hcReferrer',ref.substring(0,200));
+})();
+
+// SUPABASE CRM INSERT
+function insertToCRM(lead){
+  fetch('https://izyuupdmlzcphvdpigrs.supabase.co/rest/v1/leads',{
+    method:'POST',
+    headers:{'Content-Type':'application/json','apikey':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml6eXV1cGRtbHpjcGh2ZHBpZ3JzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEzMjEwNDcsImV4cCI6MjA5Njg5NzA0N30.cmrOK8uAMZKzB1wPZAt7ClEpuUBEkx1PFy49MkhEyog','Authorization':'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml6eXV1cGRtbHpjcGh2ZHBpZ3JzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEzMjEwNDcsImV4cCI6MjA5Njg5NzA0N30.cmrOK8uAMZKzB1wPZAt7ClEpuUBEkx1PFy49MkhEyog','Prefer':'return=minimal'},
+    body:JSON.stringify(lead)
+  }).then(function(r){console.log('CRM:',r.status);}).catch(function(e){console.warn('CRM fail:',e);});
+}
+
 function submitHC(e){
   e.preventDefault();
   var btn=document.getElementById('hcSubmitBtn');
@@ -871,11 +908,16 @@ function submitHC(e){
     }
   });
 
+  // Insert into BluWav CRM
+  var src2=document.getElementById('hcSource')?document.getElementById('hcSource').value:'direct';
+  var lc2=document.getElementById('hcLeadCode')?document.getElementById('hcLeadCode').value:'DIRECT';
+  insertToCRM({full_name:(formData.get('first-name')||'')+ ' '+(formData.get('last-name')||''),business:formData.get('business')||'',whatsapp:formData.get('whatsapp')||'',email:formData.get('email')||'',interest:formData.get('website-status')||'Health Check',island:formData.get('location')||'',source:src2,status:'new',raw_response:{lead_code:lc2,utm_source:document.getElementById('hcUtmSource')?document.getElementById('hcUtmSource').value:'',utm_medium:document.getElementById('hcUtmMedium')?document.getElementById('hcUtmMedium').value:'',referrer:document.getElementById('hcReferrer')?document.getElementById('hcReferrer').value:''}});
+
   fetch('https://formspree.io/f/xpwzgvkd',{
     method:'POST',body:formData,headers:{'Accept':'application/json'}
   }).then(function(){
     // Success state
-    btn.textContent='✓ Submitted! We\'ll WhatsApp you within 48 hours';
+    btn.textContent='✓ Submitted! We\'ll send your results within 24 hours';
     btn.style.background='linear-gradient(135deg,#22c55e,#16a34a)';
     btn.style.boxShadow='0 6px 32px rgba(34,197,94,0.4)';
     btn.style.opacity='1';
@@ -883,7 +925,7 @@ function submitHC(e){
     if(typeof fbq!=='undefined')fbq('track','Lead');
     if(typeof gtag!=='undefined')gtag('event','generate_lead',{event_category:'Health Check',event_label:'Form Submit'});
     // Scroll to confirmation
-    e.target.insertAdjacentHTML('afterend','<div style="margin-top:20px;padding:20px;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);border-radius:12px;text-align:center;"><div style="font-size:28px;margin-bottom:8px;">🎉</div><div style="font-size:15px;font-weight:800;color:#fff;margin-bottom:4px;">You\'re on the wave!</div><div style="font-size:13px;color:rgba(255,255,255,0.6);">We\'ll review your business and WhatsApp you within 48 hours. Keep an eye on your messages!</div></div>');
+    e.target.insertAdjacentHTML('afterend','<div style="margin-top:20px;padding:20px;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);border-radius:12px;text-align:center;"><div style="font-size:28px;margin-bottom:8px;">🎉</div><div style="font-size:15px;font-weight:800;color:#fff;margin-bottom:4px;">You\'re on the wave!</div><div style="font-size:13px;color:rgba(255,255,255,0.6);">We\'ll review your business and WhatsApp you within 24 hours. Keep an eye on your messages!</div></div>');
   }).catch(function(){
     btn.textContent='🔍 Check Your Business's Digital Visibility, Free';
     btn.disabled=false;
