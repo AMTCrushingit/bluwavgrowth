@@ -947,8 +947,7 @@ function submitForm(e) {
   function proceedAfterSubmit() {
     if (submitted) return;
     submitted = true;
-    var waUrl = 'https://wa.me/18682979960?text=' + waMsg;
-    window.open(waUrl, '_blank');
+    // WA notification removed — Formspree email handles team notification
     setTimeout(function(){
       window.location.href = 'thank-you.html?applied=1&pkg=' + encodeURIComponent(pkg) + '&email=' + encodeURIComponent(email);
     }, 600);
