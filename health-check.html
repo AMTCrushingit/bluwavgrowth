@@ -309,6 +309,16 @@ h1 .teal{color:var(--cyan);}
 })();
 
 // ── SUPABASE CRM ──────────────────────────────────────────────────────────────
+
+// INSERT INTO CRM CONTACTS TABLE
+function insertIntoCRM(d){
+  fetch('https://izyuupdmlzcphvdpigrs.supabase.co/rest/v1/contacts',{
+    method:'POST',
+    headers:{'Content-Type':'application/json','apikey':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml6eXV1cGRtbHpjcGh2ZHBpZ3JzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEzMjEwNDcsImV4cCI6MjA5Njg5NzA0N30.cmrOK8uAMZKzB1wPZAt7ClEpuUBEkx1PFy49MkhEyog','Authorization':'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml6eXV1cGRtbHpjcGh2ZHBpZ3JzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEzMjEwNDcsImV4cCI6MjA5Njg5NzA0N30.cmrOK8uAMZKzB1wPZAt7ClEpuUBEkx1PFy49MkhEyog','Prefer':'return=minimal'},
+    body:JSON.stringify(d)
+  }).then(function(r){console.log('CRM contact:',r.status);}).catch(function(e){console.warn('CRM fail:',e);});
+}
+
 function saveToCRM(data) {
   fetch('https://izyuupdmlzcphvdpigrs.supabase.co/rest/v1/leads', {
     method: 'POST',
@@ -418,6 +428,11 @@ function submitHC() {
   }
 
   var timeout = setTimeout(onSuccess, 8000);
+  // Insert into CRM contacts table
+  var src2=document.getElementById('hcSource')?document.getElementById('hcSource').value:'direct';
+  var lc2=document.getElementById('hcLeadCode')?document.getElementById('hcLeadCode').value:'DIRECT';
+  insertIntoCRM({full_name:(formData.get('first-name')||'').trim()+' '+(formData.get('last-name')||'').trim(),email:formData.get('email')||'',phone:formData.get('whatsapp')||'',business_name:formData.get('business')||'',status:'Lead',island:formData.get('location')||'',source:src2,lead_code:lc2,notes:'Health Check | '+formData.get('website-status')+' | '+formData.get('industry')});
+
   fetch('https://formspree.io/f/xpwzgvkd', {
     method: 'POST',
     body: fd,
