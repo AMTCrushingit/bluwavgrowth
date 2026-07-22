@@ -288,7 +288,40 @@
     /* ══ RESPONSIVE ══ */
     @media(max-width:1100px) { .stats-grid{grid-template-columns:repeat(2,1fr);} .two-col{grid-template-columns:1fr;} .pipe-cols{grid-template-columns:repeat(2,1fr);} .qa-grid{grid-template-columns:repeat(2,1fr);} }
     @media(max-width:768px) { .shell{grid-template-columns:1fr;} .sidebar{display:none;} .main{padding:16px;} .stats-grid{grid-template-columns:1fr 1fr;} }
-  </style>
+  
+/* ── Sortable table headers ── */
+.tbl th.sortable {
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  transition: color 0.15s;
+}
+.tbl th.sortable:hover { color: var(--cyan); }
+.tbl th.sortable .sort-icon {
+  display: inline-block;
+  margin-left: 5px;
+  font-size: 0.7rem;
+  opacity: 0.4;
+  transition: opacity 0.15s, transform 0.15s;
+}
+.tbl th.sortable.asc .sort-icon,
+.tbl th.sortable.desc .sort-icon { opacity: 1; color: var(--cyan); }
+.tbl th.sortable.desc .sort-icon { transform: rotate(180deg); }
+.tbl tbody tr { transition: background 0.1s; }
+.fi-wrap { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.sort-select {
+  background: var(--navy-light);
+  border: 1px solid var(--navy-border);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: 0.78rem;
+  padding: 6px 10px;
+  outline: none;
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+</style>
 </head>
 <body>
 <div class="shell">
@@ -1039,6 +1072,134 @@
 
   /* ── Init ── */
   updateWNav();
+
+// ── CONTACTS DATA & SORT/FILTER/PAGINATE ─────────────────────────────────────
+var contactsData = [
+  {name:'Alicia Thomas',  initials:'AT', color:'linear-gradient(135deg,#FF6B2B,#E05520)', textColor:'#fff',   email:'alicia@mangoco.tt',      company:'Mango & Co.',      phone:'+1 (868) 555-0303', status:'Won',       lastContact:'Jun 19', value:7100,  valueFmt:'$7,100'},
+  {name:'Marcus James',   initials:'MJ', color:'linear-gradient(135deg,#C9A84C,#E8C96A)', textColor:'#0A1628',email:'marcus@bluskylogi.com',   company:'BluSky Logistics', phone:'+1 (868) 555-0202', status:'Qualified', lastContact:'Yesterday',value:24000, valueFmt:'$24,000'},
+  {name:'Ryan Baptiste',  initials:'RB', color:'linear-gradient(135deg,#6B7A99,#4a5568)', textColor:'#fff',   email:'ryan@tropiceats.com',     company:'Tropic Eats',      phone:'+1 (868) 555-0404', status:'Lead',      lastContact:'Jun 20', value:1200,  valueFmt:'$1,200'},
+  {name:'Sarah Chen',     initials:'SC', color:'linear-gradient(135deg,#00C8E0,#0099B0)', textColor:'#0A1628',email:'sarah@islandrealty.com',  company:'Island Realty',    phone:'+1 (868) 555-0101', status:'Proposal',  lastContact:'Today',  value:8000,  valueFmt:'$8,000'},
+  {name:'Diana Morales',  initials:'DM', color:'linear-gradient(135deg,#9B59B6,#7D3C98)', textColor:'#fff',   email:'diana@caribwellness.com', company:'Carib Wellness',   phone:'+1 (868) 555-0505', status:'Proposal',  lastContact:'Jun 22', value:3600,  valueFmt:'$3,600'},
+  {name:'Kevin Okafor',   initials:'KO', color:'linear-gradient(135deg,#27AE60,#1E8449)', textColor:'#fff',   email:'kevin@sunrisedigital.com',company:'Sunrise Digital',  phone:'+1 (868) 555-0606', status:'Lead',      lastContact:'Jun 18', value:4500,  valueFmt:'$4,500'},
+  {name:'Priya Nair',     initials:'PN', color:'linear-gradient(135deg,#E74C3C,#C0392B)', textColor:'#fff',   email:'priya@techbridge.co',    company:'TechBridge Co.',   phone:'+1 (868) 555-0707', status:'Qualified', lastContact:'Jun 21', value:12000, valueFmt:'$12,000'},
+  {name:'Tom Harrington', initials:'TH', color:'linear-gradient(135deg,#2980B9,#1A5276)', textColor:'#fff',   email:'tom@harringtonlaw.com',  company:'Harrington Law',   phone:'+1 (868) 555-0808', status:'Won',       lastContact:'Jun 15', value:9500,  valueFmt:'$9,500'},
+];
+
+var filteredContacts = contactsData.slice();
+var currentPage = 1;
+var pageSize = 6;
+var currentSortCol = 'name';
+var currentSortDir = 'asc';
+
+var statusBadge = {
+  'Lead':     'badge-muted',
+  'Qualified':'badge-cyan',
+  'Proposal': 'badge-gold',
+  'Won':      'badge-success',
+  'Inactive': 'badge-muted'
+};
+
+function renderContacts() {
+  var tbody = document.getElementById('contactsTbody');
+  if (!tbody) return;
+  var start = (currentPage - 1) * pageSize;
+  var page  = filteredContacts.slice(start, start + pageSize);
+  var html  = '';
+  page.forEach(function(c) {
+    var badge = statusBadge[c.status] || 'badge-muted';
+    var valColor = c.status === 'Won' ? 'var(--success)' : c.value >= 10000 ? 'var(--cyan)' : 'var(--text-muted)';
+    html += '<tr>' +
+      '<td><input type="checkbox"/></td>' +
+      '<td><div class="cnc"><div class="cav" style="background:' + c.color + ';color:' + c.textColor + ';">' + c.initials + '</div>' +
+      '<div><div class="cn">' + c.name + '</div><div class="ce">' + c.email + '</div></div></div></td>' +
+      '<td>' + c.company + '</td>' +
+      '<td style="color:var(--text-muted);font-size:0.8rem;">' + c.phone + '</td>' +
+      '<td><span class="badge ' + badge + '">' + c.status + (c.status==='Won'?' ✓':'') + '</span></td>' +
+      '<td style="color:var(--text-muted);font-size:0.82rem;">' + c.lastContact + '</td>' +
+      '<td style="color:' + valColor + ';font-weight:600;">' + c.valueFmt + '</td>' +
+      '<td><div style="display:flex;gap:4px;">' +
+      '<button class="btn btn-ghost btn-sm" onclick="openModal('sendEmail')" title="Email">📧</button>' +
+      '<button class="btn btn-ghost btn-sm" onclick="openModal('editContact')" title="Edit">✏️</button>' +
+      '<button class="btn btn-danger btn-sm" title="Delete">🗑</button>' +
+      '</div></td>' +
+      '</tr>';
+  });
+  tbody.innerHTML = html;
+  var total = filteredContacts.length;
+  var pages = Math.ceil(total / pageSize);
+  var countEl = document.getElementById('contactCount');
+  if (countEl) countEl.textContent = 'Showing ' + Math.min(start + pageSize, total) + ' of ' + total + ' contacts';
+  var pageEl = document.getElementById('pageIndicator');
+  if (pageEl) pageEl.textContent = 'Page ' + currentPage + ' of ' + Math.max(pages, 1);
+}
+
+function sortContacts() {
+  var field = document.getElementById('contactSortField') ? document.getElementById('contactSortField').value : currentSortCol;
+  var dir   = document.getElementById('contactSortDir') ? document.getElementById('contactSortDir').value : currentSortDir;
+  currentSortCol = field;
+  currentSortDir = dir;
+  filteredContacts.sort(function(a, b) {
+    var av = field === 'value' ? a.value : (a[field] || '').toLowerCase();
+    var bv = field === 'value' ? b.value : (b[field] || '').toLowerCase();
+    if (av < bv) return dir === 'asc' ? -1 : 1;
+    if (av > bv) return dir === 'asc' ? 1 : -1;
+    return 0;
+  });
+  currentPage = 1;
+  renderContacts();
+}
+
+function sortByCol(th) {
+  var col = th.getAttribute('data-col');
+  // Toggle direction if same column
+  if (currentSortCol === col) {
+    currentSortDir = currentSortDir === 'asc' ? 'desc' : 'asc';
+  } else {
+    currentSortCol = col;
+    currentSortDir = 'asc';
+  }
+  // Update header classes
+  document.querySelectorAll('#contactsTable th.sortable').forEach(function(h) {
+    h.classList.remove('asc','desc');
+  });
+  th.classList.add(currentSortDir);
+  // Sync dropdowns
+  var sf = document.getElementById('contactSortField');
+  var sd = document.getElementById('contactSortDir');
+  if (sf) sf.value = col;
+  if (sd) sd.value = currentSortDir;
+  sortContacts();
+}
+
+function filterContacts() {
+  var q      = (document.getElementById('contactSearch') ? document.getElementById('contactSearch').value : '').toLowerCase();
+  var status = document.getElementById('contactStatusFilter') ? document.getElementById('contactStatusFilter').value : '';
+  filteredContacts = contactsData.filter(function(c) {
+    var matchQ = !q || c.name.toLowerCase().includes(q) || c.company.toLowerCase().includes(q) || c.email.toLowerCase().includes(q);
+    var matchS = !status || c.status === status;
+    return matchQ && matchS;
+  });
+  currentPage = 1;
+  sortContacts();
+}
+
+function prevPage() {
+  if (currentPage > 1) { currentPage--; renderContacts(); }
+}
+function nextPage() {
+  var pages = Math.ceil(filteredContacts.length / pageSize);
+  if (currentPage < pages) { currentPage++; renderContacts(); }
+}
+function toggleSelectAll(cb) {
+  document.querySelectorAll('#contactsTbody input[type=checkbox]').forEach(function(c){ c.checked = cb.checked; });
+}
+
+// Init contacts on load
+document.addEventListener('DOMContentLoaded', function() {
+  filteredContacts = contactsData.slice();
+  sortContacts();
+});
+
 </script>
 </body>
 </html>
