@@ -178,6 +178,41 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
 </style>
 </head>
 <body>
+<div id="pwGate" style="position:fixed;inset:0;background:#002B49;z-index:9999;display:flex;align-items:center;justify-content:center;padding:24px;">
+  <div style="background:#fff;border-radius:20px;padding:40px;max-width:400px;width:100%;text-align:center;box-shadow:0 24px 80px rgba(0,0,0,0.4);">
+    <div style="font-family:'Kaushan Script',cursive;font-size:28px;color:#002B49;margin-bottom:4px;">Blu<span style="color:#00E0FF;">Wav</span></div>
+    <div style="font-size:10px;font-weight:700;color:#F7C873;letter-spacing:4px;text-transform:uppercase;margin-bottom:24px;">Agent Access Only</div>
+    <div style="font-size:15px;font-weight:700;color:#002B49;margin-bottom:8px;">Sales Agent Agreement</div>
+    <div style="font-size:13px;color:#64748b;margin-bottom:24px;">This document is confidential. Enter your access code to continue.</div>
+    <input id="pwInput" type="password" placeholder="Enter access code" style="width:100%;padding:13px 16px;border:2px solid #e2e8f0;border-radius:10px;font-size:15px;font-family:inherit;outline:none;margin-bottom:12px;transition:border-color 0.2s;" onfocus="this.style.borderColor='#00E0FF'" onblur="this.style.borderColor='#e2e8f0'" onkeydown="if(event.key==='Enter')checkPW()"/>
+    <div id="pwError" style="display:none;font-size:13px;color:#FF5500;font-weight:700;margin-bottom:12px;">Incorrect access code. Please try again.</div>
+    <button onclick="checkPW()" style="width:100%;background:#FF5500;color:#fff;font-size:15px;font-weight:800;padding:14px;border-radius:11px;border:none;cursor:pointer;font-family:inherit;transition:all 0.2s;">Access Document &#8594;</button>
+    <div style="margin-top:16px;font-size:12px;color:#94a3b8;">Need access? Email <a href="mailto:hello@bluwavgrowth.com" style="color:#00C2D8;font-weight:700;">hello@bluwavgrowth.com</a></div>
+  </div>
+</div>
+<script>
+function checkPW(){
+  var pw=document.getElementById('pwInput').value;
+  var err=document.getElementById('pwError');
+  // Access code: BLUWAV2026
+  if(pw==='BLUWAV2026'){
+    document.getElementById('pwGate').style.display='none';
+    sessionStorage.setItem('bwAgentAuth','1');
+  } else {
+    err.style.display='block';
+    document.getElementById('pwInput').value='';
+    document.getElementById('pwInput').focus();
+  }
+}
+// Auto-unlock if already authenticated this session
+if(sessionStorage.getItem('bwAgentAuth')==='1'){
+  document.addEventListener('DOMContentLoaded',function(){
+    var g=document.getElementById('pwGate');
+    if(g)g.style.display='none';
+  });
+}
+</script>
+
 
 <nav id="mainNav">
 <div class="nav-logo" style="display:flex;flex-direction:column;align-items:flex-start;line-height:1;padding:4px 0;">
@@ -191,7 +226,7 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
 <a class="nav-link" data-page="crm" href="crm.html">BluWav CRM</a>
 <a class="nav-link" data-page="wave" href="the-wave.html" style="color:#00E0FF;font-weight:700;">The Wave</a>
 <a class="nav-link" data-page="home" href="index.html#contact">Contact</a>
-<a class="nav-cta" href="free-health-check.html">Free Business Health Check</a>
+<a class="nav-cta" href="health-check.html">Free Business Health Check</a>
 </div>
 <button aria-label="Menu" class="hamburger" id="hamburgerBtn" onclick="toggleMob()"><span></span><span></span><span></span></button>
 </nav>
@@ -204,7 +239,7 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
 <a class="mob-link" data-page="crm" href="crm.html" onclick="closeMob()">🗂️ BluWav CRM</a>
 <a class="mob-link wave" data-page="wave" href="the-wave.html" onclick="closeMob()">🌊 The Wave</a>
 <a class="mob-link" data-page="home" href="index.html#contact" onclick="closeMob()">📞 Contact</a>
-<a class="mob-cta" href="https://forms.gle/EcVVcffVTqLZpHURA" target="_blank" onclick="closeMob()">🩺 Get My Free Digital Health Check</a>
+<a class="mob-cta" href="health-check.html" target="_blank" onclick="closeMob()">🩺 Get My Free Digital Health Check</a>
 </div>
 </div>
 
@@ -526,7 +561,7 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
 <div class="footer-brand-tag">Get Found. Get Chosen. Grow.</div>
 <div style="font-size:10px;font-weight:700;color:var(--gold,#F7C873);letter-spacing:3px;text-transform:uppercase;margin-top:6px;">A Stratiix Group Company</div>
 <p class="footer-desc">Professional websites, Google visibility, CRM and automation. Built for ambitious businesses worldwide.</p>
-<div style="margin-top:16px;"><a class="btn-wa" href="https://wa.me/18682979960" style="font-size:13px;padding:10px 18px;display:inline-flex;align-items:center;gap:6px;background:#25D366;color:#fff;border-radius:9px;text-decoration:none;font-weight:700;">💬 WhatsApp</a></div>
+<div style="margin-top:16px;"></div>
 </div>
 
 <!-- Services column -->
@@ -543,7 +578,7 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
 <div>
 <div class="footer-heading">Company</div>
 <a class="footer-link" href="index.html#how-it-works">How It Works</a>
-<a class="footer-link" href="free-health-check.html">Free Business Health Check</a>
+<a class="footer-link" href="health-check.html">Free Business Health Check</a>
 <a class="footer-link" href="pricing.html">Pricing</a>
 <a class="footer-link" href="our-promise.html">Our Promise</a>
 <a class="footer-link" href="the-wave.html">The Wave</a>
@@ -557,8 +592,6 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
 <!-- Contact + Follow column -->
 <div>
 <div class="footer-heading">Contact</div>
-<a class="footer-link" href="tel:+18682979960">📞 hello@bluwavgrowth.com</a>
-<a class="footer-link" href="https://wa.me/18682979960">💬 WhatsApp</a>
 <a class="footer-link" href="mailto:hello@bluwavgrowth.com">✉️ hello@bluwavgrowth.com</a>
 <div class="footer-link" style="cursor:default;">🌐 Serving businesses worldwide</div>
 <div style="margin-top:20px;">
@@ -588,7 +621,7 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
 </div><!-- /wrap -->
 </footer>
 
-<a class="wa-float" href="https://wa.me/18682979960" title="WhatsApp Us">💬</a>
+
 
 <script>
 // ── NAV ───────────────────────────────────────────────────────────────────
