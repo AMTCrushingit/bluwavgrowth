@@ -60,7 +60,7 @@ a{text-decoration:none;color:inherit;}
 
 
 .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(0,16,32,0.72) 0%,rgba(0,24,40,0.60) 50%,rgba(0,16,32,0.72) 100%);z-index:0;pointer-events:none;}
-.hero{min-height:100vh;position:relative;background:#001828;display:flex;align-items:center;padding:110px 7% 80px;}
+.hero{min-height:100vh;position:relative;background:#001828;display:flex;align-items:flex-start;padding:110px 7% 80px;}
 .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(105deg,rgba(0,16,32,0.92) 0%,rgba(0,43,73,0.85) 35%,rgba(0,43,73,0.55) 58%,rgba(0,43,73,0.15) 75%,transparent 100%);z-index:1;pointer-events:none;}
 .hero-layout{max-width:1400px;margin:0 auto;width:100%;position:relative;z-index:2;display:block;}
 .hero-kai{position:absolute;bottom:0;right:0;width:45%;max-width:600px;height:75%;z-index:1;overflow:hidden;pointer-events:none;}
@@ -388,7 +388,7 @@ a{text-decoration:none;color:inherit;}
   .wrap{padding:0 16px !important;}
 
   /* HERO */
-  .hero{padding:90px 16px 60px !important;}
+  .hero{padding:80px 16px 60px !important;align-items:flex-start !important;}
   .hero-inner{width:100% !important;max-width:100% !important;text-align:center !important;}
   .hero-logo-name{font-size:48px !important;}
   .hero-h1{font-size:28px !important;letter-spacing:-0.5px !important;}
@@ -1999,7 +1999,7 @@ function setCurrency(code, symbol, name){
 <!-- Cyan glow accent -->
 <div style="position:absolute;bottom:20%;right:30%;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(0,224,255,0.08) 0%,transparent 70%);z-index:2;pointer-events:none;animation:heroGlow 3s ease-in-out infinite;"></div>
 <!-- TEXT CONTENT: left side, sits on gradient -->
-<div class="hero-content-wrap" style="position:relative;z-index:3;width:100%;max-width:1600px;margin:0 auto;padding:120px 7% 80px;">
+<div class="hero-content-wrap" style="position:relative;z-index:3;width:100%;max-width:1600px;margin:0 auto;padding:90px 7% 80px;">
 <div style="max-width:600px;width:100%;">
 <!-- Logo -->
 <div class="hero-logo-name hero-anim-1 hero-logo-desktop" style="text-align:left;margin-bottom:4px;">Blu<span style="color:var(--cyan);">Wav</span></div>
