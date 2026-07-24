@@ -4,445 +4,527 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Free Digital Health Check | BluWav Growth</title>
-<meta content="Find out exactly where your business stands online. Free digital health check — results within 24 hours, no commitment." name="description"/>
-<meta content="index, follow" name="robots"/>
-<link href="https://bluwavgrowth.com/health-check.html" rel="canonical"/>
+<title>Do You Know Your Digital Health Score? | BluWav Growth</title>
+<meta content="5 quick questions. Instant score. Find out exactly how visible your business is online — free, no waiting." name="description"/>
+<link href="https://bluwavgrowth.com/health-check" rel="canonical"/>
+<meta content="Do You Know Your Digital Health Score? — BluWav Growth" property="og:title"/>
+<meta content="Answer 5 questions and get your personalised digital health score instantly. Free. No commitment." property="og:description"/>
+<meta content="https://bluwavgrowth.com/health-check" property="og:url"/>
+<meta content="website" property="og:type"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800;900&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Kaushan+Script&amp;display=swap" media="print" onload="this.media='all'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<!-- GA4 -->
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1F2YQ0NWT7"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-1F2YQ0NWT7');</script>
+<!-- Meta Pixel -->
 <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1945068829544650');fbq('track','PageView');</script>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{font-family:'Plus Jakarta Sans',sans-serif;background:#002B49;color:#fff;overflow-x:hidden;min-height:100vh;}
-a{text-decoration:none;color:inherit;}
-:root{--navy:#002B49;--coral:#FF5500;--cyan:#00E0FF;--gold:#F7C873;--green:#22c55e;}
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0b1e35; --bg-card: #122540;
+      --orange: #f97316; --orange-h: #ea6c0a;
+      --cyan: #22d3ee; --green: #22c55e;
+      --white: #ffffff; --text-muted: rgba(255,255,255,0.62);
+      --border: rgba(255,255,255,0.10); --input-border: #d1d5db;
+      --font: 'Inter', sans-serif; --radius: 14px; --radius-sm: 8px;
+      --shadow: 0 8px 48px rgba(0,0,0,0.28);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); background: var(--bg); color: var(--white); min-height: 100vh; display: flex; flex-direction: column; -webkit-font-smoothing: antialiased; }
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;padding:0 32px;display:flex;align-items:center;justify-content:space-between;background:rgba(0,43,73,0.98);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,224,255,0.12);}
-.nav-logo{font-family:'Kaushan Script',cursive;font-size:24px;color:#fff;}
-.nav-logo span{color:var(--cyan);}
-.nav-back{font-size:13px;font-weight:700;color:rgba(255,255,255,0.6);transition:color 0.2s;}
-.nav-back:hover{color:#fff;}
+    /* HEADER */
+    header { background: var(--bg); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+    .header-inner { max-width: 1160px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-size: 1.45rem; font-weight: 800; letter-spacing: -0.5px; color: var(--white); text-decoration: none; line-height: 1; }
+    .logo span { color: var(--cyan); }
+    .back-link { color: var(--text-muted); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.18s; }
+    .back-link:hover { color: var(--white); }
 
-/* LAYOUT */
-.page{padding:80px 24px 60px;max-width:1100px;margin:0 auto;}
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
+    /* MAIN */
+    main { flex: 1; }
+    .hero { max-width: 1160px; margin: 0 auto; padding: 64px 24px 80px; display: grid; grid-template-columns: 1fr 520px; gap: 56px; align-items: start; }
 
-/* LEFT SIDE */
-.eyebrow{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:8px;}
-.eyebrow::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--green);display:inline-block;}
-h1{font-family:'Manrope',sans-serif;font-size:clamp(32px,4.5vw,52px);font-weight:900;line-height:1.08;letter-spacing:-1px;margin-bottom:20px;}
-h1 .orange{color:var(--coral);}
-h1 .teal{color:var(--cyan);}
-.hero-sub{font-size:16px;color:rgba(255,255,255,0.7);line-height:1.75;margin-bottom:32px;max-width:480px;}
-.trust-list{display:flex;flex-direction:column;gap:10px;margin-bottom:36px;}
-.trust-item{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;color:rgba(255,255,255,0.85);}
-.trust-item .dot{width:20px;height:20px;border-radius:50%;background:rgba(34,197,94,0.15);border:1px solid rgba(34,197,94,0.4);display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--green);flex-shrink:0;}
+    /* LEFT */
+    .hero-left { padding-top: 16px; }
+    .pill { display: inline-flex; align-items: center; gap: 8px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); margin-bottom: 28px; }
+    .pill-dot { width: 8px; height: 8px; background: var(--green); border-radius: 50%; flex-shrink: 0; box-shadow: 0 0 8px var(--green); }
+    .hero-headline { font-size: clamp(2.4rem, 4.5vw, 3.4rem); font-weight: 900; line-height: 1.08; letter-spacing: -0.03em; margin-bottom: 20px; }
+    .hero-headline .hl-orange { color: var(--orange); }
+    .hero-headline .hl-cyan { color: var(--cyan); }
+    .hero-sub { font-size: 1.05rem; line-height: 1.65; color: var(--text-muted); max-width: 420px; margin-bottom: 36px; font-weight: 400; }
+    .trust-list { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 48px; }
+    .trust-list li { display: flex; align-items: center; gap: 10px; font-size: 0.95rem; font-weight: 500; color: rgba(255,255,255,0.85); }
+    .trust-check { width: 22px; height: 22px; background: rgba(34,197,94,0.15); border: 1.5px solid var(--green); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .trust-check svg { width: 11px; height: 11px; }
 
-/* WHAT WE CHECK */
-.checks-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:32px;}
-.check-item{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:16px;}
-.check-icon{font-size:20px;margin-bottom:8px;}
-.check-title{font-size:13px;font-weight:800;color:#fff;margin-bottom:4px;}
-.check-desc{font-size:12px;color:rgba(255,255,255,0.5);line-height:1.5;}
+    /* SCORE TIERS */
+    .tiers { display: flex; flex-direction: column; gap: 0; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    .tier-row { display: flex; align-items: center; gap: 14px; padding: 13px 18px; border-bottom: 1px solid var(--border); background: var(--bg-card); }
+    .tier-row:last-child { border-bottom: none; }
+    .tier-bar { width: 44px; height: 6px; border-radius: 4px; flex-shrink: 0; }
+    .tier-bar.t1 { background: #22c55e; } .tier-bar.t2 { background: #facc15; }
+    .tier-bar.t3 { background: #fb923c; } .tier-bar.t4 { background: #f43f5e; }
+    .tier-label { font-size: 0.82rem; font-weight: 600; color: rgba(255,255,255,0.9); }
+    .tier-range { font-size: 0.76rem; color: var(--text-muted); margin-left: auto; }
 
-/* FORM CARD */
-.form-card{background:#fff;border-radius:20px;padding:36px;box-shadow:0 24px 80px rgba(0,0,0,0.3);}
-.form-title{font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;color:#002B49;margin-bottom:6px;}
-.form-sub{font-size:13px;color:#64748b;margin-bottom:24px;line-height:1.6;}
-.form-group{margin-bottom:16px;}
-.form-label{display:block;font-size:12px;font-weight:700;color:#002B49;margin-bottom:5px;letter-spacing:0.3px;}
-.form-label .req{color:var(--coral);}
-.form-input,.form-select{width:100%;padding:12px 14px;border:2px solid #e2e8f0;border-radius:10px;font-size:14px;font-family:inherit;color:#1E1E1E;background:#fff;outline:none;transition:border-color 0.2s;}
-.form-input:focus,.form-select:focus{border-color:var(--cyan);}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-.submit-btn{width:100%;background:linear-gradient(135deg,var(--coral),#e84d00);color:#fff;font-size:16px;font-weight:800;padding:16px;border-radius:12px;border:none;cursor:pointer;font-family:inherit;transition:all 0.2s;box-shadow:0 6px 28px rgba(255,85,0,0.35);margin-top:8px;letter-spacing:0.3px;}
-.submit-btn:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 10px 36px rgba(255,85,0,0.5);}
-.submit-btn:disabled{opacity:0.7;cursor:not-allowed;transform:none;}
-.form-trust{display:flex;gap:16px;flex-wrap:wrap;margin-top:12px;justify-content:center;}
-.form-trust-item{font-size:11px;color:#94a3b8;display:flex;align-items:center;gap:4px;}
-.form-trust-item::before{content:'✓';color:var(--green);font-weight:800;}
+    /* QUIZ CARD */
+    .quiz-card { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); padding: 40px 36px; color: #0f172a; position: sticky; top: 80px; }
+    .progress-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+    .progress-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #64748b; }
+    .progress-count { font-size: 0.75rem; font-weight: 600; color: #94a3b8; }
+    .progress-track { height: 5px; background: #f1f5f9; border-radius: 99px; margin-bottom: 32px; overflow: hidden; }
+    .progress-fill { height: 100%; background: linear-gradient(90deg, var(--orange), #fb923c); border-radius: 99px; transition: width 0.45s cubic-bezier(0.4,0,0.2,1); }
+    .panel { display: none; } .panel.active { display: block; }
+    .q-number { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--orange); margin-bottom: 8px; }
+    .q-text { font-size: 1.15rem; font-weight: 700; line-height: 1.4; color: #0f172a; margin-bottom: 22px; }
+    .answers { display: flex; flex-direction: column; gap: 10px; }
+    .answer-btn { display: block; width: 100%; text-align: left; padding: 14px 18px; border: 1.5px solid #e2e8f0; border-radius: var(--radius-sm); background: #f8fafc; font-family: var(--font); font-size: 0.9rem; font-weight: 500; color: #1e293b; cursor: pointer; transition: all 0.18s; position: relative; line-height: 1.4; }
+    .answer-btn:hover { border-color: var(--orange); background: #fff7ed; color: #7c2d12; }
+    .answer-btn.selected { border-color: var(--orange); background: #fff7ed; color: #7c2d12; font-weight: 600; }
+    .answer-btn.selected::after { content: "✓"; position: absolute; right: 16px; top: 50%; transform: translateY(-50%); color: var(--orange); font-weight: 700; }
 
-/* SUCCESS */
-#successCard{display:none;background:linear-gradient(135deg,rgba(34,197,94,0.1),rgba(34,197,94,0.05));border:1px solid rgba(34,197,94,0.3);border-radius:16px;padding:28px;text-align:center;margin-top:20px;}
-#successCard .wave{font-size:48px;margin-bottom:12px;}
-#successCard h3{font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;color:#002B49;margin-bottom:8px;}
-#successCard p{font-size:14px;color:#64748b;line-height:1.7;margin-bottom:16px;}
-#successCard .success-checks{display:flex;flex-direction:column;gap:6px;text-align:left;background:rgba(0,43,73,0.05);border-radius:10px;padding:14px;margin-bottom:12px;}
-#successCard .sc{font-size:13px;color:#002B49;display:flex;align-items:center;gap:8px;}
-#successCard .sc::before{content:'✓';color:var(--green);font-weight:800;flex-shrink:0;}
-#successCard .email-note{font-size:12px;color:#94a3b8;}
+    /* CONTACT PANEL */
+    .contact-title { font-size: 1.25rem; font-weight: 800; color: #0f172a; margin-bottom: 4px; line-height: 1.3; }
+    .contact-sub { font-size: 0.875rem; color: #64748b; margin-bottom: 28px; line-height: 1.5; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+    label { font-size: 0.8rem; font-weight: 600; color: #374151; letter-spacing: 0.01em; }
+    label span { color: var(--orange); }
+    input[type="text"], input[type="email"], input[type="tel"] { width: 100%; padding: 11px 14px; border: 1.5px solid var(--input-border); border-radius: var(--radius-sm); font-family: var(--font); font-size: 0.9rem; color: #0f172a; background: #fff; transition: border-color 0.18s; outline: none; }
+    input::placeholder { color: #94a3b8; }
+    input:focus { border-color: var(--orange); }
+    .submit-btn { width: 100%; padding: 15px; background: var(--orange); color: var(--white); border: none; border-radius: var(--radius-sm); font-family: var(--font); font-size: 1rem; font-weight: 700; cursor: pointer; letter-spacing: 0.01em; transition: background 0.18s, transform 0.12s; margin-top: 6px; }
+    .submit-btn:hover { background: var(--orange-h); transform: translateY(-1px); }
+    .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    .form-disclaimer { text-align: center; font-size: 0.76rem; color: #94a3b8; margin-top: 12px; line-height: 1.5; }
+    .form-error { display: none; background: rgba(244,63,94,0.08); border: 1px solid rgba(244,63,94,0.3); border-radius: var(--radius-sm); padding: 10px 14px; font-size: 0.8rem; color: #f43f5e; font-weight: 600; margin-bottom: 12px; }
 
-/* ERROR */
-#formError{display:none;background:rgba(255,85,0,0.08);border:1px solid rgba(255,85,0,0.3);border-radius:10px;padding:12px 16px;margin-bottom:12px;font-size:13px;color:var(--coral);font-weight:700;}
+    /* CONFIRMATION PANEL */
+    .confirm-panel { text-align: center; }
+    .score-ring-wrap { position: relative; width: 120px; height: 120px; margin: 0 auto 20px; }
+    .score-ring-wrap svg { transform: rotate(-90deg); }
+    .score-ring-bg { fill: none; stroke: #f1f5f9; stroke-width: 10; }
+    .score-ring-fill { fill: none; stroke-width: 10; stroke-linecap: round; stroke-dasharray: 314; stroke-dashoffset: 314; transition: stroke-dashoffset 1.2s cubic-bezier(0.4,0,0.2,1); }
+    .score-center { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    .score-number { font-size: 2rem; font-weight: 900; line-height: 1; color: #0f172a; }
+    .score-denom { font-size: 0.72rem; font-weight: 600; color: #94a3b8; }
+    .score-tier-badge { display: inline-block; padding: 5px 14px; border-radius: 99px; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 12px; }
+    .confirm-name { font-size: 1.25rem; font-weight: 800; color: #0f172a; margin-bottom: 8px; line-height: 1.3; }
+    .confirm-msg { font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 28px; }
+    .breakdown { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: var(--radius-sm); padding: 16px 18px; margin-bottom: 24px; text-align: left; }
+    .breakdown-title { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #94a3b8; margin-bottom: 12px; }
+    .breakdown-row { display: flex; align-items: center; gap: 10px; margin-bottom: 9px; }
+    .breakdown-row:last-child { margin-bottom: 0; }
+    .breakdown-label { font-size: 0.8rem; font-weight: 500; color: #475569; min-width: 130px; }
+    .breakdown-bar-track { flex: 1; height: 5px; background: #e2e8f0; border-radius: 99px; overflow: hidden; }
+    .breakdown-bar-fill { height: 100%; border-radius: 99px; transition: width 1s ease 0.6s; }
+    .breakdown-score { font-size: 0.78rem; font-weight: 700; color: #0f172a; min-width: 28px; text-align: right; }
+    .confirm-cta { width: 100%; padding: 15px; background: var(--orange); color: var(--white); border: none; border-radius: var(--radius-sm); font-family: var(--font); font-size: 1rem; font-weight: 700; cursor: pointer; text-decoration: none; display: block; letter-spacing: 0.01em; transition: background 0.18s; text-align: center; }
+    .confirm-cta:hover { background: var(--orange-h); }
+    .confirm-note { font-size: 0.76rem; color: #94a3b8; margin-top: 10px; line-height: 1.5; }
 
-/* FOOTER */
-.footer-bar{background:rgba(0,0,0,0.3);padding:20px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;border-top:1px solid rgba(255,255,255,0.06);margin-top:60px;}
-.footer-logo{font-family:'Kaushan Script',cursive;font-size:18px;color:#fff;}
-.footer-logo span{color:var(--cyan);}
-.footer-links{display:flex;gap:20px;}
-.footer-links a{font-size:12px;color:rgba(255,255,255,0.35);transition:color 0.2s;}
-.footer-links a:hover{color:#fff;}
+    /* FOOTER */
+    footer { border-top: 1px solid var(--border); background: var(--bg); }
+    .footer-inner { max-width: 1160px; margin: 0 auto; padding: 28px 24px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .footer-brand { font-size: 1rem; font-weight: 800; color: var(--white); letter-spacing: -0.3px; text-decoration: none; }
+    .footer-brand span { color: var(--cyan); }
+    .footer-nav { display: flex; gap: 24px; list-style: none; }
+    .footer-nav a { font-size: 0.85rem; color: var(--text-muted); text-decoration: none; transition: color 0.18s; }
+    .footer-nav a:hover { color: var(--white); }
 
-/* WA FLOAT */
-.wa-float{position:fixed;bottom:24px;right:24px;z-index:200;width:52px;height:52px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 4px 20px rgba(37,211,102,0.45);text-decoration:none;}
-
-@media(max-width:768px){
-  nav{padding:0 16px;height:56px;}
-  .page{padding:72px 16px 40px;}
-  .two-col{grid-template-columns:1fr;gap:32px;}
-  .form-row{grid-template-columns:1fr;}
-  .checks-grid{grid-template-columns:1fr;}
-  .form-card{padding:24px 20px;}
-  .footer-bar{padding:16px;}
-}
-</style>
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; gap: 36px; padding: 40px 20px 60px; }
+      .hero-left { padding-top: 0; }
+      .quiz-card { position: static; padding: 28px 22px; }
+      .tiers { display: none; }
+    }
+    @media (max-width: 560px) {
+      .hero-headline { font-size: 2rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 16px; }
+    }
+  </style>
 </head>
 <body>
-<!-- NAV -->
-<nav>
-<div class="nav-logo">Blu<span>Wav</span></div>
-<a class="nav-back" href="index.html">← Back to site</a>
-</nav>
-<!-- MAIN -->
-<div class="page">
-<div class="two-col">
+<header>
+<div class="header-inner">
+<a class="logo" href="https://bluwavgrowth.com">Blu<span>Wav</span></a>
+<a class="back-link" href="https://bluwavgrowth.com">← Back to site</a>
+</div>
+</header>
+<main>
+<div class="hero">
 <!-- LEFT -->
-<div>
-<div class="eyebrow">For Business Owners · Free · Results in 24 Hours</div>
-<h1>Is Your Business <span class="orange">Invisible</span> to <span class="teal">Customers Online?</span></h1>
-<p class="hero-sub">Every day you're not showing up on Google, your competitor is winning the customer that should have been yours. Find out exactly where your business stands — free, within 24 hours.</p>
-<div class="trust-list">
-<div class="trust-item"><span class="dot">✓</span> 50+ businesses assessed worldwide</div>
-<div class="trust-item"><span class="dot">✓</span> Results delivered within 24 hours</div>
-<div class="trust-item"><span class="dot">✓</span> No sales pressure. Ever.</div>
-</div>
-<div class="checks-grid">
-<div class="check-item">
-<div class="check-icon">🔍</div>
-<div class="check-title">Google Visibility</div>
-<div class="check-desc">Are you showing up when customers search for what you offer?</div>
-</div>
-<div class="check-item">
-<div class="check-icon">🌐</div>
-<div class="check-title">Website Performance</div>
-<div class="check-desc">Does your site load fast, work on mobile, and convert visitors?</div>
-</div>
-<div class="check-item">
-<div class="check-icon">📊</div>
-<div class="check-title">Search Performance</div>
-<div class="check-desc">Are you ranking for the right keywords? Where are the gaps?</div>
-</div>
-<div class="check-item">
-<div class="check-icon">⚙️</div>
-<div class="check-title">Lead Capture System</div>
-<div class="check-desc">When someone finds you, can they easily reach you?</div>
+<div class="hero-left">
+<div class="pill"><span class="pill-dot"></span>For Business Owners · Free · Instant Results</div>
+<h1 class="hero-headline">
+        Do You Know Your<br/>
+<span class="hl-orange">Digital Health</span><br/>
+<span class="hl-cyan">Score?</span>
+</h1>
+<p class="hero-sub">5 quick questions. Instant score. Find out exactly where your business stands online — no waiting, no sales pitch.</p>
+<ul class="trust-list">
+<li>
+<span class="trust-check"><svg fill="none" viewbox="0 0 12 12"><path d="M2 6.5L4.8 9 10 3" stroke="#22c55e" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path></svg></span>
+          Takes under 2 minutes
+        </li>
+<li>
+<span class="trust-check"><svg fill="none" viewbox="0 0 12 12"><path d="M2 6.5L4.8 9 10 3" stroke="#22c55e" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path></svg></span>
+          Instant score — see where you stand immediately
+        </li>
+<li>
+<span class="trust-check"><svg fill="none" viewbox="0 0 12 12"><path d="M2 6.5L4.8 9 10 3" stroke="#22c55e" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path></svg></span>
+          No sales pressure. Ever.
+        </li>
+</ul>
+<div class="tiers">
+<div class="tier-row"><div class="tier-bar t1"></div><div class="tier-label">Visible &amp; Growing</div><div class="tier-range">17 – 20</div></div>
+<div class="tier-row"><div class="tier-bar t2"></div><div class="tier-label">Some Gaps Showing</div><div class="tier-range">12 – 16</div></div>
+<div class="tier-row"><div class="tier-bar t3"></div><div class="tier-label">Mostly Invisible</div><div class="tier-range">7 – 11</div></div>
+<div class="tier-row"><div class="tier-bar t4"></div><div class="tier-label">Starting From Scratch</div><div class="tier-range">5 – 6</div></div>
 </div>
 </div>
+<!-- RIGHT: QUIZ CARD -->
+<div class="quiz-card">
+<div id="progress-wrap">
+<div class="progress-header">
+<span class="progress-label" id="progress-label">Question 1 of 5</span>
+<span class="progress-count" id="progress-pct">0%</span>
 </div>
-<!-- RIGHT: FORM -->
-<div>
-<div class="form-card">
-<div class="form-title" id="formTitle">Free Digital Health Check</div>
-<div class="form-sub" id="formSub">Tell us about your business — results within 24 hours.</div>
-<!-- Error message -->
-<div id="formError">Please fill in all required fields before submitting.</div>
-<form id="hcForm">
-<!-- Tracking fields -->
-<input id="f_source" type="hidden" value="direct"/>
-<input id="f_lead_code" type="hidden" value=""/>
-<input id="f_utm_source" type="hidden" value=""/>
-<input id="f_utm_medium" type="hidden" value=""/>
-<input id="f_utm_campaign" type="hidden" value=""/>
-<input id="f_referrer" type="hidden" value=""/>
+<div class="progress-track"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+</div>
+<!-- Q1 -->
+<div class="panel active" id="panel-q1">
+<div class="q-number">Question 1 of 5</div>
+<div class="q-text">When local customers search for your type of business online, where do you typically appear?</div>
+<div class="answers">
+<button class="answer-btn" data-panel="q1" data-pts="4">Top 3 on Google or Google Maps</button>
+<button class="answer-btn" data-panel="q1" data-pts="3">Somewhere on page 1</button>
+<button class="answer-btn" data-panel="q1" data-pts="2">Page 2 or further back</button>
+<button class="answer-btn" data-panel="q1" data-pts="1">I honestly don't know</button>
+</div>
+</div>
+<!-- Q2 -->
+<div class="panel" id="panel-q2">
+<div class="q-number">Question 2 of 5</div>
+<div class="q-text">How would you describe your business website right now?</div>
+<div class="answers">
+<button class="answer-btn" data-panel="q2" data-pts="4">Modern, fast, and gets me enquiries regularly</button>
+<button class="answer-btn" data-panel="q2" data-pts="3">It exists but hasn't been updated in a while</button>
+<button class="answer-btn" data-panel="q2" data-pts="2">It's very basic or just launched</button>
+<button class="answer-btn" data-panel="q2" data-pts="1">I don't have a website yet</button>
+</div>
+</div>
+<!-- Q3 -->
+<div class="panel" id="panel-q3">
+<div class="q-number">Question 3 of 5</div>
+<div class="q-text">How many Google reviews does your business currently have?</div>
+<div class="answers">
+<button class="answer-btn" data-panel="q3" data-pts="4">50 or more, mostly 4–5 stars</button>
+<button class="answer-btn" data-panel="q3" data-pts="3">10 to 49 reviews</button>
+<button class="answer-btn" data-panel="q3" data-pts="2">1 to 9 reviews</button>
+<button class="answer-btn" data-panel="q3" data-pts="1">None — or I haven't claimed my Google listing</button>
+</div>
+</div>
+<!-- Q4 -->
+<div class="panel" id="panel-q4">
+<div class="q-number">Question 4 of 5</div>
+<div class="q-text">When someone finds you online, how easy is it for them to contact you?</div>
+<div class="answers">
+<button class="answer-btn" data-panel="q4" data-pts="4">Very easy — multiple contact options clearly visible</button>
+<button class="answer-btn" data-panel="q4" data-pts="3">Phone or email is there, but not much else</button>
+<button class="answer-btn" data-panel="q4" data-pts="2">They'd have to work to find my contact info</button>
+<button class="answer-btn" data-panel="q4" data-pts="1">I don't really have a way to capture leads online</button>
+</div>
+</div>
+<!-- Q5 -->
+<div class="panel" id="panel-q5">
+<div class="q-number">Question 5 of 5</div>
+<div class="q-text">How often do you post or update your online presence (Google, social, website)?</div>
+<div class="answers">
+<button class="answer-btn" data-panel="q5" data-pts="4">Multiple times a week, consistently</button>
+<button class="answer-btn" data-panel="q5" data-pts="3">A few times a month</button>
+<button class="answer-btn" data-panel="q5" data-pts="2">Rarely, or very inconsistently</button>
+<button class="answer-btn" data-panel="q5" data-pts="1">Rarely or never — I just don't have time</button>
+</div>
+</div>
+<!-- CONTACT CAPTURE -->
+<div class="panel" id="panel-contact">
+<div class="contact-title">Almost there — where do we send your score?</div>
+<div class="contact-sub">We'll email you a personalised breakdown with your top priority fix within 24 hours.</div>
+<div class="form-error" id="formError">Please fill in all required fields.</div>
+<form id="contact-form" novalidate="">
+<input id="hidden-score" name="score" type="hidden" value=""/>
+<input id="hidden-tier" name="tier" type="hidden" value=""/>
+<input id="hidden-q1" name="q1pts" type="hidden" value=""/>
+<input id="hidden-q2" name="q2pts" type="hidden" value=""/>
+<input id="hidden-q3" name="q3pts" type="hidden" value=""/>
+<input id="hidden-q4" name="q4pts" type="hidden" value=""/>
+<input id="hidden-q5" name="q5pts" type="hidden" value=""/>
+<input id="hidden-source" name="source" type="hidden" value="direct"/>
 <div class="form-row">
 <div class="form-group">
-<label class="form-label">First Name <span class="req">*</span></label>
-<input autocomplete="given-name" class="form-input" id="f_first" placeholder="Your first name" type="text"/>
+<label for="f-first">First Name <span>*</span></label>
+<input id="f-first" name="first_name" placeholder="Your first name" required="" type="text"/>
 </div>
 <div class="form-group">
-<label class="form-label">Last Name <span class="req">*</span></label>
-<input autocomplete="family-name" class="form-input" id="f_last" placeholder="Your last name" type="text"/>
-</div>
-</div>
-<div class="form-group">
-<label class="form-label">Email Address <span class="req">*</span></label>
-<input autocomplete="email" class="form-input" id="f_email" inputmode="email" placeholder="you@yourbusiness.com" type="email"/>
-</div>
-<div class="form-group">
-<label class="form-label">WhatsApp / Phone <span class="req">*</span></label>
-<input autocomplete="tel" class="form-input" id="f_phone" inputmode="tel" placeholder="+1 (xxx) xxx-xxxx" type="tel"/>
-</div>
-<div class="form-group">
-<label class="form-label">Business Name <span class="req">*</span></label>
-<input class="form-input" id="f_business" placeholder="Your Business Name" type="text"/>
-</div>
-<div class="form-row">
-<div class="form-group">
-<label class="form-label">Industry</label>
-<select class="form-select" id="f_industry">
-<option value="">Select industry</option>
-<option>Restaurant / Food &amp; Beverage</option>
-<option>Salon / Beauty / Wellness</option>
-<option>Retail / Shop</option>
-<option>Contractor / Trades</option>
-<option>Professional Services</option>
-<option>Healthcare / Medical</option>
-<option>Real Estate</option>
-<option>Hospitality / Tourism</option>
-<option>Education / Training</option>
-<option>Engineering / Construction</option>
-<option>Technology</option>
-<option>Non-profit / Charity</option>
-<option>Other</option>
-</select>
-</div>
-<div class="form-group">
-<label class="form-label">Country / Region</label>
-<select class="form-select" id="f_location">
-<option value="">Select location</option>
-<option>United States</option>
-<option>United Kingdom</option>
-<option>Canada</option>
-<option>Australia</option>
-<option>Caribbean (Trinidad &amp; Tobago)</option>
-<option>Caribbean (Barbados)</option>
-<option>Caribbean (Jamaica)</option>
-<option>Caribbean (Other)</option>
-<option>Latin America</option>
-<option>Europe</option>
-<option>Africa</option>
-<option>Middle East</option>
-<option>Asia Pacific</option>
-<option>Other</option>
-</select>
+<label for="f-last">Last Name <span>*</span></label>
+<input id="f-last" name="last_name" placeholder="Your last name" required="" type="text"/>
 </div>
 </div>
 <div class="form-group">
-<label class="form-label">Do you have a website?</label>
-<select class="form-select" id="f_website">
-<option value="No website yet">No website yet</option>
-<option value="Yes, needs improvement">Yes, needs improvement</option>
-<option value="Yes, I think it's fine">Yes, I think it's fine</option>
-</select>
+<label for="f-email">Email Address <span>*</span></label>
+<input id="f-email" name="email" placeholder="you@yourbusiness.com" required="" type="email"/>
 </div>
-<button class="submit-btn" id="hcBtn" onclick="submitHC()" type="button">
-            🔍 Check My Business's Digital Visibility, Free
-          </button>
-<div class="form-trust">
-<div class="form-trust-item">Free forever</div>
-<div class="form-trust-item">No credit card</div>
-<div class="form-trust-item">Results in 24 hours</div>
-<div class="form-trust-item">No commitment</div>
+<div class="form-group">
+<label for="f-phone">Phone / WhatsApp <span>*</span></label>
+<input id="f-phone" name="phone" placeholder="+1 (xxx) xxx-xxxx" required="" type="tel"/>
 </div>
+<div class="form-group">
+<label for="f-biz">Business Name <span>*</span></label>
+<input id="f-biz" name="business_name" placeholder="Your Business Name" required="" type="text"/>
+</div>
+<button class="submit-btn" id="submitBtn" type="submit">Get My Digital Health Score →</button>
+<p class="form-disclaimer">Free forever · No credit card · No commitment</p>
 </form>
-<!-- Success card (hidden until submit) -->
-<div id="successCard">
-<div class="wave">🌊</div>
-<h3>You're on the Wave!</h3>
-<p>We've received your request. Expect a personalised review of your business online within <strong>24 hours</strong>. A confirmation email has been sent to you.</p>
-<div class="success-checks">
-<div class="sc">Google Business Profile &amp; local search visibility</div>
-<div class="sc">Website performance &amp; mobile experience</div>
-<div class="sc">Search rankings &amp; keyword gaps</div>
-<div class="sc">Lead capture &amp; follow-up system</div>
 </div>
-<div class="email-note">Check your inbox for a confirmation email from BluWav Growth.</div>
-</div>
-</div>
+<!-- CONFIRMATION / SCORE -->
+<div class="panel" id="panel-confirm">
+<div class="confirm-panel">
+<div class="score-ring-wrap">
+<svg height="120" viewbox="0 0 120 120" width="120">
+<circle class="score-ring-bg" cx="60" cy="60" r="50"></circle>
+<circle class="score-ring-fill" cx="60" cy="60" id="score-ring" r="50"></circle>
+</svg>
+<div class="score-center">
+<div class="score-number" id="display-score">0</div>
+<div class="score-denom">/ 20</div>
 </div>
 </div>
+<div class="score-tier-badge" id="tier-badge">—</div>
+<div class="confirm-name" id="confirm-heading">Here's where you stand.</div>
+<div class="confirm-msg" id="confirm-msg"></div>
+<div class="breakdown">
+<div class="breakdown-title">Your Score Breakdown</div>
+<div class="breakdown-row"><div class="breakdown-label">Google Visibility</div><div class="breakdown-bar-track"><div class="breakdown-bar-fill" id="bar-q1" style="width:0%"></div></div><div class="breakdown-score" id="bscore-q1">—</div></div>
+<div class="breakdown-row"><div class="breakdown-label">Website</div><div class="breakdown-bar-track"><div class="breakdown-bar-fill" id="bar-q2" style="width:0%"></div></div><div class="breakdown-score" id="bscore-q2">—</div></div>
+<div class="breakdown-row"><div class="breakdown-label">Reviews &amp; Trust</div><div class="breakdown-bar-track"><div class="breakdown-bar-fill" id="bar-q3" style="width:0%"></div></div><div class="breakdown-score" id="bscore-q3">—</div></div>
+<div class="breakdown-row"><div class="breakdown-label">Lead Capture</div><div class="breakdown-bar-track"><div class="breakdown-bar-fill" id="bar-q4" style="width:0%"></div></div><div class="breakdown-score" id="bscore-q4">—</div></div>
+<div class="breakdown-row"><div class="breakdown-label">Content &amp; Activity</div><div class="breakdown-bar-track"><div class="breakdown-bar-fill" id="bar-q5" style="width:0%"></div></div><div class="breakdown-score" id="bscore-q5">—</div></div>
 </div>
-<!-- FOOTER -->
-<div class="footer-bar">
-<div class="footer-logo">Blu<span>Wav</span> <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:9px;font-weight:700;color:rgba(255,255,255,0.4);letter-spacing:3px;text-transform:uppercase;">Growth</span></div>
-<div class="footer-links">
-<a href="index.html">Home</a>
-<a href="pricing.html">Pricing</a>
-<a href="crm.html">CRM</a>
-<a href="privacy.html">Privacy</a>
+<a class="confirm-cta" href="https://bluwavgrowth.com/pricing">See How BluWav Can Help →</a>
+<p class="confirm-note">Full personalised report sent to your email within 24 hours · No commitment</p>
 </div>
 </div>
-
+</div><!-- /quiz-card -->
+</div><!-- /hero -->
+</main>
+<footer>
+<div class="footer-inner">
+<a class="footer-brand" href="https://bluwavgrowth.com">Blu<span>Wav</span> Growth</a>
+<nav><ul class="footer-nav">
+<li><a href="https://bluwavgrowth.com">Home</a></li>
+<li><a href="https://bluwavgrowth.com/pricing">Pricing</a></li>
+<li><a href="https://bluwavgrowth.com/crm">CRM</a></li>
+<li><a href="https://bluwavgrowth.com/privacy">Privacy</a></li>
+</ul></nav>
+</div>
+</footer>
 <script>
-// ── SOURCE TRACKING ───────────────────────────────────────────────────────────
-(function() {
-  var p = new URLSearchParams(window.location.search);
-  var us = (p.get('utm_source') || p.get('src') || '').toLowerCase().trim();
-  var um = (p.get('utm_medium') || '').toLowerCase().trim();
-  var uc = (p.get('utm_campaign') || '').toLowerCase().trim();
-  var ref = document.referrer || '';
+(function(){
+  /* ── STATE ── */
+  const pts   = { q1:0, q2:0, q3:0, q4:0, q5:0 };
+  const order = ['q1','q2','q3','q4','q5','contact','confirm'];
+  let step = 0;
 
-  var codeMap = {
-    'facebook|cpc':'FB_AD','facebook|paid':'FB_AD','instagram|cpc':'IG_AD','instagram|paid':'IG_AD',
-    'facebook|social':'FB_POST','facebook|post':'FB_POST','instagram|social':'IG_POST','instagram|post':'IG_POST',
-    'whatsapp|chat':'WA_CHAT','whatsapp|broadcast':'WA_BCAST','email|newsletter':'EMAIL_NL',
-    'google|cpc':'GOOG_AD','google|organic':'GOOG_ORG','website|cta':'SITE_CTA'
-  };
-
-  var code = codeMap[us + '|' + um];
-  if (!code && us) {
-    if (us.indexOf('facebook') > -1) code = 'FB_AD';
-    else if (us.indexOf('instagram') > -1) code = 'IG_AD';
-    else if (us.indexOf('whatsapp') > -1) code = 'WA_LINK';
-    else code = us.toUpperCase().replace(/[^A-Z0-9]/g, '_').substring(0, 12);
-  }
-  if (!code) {
-    if (ref.indexOf('facebook.com') > -1) code = 'FB_REF';
-    else if (ref.indexOf('instagram.com') > -1) code = 'IG_REF';
-    else if (ref.indexOf('google.com') > -1) code = 'GOOG_REF';
-    else if (ref.indexOf('bluwavgrowth.com') > -1) code = 'SITE_REF';
-    else code = 'DIRECT';
+  /* ── HELPERS ── */
+  function showPanel(id){
+    document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+    document.getElementById('panel-'+id).classList.add('active');
   }
 
-  var lc = code + '_' + Date.now().toString(36).toUpperCase();
-  document.getElementById('f_source').value = code;
-  document.getElementById('f_lead_code').value = lc;
-  document.getElementById('f_utm_source').value = us;
-  document.getElementById('f_utm_medium').value = um;
-  document.getElementById('f_utm_campaign').value = uc;
-  document.getElementById('f_referrer').value = ref.substring(0, 200);
-})();
-
-// ── SUPABASE CRM ──────────────────────────────────────────────────────────────
-
-// INSERT INTO CRM CONTACTS TABLE
-function insertIntoCRM(d){
-  fetch('https://izyuupdmlzcphvdpigrs.supabase.co/rest/v1/contacts',{
-    method:'POST',
-    headers:{'Content-Type':'application/json','apikey':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml6eXV1cGRtbHpjcGh2ZHBpZ3JzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEzMjEwNDcsImV4cCI6MjA5Njg5NzA0N30.cmrOK8uAMZKzB1wPZAt7ClEpuUBEkx1PFy49MkhEyog','Authorization':'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml6eXV1cGRtbHpjcGh2ZHBpZ3JzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEzMjEwNDcsImV4cCI6MjA5Njg5NzA0N30.cmrOK8uAMZKzB1wPZAt7ClEpuUBEkx1PFy49MkhEyog','Prefer':'return=minimal'},
-    body:JSON.stringify(d)
-  }).then(function(r){console.log('CRM contact:',r.status);}).catch(function(e){console.warn('CRM fail:',e);});
-}
-
-function saveToCRM(data) {
-  fetch('https://izyuupdmlzcphvdpigrs.supabase.co/rest/v1/leads', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml6eXV1cGRtbHpjcGh2ZHBpZ3JzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEzMjEwNDcsImV4cCI6MjA5Njg5NzA0N30.cmrOK8uAMZKzB1wPZAt7ClEpuUBEkx1PFy49MkhEyog',
-      'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml6eXV1cGRtbHpjcGh2ZHBpZ3JzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEzMjEwNDcsImV4cCI6MjA5Njg5NzA0N30.cmrOK8uAMZKzB1wPZAt7ClEpuUBEkx1PFy49MkhEyog',
-      'Prefer': 'return=minimal'
-    },
-    body: JSON.stringify(data)
-  })
-  .then(function(r) { console.log('CRM saved, status:', r.status); })
-  .catch(function(err) { console.warn('CRM error (non-blocking):', err); });
-}
-
-// ── FORM SUBMIT ───────────────────────────────────────────────────────────────
-function submitHC() {
-  var firstName = document.getElementById('f_first').value.trim();
-  var lastName  = document.getElementById('f_last').value.trim();
-  var email     = document.getElementById('f_email').value.trim();
-  var phone     = document.getElementById('f_phone').value.trim();
-  var business  = document.getElementById('f_business').value.trim();
-  var industry  = document.getElementById('f_industry').value;
-  var location  = document.getElementById('f_location').value;
-  var website   = document.getElementById('f_website').value;
-  var source    = document.getElementById('f_source').value;
-  var leadCode  = document.getElementById('f_lead_code').value;
-  var utmSrc    = document.getElementById('f_utm_source').value;
-  var utmMed    = document.getElementById('f_utm_medium').value;
-  var utmCamp   = document.getElementById('f_utm_campaign').value;
-  var ref       = document.getElementById('f_referrer').value;
-  var fullName  = (firstName + ' ' + lastName).trim();
-
-  // Validate
-  var errEl = document.getElementById('formError');
-  if (!firstName || !email || !phone || !business) {
-    errEl.style.display = 'block';
-    errEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    return;
+  function updateProgress(qIdx){
+    const wrap  = document.getElementById('progress-wrap');
+    const label = document.getElementById('progress-label');
+    const pct   = document.getElementById('progress-pct');
+    const fill  = document.getElementById('progress-fill');
+    if(qIdx>=5){ wrap.style.display='none'; return; }
+    const p = Math.round((qIdx/5)*100);
+    label.textContent = 'Question '+(qIdx+1)+' of 5';
+    pct.textContent   = p+'%';
+    fill.style.width  = p+'%';
   }
-  errEl.style.display = 'none';
 
-  var btn = document.getElementById('hcBtn');
-  btn.textContent = 'Sending...';
-  btn.disabled = true;
+  function advance(){
+    step++;
+    showPanel(order[step]);
+    updateProgress(step);
+  }
 
-  // 1. Save to Supabase CRM
-  saveToCRM({
-    full_name:    fullName,
-    business:     business,
-    whatsapp:     phone,
-    email:        email,
-    interest:     website,
-    island:       location,
-    source:       source,
-    status:       'new',
-    raw_response: {
-      lead_code:    leadCode,
-      industry:     industry,
-      utm_source:   utmSrc,
-      utm_medium:   utmMed,
-      utm_campaign: utmCamp,
-      referrer:     ref
-    }
+  /* ── ANSWER BUTTONS ── */
+  document.querySelectorAll('.answer-btn').forEach(btn=>{
+    btn.addEventListener('click', function(){
+      const panel = this.dataset.panel;
+      const score = parseInt(this.dataset.pts, 10);
+      document.querySelectorAll('[data-panel="'+panel+'"]').forEach(b=>b.classList.remove('selected'));
+      this.classList.add('selected');
+      pts[panel] = score;
+      setTimeout(advance, 320);
+    });
   });
 
-  // 2. Send to Formspree
-  var fd = new FormData();
-  fd.append('_replyto',  email);
-  fd.append('email',     email);
-  fd.append('_subject',  'Health Check - ' + business + ' [' + leadCode + ']');
-  fd.append('name',      fullName);
-  fd.append('phone',     phone);
-  fd.append('business',  business);
-  fd.append('industry',  industry);
-  fd.append('location',  location);
-  fd.append('website',   website);
-  fd.append('source',    source);
-  fd.append('lead_code', leadCode);
-  fd.append('_template', 'table');
-  fd.append('_autoresponse',
-    'Hi ' + firstName + ',\n\n' +
-    'Thank you for requesting your free Digital Health Check from BluWav Growth!\n\n' +
-    'We have received your request and will review your business online presence within 24 hours.\n\n' +
-    'What we will check:\n' +
-    '- Your Google Business Profile and local search visibility\n' +
-    '- Your website performance and mobile experience\n' +
-    '- Your search rankings and keyword gaps\n' +
-    '- Your lead capture and follow-up system\n\n' +
-    'No commitment. No sales pitch. Just honest, practical advice.\n\n' +
-    'In the meantime, explore our packages at bluwavgrowth.com/pricing.html\n\n' +
-    'Built for growth. Ready for the world.\n' +
-    '- The BluWav Growth Team\n' +
-    'hello@bluwavgrowth.com | bluwavgrowth.com'
-  );
+  updateProgress(0);
 
-  // 3. Submit and show success
-  var done = false;
-  function onSuccess() {
-    if (done) return;
-    done = true;
-    if (typeof fbq !== 'undefined') fbq('track', 'Lead');
-    if (typeof gtag !== 'undefined') gtag('event', 'generate_lead', { event_category: 'Health Check', event_label: source });
-    document.getElementById('hcForm').style.display = 'none';
-    document.getElementById('successCard').style.display = 'block';
-    document.getElementById('formTitle').style.display = 'none';
-    document.getElementById('formSub').style.display = 'none';
-    document.getElementById('successCard').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  /* ── SOURCE TRACKING ── */
+  (function(){
+    const p = new URLSearchParams(window.location.search);
+    const src = p.get('utm_source')||p.get('src')||'direct';
+    document.getElementById('hidden-source').value = src;
+  })();
+
+  /* ── TIER LOGIC ── */
+  function getTier(total){
+    if(total>=17) return { label:'Visible & Growing', color:'#22c55e', bg:'#f0fdf4', msg:'Your digital presence is solid. We\'ll show you the remaining gaps that are still costing you customers and the exact moves to reach the next level.' };
+    if(total>=12) return { label:'Some Gaps Showing', color:'#eab308', bg:'#fefce8', msg:'You\'ve made real progress — but key areas are quietly leaking customers every day. Your breakdown shows exactly what to fix first for the fastest results.' };
+    if(total>=7)  return { label:'Mostly Invisible',  color:'#f97316', bg:'#fff7ed', msg:'Most customers searching for businesses like yours can\'t find you. The good news: your score reveals specific quick wins that will change that fast.' };
+    return { label:'Starting From Scratch', color:'#f43f5e', bg:'#fff1f2', msg:'You\'re not alone — and there\'s nowhere to go but up. Your breakdown gives you a clear, step-by-step starting point so nothing feels overwhelming.' };
   }
 
-  var timeout = setTimeout(onSuccess, 8000);
-  // Insert into CRM contacts table
-  var src2=document.getElementById('hcSource')?document.getElementById('hcSource').value:'direct';
-  var lc2=document.getElementById('hcLeadCode')?document.getElementById('hcLeadCode').value:'DIRECT';
-  insertIntoCRM({full_name:(formData.get('first-name')||'').trim()+' '+(formData.get('last-name')||'').trim(),email:formData.get('email')||'',phone:formData.get('whatsapp')||'',business_name:formData.get('business')||'',status:'Lead',island:formData.get('location')||'',source:src2,lead_code:lc2,notes:'Health Check | '+formData.get('website-status')+' | '+formData.get('industry')});
+  function getBarColor(p){ if(p===4)return'#22c55e'; if(p===3)return'#facc15'; if(p===2)return'#fb923c'; return'#f43f5e'; }
 
-  fetch('https://formspree.io/f/mrenyvld', {
-    method: 'POST',
-    body: fd,
-    headers: { 'Accept': 'application/json' }
-  })
-  .then(function() { clearTimeout(timeout); onSuccess(); })
-  .catch(function() { clearTimeout(timeout); onSuccess(); });
-}
+  /* ── BUILD CONFIRM ── */
+  function buildConfirm(total, firstName){
+    const tier = getTier(total);
+    const ring = document.getElementById('score-ring');
+    const circ = 2*Math.PI*50;
+    ring.style.strokeDasharray  = circ;
+    ring.style.strokeDashoffset = circ;
+    ring.style.stroke = tier.color;
+    setTimeout(()=>{ ring.style.strokeDashoffset = circ*(1-(total/20)); }, 80);
+    const display = document.getElementById('display-score');
+    let cur=0;
+    const inc = setInterval(()=>{ cur++; display.textContent=cur; if(cur>=total)clearInterval(inc); }, 60);
+    const badge = document.getElementById('tier-badge');
+    badge.textContent      = tier.label;
+    badge.style.color      = tier.color;
+    badge.style.background = tier.bg;
+    badge.style.border     = '1.5px solid '+tier.color;
+    document.getElementById('confirm-heading').textContent = firstName ? firstName+', here\'s where you stand.' : 'Here\'s where you stand.';
+    document.getElementById('confirm-msg').textContent = tier.msg;
+    ['q1','q2','q3','q4','q5'].forEach(k=>{
+      const p = pts[k];
+      document.getElementById('bar-'+k).style.background = getBarColor(p);
+      document.getElementById('bscore-'+k).textContent = p+'/4';
+      setTimeout(()=>{ document.getElementById('bar-'+k).style.width=(p/4*100)+'%'; }, 100);
+    });
+  }
+
+  /* ── FORM SUBMIT ── */
+  document.getElementById('contact-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    const required = ['f-first','f-last','f-email','f-phone','f-biz'];
+    let valid = true;
+    required.forEach(id=>{
+      const el = document.getElementById(id);
+      if(!el.value.trim()){ el.style.borderColor='#f43f5e'; valid=false; }
+      else el.style.borderColor='';
+    });
+    if(!valid){ document.getElementById('formError').style.display='block'; return; }
+    document.getElementById('formError').style.display='none';
+
+    const total = pts.q1+pts.q2+pts.q3+pts.q4+pts.q5;
+    const tier  = getTier(total);
+    const firstName = document.getElementById('f-first').value.trim();
+    const lastName  = document.getElementById('f-last').value.trim();
+    const email     = document.getElementById('f-email').value.trim();
+    const phone     = document.getElementById('f-phone').value.trim();
+    const biz       = document.getElementById('f-biz').value.trim();
+    const source    = document.getElementById('hidden-source').value;
+
+    document.getElementById('hidden-score').value = total;
+    document.getElementById('hidden-tier').value  = tier.label;
+    document.getElementById('hidden-q1').value    = pts.q1;
+    document.getElementById('hidden-q2').value    = pts.q2;
+    document.getElementById('hidden-q3').value    = pts.q3;
+    document.getElementById('hidden-q4').value    = pts.q4;
+    document.getElementById('hidden-q5').value    = pts.q5;
+
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+
+    // ── GA4 + Meta Pixel ──
+    if(typeof gtag!=='undefined') gtag('event','generate_lead',{event_category:'Health Check Quiz',event_label:tier.label,value:total});
+    if(typeof fbq!=='undefined')  fbq('track','Lead',{content_name:'Digital Health Score',content_category:tier.label});
+
+    // ── Supabase CRM insert ──
+    const SUPA_URL = 'https://izyuupdmlzcphvdpigrs.supabase.co';
+    const SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml6eXV1cGRtbHpjcGh2ZHBpZ3JzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEzMjEwNDcsImV4cCI6MjA5Njg5NzA0N30.cmrOK8uAMZKzB1wPZAt7ClEpuUBEkx1PFy49MkhEyog';
+    fetch(SUPA_URL+'/rest/v1/contacts',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','apikey':SUPA_KEY,'Authorization':'Bearer '+SUPA_KEY,'Prefer':'return=minimal'},
+      body:JSON.stringify({
+        full_name: firstName+' '+lastName,
+        email: email,
+        phone: phone,
+        business_name: biz,
+        notes: 'Health Check Score: '+total+'/20 ('+tier.label+') | Q1:'+pts.q1+' Q2:'+pts.q2+' Q3:'+pts.q3+' Q4:'+pts.q4+' Q5:'+pts.q5+' | Source: '+source,
+        island: ''
+      })
+    }).catch(()=>{});
+
+    // ── Formspree ──
+    const fd = new FormData();
+    fd.append('_replyto', email);
+    fd.append('email',    email);
+    fd.append('_subject', 'Digital Health Score: '+total+'/20 ('+tier.label+') — '+biz);
+    fd.append('name',     firstName+' '+lastName);
+    fd.append('phone',    phone);
+    fd.append('business', biz);
+    fd.append('score',    total+'/20');
+    fd.append('tier',     tier.label);
+    fd.append('q1_google_visibility', pts.q1+'/4');
+    fd.append('q2_website',           pts.q2+'/4');
+    fd.append('q3_reviews',           pts.q3+'/4');
+    fd.append('q4_lead_capture',      pts.q4+'/4');
+    fd.append('q5_content_activity',  pts.q5+'/4');
+    fd.append('source',   source);
+    fd.append('_template','table');
+    fd.append('_autoresponse',
+      'Hi '+firstName+',\n\n'+
+      'Your Digital Health Score is '+total+'/20 — '+tier.label+'.\n\n'+
+      tier.msg+'\n\n'+
+      'Score Breakdown:\n'+
+      '• Google Visibility: '+pts.q1+'/4\n'+
+      '• Website: '+pts.q2+'/4\n'+
+      '• Reviews & Trust: '+pts.q3+'/4\n'+
+      '• Lead Capture: '+pts.q4+'/4\n'+
+      '• Content & Activity: '+pts.q5+'/4\n\n'+
+      'We\'ll be in touch within 24 hours with your personalised improvement plan.\n\n'+
+      'Built for growth. Ready for the world.\n'+
+      '— The BluWav Growth Team\n'+
+      'hello@bluwavgrowth.com | bluwavgrowth.com'
+    );
+
+    var done = false;
+    function proceed(){
+      if(done) return;
+      done = true;
+      buildConfirm(total, firstName);
+      advance();
+    }
+
+    var timeout = setTimeout(proceed, 8000);
+    fetch('https://formspree.io/f/mrenyvld',{
+      method:'POST', body:fd, headers:{'Accept':'application/json'}
+    })
+    .then(()=>{ clearTimeout(timeout); proceed(); })
+    .catch(()=>{ clearTimeout(timeout); proceed(); });
+  });
+
+})();
 </script>
 </body>
 </html>
