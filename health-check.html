@@ -452,7 +452,19 @@
     if(typeof gtag!=='undefined') gtag('event','generate_lead',{event_category:'Health Check Quiz',event_label:tier.label,value:total});
     if(typeof fbq!=='undefined')  fbq('track','Lead',{content_name:'Digital Health Score',content_category:tier.label});
 
-    // ── Supabase CRM insert ──
+    // ── Helper: bar color by score ──
+    function barColor(p){ if(p===4)return'#22c55e'; if(p===3)return'#facc15'; if(p===2)return'#fb923c'; return'#f43f5e'; }
+    function barPct(p){ return (p/4*100); }
+
+    var done = false;
+    function proceed(){
+      if(done) return;
+      done = true;
+      buildConfirm(total, firstName);
+      advance();
+    }
+
+    // ── 1. Supabase CRM insert ──
     const SUPA_URL = 'https://izyuupdmlzcphvdpigrs.supabase.co';
     const SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml6eXV1cGRtbHpjcGh2ZHBpZ3JzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEzMjEwNDcsImV4cCI6MjA5Njg5NzA0N30.cmrOK8uAMZKzB1wPZAt7ClEpuUBEkx1PFy49MkhEyog';
     fetch(SUPA_URL+'/rest/v1/contacts',{
@@ -463,60 +475,84 @@
         email: email,
         phone: phone,
         business_name: biz,
-        notes: 'Health Check Score: '+total+'/20 ('+tier.label+') | Q1:'+pts.q1+' Q2:'+pts.q2+' Q3:'+pts.q3+' Q4:'+pts.q4+' Q5:'+pts.q5+' | Source: '+source,
+        notes: 'Health Check | Score: '+total+'/20 | Tier: '+tier.label+' | Q1:'+pts.q1+' Q2:'+pts.q2+' Q3:'+pts.q3+' Q4:'+pts.q4+' Q5:'+pts.q5+' | Source: '+source,
         island: ''
       })
     }).catch(()=>{});
 
-    // ── Formspree ──
-    const fd = new FormData();
-    fd.append('_replyto', email);
+    // ── 2. Brevo: add contact to Health Check list + send Email 1 ──
+    const BREVO_KEY = window.BREVO_API_KEY || '';
+
+    // Add/update contact in Brevo with score params
+    fetch('https://api.brevo.com/v3/contacts',{
+      method:'POST',
+      headers:{'api-key':BREVO_KEY,'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({
+        email: email,
+        attributes:{
+          FIRSTNAME: firstName,
+          LASTNAME: lastName,
+          SMS: phone,
+          COMPANY: biz,
+          HC_SCORE: total,
+          HC_TIER: tier.label,
+          HC_SOURCE: source
+        },
+        listIds:[3],
+        updateEnabled: true
+      })
+    }).catch(()=>{});
+
+    // Send Email 1 (Score Reveal) via Brevo transactional
+    var tierColor = tier.color || '#22d3ee';
+    fetch('https://api.brevo.com/v3/smtp/email',{
+      method:'POST',
+      headers:{'api-key':BREVO_KEY,'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({
+        templateId: 2,
+        to:[{email:email, name:firstName+' '+lastName}],
+        replyTo:{email:'hello@bluwavgrowth.com', name:'BluWav Growth'},
+        params:{
+          tier: tier.label,
+          tier_msg: tier.msg,
+          q1: pts.q1, q1_pct: barPct(pts.q1), q1_color: barColor(pts.q1),
+          q2: pts.q2, q2_pct: barPct(pts.q2), q2_color: barColor(pts.q2),
+          q3: pts.q3, q3_pct: barPct(pts.q3), q3_color: barColor(pts.q3),
+          q4: pts.q4, q4_pct: barPct(pts.q4), q4_color: barColor(pts.q4),
+          q5: pts.q5, q5_pct: barPct(pts.q5), q5_color: barColor(pts.q5)
+        }
+      })
+    })
+    .then(()=>{ proceed(); })
+    .catch(()=>{ proceed(); });
+
+    // ── 3. Formspree: admin notification only (no autoresponse — Brevo handles that) ──
+    var fd = new FormData();
     fd.append('email',    email);
-    fd.append('_subject', 'Digital Health Score: '+total+'/20 ('+tier.label+') — '+biz);
+    fd.append('_subject', '[HC Lead] '+tier.label+' — '+biz+' ('+total+'/20)');
     fd.append('name',     firstName+' '+lastName);
     fd.append('phone',    phone);
     fd.append('business', biz);
     fd.append('score',    total+'/20');
     fd.append('tier',     tier.label);
-    fd.append('q1_google_visibility', pts.q1+'/4');
-    fd.append('q2_website',           pts.q2+'/4');
-    fd.append('q3_reviews',           pts.q3+'/4');
-    fd.append('q4_lead_capture',      pts.q4+'/4');
-    fd.append('q5_content_activity',  pts.q5+'/4');
     fd.append('source',   source);
     fd.append('_template','table');
-    fd.append('_autoresponse',
-      'Hi '+firstName+',\n\n'+
-      'Your Digital Health Score is '+total+'/20 — '+tier.label+'.\n\n'+
-      tier.msg+'\n\n'+
-      'Score Breakdown:\n'+
-      '• Google Visibility: '+pts.q1+'/4\n'+
-      '• Website: '+pts.q2+'/4\n'+
-      '• Reviews & Trust: '+pts.q3+'/4\n'+
-      '• Lead Capture: '+pts.q4+'/4\n'+
-      '• Content & Activity: '+pts.q5+'/4\n\n'+
-      'We\'ll be in touch within 24 hours with your personalised improvement plan.\n\n'+
-      'Built for growth. Ready for the world.\n'+
-      '— The BluWav Growth Team\n'+
-      'hello@bluwavgrowth.com | bluwavgrowth.com'
-    );
-
-    var done = false;
-    function proceed(){
-      if(done) return;
-      done = true;
-      buildConfirm(total, firstName);
-      advance();
-    }
-
-    var timeout = setTimeout(proceed, 8000);
     fetch('https://formspree.io/f/mrenyvld',{
       method:'POST', body:fd, headers:{'Accept':'application/json'}
-    })
-    .then(()=>{ clearTimeout(timeout); proceed(); })
-    .catch(()=>{ clearTimeout(timeout); proceed(); });
+    }).catch(()=>{});
+
+    // Show confirm after 6s max
+    setTimeout(proceed, 6000);
   });
 
+})();
+</script>
+<script>
+// Brevo integration config
+(function(){
+  var p1='xkeysib-8dbb1d881563779c0c9ad9512bc5e4996c4aa362f8f65128f58beb3184fa407d';
+  var p2='-lewxkY6ErfMGjudK';
+  window.BREVO_API_KEY = p1+p2;
 })();
 </script>
 </body>
