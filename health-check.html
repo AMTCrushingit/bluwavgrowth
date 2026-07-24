@@ -147,8 +147,8 @@ h1 .teal{color:var(--cyan);}
 <!-- RIGHT: FORM -->
 <div>
 <div class="form-card">
-<div class="form-title">Get Your Free Digital Health Check</div>
-<div class="form-sub">Fill in your details below. We'll review your business and send you a personalised report within 24 hours.</div>
+<div class="form-title" id="formTitle">Free Digital Health Check</div>
+<div class="form-sub" id="formSub">Tell us about your business — results within 24 hours.</div>
 <!-- Error message -->
 <div id="formError">Please fill in all required fields before submitting.</div>
 <form id="hcForm">
@@ -424,6 +424,8 @@ function submitHC() {
     if (typeof gtag !== 'undefined') gtag('event', 'generate_lead', { event_category: 'Health Check', event_label: source });
     document.getElementById('hcForm').style.display = 'none';
     document.getElementById('successCard').style.display = 'block';
+    document.getElementById('formTitle').style.display = 'none';
+    document.getElementById('formSub').style.display = 'none';
     document.getElementById('successCard').scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 
