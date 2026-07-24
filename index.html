@@ -925,7 +925,7 @@ a[style*="background:#00E0FF"]:hover::after,a[style*="background:var(--cyan)"]:h
 .px-layer-3{animation:px-move-3 10s linear infinite;opacity:0.30;}
 
 
-/* ── Currency Selector ── */
+
 #currency-btn{background:rgba(0,224,255,0.1);border:1px solid rgba(0,224,255,0.3);color:#00E0FF;font-size:12px;font-weight:700;padding:8px 14px;border-radius:20px;cursor:pointer;transition:all 0.2s;font-family:inherit;}
 #currency-btn:hover{background:rgba(0,224,255,0.2);}
 #currency-modal{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:9998;background:rgba(0,0,0,0.6);backdrop-filter:blur(4px);}
@@ -1882,101 +1882,6 @@ footer .footer-grid{gap:56px !important;}
 <!-- End Meta Pixel Code -->
 </head>
 <body>
-<!-- Currency Selector -->
-<div id="currency-modal" onclick="closeCurrency(event)">
-<div id="currency-box">
-<h3>Select Your Currency</h3>
-<div class="currency-option active" onclick="setCurrency('USD','$','US Dollar')">
-<span class="currency-flag">🇺🇸</span>
-<div class="currency-info"><div class="currency-code">USD</div><div class="currency-name">United States Dollar</div></div>
-<span class="currency-check" id="check-USD">✓</span>
-</div>
-
-<span class="currency-check" id="check-TTD" style="display:none;">✓</span>
-</div>
-<div class="currency-option" onclick="setCurrency('XCD','EC$','East Caribbean Dollar')">
-<span class="currency-flag">🌊</span>
-<div class="currency-info"><div class="currency-code">XCD</div>
-<div class="currency-option" onclick="setCurrency('CAD','CA$','Canadian Dollar')">
-<span class="currency-flag">🇨🇦</span>
-<div class="currency-info"><div class="currency-code">CAD</div><div class="currency-name">Canadian Dollar</div></div>
-<span class="currency-check" id="check-CAD" style="display:none;">✓</span>
-</div><div class="currency-name">East Caribbean Dollar</div></div>
-<span class="currency-check" id="check-XCD" style="display:none;">✓</span>
-</div>
-<div class="currency-option" onclick="setCurrency('JMD','J$','Jamaican Dollar')">
-<span class="currency-flag">🇯🇲</span>
-<div class="currency-info"><div class="currency-code">JMD</div><div class="currency-name">Jamaican Dollar</div></div>
-<span class="currency-check" id="check-JMD" style="display:none;">✓</span>
-</div>
-<script>
-// Exchange rates (approximate, update periodically)
-var rates = {USD:1, TTD:6.79, XCD:2.70, JMD:157, CAD:1.36};
-var symbols = {USD:'$', TTD:'TT$', XCD:'EC$', JMD:'J$', CAD:'CA$'};
-var current = 'USD';
-
-function openCurrency(){document.getElementById('currency-modal').classList.add('open');}
-function closeCurrency(e){if(e.target===document.getElementById('currency-modal'))document.getElementById('currency-modal').classList.remove('open');}
-
-function setCurrency(code, symbol, name){
-  current = code;
-  // Update pill buttons, orange = active, dark = inactive
-  ['USD','TTD','XCD','CAD'].forEach(function(c){
-    var pill = document.getElementById('curr-'+c);
-    if(!pill) return;
-    if(c === code){
-      pill.style.background = '#FF5500';
-      pill.style.color = '#fff';
-    } else {
-      pill.style.background = 'rgba(255,255,255,0.12)';
-      pill.style.color = 'rgba(255,255,255,0.7)';
-    }
-  });
-  // Hide all checks, show selected
-  ['USD','TTD','XCD','JMD','CAD'].forEach(function(c){
-    var el = document.getElementById('check-'+c);
-    if(el) el.style.display = c===code ? 'block' : 'none';
-  });
-  // Update active class
-  document.querySelectorAll('.currency-option').forEach(function(el){el.classList.remove('active');});
-  event.currentTarget.classList.add('active');
-  // Convert all prices on page
-  document.querySelectorAll('[data-usd]').forEach(function(el){
-    var usd = parseFloat(el.getAttribute('data-usd'));
-    var converted = Math.round(usd * rates[code]);
-    el.textContent = symbol + converted.toLocaleString();
-  });
-  document.getElementById('currency-modal').classList.remove('open');
-}
-</script>
-<nav id="mainNav">
-<div class="nav-logo" style="display:flex;flex-direction:column;align-items:flex-start;line-height:1;padding:4px 0;">
-<div style="font-family:'Kaushan Script',cursive;font-size:26px;line-height:1;color:#fff;">Blu<span style="color:#00E0FF;">Wav</span></div>
-<div style="font-size:8px;font-weight:700;color:#00E0FF;letter-spacing:3px;text-transform:uppercase;line-height:1.4;margin-top:2px;">Get Found. Get Chosen. Grow.</div>
-</div>
-<div class="nav-links">
-<a class="nav-link" data-page="home" href="index.html">Home</a>
-<a class="nav-link" data-page="home" href="index.html#what-we-do">Services</a>
-<a class="nav-link" data-page="pricing" href="pricing.html">Pricing</a>
-<a class="nav-link" data-page="crm" href="crm.html">BluWav CRM</a>
-<a class="nav-link" data-page="wave" href="the-wave.html" style="color:#00E0FF;font-weight:700;">The Wave</a>
-<a class="nav-link" data-page="home" href="index.html#contact">Contact</a>
-<a class="nav-cta" href="health-check.html">Get My Health Score</a>
-</div>
-<button aria-label="Menu" class="hamburger" id="hamburgerBtn" onclick="toggleMob()"><span></span><span></span><span></span></button>
-</nav>
-<div class="mob-nav" id="mobNav">
-<div class="mob-nav-inner">
-<a class="mob-link" data-page="home" href="index.html" onclick="closeMob()">🏠 Home</a>
-<a class="mob-link" data-page="home" href="index.html#what-we-do" onclick="closeMob()">⚡ Services</a>
-<a class="mob-link" data-page="home" href="index.html#how-it-works" onclick="closeMob()" style="padding-left:24px;font-size:13px;color:rgba(255,255,255,0.6);">— How It Works</a>
-<a class="mob-link" data-page="pricing" href="pricing.html" onclick="closeMob()">💰 Pricing</a>
-<a class="mob-link" data-page="crm" href="crm.html" onclick="closeMob()">🗂️ BluWav CRM</a>
-<a class="mob-link wave" data-page="wave" href="the-wave.html" onclick="closeMob()">🌊 The Wave</a>
-<a class="mob-link" data-page="home" href="index.html#contact" onclick="closeMob()">📞 Contact</a>
-<a class="mob-cta" href="health-check.html" onclick="closeMob()">🩺 Get My Free Digital Health Check</a>
-</div>
-</div>
 <!-- HERO -->
 <section class="hero" id="home" style="min-height:100vh;position:relative;display:flex;align-items:center;padding:0;margin-bottom:0;overflow:visible;">
 <!-- FULL BLEED BACKGROUND IMAGE -->
@@ -2353,7 +2258,7 @@ function setCurrency(code, symbol, name){
 <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#00E0FF;margin-bottom:6px;">Starter</div>
 <h4 style="font-size:24px;font-weight:800;color:#002B49;margin-bottom:8px;font-family:'Manrope',sans-serif;">Ripple</h4>
 <p style="font-size:13px;color:#64748b;line-height:1.65;margin-bottom:16px;flex:1;">Get online fast with the essentials that help customers find you.</p>
-<div data-usd="1800" style="font-family:'Manrope',sans-serif;font-size:36px;font-weight:900;color:#002B49;line-height:1;margin-bottom:2px;">$1,800</div>
+<div style="font-family:'Manrope',sans-serif;font-size:36px;font-weight:900;color:#002B49;line-height:1;margin-bottom:2px;">$1,800</div>
 <div style="font-size:12px;color:#64748b;margin-bottom:20px;">Starting at</div>
 <a href="apply.html?plan=ripple" onmouseout="this.style.transform='translateY(0)'" onmouseover="this.style.transform='translateY(-2px)'" style="display:block;background:#00E0FF;color:#fff;font-size:14px;font-weight:800;padding:13px 20px;border-radius:11px;text-decoration:none;text-align:center;transition:all 0.2s;">Apply for Ripple →</a>
 <a href="pricing.html" style="display:block;text-align:center;font-size:12px;color:#64748b;margin-top:10px;text-decoration:underline;">See what's included</a>
@@ -2365,7 +2270,7 @@ function setCurrency(code, symbol, name){
 <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#F7C873;margin-bottom:6px;margin-top:10px;">Growth</div>
 <h4 style="font-size:24px;font-weight:800;color:#fff;margin-bottom:8px;font-family:'Manrope',sans-serif;">Current</h4>
 <p style="font-size:13px;color:rgba(255,255,255,0.65);line-height:1.65;margin-bottom:16px;flex:1;">Boost visibility, engagement, and trust with local SEO and WhatsApp systems.</p>
-<div data-usd="3000" style="font-family:'Manrope',sans-serif;font-size:36px;font-weight:900;color:#F7C873;line-height:1;margin-bottom:2px;">$3,000</div>
+<div style="font-family:'Manrope',sans-serif;font-size:36px;font-weight:900;color:#F7C873;line-height:1;margin-bottom:2px;">$3,000</div>
 <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:20px;">Starting at</div>
 <a href="apply.html?plan=current" onmouseout="this.style.transform='translateY(0)'" onmouseover="this.style.transform='translateY(-2px)'" style="display:block;background:#F7C873;color:#002B49;font-size:14px;font-weight:800;padding:13px 20px;border-radius:11px;text-decoration:none;text-align:center;transition:all 0.2s;">Apply for Current →</a>
 <a href="pricing.html" style="display:block;text-align:center;font-size:12px;color:rgba(255,255,255,0.4);margin-top:10px;text-decoration:underline;">See what's included</a>
@@ -2375,7 +2280,7 @@ function setCurrency(code, symbol, name){
 <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#F7C873;margin-bottom:6px;">Full Transformation</div>
 <h4 style="font-size:24px;font-weight:800;color:#fff;margin-bottom:8px;font-family:'Manrope',sans-serif;">Surge</h4>
 <p style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.65;margin-bottom:16px;flex:1;">Scale across multiple channels with advanced automation and multi-search visibility.</p>
-<div data-usd="5000" style="font-family:'Manrope',sans-serif;font-size:36px;font-weight:900;color:#F7C873;line-height:1;margin-bottom:2px;">$5,000+</div>
+<div style="font-family:'Manrope',sans-serif;font-size:36px;font-weight:900;color:#F7C873;line-height:1;margin-bottom:2px;">$5,000+</div>
 <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:20px;">Setup + Monthly</div>
 <a href="apply.html?plan=surge" onmouseout="this.style.transform='translateY(0)'" onmouseover="this.style.transform='translateY(-2px)'" style="display:block;background:#F7C873;color:#001020;font-size:14px;font-weight:800;padding:13px 20px;border-radius:11px;text-decoration:none;text-align:center;transition:all 0.2s;">Apply for Surge →</a>
 <a href="pricing.html" style="display:block;text-align:center;font-size:12px;color:rgba(255,255,255,0.3);margin-top:10px;text-decoration:underline;">See what's included</a>
@@ -2763,16 +2668,16 @@ function setCurrency(code, symbol, name){
 <div style="display:flex;flex-direction:column;gap:16px;">
 <div onmouseout="this.style.borderColor='var(--mist)';this.style.transform='translateX(0)'" onmouseover="this.style.borderColor='var(--cyan)';this.style.transform='translateX(6px)'" style="background:var(--sand);border-radius:16px;padding:24px 28px;border:1px solid var(--mist);display:flex;align-items:center;justify-content:space-between;gap:20px;transition:all 0.2s;">
 <div><div style="font-size:11px;font-weight:800;color:var(--slate);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px;">Starter</div><div style="font-size:18px;font-weight:800;color:var(--navy);">BluWav Ripple</div><div style="font-size:13px;color:var(--slate);margin-top:4px;">Website + basic automation</div></div>
-<div style="text-align:right;flex-shrink:0;"><div data-usd="1800" style="font-family:'Sora',sans-serif;font-size:28px;font-weight:900;color:var(--navy);">$1,800</div><div style="font-size:11px;color:var(--slate);">– $1,499</div></div>
+<div style="text-align:right;flex-shrink:0;"><div style="font-family:'Sora',sans-serif;font-size:28px;font-weight:900;color:var(--navy);">$1,800</div><div style="font-size:11px;color:var(--slate);">– $1,499</div></div>
 </div>
 <div onmouseout="this.style.borderColor='rgba(0,224,255,0.2)';this.style.transform='translateX(0)'" onmouseover="this.style.borderColor='var(--cyan)';this.style.transform='translateX(6px)'" style="background:var(--navy);border-radius:16px;padding:24px 28px;border:2px solid rgba(0,224,255,0.2);display:flex;align-items:center;justify-content:space-between;gap:20px;position:relative;overflow:hidden;transition:all 0.2s;">
 <div style="position:absolute;top:0;right:0;background:linear-gradient(135deg,var(--coral),var(--gold));font-size:10px;font-weight:800;color:#fff;padding:4px 12px;border-radius:0 0 0 10px;">⭐ Most Popular</div>
 <div><div style="font-size:11px;font-weight:800;color:var(--gold);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px;">Growth</div><div style="font-size:18px;font-weight:800;color:#fff;">BluWav Current</div><div style="font-size:13px;color:rgba(255,255,255,0.5);margin-top:4px;">Full system + Google + WhatsApp</div></div>
-<div style="text-align:right;flex-shrink:0;"><div data-usd="3000" style="font-family:'Sora',sans-serif;font-size:28px;font-weight:900;color:var(--gold);">$3,000</div><div style="font-size:11px;color:rgba(255,255,255,0.4);">– $2,499</div></div>
+<div style="text-align:right;flex-shrink:0;"><div style="font-family:'Sora',sans-serif;font-size:28px;font-weight:900;color:var(--gold);">$3,000</div><div style="font-size:11px;color:rgba(255,255,255,0.4);">– $2,499</div></div>
 </div>
 <div onmouseout="this.style.borderColor='rgba(247,200,115,0.25)';this.style.transform='translateX(0)'" onmouseover="this.style.borderColor='var(--gold)';this.style.transform='translateX(6px)'" style="background:linear-gradient(135deg,#001020,var(--navy));border-radius:16px;padding:24px 28px;border:1px solid rgba(247,200,115,0.25);display:flex;align-items:center;justify-content:space-between;gap:20px;transition:all 0.2s;">
 <div><div style="font-size:11px;font-weight:800;color:var(--gold);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px;">Full Transformation</div><div style="font-size:18px;font-weight:800;color:#fff;">BluWav Surge</div><div style="font-size:13px;color:rgba(255,255,255,0.5);margin-top:4px;">Complete digital domination</div></div>
-<div style="text-align:right;flex-shrink:0;"><div data-usd="5000" style="font-family:'Sora',sans-serif;font-size:28px;font-weight:900;color:var(--gold);">$5,000+</div><div style="font-size:11px;color:rgba(255,255,255,0.4);">Setup + Monthly</div></div>
+<div style="text-align:right;flex-shrink:0;"><div style="font-family:'Sora',sans-serif;font-size:28px;font-weight:900;color:var(--gold);">$5,000+</div><div style="font-size:11px;color:rgba(255,255,255,0.4);">Setup + Monthly</div></div>
 </div>
 <div style="background:rgba(0,194,209,0.06);border:1px solid rgba(0,194,209,0.15);border-radius:12px;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
 <p style="font-size:13px;color:var(--slate);margin:0;line-height:1.5;">🗂️ Every business plan includes a <strong style="color:var(--navy);">14-day CRM trial.</strong> Ready to go further?</p>
