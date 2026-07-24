@@ -746,7 +746,7 @@ function submitHC() {
   // Insert into CRM contacts table with source + lead score
   insertIntoCRM({full_name:fullName,email:email,phone:wa,business_name:biz,status:'Lead',island:location||'',source:source,lead_code:leadCode,notes:'Health Check | '+goal+' | '+industry+' | Score:'+scoring.score+' '+scoring.tag});
 
-  fetch('https://formspree.io/f/xpwzgvkd',{method:'POST',body:formData,headers:{'Accept':'application/json'}})
+  fetch('https://formspree.io/f/mrenyvld',{method:'POST',body:formData,headers:{'Accept':'application/json'}})
   .then(function(){clearTimeout(timeout);proceed();})
   .catch(function(){clearTimeout(timeout);proceed();});
 

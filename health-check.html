@@ -435,7 +435,7 @@ function submitHC() {
   var lc2=document.getElementById('hcLeadCode')?document.getElementById('hcLeadCode').value:'DIRECT';
   insertIntoCRM({full_name:(formData.get('first-name')||'').trim()+' '+(formData.get('last-name')||'').trim(),email:formData.get('email')||'',phone:formData.get('whatsapp')||'',business_name:formData.get('business')||'',status:'Lead',island:formData.get('location')||'',source:src2,lead_code:lc2,notes:'Health Check | '+formData.get('website-status')+' | '+formData.get('industry')});
 
-  fetch('https://formspree.io/f/xpwzgvkd', {
+  fetch('https://formspree.io/f/mrenyvld', {
     method: 'POST',
     body: fd,
     headers: { 'Accept': 'application/json' }
