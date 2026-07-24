@@ -914,7 +914,7 @@ function submitForm(e) {
 
   // Send to Formspree, handles confirmation email to client + notification to BluWav
   var formData = new FormData();
-  formData.append('_replyto', email);
+  formData.append('_replyto', 'tanyersinc@gmail.com');
   formData.append('email', email);
   formData.append('_subject', '🌊 BluWav Application Received, ' + pkg);
   formData.append('name', firstName + ' ' + lastName);

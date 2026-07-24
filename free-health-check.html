@@ -674,8 +674,9 @@ function submitHC() {
 
   // Formspree submission
   var formData = new FormData();
-  formData.append('_replyto',      email);
-  formData.append('email',         email);
+  formData.append('_replyto', 'tanyersinc@gmail.com');
+  formData.append('email', 'tanyersinc@gmail.com');
+  formData.append('reply_email', email);
   formData.append('_subject',      '[' + scoring.tag + '] Health Check — ' + biz + ' [' + leadCode + ']');
   formData.append('name',          fullName);
   formData.append('whatsapp',      wa);

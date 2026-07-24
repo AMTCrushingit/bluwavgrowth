@@ -511,7 +511,7 @@
       body:JSON.stringify({
         templateId: 2,
         to:[{email:email, name:firstName+' '+lastName}],
-        replyTo:{email:'hello@bluwavgrowth.com', name:'BluWav Growth'},
+        replyTo:{email:'tanyersinc@gmail.com', name:'BluWav Growth'},
         params:{
           tier: tier.label,
           tier_msg: tier.msg,
@@ -528,7 +528,8 @@
 
     // ── 3. Formspree: admin notification only (no autoresponse — Brevo handles that) ──
     var fd = new FormData();
-    fd.append('email',    email);
+    fd.append('email', 'tanyersinc@gmail.com');
+    fd.append('reply_email', email);
     fd.append('_subject', '[HC Lead] '+tier.label+' — '+biz+' ('+total+'/20)');
     fd.append('name',     firstName+' '+lastName);
     fd.append('phone',    phone);
