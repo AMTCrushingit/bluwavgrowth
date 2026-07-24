@@ -1883,6 +1883,33 @@ footer .footer-grid{gap:56px !important;}
 </head>
 <body>
 <!-- HERO -->
+<nav id="mainNav">
+<div class="nav-logo" style="display:flex;flex-direction:column;align-items:flex-start;line-height:1;padding:4px 0;">
+<div style="font-family:'Kaushan Script',cursive;font-size:26px;line-height:1;color:#fff;">Blu<span style="color:#00E0FF;">Wav</span></div>
+<div style="font-size:8px;font-weight:700;color:#00E0FF;letter-spacing:3px;text-transform:uppercase;line-height:1.4;margin-top:2px;">Get Found. Get Chosen. Grow.</div>
+</div>
+<div class="nav-links">
+<a class="nav-link" data-page="home" href="index.html">Home</a>
+<a class="nav-link" data-page="home" href="index.html#what-we-do">Services</a>
+<a class="nav-link" data-page="pricing" href="pricing.html">Pricing</a>
+<a class="nav-link" data-page="crm" href="crm.html">BluWav CRM</a>
+<a class="nav-link" data-page="wave" href="the-wave.html" style="color:#00E0FF;font-weight:700;">The Wave</a>
+<a class="nav-link" data-page="home" href="index.html#contact">Contact</a>
+<a class="nav-cta" href="health-check.html">Get My Health Score</a>
+</div>
+<button aria-label="Menu" class="hamburger" id="hamburgerBtn" onclick="toggleMob()"><span></span><span></span><span></span></button>
+</nav>
+<div class="mob-nav" id="mobNav">
+<div class="mob-nav-inner">
+<a class="mob-link" data-page="home" href="index.html" onclick="closeMob()">🏠 Home</a>
+<a class="mob-link" data-page="home" href="index.html#what-we-do" onclick="closeMob()">⚡ Services</a>
+<a class="mob-link" data-page="pricing" href="pricing.html" onclick="closeMob()">💰 Pricing</a>
+<a class="mob-link" data-page="crm" href="crm.html" onclick="closeMob()">🗂️ BluWav CRM</a>
+<a class="mob-link wave" data-page="wave" href="the-wave.html" onclick="closeMob()">🌊 The Wave</a>
+<a class="mob-link" data-page="home" href="index.html#contact" onclick="closeMob()">📞 Contact</a>
+<a class="mob-cta" href="health-check.html" onclick="closeMob()">🩺 Get My Digital Health Score</a>
+</div>
+</div>
 <section class="hero" id="home" style="min-height:100vh;position:relative;display:flex;align-items:center;padding:0;margin-bottom:0;overflow:visible;">
 <!-- FULL BLEED BACKGROUND IMAGE -->
 <div style="position:absolute;inset:0;z-index:0;">
