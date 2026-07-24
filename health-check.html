@@ -315,7 +315,7 @@
 <div class="breakdown-row"><div class="breakdown-label">Content &amp; Activity</div><div class="breakdown-bar-track"><div class="breakdown-bar-fill" id="bar-q5" style="width:0%"></div></div><div class="breakdown-score" id="bscore-q5">—</div></div>
 </div>
 <a class="confirm-cta" href="https://bluwavgrowth.com/pricing">See How BluWav Can Help →</a>
-<p class="confirm-note">Full personalised report sent to your email within 24 hours · No commitment</p>
+<p class="confirm-note">Your score &amp; full breakdown sent to your email · Usually within minutes · No commitment</p>
 </div>
 </div>
 </div><!-- /quiz-card -->
@@ -397,15 +397,8 @@
   /* ── BUILD CONFIRM ── */
   function buildConfirm(total, firstName){
     const tier = getTier(total);
-    const ring = document.getElementById('score-ring');
-    const circ = 2*Math.PI*50;
-    ring.style.strokeDasharray  = circ;
-    ring.style.strokeDashoffset = circ;
-    ring.style.stroke = tier.color;
-    setTimeout(()=>{ ring.style.strokeDashoffset = circ*(1-(total/20)); }, 80);
-    const display = document.getElementById('display-score');
-    let cur=0;
-    const inc = setInterval(()=>{ cur++; display.textContent=cur; if(cur>=total)clearInterval(inc); }, 60);
+    // Score ring hidden — score sent via email only
+    // Score hidden — sent via email only
     const badge = document.getElementById('tier-badge');
     badge.textContent      = tier.label;
     badge.style.color      = tier.color;
