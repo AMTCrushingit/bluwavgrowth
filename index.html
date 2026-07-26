@@ -1766,6 +1766,17 @@ footer .footer-grid{gap:56px !important;}
   .hero-dashboard-img{display:none !important;}
 }
 
+
+/* ── Hero dashboard float + glow animations ── */
+@keyframes heroDashFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes heroDashGlow {
+  0%, 100% { opacity: 0.6; transform: translateY(-50%) scale(1); }
+  50% { opacity: 1; transform: translateY(-50%) scale(1.08); }
+}
+
 /* ── Four Pillars flex with arrows: stack on mobile ── */
 @media(max-width:768px){
   .pillars-flex-wrap{flex-direction:column !important;}
@@ -1935,12 +1946,14 @@ footer .footer-grid{gap:56px !important;}
 <section class="hero" id="home" style="min-height:100vh;position:relative;display:flex;align-items:center;padding:0;margin-bottom:0;overflow:visible;">
 <!-- HERO BACKGROUND: full bleed dashboard image -->
 <div style="position:absolute;inset:0;z-index:0;">
-<img alt="BluWav Digital Health Dashboard" src="hero-main.png" fetchpriority="high" decoding="async" style="width:100%;height:100%;object-fit:contain;object-position:right center;display:block;filter:brightness(0.95) contrast(1.02) saturate(1.05);background:#001828;"/>
+<img alt="BluWav Digital Health Dashboard" src="hero-main.png" fetchpriority="high" decoding="async" style="width:100%;height:100%;object-fit:contain;object-position:right center;display:block;filter:brightness(0.95) contrast(1.02) saturate(1.05);background:#001828;animation:heroDashFloat 6s ease-in-out infinite;transform-origin:right center;"/>
 </div>
 <!-- Strong left-to-right gradient: text area fully dark, image visible on right -->
 <div style="position:absolute;inset:0;z-index:1;background:linear-gradient(to right,rgba(0,4,12,1) 0%,rgba(0,4,12,1) 18%,rgba(0,8,20,0.96) 30%,rgba(0,12,28,0.70) 42%,rgba(0,20,40,0.20) 54%,transparent 64%);pointer-events:none;"></div>
 <!-- Top/bottom vignette for depth -->
 <div style="position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom,rgba(0,4,12,0.5) 0%,transparent 20%,transparent 75%,rgba(0,4,12,0.6) 100%);pointer-events:none;"></div>
+<!-- Cyan glow behind dashboard area -->
+<div style="position:absolute;top:50%;right:15%;transform:translateY(-50%);width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(0,194,216,0.08) 0%,transparent 65%);z-index:1;pointer-events:none;animation:heroDashGlow 6s ease-in-out infinite;"></div>
 <!-- TEXT CONTENT: left side, sits on gradient -->
 <div class="hero-content-wrap" style="position:relative;z-index:4;width:100%;max-width:1600px;margin:0 auto;padding:120px 7% 80px;">
 <div style="max-width:600px;width:100%;">
