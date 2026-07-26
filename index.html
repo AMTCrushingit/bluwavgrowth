@@ -32,6 +32,7 @@
 <!-- Optimized font load: only weights used, display=swap prevents FOIT -->
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Sora:wght@700;800;900&amp;family=Kaushan+Script&amp;&amp;display=swap" media="print" onload="this.media='all'" rel="stylesheet"/>
 <noscript><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Sora:wght@700;800;900&amp;family=Kaushan+Script&amp;&amp;display=swap" rel="stylesheet"/></noscript>
+<noscript><style>.stagger-card,.img-reveal,.section-enter{opacity:1!important;transform:none!important;filter:none!important;}</style></noscript>
 <style>
 /* Font loaded via <link> in <head>, @import removed for performance */
 
@@ -1801,7 +1802,7 @@ footer .footer-grid{gap:56px !important;}
 #scroll-progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--coral),var(--gold),var(--cyan));z-index:9999;width:0%;transition:width 0.1s linear;border-radius:0 2px 2px 0;}
 
 /* Hero particle canvas */
-#hero-canvas{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:0.4;}
+#hero-canvas{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:0.25;}
 
 /* Magnetic CTA */
 .hero-cta-pulse{transition:transform 0.2s cubic-bezier(0.22,1,0.36,1),box-shadow 0.2s ease!important;}
@@ -1815,11 +1816,10 @@ footer .footer-grid{gap:56px !important;}
 @keyframes orbFloat{0%,100%{transform:translateY(0) scale(1);}33%{transform:translateY(-30px) scale(1.05);}66%{transform:translateY(15px) scale(0.97);}}
 
 /* Section entrance — slide up with blur */
-.section-enter{opacity:0;transform:translateY(40px);filter:blur(4px);transition:opacity 0.8s cubic-bezier(0.22,1,0.36,1),transform 0.8s cubic-bezier(0.22,1,0.36,1),filter 0.8s ease;}
-.section-enter.visible{opacity:1;transform:translateY(0);filter:blur(0);}
+.section-enter{opacity:1;transform:none;} /* sections always visible */
 
 /* Stagger cards */
-.stagger-card{opacity:0;transform:translateY(32px);transition:opacity 0.6s cubic-bezier(0.22,1,0.36,1),transform 0.6s cubic-bezier(0.22,1,0.36,1);}
+.stagger-card{opacity:0;transform:translateY(24px);transition:opacity 0.5s cubic-bezier(0.22,1,0.36,1),transform 0.5s cubic-bezier(0.22,1,0.36,1);}
 .stagger-card.visible{opacity:1;transform:translateY(0);}
 .stagger-card:nth-child(1){transition-delay:0s;}
 .stagger-card:nth-child(2){transition-delay:0.1s;}
@@ -1856,7 +1856,7 @@ footer .footer-grid{gap:56px !important;}
 @keyframes borderRotate{0%{background-position:0% 50%;}100%{background-position:200% 50%;}}
 
 /* Smooth reveal for images */
-.img-reveal{opacity:0;transform:scale(0.96);transition:opacity 0.9s ease,transform 0.9s cubic-bezier(0.22,1,0.36,1);}
+.img-reveal{opacity:0;transform:scale(0.98);transition:opacity 0.7s ease,transform 0.7s cubic-bezier(0.22,1,0.36,1);}
 .img-reveal.visible{opacity:1;transform:scale(1);}
 
 /* Reduced motion */
@@ -2425,7 +2425,7 @@ footer .footer-grid{gap:56px !important;}
 
 
 <!-- HOW IT WORKS, dark grid bg, 3 steps with connector -->
-<section class="section-enter" id="how-it-works" style="background:#001828;padding:120px 0;position:relative;overflow:hidden;">
+<section id="how-it-works" style="background:#001828;padding:120px 0;position:relative;overflow:hidden;">
 <div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(0,224,255,0.025) 39px,rgba(0,224,255,0.025) 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(0,224,255,0.025) 39px,rgba(0,224,255,0.025) 40px);pointer-events:none;"></div>
 <div style="width:100%;padding:0 64px;position:relative;z-index:2;box-sizing:border-box;">
 <div style="text-align:center;margin-bottom:80px;">
@@ -2490,7 +2490,7 @@ footer .footer-grid{gap:56px !important;}
 <!-- FULL WIDTH TEAM BANNER -->
 
 <!-- CONTACT, Sand -->
-<section class="section-enter" id="contact" style="background:#f0f9ff;padding:100px 0;position:relative;overflow:hidden;width:100%;">
+<section id="contact" style="background:#f0f9ff;padding:100px 0;position:relative;overflow:hidden;width:100%;">
 <!-- Subtle top border accent -->
 <div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#002B49,#00C2D8,#00E0FF,#FF5500);"></div>
 <div style="width:100%;padding:0 64px;box-sizing:border-box;position:relative;z-index:2;">
@@ -3230,39 +3230,7 @@ document.addEventListener('click',function(e){
     }, {passive:true});
   }
 
-  /* ── 10. TYPEWRITER on hero headline ── */
-  var typeEl = document.querySelector('.hero-h1');
-  if(typeEl){
-    var words = ['Digital Growth System.', 'Online Presence.', 'Growth Engine.', 'Digital Foundation.'];
-    var wordIdx = 0;
-    var charIdx = 0;
-    var deleting = false;
-    var baseText = 'Your Business Deserves a<br/><span class="gold">';
-    var cursor = '<span class="typewriter-cursor"></span>';
-
-    function typeWriter(){
-      var word = words[wordIdx];
-      if(!deleting){
-        charIdx++;
-        typeEl.innerHTML = baseText + word.slice(0, charIdx) + '</span>' + cursor;
-        if(charIdx === word.length){
-          deleting = true;
-          setTimeout(typeWriter, 2200);
-          return;
-        }
-      } else {
-        charIdx--;
-        typeEl.innerHTML = baseText + word.slice(0, charIdx) + '</span>' + cursor;
-        if(charIdx === 0){
-          deleting = false;
-          wordIdx = (wordIdx + 1) % words.length;
-        }
-      }
-      setTimeout(typeWriter, deleting ? 40 : 80);
-    }
-    // Start after hero animations complete
-    setTimeout(typeWriter, 1800);
-  }
+  /* Typewriter removed — was overwriting hero headline */
 
 })();
 </script>
