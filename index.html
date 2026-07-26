@@ -32,7 +32,6 @@
 <!-- Optimized font load: only weights used, display=swap prevents FOIT -->
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Sora:wght@700;800;900&amp;family=Kaushan+Script&amp;&amp;display=swap" media="print" onload="this.media='all'" rel="stylesheet"/>
 <noscript><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Sora:wght@700;800;900&amp;family=Kaushan+Script&amp;&amp;display=swap" rel="stylesheet"/></noscript>
-<noscript><style>.stagger-card,.img-reveal,.section-enter{opacity:1!important;transform:none!important;filter:none!important;}</style></noscript>
 <style>
 /* Font loaded via <link> in <head>, @import removed for performance */
 
@@ -1793,77 +1792,6 @@ footer .footer-grid{gap:56px !important;}
   .pillars-flex-wrap > div[style*="border-radius:20px 0 0 20px"]{border-radius:20px 20px 0 0 !important;}
   .pillars-flex-wrap > div[style*="border-radius:0 20px 20px 0"]{border-radius:0 0 20px 20px !important;}
 }
-
-/* ═══════════════════════════════════════════════════════
-   PREMIUM ANIMATIONS — BluWav Growth Homepage
-═══════════════════════════════════════════════════════ */
-
-/* Scroll progress bar */
-#scroll-progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--coral),var(--gold),var(--cyan));z-index:9999;width:0%;transition:width 0.1s linear;border-radius:0 2px 2px 0;}
-
-/* Hero particle canvas */
-#hero-canvas{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:0.25;}
-
-/* Magnetic CTA */
-.hero-cta-pulse{transition:transform 0.2s cubic-bezier(0.22,1,0.36,1),box-shadow 0.2s ease!important;}
-
-/* Typewriter cursor */
-.typewriter-cursor{display:inline-block;width:3px;height:1em;background:var(--coral);margin-left:4px;animation:blink 1s step-end infinite;vertical-align:middle;}
-@keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
-
-/* Floating orbs */
-.orb{position:absolute;border-radius:50%;filter:blur(60px);pointer-events:none;animation:orbFloat 8s ease-in-out infinite;}
-@keyframes orbFloat{0%,100%{transform:translateY(0) scale(1);}33%{transform:translateY(-30px) scale(1.05);}66%{transform:translateY(15px) scale(0.97);}}
-
-/* Section entrance — slide up with blur */
-.section-enter{opacity:1;transform:none;} /* sections always visible */
-
-/* Stagger cards */
-.stagger-card{opacity:0;transform:translateY(24px);transition:opacity 0.5s cubic-bezier(0.22,1,0.36,1),transform 0.5s cubic-bezier(0.22,1,0.36,1);}
-.stagger-card.visible{opacity:1;transform:translateY(0);}
-.stagger-card:nth-child(1){transition-delay:0s;}
-.stagger-card:nth-child(2){transition-delay:0.1s;}
-.stagger-card:nth-child(3){transition-delay:0.2s;}
-.stagger-card:nth-child(4){transition-delay:0.3s;}
-.stagger-card:nth-child(5){transition-delay:0.4s;}
-.stagger-card:nth-child(6){transition-delay:0.5s;}
-
-/* Glowing stat numbers */
-.stat-glow{transition:color 0.3s ease,text-shadow 0.3s ease;}
-.stat-glow:hover{color:var(--coral)!important;text-shadow:0 0 30px rgba(255,85,0,0.5);}
-
-/* Shimmer on section eyebrows */
-.eyebrow-shine{position:relative;overflow:hidden;}
-.eyebrow-shine::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.4),transparent);animation:eyebrowShine 3s ease-in-out infinite 1s;}
-@keyframes eyebrowShine{0%{left:-100%;}100%{left:200%;}}
-
-/* Card tilt on hover */
-.tilt-card{transition:transform 0.3s cubic-bezier(0.22,1,0.36,1),box-shadow 0.3s ease;}
-.tilt-card:hover{transform:perspective(800px) rotateX(2deg) rotateY(-2deg) translateY(-6px);box-shadow:0 24px 60px rgba(0,43,73,0.2)!important;}
-
-/* Pulse ring on CTA */
-@keyframes ctaRing{0%{transform:scale(1);opacity:0.6;}100%{transform:scale(1.5);opacity:0;}}
-.cta-ring{position:absolute;inset:0;border-radius:inherit;border:2px solid var(--coral);animation:ctaRing 2s ease-out infinite;}
-
-/* Wave animation on logo */
-@keyframes waveLogo{0%,100%{transform:rotate(0deg);}25%{transform:rotate(-3deg);}75%{transform:rotate(3deg);}}
-
-/* Number counter pop */
-@keyframes numPop{0%{transform:scale(0.8);opacity:0;}60%{transform:scale(1.1);}100%{transform:scale(1);opacity:1;}}
-.num-pop{animation:numPop 0.6s cubic-bezier(0.22,1,0.36,1) forwards;}
-
-/* Gradient border on featured cards */
-@keyframes borderRotate{0%{background-position:0% 50%;}100%{background-position:200% 50%;}}
-
-/* Smooth reveal for images */
-.img-reveal{opacity:0;transform:scale(0.98);transition:opacity 0.7s ease,transform 0.7s cubic-bezier(0.22,1,0.36,1);}
-.img-reveal.visible{opacity:1;transform:scale(1);}
-
-/* Reduced motion */
-@media(prefers-reduced-motion:reduce){
-  .orb,.typewriter-cursor,.cta-ring,.eyebrow-shine::after{animation:none!important;}
-  .section-enter,.stagger-card,.img-reveal{opacity:1!important;transform:none!important;filter:none!important;}
-}
 </style>
 <meta content="index, follow" name="robots"/>
 <meta content="BluWav Growth | Website Design &amp; Digital Growth for Modern Businesses" property="og:title"/>
@@ -1987,7 +1915,6 @@ footer .footer-grid{gap:56px !important;}
 <!-- End Meta Pixel Code -->
 </head>
 <body>
-<div id="scroll-progress"></div>
 <!-- HERO -->
 <nav id="mainNav">
 <div class="nav-logo" style="display:flex;flex-direction:column;align-items:flex-start;line-height:1;padding:4px 0;">
@@ -2114,7 +2041,7 @@ footer .footer-grid{gap:56px !important;}
 <div class="wrap">
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
 <div class="reveal-left">
-<span class="eyebrow eyebrow-shine reveal-up" style="color:var(--coral);">Why It Matters</span>
+<span class="eyebrow reveal-up" style="color:var(--coral);">Why It Matters</span>
 <h2 style="font-family:'Space Grotesk',sans-serif;font-size:48px;font-weight:800;color:#fff;line-height:1.1;letter-spacing:-0.5px;margin-bottom:24px;">Every day you're<br/>not visible online,<br/><span style="color:var(--cyan);">your competitor wins.</span></h2>
 <p style="font-size:17px;color:rgba(255,255,255,0.6);line-height:1.75;margin-bottom:32px;">modern customers search Google before they call, visit, or buy. If your business isn’t showing up, with a professional website, Google listing, and WhatsApp, they’re choosing someone else. Every single day. <a href="article-1.html" style="color:#00E0FF;font-weight:700;text-decoration:underline;text-decoration-color:rgba(0,224,255,0.4);text-underline-offset:3px;">Most businesses are invisible online. Find out where you stand →</a></p>
 <a class="btn-coral" href="health-check.html">Check My Business for Free →</a>
@@ -2429,7 +2356,7 @@ footer .footer-grid{gap:56px !important;}
 <div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(0,224,255,0.025) 39px,rgba(0,224,255,0.025) 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(0,224,255,0.025) 39px,rgba(0,224,255,0.025) 40px);pointer-events:none;"></div>
 <div style="width:100%;padding:0 64px;position:relative;z-index:2;box-sizing:border-box;">
 <div style="text-align:center;margin-bottom:80px;">
-<span class="eyebrow eyebrow-shine reveal" style="color:var(--cyan);">How It Works</span>
+<span class="eyebrow reveal" style="color:var(--cyan);">How It Works</span>
 <h2 class="reveal anim-fade-up" style="font-family:'Space Grotesk',sans-serif;font-size:48px;font-weight:800;color:#fff;line-height:1.1;letter-spacing:-0.5px;margin-bottom:0;">Three Simple Steps.<br/><span style="color:var(--cyan);">Real Results.</span></h2>
 </div>
 <!-- 3 steps horizontal -->
@@ -2494,7 +2421,7 @@ footer .footer-grid{gap:56px !important;}
 <!-- Subtle top border accent -->
 <div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#002B49,#00C2D8,#00E0FF,#FF5500);"></div>
 <div style="width:100%;padding:0 64px;box-sizing:border-box;position:relative;z-index:2;">
-<span class="eyebrow eyebrow-shine reveal" style="color:#00C2D8;">Get Started — It's Free</span>
+<span class="eyebrow reveal" style="color:#00C2D8;">Get Started — It's Free</span>
 <h2 class="h2 reveal-up" style="color:#002B49;font-family:'Manrope',sans-serif;">Ready To Discover Your<br/>Digital Health Score?</h2>
 <p class="lead" style="color:#64748B;max-width:520px;">Four quick details and we’ll WhatsApp you within a few hours with your personalised Digital Health Score. Find out exactly where your business stands — and what to fix first. No commitment. No cost.</p>
 <!-- Human face, contact section -->
@@ -3045,195 +2972,5 @@ document.addEventListener('click',function(e){
   els.forEach(function(el){io.observe(el);});
 })();
 </script>
-
-<script>
-/* ═══════════════════════════════════════════════════════
-   PREMIUM ANIMATIONS — BluWav Growth
-═══════════════════════════════════════════════════════ */
-(function(){
-
-  /* ── 1. SCROLL PROGRESS BAR ── */
-  var bar = document.getElementById('scroll-progress');
-  if(bar){
-    window.addEventListener('scroll', function(){
-      var scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-      bar.style.width = Math.min(scrolled, 100) + '%';
-    }, {passive:true});
-  }
-
-  /* ── 2. HERO PARTICLE CANVAS ── */
-  var canvas = document.getElementById('hero-canvas');
-  if(canvas){
-    var ctx = canvas.getContext('2d');
-    var particles = [];
-    var W, H;
-
-    function resize(){
-      W = canvas.width = canvas.offsetWidth;
-      H = canvas.height = canvas.offsetHeight;
-    }
-    resize();
-    window.addEventListener('resize', resize, {passive:true});
-
-    function Particle(){
-      this.x = Math.random() * W;
-      this.y = Math.random() * H;
-      this.vx = (Math.random() - 0.5) * 0.4;
-      this.vy = (Math.random() - 0.5) * 0.4;
-      this.r = Math.random() * 1.5 + 0.5;
-      this.alpha = Math.random() * 0.5 + 0.1;
-      this.color = Math.random() > 0.5 ? '0,224,255' : '255,85,0';
-    }
-
-    for(var i = 0; i < 60; i++) particles.push(new Particle());
-
-    function drawParticles(){
-      ctx.clearRect(0, 0, W, H);
-      particles.forEach(function(p){
-        p.x += p.vx; p.y += p.vy;
-        if(p.x < 0) p.x = W; if(p.x > W) p.x = 0;
-        if(p.y < 0) p.y = H; if(p.y > H) p.y = 0;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(' + p.color + ',' + p.alpha + ')';
-        ctx.fill();
-      });
-      // Draw connecting lines
-      for(var a = 0; a < particles.length; a++){
-        for(var b = a + 1; b < particles.length; b++){
-          var dx = particles[a].x - particles[b].x;
-          var dy = particles[a].y - particles[b].y;
-          var dist = Math.sqrt(dx*dx + dy*dy);
-          if(dist < 100){
-            ctx.beginPath();
-            ctx.moveTo(particles[a].x, particles[a].y);
-            ctx.lineTo(particles[b].x, particles[b].y);
-            ctx.strokeStyle = 'rgba(0,224,255,' + (0.08 * (1 - dist/100)) + ')';
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
-          }
-        }
-      }
-      requestAnimationFrame(drawParticles);
-    }
-    drawParticles();
-  }
-
-  /* ── 3. MAGNETIC CTA BUTTON ── */
-  var cta = document.querySelector('.hero-cta-pulse');
-  if(cta){
-    cta.addEventListener('mousemove', function(e){
-      var rect = cta.getBoundingClientRect();
-      var x = e.clientX - rect.left - rect.width/2;
-      var y = e.clientY - rect.top - rect.height/2;
-      cta.style.transform = 'translate(' + (x*0.15) + 'px,' + (y*0.15) + 'px) translateY(-3px)';
-    });
-    cta.addEventListener('mouseleave', function(){
-      cta.style.transform = 'translateY(0)';
-    });
-  }
-
-  /* ── 4. SECTION ENTRANCE OBSERVER ── */
-  var sectionEls = document.querySelectorAll('.section-enter');
-  if(sectionEls.length){
-    var sObs = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(e.isIntersecting){
-          e.target.classList.add('visible');
-          sObs.unobserve(e.target);
-        }
-      });
-    }, {threshold:0.08, rootMargin:'0px 0px -60px 0px'});
-    sectionEls.forEach(function(el){ sObs.observe(el); });
-  }
-
-  /* ── 5. STAGGER CARD OBSERVER ── */
-  var staggerEls = document.querySelectorAll('.stagger-card');
-  if(staggerEls.length){
-    var stObs = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(e.isIntersecting){
-          e.target.classList.add('visible');
-          stObs.unobserve(e.target);
-        }
-      });
-    }, {threshold:0.1});
-    staggerEls.forEach(function(el){ stObs.observe(el); });
-  }
-
-  /* ── 6. IMAGE REVEAL OBSERVER ── */
-  var imgEls = document.querySelectorAll('.img-reveal');
-  if(imgEls.length){
-    var iObs = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(e.isIntersecting){
-          e.target.classList.add('visible');
-          iObs.unobserve(e.target);
-        }
-      });
-    }, {threshold:0.1});
-    imgEls.forEach(function(el){ iObs.observe(el); });
-  }
-
-  /* ── 7. ANIMATED NUMBER COUNTERS ── */
-  var statNums = document.querySelectorAll('[data-count]');
-  if(statNums.length){
-    var nObs = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(!e.isIntersecting) return;
-        var el = e.target;
-        var target = parseFloat(el.getAttribute('data-count'));
-        var suffix = el.getAttribute('data-suffix') || '';
-        var prefix = el.getAttribute('data-prefix') || '';
-        var duration = 1600;
-        var start = null;
-        el.classList.add('num-pop');
-        function step(ts){
-          if(!start) start = ts;
-          var progress = Math.min((ts - start) / duration, 1);
-          var ease = 1 - Math.pow(1 - progress, 3);
-          var val = Math.round(target * ease);
-          el.textContent = prefix + val + suffix;
-          if(progress < 1) requestAnimationFrame(step);
-        }
-        requestAnimationFrame(step);
-        nObs.unobserve(el);
-      });
-    }, {threshold:0.5});
-    statNums.forEach(function(el){ nObs.observe(el); });
-  }
-
-  /* ── 8. SMOOTH HOVER TILT on stat cards ── */
-  document.querySelectorAll('.trusted-stats-grid > div, .payment-card').forEach(function(card){
-    card.addEventListener('mousemove', function(e){
-      var rect = card.getBoundingClientRect();
-      var x = (e.clientX - rect.left) / rect.width - 0.5;
-      var y = (e.clientY - rect.top) / rect.height - 0.5;
-      card.style.transform = 'perspective(600px) rotateX(' + (-y*6) + 'deg) rotateY(' + (x*6) + 'deg) translateY(-4px)';
-    });
-    card.addEventListener('mouseleave', function(){
-      card.style.transform = '';
-    });
-  });
-
-  /* ── 9. NAV SCROLL EFFECT ── */
-  var nav = document.getElementById('mainNav');
-  if(nav){
-    window.addEventListener('scroll', function(){
-      if(window.scrollY > 80){
-        nav.style.background = 'rgba(0,43,73,0.99)';
-        nav.style.boxShadow = '0 4px 32px rgba(0,0,0,0.4)';
-      } else {
-        nav.style.background = 'rgba(0,43,73,0.97)';
-        nav.style.boxShadow = '0 2px 24px rgba(0,0,0,0.3)';
-      }
-    }, {passive:true});
-  }
-
-  /* Typewriter removed — was overwriting hero headline */
-
-})();
-</script>
-
 </body>
 </html>
