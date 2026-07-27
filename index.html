@@ -735,7 +735,7 @@ input,button,select,textarea{
 }
 
 /* ── FOOTER ── */
-footer{background:rgba(0,43,73,0.97);padding:60px 0 0;width:100%;max-width:100%;box-sizing:border-box;}
+footer{background:rgba(0,43,73,0.97);padding:60px 0 0;width:100%;max-width:100% !important;box-sizing:border-box;margin:0;}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;width:100%;max-width:100%;box-sizing:border-box;}
 .footer-heading{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.4);margin-bottom:16px;}
 .footer-brand-name{font-family:'Kaushan Script',cursive;font-size:34px;color:#fff;line-height:1;margin-bottom:6px;}
@@ -2616,8 +2616,8 @@ function submitContactForm(e) {
 </script>
 <!-- FOOTER -->
 <!-- ── WAVE NEWSLETTER STRIP ── -->
-<div style="background:linear-gradient(135deg,#002B49,#003d5c);padding:48px 64px;text-align:center;width:100%;">
-<div style="max-width:100%;margin:0 auto;">
+<div style="background:linear-gradient(135deg,#002B49,#003d5c);padding:48px 0;text-align:center;width:100%;box-sizing:border-box;">
+<div style="max-width:100%;margin:0 auto;padding:0 64px;box-sizing:border-box;">
 <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:#F7C873;margin-bottom:10px;">Stay on the Wave</div>
 <h3 style="font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:800;color:#fff;margin-bottom:8px;">Get practical digital growth tips</h3>
 <p style="font-size:15px;color:rgba(255,255,255,0.6);margin-bottom:24px;">For modern businesses. No spam. Unsubscribe anytime.</p>
@@ -2653,7 +2653,7 @@ function handleNLSubscribe(e, pid) {
 }
 </script>
 <footer>
-<div style="width:100%;max-width:100%;padding:0 64px;box-sizing:border-box;">
+<div style="width:100%;max-width:100%;padding:0 64px;box-sizing:border-box;margin:0;">
 <div class="footer-grid">
 <!-- Brand column -->
 <div>
