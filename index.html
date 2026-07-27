@@ -2397,113 +2397,13 @@ footer .footer-grid{gap:56px !important;}
 </section>
 
 <!-- SECTION 7 — DIGITAL HEALTH SCORE FORM -->
-<section id="health-check" style="background:linear-gradient(135deg,#001828 0%,#002B49 60%,#003d5c 100%);padding:100px 0;position:relative;overflow:hidden;">
-  <!-- Background glow -->
-  <div style="position:absolute;top:-100px;right:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(0,224,255,0.07) 0%,transparent 70%);pointer-events:none;"></div>
-  <div style="position:absolute;bottom:-80px;left:-80px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(255,85,0,0.05) 0%,transparent 70%);pointer-events:none;"></div>
-
-  <div style="width:100%;max-width:680px;margin:0 auto;padding:0 32px;box-sizing:border-box;position:relative;z-index:2;">
-
-    <!-- Header -->
-    <div style="text-align:center;margin-bottom:48px;">
-      <span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;color:rgba(0,224,255,0.7);display:block;margin-bottom:12px;">Free &middot; No Commitment</span>
-      <h2 style="font-family:'Manrope',sans-serif;font-size:clamp(26px,4vw,40px);font-weight:900;color:#fff;line-height:1.15;margin-bottom:16px;">Find Out Exactly Where Your<br/>Business Stands&mdash;Free.</h2>
-      <p style="font-size:17px;color:rgba(255,255,255,0.65);line-height:1.7;">Four quick details and we'll send you your personalised Digital Health Score.</p>
-    </div>
-
-    <!-- Form card -->
-    <div style="background:#fff;border-radius:24px;padding:48px;box-shadow:0 24px 80px rgba(0,0,0,0.3);">
-      <form id="hcSectionForm" onsubmit="submitHCSection(event)" novalidate>
-
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
-          <div>
-            <label style="display:block;font-size:13px;font-weight:700;color:#002B49;margin-bottom:6px;">Name <span style="color:#FF5500;">*</span></label>
-            <input id="hcs-name" type="text" placeholder="Your full name" required style="width:100%;padding:13px 16px;border:2px solid #e2e8f0;border-radius:10px;font-size:15px;font-family:inherit;color:#1E1E1E;outline:none;transition:border 0.2s;box-sizing:border-box;" onfocus="this.style.borderColor='#00C2D8'" onblur="this.style.borderColor='#e2e8f0'"/>
-          </div>
-          <div>
-            <label style="display:block;font-size:13px;font-weight:700;color:#002B49;margin-bottom:6px;">Business Name <span style="color:#FF5500;">*</span></label>
-            <input id="hcs-biz" type="text" placeholder="Your business name" required style="width:100%;padding:13px 16px;border:2px solid #e2e8f0;border-radius:10px;font-size:15px;font-family:inherit;color:#1E1E1E;outline:none;transition:border 0.2s;box-sizing:border-box;" onfocus="this.style.borderColor='#00C2D8'" onblur="this.style.borderColor='#e2e8f0'"/>
-          </div>
-        </div>
-
-        <div style="margin-bottom:16px;">
-          <label style="display:block;font-size:13px;font-weight:700;color:#002B49;margin-bottom:6px;">WhatsApp Number <span style="color:#FF5500;">*</span></label>
-          <input id="hcs-wa" type="tel" inputmode="tel" placeholder="+1 (xxx) xxx-xxxx" required style="width:100%;padding:13px 16px;border:2px solid #e2e8f0;border-radius:10px;font-size:15px;font-family:inherit;color:#1E1E1E;outline:none;transition:border 0.2s;box-sizing:border-box;" onfocus="this.style.borderColor='#00C2D8'" onblur="this.style.borderColor='#e2e8f0'"/>
-          <div style="font-size:11px;color:#64748b;margin-top:5px;">&#128172; We'll send your score here</div>
-        </div>
-
-        <div style="margin-bottom:24px;">
-          <label style="display:block;font-size:13px;font-weight:700;color:#002B49;margin-bottom:6px;">I need help with&hellip; <span style="color:#FF5500;">*</span></label>
-          <select id="hcs-need" required style="width:100%;padding:13px 16px;border:2px solid #e2e8f0;border-radius:10px;font-size:15px;font-family:inherit;color:#1E1E1E;outline:none;transition:border 0.2s;box-sizing:border-box;background:#fff;appearance:none;background-image:url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%228%22><path d=%22M1 1l5 5 5-5%22 stroke=%22%2364748b%22 stroke-width=%222%22 fill=%22none%22 stroke-linecap=%22round%22/></svg>');background-repeat:no-repeat;background-position:right 16px center;" onfocus="this.style.borderColor='#00C2D8'" onblur="this.style.borderColor='#e2e8f0'">
-            <option value="">Select one&hellip;</option>
-            <option>Getting found on Google</option>
-            <option>Building or improving my website</option>
-            <option>Capturing and following up on leads</option>
-            <option>Growing my online presence overall</option>
-            <option>Setting up a CRM system</option>
-            <option>All of the above</option>
-          </select>
-        </div>
-
-        <!-- Error -->
-        <div id="hcsSectionError" style="display:none;background:rgba(255,85,0,0.08);border:1px solid rgba(255,85,0,0.3);border-radius:10px;padding:10px 14px;margin-bottom:14px;font-size:13px;color:#FF5500;font-weight:700;">&#9888; Please fill in all required fields.</div>
-
-        <button type="submit" id="hcsSectionBtn" style="width:100%;background:linear-gradient(135deg,#FF5500,#e84d00);color:#fff;font-size:17px;font-weight:800;padding:18px;border-radius:12px;border:none;cursor:pointer;font-family:inherit;transition:all 0.2s;box-shadow:0 6px 28px rgba(255,85,0,0.35);letter-spacing:0.3px;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 10px 36px rgba(255,85,0,0.5)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 6px 28px rgba(255,85,0,0.35)'">
-          Get My Digital Health Score &#8594;
-        </button>
-
-        <p style="text-align:center;font-size:13px;color:#64748b;margin-top:14px;line-height:1.6;">&#128274; We never share your details. Ever.</p>
-      </form>
-
-      <!-- Success state -->
-      <div id="hcsSectionSuccess" style="display:none;text-align:center;padding:20px 0;">
-        <div style="font-size:48px;margin-bottom:16px;">&#127754;</div>
-        <h3 style="font-family:'Manrope',sans-serif;font-size:22px;font-weight:800;color:#002B49;margin-bottom:8px;">You're on the Wave!</h3>
-        <p style="font-size:15px;color:#64748b;line-height:1.7;">We've received your details and will send your Digital Health Score shortly.</p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<script>
-function submitHCSection(e){
-  e.preventDefault();
-  var name = document.getElementById('hcs-name').value.trim();
-  var biz  = document.getElementById('hcs-biz').value.trim();
-  var wa   = document.getElementById('hcs-wa').value.trim();
-  var need = document.getElementById('hcs-need').value;
-  var err  = document.getElementById('hcsSectionError');
-  var btn  = document.getElementById('hcsSectionBtn');
-  if(!name||!biz||!wa||!need){ err.style.display='block'; return; }
-  err.style.display='none';
-  btn.textContent='Sending...'; btn.disabled=true;
-  if(typeof gtag!=='undefined') gtag('event','generate_lead',{event_category:'Health Check Section',event_label:need,value:1});
-  if(typeof fbq!=='undefined') fbq('track','Lead',{content_name:'Health Check Section'});
-  var fd=new FormData();
-  fd.append('email','tanyersinc@gmail.com');
-  fd.append('_subject','[HC Lead] '+biz+' — '+need);
-  fd.append('name',name); fd.append('business',biz);
-  fd.append('whatsapp',wa); fd.append('need',need);
-  fd.append('_template','table');
-  var done=false;
-  function proceed(){ if(done)return; done=true;
-    document.getElementById('hcSectionForm').style.display='none';
-    document.getElementById('hcsSectionSuccess').style.display='block';
-  }
-  setTimeout(proceed,6000);
-  fetch('https://formspree.io/f/mrenyvld',{method:'POST',body:fd,headers:{'Accept':'application/json'}})
-  .then(function(){proceed();}).catch(function(){proceed();});
-}
-</script>
-
 <section id="contact" style="background:#f0f9ff;padding:100px 0;position:relative;overflow:hidden;width:100%;">
 <!-- Subtle top border accent -->
 <div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#002B49,#00C2D8,#00E0FF,#FF5500);"></div>
 <div style="width:100%;padding:0 64px;box-sizing:border-box;position:relative;z-index:2;">
-<span class="eyebrow reveal" style="color:#00C2D8;">Get Started — It's Free</span>
-<h2 class="h2 reveal-up" style="color:#002B49;font-family:'Manrope',sans-serif;">Ready To Discover Your<br/>Digital Health Score?</h2>
-<p class="lead" style="color:#64748B;max-width:520px;">Four quick details and we’ll WhatsApp you within a few hours with your personalised Digital Health Score. Find out exactly where your business stands — and what to fix first. No commitment. No cost.</p>
+<span class="eyebrow reveal" style="color:#00C2D8;">Free &middot; No Commitment</span>
+<h2 class="h2 reveal-up" style="color:#002B49;font-family:'Manrope',sans-serif;">Find Out Exactly Where Your<br/>Business Stands&hellip;Free.</h2>
+<p class="lead" style="color:#64748B;max-width:520px;">Four quick details and we'll send you your personalised Digital Health Score.</p>
 <!-- Human face, contact section -->
 <div style="display:grid;grid-template-columns:280px 1fr;gap:32px;align-items:center;margin-top:32px;margin-bottom:40px;background:linear-gradient(135deg,#002B49,#003d5c);border-radius:20px;overflow:hidden;">
 <div style="height:220px;overflow:hidden;position:relative;">
@@ -2554,8 +2454,8 @@ function submitHCSection(e){
 </div>
 <!-- RIGHT: Clean white form card -->
 <div style="background:#fff;border:1.5px solid #e2e8f0;border-radius:24px;padding:36px;box-shadow:0 8px 40px rgba(0,43,73,0.08);">
-<div style="display:inline-block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#FF5500;background:#fff5f0;border:1px solid rgba(255,85,0,0.2);border-radius:20px;padding:4px 12px;margin-bottom:12px;">Free · Takes 30 seconds</div>
-<h3 style="font-size:22px;font-weight:800;color:#002B49;margin-bottom:24px;font-family:'Manrope',sans-serif;">Get My Digital Health Score</h3>
+<div style="display:inline-block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#FF5500;background:#fff5f0;border:1px solid rgba(255,85,0,0.2);border-radius:20px;padding:4px 12px;margin-bottom:12px;">Free &middot; No Commitment &middot; Results in 24 Hours</div>
+<h3 style="font-size:22px;font-weight:800;color:#002B49;margin-bottom:24px;font-family:'Manrope',sans-serif;">Get My Digital Health Score &#8594;</h3>
 <form id="contact-form" onsubmit="submitContactForm(event)">
 <div style="margin-bottom:16px;">
 <label style="display:block;font-size:12px;font-weight:700;color:#64748B;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Your Name *</label>
