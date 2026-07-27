@@ -1849,6 +1849,22 @@ footer .footer-grid{gap:56px !important;}
   .bw-fade-up,.bw-fade-left,.bw-fade-right,.bw-scale-in{opacity:1!important;transform:none!important;transition:none!important;}
   #bwCursor,.bw-orb-1,.bw-orb-2{animation:none!important;}
 }
+
+@media(max-width:768px){
+  .case-grid{grid-template-columns:1fr !important;}
+  #nl-form-home{flex-direction:column;}
+  #nl-form-home input,#nl-form-home button{width:100%;min-width:unset;}
+}
+@media(max-width:900px){
+  .case-grid{grid-template-columns:1fr 1fr !important;}
+}
+
+@media(max-width:768px){
+  .crm-feature-grid{grid-template-columns:1fr !important;}
+}
+@media(max-width:900px){
+  .crm-feature-grid{grid-template-columns:1fr !important;}
+}
 </style>
 <meta content="index, follow" name="robots"/>
 <meta content="BluWav Growth | Website Design &amp; Digital Growth for Modern Businesses" property="og:title"/>
@@ -2106,7 +2122,7 @@ footer .footer-grid{gap:56px !important;}
 <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#00C2D8;margin-bottom:8px;">Pillar 1</div>
 <div style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:800;color:#002B49;margin-bottom:10px;">Digital Presence</div>
 <p style="font-size:13px;color:#64748b;line-height:1.75;margin-bottom:10px;">Your website becomes a conversion asset, not a brochure.</p>
-<div style="font-size:12px;color:#00C2D8;font-style:italic;margin-bottom:12px;font-weight:600;">Can customers trust and understand your business?</div>
+
 <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:#00C2D8;">→ Get Found</div>
 </div>
 <!-- Arrow 1→2 -->
@@ -2124,7 +2140,7 @@ footer .footer-grid{gap:56px !important;}
 <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#00C2D8;margin-bottom:8px;">Pillar 2</div>
 <div style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:800;color:#002B49;margin-bottom:10px;">Google Visibility</div>
 <p style="font-size:13px;color:#64748b;line-height:1.75;margin-bottom:10px;">Your Google Business Profile becomes a customer magnet.</p>
-<div style="font-size:12px;color:#00C2D8;font-style:italic;margin-bottom:12px;font-weight:600;">Can customers find you on Google and Maps?</div>
+
 <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:#00C2D8;">→ Get Found</div>
 </div>
 <!-- Arrow 2→3 -->
@@ -2142,7 +2158,7 @@ footer .footer-grid{gap:56px !important;}
 <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#00C2D8;margin-bottom:8px;">Pillar 3</div>
 <div style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:800;color:#002B49;margin-bottom:10px;">Search Performance</div>
 <p style="font-size:13px;color:#64748b;line-height:1.75;margin-bottom:10px;">We track impressions, clicks, keywords, and competitors, daily.</p>
-<div style="font-size:12px;color:#00C2D8;font-style:italic;margin-bottom:12px;font-weight:600;">Are you appearing where your customers are searching?</div>
+
 <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:#00C2D8;">→ Get Found</div>
 </div>
 <!-- Arrow 3→4 (coral, signals transition to "Get Chosen") -->
@@ -2160,21 +2176,12 @@ footer .footer-grid{gap:56px !important;}
 <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#FF5500;margin-bottom:8px;">Pillar 4</div>
 <div style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:800;color:#002B49;margin-bottom:10px;">Lead Conversion Systems</div>
 <p style="font-size:13px;color:#64748b;line-height:1.75;margin-bottom:10px;">Your intake, follow‑up, and CRM rebuilt for predictable conversions.</p>
-<div style="font-size:12px;color:#FF5500;font-style:italic;margin-bottom:12px;font-weight:600;">Are enquiries being captured and converted?</div>
+
 <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:#FF5500;">→ Get Chosen</div>
 </div>
 </div>
 <!-- CRM connector bar -->
-<div style="margin-top:32px;padding:20px 28px;background:#002B49;border-radius:14px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
-<div style="display:flex;align-items:center;gap:14px;">
-<span style="font-size:24px;">🌊</span>
-<div>
-<div style="font-size:14px;font-weight:800;color:#fff;margin-bottom:2px;">Powered By BluWav CRM&#x2122;</div>
-<div style="font-size:13px;color:rgba(255,255,255,0.6);">The Growth Engine Connecting All Four Pillars &#x2014; turning your digital foundation into a working sales machine.</div>
-</div>
-</div>
-<a href="crm.html" onmouseout="this.style.background='#00C2D8'" onmouseover="this.style.background='#007a85'" style="display:inline-flex;align-items:center;gap:8px;background:#00C2D8;color:#fff;font-size:13px;font-weight:800;padding:10px 22px;border-radius:9px;white-space:nowrap;transition:all 0.2s;text-decoration:none;">Explore BluWav CRM →</a>
-</div>
+
 </div>
 </section>
 
@@ -2209,7 +2216,7 @@ footer .footer-grid{gap:56px !important;}
     </p>
 
     <!-- 3-feature row -->
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:56px;background:rgba(255,255,255,0.05);border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:56px;background:rgba(255,255,255,0.05);border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);" class="crm-feature-grid">
 
       <!-- Feature 1 -->
       <div style="padding:40px 36px;background:rgba(0,20,40,0.6);transition:background 0.3s;" onmouseover="this.style.background='rgba(0,194,209,0.08)'" onmouseout="this.style.background='rgba(0,20,40,0.6)'">
@@ -2397,7 +2404,7 @@ footer .footer-grid{gap:56px !important;}
     </div>
 
     <!-- Cards -->
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;" class="case-grid">
 
       <!-- Card A -->
       <div class="bw-reveal bw-delay-1" class="bw-card-hover" style="background:#F4F2ED;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 20px 60px rgba(0,43,73,0.12)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
@@ -2713,7 +2720,7 @@ function submitContactForm(e) {
     </div>
 
     <!-- Form -->
-    <form id="nl-form-home" onsubmit="handleNLSubscribe(event,'home')" style="display:flex;gap:10px;max-width:520px;margin:0 auto;flex-wrap:wrap;">
+    <form id="nl-form-home" onsubmit="handleNLSubscribe(event,'home')" style="display:flex;gap:10px;max-width:520px;margin:0 auto;flex-wrap:wrap;width:100%;">
       <input id="nl-email-home" type="email" placeholder="your@email.com" required
         style="flex:1;min-width:200px;padding:15px 20px;border-radius:12px;border:2px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.06);font-size:15px;font-family:inherit;outline:none;transition:all 0.2s;color:#fff;box-sizing:border-box;"
         onfocus="this.style.border='2px solid #00E0FF';this.style.background='rgba(0,224,255,0.06)'"
@@ -3120,25 +3127,38 @@ document.addEventListener('click',function(e){
     animEls.forEach(function(el){ io.observe(el); });
   }
 
-  /* ── 3. TYPEWRITER HEADLINE ── */
+  /* ── 3. TYPEWRITER HEADLINE — stable, no flicker ── */
   var tw = document.getElementById('typewriterText');
   var cur = document.getElementById('bwCursor') || document.getElementById('typewriterCursor');
   if(tw){
-    var phrases = ['Get Found.','Get Chosen.','Grow.','Get Found. Get Chosen. Grow.'];
-    var pi=0,ci=0,del=false;
-    function tick(){
-      var ph=phrases[pi];
-      if(!del){ ci++; tw.textContent=ph.slice(0,ci);
-        if(ci===ph.length){
-          if(pi===phrases.length-1){ if(cur)cur.style.display='none'; return; }
-          setTimeout(function(){del=true;tick();},1600); return;
+    // Final state — show complete phrase permanently after cycling
+    var phrases = ['Get Found.', 'Get Chosen.', 'Grow.', 'Get Found. Get Chosen. Grow.'];
+    var pi = 0, ci = 0, deleting = false, locked = false;
+    function twTick(){
+      if(locked) return;
+      var ph = phrases[pi];
+      if(!deleting){
+        ci++;
+        tw.textContent = ph.slice(0, ci);
+        if(ci === ph.length){
+          if(pi === phrases.length - 1){
+            // Final phrase — lock permanently, hide cursor
+            locked = true;
+            if(cur) setTimeout(function(){ cur.style.display='none'; }, 800);
+            return;
+          }
+          deleting = true;
+          setTimeout(twTick, 1400);
+          return;
         }
-      } else { ci--; tw.textContent=ph.slice(0,ci);
-        if(ci===0){ del=false; pi=(pi+1)%phrases.length; }
+      } else {
+        ci--;
+        tw.textContent = ph.slice(0, ci);
+        if(ci === 0){ deleting = false; pi++; }
       }
-      setTimeout(tick,del?38:(ci===ph.length?1600:72));
+      setTimeout(twTick, deleting ? 32 : 68);
     }
-    setTimeout(tick,900);
+    setTimeout(twTick, 1000);
   }
 
   /* ── 4. MAGNETIC CTA BUTTON ── */
