@@ -1794,6 +1794,61 @@ footer .footer-grid{gap:56px !important;}
 }
 
 @keyframes cursorBlink{0%,100%{opacity:1;}50%{opacity:0;}}
+
+/* ═══════════════════════════════════════════════════════
+   HOMEPAGE PREMIUM ANIMATIONS
+═══════════════════════════════════════════════════════ */
+
+/* Scroll progress bar */
+#bw-progress{position:fixed;top:0;left:0;height:3px;z-index:9999;width:0%;background:linear-gradient(90deg,#FF5500,#F7C873,#00E0FF);border-radius:0 2px 2px 0;transition:width 0.1s linear;pointer-events:none;}
+
+/* Fade up on scroll */
+.bw-fade-up{opacity:0;transform:translateY(36px);transition:opacity 0.75s cubic-bezier(0.22,1,0.36,1),transform 0.75s cubic-bezier(0.22,1,0.36,1);}
+.bw-fade-up.bw-in{opacity:1;transform:translateY(0);}
+.bw-fade-up.d1{transition-delay:0.05s;}.bw-fade-up.d2{transition-delay:0.15s;}.bw-fade-up.d3{transition-delay:0.25s;}.bw-fade-up.d4{transition-delay:0.35s;}
+
+/* Fade left/right */
+.bw-fade-left{opacity:0;transform:translateX(-32px);transition:opacity 0.75s cubic-bezier(0.22,1,0.36,1),transform 0.75s cubic-bezier(0.22,1,0.36,1);}
+.bw-fade-left.bw-in{opacity:1;transform:translateX(0);}
+.bw-fade-right{opacity:0;transform:translateX(32px);transition:opacity 0.75s cubic-bezier(0.22,1,0.36,1),transform 0.75s cubic-bezier(0.22,1,0.36,1);}
+.bw-fade-right.bw-in{opacity:1;transform:translateX(0);}
+
+/* Scale in */
+.bw-scale-in{opacity:0;transform:scale(0.92);transition:opacity 0.65s cubic-bezier(0.22,1,0.36,1),transform 0.65s cubic-bezier(0.22,1,0.36,1);}
+.bw-scale-in.bw-in{opacity:1;transform:scale(1);}
+
+/* Typewriter cursor */
+@keyframes bwCursorBlink{0%,100%{opacity:1;}50%{opacity:0;}}
+#bwCursor{display:inline-block;width:3px;height:0.85em;background:#FF5500;margin-left:3px;vertical-align:middle;animation:bwCursorBlink 1s step-end infinite;border-radius:1px;}
+
+/* Floating hero orbs */
+@keyframes bwOrb1{0%,100%{transform:translate(0,0) scale(1);}33%{transform:translate(20px,-30px) scale(1.05);}66%{transform:translate(-15px,15px) scale(0.97);}}
+@keyframes bwOrb2{0%,100%{transform:translate(0,0) scale(1);}33%{transform:translate(-25px,20px) scale(1.03);}66%{transform:translate(10px,-20px) scale(0.98);}}
+.bw-orb-1{animation:bwOrb1 9s ease-in-out infinite;}
+.bw-orb-2{animation:bwOrb2 11s ease-in-out infinite;}
+
+/* Card hover lift */
+.bw-card-hover{transition:transform 0.3s cubic-bezier(0.22,1,0.36,1),box-shadow 0.3s ease;}
+.bw-card-hover:hover{transform:translateY(-8px);box-shadow:0 24px 60px rgba(0,43,73,0.18)!important;}
+
+/* Shimmer on eyebrows */
+@keyframes bwShimmer{0%{background-position:200% center;}100%{background-position:-200% center;}}
+.bw-eyebrow-shine{background:linear-gradient(90deg,currentColor 0%,rgba(255,255,255,0.9) 40%,currentColor 60%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:bwShimmer 3s linear infinite;}
+
+/* Number counter */
+.bw-count{display:inline-block;}
+
+/* Magnetic button */
+.bw-magnetic{transition:transform 0.2s cubic-bezier(0.22,1,0.36,1);}
+
+/* Nav scroll effect */
+#mainNav{transition:background 0.3s ease,box-shadow 0.3s ease;}
+
+/* Reduced motion */
+@media(prefers-reduced-motion:reduce){
+  .bw-fade-up,.bw-fade-left,.bw-fade-right,.bw-scale-in{opacity:1!important;transform:none!important;transition:none!important;}
+  #bwCursor,.bw-orb-1,.bw-orb-2{animation:none!important;}
+}
 </style>
 <meta content="index, follow" name="robots"/>
 <meta content="BluWav Growth | Website Design &amp; Digital Growth for Modern Businesses" property="og:title"/>
@@ -1917,6 +1972,7 @@ footer .footer-grid{gap:56px !important;}
 <!-- End Meta Pixel Code -->
 </head>
 <body>
+<div id="bw-progress"></div>
 <!-- HERO -->
 <nav id="mainNav">
 <div class="nav-logo" style="display:flex;flex-direction:column;align-items:flex-start;line-height:1;padding:4px 0;">
@@ -2142,7 +2198,7 @@ footer .footer-grid{gap:56px !important;}
 
     <!-- Headline -->
     <div style="text-align:center;margin-bottom:16px;">
-      <h2 style="font-family:'Manrope',sans-serif;font-size:clamp(32px,5vw,52px);font-weight:900;color:#fff;line-height:1.1;letter-spacing:-1px;margin-bottom:0;">
+      <h2 class="bw-fade-up" style="font-family:'Manrope',sans-serif;font-size:clamp(32px,5vw,52px);font-weight:900;color:#fff;line-height:1.1;letter-spacing:-1px;margin-bottom:0;">
         Powered by <span style="background:linear-gradient(135deg,#00C2D8,#00E0FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">BluWav CRM™</span>
       </h2>
     </div>
@@ -2199,7 +2255,7 @@ footer .footer-grid{gap:56px !important;}
 <section id="what-we-do-cont" style="background:#F4F2ED;padding:80px 0;">
 <div style="width:100%;padding:0 64px;box-sizing:border-box;">
 <div style="text-align:center;margin-bottom:48px;">
-<span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;color:#FF5500;display:block;margin-bottom:12px;">Growth Systems</span>
+<span class="bw-fade-up" style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;color:#FF5500;display:block;margin-bottom:12px;">Growth Systems</span>
 <h3 style="font-size:40px;font-weight:800;color:#002B49;margin-bottom:16px;font-family:'Manrope',sans-serif;">Choose Your Growth Plan</h3>
 <p style="font-size:16px;color:#64748b;line-height:1.75;max-width:640px;margin:0 auto 28px;">Your Digital Health Score shows exactly where your business stands and which plan will move your business forward&hellip;fastest.</p>
 <!-- Trust badges — redistributed from Why BluWav Works -->
@@ -2335,8 +2391,8 @@ footer .footer-grid{gap:56px !important;}
 
     <!-- Header -->
     <div style="text-align:center;margin-bottom:64px;">
-      <span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;color:#FF5500;display:block;margin-bottom:12px;">Case Studies</span>
-      <h2 style="font-family:'Manrope',sans-serif;font-size:clamp(28px,4vw,44px);font-weight:900;color:#002B49;line-height:1.1;margin-bottom:16px;">Real Businesses. Real Growth.</h2>
+      <span class="bw-fade-up" style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;color:#FF5500;display:block;margin-bottom:12px;">Case Studies</span>
+      <h2 class="bw-fade-up" style="font-family:'Manrope',sans-serif;font-size:clamp(28px,4vw,44px);font-weight:900;color:#002B49;line-height:1.1;margin-bottom:16px;">Real Businesses. Real Growth.</h2>
       <p style="font-size:17px;color:#64748b;line-height:1.75;max-width:580px;margin:0 auto;">See how modern businesses improved visibility, trust, and conversions with BluWav Growth Systems.</p>
     </div>
 
@@ -2344,7 +2400,7 @@ footer .footer-grid{gap:56px !important;}
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;">
 
       <!-- Card A -->
-      <div class="bw-reveal bw-delay-1" style="background:#F4F2ED;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 20px 60px rgba(0,43,73,0.12)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+      <div class="bw-reveal bw-delay-1" class="bw-card-hover" style="background:#F4F2ED;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 20px 60px rgba(0,43,73,0.12)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
         <!-- Image placeholder with gradient -->
         <div style="height:200px;background:linear-gradient(135deg,#002B49 0%,#003d5c 100%);position:relative;overflow:hidden;">
           <div style="position:absolute;inset:0;background:radial-gradient(circle at 30% 50%,rgba(0,224,255,0.15) 0%,transparent 70%);"></div>
@@ -2361,7 +2417,7 @@ footer .footer-grid{gap:56px !important;}
       </div>
 
       <!-- Card B -->
-      <div class="bw-reveal bw-delay-2" style="background:#F4F2ED;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 20px 60px rgba(0,43,73,0.12)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+      <div class="bw-reveal bw-delay-2" class="bw-card-hover" style="background:#F4F2ED;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 20px 60px rgba(0,43,73,0.12)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
         <div style="height:200px;background:linear-gradient(135deg,#FF5500 0%,#e84d00 100%);position:relative;overflow:hidden;">
           <div style="position:absolute;inset:0;background:radial-gradient(circle at 70% 50%,rgba(247,200,115,0.2) 0%,transparent 70%);"></div>
           <div style="position:absolute;bottom:20px;left:24px;">
@@ -2377,7 +2433,7 @@ footer .footer-grid{gap:56px !important;}
       </div>
 
       <!-- Card C -->
-      <div class="bw-reveal bw-delay-3" style="background:#F4F2ED;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 20px 60px rgba(0,43,73,0.12)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+      <div class="bw-reveal bw-delay-3" class="bw-card-hover" style="background:#F4F2ED;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 20px 60px rgba(0,43,73,0.12)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
         <div style="height:200px;background:linear-gradient(135deg,#001828 0%,#002B49 100%);position:relative;overflow:hidden;">
           <div style="position:absolute;inset:0;background:radial-gradient(circle at 50% 30%,rgba(247,200,115,0.12) 0%,transparent 70%);"></div>
           <div style="position:absolute;bottom:20px;left:24px;">
@@ -2615,26 +2671,72 @@ function submitContactForm(e) {
 }
 </script>
 <!-- FOOTER -->
-<!-- ── WAVE NEWSLETTER STRIP ── -->
-<div style="background:linear-gradient(135deg,#002B49,#003d5c);padding:48px 0;text-align:center;width:100%;box-sizing:border-box;">
-<div style="max-width:100%;margin:0 auto;padding:0 64px;box-sizing:border-box;">
-<div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:#F7C873;margin-bottom:10px;">Stay on the Wave</div>
-<h3 style="font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:800;color:#fff;margin-bottom:8px;">Get practical digital growth tips</h3>
-<p style="font-size:15px;color:rgba(255,255,255,0.6);margin-bottom:24px;">For modern businesses. No spam. Unsubscribe anytime.</p>
-<form id="nl-form-home" onsubmit="handleNLSubscribe(event,'home')" style="display:flex;gap:12px;max-width:600px;margin:0 auto;flex-wrap:wrap;">
-<input id="nl-email-home" onblur="this.style.border='2px solid transparent'" onfocus="this.style.border='2px solid #00E0FF'" placeholder="your@email.com" required="" style="flex:1;min-width:180px;padding:13px 16px;border-radius:10px;border:2px solid transparent;font-size:15px;font-family:inherit;outline:none;transition:border 0.2s;" type="email"/>
-<button id="nl-btn-home" style="background:#FF5500;color:#fff;font-size:15px;font-weight:800;padding:13px 24px;border-radius:10px;border:none;cursor:pointer;font-family:inherit;white-space:nowrap;box-shadow:0 4px 16px rgba(255,85,0,0.4);transition:all 0.2s;" type="submit">
-        Subscribe →
+<!-- ─── NEWSLETTER STRIP ─── -->
+<div style="background:linear-gradient(135deg,#001828 0%,#002B49 50%,#003d5c 100%);padding:80px 0;width:100%;box-sizing:border-box;position:relative;overflow:hidden;">
+  <!-- Grid overlay -->
+  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(0,224,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,224,255,0.03) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;"></div>
+  <!-- Glow orbs -->
+  <div style="position:absolute;top:-60px;right:10%;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(0,224,255,0.07) 0%,transparent 70%);pointer-events:none;"></div>
+  <div style="position:absolute;bottom:-60px;left:10%;width:250px;height:250px;border-radius:50%;background:radial-gradient(circle,rgba(255,85,0,0.06) 0%,transparent 70%);pointer-events:none;"></div>
+
+  <div style="max-width:720px;margin:0 auto;padding:0 32px;box-sizing:border-box;position:relative;z-index:2;text-align:center;">
+
+    <!-- Badge -->
+    <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(247,200,115,0.1);border:1px solid rgba(247,200,115,0.25);border-radius:30px;padding:6px 18px;margin-bottom:20px;">
+      <span style="width:6px;height:6px;border-radius:50%;background:#F7C873;display:inline-block;animation:bw-pulse 2s ease-in-out infinite;"></span>
+      <span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#F7C873;">Weekly Growth Insights</span>
+    </div>
+
+    <!-- Headline -->
+    <h2 style="font-family:'Manrope',sans-serif;font-size:clamp(28px,4vw,42px);font-weight:900;color:#fff;line-height:1.15;margin-bottom:12px;letter-spacing:-0.5px;">
+      Stay in the Loop.<br/><span style="background:linear-gradient(135deg,#00C2D8,#00E0FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Grow Every Week.</span>
+    </h2>
+
+    <!-- Description -->
+    <p style="font-size:17px;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:32px;max-width:520px;margin-left:auto;margin-right:auto;">
+      Practical digital growth strategies, delivered weekly. No fluff. No spam. Just insights that move your business forward.
+    </p>
+
+    <!-- Trust signals -->
+    <div style="display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:28px;">
+      <div style="display:flex;align-items:center;gap:6px;font-size:13px;color:rgba(255,255,255,0.5);font-weight:600;">
+        <span style="color:#22c55e;">&#10003;</span> No spam, ever
+      </div>
+      <div style="width:1px;height:14px;background:rgba(255,255,255,0.15);"></div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:13px;color:rgba(255,255,255,0.5);font-weight:600;">
+        <span style="color:#22c55e;">&#10003;</span> Unsubscribe anytime
+      </div>
+      <div style="width:1px;height:14px;background:rgba(255,255,255,0.15);"></div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:13px;color:rgba(255,255,255,0.5);font-weight:600;">
+        <span style="color:#22c55e;">&#10003;</span> Join 500+ business owners
+      </div>
+    </div>
+
+    <!-- Form -->
+    <form id="nl-form-home" onsubmit="handleNLSubscribe(event,'home')" style="display:flex;gap:10px;max-width:520px;margin:0 auto;flex-wrap:wrap;">
+      <input id="nl-email-home" type="email" placeholder="your@email.com" required
+        style="flex:1;min-width:200px;padding:15px 20px;border-radius:12px;border:2px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.06);font-size:15px;font-family:inherit;outline:none;transition:all 0.2s;color:#fff;box-sizing:border-box;"
+        onfocus="this.style.border='2px solid #00E0FF';this.style.background='rgba(0,224,255,0.06)'"
+        onblur="this.style.border='2px solid rgba(255,255,255,0.1)';this.style.background='rgba(255,255,255,0.06)'"/>
+      <button id="nl-btn-home" type="submit"
+        style="background:linear-gradient(135deg,#FF5500,#e84d00);color:#fff;font-size:15px;font-weight:800;padding:15px 28px;border-radius:12px;border:none;cursor:pointer;font-family:inherit;white-space:nowrap;box-shadow:0 6px 24px rgba(255,85,0,0.4);transition:all 0.2s;letter-spacing:0.3px;"
+        onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 10px 32px rgba(255,85,0,0.55)'"
+        onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 6px 24px rgba(255,85,0,0.4)'">
+        Get Weekly Insights &#8594;
       </button>
-</form>
-<div id="nl-success-home" style="display:none;margin-top:16px;background:rgba(0,224,255,0.1);border:1px solid rgba(0,224,255,0.3);border-radius:10px;padding:14px 20px;">
-<p style="color:#00E0FF;font-weight:800;font-size:15px;margin-bottom:2px;">🌊 You're on the Wave!</p>
-<p style="color:rgba(255,255,255,0.65);font-size:13px;">Thanks, practical digital growth tips coming your way.</p>
-</div>
-<div id="nl-error-home" style="display:none;margin-top:12px;">
-<p style="color:#FF5500;font-size:13px;font-weight:700;">Please enter a valid email address.</p>
-</div>
-</div>
+    </form>
+
+    <!-- Success -->
+    <div id="nl-success-home" style="display:none;margin-top:20px;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);border-radius:12px;padding:16px 24px;">
+      <p style="color:#22c55e;font-weight:800;font-size:16px;margin-bottom:4px;">&#127754; You're on the Wave!</p>
+      <p style="color:rgba(255,255,255,0.6);font-size:13px;">Welcome aboard. Practical growth insights heading your way.</p>
+    </div>
+    <!-- Error -->
+    <div id="nl-error-home" style="display:none;margin-top:12px;">
+      <p style="color:#FF5500;font-size:13px;font-weight:700;">&#9888; Please enter a valid email address.</p>
+    </div>
+
+  </div>
 </div>
 <script>
 function handleNLSubscribe(e, pid) {
@@ -2988,6 +3090,173 @@ document.addEventListener('click',function(e){
     setTimeout(tick, deleting ? 35 : (ci === phrase.length ? 1400 : 75));
   }
   setTimeout(tick, 800);
+})();
+</script>
+
+
+<script>
+/* ═══════════════════════════════════════════════════════
+   BLUWAV HOMEPAGE — PREMIUM ANIMATIONS
+═══════════════════════════════════════════════════════ */
+(function(){
+
+  /* ── 1. SCROLL PROGRESS BAR ── */
+  var bar = document.getElementById('bw-progress');
+  if(bar){
+    window.addEventListener('scroll',function(){
+      var pct = window.scrollY/(document.documentElement.scrollHeight-window.innerHeight)*100;
+      bar.style.width = Math.min(pct,100)+'%';
+    },{passive:true});
+  }
+
+  /* ── 2. INTERSECTION OBSERVER — fade/scale animations ── */
+  var animEls = document.querySelectorAll('.bw-fade-up,.bw-fade-left,.bw-fade-right,.bw-scale-in');
+  if(animEls.length){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('bw-in'); io.unobserve(e.target); }
+      });
+    },{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+    animEls.forEach(function(el){ io.observe(el); });
+  }
+
+  /* ── 3. TYPEWRITER HEADLINE ── */
+  var tw = document.getElementById('typewriterText');
+  var cur = document.getElementById('bwCursor') || document.getElementById('typewriterCursor');
+  if(tw){
+    var phrases = ['Get Found.','Get Chosen.','Grow.','Get Found. Get Chosen. Grow.'];
+    var pi=0,ci=0,del=false;
+    function tick(){
+      var ph=phrases[pi];
+      if(!del){ ci++; tw.textContent=ph.slice(0,ci);
+        if(ci===ph.length){
+          if(pi===phrases.length-1){ if(cur)cur.style.display='none'; return; }
+          setTimeout(function(){del=true;tick();},1600); return;
+        }
+      } else { ci--; tw.textContent=ph.slice(0,ci);
+        if(ci===0){ del=false; pi=(pi+1)%phrases.length; }
+      }
+      setTimeout(tick,del?38:(ci===ph.length?1600:72));
+    }
+    setTimeout(tick,900);
+  }
+
+  /* ── 4. MAGNETIC CTA BUTTON ── */
+  var cta = document.querySelector('.hero-cta-pulse');
+  if(cta){
+    cta.addEventListener('mousemove',function(e){
+      var r=cta.getBoundingClientRect();
+      var x=(e.clientX-r.left-r.width/2)*0.18;
+      var y=(e.clientY-r.top-r.height/2)*0.18;
+      cta.style.transform='translate('+x+'px,'+y+'px) translateY(-3px)';
+    });
+    cta.addEventListener('mouseleave',function(){ cta.style.transform=''; });
+  }
+
+  /* ── 5. NAV SCROLL EFFECT ── */
+  var nav = document.getElementById('mainNav');
+  if(nav){
+    window.addEventListener('scroll',function(){
+      if(window.scrollY>60){
+        nav.style.background='rgba(0,20,45,0.99)';
+        nav.style.boxShadow='0 4px 40px rgba(0,0,0,0.5)';
+      } else {
+        nav.style.background='rgba(0,43,73,0.97)';
+        nav.style.boxShadow='0 2px 24px rgba(0,0,0,0.3)';
+      }
+    },{passive:true});
+  }
+
+  /* ── 6. ANIMATED NUMBER COUNTERS ── */
+  var counters = document.querySelectorAll('[data-count]');
+  if(counters.length){
+    var cObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(!e.isIntersecting) return;
+        var el=e.target, target=parseFloat(el.getAttribute('data-count'));
+        var suffix=el.getAttribute('data-suffix')||'';
+        var dur=1800, start=null;
+        function step(ts){
+          if(!start)start=ts;
+          var prog=Math.min((ts-start)/dur,1);
+          var ease=1-Math.pow(1-prog,3);
+          el.textContent=Math.round(target*ease)+suffix;
+          if(prog<1)requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+        cObs.unobserve(el);
+      });
+    },{threshold:0.5});
+    counters.forEach(function(el){ cObs.observe(el); });
+  }
+
+  /* ── 7. CARD 3D TILT on hover ── */
+  document.querySelectorAll('.bw-card-hover,.payment-card,.hc-pillar').forEach(function(card){
+    card.addEventListener('mousemove',function(e){
+      var r=card.getBoundingClientRect();
+      var x=(e.clientX-r.left)/r.width-0.5;
+      var y=(e.clientY-r.top)/r.height-0.5;
+      card.style.transform='perspective(700px) rotateX('+(-y*5)+'deg) rotateY('+(x*5)+'deg) translateY(-6px)';
+    });
+    card.addEventListener('mouseleave',function(){ card.style.transform=''; });
+  });
+
+  /* ── 8. HERO PARTICLE CANVAS ── */
+  var canvas = document.createElement('canvas');
+  canvas.style.cssText='position:absolute;inset:0;z-index:0;pointer-events:none;opacity:0.3;';
+  var hero = document.querySelector('.hero');
+  if(hero){ hero.insertBefore(canvas,hero.firstChild);
+    var ctx=canvas.getContext('2d'), W,H,pts=[];
+    function resize(){ W=canvas.width=hero.offsetWidth; H=canvas.height=hero.offsetHeight; }
+    resize(); window.addEventListener('resize',resize,{passive:true});
+    for(var i=0;i<50;i++) pts.push({
+      x:Math.random()*W,y:Math.random()*H,
+      vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,
+      r:Math.random()*1.2+.4,
+      col:Math.random()>.5?'0,224,255':'255,85,0',
+      a:Math.random()*.4+.1
+    });
+    function draw(){
+      ctx.clearRect(0,0,W,H);
+      pts.forEach(function(p){
+        p.x+=p.vx; p.y+=p.vy;
+        if(p.x<0)p.x=W; if(p.x>W)p.x=0;
+        if(p.y<0)p.y=H; if(p.y>H)p.y=0;
+        ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+        ctx.fillStyle='rgba('+p.col+','+p.a+')'; ctx.fill();
+      });
+      for(var a=0;a<pts.length;a++) for(var b=a+1;b<pts.length;b++){
+        var dx=pts[a].x-pts[b].x,dy=pts[a].y-pts[b].y,d=Math.sqrt(dx*dx+dy*dy);
+        if(d<90){ ctx.beginPath(); ctx.moveTo(pts[a].x,pts[a].y); ctx.lineTo(pts[b].x,pts[b].y);
+          ctx.strokeStyle='rgba(0,224,255,'+(0.06*(1-d/90))+')'; ctx.lineWidth=.5; ctx.stroke(); }
+      }
+      requestAnimationFrame(draw);
+    }
+    draw();
+  }
+
+  /* ── 9. SMOOTH SECTION REVEAL for bw-reveal elements ── */
+  var revEls = document.querySelectorAll('.bw-reveal:not(.bw-in)');
+  if(revEls.length){
+    var rObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('bw-in'); rObs.unobserve(e.target); }
+      });
+    },{threshold:0.1,rootMargin:'0px 0px -30px 0px'});
+    revEls.forEach(function(el){ rObs.observe(el); });
+  }
+
+  /* ── 10. NEWSLETTER INPUT FOCUS EFFECT ── */
+  var nlInput = document.getElementById('nl-email-home');
+  if(nlInput){
+    nlInput.addEventListener('focus',function(){
+      this.parentElement.style.transform='scale(1.01)';
+    });
+    nlInput.addEventListener('blur',function(){
+      this.parentElement.style.transform='scale(1)';
+    });
+  }
+
 })();
 </script>
 
