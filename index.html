@@ -2392,71 +2392,154 @@ footer .footer-grid{gap:56px !important;}
 <!-- FULL WIDTH TEAM BANNER -->
 
 <!-- CONTACT, Sand -->
-<!-- SECTION 6 — CASE STUDIES -->
-<section style="background:#fff;padding:100px 0;border-top:1px solid #e8e4de;">
-  <div style="width:100%;max-width:1200px;margin:0 auto;padding:0 64px;box-sizing:border-box;">
+<!-- SECTION 6 — CASE STUDIES CAROUSEL -->
+<section style="background:#001828;padding:0;overflow:hidden;position:relative;">
 
-    <!-- Header -->
-    <div style="text-align:center;margin-bottom:64px;">
-      <span class="bw-fade-up" style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;color:#FF5500;display:block;margin-bottom:12px;">Case Studies</span>
-      <h2 class="bw-fade-up" style="font-family:'Manrope',sans-serif;font-size:clamp(28px,4vw,44px);font-weight:900;color:#002B49;line-height:1.1;margin-bottom:16px;">Real Businesses. Real Growth.</h2>
-      <p style="font-size:17px;color:#64748b;line-height:1.75;max-width:580px;margin:0 auto;">See how modern businesses improved visibility, trust, and conversions with BluWav Growth Systems.</p>
+  <!-- Carousel wrapper -->
+  <div id="caseCarousel" style="position:relative;width:100%;overflow:hidden;">
+
+    <!-- Slides -->
+    <div id="caseTrack" style="display:flex;transition:transform 0.6s cubic-bezier(0.22,1,0.36,1);will-change:transform;">
+
+      <!-- Slide A -->
+      <div style="min-width:100%;position:relative;height:520px;background:linear-gradient(135deg,#001828 0%,#002B49 60%,#003d5c 100%);display:flex;align-items:center;overflow:hidden;">
+        <div style="position:absolute;inset:0;background:radial-gradient(circle at 70% 50%,rgba(0,224,255,0.08) 0%,transparent 60%);pointer-events:none;"></div>
+        <div style="position:absolute;top:0;left:0;right:0;bottom:0;background-image:linear-gradient(rgba(0,224,255,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(0,224,255,0.02) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;"></div>
+        <div style="width:100%;max-width:1100px;margin:0 auto;padding:0 64px;box-sizing:border-box;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;position:relative;z-index:2;">
+          <div>
+            <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(0,224,255,0.1);border:1px solid rgba(0,224,255,0.2);border-radius:30px;padding:5px 16px;margin-bottom:20px;">
+              <span style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#00E0FF;">Business A &middot; Case Study 01</span>
+            </div>
+            <h3 style="font-family:'Manrope',sans-serif;font-size:clamp(24px,3.5vw,40px);font-weight:900;color:#fff;line-height:1.15;margin-bottom:16px;">From invisible online<br/>to <span style="color:#00E0FF;">weekly inquiries.</span></h3>
+            <p style="font-size:16px;color:rgba(255,255,255,0.6);line-height:1.75;margin-bottom:28px;">A professional services firm with no digital presence. Within 6 weeks of BluWav Ripple, they were ranking on Google Maps and receiving 3&ndash;5 qualified inquiries every week.</p>
+            <a href="case-study-aadek.html" style="display:inline-flex;align-items:center;gap:8px;background:rgba(0,224,255,0.1);border:1px solid rgba(0,224,255,0.3);color:#00E0FF;font-size:14px;font-weight:800;padding:12px 24px;border-radius:10px;text-decoration:none;transition:all 0.2s;" onmouseover="this.style.background='rgba(0,224,255,0.2)'" onmouseout="this.style.background='rgba(0,224,255,0.1)'">View Case Study &#8594;</a>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:16px;">
+            <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(0,224,255,0.1);border-radius:16px;padding:24px;display:flex;align-items:center;gap:20px;">
+              <div style="font-family:'Manrope',sans-serif;font-size:40px;font-weight:900;color:#00E0FF;line-height:1;flex-shrink:0;">3&ndash;5</div>
+              <div><div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:4px;">Weekly Inquiries</div><div style="font-size:12px;color:rgba(255,255,255,0.4);">Up from zero in 6 weeks</div></div>
+            </div>
+            <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(0,224,255,0.1);border-radius:16px;padding:24px;display:flex;align-items:center;gap:20px;">
+              <div style="font-family:'Manrope',sans-serif;font-size:40px;font-weight:900;color:#F7C873;line-height:1;flex-shrink:0;">#1</div>
+              <div><div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:4px;">Google Maps Ranking</div><div style="font-size:12px;color:rgba(255,255,255,0.4);">Local search for their category</div></div>
+            </div>
+            <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(0,224,255,0.1);border-radius:16px;padding:24px;display:flex;align-items:center;gap:20px;">
+              <div style="font-family:'Manrope',sans-serif;font-size:40px;font-weight:900;color:#22c55e;line-height:1;flex-shrink:0;">48h</div>
+              <div><div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:4px;">System Delivered</div><div style="font-size:12px;color:rgba(255,255,255,0.4);">From brief to live</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide B -->
+      <div style="min-width:100%;position:relative;height:520px;background:linear-gradient(135deg,#1a0800 0%,#3d1200 60%,#FF5500 100%);display:flex;align-items:center;overflow:hidden;">
+        <div style="position:absolute;inset:0;background:radial-gradient(circle at 30% 50%,rgba(247,200,115,0.1) 0%,transparent 60%);pointer-events:none;"></div>
+        <div style="width:100%;max-width:1100px;margin:0 auto;padding:0 64px;box-sizing:border-box;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;position:relative;z-index:2;">
+          <div>
+            <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(247,200,115,0.15);border:1px solid rgba(247,200,115,0.3);border-radius:30px;padding:5px 16px;margin-bottom:20px;">
+              <span style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#F7C873;">Business B &middot; Case Study 02</span>
+            </div>
+            <h3 style="font-family:'Manrope',sans-serif;font-size:clamp(24px,3.5vw,40px);font-weight:900;color:#fff;line-height:1.15;margin-bottom:16px;">From unclear presence<br/>to <span style="color:#F7C873;">top Google results.</span></h3>
+            <p style="font-size:16px;color:rgba(255,255,255,0.65);line-height:1.75;margin-bottom:28px;">A retail business with an outdated website and no Google presence. BluWav Current rebuilt their digital foundation — within 8 weeks they ranked page 1 for their top 3 keywords.</p>
+            <a href="case-study-aadek.html" style="display:inline-flex;align-items:center;gap:8px;background:rgba(247,200,115,0.15);border:1px solid rgba(247,200,115,0.4);color:#F7C873;font-size:14px;font-weight:800;padding:12px 24px;border-radius:10px;text-decoration:none;transition:all 0.2s;" onmouseover="this.style.background='rgba(247,200,115,0.25)'" onmouseout="this.style.background='rgba(247,200,115,0.15)'">View Case Study &#8594;</a>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:16px;">
+            <div style="background:rgba(0,0,0,0.2);border:1px solid rgba(247,200,115,0.15);border-radius:16px;padding:24px;display:flex;align-items:center;gap:20px;">
+              <div style="font-family:'Manrope',sans-serif;font-size:40px;font-weight:900;color:#F7C873;line-height:1;flex-shrink:0;">340%</div>
+              <div><div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:4px;">More Website Enquiries</div><div style="font-size:12px;color:rgba(255,255,255,0.4);">Compared to previous 3 months</div></div>
+            </div>
+            <div style="background:rgba(0,0,0,0.2);border:1px solid rgba(247,200,115,0.15);border-radius:16px;padding:24px;display:flex;align-items:center;gap:20px;">
+              <div style="font-family:'Manrope',sans-serif;font-size:40px;font-weight:900;color:#fff;line-height:1;flex-shrink:0;">Pg 1</div>
+              <div><div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:4px;">Google Rankings</div><div style="font-size:12px;color:rgba(255,255,255,0.4);">Top 3 keywords in 8 weeks</div></div>
+            </div>
+            <div style="background:rgba(0,0,0,0.2);border:1px solid rgba(247,200,115,0.15);border-radius:16px;padding:24px;display:flex;align-items:center;gap:20px;">
+              <div style="font-family:'Manrope',sans-serif;font-size:40px;font-weight:900;color:#22c55e;line-height:1;flex-shrink:0;">41</div>
+              <div><div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:4px;">Google Reviews</div><div style="font-size:12px;color:rgba(255,255,255,0.4);">Up from 3 before BluWav</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide C -->
+      <div style="min-width:100%;position:relative;height:520px;background:linear-gradient(135deg,#001020 0%,#002B49 50%,#003020 100%);display:flex;align-items:center;overflow:hidden;">
+        <div style="position:absolute;inset:0;background:radial-gradient(circle at 60% 40%,rgba(34,197,94,0.07) 0%,transparent 60%);pointer-events:none;"></div>
+        <div style="width:100%;max-width:1100px;margin:0 auto;padding:0 64px;box-sizing:border-box;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;position:relative;z-index:2;">
+          <div>
+            <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.25);border-radius:30px;padding:5px 16px;margin-bottom:20px;">
+              <span style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#22c55e;">Business C &middot; Case Study 03</span>
+            </div>
+            <h3 style="font-family:'Manrope',sans-serif;font-size:clamp(24px,3.5vw,40px);font-weight:900;color:#fff;line-height:1.15;margin-bottom:16px;">From missed leads<br/>to <span style="color:#22c55e;">automated conversions.</span></h3>
+            <p style="font-size:16px;color:rgba(255,255,255,0.6);line-height:1.75;margin-bottom:28px;">A hospitality business losing leads daily with no follow-up system. BluWav Surge rebuilt their intake, CRM, and automation — conversion rate doubled in 90 days.</p>
+            <a href="case-study-aadek.html" style="display:inline-flex;align-items:center;gap:8px;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);color:#22c55e;font-size:14px;font-weight:800;padding:12px 24px;border-radius:10px;text-decoration:none;transition:all 0.2s;" onmouseover="this.style.background='rgba(34,197,94,0.2)'" onmouseout="this.style.background='rgba(34,197,94,0.1)'">View Case Study &#8594;</a>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:16px;">
+            <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(34,197,94,0.15);border-radius:16px;padding:24px;display:flex;align-items:center;gap:20px;">
+              <div style="font-family:'Manrope',sans-serif;font-size:40px;font-weight:900;color:#22c55e;line-height:1;flex-shrink:0;">2x</div>
+              <div><div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:4px;">Conversion Rate</div><div style="font-size:12px;color:rgba(255,255,255,0.4);">Doubled in 90 days</div></div>
+            </div>
+            <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(34,197,94,0.15);border-radius:16px;padding:24px;display:flex;align-items:center;gap:20px;">
+              <div style="font-family:'Manrope',sans-serif;font-size:40px;font-weight:900;color:#00E0FF;line-height:1;flex-shrink:0;">0</div>
+              <div><div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:4px;">Missed Leads</div><div style="font-size:12px;color:rgba(255,255,255,0.4);">Automated follow-up catches all</div></div>
+            </div>
+            <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(34,197,94,0.15);border-radius:16px;padding:24px;display:flex;align-items:center;gap:20px;">
+              <div style="font-family:'Manrope',sans-serif;font-size:40px;font-weight:900;color:#F7C873;line-height:1;flex-shrink:0;">90d</div>
+              <div><div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:4px;">To Full Results</div><div style="font-size:12px;color:rgba(255,255,255,0.4);">System live in 48 hours</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /track -->
+
+    <!-- Navigation dots -->
+    <div style="position:absolute;bottom:28px;left:50%;transform:translateX(-50%);display:flex;gap:10px;z-index:10;">
+      <button onclick="goSlide(0)" id="dot0" style="width:10px;height:10px;border-radius:50%;border:none;cursor:pointer;transition:all 0.3s;background:#fff;opacity:1;" aria-label="Slide 1"></button>
+      <button onclick="goSlide(1)" id="dot1" style="width:10px;height:10px;border-radius:50%;border:none;cursor:pointer;transition:all 0.3s;background:#fff;opacity:0.35;" aria-label="Slide 2"></button>
+      <button onclick="goSlide(2)" id="dot2" style="width:10px;height:10px;border-radius:50%;border:none;cursor:pointer;transition:all 0.3s;background:#fff;opacity:0.35;" aria-label="Slide 3"></button>
     </div>
 
-    <!-- Cards -->
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;" class="case-grid">
+    <!-- Prev/Next arrows -->
+    <button onclick="prevSlide()" style="position:absolute;left:24px;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#fff;font-size:18px;cursor:pointer;transition:all 0.2s;z-index:10;display:flex;align-items:center;justify-content:center;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'" aria-label="Previous">&#8592;</button>
+    <button onclick="nextSlide()" style="position:absolute;right:24px;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#fff;font-size:18px;cursor:pointer;transition:all 0.2s;z-index:10;display:flex;align-items:center;justify-content:center;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'" aria-label="Next">&#8594;</button>
 
-      <!-- Card A -->
-      <div class="bw-reveal bw-delay-1" class="bw-card-hover" style="background:#F4F2ED;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 20px 60px rgba(0,43,73,0.12)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
-        <!-- Image placeholder with gradient -->
-        <div style="height:200px;background:linear-gradient(135deg,#002B49 0%,#003d5c 100%);position:relative;overflow:hidden;">
-          <div style="position:absolute;inset:0;background:radial-gradient(circle at 30% 50%,rgba(0,224,255,0.15) 0%,transparent 70%);"></div>
-          <div style="position:absolute;bottom:20px;left:24px;">
-            <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:rgba(0,224,255,0.7);margin-bottom:6px;">Business A</div>
-            <div style="font-size:18px;font-weight:800;color:#fff;line-height:1.3;">Visibility &amp;<br/>Weekly Inquiries</div>
-          </div>
-          <div style="position:absolute;top:20px;right:20px;width:40px;height:40px;border-radius:50%;background:rgba(0,224,255,0.1);border:1px solid rgba(0,224,255,0.2);display:flex;align-items:center;justify-content:center;font-size:18px;">&#128269;</div>
-        </div>
-        <div style="padding:28px;flex:1;display:flex;flex-direction:column;">
-          <p style="font-size:15px;color:#475569;line-height:1.7;margin-bottom:24px;flex:1;">From low visibility to consistent weekly inquiries.</p>
-          <a href="case-study-aadek.html" style="display:inline-flex;align-items:center;gap:8px;color:#002B49;font-size:14px;font-weight:800;text-decoration:none;border-bottom:2px solid #00C2D8;padding-bottom:2px;transition:color 0.2s;" onmouseover="this.style.color='#00C2D8'" onmouseout="this.style.color='#002B49'">View Case Study &#8594;</a>
-        </div>
-      </div>
-
-      <!-- Card B -->
-      <div class="bw-reveal bw-delay-2" class="bw-card-hover" style="background:#F4F2ED;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 20px 60px rgba(0,43,73,0.12)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
-        <div style="height:200px;background:linear-gradient(135deg,#FF5500 0%,#e84d00 100%);position:relative;overflow:hidden;">
-          <div style="position:absolute;inset:0;background:radial-gradient(circle at 70% 50%,rgba(247,200,115,0.2) 0%,transparent 70%);"></div>
-          <div style="position:absolute;bottom:20px;left:24px;">
-            <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.6);margin-bottom:6px;">Business B</div>
-            <div style="font-size:18px;font-weight:800;color:#fff;line-height:1.3;">Top&#8209;Ranking<br/>Google Results</div>
-          </div>
-          <div style="position:absolute;top:20px;right:20px;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:18px;">&#127919;</div>
-        </div>
-        <div style="padding:28px;flex:1;display:flex;flex-direction:column;">
-          <p style="font-size:15px;color:#475569;line-height:1.7;margin-bottom:24px;flex:1;">From unclear digital presence to top&#8209;ranking Google results.</p>
-          <a href="case-study-aadek.html" style="display:inline-flex;align-items:center;gap:8px;color:#002B49;font-size:14px;font-weight:800;text-decoration:none;border-bottom:2px solid #FF5500;padding-bottom:2px;transition:color 0.2s;" onmouseover="this.style.color='#FF5500'" onmouseout="this.style.color='#002B49'">View Case Study &#8594;</a>
-        </div>
-      </div>
-
-      <!-- Card C -->
-      <div class="bw-reveal bw-delay-3" class="bw-card-hover" style="background:#F4F2ED;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 20px 60px rgba(0,43,73,0.12)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
-        <div style="height:200px;background:linear-gradient(135deg,#001828 0%,#002B49 100%);position:relative;overflow:hidden;">
-          <div style="position:absolute;inset:0;background:radial-gradient(circle at 50% 30%,rgba(247,200,115,0.12) 0%,transparent 70%);"></div>
-          <div style="position:absolute;bottom:20px;left:24px;">
-            <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:rgba(247,200,115,0.7);margin-bottom:6px;">Business C</div>
-            <div style="font-size:18px;font-weight:800;color:#fff;line-height:1.3;">Automated Follow&#8209;Up<br/>&amp; Conversions</div>
-          </div>
-          <div style="position:absolute;top:20px;right:20px;width:40px;height:40px;border-radius:50%;background:rgba(247,200,115,0.1);border:1px solid rgba(247,200,115,0.2);display:flex;align-items:center;justify-content:center;font-size:18px;">&#9889;</div>
-        </div>
-        <div style="padding:28px;flex:1;display:flex;flex-direction:column;">
-          <p style="font-size:15px;color:#475569;line-height:1.7;margin-bottom:24px;flex:1;">From missed leads to automated follow&#8209;up and higher conversions.</p>
-          <a href="case-study-aadek.html" style="display:inline-flex;align-items:center;gap:8px;color:#002B49;font-size:14px;font-weight:800;text-decoration:none;border-bottom:2px solid #F7C873;padding-bottom:2px;transition:color 0.2s;" onmouseover="this.style.color='#e8b85e'" onmouseout="this.style.color='#002B49'">View Case Study &#8594;</a>
-        </div>
-      </div>
-
+    <!-- Section label top -->
+    <div style="position:absolute;top:28px;left:50%;transform:translateX(-50%);z-index:10;">
+      <span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;color:rgba(255,255,255,0.4);">Real Businesses. Real Growth.</span>
     </div>
-  </div>
+
+  </div><!-- /carousel -->
+
+  <script>
+  (function(){
+    var current = 0, total = 3, auto;
+    function goSlide(n){
+      current = (n + total) % total;
+      document.getElementById('caseTrack').style.transform = 'translateX(-' + (current * 100) + '%)';
+      for(var i=0;i<total;i++){
+        var d = document.getElementById('dot'+i);
+        if(d) d.style.opacity = i===current ? '1' : '0.35';
+      }
+    }
+    function nextSlide(){ goSlide(current+1); resetAuto(); }
+    function prevSlide(){ goSlide(current-1); resetAuto(); }
+    function resetAuto(){ clearInterval(auto); auto = setInterval(function(){ goSlide(current+1); }, 5000); }
+    window.goSlide = goSlide;
+    window.nextSlide = nextSlide;
+    window.prevSlide = prevSlide;
+    resetAuto();
+    // Touch/swipe support
+    var startX = 0;
+    var track = document.getElementById('caseTrack');
+    if(track){
+      track.addEventListener('touchstart',function(e){ startX = e.touches[0].clientX; },{passive:true});
+      track.addEventListener('touchend',function(e){
+        var diff = startX - e.changedTouches[0].clientX;
+        if(Math.abs(diff) > 50){ diff > 0 ? nextSlide() : prevSlide(); }
+      },{passive:true});
+    }
+  })();
+  </script>
+
 </section>
 
 <!-- SECTION 7 — DIGITAL HEALTH SCORE FORM -->
