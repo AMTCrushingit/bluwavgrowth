@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Contact | BluWav Growth</title>
+<meta name="description" content="Get in touch with BluWav Growth. Book a call, send an email, or get your free Digital Health Score."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Kaushan+Script&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:#F4F2ED;color:#1E1E1E;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+:root{--navy:#002B49;--coral:#FF5500;--gold:#F7C873;--cyan:#00E0FF;--turquoise:#00C2D8;--sand:#F4F2ED;--dark:#1E1E1E;--slate:#64748b;--mist:#e8e4de;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(0,43,73,0.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,224,255,0.15);box-shadow:0 2px 24px rgba(0,0,0,0.3);}
+.nav-logo{display:flex;flex-direction:column;align-items:flex-start;line-height:1;padding:4px 0;}
+.nav-links{display:flex;align-items:center;gap:20px;}
+.nav-link{font-size:12px;font-weight:500;color:rgba(255,255,255,0.65);transition:color 0.2s;text-decoration:none;white-space:nowrap;position:relative;}
+.nav-link::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:#00E0FF;transition:width 0.3s ease;border-radius:2px;}
+.nav-link:hover{color:#fff;}
+.nav-link:hover::after{width:100%;}
+.nav-link.nav-active{color:#fff!important;font-weight:700!important;}
+.nav-link.nav-active::after{width:100%!important;background:#FF5500!important;}
+.nav-cta{background:var(--coral);color:#fff;font-size:13px;font-weight:700;padding:10px 24px;border-radius:9px;box-shadow:0 4px 16px rgba(255,85,0,0.35);transition:transform 0.15s;text-decoration:none;}
+.nav-cta:hover{transform:translateY(-1px);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1001;background:none;border:none;padding:8px;margin:-8px;touch-action:manipulation;}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all 0.3s ease;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mob-nav{display:none;position:fixed;top:70px;left:0;right:0;background:rgba(0,43,73,0.99);backdrop-filter:blur(20px);padding:20px 24px;flex-direction:column;gap:4px;z-index:10000;border-bottom:1px solid rgba(0,224,255,0.15);max-height:calc(100vh - 70px);overflow-y:auto;}
+.mob-nav.open{display:flex!important;}
+.mob-link{font-size:15px;font-weight:600;color:rgba(255,255,255,0.85);padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.1);display:block;text-decoration:none;}
+.mob-cta{background:var(--coral);color:#fff;font-weight:700;padding:14px;border-radius:10px;text-align:center;margin-top:8px;font-size:15px;display:block;text-decoration:none;}
+.page-hero{padding:140px 64px 80px;background:linear-gradient(135deg,#001828 0%,#002B49 60%,#003d5c 100%);position:relative;overflow:hidden;}
+.page-hero::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(0,224,255,0.07) 0%,transparent 70%);pointer-events:none;}
+.section-white{background:#fff;padding:80px 64px;}
+.section-sand{background:#F4F2ED;padding:80px 64px;}
+.section-navy{background:#002B49;padding:80px 64px;}
+.section-dark{background:#001828;padding:80px 64px;}
+.wrap{max-width:1100px;margin:0 auto;}
+.eyebrow{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;color:var(--coral);display:block;margin-bottom:12px;}
+.page-h1{font-family:'Manrope',sans-serif;font-size:clamp(32px,5vw,56px);font-weight:900;color:#fff;line-height:1.1;margin-bottom:16px;}
+.page-h2{font-family:'Manrope',sans-serif;font-size:clamp(26px,4vw,40px);font-weight:800;color:var(--navy);line-height:1.15;margin-bottom:16px;}
+.page-h2.light{color:#fff;}
+.page-lead{font-size:18px;color:rgba(255,255,255,0.7);line-height:1.75;max-width:600px;}
+.page-lead.dark{color:var(--slate);}
+.btn-coral{display:inline-flex;align-items:center;gap:8px;background:var(--coral);color:#fff;font-size:15px;font-weight:800;padding:16px 32px;border-radius:11px;text-decoration:none;transition:all 0.2s;box-shadow:0 4px 20px rgba(255,85,0,0.35);}
+.btn-coral:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(255,85,0,0.5);}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;background:transparent;color:#fff;font-size:15px;font-weight:700;padding:15px 30px;border-radius:11px;text-decoration:none;border:2px solid rgba(255,255,255,0.3);transition:all 0.2s;}
+.btn-outline:hover{border-color:#fff;background:rgba(255,255,255,0.05);}
+.card{background:#fff;border-radius:20px;padding:36px;border:1px solid var(--mist);box-shadow:0 2px 16px rgba(0,43,73,0.06);transition:transform 0.2s,box-shadow 0.2s;}
+.card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,43,73,0.12);}
+.card-dark{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:36px;}
+@media(max-width:768px){
+  nav{padding:0 16px!important;height:60px!important;}
+  .mob-nav{top:60px!important;}
+  .hamburger{display:flex!important;}
+  .nav-links{display:none!important;}
+  .page-hero{padding:100px 20px 60px!important;}
+  .section-white,.section-sand,.section-navy,.section-dark{padding:60px 20px!important;}
+  footer [style*="padding:0 64px"]{padding:0 20px!important;}
+  footer [style*="grid-template-columns:2fr"]{grid-template-columns:1fr 1fr!important;}
+}
+@media(max-width:480px){
+  footer [style*="grid-template-columns:2fr"]{grid-template-columns:1fr!important;}
+}
+</style>
+<style>
+.form-group{margin-bottom:18px;}
+.form-label{display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px;}
+.form-label span{color:var(--coral);}
+.form-input,.form-select{width:100%;padding:13px 16px;border:2px solid #e2e8f0;border-radius:10px;font-size:15px;font-family:inherit;color:var(--dark);background:#fff;transition:border 0.2s;outline:none;box-sizing:border-box;}
+.form-input:focus,.form-select:focus{border-color:#00C2D8;box-shadow:0 0 0 3px rgba(0,194,216,0.1);}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+@media(max-width:480px){.form-row{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav id="mainNav">
+<div class="nav-logo" style="display:flex;flex-direction:column;align-items:flex-start;line-height:1;padding:4px 0;">
+  <div style="font-family:'Kaushan Script',cursive;font-size:26px;line-height:1;color:#fff;">Blu<span style="color:#00E0FF;">Wav</span></div>
+  <div style="font-size:8px;font-weight:700;color:#00E0FF;letter-spacing:3px;text-transform:uppercase;line-height:1.4;margin-top:2px;">Get Found. Get Chosen. Grow.</div>
+</div>
+<div class="nav-links">
+  <a class="nav-link" href="systems.html">Growth Systems</a>
+  <a class="nav-link" href="plans.html">Plans</a>
+  <a class="nav-link" href="case-studies.html">Case Studies</a>
+  <a class="nav-link" href="health-score.html">Health Score</a>
+  <a class="nav-link" href="about.html">About</a>
+  <a class="nav-link  nav-active" href="contact.html">Contact</a>
+  <a class="nav-cta" href="https://calendly.com/bluwavgrowth" target="_blank" rel="noopener">Book a Call</a>
+</div>
+<button aria-label="Menu" class="hamburger" id="hamburgerBtn" onclick="toggleMob()"><span></span><span></span><span></span></button>
+</nav>
+<div class="mob-nav" id="mobNav">
+<div class="mob-nav-inner">
+  <a class="mob-link" href="systems.html" onclick="closeMob()">&#127757; Growth Systems</a>
+  <a class="mob-link" href="plans.html" onclick="closeMob()">&#128176; Plans</a>
+  <a class="mob-link" href="case-studies.html" onclick="closeMob()">&#128202; Case Studies</a>
+  <a class="mob-link" href="health-score.html" onclick="closeMob()">&#129658; Health Score</a>
+  <a class="mob-link" href="about.html" onclick="closeMob()">&#128100; About</a>
+  <a class="mob-link" href="contact.html" onclick="closeMob()">&#128222; Contact</a>
+  <a class="mob-cta" href="https://calendly.com/bluwavgrowth" target="_blank" rel="noopener" onclick="closeMob()">&#128197; Book a Call</a>
+</div>
+</div>
+
+<!-- HERO -->
+<section class="page-hero" style="padding-bottom:60px;">
+  <div class="wrap" style="position:relative;z-index:2;text-align:center;">
+    <span class="eyebrow">Get in Touch</span>
+    <h1 class="page-h1">Let's Talk Growth.</h1>
+    <p class="page-lead" style="margin:0 auto;">Book a call, send a message, or get your free Digital Health Score. We respond within a few hours.</p>
+  </div>
+</section>
+
+<!-- CONTACT GRID -->
+<section class="section-white">
+  <div class="wrap">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;">
+
+      <!-- Left: Info -->
+      <div>
+        <h2 class="page-h2" style="margin-bottom:24px;">How to Reach Us</h2>
+
+        <!-- Book a Call -->
+        <div style="background:linear-gradient(135deg,#001828,#002B49);border-radius:20px;padding:32px;margin-bottom:20px;">
+          <div style="font-size:28px;margin-bottom:12px;">&#128197;</div>
+          <div style="font-size:18px;font-weight:800;color:#fff;margin-bottom:6px;">Book a Call</div>
+          <div style="font-size:14px;color:rgba(255,255,255,0.55);margin-bottom:16px;line-height:1.6;">Schedule a free 30-minute strategy call. We'll review your business and show you exactly what's possible.</div>
+          <a href="https://calendly.com/bluwavgrowth" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#00C2D8;color:#fff;font-size:14px;font-weight:800;padding:12px 24px;border-radius:10px;text-decoration:none;transition:all 0.2s;" onmouseover="this.style.background='#007a85'" onmouseout="this.style.background='#00C2D8'">Book a Free Call &#8594;</a>
+        </div>
+
+        <!-- Email -->
+        <div style="background:var(--sand);border-radius:20px;padding:28px;margin-bottom:20px;border:1px solid var(--mist);">
+          <div style="font-size:24px;margin-bottom:10px;">&#9993;&#65039;</div>
+          <div style="font-size:16px;font-weight:800;color:var(--navy);margin-bottom:4px;">Email Us</div>
+          <div style="font-size:14px;color:var(--slate);margin-bottom:12px;">We respond within a few hours.</div>
+          <a href="mailto:hello@bluwavgrowth.com" style="font-size:15px;font-weight:700;color:#00C2D8;text-decoration:none;">hello@bluwavgrowth.com</a>
+        </div>
+
+        <!-- Health Score -->
+        <div style="background:linear-gradient(135deg,#FF5500,#e84d00);border-radius:20px;padding:28px;">
+          <div style="font-size:24px;margin-bottom:10px;">&#129658;</div>
+          <div style="font-size:16px;font-weight:800;color:#fff;margin-bottom:4px;">Free Digital Health Score</div>
+          <div style="font-size:14px;color:rgba(255,255,255,0.7);margin-bottom:12px;">Find out exactly where your business stands online — free, no commitment.</div>
+          <a href="health-score.html" style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.15);color:#fff;font-size:14px;font-weight:800;padding:10px 20px;border-radius:10px;text-decoration:none;border:1px solid rgba(255,255,255,0.3);transition:all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.25)'" onmouseout="this.style.background='rgba(255,255,255,0.15)'">Get My Free Score &#8594;</a>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div style="background:#fff;border:1.5px solid #e2e8f0;border-radius:24px;padding:40px;box-shadow:0 8px 40px rgba(0,43,73,0.08);">
+        <h3 style="font-family:'Manrope',sans-serif;font-size:22px;font-weight:800;color:var(--navy);margin-bottom:6px;">Send a Message</h3>
+        <p style="font-size:14px;color:var(--slate);margin-bottom:28px;">We'll get back to you within a few hours.</p>
+
+        <form id="contactPageForm" onsubmit="submitContactPage(event)" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="cp-name">Name <span>*</span></label>
+              <input class="form-input" id="cp-name" type="text" placeholder="Your name" required/>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="cp-biz">Business Name</label>
+              <input class="form-input" id="cp-biz" type="text" placeholder="Your business"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cp-email">Email <span>*</span></label>
+            <input class="form-input" id="cp-email" type="email" placeholder="you@yourbusiness.com" required/>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cp-subject">What can we help with?</label>
+            <select class="form-select" id="cp-subject">
+              <option value="">Select one&hellip;</option>
+              <option>Getting started with a Growth System</option>
+              <option>Understanding my Digital Health Score</option>
+              <option>BluWav CRM enquiry</option>
+              <option>Partnership or agency enquiry</option>
+              <option>General question</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cp-msg">Message <span>*</span></label>
+            <textarea class="form-input" id="cp-msg" rows="4" placeholder="Tell us about your business and what you're looking to achieve..." required style="resize:vertical;"></textarea>
+          </div>
+          <div id="cpError" style="display:none;background:rgba(255,85,0,0.08);border:1px solid rgba(255,85,0,0.3);border-radius:10px;padding:10px 14px;margin-bottom:14px;font-size:13px;color:#FF5500;font-weight:700;">&#9888; Please fill in all required fields.</div>
+          <button type="submit" id="cpBtn" style="width:100%;background:linear-gradient(135deg,var(--coral),#e84d00);color:#fff;font-size:16px;font-weight:800;padding:16px;border-radius:11px;border:none;cursor:pointer;font-family:inherit;transition:all 0.2s;box-shadow:0 4px 20px rgba(255,85,0,0.35);" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">Send Message &#8594;</button>
+          <p style="text-align:center;font-size:12px;color:var(--slate);margin-top:12px;">&#128274; We never share your details. Ever.</p>
+        </form>
+
+        <div id="cpSuccess" style="display:none;text-align:center;padding:32px 0;">
+          <div style="font-size:48px;margin-bottom:16px;">&#127754;</div>
+          <h3 style="font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;color:var(--navy);margin-bottom:8px;">Message Received!</h3>
+          <p style="font-size:14px;color:var(--slate);">We'll get back to you within a few hours.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer style="background:rgba(0,43,73,0.97);padding:60px 0 0;width:100%;max-width:100%;box-sizing:border-box;">
+<div style="width:100%;max-width:100%;padding:0 64px;box-sizing:border-box;">
+<div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;width:100%;">
+<div>
+  <div style="font-family:'Kaushan Script',cursive;font-size:34px;color:#fff;line-height:1;margin-bottom:6px;">Blu<span style="color:#00E0FF;">Wav</span></div>
+  <div style="font-size:10px;font-weight:700;color:#F7C873;letter-spacing:3px;text-transform:uppercase;margin-top:4px;margin-bottom:12px;">A Stratiix Group Company</div>
+  <p style="font-size:13px;color:rgba(255,255,255,0.45);line-height:1.7;max-width:280px;">We build Growth Systems that help businesses become more visible, more trusted, and more profitable.</p>
+</div>
+<div>
+  <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.4);margin-bottom:16px;">Systems</div>
+  <div style="display:flex;flex-direction:column;gap:10px;">
+    <a href="systems.html" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">Growth Systems</a>
+    <a href="plans.html" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">Plans</a>
+    <a href="crm.html" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">BluWav CRM</a>
+    <a href="health-score.html" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">Health Score</a>
+  </div>
+</div>
+<div>
+  <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.4);margin-bottom:16px;">Company</div>
+  <div style="display:flex;flex-direction:column;gap:10px;">
+    <a href="about.html" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">About</a>
+    <a href="case-studies.html" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">Case Studies</a>
+    <a href="contact.html" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">Contact</a>
+    <a href="privacy.html" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">Privacy</a>
+  </div>
+</div>
+<div>
+  <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.4);margin-bottom:16px;">Get Started</div>
+  <div style="display:flex;flex-direction:column;gap:10px;">
+    <a href="health-score.html" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">Free Health Score</a>
+    <a href="https://calendly.com/bluwavgrowth" target="_blank" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">Book a Call</a>
+    <a href="mailto:hello@bluwavgrowth.com" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">hello@bluwavgrowth.com</a>
+  </div>
+</div>
+</div>
+</div>
+<div style="border-top:1px solid rgba(255,255,255,0.06);padding:20px 64px;width:100%;max-width:100%;box-sizing:border-box;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+  <div style="font-size:12px;color:rgba(255,255,255,0.3);">&#169; 2026 <span style="color:#00E0FF;">BluWav Growth</span> &#183; All rights reserved.</div>
+  <div style="font-size:12px;color:rgba(255,255,255,0.3);">hello@bluwavgrowth.com</div>
+</div>
+</footer>
+<script>
+function toggleMob(){var n=document.getElementById('mobNav'),b=document.getElementById('hamburgerBtn');n.classList.toggle('open');if(b)b.classList.toggle('open');}
+function closeMob(){document.getElementById('mobNav').classList.remove('open');var b=document.getElementById('hamburgerBtn');if(b)b.classList.remove('open');}
+document.addEventListener('click',function(e){var n=document.getElementById('mobNav'),b=document.getElementById('hamburgerBtn');if(n&&b&&n.classList.contains('open')&&!n.contains(e.target)&&!b.contains(e.target)){n.classList.remove('open');if(b)b.classList.remove('open');}});
+</script>
+<script>
+function submitContactPage(e){
+  e.preventDefault();
+  var name=document.getElementById('cp-name').value.trim();
+  var email=document.getElementById('cp-email').value.trim();
+  var msg=document.getElementById('cp-msg').value.trim();
+  var err=document.getElementById('cpError');
+  var btn=document.getElementById('cpBtn');
+  if(!name||!email||!msg){err.style.display='block';return;}
+  err.style.display='none';
+  btn.textContent='Sending...';btn.disabled=true;
+  var fd=new FormData();
+  fd.append('email','tanyersinc@gmail.com');
+  fd.append('_subject','Contact: '+name+' — '+document.getElementById('cp-subject').value);
+  fd.append('name',name);
+  fd.append('business',document.getElementById('cp-biz').value);
+  fd.append('email_from',email);
+  fd.append('subject',document.getElementById('cp-subject').value);
+  fd.append('message',msg);
+  fd.append('_template','table');
+  var done=false;
+  function proceed(){if(done)return;done=true;document.getElementById('contactPageForm').style.display='none';document.getElementById('cpSuccess').style.display='block';}
+  setTimeout(proceed,6000);
+  fetch('https://formspree.io/f/mrenyvld',{method:'POST',body:fd,headers:{'Accept':'application/json'}})
+  .then(function(){proceed();}).catch(function(){proceed();});
+}
+</script>
+</body>
+</html>
