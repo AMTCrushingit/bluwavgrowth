@@ -1867,8 +1867,10 @@ footer .footer-grid{gap:56px !important;}
 }
 
 .nav-dropdown{position:relative;}
-.nav-dropdown-menu{display:none;position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%);background:rgba(0,20,45,0.98);border:1px solid rgba(0,224,255,0.15);border-radius:12px;padding:8px;min-width:160px;box-shadow:0 8px 32px rgba(0,0,0,0.4);z-index:200;}
-.nav-dropdown:hover .nav-dropdown-menu{display:block;}
+.nav-dropdown-menu{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);background:rgba(0,20,45,0.98);border:1px solid rgba(0,224,255,0.15);border-radius:12px;padding:8px;min-width:160px;box-shadow:0 8px 32px rgba(0,0,0,0.4);z-index:200;padding-top:16px;margin-top:0;}
+.nav-dropdown-menu::before{content:'';position:absolute;top:0;left:0;right:0;height:16px;background:transparent;}
+.nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown-menu:hover{display:block;}
+.nav-dropdown-inner{background:rgba(0,20,45,0.98);border-radius:8px;padding:4px;}
 .nav-dropdown-item{display:block;padding:10px 16px;font-size:13px;font-weight:600;color:rgba(255,255,255,0.75);text-decoration:none;border-radius:8px;transition:all 0.15s;white-space:nowrap;}
 .nav-dropdown-item:hover{background:rgba(0,224,255,0.08);color:#fff;}
 .nav-dropdown-arrow{font-size:9px;margin-left:4px;opacity:0.6;}
@@ -2006,7 +2008,9 @@ footer .footer-grid{gap:56px !important;}
   <div class="nav-dropdown">
     <a class="nav-link" href="index.html" style="display:flex;align-items:center;gap:3px;">Home <span class="nav-dropdown-arrow">&#9660;</span></a>
     <div class="nav-dropdown-menu">
-      <a class="nav-dropdown-item" href="about.html">&#128100; About BluWav</a>
+      <div class="nav-dropdown-inner">
+        <a class="nav-dropdown-item" href="about.html">&#128100; About BluWav</a>
+      </div>
     </div>
   </div>
   <a class="nav-link" href="health-score.html">Health Score</a>
