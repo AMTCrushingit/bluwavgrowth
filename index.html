@@ -2135,95 +2135,75 @@ footer .footer-grid{gap:56px !important;}
     </div>
 
     <!-- 4 Pillar cards — 2x2 grid with flair -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px;position:relative;">
-
-      <!-- Animated connector lines SVG -->
-      <svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;" viewBox="0 0 900 420" preserveAspectRatio="none">
-        <line x1="450" y1="210" x2="130" y2="105" stroke="rgba(0,194,216,0.15)" stroke-width="1.5" stroke-dasharray="6,4"/>
-        <line x1="450" y1="210" x2="770" y2="105" stroke="rgba(0,194,216,0.15)" stroke-width="1.5" stroke-dasharray="6,4"/>
-        <line x1="450" y1="210" x2="130" y2="315" stroke="rgba(0,194,216,0.15)" stroke-width="1.5" stroke-dasharray="6,4"/>
-        <line x1="450" y1="210" x2="770" y2="315" stroke="rgba(255,85,0,0.2)" stroke-width="1.5" stroke-dasharray="6,4"/>
-      </svg>
+    <!-- 4 Pillars — compact horizontal row with arrow connectors -->
+    <div style="display:flex;align-items:stretch;gap:0;margin-bottom:24px;position:relative;">
 
       <!-- Pillar 1 -->
-      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(0,194,216,0.2);border-radius:20px;padding:28px;position:relative;overflow:hidden;transition:transform 0.3s cubic-bezier(0.22,1,0.36,1),border-color 0.3s,box-shadow 0.3s;z-index:1;"
-        onmouseover="this.style.transform='translateY(-6px)';this.style.borderColor='rgba(0,194,216,0.5)';this.style.boxShadow='0 20px 48px rgba(0,43,73,0.4)';"
-        onmouseout="this.style.transform='translateY(0)';this.style.borderColor='rgba(0,194,216,0.2)';this.style.boxShadow='none';">
+      <div style="flex:1;min-width:0;background:rgba(255,255,255,0.04);border:1px solid rgba(0,194,216,0.2);border-radius:16px 0 0 16px;padding:20px 18px;position:relative;overflow:hidden;transition:all 0.3s cubic-bezier(0.22,1,0.36,1);z-index:1;"
+        onmouseover="this.style.background='rgba(0,194,216,0.08)';this.style.borderColor='rgba(0,194,216,0.4)';"
+        onmouseout="this.style.background='rgba(255,255,255,0.04)';this.style.borderColor='rgba(0,194,216,0.2)';">
         <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#00C2D8,#00E0FF);"></div>
-        <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px;">
-          <div style="width:44px;height:44px;border-radius:12px;background:rgba(0,194,216,0.12);border:1px solid rgba(0,194,216,0.25);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">&#127760;</div>
-          <div>
-            <div style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#00C2D8;margin-bottom:3px;">Pillar 1</div>
-            <div style="font-family:'Manrope',sans-serif;font-size:16px;font-weight:800;color:#fff;">Digital Presence</div>
-          </div>
-        </div>
-        <p style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:14px;">Your website becomes a strategic asset. BluWav CRM captures every lead, tracks every interaction, and ensures no opportunity slips through.</p>
-        <div style="background:rgba(0,194,216,0.08);border:1px solid rgba(0,194,216,0.15);border-radius:9px;padding:10px 14px;display:flex;align-items:center;gap:8px;">
-          <span style="font-size:12px;">&#127919;</span>
-          <span style="font-size:12px;font-weight:700;color:#00C2D8;">Your website doesn't just look good, it performs.</span>
-        </div>
+        <div style="width:36px;height:36px;border-radius:10px;background:rgba(0,194,216,0.12);border:1px solid rgba(0,194,216,0.25);display:flex;align-items:center;justify-content:center;font-size:16px;margin-bottom:10px;">&#127760;</div>
+        <div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#00C2D8;margin-bottom:4px;">Pillar 1</div>
+        <div style="font-family:'Manrope',sans-serif;font-size:14px;font-weight:800;color:#fff;margin-bottom:6px;">Digital Presence</div>
+        <p style="font-size:11px;color:rgba(255,255,255,0.5);line-height:1.6;margin-bottom:10px;">Your website becomes a strategic asset that captures every lead.</p>
+        <div style="font-size:10px;font-weight:700;color:#00C2D8;font-style:italic;">Your website performs.</div>
+      </div>
+
+      <!-- Arrow 1→2 -->
+      <div style="display:flex;align-items:center;justify-content:center;flex-shrink:0;width:36px;background:rgba(0,194,216,0.04);border-top:1px solid rgba(0,194,216,0.15);border-bottom:1px solid rgba(0,194,216,0.15);position:relative;z-index:2;">
+        <svg width="16" height="24" viewBox="0 0 16 24" fill="none"><path d="M2 4L8 12L2 20" stroke="#00C2D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/><path d="M8 4L14 12L8 20" stroke="#00C2D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.25"/></svg>
       </div>
 
       <!-- Pillar 2 -->
-      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(0,194,216,0.2);border-radius:20px;padding:28px;position:relative;overflow:hidden;transition:transform 0.3s cubic-bezier(0.22,1,0.36,1),border-color 0.3s,box-shadow 0.3s;z-index:1;"
-        onmouseover="this.style.transform='translateY(-6px)';this.style.borderColor='rgba(0,194,216,0.5)';this.style.boxShadow='0 20px 48px rgba(0,43,73,0.4)';"
-        onmouseout="this.style.transform='translateY(0)';this.style.borderColor='rgba(0,194,216,0.2)';this.style.boxShadow='none';">
+      <div style="flex:1;min-width:0;background:rgba(255,255,255,0.04);border:1px solid rgba(0,194,216,0.2);border-left:none;padding:20px 18px;position:relative;overflow:hidden;transition:all 0.3s cubic-bezier(0.22,1,0.36,1);z-index:1;"
+        onmouseover="this.style.background='rgba(0,194,216,0.08)';this.style.borderColor='rgba(0,194,216,0.4)';"
+        onmouseout="this.style.background='rgba(255,255,255,0.04)';this.style.borderColor='rgba(0,194,216,0.2)';">
         <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#00C2D8,#00E0FF);"></div>
-        <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px;">
-          <div style="width:44px;height:44px;border-radius:12px;background:rgba(0,194,216,0.12);border:1px solid rgba(0,194,216,0.25);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">&#128205;</div>
-          <div>
-            <div style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#00C2D8;margin-bottom:3px;">Pillar 2</div>
-            <div style="font-family:'Manrope',sans-serif;font-size:16px;font-weight:800;color:#fff;">Google Visibility</div>
-          </div>
-        </div>
-        <p style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:14px;">Your Google Business Profile becomes a discovery engine. BluWav CRM centralises inbound leads from search, maps, calls, and messages.</p>
-        <div style="background:rgba(0,194,216,0.08);border:1px solid rgba(0,194,216,0.15);border-radius:9px;padding:10px 14px;display:flex;align-items:center;gap:8px;">
-          <span style="font-size:12px;">&#127919;</span>
-          <span style="font-size:12px;font-weight:700;color:#00C2D8;">You get found by the right customers at the right time.</span>
-        </div>
+        <div style="width:36px;height:36px;border-radius:10px;background:rgba(0,194,216,0.12);border:1px solid rgba(0,194,216,0.25);display:flex;align-items:center;justify-content:center;font-size:16px;margin-bottom:10px;">&#128205;</div>
+        <div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#00C2D8;margin-bottom:4px;">Pillar 2</div>
+        <div style="font-family:'Manrope',sans-serif;font-size:14px;font-weight:800;color:#fff;margin-bottom:6px;">Google Visibility</div>
+        <p style="font-size:11px;color:rgba(255,255,255,0.5);line-height:1.6;margin-bottom:10px;">Your Google Profile becomes a discovery engine for the right customers.</p>
+        <div style="font-size:10px;font-weight:700;color:#00C2D8;font-style:italic;">You get found first.</div>
+      </div>
+
+      <!-- Arrow 2→3 -->
+      <div style="display:flex;align-items:center;justify-content:center;flex-shrink:0;width:36px;background:rgba(0,194,216,0.04);border-top:1px solid rgba(0,194,216,0.15);border-bottom:1px solid rgba(0,194,216,0.15);position:relative;z-index:2;">
+        <svg width="16" height="24" viewBox="0 0 16 24" fill="none"><path d="M2 4L8 12L2 20" stroke="#00C2D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/><path d="M8 4L14 12L8 20" stroke="#00C2D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.25"/></svg>
       </div>
 
       <!-- Pillar 3 -->
-      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(0,194,216,0.2);border-radius:20px;padding:28px;position:relative;overflow:hidden;transition:transform 0.3s cubic-bezier(0.22,1,0.36,1),border-color 0.3s,box-shadow 0.3s;z-index:1;"
-        onmouseover="this.style.transform='translateY(-6px)';this.style.borderColor='rgba(0,194,216,0.5)';this.style.boxShadow='0 20px 48px rgba(0,43,73,0.4)';"
-        onmouseout="this.style.transform='translateY(0)';this.style.borderColor='rgba(0,194,216,0.2)';this.style.boxShadow='none';">
+      <div style="flex:1;min-width:0;background:rgba(255,255,255,0.04);border:1px solid rgba(0,194,216,0.2);border-left:none;padding:20px 18px;position:relative;overflow:hidden;transition:all 0.3s cubic-bezier(0.22,1,0.36,1);z-index:1;"
+        onmouseover="this.style.background='rgba(0,194,216,0.08)';this.style.borderColor='rgba(0,194,216,0.4)';"
+        onmouseout="this.style.background='rgba(255,255,255,0.04)';this.style.borderColor='rgba(0,194,216,0.2)';">
         <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#00C2D8,#00E0FF);"></div>
-        <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px;">
-          <div style="width:44px;height:44px;border-radius:12px;background:rgba(0,194,216,0.12);border:1px solid rgba(0,194,216,0.25);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">&#128269;</div>
-          <div>
-            <div style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#00C2D8;margin-bottom:3px;">Pillar 3</div>
-            <div style="font-family:'Manrope',sans-serif;font-size:16px;font-weight:800;color:#fff;">Search Performance</div>
-          </div>
-        </div>
-        <p style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:14px;">You gain clarity on impressions, clicks, keywords, and competitors. BluWav CRM shows which sources convert and where opportunity lives.</p>
-        <div style="background:rgba(0,194,216,0.08);border:1px solid rgba(0,194,216,0.15);border-radius:9px;padding:10px 14px;display:flex;align-items:center;gap:8px;">
-          <span style="font-size:12px;">&#127919;</span>
-          <span style="font-size:12px;font-weight:700;color:#00C2D8;">You make decisions based on data, not guesswork.</span>
-        </div>
+        <div style="width:36px;height:36px;border-radius:10px;background:rgba(0,194,216,0.12);border:1px solid rgba(0,194,216,0.25);display:flex;align-items:center;justify-content:center;font-size:16px;margin-bottom:10px;">&#128269;</div>
+        <div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#00C2D8;margin-bottom:4px;">Pillar 3</div>
+        <div style="font-family:'Manrope',sans-serif;font-size:14px;font-weight:800;color:#fff;margin-bottom:6px;">Search Performance</div>
+        <p style="font-size:11px;color:rgba(255,255,255,0.5);line-height:1.6;margin-bottom:10px;">Clarity on impressions, clicks, keywords, and competitors — daily.</p>
+        <div style="font-size:10px;font-weight:700;color:#00C2D8;font-style:italic;">Data, not guesswork.</div>
+      </div>
+
+      <!-- Arrow 3→4 (coral — signals transition to "Get Chosen") -->
+      <div style="display:flex;align-items:center;justify-content:center;flex-shrink:0;width:36px;background:rgba(255,85,0,0.04);border-top:1px solid rgba(255,85,0,0.15);border-bottom:1px solid rgba(255,85,0,0.15);position:relative;z-index:2;">
+        <svg width="16" height="24" viewBox="0 0 16 24" fill="none"><path d="M2 4L8 12L2 20" stroke="#FF5500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/><path d="M8 4L14 12L8 20" stroke="#FF5500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.3"/></svg>
       </div>
 
       <!-- Pillar 4 — coral accent -->
-      <div style="background:rgba(255,85,0,0.06);border:1px solid rgba(255,85,0,0.2);border-radius:20px;padding:28px;position:relative;overflow:hidden;transition:transform 0.3s cubic-bezier(0.22,1,0.36,1),border-color 0.3s,box-shadow 0.3s;z-index:1;"
-        onmouseover="this.style.transform='translateY(-6px)';this.style.borderColor='rgba(255,85,0,0.5)';this.style.boxShadow='0 20px 48px rgba(255,85,0,0.2)';"
-        onmouseout="this.style.transform='translateY(0)';this.style.borderColor='rgba(255,85,0,0.2)';this.style.boxShadow='none';">
+      <div style="flex:1;min-width:0;background:rgba(255,85,0,0.06);border:1px solid rgba(255,85,0,0.2);border-left:none;border-radius:0 16px 16px 0;padding:20px 18px;position:relative;overflow:hidden;transition:all 0.3s cubic-bezier(0.22,1,0.36,1);z-index:1;"
+        onmouseover="this.style.background='rgba(255,85,0,0.12)';this.style.borderColor='rgba(255,85,0,0.45)';"
+        onmouseout="this.style.background='rgba(255,85,0,0.06)';this.style.borderColor='rgba(255,85,0,0.2)';">
         <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#FF5500,#F7C873);"></div>
-        <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px;">
-          <div style="width:44px;height:44px;border-radius:12px;background:rgba(255,85,0,0.12);border:1px solid rgba(255,85,0,0.25);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">&#9881;&#65039;</div>
-          <div>
-            <div style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#FF5500;margin-bottom:3px;">Pillar 4</div>
-            <div style="font-family:'Manrope',sans-serif;font-size:16px;font-weight:800;color:#fff;">Digital Systems</div>
-          </div>
-        </div>
-        <p style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:14px;">Your intake process, follow-up flow, and automation become structured and consistent. This is where most businesses lose leads — and where BluWav rebuilds reliability.</p>
-        <div style="background:rgba(255,85,0,0.08);border:1px solid rgba(255,85,0,0.2);border-radius:9px;padding:10px 14px;display:flex;align-items:center;gap:8px;">
-          <span style="font-size:12px;">&#127919;</span>
-          <span style="font-size:12px;font-weight:700;color:#FF5500;">You get chosen because your systems work.</span>
-        </div>
+        <div style="width:36px;height:36px;border-radius:10px;background:rgba(255,85,0,0.12);border:1px solid rgba(255,85,0,0.25);display:flex;align-items:center;justify-content:center;font-size:16px;margin-bottom:10px;">&#9881;&#65039;</div>
+        <div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#FF5500;margin-bottom:4px;">Pillar 4</div>
+        <div style="font-family:'Manrope',sans-serif;font-size:14px;font-weight:800;color:#fff;margin-bottom:6px;">Digital Systems</div>
+        <p style="font-size:11px;color:rgba(255,255,255,0.5);line-height:1.6;margin-bottom:10px;">Intake, follow-up, and automation rebuilt for predictable conversions.</p>
+        <div style="font-size:10px;font-weight:700;color:#FF5500;font-style:italic;">You get chosen.</div>
       </div>
 
     </div>
 
-    <!-- THE ENGINE: split layout — features left, live dashboard right -->
+        <!-- THE ENGINE: split layout — features left, live dashboard right -->
     <div style="margin-top:24px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,224,255,0.1);border-radius:20px;padding:32px;position:relative;overflow:hidden;">
       <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#00C2D8,#F7C873,#FF5500);animation:bwShimmer 3s linear infinite;background-size:200% auto;"></div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;">
