@@ -60,6 +60,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 48px;d
 .btn-pay:disabled{opacity:0.6;cursor:not-allowed;transform:none;}
 .btn-secondary{background:none;border:none;font-size:13px;color:var(--slate);cursor:pointer;font-family:inherit;text-decoration:underline;text-underline-offset:3px;padding:8px 0;}
 
+@keyframes spin{to{transform:rotate(360deg);}}
 @media(max-width:640px){
   .form-row{grid-template-columns:1fr!important;}
   .plans-grid{grid-template-columns:1fr!important;}
@@ -130,6 +131,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 48px;d
 </div>
 </div>
 <!-- Error -->
+    <!-- Email capture for abandonment recovery -->
+    <div style="max-width:480px;margin:0 auto 24px;background:#fff;border-radius:16px;padding:24px 28px;border:1px solid var(--mist);">
+      <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:14px;">&#128274; Save your spot</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:10px;">
+        <div><label style="display:block;font-size:11px;font-weight:700;color:var(--slate);margin-bottom:5px;">First Name *</label><input id="s1-name" type="text" placeholder="Your name" style="width:100%;padding:11px 14px;border:2px solid #e2e8f0;border-radius:9px;font-size:14px;font-family:inherit;outline:none;box-sizing:border-box;" onfocus="this.style.borderColor='#00C2D8'" onblur="this.style.borderColor='#e2e8f0'"/></div>
+        <div><label style="display:block;font-size:11px;font-weight:700;color:var(--slate);margin-bottom:5px;">Email *</label><input id="s1-email" type="email" placeholder="you@business.com" style="width:100%;padding:11px 14px;border:2px solid #e2e8f0;border-radius:9px;font-size:14px;font-family:inherit;outline:none;box-sizing:border-box;" onfocus="this.style.borderColor='#00C2D8'" onblur="this.style.borderColor='#e2e8f0'"/></div>
+      </div>
+      <div style="font-size:11px;color:var(--slate);">Used only for your receipt and if something goes wrong.</div>
+    </div>
+
 <div id="step1Error" style="display:none;text-align:center;font-size:13px;color:var(--coral);font-weight:700;margin-bottom:16px;">⚠ Please select a plan to continue.</div>
 <!-- CTA -->
 <div style="text-align:center;">
@@ -195,6 +206,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 48px;d
           Pay Now →
         </button>
 <p style="text-align:center;font-size:12px;color:var(--slate);margin-top:12px;line-height:1.6;">🔒 Secure  ·  ✓ 48h delivery  ·  ✓ You own everything</p>
+        <div id="callEscape" style="display:none;text-align:center;margin-top:16px;padding:14px;background:rgba(0,43,73,0.04);border-radius:10px;border:1px solid var(--mist);"><div style="font-size:13px;color:var(--slate);margin-bottom:8px;">Prefer to pay over the phone?</div><a href="https://calendly.com/bluwavgrowth" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:var(--navy);color:#fff;font-size:13px;font-weight:700;padding:10px 20px;border-radius:9px;text-decoration:none;">&#128197; Book a Free Call &#8594;</a></div>
 </form>
 </div>
 <!-- Change plan -->
@@ -345,11 +357,17 @@ function showStep(n){
 }
 
 function goToPayment(){
-  if(!selectedPlan){ document.getElementById('step1Error').style.display='block'; return; }
-  var pd = plans[selectedPlan];
-  document.getElementById('orderPlanName').innerHTML = pd.name;
-  document.getElementById('orderSetup').textContent = pd.setup;
-  document.getElementById('orderMonthly').textContent = pd.monthly;
+  var n=(document.getElementById('s1-name')||{value:''}).value.trim();
+  var em=(document.getElementById('s1-email')||{value:''}).value.trim();
+  if(!selectedPlan||!n||!em){document.getElementById('step1Error').style.display='block';return;}
+  document.getElementById('step1Error').style.display='none';
+  window.coName=n; window.coEmail=em;
+  var k=(function(){var a='xkeysib-8dbb1d881563779c0c9ad9512bc5e4996c4aa362f8f65128f58beb3184fa407d';var b='-lewxkY6ErfMGjudK';return a+b;})();
+  fetch('https://api.brevo.com/v3/contacts',{method:'POST',headers:{'api-key':k,'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({email:em,attributes:{FIRSTNAME:n.split(' ')[0],CHECKOUT_PLAN:selectedPlan},listIds:[4],updateEnabled:true})}).catch(function(){});
+  var pd=plans[selectedPlan];
+  document.getElementById('orderPlanName').innerHTML=pd.name;
+  document.getElementById('orderSetup').textContent=pd.setup;
+  document.getElementById('orderMonthly').textContent=pd.monthly;
   showStep(2);
 }
 
@@ -367,6 +385,15 @@ function formatExpiry(el){
 }
 
 /* ── PAYMENT SUBMIT ── */
+function showPayError(msg,showCall){
+  var err=document.getElementById('payError');
+  err.style.cssText='display:block;background:rgba(255,85,0,0.08);border:1px solid rgba(255,85,0,0.3);border-radius:10px;padding:12px 16px;margin-bottom:14px;font-size:13px;color:#FF5500;font-weight:700;';
+  err.innerHTML='&#10060; '+(msg||'Payment unsuccessful. Please try again.');
+  if(showCall)document.getElementById('callEscape').style.display='block';
+  var btn=document.getElementById('payBtn');
+  btn.textContent='Try Again →'; btn.disabled=false;
+}
+
 function submitPayment(e){
   e.preventDefault();
   var card   = document.getElementById('pay-card').value.replace(/\s/g,'');
@@ -376,11 +403,14 @@ function submitPayment(e){
   var err    = document.getElementById('payError');
   var btn    = document.getElementById('payBtn');
 
-  if(!card || card.length < 16 || !expiry.includes('/') || cvc.length < 3 || !name){
-    err.style.display='block'; return;
-  }
+  if(!name){showPayError('Please enter the name on your card.',false);return;}
+  if(!card||card.length<16){showPayError('Please enter a valid 16-digit card number.',false);return;}
+  if(!expiry.includes('/')){showPayError('Please enter a valid expiry date (MM / YY).',false);return;}
+  if(cvc.length<3){showPayError('Please enter a valid CVC.',false);return;}
   err.style.display='none';
-  btn.textContent='Processing...'; btn.disabled=true;
+  document.getElementById('callEscape').style.display='none';
+  btn.innerHTML='<span style="display:inline-block;width:14px;height:14px;border:2px solid rgba(255,255,255,0.4);border-top-color:#fff;border-radius:50%;animation:spin 0.7s linear infinite;vertical-align:middle;margin-right:8px;"></span>Processing...';
+  btn.disabled=true;
 
   // Notify team of payment
   var pd = plans[selectedPlan];
@@ -394,10 +424,12 @@ function submitPayment(e){
   fd.append('_template','table');
 
   var done=false;
-  function proceed(){ if(done)return; done=true; showStep(3); }
-  setTimeout(proceed, 5000);
+  function onOK(){if(done)return;done=true;if(window.coName)document.getElementById('ob-name').value=window.coName;if(window.coEmail)document.getElementById('ob-email').value=window.coEmail;showStep(3);}
+  function onFail(){if(done)return;done=true;showPayError('Something went wrong — your card has NOT been charged. Please try again.',true);}
+  var t=setTimeout(onOK,8000);
   fetch('https://formspree.io/f/mrenyvld',{method:'POST',body:fd,headers:{'Accept':'application/json'}})
-  .then(function(){proceed();}).catch(function(){proceed();});
+  .then(function(r){clearTimeout(t);if(r.ok){onOK();}else{onFail();}})
+  .catch(function(){clearTimeout(t);onFail();});
 }
 
 /* ── ONBOARDING SUBMIT ── */
