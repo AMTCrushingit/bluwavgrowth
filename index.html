@@ -1865,6 +1865,13 @@ footer .footer-grid{gap:56px !important;}
 @media(max-width:900px){
   .crm-feature-grid{grid-template-columns:1fr !important;}
 }
+
+.nav-dropdown{position:relative;}
+.nav-dropdown-menu{display:none;position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%);background:rgba(0,20,45,0.98);border:1px solid rgba(0,224,255,0.15);border-radius:12px;padding:8px;min-width:160px;box-shadow:0 8px 32px rgba(0,0,0,0.4);z-index:200;}
+.nav-dropdown:hover .nav-dropdown-menu{display:block;}
+.nav-dropdown-item{display:block;padding:10px 16px;font-size:13px;font-weight:600;color:rgba(255,255,255,0.75);text-decoration:none;border-radius:8px;transition:all 0.15s;white-space:nowrap;}
+.nav-dropdown-item:hover{background:rgba(0,224,255,0.08);color:#fff;}
+.nav-dropdown-arrow{font-size:9px;margin-left:4px;opacity:0.6;}
 </style>
 <meta content="index, follow" name="robots"/>
 <meta content="BluWav Growth | Website Design &amp; Digital Growth for Modern Businesses" property="og:title"/>
@@ -1992,13 +1999,18 @@ footer .footer-grid{gap:56px !important;}
 <!-- HERO -->
 <nav id="mainNav">
 <a href="index.html" class="nav-logo" style="display:flex;flex-direction:column;align-items:flex-start;line-height:1;padding:4px 0;text-decoration:none;">
-<div style="font-family:'Kaushan Script',cursive;font-size:26px;line-height:1;color:#fff;">Blu<span style="color:#00E0FF;">Wav</span></div>
+<div id="navLogoText" style="font-family:'Kaushan Script',cursive;font-size:26px;line-height:1;color:#fff;opacity:0;transition:opacity 0.3s;">Blu<span style="color:#00E0FF;">Wav</span></div>
 <div style="font-size:8px;font-weight:700;color:#00E0FF;letter-spacing:3px;text-transform:uppercase;line-height:1.4;margin-top:2px;">Get Found. Get Chosen. Grow.</div>
 </a>
 <div class="nav-links">
-  <a class="nav-link" href="index.html">Home</a>
+  <div class="nav-dropdown">
+    <a class="nav-link" href="index.html" style="display:flex;align-items:center;gap:3px;">Home <span class="nav-dropdown-arrow">&#9660;</span></a>
+    <div class="nav-dropdown-menu">
+      <a class="nav-dropdown-item" href="index.html">&#127968; Homepage</a>
+      <a class="nav-dropdown-item" href="about.html">&#128100; About BluWav</a>
+    </div>
+  </div>
   <a class="nav-link" href="health-score.html">Health Score</a>
-  <a class="nav-link" href="about.html">About</a>
   <a class="nav-link" href="contact.html">Contact</a>
   <a class="nav-link" href="index.html#what-we-do-cont">Growth Plans</a>
   <a class="nav-link" href="https://bluwavcrm.com/login.html" target="_blank" rel="noopener" style="color:rgba(0,224,255,0.85);font-weight:600;">Client Login</a>
@@ -3145,43 +3157,7 @@ document.addEventListener('click',function(e){
 })();
 </script>
 
-<script>
-/* Typewriter — hero headline */
-(function(){
-  var phrases = ['Get Found.', 'Get Chosen.', 'Grow.', 'Get Found. Get Chosen. Grow.'];
-  var el = document.getElementById('typewriterText');
-  if(!el) return;
-  var pi = 0, ci = 0, deleting = false, pause = false;
-  function tick(){
-    if(pause) return;
-    var phrase = phrases[pi];
-    if(!deleting){
-      ci++;
-      el.textContent = phrase.slice(0, ci);
-      if(ci === phrase.length){
-        if(pi === phrases.length - 1){
-          // Last phrase — stay permanently
-          document.getElementById('typewriterCursor').style.display = 'none';
-          return;
-        }
-        pause = true;
-        setTimeout(function(){ deleting = true; pause = false; tick(); }, 1400);
-        return;
-      }
-    } else {
-      ci--;
-      el.textContent = phrase.slice(0, ci);
-      if(ci === 0){
-        deleting = false;
-        pi++;
-        if(pi >= phrases.length) pi = 0;
-      }
-    }
-    setTimeout(tick, deleting ? 35 : (ci === phrase.length ? 1400 : 75));
-  }
-  setTimeout(tick, 800);
-})();
-</script>
+<!-- Typewriter: handled by premium animations script -->
 
 
 <script>
@@ -3351,5 +3327,9 @@ document.addEventListener('click',function(e){
 })();
 </script>
 
+<script>
+document.fonts.ready.then(function(){var l=document.getElementById('navLogoText');if(l)l.style.opacity='1';});
+setTimeout(function(){var l=document.getElementById('navLogoText');if(l)l.style.opacity='1';},400);
+</script>
 </body>
 </html>
