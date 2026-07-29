@@ -1824,6 +1824,25 @@ footer .footer-grid{gap:56px !important;}
   [style*="width:36px;background:rgba(0,194,216"]{display:none!important;}
   [style*="width:36px;background:rgba(255,85,0"]{display:none!important;}
 }
+
+/* ── FOOTER MOBILE ── */
+@media(max-width:768px){
+  footer [style*="grid-template-columns:2fr 1fr 1fr 1fr"]{
+    grid-template-columns:1fr 1fr!important;
+    gap:32px!important;
+  }
+  footer [style*="padding:0 64px"]{padding:0 24px!important;}
+  footer [style*="padding:20px 64px"]{padding:16px 24px!important;flex-direction:column!important;text-align:center!important;gap:8px!important;}
+  footer [style*="display:flex;gap:16px"]{justify-content:center!important;}
+}
+@media(max-width:480px){
+  footer [style*="grid-template-columns:2fr 1fr 1fr 1fr"]{
+    grid-template-columns:1fr!important;
+    gap:28px!important;
+  }
+  footer [style*="max-width:280px"]{max-width:100%!important;}
+  footer [style*="display:flex;gap:10px;margin-top:16px"]{justify-content:flex-start!important;}
+}
 </style>
 <meta content="index, follow" name="robots"/>
 <meta content="BluWav Growth | Website Design &amp; Digital Growth for Modern Businesses" property="og:title"/>
@@ -2535,159 +2554,103 @@ footer .footer-grid{gap:56px !important;}
 </section>
 
 <!-- SECTION 7 — DIGITAL HEALTH SCORE FORM -->
-<section id="contact" style="background:#f0f9ff;padding:100px 0;position:relative;overflow:hidden;width:100%;">
-<!-- Subtle top border accent -->
-<div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#002B49,#00C2D8,#00E0FF,#FF5500);"></div>
-<div style="width:100%;padding:0 64px;box-sizing:border-box;position:relative;z-index:2;">
-<span class="eyebrow reveal" style="color:#00C2D8;">Free &middot; No Commitment</span>
-<h2 class="h2 reveal-up" style="color:#002B49;font-family:'Manrope',sans-serif;">Find Out Exactly Where Your<br/>Business Stands&hellip;Free.</h2>
-<p class="lead" style="color:#64748B;max-width:520px;">Four quick details and we'll send you your personalised Digital Health Score.</p>
-<!-- Human face, contact section -->
-<div style="display:grid;grid-template-columns:280px 1fr;gap:32px;align-items:center;margin-top:32px;margin-bottom:40px;background:linear-gradient(135deg,#002B49,#003d5c);border-radius:20px;overflow:hidden;">
-<div style="height:220px;overflow:hidden;position:relative;">
-<img alt="BluWav Growth, digital expert ready to help" decoding="async" loading="lazy" src="customer-service-global.jpg?expires=1787458633&amp;signature=5d755effe0b775f748c46245f07e725ed74ac1400f60e2002bc903c019b4de60&amp;kid=prod-250922" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/>
-<div style="position:absolute;inset:0;background:linear-gradient(to right,transparent 60%,rgba(0,43,73,0.8) 100%);"></div>
-</div>
-<div style="padding:24px 32px 24px 0;">
-<div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--gold);margin-bottom:8px;">A real person responds</div>
-<div style="font-size:20px;font-weight:800;color:#fff;line-height:1.4;margin-bottom:8px;">We'll email you within a few hours with your personalised results.</div>
-<div style="font-size:14px;color:rgba(255,255,255,0.6);line-height:1.6;">No automated replies. No sales scripts. Just honest, practical advice from a digital growth expert.</div>
-</div>
-</div>
-<div id="contact-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:0;align-items:start;">
-<!-- LEFT: Contact info + trust -->
-<div>
-<!-- Contact details -->
-<div style="display:flex;flex-direction:column;gap:16px;margin-bottom:28px;">
+<section id="contact" style="background:linear-gradient(135deg,#001828 0%,#002B49 60%,#003d5c 100%);padding:80px 0;position:relative;overflow:hidden;width:100%;">
+  <!-- Background grid -->
+  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(0,224,255,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(0,224,255,0.02) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;"></div>
+  <!-- Glow orbs -->
+  <div style="position:absolute;top:-80px;right:5%;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(0,224,255,0.06) 0%,transparent 70%);pointer-events:none;"></div>
+  <div style="position:absolute;bottom:-60px;left:5%;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(255,85,0,0.05) 0%,transparent 70%);pointer-events:none;"></div>
 
-<div style="display:flex;align-items:center;gap:14px;">
-<div style="width:42px;height:42px;border-radius:12px;background:#002B49;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">✉️</div>
-<div>
-<div style="font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:1px;">Email</div>
-<div style="font-size:15px;font-weight:700;color:#002B49;"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="80e8e5ececefc0e2ecf5f7e1f6e7f2eff7f4e8aee3efed">[email&#160;protected]</a></div>
-</div>
-</div>
-<div style="display:flex;align-items:center;gap:14px;">
-<div style="width:42px;height:42px;border-radius:12px;background:#002B49;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">⚡</div>
-<div>
-<div style="font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:1px;">Response Time</div>
-<div style="font-size:15px;font-weight:700;color:#002B49;">Within a few hours</div>
-</div>
-</div>
-</div>
-<!-- Action buttons -->
-<div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:32px;">
-<a href="/cdn-cgi/l/email-protection#f79f929b9b98b7959b8280968190859880839fd994989a" onmouseout="this.style.borderColor='#e2e8f0'" onmouseover="this.style.borderColor='#00C2D8'" style="background:#fff;color:#002B49;font-size:14px;font-weight:700;padding:13px 22px;border-radius:11px;text-decoration:none;border:1.5px solid #e2e8f0;transition:all 0.2s;">✉️ Send Email</a>
-</div>
-<!-- What you get box -->
-<div style="background:#fff;border:1.5px solid #e2e8f0;border-radius:16px;padding:24px;border-left:4px solid #00C2D8;">
-<div style="font-size:12px;font-weight:800;color:#00C2D8;text-transform:uppercase;letter-spacing:2px;margin-bottom:14px;">What you get</div>
-<div style="display:flex;flex-direction:column;gap:10px;">
-<div style="display:flex;align-items:center;gap:10px;font-size:14px;color:#334155;"><span style="color:#00C2D8;font-weight:900;font-size:16px;">✓</span> Free digital presence review</div>
-<div style="display:flex;align-items:center;gap:10px;font-size:14px;color:#334155;"><span style="color:#00C2D8;font-weight:900;font-size:16px;">✓</span> WhatsApp response within a few hours</div>
-<div style="display:flex;align-items:center;gap:10px;font-size:14px;color:#334155;"><span style="color:#00C2D8;font-weight:900;font-size:16px;">✓</span> No commitment required</div>
-<div style="display:flex;align-items:center;gap:10px;font-size:14px;color:#334155;"><span style="color:#00C2D8;font-weight:900;font-size:16px;">✓</span> We never share your details</div>
-</div>
-</div>
-</div>
-<!-- RIGHT: Clean white form card -->
-<div style="background:#fff;border:1.5px solid #e2e8f0;border-radius:24px;padding:36px;box-shadow:0 8px 40px rgba(0,43,73,0.08);">
-<div style="display:inline-block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#FF5500;background:#fff5f0;border:1px solid rgba(255,85,0,0.2);border-radius:20px;padding:4px 12px;margin-bottom:12px;">Free &middot; No Commitment &middot; Results in 24 Hours</div>
-<h3 style="font-size:22px;font-weight:800;color:#002B49;margin-bottom:24px;font-family:'Manrope',sans-serif;">Get My Digital Health Score &#8594;</h3>
-<form id="contact-form" onsubmit="submitContactForm(event)">
-<div style="margin-bottom:16px;">
-<label style="display:block;font-size:12px;font-weight:700;color:#64748B;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Your Name *</label>
-<input id="cf-fname" onblur="this.style.borderColor='#e2e8f0';this.style.background='#f8fafc'" onfocus="this.style.borderColor='#00C2D8';this.style.background='#fff'" placeholder="First &amp; last name" required="" style="width:100%;padding:14px 16px;border-radius:11px;border:1.5px solid #e2e8f0;background:#f8fafc;color:#002B49;font-size:16px;font-family:inherit;outline:none;transition:border 0.2s;-webkit-appearance:none;" type="text"/>
-</div>
-<div style="margin-bottom:16px;">
-<label style="display:block;font-size:12px;font-weight:700;color:#64748B;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Business Name *</label>
-<input id="cf-biz" onblur="this.style.borderColor='#e2e8f0';this.style.background='#f8fafc'" onfocus="this.style.borderColor='#00C2D8';this.style.background='#fff'" placeholder="Your business name" required="" style="width:100%;padding:14px 16px;border-radius:11px;border:1.5px solid #e2e8f0;background:#f8fafc;color:#002B49;font-size:16px;font-family:inherit;outline:none;transition:border 0.2s;-webkit-appearance:none;" type="text"/>
-</div>
-<div style="margin-bottom:16px;">
-<label style="display:block;font-size:12px;font-weight:700;color:#64748B;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">WhatsApp Number *</label>
-<input id="cf-wa" onblur="this.style.borderColor='#e2e8f0';this.style.background='#f8fafc'" onfocus="this.style.borderColor='#00C2D8';this.style.background='#fff'" placeholder="+1 (868) 000-0000" required="" style="width:100%;padding:14px 16px;border-radius:11px;border:1.5px solid #e2e8f0;background:#f8fafc;color:#002B49;font-size:16px;font-family:inherit;outline:none;transition:border 0.2s;-webkit-appearance:none;" type="tel"/>
-</div>
-<div style="margin-bottom:24px;">
-<label style="display:block;font-size:12px;font-weight:700;color:#64748B;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">I need help with</label>
-<select id="cf-interest" onblur="this.style.borderColor='#e2e8f0';this.style.background='#f8fafc url('data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%228%22 viewBox=%220 0 12 8%22&gt;&lt;path d=%22M1 1l5 5 5-5%22 stroke=%22%2364748B%22 stroke-width=%221.5%22 fill=%22none%22 stroke-linecap=%22round%22/&gt;&lt;/svg&gt;') no-repeat right 16px center'" onfocus="this.style.borderColor='#00C2D8';this.style.background='#fff url('data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%228%22 viewBox=%220 0 12 8%22&gt;&lt;path d=%22M1 1l5 5 5-5%22 stroke=%22%2364748B%22 stroke-width=%221.5%22 fill=%22none%22 stroke-linecap=%22round%22/&gt;&lt;/svg&gt;') no-repeat right 16px center'" style="width:100%;padding:14px 16px;border-radius:11px;border:1.5px solid #e2e8f0;background:#f8fafc;color:#002B49;font-size:16px;font-family:inherit;outline:none;transition:border 0.2s;cursor:pointer;-webkit-appearance:none;appearance:none;background-image:url('data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%228%22 viewBox=%220 0 12 8%22&gt;&lt;path d=%22M1 1l5 5 5-5%22 stroke=%22%2364748B%22 stroke-width=%221.5%22 fill=%22none%22 stroke-linecap=%22round%22/&gt;&lt;/svg&gt;');background-repeat:no-repeat;background-position:right 16px center;">
-<option>Get My Health Score</option>
-<option>Professional Website</option>
-<option>Google Visibility</option>
-<option>BluWav CRM</option>
-<option>Full Growth Package</option>
-</select>
-</div>
-<button id="cf-btn" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 24px rgba(255,85,0,0.35)'" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 32px rgba(255,85,0,0.5)'" style="width:100%;background:#FF5500;color:#fff;font-size:17px;font-weight:800;padding:17px;border-radius:12px;border:none;cursor:pointer;font-family:inherit;box-shadow:0 4px 24px rgba(255,85,0,0.35);transition:all 0.2s;letter-spacing:0.2px;" type="submit">
-          Get My Free Digital Health Check →
-        </button>
-<p style="font-size:12px;color:#94a3b8;text-align:center;margin-top:12px;">🔒 We never share your details. Ever.</p>
-</form>
-</div>
-</div>
-</div>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-function submitContactForm(e) {
-  e.preventDefault();
-  var btn = document.getElementById('cf-btn');
-  btn.textContent = 'Sending…';
-  btn.style.opacity = '0.7';
-  btn.disabled = true;
+  <div style="width:100%;max-width:1100px;margin:0 auto;padding:0 32px;box-sizing:border-box;position:relative;z-index:2;">
 
-  var fname    = document.getElementById('cf-fname').value.trim();
-  var biz      = document.getElementById('cf-biz').value.trim();
-  var wa       = document.getElementById('cf-wa').value.trim();
-  var interest = document.getElementById('cf-interest').value;
-  var ts       = new Date().toISOString();
+    <!-- Header -->
+    <div style="text-align:center;margin-bottom:48px;">
+      <span style="display:inline-flex;align-items:center;gap:6px;background:rgba(0,224,255,0.08);border:1px solid rgba(0,224,255,0.2);border-radius:30px;padding:5px 16px;font-size:10px;font-weight:800;color:#00E0FF;text-transform:uppercase;letter-spacing:2px;margin-bottom:16px;">
+        <span style="width:5px;height:5px;border-radius:50%;background:#00E0FF;display:inline-block;animation:bw-pulse 2s ease-in-out infinite;"></span>
+        Free &middot; No Commitment
+      </span>
+      <h2 style="font-family:'Manrope',sans-serif;font-size:clamp(26px,4vw,40px);font-weight:900;color:#fff;line-height:1.15;margin-bottom:12px;">Find Out Exactly Where Your<br/>Business Stands&hellip;Free.</h2>
+      <p style="font-size:16px;color:rgba(255,255,255,0.55);max-width:480px;margin:0 auto;">Four quick details and we'll send you your personalised Digital Health Score.</p>
+    </div>
 
-  // 1. Always save locally as backup
-  var lead = { fname:fname, biz:biz, wa:wa, interest:interest, ts:ts, source:'website_contact' };
-  var leads = JSON.parse(localStorage.getItem('bluwav_leads') || '[]');
-  leads.push(lead);
-  localStorage.setItem('bluwav_leads', JSON.stringify(leads));
+    <!-- Two column: trust left, form right -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;">
 
-  // 2. POST to Supabase CRM (non-blocking, graceful fallback when offline)
-  // TODO: Replace placeholder values below once Supabase recovers
-  var SUPABASE_URL  = 'https://YOUR_PROJECT.supabase.co';
-  var SUPABASE_ANON = 'YOUR_ANON_KEY';
-  if (SUPABASE_URL.indexOf('YOUR_PROJECT') === -1) {
-    fetch(SUPABASE_URL + '/rest/v1/leads', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'apikey': SUPABASE_ANON,
-        'Authorization': 'Bearer ' + SUPABASE_ANON,
-        'Prefer': 'return=minimal'
-      },
-      body: JSON.stringify({
-        full_name:  fname,
-        business:   biz,
-        whatsapp:   wa,
-        interest:   interest,
-        source:     'website_contact',
-        status:     'new',
-        created_at: ts
-      })
-    }).catch(function(err) {
-      console.warn('[BluWav CRM] Supabase offline, lead queued locally:', err.message);
-    });
-  }
+      <!-- LEFT: Trust signals -->
+      <div>
+        <!-- What you get -->
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(0,224,255,0.12);border-radius:20px;padding:28px;margin-bottom:20px;">
+          <div style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#00C2D8;margin-bottom:16px;">What You Get</div>
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            <div style="display:flex;align-items:flex-start;gap:12px;">
+              <div style="width:32px;height:32px;border-radius:8px;background:rgba(0,194,216,0.12);border:1px solid rgba(0,194,216,0.2);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">&#128269;</div>
+              <div><div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:2px;">Free Digital Presence Review</div><div style="font-size:12px;color:rgba(255,255,255,0.45);">We check your Google, website, and lead system.</div></div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:12px;">
+              <div style="width:32px;height:32px;border-radius:8px;background:rgba(0,194,216,0.12);border:1px solid rgba(0,194,216,0.2);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">&#9889;</div>
+              <div><div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:2px;">Results Within 24 Hours</div><div style="font-size:12px;color:rgba(255,255,255,0.45);">Sent directly to your email. No waiting.</div></div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:12px;">
+              <div style="width:32px;height:32px;border-radius:8px;background:rgba(0,194,216,0.12);border:1px solid rgba(0,194,216,0.2);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">&#128100;</div>
+              <div><div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:2px;">A Real Person Responds</div><div style="font-size:12px;color:rgba(255,255,255,0.45);">No bots. No scripts. Honest, practical advice.</div></div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:12px;">
+              <div style="width:32px;height:32px;border-radius:8px;background:rgba(0,194,216,0.12);border:1px solid rgba(0,194,216,0.2);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">&#128274;</div>
+              <div><div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:2px;">No Commitment Required</div><div style="font-size:12px;color:rgba(255,255,255,0.45);">We never share your details. Ever.</div></div>
+            </div>
+          </div>
+        </div>
 
-  // 3. WhatsApp notification + redirect
-  var waMsg = encodeURIComponent(
-    'Hi BluWav Growth! New enquiry from your website:\n\n' +
-    'Name: ' + fname + '\n' +
-    'Business: ' + biz + '\n' +
-    'WhatsApp: ' + wa + '\n' +
-    'Interested in: ' + interest + '\n\n' +
-    'Please follow up!'
-  );
+        <!-- Contact options -->
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="mailto:hello@bluwavgrowth.com" style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:14px 18px;text-decoration:none;transition:all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='rgba(255,255,255,0.04)'">
+            <span style="font-size:18px;">&#9993;&#65039;</span>
+            <div><div style="font-size:13px;font-weight:700;color:#fff;">hello@bluwavgrowth.com</div><div style="font-size:11px;color:rgba(255,255,255,0.4);">Response within a few hours</div></div>
+          </a>
+          <a href="https://calendly.com/bluwavgrowth" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:14px 18px;text-decoration:none;transition:all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='rgba(255,255,255,0.04)'">
+            <span style="font-size:18px;">&#128197;</span>
+            <div><div style="font-size:13px;font-weight:700;color:#fff;">Book a Free Call</div><div style="font-size:11px;color:rgba(255,255,255,0.4);">30 minutes, no obligation</div></div>
+          </a>
+        </div>
+      </div>
 
-  setTimeout(function() {
-    // WA notification removed — Formspree email handles team notification
-    window.location.href = 'thank-you.html';
-  }, 800);
-}
-</script>
+      <!-- RIGHT: Form -->
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:24px;padding:36px;backdrop-filter:blur(8px);">
+        <div style="display:inline-block;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#FF5500;background:rgba(255,85,0,0.1);border:1px solid rgba(255,85,0,0.2);border-radius:20px;padding:4px 12px;margin-bottom:16px;">Free &middot; No Commitment &middot; Results in 24 Hours</div>
+        <h3 style="font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;color:#fff;margin-bottom:24px;">Get My Digital Health Score &#8594;</h3>
+
+        <form id="contact-form" onsubmit="submitContactForm(event)">
+          <div style="margin-bottom:14px;">
+            <label style="display:block;font-size:11px;font-weight:700;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Your Name *</label>
+            <input id="cf-fname" type="text" placeholder="First &amp; last name" required style="width:100%;padding:13px 16px;border-radius:10px;border:1.5px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.06);color:#fff;font-size:15px;font-family:inherit;outline:none;transition:border 0.2s;box-sizing:border-box;" onfocus="this.style.borderColor='#00C2D8';this.style.background='rgba(0,194,216,0.06)'" onblur="this.style.borderColor='rgba(255,255,255,0.1)';this.style.background='rgba(255,255,255,0.06)'"/>
+          </div>
+          <div style="margin-bottom:14px;">
+            <label style="display:block;font-size:11px;font-weight:700;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Business Name *</label>
+            <input id="cf-biz" type="text" placeholder="Your business name" required style="width:100%;padding:13px 16px;border-radius:10px;border:1.5px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.06);color:#fff;font-size:15px;font-family:inherit;outline:none;transition:border 0.2s;box-sizing:border-box;" onfocus="this.style.borderColor='#00C2D8';this.style.background='rgba(0,194,216,0.06)'" onblur="this.style.borderColor='rgba(255,255,255,0.1)';this.style.background='rgba(255,255,255,0.06)'"/>
+          </div>
+          <div style="margin-bottom:14px;">
+            <label style="display:block;font-size:11px;font-weight:700;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">WhatsApp Number *</label>
+            <input id="cf-wa" type="tel" inputmode="tel" placeholder="+1 (xxx) xxx-xxxx" required style="width:100%;padding:13px 16px;border-radius:10px;border:1.5px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.06);color:#fff;font-size:15px;font-family:inherit;outline:none;transition:border 0.2s;box-sizing:border-box;" onfocus="this.style.borderColor='#00C2D8';this.style.background='rgba(0,194,216,0.06)'" onblur="this.style.borderColor='rgba(255,255,255,0.1)';this.style.background='rgba(255,255,255,0.06)'"/>
+          </div>
+          <div style="margin-bottom:24px;">
+            <label style="display:block;font-size:11px;font-weight:700;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">I need help with</label>
+            <select id="cf-interest" style="width:100%;padding:13px 16px;border-radius:10px;border:1.5px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.06);color:#fff;font-size:15px;font-family:inherit;outline:none;transition:border 0.2s;cursor:pointer;box-sizing:border-box;appearance:none;" onfocus="this.style.borderColor='#00C2D8'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'">
+              <option style="background:#002B49;">Get My Health Score</option>
+              <option style="background:#002B49;">Professional Website</option>
+              <option style="background:#002B49;">Google Visibility</option>
+              <option style="background:#002B49;">BluWav CRM</option>
+              <option style="background:#002B49;">Full Growth Package</option>
+            </select>
+          </div>
+          <button id="cf-btn" type="submit" style="width:100%;background:linear-gradient(135deg,#FF5500,#e84d00);color:#fff;font-size:16px;font-weight:800;padding:17px;border-radius:12px;border:none;cursor:pointer;font-family:inherit;box-shadow:0 4px 24px rgba(255,85,0,0.4);transition:all 0.2s;letter-spacing:0.3px;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 32px rgba(255,85,0,0.55)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 24px rgba(255,85,0,0.4)'">
+            Get My Free Digital Health Check &#8594;
+          </button>
+          <p style="font-size:12px;color:rgba(255,255,255,0.3);text-align:center;margin-top:12px;">&#128274; We never share your details. Ever.</p>
+        </form>
+      </div>
+
+    </div>
+  </div>
 </section>
 
 <!-- FOOTER -->
