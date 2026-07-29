@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Book Your Stay | Sunnyside Cove Resort, Negril Jamaica</title>
+<meta name="description" content="Book your stay at Sunnyside Cove Resort in Negril, Jamaica. Beachfront rooms, suites and villas. Direct booking — best rate guaranteed."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:#FDFAF4;color:#2C2C2C;overflow-x:hidden;}
+:root{--sun:#F5A623;--sun-deep:#E8841A;--green:#2D6A4F;--green-mid:#40916C;--cream:#FDFAF4;--sand:#F2E8D5;--charcoal:#1C1C1C;--muted:#7A7060;--serif:'Playfair Display',Georgia,serif;}
+a{text-decoration:none;color:inherit;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;padding:0 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(253,250,244,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(45,106,79,0.12);box-shadow:0 2px 16px rgba(0,0,0,0.06);}
+.nav-logo{font-family:var(--serif);font-size:22px;font-weight:700;color:var(--green);letter-spacing:-0.5px;}
+.nav-logo span{color:var(--sun-deep);}
+.nav-links{display:flex;align-items:center;gap:28px;}
+.nav-link{font-size:13px;font-weight:500;color:var(--muted);transition:color 0.2s;}
+.nav-link:hover{color:var(--green);}
+.nav-cta{background:var(--sun);color:#fff;font-size:13px;font-weight:600;padding:10px 22px;border-radius:8px;transition:all 0.2s;}
+.nav-cta:hover{background:var(--sun-deep);transform:translateY(-1px);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--green);border-radius:2px;transition:all 0.3s;}
+.mob-nav{display:none;position:fixed;top:72px;left:0;right:0;background:rgba(253,250,244,0.99);padding:20px 24px;flex-direction:column;gap:4px;z-index:99;border-bottom:1px solid rgba(45,106,79,0.1);}
+.mob-nav.open{display:flex!important;}
+.mob-link{font-size:15px;font-weight:500;color:var(--charcoal);padding:12px 0;border-bottom:1px solid rgba(45,106,79,0.08);display:block;}
+.mob-cta{background:var(--sun);color:#fff;font-weight:600;padding:14px;border-radius:8px;text-align:center;margin-top:8px;font-size:15px;display:block;}
+@media(max-width:900px){.nav-links{display:none!important;}.hamburger{display:flex!important;}}
+@media(max-width:768px){nav{padding:0 20px!important;height:60px!important;}.mob-nav{top:60px!important;}}
+
+/* HERO */
+.booking-hero{background:linear-gradient(135deg,#1a3d2b 0%,#2D6A4F 100%);padding:120px 48px 80px;text-align:center;position:relative;overflow:hidden;}
+.booking-hero::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1400&q=80') center/cover;opacity:0.25;}
+.booking-hero-content{position:relative;z-index:2;}
+
+/* FORM CARD */
+.booking-wrap{max-width:860px;margin:-60px auto 80px;padding:0 24px;position:relative;z-index:3;}
+.booking-card{background:#fff;border-radius:20px;padding:48px;box-shadow:0 24px 80px rgba(0,0,0,0.15);border:1px solid rgba(45,106,79,0.08);}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.form-group{display:flex;flex-direction:column;gap:6px;}
+.form-group.full{grid-column:1/-1;}
+label{font-size:12px;font-weight:600;color:var(--green);text-transform:uppercase;letter-spacing:1px;}
+input,select,textarea{padding:13px 16px;border:1.5px solid #e2e8f0;border-radius:10px;font-size:15px;font-family:inherit;color:var(--charcoal);background:#fff;outline:none;transition:border 0.2s;}
+input:focus,select:focus,textarea:focus{border-color:var(--green-mid);}
+textarea{resize:vertical;min-height:100px;}
+.submit-btn{width:100%;background:linear-gradient(135deg,var(--sun),var(--sun-deep));color:#fff;font-size:16px;font-weight:700;padding:18px;border-radius:12px;border:none;cursor:pointer;font-family:inherit;transition:all 0.2s;box-shadow:0 6px 24px rgba(245,166,35,0.4);margin-top:8px;}
+.submit-btn:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(245,166,35,0.55);}
+.form-note{font-size:12px;color:var(--muted);text-align:center;margin-top:10px;}
+
+/* ROOM TYPES */
+.rooms-section{background:var(--sand);padding:80px 24px;}
+.rooms-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:0 auto;}
+.room-card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.08);transition:transform 0.2s,box-shadow 0.2s;}
+.room-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.14);}
+.room-img{width:100%;height:200px;object-fit:cover;}
+.room-body{padding:24px;}
+.room-name{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--green);margin-bottom:6px;}
+.room-price{font-size:22px;font-weight:700;color:var(--sun-deep);margin-bottom:8px;}
+.room-desc{font-size:13px;color:var(--muted);line-height:1.65;}
+
+/* SUCCESS */
+.success-state{display:none;text-align:center;padding:48px 24px;}
+
+/* FOOTER */
+footer{background:var(--green);padding:40px 48px;text-align:center;}
+footer p{font-size:13px;color:rgba(255,255,255,0.7);line-height:1.8;}
+footer a{color:var(--sun);text-decoration:none;}
+
+@media(max-width:768px){
+  .booking-hero{padding:90px 20px 60px;}
+  .booking-card{padding:28px 20px;}
+  .form-grid{grid-template-columns:1fr;}
+  .rooms-grid{grid-template-columns:1fr;}
+  footer{padding:32px 20px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="demo-resort.html">Sunnyside <span>Cove</span></a>
+  <div class="nav-links">
+    <a class="nav-link" href="demo-resort.html">Home</a>
+    <a class="nav-link" href="demo-resort.html#rooms">Rooms</a>
+    <a class="nav-link" href="gallery.html">Gallery</a>
+    <a class="nav-link" href="demo-resort.html#amenities">Amenities</a>
+    <a class="nav-link" href="demo-resort.html#contact">Contact</a>
+    <a class="nav-cta" href="booking.html">Book Now</a>
+  </div>
+  <button class="hamburger" id="hbtn" onclick="toggleMob()"><span></span><span></span><span></span></button>
+</nav>
+<div class="mob-nav" id="mobNav">
+  <a class="mob-link" href="demo-resort.html" onclick="closeMob()">🏠 Home</a>
+  <a class="mob-link" href="demo-resort.html#rooms" onclick="closeMob()">🛏 Rooms</a>
+  <a class="mob-link" href="gallery.html" onclick="closeMob()">📸 Gallery</a>
+  <a class="mob-link" href="demo-resort.html#amenities" onclick="closeMob()">🌴 Amenities</a>
+  <a class="mob-link" href="demo-resort.html#contact" onclick="closeMob()">📞 Contact</a>
+  <a class="mob-cta" href="booking.html" onclick="closeMob()">Book Your Stay →</a>
+</div>
+
+<!-- HERO -->
+<section class="booking-hero">
+  <div class="booking-hero-content">
+    <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:rgba(255,255,255,0.7);margin-bottom:12px;">Direct Booking — Best Rate Guaranteed</div>
+    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,56px);font-weight:900;color:#fff;line-height:1.1;margin-bottom:12px;">Reserve Your <em style="color:#F5A623;">Paradise</em></h1>
+    <p style="font-size:clamp(14px,2.5vw,18px);color:rgba(255,255,255,0.8);max-width:520px;margin:0 auto;">Beachfront rooms, suites and private villas in Negril, Jamaica. Book direct for the best rate and complimentary breakfast.</p>
+  </div>
+</section>
+
+<!-- BOOKING FORM -->
+<div class="booking-wrap">
+  <div class="booking-card">
+    <div id="formState">
+      <h2 style="font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:#2D6A4F;margin-bottom:6px;">Check Availability</h2>
+      <p style="font-size:14px;color:#7A7060;margin-bottom:28px;">Fill in your details and we'll confirm your reservation within 2 hours.</p>
+      <form id="bookingForm" onsubmit="submitBooking(event)" novalidate>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="bkFirst">First Name *</label>
+            <input id="bkFirst" type="text" placeholder="Your first name" required autocomplete="given-name"/>
+          </div>
+          <div class="form-group">
+            <label for="bkLast">Last Name *</label>
+            <input id="bkLast" type="text" placeholder="Your last name" required autocomplete="family-name"/>
+          </div>
+          <div class="form-group">
+            <label for="bkEmail">Email Address *</label>
+            <input id="bkEmail" type="email" placeholder="you@email.com" required autocomplete="email"/>
+          </div>
+          <div class="form-group">
+            <label for="bkPhone">Phone / WhatsApp *</label>
+            <input id="bkPhone" type="tel" placeholder="+1 (xxx) xxx-xxxx" required autocomplete="tel"/>
+          </div>
+          <div class="form-group">
+            <label for="bkCheckin">Check-In Date *</label>
+            <input id="bkCheckin" type="date" required/>
+          </div>
+          <div class="form-group">
+            <label for="bkCheckout">Check-Out Date *</label>
+            <input id="bkCheckout" type="date" required/>
+          </div>
+          <div class="form-group">
+            <label for="bkRoom">Room Type *</label>
+            <select id="bkRoom" required>
+              <option value="">Select room type</option>
+              <option>Garden View Room</option>
+              <option>Ocean View Room</option>
+              <option>Beachfront Suite</option>
+              <option>Private Villa</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="bkGuests">Number of Guests *</label>
+            <select id="bkGuests" required>
+              <option value="">Select guests</option>
+              <option>1 Guest</option>
+              <option>2 Guests</option>
+              <option>3 Guests</option>
+              <option>4 Guests</option>
+              <option>5+ Guests</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label for="bkNotes">Special Requests</label>
+            <textarea id="bkNotes" placeholder="Anniversary, dietary needs, accessibility requirements..."></textarea>
+          </div>
+        </div>
+        <div id="bkError" style="display:none;background:rgba(200,50,50,0.08);border:1px solid rgba(200,50,50,0.3);border-radius:10px;padding:12px 16px;margin-bottom:14px;font-size:13px;color:#c83232;font-weight:700;">⚠ Please fill in all required fields.</div>
+        <button class="submit-btn" type="submit" id="bkSubmitBtn">Reserve My Stay →</button>
+        <p class="form-note">✓ Free cancellation up to 48 hours before arrival &nbsp;·&nbsp; ✓ Best rate guaranteed &nbsp;·&nbsp; ✓ Confirmation within 2 hours</p>
+      </form>
+    </div>
+    <div id="successState" style="display:none;text-align:center;padding:48px 24px;">
+      <div style="font-size:56px;margin-bottom:16px;">🌴</div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:#2D6A4F;margin-bottom:10px;">Booking Request Received!</h2>
+      <p style="font-size:16px;color:#7A7060;line-height:1.7;margin-bottom:24px;">Thank you! We'll confirm your reservation within 2 hours via email and WhatsApp.</p>
+      <a href="demo-resort.html" style="display:inline-block;background:#F5A623;color:#fff;font-size:15px;font-weight:700;padding:14px 28px;border-radius:10px;text-decoration:none;">← Back to Resort</a>
+    </div>
+  </div>
+</div>
+
+<!-- ROOM TYPES -->
+<section class="rooms-section">
+  <div style="text-align:center;margin-bottom:48px;">
+    <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:#40916C;margin-bottom:12px;">Accommodation</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,40px);font-weight:700;color:#2D6A4F;margin-bottom:10px;">Choose Your Room</h2>
+    <p style="font-size:16px;color:#7A7060;max-width:480px;margin:0 auto;">Every room includes complimentary breakfast, beach access, and Wi-Fi.</p>
+  </div>
+  <div class="rooms-grid">
+    <div class="room-card">
+      <img class="room-img" src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&q=80" alt="Garden View Room at Sunnyside Cove Resort"/>
+      <div class="room-body">
+        <div class="room-name">Garden View Room</div>
+        <div class="room-price">From $180<span style="font-size:13px;font-weight:400;color:#7A7060;">/night</span></div>
+        <div class="room-desc">Peaceful garden views, king bed, en-suite bathroom, air conditioning, and private balcony.</div>
+      </div>
+    </div>
+    <div class="room-card">
+      <img class="room-img" src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&q=80" alt="Ocean View Room at Sunnyside Cove Resort"/>
+      <div class="room-body">
+        <div class="room-name">Ocean View Room</div>
+        <div class="room-price">From $260<span style="font-size:13px;font-weight:400;color:#7A7060;">/night</span></div>
+        <div class="room-desc">Stunning Caribbean sea views, king or twin beds, rainfall shower, and private terrace.</div>
+      </div>
+    </div>
+    <div class="room-card">
+      <img class="room-img" src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600&q=80" alt="Beachfront Suite at Sunnyside Cove Resort"/>
+      <div class="room-body">
+        <div class="room-name">Beachfront Suite</div>
+        <div class="room-price">From $420<span style="font-size:13px;font-weight:400;color:#7A7060;">/night</span></div>
+        <div class="room-desc">Direct beach access, living area, plunge pool, butler service, and panoramic ocean views.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#fff;margin-bottom:8px;">Sunnyside Cove Resort</p>
+  <p>Norman Manley Blvd, Negril, Jamaica &nbsp;·&nbsp; <a href="tel:+18769000000">+1 (876) 900-0000</a> &nbsp;·&nbsp; <a href="mailto:reservations@sunnysideckove.com">reservations@sunnysideckove.com</a></p>
+  <p style="margin-top:12px;font-size:11px;color:rgba(255,255,255,0.4);">Demo site built by <a href="https://bluwavgrowth.com" style="color:#F5A623;">BluWav Growth</a> · <a href="https://bluwavgrowth.com/health-check.html" style="color:#F5A623;">Get your free digital health check</a></p>
+</footer>
+
+<script>
+function toggleMob(){var n=document.getElementById('mobNav'),b=document.getElementById('hbtn');n.classList.toggle('open');b.classList.toggle('open');}
+function closeMob(){document.getElementById('mobNav').classList.remove('open');}
+document.addEventListener('click',function(e){var n=document.getElementById('mobNav'),b=document.getElementById('hbtn');if(n&&b&&n.classList.contains('open')&&!n.contains(e.target)&&!b.contains(e.target)){n.classList.remove('open');}});
+
+function submitBooking(e){
+  e.preventDefault();
+  var first=document.getElementById('bkFirst').value.trim();
+  var last=document.getElementById('bkLast').value.trim();
+  var email=document.getElementById('bkEmail').value.trim();
+  var phone=document.getElementById('bkPhone').value.trim();
+  var checkin=document.getElementById('bkCheckin').value;
+  var checkout=document.getElementById('bkCheckout').value;
+  var room=document.getElementById('bkRoom').value;
+  var guests=document.getElementById('bkGuests').value;
+  var err=document.getElementById('bkError');
+  if(!first||!last||!email||!phone||!checkin||!checkout||!room||!guests){err.style.display='block';return;}
+  err.style.display='none';
+  var btn=document.getElementById('bkSubmitBtn');
+  btn.textContent='Sending...';btn.disabled=true;
+  var notes=document.getElementById('bkNotes').value;
+  var fd=new FormData();
+  fd.append('_replyto',email);fd.append('email',email);
+  fd.append('_subject','New Booking Request — '+first+' '+last+' ('+checkin+' to '+checkout+')');
+  fd.append('name',first+' '+last);fd.append('phone',phone);
+  fd.append('checkin',checkin);fd.append('checkout',checkout);
+  fd.append('room',room);fd.append('guests',guests);fd.append('notes',notes||'None');
+  fd.append('_template','table');
+  var done=false;
+  function proceed(){if(done)return;done=true;document.getElementById('formState').style.display='none';document.getElementById('successState').style.display='block';}
+  var t=setTimeout(proceed,6000);
+  fetch('https://formspree.io/f/xpwzgvkd',{method:'POST',body:fd,headers:{'Accept':'application/json'}})
+  .then(function(){clearTimeout(t);proceed();}).catch(function(){clearTimeout(t);proceed();});
+}
+// Set min date to today
+var today=new Date().toISOString().split('T')[0];
+document.getElementById('bkCheckin').min=today;
+document.getElementById('bkCheckout').min=today;
+document.getElementById('bkCheckin').addEventListener('change',function(){document.getElementById('bkCheckout').min=this.value;});
+</script>
+</body>
+</html>

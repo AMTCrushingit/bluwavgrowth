@@ -107,7 +107,7 @@
   .hero-h1 .gold { background:linear-gradient(135deg,var(--gold2),var(--gold)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
   .hero-sub { font-size:17px; color:rgba(255,255,255,0.65); line-height:1.75; margin-bottom:36px; max-width:480px; }
   .hero-btns { display:flex; gap:14px; flex-wrap:wrap; margin-bottom:36px; }
-  .btn-primary {
+  .btn-primary {min-height:44px;
     background:linear-gradient(135deg,var(--rose),var(--rose2));
     color:#fff; font-size:15px; font-weight:700; padding:15px 30px;
     border-radius:25px; box-shadow:0 4px 24px rgba(194,24,91,0.4);
@@ -268,6 +268,14 @@
     .footer-top { grid-template-columns:1fr; gap:24px; }
     .footer-bottom { flex-direction:column; align-items:flex-start; }
     .h2 { font-size:30px; }
+  }
+
+  @media(max-width:480px){
+    [style*="grid-template-columns:repeat(3"]{grid-template-columns:1fr!important;}
+    [style*="grid-template-columns:repeat(2"]{grid-template-columns:1fr!important;}
+    [style*="font-size:clamp"]{font-size:clamp(20px,5vw,32px)!important;}
+    h1{font-size:clamp(24px,7vw,40px)!important;}
+    h2{font-size:clamp(20px,6vw,32px)!important;}
   }
 </style>
 <!-- Meta Pixel Code -->

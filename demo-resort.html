@@ -85,7 +85,7 @@
     .tag-green{ background: rgba(45,106,79,0.12); color: var(--green); }
     .tag-terra{ background: var(--terra-pale); color: var(--terra); }
 
-    .btn {
+    .btn {min-height:44px;
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
@@ -1141,7 +1141,15 @@
       .rooms-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
       .footer-top { grid-template-columns: 1fr; }
     }
-  </style>
+  
+  @media(max-width:480px){
+    [style*="grid-template-columns:repeat(3"]{grid-template-columns:1fr!important;}
+    [style*="grid-template-columns:repeat(2"]{grid-template-columns:1fr!important;}
+    [style*="font-size:clamp"]{font-size:clamp(20px,5vw,32px)!important;}
+    h1{font-size:clamp(24px,7vw,40px)!important;}
+    h2{font-size:clamp(20px,6vw,32px)!important;}
+  }
+</style>
 </head>
 <body style="overflow-x:hidden;">
 <!-- ══════════════════════════════════════════════════════
@@ -1232,7 +1240,7 @@
             Nestled on Negril's legendary Seven Mile Beach, Sunnyside Cove is where barefoot luxury meets the soul of Jamaica. All-inclusive. All unforgettable.
           </p>
 <div class="hero-actions">
-<a class="btn btn-sun" href="https://bluwavgrowth.com/health-check.html">Book Your Stay</a>
+<a class="btn btn-sun" href="booking.html">Book Your Stay</a>
 <a class="btn btn-outline-white" href="#rooms">Explore Rooms</a>
 </div>
 </div>
@@ -1424,7 +1432,7 @@
 <span class="feature-pill"><span class="feature-pill-icon">🚤</span> Boat Trips</span>
 </div>
 <div class="reveal reveal-d3">
-<a class="btn btn-green" href="https://bluwavgrowth.com/health-check.html">Reserve Your Escape</a>
+<a class="btn btn-green" href="booking.html">Reserve Your Escape</a>
 </div>
 </div>
 </div>
@@ -1440,7 +1448,7 @@
 <span class="eyebrow">Accommodations</span>
 <h2 class="section-title">Your Perfect <em>Retreat</em></h2>
 </div>
-<a class="btn btn-outline-dark" href="https://bluwavgrowth.com/health-check.html">View All Rooms</a>
+<a class="btn btn-outline-dark" href="booking.html">View All Rooms</a>
 </div>
 <div class="rooms-grid">
 <!-- Room 1 -->
@@ -1638,7 +1646,7 @@
           Every guest has a story. Upload your favourite vacation photo to our community wall and become part of the Sunnyside Cove family forever. Your sunset, your jerk chicken moment, your barefoot dance, we want to see it all.
         </p>
 <div class="reveal reveal-d2">
-<a class="btn btn-green" href="#gallery">📸 Visit the Photo Wall</a>
+<a class="btn btn-green" href="gallery.html">📸 Visit the Photo Wall</a>
 </div>
 </div>
 <div class="teaser-mosaic reveal reveal-d1">
@@ -1722,8 +1730,8 @@
 <h2 class="cta-title">Your Jamaican Adventure<br/>Starts Here.</h2>
 <p class="cta-sub">Limited rooms available for peak season. Book now and get complimentary airport transfers and a welcome rum punch on arrival.</p>
 <div class="cta-actions">
-<a class="btn btn-sun" href="https://bluwavgrowth.com/health-check.html">Book Your Stay</a>
-<a class="btn btn-outline-white" href="#gallery">📸 See Guest Photos</a>
+<a class="btn btn-sun" href="booking.html">Book Your Stay</a>
+<a class="btn btn-outline-white" href="gallery.html">📸 See Guest Photos</a>
 </div>
 </div>
 </div>

@@ -84,7 +84,7 @@
       background: var(--green);
       flex-shrink: 0;
     }
-    .btn {
+    .btn {min-height:44px;
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
@@ -1526,7 +1526,15 @@
     .fade-up-delay-2 { transition-delay: 0.2s; }
     .fade-up-delay-3 { transition-delay: 0.3s; }
     .fade-up-delay-4 { transition-delay: 0.4s; }
-  </style>
+  
+  @media(max-width:480px){
+    [style*="grid-template-columns:repeat(3"]{grid-template-columns:1fr!important;}
+    [style*="grid-template-columns:repeat(2"]{grid-template-columns:1fr!important;}
+    [style*="font-size:clamp"]{font-size:clamp(20px,5vw,32px)!important;}
+    h1{font-size:clamp(24px,7vw,40px)!important;}
+    h2{font-size:clamp(20px,6vw,32px)!important;}
+  }
+</style>
 </head>
 <body style="overflow-x:hidden;">
 <!-- ═══════════════════════════════════════════════════════════════ -->
