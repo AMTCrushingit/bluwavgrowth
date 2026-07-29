@@ -36,8 +36,8 @@
     /* HEADER */
     header { background: var(--bg); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
     .header-inner { max-width: 1160px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
-    .logo { font-size: 1.45rem; font-weight: 800; letter-spacing: -0.5px; color: var(--white); text-decoration: none; line-height: 1; }
-    .logo span { color: var(--cyan); }
+    .logo { text-decoration: none; line-height: 1; }
+    
     .back-link { color: var(--text-muted); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.18s; }
     .back-link:hover { color: var(--white); }
 
@@ -150,7 +150,10 @@
 <body style="overflow-x:hidden;">
 <header>
 <div class="header-inner">
-<a class="logo" href="index.html">Blu<span>Wav</span></a>
+<a href="index.html" style="text-decoration:none;display:flex;flex-direction:column;align-items:flex-start;line-height:1;padding:4px 0;">
+  <div style="font-family:'Kaushan Script',cursive;font-size:26px;line-height:1;color:#fff;">Blu<span style="color:#00E0FF;">Wav</span></div>
+  <div style="font-size:8px;font-weight:700;color:#00E0FF;letter-spacing:3px;text-transform:uppercase;line-height:1.4;margin-top:2px;">Get Found. Get Chosen. Grow.</div>
+</a>
 <a class="back-link" href="index.html">← Back to site</a>
 </div>
 </header>
