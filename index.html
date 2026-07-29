@@ -1480,7 +1480,7 @@ nav{
 }
 
 /* Footer, full width like AADEK */
-footer .wrap{max-width:100% !important;padding:0 64px !important;}
+footer .wrap{max-width:100% !important;padding:0 clamp(16px,4vw,64px) !important;}
 footer .footer-grid{gap:56px !important;}
 @media(max-width:1024px){footer .wrap{padding:0 32px !important;}}
 @media(max-width:768px){footer .wrap{padding:0 20px !important;}}
@@ -1773,7 +1773,7 @@ footer .footer-grid{gap:56px !important;}
 
 /* ── COMPREHENSIVE MOBILE FIXES ── */
 @media(max-width:768px){
-  [style*="padding:0 64px"]{padding:0 20px!important;}
+  [style*="padding:0 clamp(16px,4vw,64px)"]{padding:0 20px!important;}
   [style*="padding:48px 64px"]{padding:40px 20px!important;}
   [style*="padding:80px 64px"]{padding:60px 20px!important;}
   [style*="padding:100px 64px"]{padding:64px 20px!important;}
@@ -1795,18 +1795,18 @@ footer .footer-grid{gap:56px !important;}
   .form-row{grid-template-columns:1fr!important;}
   #nl-form-home{flex-direction:column!important;}
   #nl-form-home input,#nl-form-home button{width:100%!important;min-width:unset!important;}
-  footer [style*="padding:0 64px"]{padding:0 20px!important;}
+  footer [style*="padding:0 clamp(16px,4vw,64px)"]{padding:0 20px!important;}
   footer [style*="grid-template-columns:2fr"]{grid-template-columns:1fr 1fr!important;}
   .nav-dropdown-menu{left:0!important;transform:none!important;}
 }
 @media(max-width:480px){
-  [style*="padding:0 64px"]{padding:0 16px!important;}
+  [style*="padding:0 clamp(16px,4vw,64px)"]{padding:0 16px!important;}
   footer [style*="grid-template-columns:2fr"]{grid-template-columns:1fr!important;}
   [style*="grid-template-columns:repeat(3,1fr)"]{grid-template-columns:1fr!important;}
   .hero-cta-pulse{width:100%!important;display:block!important;text-align:center!important;padding:16px 20px!important;}
 }
 @media(max-width:360px){
-  [style*="padding:0 64px"]{padding:0 12px!important;}
+  [style*="padding:0 clamp(16px,4vw,64px)"]{padding:0 12px!important;}
 }
 
 @media(max-width:768px){
@@ -1830,7 +1830,7 @@ footer .footer-grid{gap:56px !important;}
     grid-template-columns:1fr 1fr!important;
     gap:32px!important;
   }
-  footer [style*="padding:0 64px"]{padding:0 24px!important;}
+  footer [style*="padding:0 clamp(16px,4vw,64px)"]{padding:0 24px!important;}
   footer [style*="padding:20px 64px"]{padding:16px 24px!important;flex-direction:column!important;text-align:center!important;gap:8px!important;}
   footer [style*="display:flex;gap:16px"]{justify-content:center!important;}
 }
@@ -1862,6 +1862,17 @@ footer .footer-grid{gap:56px !important;}
 /* ── ANIMATED ARROW ── */
 @keyframes arrowPulse{0%,100%{opacity:0.7;transform:translateY(0);}50%{opacity:1;transform:translateY(6px);}}
 @keyframes dashFlow{to{stroke-dashoffset:-20;}}
+
+  /* ── GLOBAL MOBILE PADDING OVERRIDE ── */
+  @media(max-width:768px){
+    [style*="padding:0 clamp"]{padding-left:16px!important;padding-right:16px!important;}
+    [style*="padding:0 48px"]{padding-left:16px!important;padding-right:16px!important;}
+    [style*="padding:0 32px"]{padding-left:16px!important;padding-right:16px!important;}
+    .wrap{padding:0 16px!important;}
+  }
+  @media(max-width:480px){
+    [style*="padding:0 clamp"]{padding-left:12px!important;padding-right:12px!important;}
+  }
 </style>
 <meta content="index, follow" name="robots"/>
 <meta content="BluWav Growth | Website Design &amp; Digital Growth for Modern Businesses" property="og:title"/>
@@ -2416,7 +2427,7 @@ footer .footer-grid{gap:56px !important;}
 <!-- HOW IT WORKS, dark grid bg, 3 steps with connector -->
 <section id="how-it-works" style="display:none;">
 <div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(0,224,255,0.025) 39px,rgba(0,224,255,0.025) 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(0,224,255,0.025) 39px,rgba(0,224,255,0.025) 40px);pointer-events:none;"></div>
-<div style="width:100%;padding:0 64px;position:relative;z-index:2;box-sizing:border-box;">
+<div style="width:100%;padding:0 clamp(16px,4vw,64px);position:relative;z-index:2;box-sizing:border-box;">
 <div style="text-align:center;margin-bottom:80px;">
 <span class="bw-eyebrow" style="color:var(--cyan);"><span class="bw-dot" style="background:var(--cyan);"></span>How It Works</span>
 <h2 class="reveal anim-fade-up" style="font-family:'Space Grotesk',sans-serif;font-size:48px;font-weight:800;color:#fff;line-height:1.1;letter-spacing:-0.5px;margin-bottom:0;"><span style="color:#fff;">Three Steps.</span><br/><span style="color:var(--cyan);font-size:0.82em;font-weight:700;letter-spacing:-0.5px;">One System. <span style="color:var(--gold);">Unstoppable Growth.</span></span></h2>
@@ -2809,7 +2820,7 @@ function handleNLSubscribe(e, pid) {
 }
 </script>
 <footer style="background:rgba(0,43,73,0.97);padding:60px 0 0;width:100%;max-width:100%;box-sizing:border-box;">
-<div style="width:100%;max-width:100%;padding:0 64px;box-sizing:border-box;">
+<div style="width:100%;max-width:100%;padding:0 clamp(16px,4vw,64px);box-sizing:border-box;">
 <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;width:100%;">
 <div>
   <div style="font-family:'Kaushan Script',cursive;font-size:34px;color:#fff;line-height:1;margin-bottom:6px;">Blu<span style="color:#00E0FF;">Wav</span></div>
