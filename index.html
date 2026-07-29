@@ -1860,12 +1860,8 @@ footer .footer-grid{gap:56px !important;}
 }
 
 /* ── ANIMATED ARROW ── */
-@keyframes arrowDrop{0%{opacity:0;transform:translateY(-12px);}100%{opacity:1;transform:translateY(0);}}
 @keyframes arrowPulse{0%,100%{opacity:0.7;transform:translateY(0);}50%{opacity:1;transform:translateY(6px);}}
 @keyframes dashFlow{to{stroke-dashoffset:-20;}}
-.bw-arrow-wrap{animation:arrowDrop 0.8s cubic-bezier(0.22,1,0.36,1) 0.3s both;}
-.bw-arrow-svg{animation:arrowPulse 2s ease-in-out infinite;}
-.bw-arrow-dash{stroke-dasharray:6,4;stroke-dashoffset:0;animation:dashFlow 1.2s linear infinite;}
 </style>
 <meta content="index, follow" name="robots"/>
 <meta content="BluWav Growth | Website Design &amp; Digital Growth for Modern Businesses" property="og:title"/>
@@ -2222,7 +2218,6 @@ footer .footer-grid{gap:56px !important;}
       <h2 style="font-family:'Manrope',sans-serif;font-size:clamp(28px,5vw,52px);font-weight:900;color:#fff;line-height:1.1;letter-spacing:-1px;margin-bottom:12px;">
         Your Journey to <span style="color:#FF5500;">Digital Dominance</span><br/><span style="color:#fff;font-size:0.6em;font-weight:700;letter-spacing:0px;">Starts Here.</span>
       </h2>
-      <p style="font-size:16px;color:rgba(255,255,255,0.55);max-width:480px;margin:0 auto;line-height:1.7;">Choose the plan that gets you seen, trusted, and chosen.</p>
     </div>
   </div>
 
@@ -2230,24 +2225,13 @@ footer .footer-grid{gap:56px !important;}
 
 <!-- GROWTH SYSTEMS PRICING — setup + monthly model -->
 <section id="what-we-do-cont" style="background:#F4F2ED;padding:60px 0 80px;">
-<div style="width:100%;padding:0 64px;box-sizing:border-box;">
+<div style="max-width:1100px;margin:0 auto;padding:0 24px;box-sizing:border-box;">
 
 <!-- Growth Plans Cards — elegant, narrow, conversion-focused -->
-<!-- Animated arrow — draws eye to middle card -->
-<div class="bw-arrow-wrap" style="text-align:center;margin-bottom:24px;margin-top:8px;">
-  <svg class="bw-arrow-svg" width="48" height="68" viewBox="0 0 48 68" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="arrowGrad" x1="24" y1="0" x2="24" y2="68" gradientUnits="userSpaceOnUse">
-        <stop offset="0%" stop-color="#FF5500" stop-opacity="0.5"/>
-        <stop offset="100%" stop-color="#F7C873" stop-opacity="1"/>
-      </linearGradient>
-    </defs>
-    <path class="bw-arrow-dash" d="M24 4 L24 46" stroke="url(#arrowGrad)" stroke-width="2.5" stroke-linecap="round"/>
-    <path d="M10 40 L24 58 L38 40" stroke="url(#arrowGrad)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  </svg>
-</div>
+<!-- Subtext above cards -->
+<p style="text-align:center;font-size:15px;color:#64748b;line-height:1.75;max-width:520px;margin:0 auto 32px;">Choose the plan that gets you seen, trusted, and chosen.</p>
 
-<div style="display:flex;justify-content:center;gap:24px;margin-bottom:0;align-items:stretch;flex-wrap:wrap;padding:0 0 56px;">
+<div style="display:flex;justify-content:center;gap:24px;margin-bottom:0;align-items:flex-start;flex-wrap:wrap;padding:0 0 40px;">
 
 <!-- Ripple -->
 <div class="bw-reveal bw-delay-1" style="background:#fff;border-radius:20px;padding:32px 28px;border:1.5px solid rgba(0,43,73,0.1);display:flex;flex-direction:column;transition:all 0.3s cubic-bezier(0.22,1,0.36,1);width:300px;flex-shrink:0;box-shadow:0 2px 16px rgba(0,43,73,0.06);"
@@ -2352,9 +2336,8 @@ footer .footer-grid{gap:56px !important;}
     onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">Get Started with Surge &#8594;</a>
 </div>
 
-<!-- Subtext + badges — directly below plan cards -->
+<!-- Badges below plan cards -->
 <div style="text-align:center;padding:0 0 48px;">
-  <p style="font-size:15px;color:#64748b;line-height:1.75;max-width:520px;margin:0 auto 20px;">Your Digital Health Score shows exactly where your business stands and which plan will move you forward fastest.</p>
   <div style="display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;">
     <div style="display:flex;align-items:center;gap:7px;background:#fff;border:1px solid rgba(0,43,73,0.08);border-radius:30px;padding:7px 16px;box-shadow:0 2px 8px rgba(0,43,73,0.05);"><span style="font-size:15px;">&#127760;</span><span style="font-size:12px;font-weight:700;color:#002B49;">Built for Modern Businesses</span></div>
     <div style="display:flex;align-items:center;gap:7px;background:#fff;border:1px solid rgba(0,43,73,0.08);border-radius:30px;padding:7px 16px;box-shadow:0 2px 8px rgba(0,43,73,0.05);"><span style="font-size:15px;">&#9889;</span><span style="font-size:12px;font-weight:700;color:#002B49;">48&ndash;72 Hour Turnaround</span></div>
