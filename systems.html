@@ -71,28 +71,34 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 48px;d
 <body>
 <nav id="mainNav">
 <a href="index.html" class="nav-logo" style="display:flex;flex-direction:column;align-items:flex-start;line-height:1;padding:4px 0;text-decoration:none;">
-  <div style="font-family:'Kaushan Script',cursive;font-size:26px;line-height:1;color:#fff;">Blu<span style="color:#00E0FF;">Wav</span></div>
-  <div style="font-size:8px;font-weight:700;color:#00E0FF;letter-spacing:3px;text-transform:uppercase;line-height:1.4;margin-top:2px;">Get Found. Get Chosen. Grow.</div>
+<div id="navLogoText" style="font-family:'Kaushan Script',cursive;font-size:26px;line-height:1;color:#fff;opacity:0;transition:opacity 0.3s;">Blu<span style="color:#00E0FF;">Wav</span></div>
+<div style="font-size:8px;font-weight:700;color:#00E0FF;letter-spacing:3px;text-transform:uppercase;line-height:1.4;margin-top:2px;">Get Found. Get Chosen. Grow.</div>
 </a>
 <div class="nav-links">
-  <a class="nav-link  nav-active" href="systems.html">Growth Systems</a>
-  <a class="nav-link" href="plans.html">Plans</a>
-  <a class="nav-link" href="case-studies.html">Case Studies</a>
+  <div class="nav-dropdown">
+    <a class="nav-link" href="index.html" style="display:flex;align-items:center;gap:3px;">Home <span class="nav-dropdown-arrow">&#9660;</span></a>
+    <div class="nav-dropdown-menu">
+      <div class="nav-dropdown-inner">
+        <a class="nav-dropdown-item" href="about.html">&#128100; About BluWav</a>
+      </div>
+    </div>
+  </div>
   <a class="nav-link" href="health-score.html">Health Score</a>
-  <a class="nav-link" href="about.html">About</a>
   <a class="nav-link" href="contact.html">Contact</a>
+  <a class="nav-link" href="index.html#what-we-do-cont">Growth Plans</a>
+  <a class="nav-link" href="https://bluwavcrm.com/login.html" target="_blank" rel="noopener" style="color:rgba(0,224,255,0.85);font-weight:600;">Client Login</a>
   <a class="nav-cta" href="https://calendly.com/bluwavgrowth" target="_blank" rel="noopener">Book a Call</a>
 </div>
 <button aria-label="Menu" class="hamburger" id="hamburgerBtn" onclick="toggleMob()"><span></span><span></span><span></span></button>
 </nav>
 <div class="mob-nav" id="mobNav">
 <div class="mob-nav-inner">
-  <a class="mob-link" href="systems.html" onclick="closeMob()">&#127757; Growth Systems</a>
-  <a class="mob-link" href="plans.html" onclick="closeMob()">&#128176; Plans</a>
-  <a class="mob-link" href="case-studies.html" onclick="closeMob()">&#128202; Case Studies</a>
+  <a class="mob-link" href="index.html" onclick="closeMob()">&#127968; Home</a>
   <a class="mob-link" href="health-score.html" onclick="closeMob()">&#129658; Health Score</a>
   <a class="mob-link" href="about.html" onclick="closeMob()">&#128100; About</a>
   <a class="mob-link" href="contact.html" onclick="closeMob()">&#128222; Contact</a>
+  <a class="mob-link" href="index.html#what-we-do-cont" onclick="closeMob()">&#128176; Growth Plans</a>
+  <a class="mob-link" href="https://bluwavcrm.com/login.html" target="_blank" rel="noopener" onclick="closeMob()" style="color:#00E0FF;">&#128274; Client Login</a>
   <a class="mob-cta" href="https://calendly.com/bluwavgrowth" target="_blank" rel="noopener" onclick="closeMob()">&#128197; Book a Call</a>
 </div>
 </div>
@@ -280,10 +286,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 48px;d
   <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.4);margin-bottom:16px;">Systems</div>
   <div style="display:flex;flex-direction:column;gap:10px;">
     <a href="systems.html" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;">Growth Systems</a>
-    <a href="crm.html" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;">BluWav CRM</a>
     <a href="case-study-aadek.html" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;">Case Studies</a>
     <a href="the-wave.html" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;">The Wave</a>
-    <a href="checkout.html" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;">Checkout</a>
     <a href="privacy.html" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;">Privacy Policy</a>
   </div>
 </div>

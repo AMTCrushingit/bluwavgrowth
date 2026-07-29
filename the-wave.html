@@ -253,31 +253,36 @@ footer .footer-grid{gap:56px !important;}
 </div>
 <!-- NAV -->
 <nav id="mainNav">
-<div class="nav-logo" style="display:flex;flex-direction:column;align-items:flex-start;line-height:1;padding:4px 0;">
-<div style="font-family:'Kaushan Script',cursive;font-size:26px;line-height:1;color:#fff;">Blu<span style="color:#00E0FF;">Wav</span></div>
+<a href="index.html" class="nav-logo" style="display:flex;flex-direction:column;align-items:flex-start;line-height:1;padding:4px 0;text-decoration:none;">
+<div id="navLogoText" style="font-family:'Kaushan Script',cursive;font-size:26px;line-height:1;color:#fff;opacity:0;transition:opacity 0.3s;">Blu<span style="color:#00E0FF;">Wav</span></div>
 <div style="font-size:8px;font-weight:700;color:#00E0FF;letter-spacing:3px;text-transform:uppercase;line-height:1.4;margin-top:2px;">Get Found. Get Chosen. Grow.</div>
-</div>
+</a>
 <div class="nav-links">
-<a class="nav-link" data-page="home" href="index.html">Home</a>
-<a class="nav-link" data-page="home" href="index.html#what-we-do">Services</a>
-<a class="nav-link" data-page="pricing" href="pricing.html">Pricing</a>
-<a class="nav-link" data-page="crm" href="crm.html">BluWav CRM</a>
-<a class="nav-link" data-page="wave" href="the-wave.html" style="color:#00E0FF;font-weight:700;border-bottom:2px solid #00E0FF;padding-bottom:2px;">The Wave</a>
-<a class="nav-link" data-page="home" href="index.html#contact">Contact</a>
-<a class="nav-cta" href="health-check.html">Free Digital Health Check</a>
+  <div class="nav-dropdown">
+    <a class="nav-link" href="index.html" style="display:flex;align-items:center;gap:3px;">Home <span class="nav-dropdown-arrow">&#9660;</span></a>
+    <div class="nav-dropdown-menu">
+      <div class="nav-dropdown-inner">
+        <a class="nav-dropdown-item" href="about.html">&#128100; About BluWav</a>
+      </div>
+    </div>
+  </div>
+  <a class="nav-link" href="health-score.html">Health Score</a>
+  <a class="nav-link" href="contact.html">Contact</a>
+  <a class="nav-link" href="index.html#what-we-do-cont">Growth Plans</a>
+  <a class="nav-link" href="https://bluwavcrm.com/login.html" target="_blank" rel="noopener" style="color:rgba(0,224,255,0.85);font-weight:600;">Client Login</a>
+  <a class="nav-cta" href="https://calendly.com/bluwavgrowth" target="_blank" rel="noopener">Book a Call</a>
 </div>
 <button aria-label="Menu" class="hamburger" id="hamburgerBtn" onclick="toggleMob()"><span></span><span></span><span></span></button>
 </nav>
 <div class="mob-nav" id="mobNav">
 <div class="mob-nav-inner">
-<a class="mob-link" data-page="home" href="index.html" onclick="closeMob()">🏠 Home</a>
-<a class="mob-link" data-page="home" href="index.html#what-we-do" onclick="closeMob()">⚡ Services</a>
-<a class="mob-link" data-page="home" href="index.html#how-it-works" onclick="closeMob()" style="padding-left:24px;font-size:13px;color:rgba(255,255,255,0.6);">&#8212; How It Works</a>
-<a class="mob-link" data-page="pricing" href="pricing.html" onclick="closeMob()">💰 Pricing</a>
-<a class="mob-link" data-page="crm" href="crm.html" onclick="closeMob()">🗂️ BluWav CRM</a>
-<a class="mob-link wave" data-page="wave" href="the-wave.html" onclick="closeMob()">🌊 The Wave</a>
-<a class="mob-link" data-page="home" href="index.html#contact" onclick="closeMob()">📞 Contact</a>
-<a class="mob-cta" href="health-check.html" target="_blank" onclick="closeMob()">🩺 Get My Free Digital Health Check</a>
+  <a class="mob-link" href="index.html" onclick="closeMob()">&#127968; Home</a>
+  <a class="mob-link" href="health-score.html" onclick="closeMob()">&#129658; Health Score</a>
+  <a class="mob-link" href="about.html" onclick="closeMob()">&#128100; About</a>
+  <a class="mob-link" href="contact.html" onclick="closeMob()">&#128222; Contact</a>
+  <a class="mob-link" href="index.html#what-we-do-cont" onclick="closeMob()">&#128176; Growth Plans</a>
+  <a class="mob-link" href="https://bluwavcrm.com/login.html" target="_blank" rel="noopener" onclick="closeMob()" style="color:#00E0FF;">&#128274; Client Login</a>
+  <a class="mob-cta" href="https://calendly.com/bluwavgrowth" target="_blank" rel="noopener" onclick="closeMob()">&#128197; Book a Call</a>
 </div>
 </div>
 
@@ -495,73 +500,61 @@ function handleWaveSubscribe(e) {
 </div>
 </section>
 <!-- FOOTER -->
-<footer>
-<div class="wrap">
-<div class="footer-grid">
-
-<!-- Brand column -->
+<footer style="background:rgba(0,43,73,0.97);padding:60px 0 0;width:100%;max-width:100%;box-sizing:border-box;">
+<div style="width:100%;max-width:100%;padding:0 64px;box-sizing:border-box;">
+<div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;width:100%;">
 <div>
-<div class="footer-brand-name">Blu<span>Wav</span></div>
-<div class="footer-brand-sub">Growth</div>
-<div class="footer-brand-tag">Get Found. Get Chosen. Grow.</div>
-<div style="font-size:10px;font-weight:700;color:var(--gold,#F7C873);letter-spacing:3px;text-transform:uppercase;margin-top:6px;">A Stratiix Group Company</div>
-<p class="footer-desc">Professional websites, Google visibility, CRM and automation. Built for ambitious businesses worldwide.</p>
-<div style="margin-top:16px;"></div>
+  <div style="font-family:'Kaushan Script',cursive;font-size:34px;color:#fff;line-height:1;margin-bottom:6px;">Blu<span style="color:#00E0FF;">Wav</span></div>
+  <div style="font-size:9px;font-weight:700;color:#F7C873;letter-spacing:5px;text-transform:uppercase;margin-bottom:6px;">Growth</div>
+  <div style="font-size:12px;font-weight:500;color:#00E0FF;letter-spacing:1px;margin-bottom:6px;">Get Found. Get Chosen. Grow.</div>
+  <div style="font-size:10px;font-weight:700;color:#F7C873;letter-spacing:3px;text-transform:uppercase;margin-bottom:14px;">A Stratiix Group Company</div>
+  <p style="font-size:13px;color:rgba(255,255,255,0.45);line-height:1.7;max-width:280px;">We build Growth Systems that help businesses become more visible, more trusted, and more profitable.</p>
+  <div style="display:flex;gap:10px;margin-top:16px;">
+    <a href="https://facebook.com/bluwavgrowth" target="_blank" rel="noopener" style="width:32px;height:32px;border-radius:8px;background:#1877F2;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:#fff;text-decoration:none;">f</a>
+    <a href="https://www.instagram.com/bluwavgrowth/" target="_blank" rel="noopener" style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#f09433,#dc2743,#bc1888);display:flex;align-items:center;justify-content:center;font-size:14px;color:#fff;text-decoration:none;">&#128247;</a>
+    <div style="width:32px;height:32px;border-radius:8px;background:#0A66C2;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;opacity:0.4;cursor:default;">in</div>
+  </div>
 </div>
-
-<!-- Services column -->
 <div>
-<div class="footer-heading">Services</div>
-<a class="footer-link" href="index.html#what-we-do">Professional Websites</a>
-<a class="footer-link" href="index.html#what-we-do">Google Visibility</a>
-<a class="footer-link" href="index.html#what-we-do">Automation</a>
-<a class="footer-link" href="index.html#what-we-do">Growth Systems</a>
-<a class="footer-link" href="pricing.html#crm">BluWav CRM</a>
+  <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.4);margin-bottom:16px;">Navigate</div>
+  <div style="display:flex;flex-direction:column;gap:10px;">
+    <a href="index.html" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;">Home</a>
+    <a href="health-score.html" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;">Health Score</a>
+    <a href="about.html" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;">About</a>
+    <a href="contact.html" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;">Contact</a>
+    <a href="index.html#what-we-do-cont" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;">Growth Plans</a>
+    <a href="https://bluwavcrm.com/login.html" target="_blank" rel="noopener" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;">Client Login</a>
+    <a href="https://calendly.com/bluwavgrowth" target="_blank" rel="noopener" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;">Book a Call</a>
+  </div>
 </div>
-
-<!-- Company column -->
 <div>
-<div class="footer-heading">Company</div>
-<a class="footer-link" href="index.html#how-it-works">How It Works</a>
-<a class="footer-link" href="health-check.html">Free Digital Health Check</a>
-<a class="footer-link" href="pricing.html">Pricing</a>
-<a class="footer-link" href="our-promise.html">Our Promise</a>
-<a class="footer-link" href="the-wave.html">The Wave</a>
-<a class="footer-link" href="case-study-aadek.html">Case Study: AADEK</a>
-<a class="footer-link" href="index.html#contact">Contact Us</a>
-<a class="footer-link" href="careers.html">Careers</a>
+  <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.4);margin-bottom:16px;">Systems</div>
+  <div style="display:flex;flex-direction:column;gap:10px;">
+    <a href="systems.html" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;">Growth Systems</a>
+    <a href="case-study-aadek.html" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;">Case Studies</a>
+    <a href="the-wave.html" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;">The Wave</a>
+    <a href="privacy.html" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;">Privacy Policy</a>
+  </div>
 </div>
-
-<!-- Contact + Follow column -->
 <div>
-<div class="footer-heading">Contact</div>
-<a class="footer-link" href="mailto:hello@bluwavgrowth.com">✉️ hello@bluwavgrowth.com</a>
-<div class="footer-link" style="cursor:default;">🌐 Serving businesses worldwide</div>
-<div style="margin-top:20px;">
-<div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.4);margin-bottom:12px;">Follow Us</div>
-<div style="display:flex;flex-direction:column;gap:8px;">
-<a class="footer-link" href="https://facebook.com/bluwavgrowth" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:8px;">
-<span style="width:28px;height:28px;border-radius:8px;background:#1877F2;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">f</span>
-<span>Facebook</span>
-</a>
-<a class="footer-link" href="https://www.instagram.com/bluwavgrowth/" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:8px;">
-<span style="width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">📷</span>
-<span>Instagram</span>
-</a>
-<div class="footer-link" style="display:flex;align-items:center;gap:8px;cursor:default;opacity:0.5;">
-<span style="width:28px;height:28px;border-radius:8px;background:#0A66C2;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;color:#fff;font-weight:800;font-size:11px;">in</span>
-<span>LinkedIn <span style="font-size:10px;color:var(--gold);font-weight:700;margin-left:4px;">Soon</span></span>
+  <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.4);margin-bottom:16px;">Get Started</div>
+  <div style="display:flex;flex-direction:column;gap:10px;">
+    <a href="health-score.html" style="font-size:13px;color:#00E0FF;text-decoration:none;font-weight:700;">&#129658; Free Health Score</a>
+    <a href="https://calendly.com/bluwavgrowth" target="_blank" rel="noopener" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;">&#128197; Book a Call</a>
+    <a href="mailto:hello@bluwavgrowth.com" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;">&#9993;&#65039; hello@bluwavgrowth.com</a>
+    <a href="https://wa.me/18682979960" target="_blank" rel="noopener" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;display:flex;align-items:center;gap:6px;"><span style="width:18px;height:18px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0;">&#128172;</span>WhatsApp</a>
+    <div style="font-size:13px;color:rgba(255,255,255,0.4);margin-top:4px;">&#127760; Serving businesses worldwide</div>
+  </div>
 </div>
 </div>
 </div>
+<div style="border-top:1px solid rgba(255,255,255,0.06);padding:20px 64px;width:100%;max-width:100%;box-sizing:border-box;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+  <div style="font-size:12px;color:rgba(255,255,255,0.3);">&#169; 2026 <span style="color:#00E0FF;">BluWav Growth</span> &middot; All rights reserved.</div>
+  <div style="font-size:12px;color:rgba(255,255,255,0.3);display:flex;gap:16px;">
+    <a href="privacy.html" style="color:rgba(255,255,255,0.3);text-decoration:none;">Privacy Policy</a>
+    <a href="contact.html" style="color:rgba(255,255,255,0.3);text-decoration:none;">Contact</a>
+  </div>
 </div>
-
-</div><!-- /footer-grid -->
-<div class="footer-bottom">
-<div class="footer-bottom-text">&#169; 2026 <span>BluWav Growth</span> &#183; All rights reserved.</div>
-<div class="footer-bottom-text">Global Digital Growth Systems. &nbsp;·&nbsp; <a href="privacy.html" style="color:rgba(255,255,255,0.3);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.3)'">Privacy Policy</a></div>
-</div>
-</div><!-- /wrap -->
 </footer>
 <script>
 function toggleMob(){

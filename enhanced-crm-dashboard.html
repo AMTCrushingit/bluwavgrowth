@@ -261,31 +261,27 @@ html,body{height:100%;font-family:var(--font-body);background:var(--navy-deep);c
   </a>
   <button class="collapse-btn" onclick="toggleSidebar()">&#9776;</button>
 </div>
-<nav class="sidebar-nav">
-  <div class="ns">Main</div>
-  <a class="ni active" id="nav-dashboard" onclick="showView('dashboard')"><span class="ni-icon">&#128202;</span><span class="nav-text">Dashboard</span></a>
-  <a class="ni" id="nav-contacts" onclick="showView('contacts')"><span class="ni-icon">&#128101;</span><span class="nav-text">Contacts</span><span class="nb" id="navContactsBadge">—</span></a>
-  <a class="ni" id="nav-deals" onclick="showView('deals')"><span class="ni-icon">&#128188;</span><span class="nav-text">Deals</span><span class="nb" id="navDealsBadge">—</span></a>
-  <a class="ni" onclick="showView('dashboard')"><span class="ni-icon">&#9989;</span><span class="nav-text">Tasks</span></a>
-  <a class="ni" onclick="showView('dashboard')"><span class="ni-icon">&#128197;</span><span class="nav-text">Calendar</span></a>
-
-  <div class="ns">Communicate</div>
-  <a class="ni" onclick="showView('dashboard')"><span class="ni-icon">&#128231;</span><span class="nav-text">Email</span></a>
-  <a class="ni" onclick="showView('dashboard')"><span class="ni-icon">&#9889;</span><span class="nav-text">Automations</span></a>
-
-  <div class="ns">Performance</div>
-  <a class="ni" href="agent-dashboard.html"><span class="ni-icon">&#128200;</span><span class="nav-text">Agent Dashboard</span></a>
-  <a class="ni" href="commission-calculator.html"><span class="ni-icon">&#128176;</span><span class="nav-text">Commission Calc</span></a>
-  <a class="ni" href="agent-onboarding.html"><span class="ni-icon">&#128640;</span><span class="nav-text">Onboarding</span></a>
-
-  <div class="ns">Insights</div>
-  <a class="ni" id="nav-reports" onclick="showView('reports')"><span class="ni-icon">&#128200;</span><span class="nav-text">Reports</span></a>
-  <a class="ni" id="nav-settings" onclick="showView('settings')"><span class="ni-icon">&#9881;&#65039;</span><span class="nav-text">Settings</span></a>
-  <a class="ni" href="billing.html"><span class="ni-icon">&#128179;</span><span class="nav-text">Billing</span></a>
-
-  <!-- Manager/Admin only -->
-  <div class="ns" id="adminNav" style="display:none;">Admin</div>
-  <a class="ni" id="adminLink" href="superadmin.html" style="display:none;"><span class="ni-icon">&#128737;</span><span class="nav-text">Super Admin</span></a>
+<nav id="mainNav">
+<a href="index.html" class="nav-logo" style="display:flex;flex-direction:column;align-items:flex-start;line-height:1;padding:4px 0;text-decoration:none;">
+<div id="navLogoText" style="font-family:'Kaushan Script',cursive;font-size:26px;line-height:1;color:#fff;opacity:0;transition:opacity 0.3s;">Blu<span style="color:#00E0FF;">Wav</span></div>
+<div style="font-size:8px;font-weight:700;color:#00E0FF;letter-spacing:3px;text-transform:uppercase;line-height:1.4;margin-top:2px;">Get Found. Get Chosen. Grow.</div>
+</a>
+<div class="nav-links">
+  <div class="nav-dropdown">
+    <a class="nav-link" href="index.html" style="display:flex;align-items:center;gap:3px;">Home <span class="nav-dropdown-arrow">&#9660;</span></a>
+    <div class="nav-dropdown-menu">
+      <div class="nav-dropdown-inner">
+        <a class="nav-dropdown-item" href="about.html">&#128100; About BluWav</a>
+      </div>
+    </div>
+  </div>
+  <a class="nav-link" href="health-score.html">Health Score</a>
+  <a class="nav-link" href="contact.html">Contact</a>
+  <a class="nav-link" href="index.html#what-we-do-cont">Growth Plans</a>
+  <a class="nav-link" href="https://bluwavcrm.com/login.html" target="_blank" rel="noopener" style="color:rgba(0,224,255,0.85);font-weight:600;">Client Login</a>
+  <a class="nav-cta" href="https://calendly.com/bluwavgrowth" target="_blank" rel="noopener">Book a Call</a>
+</div>
+<button aria-label="Menu" class="hamburger" id="hamburgerBtn" onclick="toggleMob()"><span></span><span></span><span></span></button>
 </nav>
 <div class="sb-bottom">
   <div class="trial-w">
