@@ -336,7 +336,7 @@ nav .nav-link.nav-active::after{width:100% !important;background:#FF5500 !import
   <a class="nav-link" href="contact.html">Contact</a>
   <a class="nav-link" href="index.html#what-we-do-cont">Growth Plans</a>
   <a class="nav-link" href="https://bluwavcrm.com/login.html" target="_blank" rel="noopener" style="color:rgba(0,224,255,0.85);font-weight:600;">Client Login</a>
-  <a class="nav-cta" href="https://calendly.com/hello-bluwavgrowth/30min" target="_blank" rel="noopener">Book a Call</a>
+  <a class="nav-cta" href="https://calendly.com/hello-bluwavgrowth/30min" onclick="if(typeof gtag!=='undefined'){gtag('event','book_call_click',{'event_category':'CTA','event_label':'Book a Call','page':'crm'});}" target="_blank" rel="noopener">Book a Call</a>
 </div>
 <button aria-label="Menu" class="hamburger" id="hamburgerBtn" onclick="toggleMob()"><span></span><span></span><span></span></button>
 </nav>
@@ -348,7 +348,7 @@ nav .nav-link.nav-active::after{width:100% !important;background:#FF5500 !import
   <a class="mob-link" href="contact.html" onclick="closeMob()">&#128222; Contact</a>
   <a class="mob-link" href="index.html#what-we-do-cont" onclick="closeMob()">&#128176; Growth Plans</a>
   <a class="mob-link" href="https://bluwavcrm.com/login.html" target="_blank" rel="noopener" onclick="closeMob()" style="color:#00E0FF;">&#128274; Client Login</a>
-  <a class="mob-cta" href="https://calendly.com/hello-bluwavgrowth/30min" target="_blank" rel="noopener" onclick="closeMob()">&#128197; Book a Call</a>
+  <a class="mob-cta" href="https://calendly.com/hello-bluwavgrowth/30min" onclick="if(typeof gtag!=='undefined'){gtag('event','book_call_click',{'event_category':'CTA','event_label':'Book a Call','page':'crm'});}" target="_blank" rel="noopener" onclick="closeMob()">&#128197; Book a Call</a>
 </div>
 </div>
 
@@ -723,7 +723,7 @@ nav .nav-link.nav-active::after{width:100% !important;background:#FF5500 !import
           </div>
         </div>
       </div>
-      <a href="apply.html?plan=crm-premium" style="display:inline-flex;align-items:center;gap:8px;background:#FF5500;color:#fff;font-size:15px;font-weight:800;padding:15px 32px;border-radius:12px;white-space:nowrap;box-shadow:0 4px 20px rgba(255,85,0,0.4);transition:all 0.2s;flex-shrink:0;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">Lock In $179/mo &#8594;</a>
+      <a href="checkout.html" style="display:inline-flex;align-items:center;gap:8px;background:#FF5500;color:#fff;font-size:15px;font-weight:800;padding:15px 32px;border-radius:12px;white-space:nowrap;box-shadow:0 4px 20px rgba(255,85,0,0.4);transition:all 0.2s;flex-shrink:0;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">Lock In $179/mo &#8594;</a>
     </div>
 
     <!-- Stack label -->
@@ -752,7 +752,7 @@ nav .nav-link.nav-active::after{width:100% !important;background:#FF5500 !import
           <div><span style="color:var(--cyan);font-weight:800;margin-right:8px;">&#10003;</span>Standard reporting</div>
           <div><span style="color:var(--cyan);font-weight:800;margin-right:8px;">&#10003;</span>Priority email support (48hr)</div>
         </div>
-        <a href="apply.html?plan=crm-lite"
+        <a href="checkout.html"
            style="display:block;background:var(--navy);color:#fff;font-size:15px;font-weight:800;padding:14px 20px;border-radius:11px;text-decoration:none;text-align:center;box-shadow:0 4px 20px rgba(0,43,73,0.25);transition:all 0.2s;"
            onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
           Start Free Trial &#8594;
@@ -781,7 +781,7 @@ nav .nav-link.nav-active::after{width:100% !important;background:#FF5500 !import
           <div><span style="color:var(--cyan);font-weight:800;margin-right:8px;">&#10003;</span>All future features included</div>
           <div><span style="color:var(--cyan);font-weight:800;margin-right:8px;">&#10003;</span>Priority support (24hr &middot; email &amp; SMS)</div>
         </div>
-        <a href="apply.html?plan=crm-premium"
+        <a href="checkout.html"
            style="display:block;background:linear-gradient(135deg,var(--cyan),#007a85);color:#fff;font-size:16px;font-weight:800;padding:18px 20px;border-radius:11px;text-decoration:none;text-align:center;box-shadow:0 4px 24px rgba(0,194,209,0.45);transition:all 0.2s;"
            onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 40px rgba(0,194,209,0.6)'"
            onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 24px rgba(0,194,209,0.45)'">
@@ -825,7 +825,7 @@ nav .nav-link.nav-active::after{width:100% !important;background:#FF5500 !import
           <div style="font-size:12px;color:var(--slate);line-height:1.5;">Just getting started? Lead tracking, basic contact management, and 25 contacts &mdash; perfect for solo operators.</div>
         </div>
       </div>
-      <a href="apply.html?plan=crm-starter" style="font-size:13px;font-weight:700;color:var(--slate);background:#f1f5f9;padding:10px 20px;border-radius:9px;text-decoration:none;white-space:nowrap;transition:all 0.2s;flex-shrink:0;" onmouseover="this.style.background='#e2e8f0'" onmouseout="this.style.background='#f1f5f9'">Start with Starter &#8594;</a>
+      <a href="checkout.html" style="font-size:13px;font-weight:700;color:var(--slate);background:#f1f5f9;padding:10px 20px;border-radius:9px;text-decoration:none;white-space:nowrap;transition:all 0.2s;flex-shrink:0;" onmouseover="this.style.background='#e2e8f0'" onmouseout="this.style.background='#f1f5f9'">Start with Starter &#8594;</a>
     </div>
 
     <!-- Payment note -->
@@ -1063,7 +1063,7 @@ nav .nav-link.nav-active::after{width:100% !important;background:#FF5500 !import
     <a href="contact.html" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;">Contact</a>
     <a href="index.html#what-we-do-cont" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;">Growth Plans</a>
     <a href="https://bluwavcrm.com/login.html" target="_blank" rel="noopener" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;">Client Login</a>
-    <a href="https://calendly.com/hello-bluwavgrowth/30min" target="_blank" rel="noopener" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;">Book a Call</a>
+    <a href="https://calendly.com/hello-bluwavgrowth/30min" onclick="if(typeof gtag!=='undefined'){gtag('event','book_call_click',{'event_category':'CTA','event_label':'Book a Call','page':'crm'});}" target="_blank" rel="noopener" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;">Book a Call</a>
   </div>
 </div>
 <div>
@@ -1079,7 +1079,7 @@ nav .nav-link.nav-active::after{width:100% !important;background:#FF5500 !import
   <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.4);margin-bottom:16px;">Get Started</div>
   <div style="display:flex;flex-direction:column;gap:10px;">
     <a href="health-score.html" style="font-size:13px;color:#00E0FF;text-decoration:none;font-weight:700;">&#129658; Free Health Score</a>
-    <a href="https://calendly.com/hello-bluwavgrowth/30min" target="_blank" rel="noopener" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;">&#128197; Book a Call</a>
+    <a href="https://calendly.com/hello-bluwavgrowth/30min" onclick="if(typeof gtag!=='undefined'){gtag('event','book_call_click',{'event_category':'CTA','event_label':'Book a Call','page':'crm'});}" target="_blank" rel="noopener" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;">&#128197; Book a Call</a>
     <a href="mailto:hello@bluwavgrowth.com" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;">&#9993;&#65039; hello@bluwavgrowth.com</a>
     <a href="https://wa.me/18682979960" target="_blank" rel="noopener" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;display:flex;align-items:center;gap:6px;"><span style="width:18px;height:18px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0;">&#128172;</span>WhatsApp</a>
     <div style="font-size:13px;color:rgba(255,255,255,0.4);margin-top:4px;">&#127760; Serving businesses worldwide</div>
