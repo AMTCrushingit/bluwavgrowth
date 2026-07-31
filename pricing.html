@@ -1,1190 +1,1256 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<!-- Google Analytics GA4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1F2YQ0NWT7"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-1F2YQ0NWT7');
-</script>
-<meta name="google-site-verification" content="ouWrssM2eCjOYgXMi6LAwfOOJftunNjcO5PxEJGp0i0" />
-<meta name="msvalidate.01" content="FEE9B5469C6A497A48F135B874E87252" />
 <meta charset="utf-8"/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Sora:wght@700;800;900&family=Kaushan+Script&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet"/>
-<noscript><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Sora:wght@700;800;900&family=Kaushan+Script&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet"/></noscript>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pricing — BluWav Growth</title>
 <style>
-/* Font loaded via <link> in <head> */
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{font-family:'Plus Jakarta Sans',sans-serif;background:#F4F2ED;color:#1E1E1E;overflow-x:hidden;}
-a{text-decoration:none;color:inherit;}
-:root{--navy:#002B49;--coral:#FF5500;--coral2:#e84d00;--gold:#F7C873;--cyan:#00E0FF;--turquoise:#00C2D8;--sand:#F4F2ED;--dark:#1E1E1E;--slate:#64748b;--mist:#e8e4de;--max:1200px;}
+  /* ── Reset & Base ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: #F4F2ED;
+    color: #1E1E1E;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
 
-100%{transform:translateX(-50%);}}
-100%{transform:translateX(0);}}
-100%{transform:translateX(-50%);}}
-/* NAV */
+  /* ── Brand Tokens ── */
+  :root {
+    --navy:       #002B49;
+    --coral:      #FF5500;
+    --cyan:       #00E0FF;
+    --turquoise:  #00C2D8;
+    --gold:       #F7C873;
+    --sand:       #F4F2ED;
+    --dark:       #1E1E1E;
+    --slate:      #64748B;
+    --elite-black:#0D0D0F;
+    --elite-dark: #141416;
+    --white:      #FFFFFF;
+  }
 
+  /* ── Announcement Bar ── */
+  .announce-bar {
+    background: var(--coral);
+    color: var(--white);
+    text-align: center;
+    padding: 11px 20px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+  .announce-bar a {
+    color: var(--white);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    white-space: nowrap;
+  }
 
+  /* ── Nav ── */
+  nav {
+    background: var(--navy);
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+  /* SVG logo recreation */
+  .logo-icon {
+    width: 40px;
+    height: 40px;
+  }
+  .logo-wordmark {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+  .logo-wordmark .brand {
+    font-size: 1.35rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+  .logo-wordmark .brand .blu { color: var(--white); }
+  .logo-wordmark .brand .wav { color: var(--cyan); }
+  .logo-wordmark .sub {
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--cyan);
+    text-transform: uppercase;
+    margin-top: 1px;
+  }
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+  .nav-links a {
+    color: rgba(255,255,255,0.78);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--cyan); }
+  .nav-cta {
+    background: var(--coral);
+    color: var(--white) !important;
+    padding: 9px 20px;
+    border-radius: 6px;
+    font-weight: 700 !important;
+    font-size: 0.85rem !important;
+    transition: background 0.2s, transform 0.15s !important;
+  }
+  .nav-cta:hover { background: #e04a00 !important; transform: translateY(-1px); }
 
+  /* ── Hero ── */
+  .hero {
+    background: var(--navy);
+    color: var(--white);
+    text-align: center;
+    padding: 80px 24px 72px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 60% at 50% 110%, rgba(0,224,255,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    display: inline-block;
+    background: rgba(0,224,255,0.15);
+    border: 1px solid rgba(0,224,255,0.35);
+    color: var(--cyan);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 100px;
+    margin-bottom: 22px;
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    margin-bottom: 18px;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero h1 span { color: var(--cyan); }
+  .hero-sub {
+    font-size: 1.08rem;
+    color: rgba(255,255,255,0.72);
+    max-width: 560px;
+    margin: 0 auto 10px;
+    line-height: 1.65;
+  }
+  .hero-promise {
+    font-size: 0.95rem;
+    color: var(--cyan);
+    font-weight: 600;
+    margin-bottom: 36px;
+    letter-spacing: 0.01em;
+  }
+  .hero-scroll-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--coral);
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 14px 32px;
+    border-radius: 8px;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(255,85,0,0.35);
+  }
+  .hero-scroll-btn:hover {
+    background: #e04a00;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 28px rgba(255,85,0,0.45);
+  }
 
+  /* ── Social Proof Bar ── */
+  .proof-bar {
+    background: var(--white);
+    border-bottom: 1px solid rgba(0,43,73,0.08);
+    padding: 20px 24px;
+  }
+  .proof-bar-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px 32px;
+  }
+  .proof-stars {
+    color: #F7C873;
+    font-size: 1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .proof-stars span { color: var(--dark); font-size: 0.85rem; font-weight: 600; }
+  .proof-divider {
+    width: 1px;
+    height: 22px;
+    background: rgba(0,43,73,0.15);
+  }
+  .proof-stat {
+    font-size: 0.85rem;
+    color: var(--slate);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .proof-stat strong { color: var(--navy); font-weight: 700; }
 
+  /* ── Section Wrapper ── */
+  .section { padding: 80px 24px; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--turquoise);
+    margin-bottom: 12px;
+  }
+  .section-title {
+    text-align: center;
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-weight: 800;
+    color: var(--navy);
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+  .section-sub {
+    text-align: center;
+    font-size: 1rem;
+    color: var(--slate);
+    max-width: 560px;
+    margin: 0 auto 52px;
+    line-height: 1.65;
+  }
 
+  /* ── Plan Framing Line ── */
+  .plan-framing {
+    text-align: center;
+    background: rgba(0,43,73,0.04);
+    border: 1px solid rgba(0,43,73,0.09);
+    border-radius: 10px;
+    padding: 16px 28px;
+    max-width: 640px;
+    margin: 0 auto 44px;
+    font-size: 0.92rem;
+    color: var(--slate);
+    line-height: 1.6;
+  }
+  .plan-framing strong { color: var(--navy); }
 
+  /* ── Pricing Cards ── */
+  .plans-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    align-items: start;
+  }
 
-/* HERO */
+  .plan-card {
+    background: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 16px rgba(0,43,73,0.08);
+    border: 2px solid transparent;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+  }
+  .plan-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(0,43,73,0.13);
+  }
 
+  /* Popular card */
+  .plan-card.popular {
+    background: var(--navy);
+    border-color: var(--cyan);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0,43,73,0.22);
+  }
+  .plan-card.popular:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 16px 48px rgba(0,43,73,0.28);
+  }
 
+  /* Elite card */
+  .plan-card.elite {
+    background: var(--elite-black);
+    border-color: var(--gold);
+  }
 
+  .plan-badge {
+    text-align: center;
+    padding: 9px 16px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .plan-card:not(.popular):not(.elite) .plan-badge {
+    background: rgba(0,43,73,0.05);
+    color: var(--slate);
+  }
+  .plan-card.popular .plan-badge {
+    background: var(--coral);
+    color: var(--white);
+  }
+  .plan-card.elite .plan-badge {
+    background: linear-gradient(90deg, #1a1208, #2a1e08);
+    color: var(--gold);
+  }
 
-/* HELPERS */
-.wrap{max-width:var(--max);margin:0 auto;padding:0 48px;}
-.section-light{background:#fff;padding:96px 0;}
-.section-sand{background:var(--sand);padding:96px 0;}
-.section-navy{background:var(--navy);padding:96px 0;}
-.eyebrow{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;display:block;margin-bottom:12px;color:var(--cyan);}
-.h2{font-family:'Manrope',sans-serif;font-size:40px;font-weight:800;line-height:1.15;letter-spacing:-0.5px;margin-bottom:16px;color:var(--navy);}
-.h2-white{color:#fff;}
-.lead{font-size:17px;line-height:1.75;color:var(--slate);max-width:600px;}
+  .plan-body {
+    padding: 28px 28px 32px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
 
-/* PRICING CARDS */
-.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:0;}
-.pricing-card{background:#fff;border-radius:20px;padding:36px;border:2px solid var(--mist);position:relative;transition:all 0.2s;}
-.pricing-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,43,73,0.1);}
-.pricing-card.featured{background:linear-gradient(135deg,#002B49,#003d5c);border-color:var(--cyan);}
-.pricing-card.surge{background:linear-gradient(135deg,#1a1a2e,#002B49);border-color:var(--gold);}
+  .plan-tier {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .plan-card:not(.popular):not(.elite) .plan-tier { color: var(--turquoise); }
+  .plan-card.popular .plan-tier { color: var(--cyan); }
+  .plan-card.elite .plan-tier { color: var(--gold); }
 
-/* COMPARISON TABLE */
-.compare-table{width:100%;border-collapse:collapse;margin-top:48px;}
-.compare-table th{padding:16px 20px;text-align:left;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:1px;border-bottom:2px solid var(--mist);}
-.compare-table td{padding:14px 20px;font-size:14px;border-bottom:1px solid var(--mist);vertical-align:middle;}
-.compare-table tr:last-child td{border-bottom:none;}
-.compare-table tr:hover td{background:rgba(0,224,255,0.03);}
-.check{color:var(--cyan);font-weight:800;font-size:16px;}
-.cross{color:#ccc;font-size:16px;}
-.partial{color:var(--gold);font-weight:700;}
+  .plan-name {
+    font-size: 1.7rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+  .plan-card:not(.popular):not(.elite) .plan-name { color: var(--navy); }
+  .plan-card.popular .plan-name { color: var(--white); }
+  .plan-card.elite .plan-name { color: var(--white); }
 
-@media(max-width:900px){
-  nav{padding:0 20px;}
-  .wrap{padding:0 20px;}
+  .plan-tagline {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    margin-bottom: 20px;
+    min-height: 52px;
+  }
+  .plan-card:not(.popular):not(.elite) .plan-tagline { color: var(--slate); }
+  .plan-card.popular .plan-tagline { color: rgba(255,255,255,0.68); }
+  .plan-card.elite .plan-tagline { color: rgba(255,255,255,0.55); }
+
+  .plan-persona {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    background: rgba(0,224,255,0.07);
+    border-left: 3px solid var(--cyan);
+    border-radius: 0 6px 6px 0;
+    padding: 10px 12px;
+    margin-bottom: 22px;
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+  .plan-card:not(.popular):not(.elite) .plan-persona {
+    background: rgba(0,43,73,0.05);
+    border-color: var(--turquoise);
+    color: var(--slate);
+  }
+  .plan-card.popular .plan-persona {
+    background: rgba(0,224,255,0.1);
+    border-color: var(--cyan);
+    color: rgba(255,255,255,0.75);
+  }
+  .plan-card.elite .plan-persona {
+    background: rgba(247,200,115,0.08);
+    border-color: var(--gold);
+    color: rgba(255,255,255,0.6);
+  }
+  .plan-persona-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+
+  .plan-pricing {
+    margin-bottom: 24px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid rgba(0,43,73,0.08);
+  }
+  .plan-card.popular .plan-pricing { border-color: rgba(255,255,255,0.1); }
+  .plan-card.elite .plan-pricing { border-color: rgba(255,255,255,0.08); }
+
+  .plan-setup {
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .plan-card:not(.popular):not(.elite) .plan-setup { color: var(--slate); }
+  .plan-card.popular .plan-setup { color: rgba(255,255,255,0.55); }
+  .plan-card.elite .plan-setup { color: rgba(255,255,255,0.45); }
+
+  .plan-price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+  }
+  .plan-price-amount {
+    font-size: 2.6rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1;
+  }
+  .plan-card:not(.popular):not(.elite) .plan-price-amount { color: var(--navy); }
+  .plan-card.popular .plan-price-amount { color: var(--white); }
+  .plan-card.elite .plan-price-amount { color: var(--gold); }
+
+  .plan-price-period {
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+  .plan-card:not(.popular):not(.elite) .plan-price-period { color: var(--slate); }
+  .plan-card.popular .plan-price-period { color: rgba(255,255,255,0.55); }
+  .plan-card.elite .plan-price-period { color: rgba(247,200,115,0.6); }
+
+  .plan-features {
+    list-style: none;
+    margin-bottom: 28px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .plan-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    font-size: 0.875rem;
+    line-height: 1.45;
+  }
+  .plan-card:not(.popular):not(.elite) .plan-features li { color: var(--dark); }
+  .plan-card.popular .plan-features li { color: rgba(255,255,255,0.82); }
+  .plan-card.elite .plan-features li { color: rgba(255,255,255,0.75); }
+
+  .feat-check {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    font-weight: 800;
+    margin-top: 1px;
+  }
+  .plan-card:not(.popular):not(.elite) .feat-check {
+    background: rgba(0,194,216,0.15);
+    color: var(--turquoise);
+  }
+  .plan-card.popular .feat-check {
+    background: rgba(0,224,255,0.2);
+    color: var(--cyan);
+  }
+  .plan-card.elite .feat-check {
+    background: rgba(247,200,115,0.15);
+    color: var(--gold);
+  }
+
   
-  .pricing-grid{grid-template-columns:1fr;}
-  .compare-table{font-size:12px;}
-  .compare-table th,.compare-table td{padding:10px 12px;}
-}
-100%{transform:translateX(-50%);}}
-100%{transform:translateX(0);}}
-100%{transform:translateX(-50%);}}
-100%{transform:translateX(-50%);}}
-100%{transform:translateX(0);}}
-100%{transform:translateX(-50%);}}
-100%{transform:translateX(-50%);}}
-/* ══════════════════════════════════════════
-   COMPREHENSIVE MOBILE RESPONSIVE FIX
-   ══════════════════════════════════════════ */
-@media(max-width:768px){
-  /* NAV */
-  nav{padding:0 16px !important;height:60px !important;}
-  .mob-nav{top:60px !important;}
-  
-  
-  .wrap{padding:0 16px !important;}
 
-  /* HERO */
-  
-  
-  .hero-logo-name{font-size:48px !important;}
-  .hero-h1{font-size:28px !important;letter-spacing:-0.5px !important;}
-  .hero-tagline{font-size:15px !important;}
-  .hero-services{font-size:13px !important;}
-  .hero-btns{flex-direction:column !important;align-items:center !important;}
-  .hero-btns a{width:100% !important;text-align:center !important;box-sizing:border-box !important;}
-
-  /* TYPOGRAPHY */
-  .h2{font-size:26px !important;}
-  .lead{font-size:15px !important;}
-
-  /* ALL GRIDS → SINGLE COLUMN */
-  .problem-stats,
-  .problem-cards,
-  .pricing-grid,
-  .payment-grid,
-  .hc-pillars,
-  .hc-cta-grid,
-  .compare-grid,
-  .contact-grid,
-  .footer-grid,
-  .features-grid,
-  .who-grid,
-  .why-choose-grid,
-  .why-grid,
-  .service-row{
-    grid-template-columns:1fr !important;
-    gap:16px !important;
+  /* CTA Buttons */
+  .plan-cta {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 14px 24px;
+    border-radius: 8px;
+    transition: all 0.2s;
+    letter-spacing: 0.01em;
+  }
+  .plan-card:not(.popular):not(.elite) .plan-cta {
+    background: var(--turquoise);
+    color: var(--white);
+    box-shadow: 0 3px 14px rgba(0,194,216,0.3);
+  }
+  .plan-card:not(.popular):not(.elite) .plan-cta:hover {
+    background: var(--cyan);
+    box-shadow: 0 5px 20px rgba(0,224,255,0.35);
+    transform: translateY(-1px);
+  }
+  .plan-card.popular .plan-cta {
+    background: var(--coral);
+    color: var(--white);
+    box-shadow: 0 4px 18px rgba(255,85,0,0.4);
+  }
+  .plan-card.popular .plan-cta:hover {
+    background: #e04a00;
+    box-shadow: 0 6px 24px rgba(255,85,0,0.5);
+    transform: translateY(-1px);
+  }
+  .plan-card.elite .plan-cta {
+    background: var(--gold);
+    color: var(--elite-black);
+    box-shadow: 0 4px 18px rgba(247,200,115,0.3);
+  }
+  .plan-card.elite .plan-cta:hover {
+    background: #f5c050;
+    box-shadow: 0 6px 24px rgba(247,200,115,0.45);
+    transform: translateY(-1px);
   }
 
-  /* INLINE GRID OVERRIDES, target common patterns */
-  [style*="grid-template-columns:repeat(2"],[style*="grid-template-columns: repeat(2"],
-  [style*="grid-template-columns:repeat(3"],[style*="grid-template-columns: repeat(3"],
-  [style*="grid-template-columns:repeat(4"],[style*="grid-template-columns: repeat(4"],
-  [style*="grid-template-columns:1fr 1fr"],[style*="grid-template-columns: 1fr 1fr"],
-  [style*="grid-template-columns:2fr 1fr"],[style*="grid-template-columns: 2fr 1fr"],
-  [style*="grid-template-columns:1fr 2fr"],[style*="grid-template-columns: 1fr 2fr"]{
-    grid-template-columns:1fr !important;
-    gap:16px !important;
+  .plan-microcopy {
+    text-align: center;
+    font-size: 0.75rem;
+    margin-top: 10px;
+    font-weight: 500;
+  }
+  .plan-card:not(.popular):not(.elite) .plan-microcopy { color: var(--slate); }
+  .plan-card.popular .plan-microcopy { color: rgba(255,255,255,0.45); }
+  .plan-card.elite .plan-microcopy { color: rgba(255,255,255,0.35); }
+
+  /* ── What's Included Bar ── */
+  .included-bar {
+    background: var(--navy);
+    color: var(--white);
+    padding: 36px 24px;
+    text-align: center;
+  }
+  .included-bar-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .included-bar h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--cyan);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    font-size: 0.78rem;
+  }
+  .included-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 24px;
+  }
+  .included-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.78);
+  }
+  .included-item .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--cyan);
+    flex-shrink: 0;
   }
 
-  /* FLEX ROWS → COLUMN */
-  [style*="display:flex"][style*="gap"]:not(.hero-btns):not(.nav-links):not(.mob-nav):not(.proof-inner):not(.footer-bottom):not(.hero-trust):not(.hero-trust-item):not(.contact-info-item):not(.timeline-item):not(.why-point):not(.compare-item):not(.hc-item):not(.price-feature):not(.payment-step):not(.island-tag):not(.hero-feature):not(.proof-item):not(.footer-link):not(.wa-float):not(.sticky-bar):not(.nav-logo):not(.badge-dot):not(.hero-badge):not(.mockup-bar):not(.mockup-stats):not(.mockup-pipeline){
-    flex-wrap:wrap !important;
+  /* ── Risk Reversal ── */
+  .risk-section {
+    background: var(--white);
+    padding: 72px 24px;
+  }
+  .risk-inner {
+    max-width: 820px;
+    margin: 0 auto;
+  }
+  .risk-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .risk-header h2 {
+    font-size: clamp(1.5rem, 3vw, 2.1rem);
+    font-weight: 800;
+    color: var(--navy);
+    letter-spacing: -0.025em;
+    margin-bottom: 10px;
+  }
+  .risk-header p {
+    font-size: 0.95rem;
+    color: var(--slate);
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.65;
+  }
+  .risk-items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 36px;
+  }
+  .risk-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    background: var(--sand);
+    border-radius: 12px;
+    padding: 22px 24px;
+    border-left: 4px solid var(--turquoise);
+  }
+  .risk-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .risk-item-content h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 5px;
+  }
+  .risk-item-content p {
+    font-size: 0.875rem;
+    color: var(--slate);
+    line-height: 1.6;
+  }
+  .risk-closing {
+    text-align: center;
+    background: rgba(0,43,73,0.04);
+    border: 1px solid rgba(0,43,73,0.1);
+    border-radius: 10px;
+    padding: 20px 28px;
+    font-size: 0.9rem;
+    color: var(--navy);
+    font-weight: 600;
+    line-height: 1.6;
+  }
+  .risk-closing em {
+    color: var(--turquoise);
+    font-style: normal;
   }
 
-  /* SPECIFIC SECTION FIXES */
-  /* Services section */
-  [style*="display:grid;grid-template-columns:1fr 1fr"],
-  [style*="display:grid;grid-template-columns:2fr 1fr"],
-  [style*="display:grid;grid-template-columns:1fr 2fr"]{
-    display:block !important;
+  /* ── Testimonials ── */
+  .testimonials-section {
+    background: var(--sand);
+    padding: 80px 24px;
+  }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1060px;
+    margin: 0 auto;
+  }
+  .testimonial-card {
+    background: var(--white);
+    border-radius: 14px;
+    padding: 28px 26px;
+    box-shadow: 0 2px 14px rgba(0,43,73,0.07);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    border-top: 3px solid var(--cyan);
+  }
+  .testimonial-stars {
+    color: var(--gold);
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+  }
+  .testimonial-quote {
+    font-size: 0.92rem;
+    color: var(--dark);
+    line-height: 1.65;
+    flex: 1;
+    font-style: italic;
+  }
+  .testimonial-quote::before { content: '\201C'; }
+  .testimonial-quote::after  { content: '\201D'; }
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .author-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: var(--cyan);
+    font-weight: 800;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .author-info .name {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .author-info .role {
+    font-size: 0.78rem;
+    color: var(--slate);
+    margin-top: 1px;
+  }
+  .testimonial-result {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(0,194,216,0.1);
+    border-radius: 100px;
+    padding: 5px 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--turquoise);
+    align-self: flex-start;
   }
 
-  /* Pricing cards */
-  .price-card{margin-bottom:16px !important;}
-  .pricing-grid [style*="transform:scale"]{transform:none !important;}
-
-  /* CRM mockup */
-  .hero-mockup{padding:16px !important;}
-  .mockup-stats{grid-template-columns:1fr 1fr !important;}
-  .mockup-pipeline{flex-wrap:wrap !important;gap:8px !important;}
-  .mockup-col{min-width:calc(50% - 4px) !important;}
-
-  /* Forms */
-  .form-row{grid-template-columns:1fr !important;}
-  .contact-grid{grid-template-columns:1fr !important;}
-
-  /* Footer */
-  
-  
-
-  /* Comparison table */
-  .compare-table{font-size:11px !important;}
-  .compare-table th,.compare-table td{padding:8px 6px !important;}
-
-  /* CRM page */
-  .why-grid{grid-template-columns:1fr !important;}
-  .features-grid{grid-template-columns:1fr 1fr !important;}
-  .who-grid{grid-template-columns:1fr 1fr !important;}
-  .why-choose-grid{grid-template-columns:1fr !important;}
-
-  /* Padding reductions */
-  .pad{padding:60px 0 !important;}
-  section[style*="padding:96px"]{padding:60px 0 !important;}
-  section[style*="padding:100px"]{padding:60px 0 !important;}
-
-  /* Max widths */
-  [style*="max-width:700px"],[style*="max-width:720px"],[style*="max-width:800px"]{
-    max-width:100% !important;
+  /* ── FAQ ── */
+  .faq-section {
+    background: var(--white);
+    padding: 80px 24px;
   }
-
-  /* CRM hero mockup hide on mobile */
-  .hero-mockup{display:none !important;}
-
-  /* Sticky bar */
-  .sticky-bar{flex-direction:column !important;gap:8px !important;padding:12px 16px !important;}
-  .sticky-bar-text{font-size:12px !important;text-align:center !important;}
-
-
-  /* ── PRICING PAGE MOBILE FIXES ── */
-
-  /* Hero */
-  .pricing-hero-img{height:240px !important;}
-
-  /* CRM Options section */
-  .crm-options-section{padding:48px 0 !important;}
-  .crm-options-wrap{padding:0 16px !important;}
-  .crm-cards-grid{grid-template-columns:1fr !important;gap:16px !important;}
-  .crm-card{padding:24px 20px !important;}
-
-  /* Simple Process, 4 steps */
-  .process-steps-grid{grid-template-columns:1fr 1fr !important;gap:12px !important;}
-  .process-wrap{padding:0 16px !important;}
-  .process-section{padding:48px 0 0 !important;}
-
-  /* CTA section */
-  .pricing-cta-section{padding:60px 0 !important;}
-  .pricing-cta-inner{padding:0 16px !important;}
-
-  /* Comparison table, horizontal scroll */
-  .compare-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
-  .compare-table{min-width:480px;}
-
-  /* How to Get Started payment bar */
-  [style*="WiPay"]{font-size:12px !important;}
-
-  /* CRM section heading */
-  .crm-options-section h2{font-size:clamp(24px,6vw,42px) !important;}
-
-  /* Pricing plan cards inner padding */
-  [style*="padding:36px;display:flex;flex-direction:column"]{padding:24px 18px !important;}
-
-  /* Apply buttons full width on mobile */
-  .crm-card a[href*="apply"]{display:block !important;text-align:center !important;}
-
-  /* Wave */
+  .faq-inner {
+    max-width: 720px;
+    margin: 0 auto;
   }
-
-@media(max-width:480px){
-  .hero-h1{font-size:24px !important;}
-  .h2{font-size:22px !important;}
-  .features-grid{grid-template-columns:1fr !important;}
-  .who-grid{grid-template-columns:1fr !important;}
-  .mockup-pipeline{display:none !important;}
-  .hero-logo-name{font-size:40px !important;}
-}
-
-
-@media(max-width:1100px){
-  .nav-links{display:none !important;}
-  .hamburger{display:flex !important;}
-  
-  .pricing-grid{grid-template-columns:1fr 1fr !important;}
-}
-@media(max-width:600px){
-  .pricing-grid{grid-template-columns:1fr !important;}
-}
-/* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(0,43,73,0.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,224,255,0.15);box-shadow:0 2px 24px rgba(0,0,0,0.3);}
-.nav-logo{display:flex;flex-direction:column;align-items:flex-start;line-height:1;padding:4px 0;}
-.nav-links{display:flex;align-items:center;gap:32px;}
-.nav-link{font-size:13px;font-weight:500;color:rgba(255,255,255,0.65);transition:color 0.2s;text-decoration:none;}
-.nav-link:hover{color:#fff;}
-.nav-cta{background:var(--coral,#FF5500);color:#fff;font-size:13px;font-weight:700;padding:10px 24px;border-radius:9px;box-shadow:0 4px 16px rgba(255,85,0,0.35);transition:transform 0.15s,box-shadow 0.2s;text-decoration:none;}
-.nav-cta:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(255,85,0,0.5);}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1001;position:relative;background:none;border:none;padding:8px;margin:-8px;touch-action:manipulation;-webkit-tap-highlight-color:transparent;}
-.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all 0.3s ease;}
-.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
-.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
-.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-.mob-nav{display:none;position:fixed;top:70px;left:0;right:0;background:rgba(0,43,73,0.99);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);padding:20px 24px;flex-direction:column;gap:4px;z-index:10000;border-bottom:1px solid rgba(0,224,255,0.15);box-shadow:0 8px 32px rgba(0,0,0,0.3);max-height:calc(100vh - 70px);overflow-y:auto;}
-.mob-nav.open{display:flex !important;}
-.mob-link.wave{color:#00E0FF;}
-.mob-link.wave:hover{color:#00E0FF;background:rgba(0,224,255,0.08);}
-.mob-link{font-size:15px;font-weight:600;color:rgba(255,255,255,0.85);padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.1);text-decoration:none;display:block;}
-.mob-cta{background:var(--coral,#FF5500);color:#fff;font-weight:700;padding:14px;border-radius:10px;text-align:center;margin-top:8px;font-size:15px;text-decoration:none;display:block;}
-/* Dropdown */
-
-
-}
-
-/* ── SERVICES DROPDOWN (JS-powered, no gap issue) ── */
-
-
-.nav-dropdown-menu.open{display:block;}
-
-
-
-
-
-
-/* ── TYPOGRAPHY: Manrope headings, Inter body ── */
-body{font-family:'Inter',sans-serif;}
-h1,h2,h3,h4,h5,h6,.h2,.h1,
-.hero-h1,.hero-logo-name,.footer-brand-name,
-.hero-logo-sub,.eyebrow,
-/* Playfair Display and Sora preserved, no override */
-/* Scoped font overrides, excludes footer to preserve Kaushan Script logo */
-.nav-link,.mob-link,.mob-cta,.nav-cta,
-input,select,textarea{
-  font-family:'Plus Jakarta Sans',sans-serif !important;
-}
-/* Footer fonts, must NOT be overridden */
-.footer-brand-name{font-family:'Kaushan Script',cursive !important;}
-.footer-link,.footer-desc,.footer-heading,.footer-bottom-text{font-family:'Plus Jakarta Sans',sans-serif !important;}
-
-
-@media(max-width:768px){
-  .pricing-grid{grid-template-columns:1fr !important;}
-  table{font-size:12px !important;}
-  table th,table td{padding:10px 10px !important;}
-}
-@media(max-width:600px){
-  [style*="grid-template-columns:repeat(3,1fr)"]{grid-template-columns:1fr !important;}
-}
-
-
-@media(max-width:768px){
-  [style*="grid-template-columns:repeat(3,1fr)"]{grid-template-columns:1fr !important;}
-  [style*="grid-template-columns:repeat(3, 1fr)"]{grid-template-columns:1fr !important;}
-  table{font-size:11px !important;}
-  table th,table td{padding:8px 8px !important;}
-  [style*="padding:100px 48px"]{padding:100px 24px 60px !important;}
-  [style*="padding:96px 0"]{padding:60px 0 !important;}
-  [style*="padding:64px 0"]{padding:40px 0 !important;}
-  [style*="max-width:760px"]{padding:0 20px !important;}
-  [style*="padding:0 48px"]{padding:0 20px !important;}
-}
-
-/* ── FOOTER ── */
-footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;}
-.footer-heading{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.4);margin-bottom:16px;}
-.footer-brand-name{font-family:'Kaushan Script',cursive;font-size:34px;color:#fff;line-height:1;margin-bottom:6px;}
-.footer-brand-name span{color:#00E0FF;}
-.footer-brand-sub{font-size:9px;font-weight:700;color:#F7C873;letter-spacing:5px;text-transform:uppercase;margin-bottom:12px;}
-.footer-brand-tag{font-size:12px;font-weight:500;color:#00E0FF;letter-spacing:1px;margin-bottom:6px;}
-.footer-desc{font-size:13px;color:rgba(255,255,255,0.4);line-height:1.65;margin-top:12px;}
-.footer-link{display:block;font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:8px;transition:color 0.2s,transform 0.2s;text-decoration:none;}
-.footer-link:hover{color:#fff;transform:translateX(4px);}
-.footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding:20px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
-.footer-bottom-text{font-size:12px;color:rgba(255,255,255,0.3);}
-.footer-bottom-text span{color:#00E0FF;}
-@media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;}}
-@media(max-width:600px){.footer-grid{grid-template-columns:1fr !important;}.footer-bottom{flex-direction:column;text-align:center;gap:8px;}}
-/* ── KAUSHAN SCRIPT for BluWav wordmark ── */
-.footer-brand-name,.hero-logo-name{font-family:'Kaushan Script',cursive !important;}
-
-50%{d:path("M0,50 C240,25 480,55 720,50 C960,45 1200,25 1440,50 L1440,80 L0,80 Z");}
-}
-50%{d:path("M0,45 C240,60 480,35 720,45 C960,55 1200,35 1440,45 L1440,80 L0,80 Z");}
-}
-/* ══ SITE-WIDE POLISH ══ */
-
-/* Smooth scroll */
-html{scroll-behavior:smooth;}
-
-/* Selection colour */
-::selection{background:#00E0FF;color:#002B49;}
-
-/* Scrollbar */
-::-webkit-scrollbar{width:6px;}
-::-webkit-scrollbar-track{background:#001020;}
-::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#00E0FF,#002B49);border-radius:3px;}
-
-/* Link hover glow */
-.nav-link{position:relative;}
-.nav-link::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;background:#00E0FF;transition:width 0.3s ease;border-radius:2px;}
-.nav-link:hover::after{width:100%;}
-
-/* CTA button shimmer */
-@keyframes shimmer{0%{background-position:-200% center;}100%{background-position:200% center;}}
-.nav-cta{background-size:200% auto;transition:all 0.3s ease;}
-.nav-cta:hover{background-image:linear-gradient(90deg,#FF5500,#FF8C00,#FF5500);background-size:200% auto;animation:shimmer 1.5s linear infinite;}
-
-/* Card 3D tilt on hover */
-@keyframes cardFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
-
-/* Eyebrow text glow */
-.eyebrow{text-shadow:0 0 20px rgba(0,224,255,0.4);}
-
-/* Section reveal animations */
-@keyframes revealUp{from{opacity:0;transform:translateY(48px);}to{opacity:1;transform:translateY(0);}}
-@keyframes revealLeft{from{opacity:0;transform:translateX(-48px);}to{opacity:1;transform:translateX(0);}}
-@keyframes revealRight{from{opacity:0;transform:translateX(48px);}to{opacity:1;transform:translateX(0);}}
-@keyframes revealScale{from{opacity:0;transform:scale(0.92);}to{opacity:1;transform:scale(1);}}
-.reveal-up{opacity:0;}.reveal-up.in-view{animation:revealUp 0.8s cubic-bezier(0.22,1,0.36,1) forwards;}
-.reveal-left{opacity:0;}.reveal-left.in-view{animation:revealLeft 0.8s cubic-bezier(0.22,1,0.36,1) forwards;}
-.reveal-right{opacity:0;}.reveal-right.in-view{animation:revealRight 0.8s cubic-bezier(0.22,1,0.36,1) forwards;}
-.reveal-scale{opacity:0;}.reveal-scale.in-view{animation:revealScale 0.7s cubic-bezier(0.22,1,0.36,1) forwards;}
-
-/* Stagger delays */
-.delay-1{animation-delay:0.1s!important;}
-.delay-2{animation-delay:0.2s!important;}
-.delay-3{animation-delay:0.3s!important;}
-.delay-4{animation-delay:0.4s!important;}
-.delay-5{animation-delay:0.5s!important;}
-
-/* Floating WhatsApp button pulse */
-@keyframes waPulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.45);}50%{box-shadow:0 4px 40px rgba(37,211,102,0.8),0 0 0 8px rgba(37,211,102,0.1);}}
-.wa-float{animation:waPulse 2.5s ease-in-out infinite!important;}
-
-/* Gradient text utility */
-.text-gradient{background:linear-gradient(135deg,#00E0FF,#00C2D8,#F7C873);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-
-/* Cyan glow on focus inputs */
-input:focus,textarea:focus,select:focus{box-shadow:0 0 0 3px rgba(0,224,255,0.2)!important;border-color:#00E0FF!important;}
-
-/* Footer link hover */
-.footer-link{position:relative;}
-
-/* Smooth image loading */
-img{transition:opacity 0.3s ease;}
-
-/* Premium button base */
-a[style*="background:#FF5500"],a[style*="background:var(--coral)"]{
-  position:relative;overflow:hidden;
-}
-a[style*="background:#FF5500"]::after,a[style*="background:var(--coral)"]::after{
-  content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent);
-  transition:left 0.5s ease;
-}
-a[style*="background:#FF5500"]:hover::after,a[style*="background:var(--coral)"]:hover::after{
-  left:100%;
-}
-
-/* Cyan button shimmer */
-a[style*="background:#00E0FF"]::after,a[style*="background:var(--cyan)"]::after{
-  content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent);
-  transition:left 0.5s ease;
-}
-a[style*="background:#00E0FF"]:hover::after,a[style*="background:var(--cyan)"]:hover::after{
-  left:100%;
-}
-
-25%{transform:translateY(-8px);}
-  75%{transform:translateY(8px);}
-}
-25% {d:path("M-100,80 C100,40 300,80 500,40 C700,80 900,40 1100,80 C1300,40 1500,80 1700,40");}
-  50% {d:path("M-100,40 C100,80 300,20 500,80 C700,20 900,80 1100,20 C1300,80 1500,20 1700,80");}
-  75% {d:path("M-100,70 C100,30 300,90 500,50 C700,10 900,90 1100,50 C1300,10 1500,90 1700,50");}
-  100%{d:path("M-100,60 C100,20 300,100 500,60 C700,20 900,100 1100,60 C1300,20 1500,100 1700,60");}
-}
-25% {d:path("M-100,110 C100,70 300,110 500,70 C700,110 900,70 1100,110 C1300,70 1500,110 1700,70");}
-  50% {d:path("M-100,70 C100,110 300,50 500,110 C700,50 900,110 1100,50 C1300,110 1500,50 1700,110");}
-  75% {d:path("M-100,100 C100,60 300,120 500,80 C700,40 900,120 1100,80 C1300,40 1500,120 1700,80");}
-  100%{d:path("M-100,90 C100,50 300,130 500,90 C700,50 900,130 1100,90 C1300,50 1500,130 1700,90");}
-}
-100%{transform:translateX(-50%);}}
-/* ── BluWav Signature Wave, Parallax ── */
-@keyframes px-move-1{from{transform:translateX(0);}to{transform:translateX(-720px);}}
-@keyframes px-move-2{from{transform:translateX(0);}to{transform:translateX(-720px);}}
-@keyframes px-move-3{from{transform:translateX(0);}to{transform:translateX(-720px);}}
-.parallax-wrap{
-  position:fixed;
-  bottom:0;
-  left:0;
-  right:0;
-  height:180px;
-  z-index:0;
-  pointer-events:none;
-  overflow:hidden;
-}
-.px-svg{
-  position:absolute;
-  bottom:0;
-  left:0;
-  width:200%;
-  height:100%;
-}
-.px-layer-1{animation:px-move-1 22s linear infinite;opacity:0.15;}
-.px-layer-2{animation:px-move-2 15s linear infinite;opacity:0.22;}
-.px-layer-3{animation:px-move-3 10s linear infinite;opacity:0.30;}
-
-
-@media(max-width:480px){
-  .process-steps-grid{grid-template-columns:1fr !important;}
-  .pricing-hero-img{height:200px !important;}
-  .crm-card{padding:20px 16px !important;}
-}
-
-/* ── CRM Premium Elite Card Styles (from crm.html) ── */
-.elite-card{font-family:'Plus Jakarta Sans',sans-serif;background:var(--elite2);border:1px solid var(--border);border-radius:20px;padding:40px;position:relative;overflow:hidden;}
-.elite-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,194,209,0.4),transparent);}
-.elite-card-premium{background:linear-gradient(145deg,#0f0f12,#141418,#0f0f12);border:1px solid rgba(0,194,209,0.2);box-shadow:0 0 60px rgba(0,194,209,0.06),inset 0 1px 0 rgba(0,194,209,0.1);}
-.elite-card{padding:24px 20px !important;}
-.price-big{font-family:'Sora',sans-serif;font-size:38px;font-weight:900;color:#fff;line-height:1;letter-spacing:-2px;}
-.price-big{font-size:36px !important;}
-.price-big{font-size:28px !important;}
-.price-sub{font-size:13px;color:rgba(255,255,255,0.5);margin-top:4px;}
-.elite-divider{border:none;border-top:1px solid var(--border);margin:40px 0;}
-.feat-list{display:flex;flex-direction:column;gap:10px;margin:16px 0;}
-.feat-item{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.88);}
-.feat-check{width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,var(--cyan),#007a85);display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;font-weight:900;flex-shrink:0;margin-top:1px;}
-.btn-elite{background:linear-gradient(135deg,var(--cyan),#007a85);color:#fff;font-size:15px;font-weight:800;padding:16px 36px;border-radius:12px;display:inline-flex;align-items:center;gap:8px;transition:transform 0.15s,box-shadow 0.2s;box-shadow:0 4px 28px rgba(0,194,209,0.35);}
-.btn-elite:hover{transform:translateY(-2px);box-shadow:0 8px 40px rgba(0,194,209,0.5);}
-@keyframes glow
-
-/* CRM 3-col grid mobile */
-@media(max-width:900px){
-  .crm-options-section .crm-options-wrap > div[style*="grid-template-columns:1fr 1.18fr 1fr"]{
-    grid-template-columns:1fr !important;
-    gap:20px !important;
+  .faq-item {
+    border-bottom: 1px solid rgba(0,43,73,0.09);
   }
-  .crm-options-section .crm-options-wrap > div[style*="grid-template-columns:1fr 1fr"]{
-    grid-template-columns:1fr !important;
-    gap:20px !important;
+  .faq-item:first-of-type { border-top: 1px solid rgba(0,43,73,0.09); }
+  .faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px 0;
+    text-align: left;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--navy);
+    transition: color 0.2s;
   }
-  .crm-options-section .crm-options-wrap > div[style*="grid-template-columns:1fr 1.18fr 1fr"] > div[style*="transform:translateY(-12px)"]{
-    transform:none !important;
+  .faq-question:hover { color: var(--turquoise); }
+  .faq-icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: rgba(0,43,73,0.07);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: var(--navy);
+    transition: background 0.2s, transform 0.25s;
+    font-weight: 400;
   }
-}
+  .faq-item.open .faq-icon {
+    background: var(--turquoise);
+    color: var(--white);
+    transform: rotate(45deg);
+  }
+  .faq-answer {
+    display: none;
+    padding: 0 0 20px;
+    font-size: 0.9rem;
+    color: var(--slate);
+    line-height: 1.7;
+  }
+  .faq-item.open .faq-answer { display: block; }
+  .faq-answer strong { color: var(--navy); }
 
-/* Footer, full width like AADEK */
-footer .wrap{max-width:1600px !important;padding:0 clamp(16px,4vw,64px) !important;}
-footer .footer-grid{gap:56px !important;}
-@media(max-width:1024px){footer .wrap{padding:0 32px !important;}}
-@media(max-width:768px){footer .wrap{padding:0 20px !important;}}
+  /* ── Bottom CTA ── */
+  .bottom-cta {
+    background: var(--navy);
+    padding: 80px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .bottom-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 50% 100%, rgba(0,224,255,0.1) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .bottom-cta-inner { max-width: 620px; margin: 0 auto; position: relative; }
+  .bottom-cta h2 {
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -0.025em;
+    margin-bottom: 14px;
+    line-height: 1.2;
+  }
+  .bottom-cta h2 span { color: var(--cyan); }
+  .bottom-cta p {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 32px;
+    line-height: 1.65;
+  }
+  .bottom-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--coral);
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 16px 36px;
+    border-radius: 8px;
+    transition: all 0.2s;
+    box-shadow: 0 4px 22px rgba(255,85,0,0.4);
+    margin-bottom: 18px;
+  }
+  .bottom-cta-btn:hover {
+    background: #e04a00;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 30px rgba(255,85,0,0.5);
+  }
+  .bottom-cta-trust {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px 20px;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.45);
+    font-weight: 500;
+  }
+  .bottom-cta-trust span { display: flex; align-items: center; gap: 5px; }
 
-/* ═══════════════════════════════════════════════════════════════════════
-   DYNAMIC ANIMATIONS — BluWav Growth
-   ═══════════════════════════════════════════════════════════════════════ */
+  /* ── Footer Trust Strip ── */
+  .footer-strip {
+    background: var(--elite-black);
+    padding: 20px 24px;
+  }
+  .footer-strip-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px 28px;
+  }
+  .footer-trust-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.5);
+    font-weight: 500;
+  }
+  .footer-trust-item .icon { color: var(--cyan); font-size: 0.9rem; }
 
-/* Fade up on scroll */
-.anim-fade-up{opacity:0;transform:translateY(32px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1);}
-.anim-fade-up.in-view{opacity:1;transform:translateY(0);}
-.anim-fade-up.delay-1{transition-delay:0.1s;}
-.anim-fade-up.delay-2{transition-delay:0.2s;}
-.anim-fade-up.delay-3{transition-delay:0.3s;}
-.anim-fade-up.delay-4{transition-delay:0.4s;}
-
-/* Fade in left */
-.anim-fade-left{opacity:0;transform:translateX(-28px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1);}
-.anim-fade-left.in-view{opacity:1;transform:translateX(0);}
-
-/* Fade in right */
-.anim-fade-right{opacity:0;transform:translateX(28px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1);}
-.anim-fade-right.in-view{opacity:1;transform:translateX(0);}
-
-/* Scale in */
-.anim-scale{opacity:0;transform:scale(0.92);transition:opacity 0.6s cubic-bezier(0.22,1,0.36,1),transform 0.6s cubic-bezier(0.22,1,0.36,1);}
-.anim-scale.in-view{opacity:1;transform:scale(1);}
-
-/* Counter animation */
-.anim-counter{display:inline-block;}
-
-/* Shimmer on hover for cards */
-.anim-card{transition:transform 0.25s cubic-bezier(0.22,1,0.36,1),box-shadow 0.25s ease;}
-.anim-card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,43,73,0.15)!important;}
-
-/* Pulse dot */
-@keyframes bw-pulse{0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(0.7);opacity:0.4;}}
-.anim-pulse-dot{animation:bw-pulse 2s ease-in-out infinite;}
-
-/* Floating */
-@keyframes bw-float{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
-.anim-float{animation:bw-float 4s ease-in-out infinite;}
-
-/* Gradient shimmer text */
-@keyframes bw-shimmer{0%{background-position:200% center;}100%{background-position:-200% center;}}
-.anim-shimmer-text{background:linear-gradient(90deg,#002B49 0%,#00C2D8 40%,#FF5500 60%,#002B49 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:bw-shimmer 4s linear infinite;}
-
-/* Stagger children */
-.anim-stagger > *{opacity:0;transform:translateY(24px);transition:opacity 0.6s cubic-bezier(0.22,1,0.36,1),transform 0.6s cubic-bezier(0.22,1,0.36,1);}
-.anim-stagger.in-view > *:nth-child(1){opacity:1;transform:translateY(0);transition-delay:0s;}
-.anim-stagger.in-view > *:nth-child(2){opacity:1;transform:translateY(0);transition-delay:0.1s;}
-.anim-stagger.in-view > *:nth-child(3){opacity:1;transform:translateY(0);transition-delay:0.2s;}
-.anim-stagger.in-view > *:nth-child(4){opacity:1;transform:translateY(0);transition-delay:0.3s;}
-.anim-stagger.in-view > *:nth-child(5){opacity:1;transform:translateY(0);transition-delay:0.4s;}
-.anim-stagger.in-view > *:nth-child(6){opacity:1;transform:translateY(0);transition-delay:0.5s;}
-
-/* Underline grow on hover */
-.anim-underline{position:relative;}
-.anim-underline::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;background:var(--coral,#FF5500);transition:width 0.3s ease;}
-.anim-underline:hover::after{width:100%;}
-
-/* Reduced motion */
-@media(prefers-reduced-motion:reduce){
-  .anim-fade-up,.anim-fade-left,.anim-fade-right,.anim-scale,.anim-stagger>*{opacity:1!important;transform:none!important;transition:none!important;}
-  .anim-float,.anim-pulse-dot,.anim-shimmer-text{animation:none!important;}
-}
-/* ── Nav Active State ── */
-.nav-link.nav-active{color:#fff !important;font-weight:700 !important;}
-.nav-link.nav-active::after{width:100% !important;background:#FF5500 !important;}
-.mob-link.mob-active{color:#fff !important;font-weight:800 !important;border-left:3px solid #FF5500;padding-left:12px;}
-/* ── BluWav Page Animations ── */
-@keyframes bw-fade-up{from{opacity:0;transform:translateY(32px);}to{opacity:1;transform:translateY(0);}}
-@keyframes bw-fade-left{from{opacity:0;transform:translateX(-28px);}to{opacity:1;transform:translateX(0);}}
-@keyframes bw-fade-right{from{opacity:0;transform:translateX(28px);}to{opacity:1;transform:translateX(0);}}
-@keyframes bw-scale-in{from{opacity:0;transform:scale(0.93);}to{opacity:1;transform:scale(1);}}
-@keyframes bw-count{from{opacity:0;}to{opacity:1;}}
-.bw-reveal{opacity:0;transform:translateY(28px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1);}
-.bw-reveal.bw-in{opacity:1;transform:translateY(0);}
-.bw-reveal-left{opacity:0;transform:translateX(-28px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1);}
-.bw-reveal-left.bw-in{opacity:1;transform:translateX(0);}
-.bw-reveal-right{opacity:0;transform:translateX(28px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1);}
-.bw-reveal-right.bw-in{opacity:1;transform:translateX(0);}
-.bw-reveal-scale{opacity:0;transform:scale(0.93);transition:opacity 0.6s cubic-bezier(0.22,1,0.36,1),transform 0.6s cubic-bezier(0.22,1,0.36,1);}
-.bw-reveal-scale.bw-in{opacity:1;transform:scale(1);}
-.bw-delay-1{transition-delay:0.08s!important;}
-.bw-delay-2{transition-delay:0.16s!important;}
-.bw-delay-3{transition-delay:0.24s!important;}
-.bw-delay-4{transition-delay:0.32s!important;}
-.bw-delay-5{transition-delay:0.40s!important;}
-.bw-delay-6{transition-delay:0.48s!important;}
-@media(prefers-reduced-motion:reduce){
-  .bw-reveal,.bw-reveal-left,.bw-reveal-right,.bw-reveal-scale{opacity:1!important;transform:none!important;transition:none!important;}
-}
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .plans-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+    .plan-card.popular { transform: none; }
+    .plan-card.popular:hover { transform: translateY(-4px); }
+    .testimonials-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+    .nav-links { display: none; }
+    .proof-bar-inner { gap: 8px 16px; }
+    .proof-divider { display: none; }
+  }
+  @media (max-width: 600px) {
+    .hero { padding: 56px 20px 52px; }
+    .section { padding: 56px 20px; }
+    .risk-section, .faq-section, .testimonials-section, .bottom-cta { padding: 56px 20px; }
+    nav { padding: 0 20px; }
+    .announce-bar { font-size: 0.78rem; }
+  }
 </style>
-<meta name="robots" content="index, follow"/>
-<meta property="og:title" content="BluWav Growth Pricing, Caribbean Digital Growth Systems"/>
-<meta name="description" content="BluWav Growth Systems from $900 setup + $397/mo. Website, Google visibility, CRM and automation for modern businesses. Delivered in 48 hours."/>
-<meta property="og:description" content="BluWav Growth Systems from $900 setup + $397/mo. CRM from $59/mo. Delivered in 48 hours. You own everything forever."/>
-<meta property="og:url" content="https://bluwavgrowth.com/pricing.html"/>
-<meta property="og:type" content="website"/>
-<meta property="og:image" content="https://bluwavgrowth.com/hero-team.jpg"/>
-<link rel="canonical" href="https://bluwavgrowth.com/pricing.html"/>
-
-<script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "BluWav Growth Pricing, Caribbean Digital Growth Systems",
-  "description": "BluWav Growth Systems from $900 setup + $397/mo. CRM from $59/mo. Delivered in 48 hours. You own everything forever.",
-  "url": "https://bluwavgrowth.com/pricing.html",
-  "provider": {"@type": "LocalBusiness", "name": "BluWav Growth", "url": "https://bluwavgrowth.com"}
-}</script>
-<!-- Meta Pixel Code -->
-<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1945068829544650');fbq('track','PageView');</script>
-<noscript><img fetchpriority="high" height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1945068829544650&ev=PageView&noscript=1"/ alt="BluWav Growth pricing plans"></noscript>
-<!-- End Meta Pixel Code -->
 </head>
 <body>
-<!-- NAV -->
-<nav id="mainNav">
-<a href="index.html" class="nav-logo" style="display:flex;flex-direction:column;align-items:flex-start;line-height:1;padding:4px 0;text-decoration:none;">
-<div id="navLogoText" style="font-family:'Kaushan Script',cursive;font-size:26px;line-height:1;color:#fff;opacity:0;transition:opacity 0.3s;">Blu<span style="color:#00E0FF;">Wav</span></div>
-<div style="font-size:8px;font-weight:700;color:#00E0FF;letter-spacing:3px;text-transform:uppercase;line-height:1.4;margin-top:2px;">Get Found. Get Chosen. Grow.</div>
+<!-- ── ANNOUNCEMENT BAR ── -->
+<div class="announce-bar">
+  ⚡ New this month: Get your free Digital Health Check — results via WhatsApp in 48 hours. 
+  <a href="#bottom-cta">Start here →</a>
+</div>
+<!-- ── NAV ── -->
+<nav>
+<a class="nav-logo" href="https://bluwavgrowth.com">
+<svg class="logo-icon" fill="none" viewbox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+<circle cx="20" cy="20" r="18" stroke="#00E0FF" stroke-dasharray="100 12" stroke-dashoffset="-3" stroke-width="2.5"></circle>
+<ellipse cx="20" cy="26" fill="#002B49" rx="13" ry="7"></ellipse>
+<path d="M7 24 Q13 19 20 22 Q27 25 33 20" fill="none" stroke="#00E0FF" stroke-linecap="round" stroke-width="2"></path>
+<path d="M8 27 Q14 22 20 25 Q26 28 32 23" fill="none" opacity="0.7" stroke="#00C2D8" stroke-linecap="round" stroke-width="1.5"></path>
+<path d="M14 16 Q17 10 20 9 Q23 10 26 16" fill="white" opacity="0.9"></path>
+</svg>
+<div class="logo-wordmark">
+<div class="brand"><span class="blu">Blu</span><span class="wav">Wav</span></div>
+<div class="sub">Growth</div>
+</div>
 </a>
-<div class="nav-links">
-  <a class="nav-link" href="health-score.html">Health Score</a>
-  <a class="nav-link" href="index.html#what-we-do-cont">Growth Plans</a>
-  <a class="nav-link" href="about.html">About</a>
-  <a class="nav-link" href="contact.html">Contact</a>
-  <a class="nav-link" href="the-wave.html" style="color:#00E0FF;font-weight:600;">The Wave</a>
-  <a class="nav-link" href="https://bluwavcrm.com/login.html" target="_blank" rel="noopener" style="color:rgba(0,224,255,0.85);font-weight:600;">Client Login</a>
-  <a class="nav-cta" href="https://calendly.com/hello-bluwavgrowth/30min" onclick="if(typeof gtag!=='undefined'){gtag('event','book_call_click',{'event_category':'CTA','event_label':'Book a Call','page':'nav'});}" target="_blank" rel="noopener">Book a Call</a>
-</div>
-<button aria-label="Menu" class="hamburger" id="hamburgerBtn" onclick="toggleMob()"><span></span><span></span><span></span></button>
+<ul class="nav-links">
+<li><a href="https://bluwavgrowth.com/">Home</a></li>
+<li><a href="https://bluwavgrowth.com/our-promise">Our Promise</a></li>
+<li><a href="https://bluwavgrowth.com/free-health-check">Health Check</a></li>
+<li><a class="nav-cta" href="https://bluwavgrowth.com/free-health-check">Get Started</a></li>
+</ul>
 </nav>
-<div class="mob-nav" id="mobNav">
-  <a class="mob-link" href="health-score.html" onclick="closeMob()">&#129658; Health Score</a>
-  <a class="mob-link" href="index.html#what-we-do-cont" onclick="closeMob()">&#128176; Growth Plans</a>
-  <a class="mob-link" href="about.html" onclick="closeMob()">&#128100; About</a>
-  <a class="mob-link" href="contact.html" onclick="closeMob()">&#128222; Contact</a>
-  <a class="mob-link" href="the-wave.html" onclick="closeMob()" style="color:#00E0FF;">&#127754; The Wave</a>
-  <a class="mob-link" href="https://bluwavcrm.com/login.html" target="_blank" rel="noopener" onclick="closeMob()" style="color:rgba(0,224,255,0.85);">&#128274; Client Login</a>
-  <a class="mob-cta" href="https://calendly.com/hello-bluwavgrowth/30min" onclick="if(typeof gtag!=='undefined'){gtag('event','book_call_click',{'event_category':'CTA','event_label':'Book a Call','page':'nav'});}closeMob();" target="_blank" rel="noopener">&#128197; Book a Call</a>
-</div>
-</div>
-
-<!-- CHAPTER BREAK — matching homepage -->
-<section style="background:linear-gradient(135deg,#002B49 0%,#001828 100%);padding:80px 32px;text-align:center;position:relative;overflow:hidden;">
-  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,rgba(255,85,0,0.08) 0%,transparent 60%);pointer-events:none;"></div>
-  <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#FF5500 30%,#F7C873 50%,#FF5500 70%,transparent);"></div>
-  <div style="position:relative;z-index:2;">
-    <div style="font-size:32px;margin-bottom:16px;">&#9889;</div>
-    <h1 style="font-family:'Manrope',sans-serif;font-size:clamp(28px,5vw,52px);font-weight:900;color:#fff;line-height:1.1;letter-spacing:-1px;margin-bottom:12px;">
-      Your Journey to <span style="color:#FF5500;">Digital Dominance</span><br/><span style="color:#fff;font-size:0.6em;font-weight:700;letter-spacing:0px;">Starts Here.</span>
-    </h1>
-    <p style="font-size:16px;color:rgba(255,255,255,0.6);max-width:480px;margin:0 auto;line-height:1.7;">Choose the plan that gets you seen, trusted, and chosen.</p>
-  </div>
+<!-- ── HERO ── -->
+<section class="hero">
+<div class="hero-eyebrow">Simple, Transparent Pricing</div>
+<h1>Your Growth System.<br/><span>Live in 48 Hours.</span></h1>
+<p class="hero-sub">One monthly plan. Four pillars working together. Everything your business needs to get found, get chosen, and grow — built and delivered in 48 hours.</p>
+<p class="hero-promise">Stay because it's working — not because you're stuck.</p>
+<a class="hero-scroll-btn" href="#plans">See the Plans ↓</a>
 </section>
-
-<!-- PRICING PLANS -->
-<section id="growth-pricing" style="background:#F4F2ED;padding:80px 0;">
-<div style="max-width:1400px;margin:0 auto;padding:0 48px;text-align:center;">
-<p style="font-size:14px;color:var(--slate);text-align:center;margin-bottom:40px;">Every plan includes a signed agreement. You own your website, your CRM, and your data &mdash; forever.</p>
-
-<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-bottom:40px;">
-
-<!-- Ripple -->
-<div class="bw-reveal bw-delay-1" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 16px 48px rgba(0,43,73,0.1)'" style="background:#fff;border-radius:24px;padding:44px;border:2px solid #e2e8f0;display:flex;flex-direction:column;transition:all 0.2s;text-align:left;box-shadow:0 4px 24px rgba(0,43,73,0.06);">
-<div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--cyan);margin-bottom:6px;">🌊 Starter</div>
-<div style="font-size:22px;font-weight:800;color:var(--navy);margin-bottom:6px;font-family:'Manrope',sans-serif;">BluWav Ripple</div>
-<div style="font-family:'Manrope',sans-serif;font-size:32px;font-weight:900;color:var(--navy);letter-spacing:-1px;line-height:1;margin-bottom:2px;">$900</div><div style="font-size:12px;color:var(--slate);margin-bottom:4px;">setup and onboarding fee</div><div style="font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;color:var(--navy);">$397<span style="font-size:13px;font-weight:500;color:var(--slate);">/month</span></div>
-<div style="font-size:13px;color:var(--slate);line-height:1.6;margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid var(--mist);">Your digital foundation — Digital Presence, Google Visibility, and Search Performance working together from day one.</div>
-<div style="font-size:12px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;">What's Included:</div>
-<div style="display:flex;flex-direction:column;gap:10px;margin-bottom:32px;flex:1;font-size:13px;color:var(--dark);">
-<div><span style="color:var(--cyan);font-weight:800;margin-right:8px;">✓</span>Modern website (you own it forever)</div>
-<div><span style="color:var(--cyan);font-weight:800;margin-right:8px;">✓</span>Google Business Profile setup</div>
-<div><span style="color:var(--cyan);font-weight:800;margin-right:8px;">✓</span>CRM included <span style="color:var(--slate);font-size:11px;">(worth $150+/mo elsewhere)</span></div>
-<div><span style="color:var(--cyan);font-weight:800;margin-right:8px;">✓</span>Smart lead automation</div>
-<div><span style="color:var(--cyan);font-weight:800;margin-right:8px;">✓</span>Performance dashboard</div>
-<div><span style="color:var(--cyan);font-weight:800;margin-right:8px;">✓</span>On-page SEO essentials</div>
-<div><span style="color:var(--cyan);font-weight:800;margin-right:8px;">✓</span>Google Search Console setup</div>
-<div><span style="color:var(--cyan);font-weight:800;margin-right:8px;">✓</span>Google Analytics 4 setup</div>
-<div><span style="color:var(--cyan);font-weight:800;margin-right:8px;">✓</span>WhatsApp chat button</div>
-<div><span style="color:var(--cyan);font-weight:800;margin-right:8px;">✓</span>Mobile-optimized design</div>
-<div><span style="color:var(--cyan);font-weight:800;margin-right:8px;">✓</span>Fast, secure hosting</div>
-<div><span style="color:var(--cyan);font-weight:800;margin-right:8px;">✓</span>Standard support</div>
+<!-- ── SOCIAL PROOF BAR ── -->
+<div class="proof-bar">
+<div class="proof-bar-inner">
+<div class="proof-stars">★★★★★ <span>5-star rated</span></div>
+<div class="proof-divider"></div>
+<div class="proof-stat"><strong>50+</strong> businesses growing</div>
+<div class="proof-divider"></div>
+<div class="proof-stat"><strong>3.2×</strong> avg. conversion lift</div>
+<div class="proof-divider"></div>
+<div class="proof-stat"><strong>94%</strong> follow-up rate</div>
+<div class="proof-divider"></div>
+<div class="proof-stat"><strong>48h</strong> avg. setup time</div>
 </div>
-<a href="https://bluwavgrowth.com/checkout?plan=ripple" onmouseout="this.style.transform='translateY(0)'" onmouseover="this.style.transform='translateY(-2px)'" style="display:block;background:var(--cyan);color:#fff;font-size:15px;font-weight:800;padding:14px 20px;border-radius:11px;text-decoration:none;text-align:center;box-shadow:0 4px 20px rgba(0,224,255,0.3);transition:all 0.2s;">Get Started with Ripple &#8594;</a>
 </div>
-
-<!-- Current -->
-<div class="bw-reveal bw-delay-2" style="background:linear-gradient(145deg,#001f3f,#003366,#004080);border-radius:24px;padding:44px;display:flex;flex-direction:column;position:relative;overflow:hidden;box-shadow:0 16px 60px rgba(0,43,73,0.5),0 0 0 2px rgba(0,224,255,0.4),inset 0 1px 0 rgba(255,255,255,0.1);text-align:left;">
-<div style="position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--coral),var(--gold));color:#fff;font-size:11px;font-weight:800;padding:5px 20px;border-radius:0 0 12px 12px;white-space:nowrap;">⭐ Most Popular</div>
-<div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--gold);margin-bottom:6px;margin-top:14px;">⚡ Growth</div>
-<div style="font-size:22px;font-weight:800;color:#fff;margin-bottom:6px;font-family:'Manrope',sans-serif;">BluWav Current</div>
-<div style="font-family:'Manrope',sans-serif;font-size:32px;font-weight:900;color:var(--gold);letter-spacing:-1px;line-height:1;margin-bottom:2px;">$1,250</div><div style="font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:4px;">setup and onboarding fee</div><div style="font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;color:var(--gold);">$697<span style="font-size:13px;font-weight:500;color:rgba(255,255,255,0.5);">/month</span></div>
-<div style="font-size:13px;color:rgba(255,255,255,0.65);line-height:1.6;margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,0.1);">The complete growth system &mdash; all four pillars activated. Digital Presence, Google Visibility, Search Performance, and Digital Systems working as one.</div>
-<div style="font-size:12px;font-weight:800;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;">Everything in Starter, plus:</div>
-<div style="display:flex;flex-direction:column;gap:10px;margin-bottom:32px;flex:1;font-size:13px;color:rgba(255,255,255,0.85);">
-<div><span style="color:var(--gold);font-weight:800;margin-right:8px;">✓</span>WhatsApp Business profile setup</div>
-<div><span style="color:var(--gold);font-weight:800;margin-right:8px;">✓</span>WhatsApp product catalog setup</div>
-<div><span style="color:var(--gold);font-weight:800;margin-right:8px;">✓</span>Quick replies &amp; automated messages</div>
-<div><span style="color:var(--gold);font-weight:800;margin-right:8px;">✓</span>Advanced WhatsApp lead sequences</div>
-<div><span style="color:var(--gold);font-weight:800;margin-right:8px;">✓</span>Local SEO + competitor gap analysis</div>
-<div><span style="color:var(--gold);font-weight:800;margin-right:8px;">✓</span>5-star reputation builder</div>
-<div><span style="color:var(--gold);font-weight:800;margin-right:8px;">✓</span>Automated lead pipeline</div>
-<div><span style="color:var(--gold);font-weight:800;margin-right:8px;">✓</span>Conversion-optimized landing page</div>
-<div><span style="color:var(--gold);font-weight:800;margin-right:8px;">✓</span>Monthly performance check-in call</div>
-<div><span style="color:var(--gold);font-weight:800;margin-right:8px;">✓</span>Priority support</div>
-</div>
-<a href="https://bluwavgrowth.com/checkout?plan=current" onmouseout="this.style.transform='translateY(0)'" onmouseover="this.style.transform='translateY(-2px)'" style="display:block;background:var(--gold);color:var(--navy);font-size:15px;font-weight:800;padding:14px 20px;border-radius:11px;text-decoration:none;text-align:center;transition:all 0.2s;">Get Started with Current &#8594;</a>
-</div>
-
-<!-- Surge -->
-<div class="bw-reveal bw-delay-3" style="background:linear-gradient(145deg,#0a0a1a,#001428,#002040);border-radius:24px;padding:44px;display:flex;flex-direction:column;border:2px solid rgba(247,200,115,0.5);text-align:left;box-shadow:0 16px 60px rgba(0,0,0,0.5),0 0 40px rgba(247,200,115,0.08),inset 0 1px 0 rgba(247,200,115,0.1);">
-<div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--gold);margin-bottom:6px;">🚀 Full Transformation</div>
-<div style="font-size:22px;font-weight:800;color:#fff;margin-bottom:6px;font-family:'Manrope',sans-serif;">BluWav Surge</div>
-<div style="font-family:'Manrope',sans-serif;font-size:32px;font-weight:900;color:var(--gold);letter-spacing:-1px;line-height:1;margin-bottom:2px;">$2,500</div><div style="font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:4px;">setup and onboarding fee</div><div style="font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;color:var(--gold);">$1,497<span style="font-size:13px;font-weight:500;color:rgba(255,255,255,0.4);">/month+</span></div>
-<div style="font-size:13px;color:rgba(255,255,255,0.65);line-height:1.6;margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,0.1);">Full-scale growth system deployment &mdash; every pillar maximised, every channel activated, with a dedicated team managing your growth.</div>
-<div style="font-size:12px;font-weight:800;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;">Everything in Growth, Plus:</div>
-<div style="display:flex;flex-direction:column;gap:10px;margin-bottom:32px;flex:1;font-size:13px;color:rgba(255,255,255,0.85);">
-<div><span style="color:var(--gold);font-weight:800;margin-right:8px;">✓</span>Full WhatsApp sales funnel</div>
-<div><span style="color:var(--gold);font-weight:800;margin-right:8px;">✓</span>Google Ads campaign setup &amp; launch</div>
-<div><span style="color:var(--gold);font-weight:800;margin-right:8px;">✓</span>Bing Places + multi-search engine listing</div>
-<div><span style="color:var(--gold);font-weight:800;margin-right:8px;">✓</span>Bing Webmaster Tools setup</div>
-<div><span style="color:var(--gold);font-weight:800;margin-right:8px;">✓</span>Ad-ready setup (Google + Bing Ads)</div>
-<div><span style="color:var(--gold);font-weight:800;margin-right:8px;">✓</span>Monthly visibility &amp; performance report</div>
-<div><span style="color:var(--gold);font-weight:800;margin-right:8px;">✓</span>Quarterly strategy review call</div>
-<div><span style="color:var(--gold);font-weight:800;margin-right:8px;">✓</span>Dedicated account manager</div>
-</div>
-<a href="https://bluwavgrowth.com/checkout?plan=surge" onmouseout="this.style.transform='translateY(0)'" onmouseover="this.style.transform='translateY(-2px)'" style="display:block;background:var(--gold);color:#001020;font-size:15px;font-weight:800;padding:14px 20px;border-radius:11px;text-decoration:none;text-align:center;transition:all 0.2s;">Get Started with Surge &#8594;</a>
-</div>
-
-</div><!-- /grid -->
-
-<!-- Badges below cards -->
-<div style="display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:0;">
-  <div style="display:flex;align-items:center;gap:7px;background:#fff;border:1px solid rgba(0,43,73,0.08);border-radius:30px;padding:7px 16px;box-shadow:0 2px 8px rgba(0,43,73,0.05);"><span style="font-size:15px;">🌐</span><span style="font-size:12px;font-weight:700;color:#002B49;">Built for Modern Businesses</span></div>
-  <div style="display:flex;align-items:center;gap:7px;background:#fff;border:1px solid rgba(0,43,73,0.08);border-radius:30px;padding:7px 16px;box-shadow:0 2px 8px rgba(0,43,73,0.05);"><span style="font-size:15px;">⚡</span><span style="font-size:12px;font-weight:700;color:#002B49;">48&ndash;72 Hour Turnaround</span></div>
-  <div style="display:flex;align-items:center;gap:7px;background:#fff;border:1px solid rgba(0,43,73,0.08);border-radius:30px;padding:7px 16px;box-shadow:0 2px 8px rgba(0,43,73,0.05);"><span style="font-size:15px;">🔒</span><span style="font-size:12px;font-weight:700;color:#002B49;">You Own Everything Forever</span></div>
-</div>
-
-</div><!-- /max-width -->
-</div>
-</section>
-
-<!-- Case Study teaser, below Ripple card -->
-<div style="background:#fff;border:1px solid var(--mist);border-radius:14px;padding:20px 24px;margin-top:0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;box-shadow:0 2px 12px rgba(0,43,73,0.05);">
-  <div style="display:flex;align-items:center;gap:14px;">
-    <div style="width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,#0A1628,#1E3A5F);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">📐</div>
-    <div>
-      <div style="font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--coral);margin-bottom:3px;">Client Case Study</div>
-      <div style="font-size:14px;font-weight:700;color:var(--navy);">See how we built AADEK Consulting's site in 48 hours</div>
-      <div style="font-size:12px;color:var(--slate);margin-top:2px;">Engineering consultancy · BluWav Ripple package</div>
+<!-- ── PRICING PLANS ── -->
+<section class="section" id="plans" style="background: var(--sand);">
+<div class="section-inner">
+<div class="section-label">Pricing Plans</div>
+<h2 class="section-title">Choose Your Level of Growth</h2>
+<p class="section-sub">Every plan includes your website, Google presence, WhatsApp setup, CRM, and automation — built and live in 48 hours.</p>
+<div class="plan-framing">
+<strong>Not sure which plan is right for you?</strong> Choose the one that fits where your business is <em>right now</em>. You can upgrade anytime, downgrade anytime. No penalty, ever.
     </div>
-  </div>
-  <a href="case-study-aadek.html"
-     style="display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;font-size:13px;font-weight:800;padding:11px 22px;border-radius:9px;white-space:nowrap;transition:all 0.2s;flex-shrink:0;text-decoration:none;"
-     onmouseover="this.style.background='#003d5c'" onmouseout="this.style.background='var(--navy)'">
-    Read the Case Study →
-  </a>
+<div class="plans-grid">
+<!-- RIPPLE -->
+<div class="plan-card">
+<div class="plan-badge">Starter</div>
+<div class="plan-body">
+<div class="plan-tier">BluWav Ripple</div>
+<div class="plan-name">Foundation</div>
+<p class="plan-tagline">Your digital foundation — presence, visibility, and search performance working together from day one.</p>
+<div class="plan-persona">
+<span class="plan-persona-icon">🎯</span>
+<span>Best for businesses getting online for the first time, or fixing a broken digital foundation.</span>
 </div>
-
-<!-- EVERY PLAN, full-width cinematic banner -->
-<section style="position:relative;height:420px;overflow:hidden;">
-  <img src="crm-phone-dashboard.jpg"
-       alt="modern business professional reviewing CRM dashboard, BluWav Growth"
-       loading="lazy" decoding="async"
-       style="width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block;"/>
-  <!-- Deep gradient: strong left, fades right -->
-  <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(0,10,20,0.95) 0%,rgba(0,43,73,0.75) 40%,rgba(0,43,73,0.2) 75%,transparent 100%);"></div>
-  <!-- Bottom fade into next section -->
-  <div style="position:absolute;bottom:0;left:0;right:0;height:80px;background:linear-gradient(to bottom,transparent,#F4F2ED);"></div>
-  <div style="position:absolute;inset:0;display:flex;align-items:center;padding:0 8%;">
-    <div style="max-width:580px;">
-      <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:#00C2D8;margin-bottom:16px;">Every Growth System Includes</div>
-      <h2 style="font-family:'Manrope',sans-serif;font-size:42px;font-weight:900;color:#fff;line-height:1.1;margin-bottom:20px;letter-spacing:-0.5px;">Website · Google · WhatsApp<br/><span style="color:#00C2D8;">BluWav CRM</span> · Automation</h2>
-      <p style="font-size:16px;color:rgba(255,255,255,0.65);line-height:1.7;margin-bottom:28px;">Everything your business needs to get found, get chosen, and grow automatically, in one package. Delivered in 48–72 hours.</p>
-      <div style="display:flex;gap:12px;flex-wrap:wrap;">
-        <a href="health-check.html" style="display:inline-flex;align-items:center;gap:8px;background:#FF5500;color:#fff;font-size:15px;font-weight:800;padding:14px 32px;border-radius:11px;box-shadow:0 4px 24px rgba(255,85,0,0.4);transition:all 0.2s;text-decoration:none;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">Get My Digital Health Score →</a>
-        <a href="#crm-options" style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);color:#fff;font-size:15px;font-weight:600;padding:14px 28px;border-radius:11px;border:1px solid rgba(255,255,255,0.2);transition:all 0.2s;text-decoration:none;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">Add CRM ↓</a>
-      </div>
-    </div>
-  </div>
+<div class="plan-pricing">
+<div class="plan-setup">$900 one-time setup · then</div>
+<div class="plan-price-row">
+<span class="plan-price-amount">$397</span>
+<span class="plan-price-period">/month</span>
+</div>
+</div>
+<ul class="plan-features">
+<li><span class="feat-check">✓</span> Modern, mobile-first website — built to convert visitors into enquiries</li>
+<li><span class="feat-check">✓</span> Google Business Profile — set up, verified, and optimised</li>
+<li><span class="feat-check">✓</span> On-page SEO — so the right customers find you first</li>
+<li><span class="feat-check">✓</span> BluWav CRM™ + smart automation — every enquiry gets an instant response</li>
+<li><span class="feat-check">✓</span> Live in 48–72 hours · WhatsApp support included</li>
+</ul>
+<a class="plan-cta" href="https://bluwavgrowth.com/free-health-check">Get Started with Ripple →</a>
+<p class="plan-microcopy">Cancel anytime · No lock-in contract</p>
+</div>
+</div>
+<!-- CURRENT (POPULAR) -->
+<div class="plan-card popular">
+<div class="plan-badge">⭐ Most Popular · Best Value</div>
+<div class="plan-body">
+<div class="plan-tier">BluWav Current</div>
+<div class="plan-name">Growth</div>
+<p class="plan-tagline">The complete growth system — all four pillars activated, turning visibility into consistent leads and bookings.</p>
+<div class="plan-persona">
+<span class="plan-persona-icon">🚀</span>
+<span>Best for businesses ready to turn their online presence into a reliable, automated lead pipeline.</span>
+</div>
+<div class="plan-pricing">
+<div class="plan-setup">$1,250 one-time setup · then</div>
+<div class="plan-price-row">
+<span class="plan-price-amount">$697</span>
+<span class="plan-price-period">/month</span>
+</div>
+</div>
+<ul class="plan-features">
+<li><span class="feat-check">✓</span> Everything in Foundation, plus:</li>
+<li><span class="feat-check">✓</span> Advanced WhatsApp sequences — automated follow-up that closes leads</li>
+<li><span class="feat-check">✓</span> Local SEO + reputation builder — outrank competitors, win more reviews</li>
+<li><span class="feat-check">✓</span> Full lead pipeline — Lead → Quote → Won, tracked automatically</li>
+<li><span class="feat-check">✓</span> Monthly performance call + conversion-optimised landing page</li>
+<li><span class="feat-check">✓</span> Live in 48 hours · Priority WhatsApp support</li>
+</ul>
+<a class="plan-cta" href="https://bluwavgrowth.com/free-health-check">Get Started with Current →</a>
+<p class="plan-microcopy">Cancel anytime · No lock-in contract</p>
+</div>
+</div>
+<!-- SURGE (ELITE) -->
+<div class="plan-card elite">
+<div class="plan-badge">Full Transformation</div>
+<div class="plan-body">
+<div class="plan-tier">BluWav Surge</div>
+<div class="plan-name">Dominance</div>
+<p class="plan-tagline">Full-scale growth with a dedicated team behind you — every channel activated, every opportunity captured.</p>
+<div class="plan-persona">
+<span class="plan-persona-icon">🏆</span>
+<span>Best for businesses ready to dominate their market and hand growth management to a dedicated team.</span>
+</div>
+<div class="plan-pricing">
+<div class="plan-setup">$2,500 one-time setup · then</div>
+<div class="plan-price-row">
+<span class="plan-price-amount">$1,497</span>
+<span class="plan-price-period">/month+</span>
+</div>
+</div>
+<ul class="plan-features">
+<li><span class="feat-check">✓</span> Everything in Growth, plus:</li>
+<li><span class="feat-check">✓</span> Google Ads — setup, launch, and ongoing management</li>
+<li><span class="feat-check">✓</span> Full WhatsApp sales funnel — from first message to closed deal</li>
+<li><span class="feat-check">✓</span> Dedicated account manager — one person, always accountable</li>
+<li><span class="feat-check">✓</span> Quarterly strategy reviews + monthly performance reports</li>
+<li><span class="feat-check">✓</span> Live in 48 hours · Dedicated priority support</li>
+</ul>
+<a class="plan-cta" href="https://bluwavgrowth.com/free-health-check">Get Started with Surge →</a>
+<p class="plan-microcopy">Cancel anytime · No lock-in contract</p>
+</div>
+</div>
+</div><!-- /plans-grid -->
+</div>
 </section>
-<!-- FAQ -->
-<section id="faq" style="background:var(--sand);padding:96px 0;">
-<div style="max-width:760px;margin:0 auto;padding:0 48px;">
-<div style="text-align:center;margin-bottom:48px;">
-<span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;color:var(--cyan);display:block;margin-bottom:12px;">FAQ</span>
-<h2 style="font-size:42px;font-weight:800;color:var(--navy);font-family:'Manrope',sans-serif;">Frequently Asked Questions</h2>
+<!-- ── WHAT'S INCLUDED IN EVERY PLAN ── -->
+<div class="included-bar">
+<div class="included-bar-inner">
+<h3>Every BluWav Plan Includes</h3>
+<div class="included-items">
+<div class="included-item"><span class="dot"></span>Signed agreement before we start</div>
+<div class="included-item"><span class="dot"></span>Your approval before we go live</div>
+<div class="included-item"><span class="dot"></span>48–72 hour delivery</div>
+<div class="included-item"><span class="dot"></span>BluWav CRM™ included</div>
+<div class="included-item"><span class="dot"></span>Real person on WhatsApp</div>
+<div class="included-item"><span class="dot"></span>No lock-in contract</div>
+<div class="included-item"><span class="dot"></span>Your data, always yours</div>
 </div>
-<div style="display:flex;flex-direction:column;gap:0;">
-
-<details open="" style="border-bottom:1px solid var(--mist);padding:20px 0;">
-<summary style="font-size:16px;font-weight:700;color:var(--navy);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;font-family:'Manrope',sans-serif;">Do I really own everything?<span style="color:var(--coral);font-size:18px;margin-left:12px;">+</span></summary>
-<p style="font-size:14px;color:var(--slate);line-height:1.75;margin-top:12px;">Yes. Your website, CRM, automations, content, and accounts are all yours forever. BluWav does not lock you into monthly subscriptions or proprietary systems. You own it, full stop.</p>
-</details>
-
-<details style="border-bottom:1px solid var(--mist);padding:20px 0;">
-<summary style="font-size:16px;font-weight:700;color:var(--navy);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;font-family:'Manrope',sans-serif;">Is there a monthly fee?<span style="color:var(--coral);font-size:18px;margin-left:12px;">+</span></summary>
-<p style="font-size:14px;color:var(--slate);line-height:1.75;margin-top:12px;">Your Growth System package includes a setup and onboarding fee and monthly retainer. Hosting is included for 6 months, then $200 every 6 months for secure hosting, SSL, updates, and support. BluWav CRM is included with every Growth System — you'll have full access to manage leads, automate follow-ups, and track your pipeline from day one.</p>
-</details>
-
-<details style="border-bottom:1px solid var(--mist);padding:20px 0;">
-<summary style="font-size:16px;font-weight:700;color:var(--navy);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;font-family:'Manrope',sans-serif;">What's included in every plan?<span style="color:var(--coral);font-size:18px;margin-left:12px;">+</span></summary>
-<p style="font-size:14px;color:var(--slate);line-height:1.75;margin-top:12px;">Every BluWav Growth System includes: a modern website you own forever, Google Business Profile setup, CRM (14-day trial included), smart lead automation, a performance dashboard, on-page SEO essentials, Google Search Console + Analytics 4 setup, WhatsApp chat button, mobile-optimized design, and fast secure hosting. All built for modern businesses.</p>
-</details>
-
-<details style="border-bottom:1px solid var(--mist);padding:20px 0;">
-<summary style="font-size:16px;font-weight:700;color:var(--navy);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;font-family:'Manrope',sans-serif;">How fast will my system be ready?<span style="color:var(--coral);font-size:18px;margin-left:12px;">+</span></summary>
-<p style="font-size:14px;color:var(--slate);line-height:1.75;margin-top:12px;">Most businesses go live in 48–72 hours from the moment you provide your content and business details. We move fast, that's the BluWav promise.</p>
-</details>
-
-<details style="border-bottom:1px solid var(--mist);padding:20px 0;">
-<summary style="font-size:16px;font-weight:700;color:var(--navy);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;font-family:'Manrope',sans-serif;">What is the CRM and how does it help me?<span style="color:var(--coral);font-size:18px;margin-left:12px;">+</span></summary>
-<p style="font-size:14px;color:var(--slate);line-height:1.75;margin-top:12px;">BluWav CRM is your customer management hub — track leads, manage contacts, automate follow-ups, and monitor your pipeline all in one place. It's included with every Growth System package. For advanced CRM features, dedicated support, or agency/white-label options, visit bluwavcrm.com.</p>
-</details>
-
-<details style="border-bottom:1px solid var(--mist);padding:20px 0;">
-<summary style="font-size:16px;font-weight:700;color:var(--navy);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;font-family:'Manrope',sans-serif;">What's the difference between the three plans?<span style="color:var(--coral);font-size:18px;margin-left:12px;">+</span></summary>
-<div style="font-size:14px;color:var(--slate);line-height:1.75;margin-top:12px;"><p style="margin-bottom:6px;"><strong>Ripple ($900 setup + $397/mo)</strong> — Website, Google visibility, BluWav CRM, smart automation, and performance dashboard. Perfect for businesses starting their digital journey.</p><p style="margin-bottom:6px;"><strong>Current ($1,250 setup + $697/mo)</strong> — Everything in Ripple plus WhatsApp Business, local SEO, reputation builder, automated lead pipeline, and a monthly check-in call. Best for businesses ready to grow consistently.</p><p style="margin-bottom:6px;"><strong>Surge ($2,500 setup + $1,497/mo+)</strong> — Everything in Current plus Google Ads, full WhatsApp sales funnel, monthly reports, quarterly strategy reviews, and a dedicated account manager. For businesses scaling aggressively.</p></div>
-</details>
-
-<details style="border-bottom:1px solid var(--mist);padding:20px 0;">
-<summary style="font-size:16px;font-weight:700;color:var(--navy);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;font-family:'Manrope',sans-serif;">Do you run my Google Ads?<span style="color:var(--coral);font-size:18px;margin-left:12px;">+</span></summary>
-<p style="font-size:14px;color:var(--slate);line-height:1.75;margin-top:12px;">For Ripple and Current, we set up your Google Analytics, Search Console, and tracking, but ad management is not included. For Surge, we set up and launch your Google Ads campaign and provide the ad-ready infrastructure. You control the ad budget. If you want ongoing ad management after launch, we can discuss that separately.</p>
-</details>
-
-<details style="border-bottom:1px solid var(--mist);padding:20px 0;">
-<summary style="font-size:16px;font-weight:700;color:var(--navy);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;font-family:'Manrope',sans-serif;">Does BluWav CRM come with every package?<span style="color:var(--coral);font-size:18px;margin-left:12px;">+</span></summary>
-<p style="font-size:14px;color:var(--slate);line-height:1.75;margin-top:12px;">Yes. BluWav CRM is included with every Growth System. You'll have full access to contacts, pipeline tracking, automated follow-ups, and WhatsApp integration from day one — no trial, no extra cost.</p>
-</details>
-
-<details style="border-bottom:1px solid var(--mist);padding:20px 0;">
-<summary style="font-size:16px;font-weight:700;color:var(--navy);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;font-family:'Manrope',sans-serif;">Do you offer a nonprofit rate?<span style="color:var(--coral);font-size:18px;margin-left:12px;">+</span></summary>
-<p style="font-size:14px;color:var(--slate);line-height:1.75;margin-top:12px;">Yes. Registered nonprofits may qualify for a reduced rate. Email hello@bluwavgrowth.com with your nonprofit registration number and we'll discuss the best option for your organisation.</p>
-</details>
-
-<details style="border-bottom:1px solid var(--mist);padding:20px 0;">
-<summary style="font-size:16px;font-weight:700;color:var(--navy);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;font-family:'Manrope',sans-serif;">What about the White-Label option?<span style="color:var(--coral);font-size:18px;margin-left:12px;">+</span></summary>
-<p style="font-size:14px;color:var(--slate);line-height:1.75;margin-top:12px;">For agency and white-label CRM options, visit bluwavcrm.com or book a call to discuss partnership opportunities.</p>
-</details>
-
-<details style="border-bottom:1px solid var(--mist);padding:20px 0;">
-<summary style="font-size:16px;font-weight:700;color:var(--navy);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;font-family:'Manrope',sans-serif;">Do you write my content?<span style="color:var(--coral);font-size:18px;margin-left:12px;">+</span></summary>
-<p style="font-size:14px;color:var(--slate);line-height:1.75;margin-top:12px;">Yes. We provide starter content for your website, Google Business Profile, and WhatsApp. It's written for your business type and location. You can edit it anytime, you own it.</p>
-</details>
-
-<details style="border-bottom:1px solid var(--mist);padding:20px 0;">
-<summary style="font-size:16px;font-weight:700;color:var(--navy);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;font-family:'Manrope',sans-serif;">What do I need to get started?<span style="color:var(--coral);font-size:18px;margin-left:12px;">+</span></summary>
-<p style="font-size:14px;color:var(--slate);line-height:1.75;margin-top:12px;">Just your business name, logo (if you have one), contact details, and a short description of what you offer. We handle everything else, design, setup, content, and launch.</p>
-</details>
-
-<details style="border-bottom:1px solid var(--mist);padding:20px 0;">
-<summary style="font-size:16px;font-weight:700;color:var(--navy);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;font-family:'Manrope',sans-serif;">Can I upgrade later?<span style="color:var(--coral);font-size:18px;margin-left:12px;">+</span></summary>
-<p style="font-size:14px;color:var(--slate);line-height:1.75;margin-top:12px;">Yes. You can start with Ripple or Current and upgrade to Surge anytime. Your existing website, CRM data, and setup carry over, you never lose anything. Same for the CRM: start on Lite and upgrade to Premium whenever you're ready.</p>
-</details>
-
-<details style="border-bottom:1px solid var(--mist);padding:20px 0;">
-<summary style="font-size:16px;font-weight:700;color:var(--navy);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;font-family:'Manrope',sans-serif;">What support do I get?<span style="color:var(--coral);font-size:18px;margin-left:12px;">+</span></summary>
-<div style="font-size:14px;color:var(--slate);line-height:1.75;margin-top:12px;"><p style="margin-bottom:6px;"><strong>Ripple:</strong> Standard support, email response within 24 hours.</p><p style="margin-bottom:6px;"><strong>Current:</strong> Priority support + monthly check-in call.</p><p style="margin-bottom:6px;"><strong>Surge:</strong> Dedicated account manager + quarterly strategy review.</p></div>
-</details>
-
-<details style="border-bottom:1px solid var(--mist);padding:20px 0;">
-<summary style="font-size:16px;font-weight:700;color:var(--navy);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;font-family:'Manrope',sans-serif;">Do you work with businesses in my country?</summary><div class="faq-answer" style="padding:16px 20px;font-size:14px;color:#374151;line-height:1.75;">Yes. BluWav Growth works with businesses worldwide. Our systems are built for any market, any country, any industry. We deliver in 48 hours and you own everything we build.<span style="color:var(--coral);font-size:18px;margin-left:12px;">+</span></summary>
-<p style="font-size:14px;color:var(--slate);line-height:1.75;margin-top:12px;">Yes. BluWav works with businesses globally. Our systems are especially optimised for modern businesses and regional search behaviour, but the tools work anywhere.</p>
-</details>
-
+</div>
+</div>
+<!-- ── RISK REVERSAL ── -->
+<section class="risk-section">
+<div class="risk-inner">
+<div class="risk-header">
+<div class="section-label" style="text-align:center; margin-bottom:10px;">Complete Transparency</div>
+<h2>What Happens If You Ever Want to Leave?</h2>
+<p>We'd rather tell you upfront than have you find out later. Here's exactly how it works.</p>
+</div>
+<div class="risk-items">
+<div class="risk-item">
+<div class="risk-icon">📅</div>
+<div class="risk-item-content">
+<h4>Cancel anytime. No penalty. No awkward conversation.</h4>
+<p>Give us 30 days' notice and you're done. No early termination fees, no guilt trips, no locked-in commitments. If it's not working for your business, you shouldn't be paying for it.</p>
+</div>
+</div>
+<div class="risk-item">
+<div class="risk-icon">🔐</div>
+<div class="risk-item-content">
+<h4>Your data is always yours — we'll hand it over within 48 hours.</h4>
+<p>Your customer contacts, your Google Business Profile, your website content — these belong to your business from day one. If you ever leave, we'll send you a full data export within 48 hours of your request. No forms, no delays, no conditions.</p>
+</div>
+</div>
+<div class="risk-item">
+<div class="risk-icon">📈</div>
+<div class="risk-item-content">
+<h4>Everything we build is designed to keep working.</h4>
+<p>Your Google presence, your reputation, your customer relationships — these compound over time and stay with your business. We build systems that grow your business, not systems that hold it hostage.</p>
+</div>
+</div>
+</div>
+<div class="risk-closing">
+      We show you the exit on day one. Most agencies hide it.<br/>
+<em>We think that says everything about how we operate.</em>
 </div>
 </div>
 </section>
-
-<!-- FINAL CTA -->
-<section class="pricing-cta-section" style="background:linear-gradient(135deg,#002B49,#003d5c);padding:96px 0;text-align:center;position:relative;overflow:hidden;">
-<div style="position:absolute;top:-100px;right:-100px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(0,224,255,0.12) 0%,transparent 70%);pointer-events:none;"></div>
-<div class="pricing-cta-inner" style="max-width:600px;margin:0 auto;padding:0 24px;position:relative;z-index:2;">
-<span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;color:var(--gold);display:block;margin-bottom:16px;">Ready to Grow?</span>
-<h2 style="font-size:clamp(26px,6vw,44px);font-weight:800;color:#fff;line-height:1.15;margin-bottom:16px;font-family:'Manrope',sans-serif;">Ready to grow your business online?</h2>
-<p style="font-size:18px;color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:36px;">Start with your free Digital Health Check, it takes 30 seconds.</p>
-<a href="health-check.html" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 6px 32px rgba(255,85,0,0.5)'" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 40px rgba(255,85,0,0.65)'" style="background:var(--coral);color:#fff;font-size:17px;font-weight:800;padding:18px 52px;border-radius:12px;box-shadow:0 6px 32px rgba(255,85,0,0.5);display:inline-block;text-decoration:none;transition:all 0.2s;">Apply Now, It's Free →</a>
+<!-- ── TESTIMONIALS ── -->
+<section class="testimonials-section">
+<div class="section-label">Real Businesses. Real Results.</div>
+<h2 class="section-title" style="margin-bottom:10px;">What Happens When BluWav Goes Live</h2>
+<p class="section-sub">From invisible to growing — in 48 hours.</p>
+<div class="testimonials-grid">
+<div class="testimonial-card">
+<div class="testimonial-stars">★★★★★</div>
+<div class="testimonial-result">📈 3–5 new enquiries/week</div>
+<p class="testimonial-quote">We went from invisible on Google to getting 3–5 new enquiries a week. BluWav set everything up in 48 hours. The health check was the wake-up call I needed.</p>
+<div class="testimonial-author">
+<div class="author-avatar">KM</div>
+<div class="author-info">
+<div class="name">Kezia M.</div>
+<div class="role">Salon Owner · Port of Spain, Trinidad</div>
 </div>
-</section></section><!-- FOOTER -->
-<footer style="background:#001828;width:100%;box-sizing:border-box;">
-
-  <!-- CTA STRIP -->
-  <div style="border-bottom:1px solid rgba(255,255,255,0.08);padding:48px clamp(16px,4vw,80px);">
-    <div style="max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;">
-      <div>
-        <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:#00E0FF;margin-bottom:10px;">Ready to Grow?</div>
-        <h2 style="font-family:'Manrope',sans-serif;font-size:clamp(20px,3vw,32px);font-weight:800;color:#fff;line-height:1.2;margin:0;">The digital growth system that works <span style="color:#FF5500;">for you.</span></h2>
+</div>
+</div>
+<div class="testimonial-card">
+<div class="testimonial-stars">★★★★★</div>
+<div class="testimonial-result">⭐ 40+ Google reviews in one week</div>
+<p class="testimonial-quote">The health check showed me exactly what was wrong. Within a week we had a new website and 40+ Google reviews. I had no idea how invisible we were before.</p>
+<div class="testimonial-author">
+<div class="author-avatar">RT</div>
+<div class="author-info">
+<div class="name">Ricardo T.</div>
+<div class="role">Contractor · San Fernando, Trinidad</div>
+</div>
+</div>
+</div>
+<div class="testimonial-card">
+<div class="testimonial-stars">★★★★★</div>
+<div class="testimonial-result">⚡ Full pipeline visibility, zero chasing</div>
+<p class="testimonial-quote">The WhatsApp automation alone saved us hours every week. Every enquiry gets an instant response, every lead is followed up, and I can see the whole pipeline without chasing my team.</p>
+<div class="testimonial-author">
+<div class="author-avatar">MA</div>
+<div class="author-info">
+<div class="name">Michelle A.</div>
+<div class="role">Restaurant Owner · Barbados</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ── FAQ ── -->
+<section class="faq-section">
+<div class="faq-inner">
+<div class="section-label" style="text-align:center; margin-bottom:10px;">Questions We Get Asked</div>
+<h2 class="section-title" style="margin-bottom:40px;">Everything You Need to Know</h2>
+<div class="faq-item open">
+<button class="faq-question" onclick="toggleFaq(this)">
+        What exactly do I get in the first 48 hours?
+        <span class="faq-icon">+</span>
+</button>
+<div class="faq-answer">
+        Your website, Google Business Profile, WhatsApp Business setup, and BluWav CRM™ — all built, configured, and live. On Growth and Dominance plans, your automation sequences and lead pipeline are also active from day one. You'll receive a WhatsApp walkthrough from your BluWav contact once everything is ready.
       </div>
-      <div style="display:flex;gap:12px;flex-wrap:wrap;flex-shrink:0;">
-        <a href="health-check.html" style="display:inline-flex;align-items:center;gap:8px;background:#FF5500;color:#fff;font-size:14px;font-weight:800;padding:13px 24px;border-radius:10px;text-decoration:none;white-space:nowrap;" onmouseover="this.style.background='#e84d00'" onmouseout="this.style.background='#FF5500'">Get My Free Health Score &#8594;</a>
-        <a href="https://calendly.com/hello-bluwavgrowth/30min" onclick="if(typeof gtag!=='undefined'){gtag('event','book_call_click',{'event_category':'CTA','event_label':'Book a Call','page':'footer'});}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:transparent;color:#fff;font-size:14px;font-weight:700;padding:13px 24px;border-radius:10px;text-decoration:none;border:1.5px solid rgba(255,255,255,0.2);white-space:nowrap;" onmouseover="this.style.borderColor='rgba(255,255,255,0.5)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.2)'">&#128197; Book a Call</a>
+</div>
+<div class="faq-item">
+<button class="faq-question" onclick="toggleFaq(this)">
+        What happens to my data if I cancel?
+        <span class="faq-icon">+</span>
+</button>
+<div class="faq-answer">
+<strong>Your customer contacts, website content, and Google Business Profile are yours.</strong> We'll send you a full data export within 48 hours of your cancellation request — no forms, no delays, no conditions. We don't hold anything hostage. That's not how we operate.
       </div>
-    </div>
-  </div>
-
-  <!-- MAIN FOOTER CONTENT -->
-  <div style="max-width:1400px;margin:0 auto;padding:56px clamp(16px,4vw,80px) 48px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;">
-
-    <!-- LEFT: Brand -->
-    <div>
-      <a href="index.html" style="text-decoration:none;display:inline-block;margin-bottom:16px;">
-        <div style="font-family:'Kaushan Script',cursive;font-size:32px;color:#fff;line-height:1;">Blu<span style="color:#00E0FF;">Wav</span></div>
-        <div style="font-size:8px;font-weight:700;color:#00E0FF;letter-spacing:4px;text-transform:uppercase;margin-top:3px;">Get Found. Get Chosen. Grow.</div>
-      </a>
-      <p style="font-size:13px;color:rgba(255,255,255,0.45);line-height:1.75;max-width:300px;margin-bottom:20px;">The unified digital growth system for modern businesses &mdash; website, Google visibility, CRM, and automation. Delivered in 48 hours. You own everything forever.</p>
-      <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.25);letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;">A Stratiix Group Company</div>
-      <div style="display:flex;gap:8px;">
-        <a href="https://facebook.com/bluwavgrowth" target="_blank" rel="noopener" aria-label="Facebook" style="width:36px;height:36px;border-radius:8px;border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);font-size:14px;font-weight:800;text-decoration:none;transition:all 0.2s;" onmouseover="this.style.borderColor='#1877F2';this.style.color='#1877F2'" onmouseout="this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='rgba(255,255,255,0.6)'">f</a>
-        <a href="https://www.instagram.com/bluwavgrowth/" target="_blank" rel="noopener" aria-label="Instagram" style="width:36px;height:36px;border-radius:8px;border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);font-size:16px;text-decoration:none;transition:all 0.2s;" onmouseover="this.style.borderColor='#E1306C';this.style.color='#E1306C'" onmouseout="this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='rgba(255,255,255,0.6)'">&#128247;</a>
-        <a href="mailto:hello@bluwavgrowth.com" aria-label="Email" style="width:36px;height:36px;border-radius:8px;border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);font-size:15px;text-decoration:none;transition:all 0.2s;" onmouseover="this.style.borderColor='#00E0FF';this.style.color='#00E0FF'" onmouseout="this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='rgba(255,255,255,0.6)'">&#9993;</a>
+</div>
+<div class="faq-item">
+<button class="faq-question" onclick="toggleFaq(this)">
+        Is there a setup fee? Is there a minimum contract?
+        <span class="faq-icon">+</span>
+</button>
+<div class="faq-answer">
+        There is a one-time setup fee (Ripple: $900 · Current: $1,250 · Surge: $2,500) that covers the build, configuration, and onboarding of your entire growth system. After that, your monthly plan begins. <strong>There is no minimum contract.</strong> Your first month starts when your system goes live — not when you sign up.
       </div>
-    </div>
-
-    <!-- MIDDLE: Navigate -->
-    <div>
-      <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;color:rgba(255,255,255,0.35);margin-bottom:20px;">Navigate</div>
-      <div style="display:flex;flex-direction:column;gap:12px;">
-        <a href="index.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Home</a>
-        <a href="health-score.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Health Score</a>
-        <a href="about.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">About</a>
-        <a href="contact.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Contact</a>
-        <a href="index.html#what-we-do-cont" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Growth Plans</a>
-        <a href="https://bluwavcrm.com/login.html" target="_blank" rel="noopener" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Client Login</a>
-        <a href="systems.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Growth Systems</a>
-        <a href="case-study-aadek.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Case Studies</a>
+</div>
+<div class="faq-item">
+<button class="faq-question" onclick="toggleFaq(this)">
+        Can I upgrade or downgrade my plan?
+        <span class="faq-icon">+</span>
+</button>
+<div class="faq-answer">
+        Yes, anytime. Upgrades take effect immediately — we'll build out the additional components within 48 hours. Downgrades take effect at the start of your next billing cycle. No penalty either way. Choose the plan that fits where your business is right now, and grow from there.
       </div>
-    </div>
-
-    <!-- RIGHT: Get Started -->
-    <div>
-      <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;color:rgba(255,255,255,0.35);margin-bottom:20px;">Get Started</div>
-      <div style="display:flex;flex-direction:column;gap:12px;">
-        <a href="health-check.html" style="font-size:13px;color:#00E0FF;text-decoration:none;font-weight:700;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#00E0FF'">&#129658; Free Health Score</a>
-        <a href="https://calendly.com/hello-bluwavgrowth/30min" onclick="if(typeof gtag!=='undefined'){gtag('event','book_call_click',{'event_category':'CTA','event_label':'Book a Call','page':'footer'});}" target="_blank" rel="noopener" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">&#128197; Book a Call</a>
-        <a href="mailto:hello@bluwavgrowth.com" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">&#9993; hello@bluwavgrowth.com</a>
-        <a href="the-wave.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">&#127754; The Wave Newsletter</a>
-        <a href="privacy.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Privacy Policy</a>
-        <a href="careers.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Careers</a>
+</div>
+<div class="faq-item">
+<button class="faq-question" onclick="toggleFaq(this)">
+        Do I need technical knowledge to use this?
+        <span class="faq-icon">+</span>
+</button>
+<div class="faq-answer">
+        None. We build everything. You review it, approve it, and we go live. Ongoing management is handled by us — you get results and updates via WhatsApp, not a dashboard to learn or a system to manage. If something needs changing, you message us and it gets done.
       </div>
-    </div>
-
-  </div>
-
-  <!-- BOTTOM BAR -->
-  <div style="border-top:1px solid rgba(255,255,255,0.06);padding:20px clamp(16px,4vw,80px);">
-    <div style="max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
-      <div style="font-size:12px;color:rgba(255,255,255,0.25);">&#169; 2026 <span style="color:rgba(255,255,255,0.4);">BluWav Growth</span> &middot; All rights reserved. &middot; Built for modern businesses worldwide.</div>
-      <div style="display:flex;gap:20px;">
-        <a href="privacy.html" style="font-size:12px;color:rgba(255,255,255,0.25);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='rgba(255,255,255,0.6)'" onmouseout="this.style.color='rgba(255,255,255,0.25)'">Privacy</a>
-        <a href="contact.html" style="font-size:12px;color:rgba(255,255,255,0.25);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='rgba(255,255,255,0.6)'" onmouseout="this.style.color='rgba(255,255,255,0.25)'">Contact</a>
-        <a href="sales-agent-agreement.html" style="font-size:12px;color:rgba(255,255,255,0.25);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='rgba(255,255,255,0.6)'" onmouseout="this.style.color='rgba(255,255,255,0.25)'">Agent Agreement</a>
+</div>
+<div class="faq-item">
+<button class="faq-question" onclick="toggleFaq(this)">
+        What if I'm not seeing results after 30 days?
+        <span class="faq-icon">+</span>
+</button>
+<div class="faq-answer">
+        We'll tell you honestly. If something isn't working, we fix it — or we tell you exactly why and what needs to change. <strong>We'd rather have that conversation than keep billing you for something that isn't delivering.</strong> That's not a marketing line. It's how we've built every client relationship since day one.
       </div>
-    </div>
-  </div>
-
-</footer>
-
-<a href="mailto:hello@bluwavgrowth.com" style="position:fixed;bottom:80px;right:24px;z-index:200;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 20px rgba(37,211,102,0.45);">💬</a>
-
-
-
+</div>
+<div class="faq-item">
+<button class="faq-question" onclick="toggleFaq(this)">
+        How is the CRM included in the monthly fee?
+        <span class="faq-icon">+</span>
+</button>
+<div class="faq-answer">
+        BluWav CRM™ is built into every plan — it's not a separate add-on or an extra charge. Your monthly fee covers the platform, the automation, the ongoing management, and the CRM that ties it all together. One plan. One price. Everything included.
+      </div>
+</div>
+</div>
+</section>
+<!-- ── BOTTOM CTA ── -->
+<section class="bottom-cta" id="bottom-cta">
+<div class="bottom-cta-inner">
+<h2>Not Sure Which Plan<br/>Is Right for <span>Your Business?</span></h2>
+<p>Start with a free Digital Health Check. We'll review your Google presence, website, and lead system — then WhatsApp you a personalised report within 48 hours. No sales pitch. Just an honest picture of where your business stands.</p>
+<a class="bottom-cta-btn" href="https://bluwavgrowth.com/free-health-check">Get My Free Health Check →</a>
+<div class="bottom-cta-trust">
+<span>✓ 100% free</span>
+<span>✓ Results in 48 hours</span>
+<span>✓ No commitment</span>
+<span>✓ No sales pitch</span>
+</div>
+</div>
+</section>
+<!-- ── FOOTER TRUST STRIP ── -->
+<div class="footer-strip">
+<div class="footer-strip-inner">
+<div class="footer-trust-item"><span class="icon">🔐</span> Your data, always yours</div>
+<div class="footer-trust-item"><span class="icon">⚡</span> Live in 48 hours</div>
+<div class="footer-trust-item"><span class="icon">💬</span> Real person on WhatsApp</div>
+<div class="footer-trust-item"><span class="icon">★</span> 5-star rated · 50+ businesses</div>
+<div class="footer-trust-item"><span class="icon">📋</span> Signed agreement before we start</div>
+</div>
+</div>
 <script>
-function toggleMob(){
-  var nav=document.getElementById('mobNav');
-  var btn=document.getElementById('hamburgerBtn');
-  nav.classList.toggle('open');
-  if(btn)btn.classList.toggle('open');
-}
-function closeMob(){
-  document.getElementById('mobNav').classList.remove('open');
-  var btn=document.getElementById('hamburgerBtn');
-  if(btn)btn.classList.remove('open');
-}
-document.addEventListener('click',function(e){
-  var nav=document.getElementById('mobNav');
-  var btn=document.getElementById('hamburgerBtn');
-  if(nav&&btn&&nav.classList.contains('open')){
-    if(!nav.contains(e.target)&&!btn.contains(e.target)){
-      nav.classList.remove('open');
-      btn.classList.remove('open');
-    }
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    // Open clicked if it was closed
+    if (!isOpen) item.classList.add('open');
   }
-});
-function closeMob(){
-  document.getElementById('mobNav').classList.remove('open');
-  var btn = document.getElementById('hamburgerBtn');
-  if(btn) btn.classList.remove('open');
-}
-document.addEventListener('click', function(e){
-  var nav = document.getElementById('mobNav');
-  var btn = document.getElementById('hamburgerBtn');
-  if(nav && btn && nav.classList.contains('open')){
-    if(!nav.contains(e.target) && !btn.contains(e.target)){
-      nav.classList.remove('open');
-      btn.classList.remove('open');
-    }
-  }
-});
-</script>
-<script>
-// ── Intersection Observer for scroll reveals ──────────────────────────────────
-(function(){
-  var obs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){
-        e.target.classList.add('in-view');
-        obs.unobserve(e.target);
-      }
-    });
-  },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
-  document.querySelectorAll('.reveal-up,.reveal-left,.reveal-right,.reveal-scale').forEach(function(el){
-    obs.observe(el);
-  });
-
-  // Add reveal classes to key elements dynamically
-  document.querySelectorAll('h2.h2,h1.hero-h1').forEach(function(el,i){
-    if(!el.classList.contains('reveal-up')){
-      el.classList.add('reveal-up');
-      if(i>0) el.classList.add('delay-'+Math.min(i,5));
-    }
-  });
-  document.querySelectorAll('.eyebrow').forEach(function(el){
-    if(!el.classList.contains('reveal-up')) el.classList.add('reveal-up');
-  });
-})();
-
-// ── Cursor glow effect ────────────────────────────────────────────────────────
-(function(){
-  var glow = document.createElement('div');
-  glow.style.cssText='position:fixed;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(0,224,255,0.04) 0%,transparent 70%);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:left 0.15s ease,top 0.15s ease;';
-  document.body.appendChild(glow);
-  document.addEventListener('mousemove',function(e){
-    glow.style.left=e.clientX+'px';
-    glow.style.top=e.clientY+'px';
-  });
-})();
-
-// ── Smooth counter animation for stat numbers ─────────────────────────────────
-(function(){
-  var counters = document.querySelectorAll('[id^="s"]');
-  counters.forEach(function(el){
-    var text = el.textContent;
-    var num = parseInt(text);
-    if(isNaN(num)) return;
-    var suffix = text.replace(num,'');
-    var obs2 = new IntersectionObserver(function(entries){
-      if(entries[0].isIntersecting){
-        var start=0,duration=1500,step=duration/num;
-        var timer=setInterval(function(){
-          start+=Math.ceil(num/60);
-          if(start>=num){start=num;clearInterval(timer);}
-          el.textContent=start+suffix;
-        },step);
-        obs2.unobserve(el);
-      }
-    },{threshold:0.5});
-    obs2.observe(el);
-  });
-})();
-</script>
-<!-- BluWav Signature Wave -->
-<div class="parallax-wrap">
-  <!-- Layer 1: back, slowest, navy -->
-  <svg class="px-svg px-layer-1" viewBox="0 0 1440 180" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,120 C120,90 240,150 360,120 C480,90 600,150 720,120 C840,90 960,150 1080,120 C1200,90 1320,150 1440,120 C1560,90 1680,150 1800,120 C1920,90 2040,150 2160,120 L2160,180 L0,180 Z" fill="rgba(0,43,73,0.7)"/>
-  </svg>
-  <!-- Layer 2: middle, turquoise -->
-  <svg class="px-svg px-layer-2" viewBox="0 0 1440 180" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,135 C120,105 240,160 360,135 C480,105 600,160 720,135 C840,105 960,160 1080,135 C1200,105 1320,160 1440,135 C1560,105 1680,160 1800,135 C1920,105 2040,160 2160,135 L2160,180 L0,180 Z" fill="rgba(0,194,216,0.45)"/>
-  </svg>
-  <!-- Layer 3: front, fastest, cyan -->
-  <svg class="px-svg px-layer-3" viewBox="0 0 1440 180" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,148 C120,120 240,168 360,148 C480,120 600,168 720,148 C840,120 960,168 1080,148 C1200,120 1320,168 1440,148 C1560,120 1680,168 1800,148 C1920,120 2040,168 2160,148 L2160,180 L0,180 Z" fill="rgba(0,224,255,0.32)"/>
-  </svg>
-</div>
-
-
-<script>
-/* ── BluWav Scroll Animations ── */
-(function(){
-  var selectors = '.anim-fade-up,.anim-fade-left,.anim-fade-right,.anim-scale,.anim-stagger';
-  var els = document.querySelectorAll(selectors);
-  if(!els.length) return;
-  var obs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){
-        e.target.classList.add('in-view');
-        obs.unobserve(e.target);
-      }
-    });
-  },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
-  els.forEach(function(el){obs.observe(el);});
-
-  /* Counter animation */
-  var counters = document.querySelectorAll('.anim-counter[data-target]');
-  if(counters.length){
-    var cObs = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(!e.isIntersecting) return;
-        var el = e.target;
-        var target = parseFloat(el.getAttribute('data-target'));
-        var suffix = el.getAttribute('data-suffix') || '';
-        var prefix = el.getAttribute('data-prefix') || '';
-        var decimals = el.getAttribute('data-decimals') || 0;
-        var duration = 1800;
-        var start = null;
-        function step(ts){
-          if(!start) start = ts;
-          var progress = Math.min((ts - start) / duration, 1);
-          var ease = 1 - Math.pow(1 - progress, 3);
-          var val = (target * ease).toFixed(decimals);
-          el.textContent = prefix + val + suffix;
-          if(progress < 1) requestAnimationFrame(step);
-        }
-        requestAnimationFrame(step);
-        cObs.unobserve(el);
-      });
-    },{threshold:0.5});
-    counters.forEach(function(c){cObs.observe(c);});
-  }
-})();
-</script>
-
-<script>
-/* ── BluWav Nav Active State ── */
-(function(){
-  var path = window.location.pathname.split('/').pop() || 'index.html';
-  var map = {
-    'index.html':'home','':'home',
-    'pricing.html':'pricing',
-    'crm.html':'crm',
-    'the-wave.html':'wave',
-    'careers.html':'careers',
-    'our-promise.html':'promise',
-    'how-it-works.html':'how',
-    'case-study-aadek.html':'case',
-    'health-check.html':'health',
-    'free-audit.html':'audit',
-    'apply.html':'apply',
-    'contact.html':'contact'
-  };
-  var key = map[path] || path.replace('.html','');
-  document.querySelectorAll('.nav-link[data-page]').forEach(function(el){
-    if(el.getAttribute('data-page') === key){
-      el.classList.add('nav-active');
-    }
-  });
-  document.querySelectorAll('.mob-link[data-page]').forEach(function(el){
-    if(el.getAttribute('data-page') === key){
-      el.classList.add('mob-active');
-    }
-  });
-})();
-</script>
-<script>
-/* ── BluWav Scroll Animations ── */
-(function(){
-  var els = document.querySelectorAll('.bw-reveal,.bw-reveal-left,.bw-reveal-right,.bw-reveal-scale');
-  if(!els.length) return;
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){e.target.classList.add('bw-in');io.unobserve(e.target);}
-    });
-  },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
-  els.forEach(function(el){io.observe(el);});
-})();
 </script>
 </body>
 </html>
