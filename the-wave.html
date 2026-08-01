@@ -223,6 +223,33 @@ footer .footer-grid{gap:56px !important;}
 @media(prefers-reduced-motion:reduce){
   .bw-reveal,.bw-reveal-left,.bw-reveal-right,.bw-reveal-scale{opacity:1!important;transform:none!important;transition:none!important;}
 }
+
+  /* ── FILTER TABS ── */
+  .filter-tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:36px;}
+  .filter-btn{padding:9px 20px;border-radius:100px;border:2px solid rgba(0,43,73,0.15);background:#fff;color:#6B7A99;font-size:13px;font-weight:700;cursor:pointer;transition:all .2s;font-family:'Plus Jakarta Sans',sans-serif;white-space:nowrap;}
+  .filter-btn:hover{border-color:var(--cyan);color:var(--navy);}
+  .filter-btn.active{background:var(--navy);border-color:var(--navy);color:#fff;}
+  .article-card.hidden{display:none;}
+  .article-card{transition:opacity .3s ease,transform .3s ease;}
+
+  /* ── IMPROVED MOBILE GRID ── */
+  @media(max-width:1024px){
+    .articles-grid{grid-template-columns:repeat(2,1fr);gap:20px;}
+  }
+  @media(max-width:640px){
+    .articles-grid{grid-template-columns:1fr;gap:16px;margin-bottom:48px;}
+    .article-card .article-body{padding:18px;}
+    .article-title{font-size:17px!important;}
+    .article-excerpt{font-size:13px!important;}
+    .filter-tabs{gap:8px;margin-bottom:24px;}
+    .filter-btn{padding:7px 14px;font-size:12px;}
+    /* Image height on mobile */
+    .article-card > div:first-child{height:160px!important;}
+  }
+  @media(max-width:400px){
+    .filter-tabs{gap:6px;}
+    .filter-btn{padding:6px 12px;font-size:11px;}
+  }
 </style>
 <script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -319,9 +346,18 @@ footer .footer-grid{gap:56px !important;}
   <h2 style="font-family:'Manrope',sans-serif;font-size:clamp(22px,3.5vw,36px);font-weight:900;color:#0F1628;margin-bottom:8px;">Latest from The Wave</h2>
   <p style="font-size:16px;color:#64748B;">Short reads. Real insights. No fluff.</p>
 </div>
+<!-- CATEGORY FILTER TABS -->
+<div class="filter-tabs" id="filterTabs">
+  <button class="filter-btn active" data-filter="all" onclick="filterArticles('all')">All</button>
+  <button class="filter-btn" data-filter="google" onclick="filterArticles('google')">Google &amp; SEO</button>
+  <button class="filter-btn" data-filter="website" onclick="filterArticles('website')">Website Design</button>
+  <button class="filter-btn" data-filter="whatsapp" onclick="filterArticles('whatsapp')">WhatsApp</button>
+  <button class="filter-btn" data-filter="crm" onclick="filterArticles('crm')">CRM</button>
+  <button class="filter-btn" data-filter="growth" onclick="filterArticles('growth')">Growth</button>
+</div>
 <div class="articles-grid">
 <!-- ARTICLE 1 -->
-<article class="article-card">
+<article class="article-card" data-category="google">
 <div style="height:200px;overflow:hidden;position:relative;">
   <img loading="lazy" src="article-1-hero.jpg" alt="Business owner watching declining analytics" style="width:100%;height:100%;object-fit:cover;object-position:center top;"/>
   <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(15,22,40,0.65) 100%);"></div>
@@ -340,7 +376,7 @@ footer .footer-grid{gap:56px !important;}
 </div>
 </article>
 <!-- ARTICLE 2 -->
-<article class="article-card">
+<article class="article-card" data-category="google">
 <div style="height:200px;overflow:hidden;position:relative;"><img loading="lazy" src="https://get.nicejob.com/hubfs/AI-Generated Media/Images/The image features a clean modern digital workspace with a laptop open to a Google Business Profile setup page The screen displays a colorful and userfriendly interface showcasing sections for business name address hours and customer reviews Beside t-1.png" alt="Google Business Profile setup on laptop" style="width:100%;height:100%;object-fit:cover;"/><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(15,22,40,0.6) 100%);"></div><div style="position:absolute;bottom:12px;left:16px;"><span style="background:#00C8E0;color:#fff;font-size:10px;font-weight:800;padding:3px 10px;border-radius:12px;text-transform:uppercase;letter-spacing:1px;">Google</span></div></div>
 <div class="article-body">
 <span class="article-tag tag-google">Google Business Profile</span>
@@ -353,7 +389,7 @@ footer .footer-grid{gap:56px !important;}
 </div>
 </article>
 <!-- ARTICLE 3 -->
-<article class="article-card">
+<article class="article-card" data-category="whatsapp">
 <div style="height:200px;overflow:hidden;position:relative;"><img loading="lazy" src="https://images.rawpixel.com/image_social_landscape/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI0LTAyL3Jhd3BpeGVsb2ZmaWNlMTJfc2lkZV92aWV3X3Bob3RvX29mX2JsYW5rX3BsYWluX2NvbG9yX21vYmlsZV9waF84NjBmM2QzMS04YTk0LTRjZGItOTZjMS0wMDNlZTEwNTY4Zjctcm0xNjU4LTAxLmpwZw.jpg" alt="Business owner using WhatsApp on mobile" style="width:100%;height:100%;object-fit:cover;"/><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,20,40,0.65) 100%);"></div><div style="position:absolute;bottom:12px;left:16px;"><span style="background:#25D366;color:#fff;font-size:10px;font-weight:800;padding:3px 10px;border-radius:12px;text-transform:uppercase;letter-spacing:1px;">WhatsApp</span></div></div>
 <div class="article-body">
 <span class="article-tag tag-whatsapp">WhatsApp Business</span>
@@ -366,7 +402,7 @@ footer .footer-grid{gap:56px !important;}
 </div>
 </article>
 <!-- ARTICLE 4 -->
-<article class="article-card">
+<article class="article-card" data-category="crm">
 <div style="height:200px;overflow:hidden;position:relative;"><img loading="lazy" src="https://www.m8-group.com/wp-content/uploads/2024/02/optimistic-managers-analyzing-sales-forecast-scaled.jpg" alt="Business team reviewing CRM dashboard" style="width:100%;height:100%;object-fit:cover;"/><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,20,40,0.65) 100%);"></div><div style="position:absolute;bottom:12px;left:16px;"><span style="background:#C9A84C;color:#0F1628;font-size:10px;font-weight:800;padding:3px 10px;border-radius:12px;text-transform:uppercase;letter-spacing:1px;">CRM</span></div></div>
 <div class="article-body">
 <span class="article-tag tag-crm">CRM</span>
@@ -379,7 +415,7 @@ footer .footer-grid{gap:56px !important;}
 </div>
 </article>
 <!-- ARTICLE 5 -->
-<article class="article-card">
+<article class="article-card" data-category="website">
 <div style="height:200px;overflow:hidden;position:relative;"><img loading="lazy" src="https://as1.ftcdn.net/v2/jpg/02/23/15/58/1000_F_223155870_OIV7yEldzFJKKk9HLGzyHKswk45PcL7q.jpg" alt="Modern business website on multiple devices" style="width:100%;height:100%;object-fit:cover;object-position:center top;"/><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,20,40,0.65) 100%);"></div><div style="position:absolute;bottom:12px;left:16px;"><span style="background:#FF6B2B;color:#fff;font-size:10px;font-weight:800;padding:3px 10px;border-radius:12px;text-transform:uppercase;letter-spacing:1px;">Websites</span></div></div>
 <div class="article-body">
 <span class="article-tag tag-website">Websites</span>
@@ -392,7 +428,7 @@ footer .footer-grid{gap:56px !important;}
 </div>
 </article>
 <!-- ARTICLE 6 -->
-<article class="article-card">
+<article class="article-card" data-category="seo">
 <div style="height:200px;overflow:hidden;position:relative;"><img loading="lazy" src="search-visibility-hero.jpg" alt="Search visibility analytics on laptop" style="width:100%;height:100%;object-fit:cover;"/><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,20,40,0.65) 100%);"></div><div style="position:absolute;bottom:12px;left:16px;"><span style="background:#00C8E0;color:#0F1628;font-size:10px;font-weight:800;padding:3px 10px;border-radius:12px;text-transform:uppercase;letter-spacing:1px;">SEO</span></div></div>
 <div class="article-body">
 <span class="article-tag tag-seo">SEO</span>
@@ -404,24 +440,29 @@ footer .footer-grid{gap:56px !important;}
 </div>
 </div>
 </article>
-</div>
+
 <!-- ARTICLE 7 -->
-<article class="article-card" style="border:none;box-shadow:0 4px 24px rgba(15,22,40,0.08);border-radius:20px;overflow:hidden;">
+<article class="article-card" data-category="growth">
 <div style="height:200px;overflow:hidden;position:relative;">
-  <img loading="lazy" src="https://jacoblund.com/cdn/shop/files/1126988f26f108f4ef02287e715f6404_1200x800.jpg?v=1759477228" alt="Jet ski turquoise water" style="width:100%;height:100%;object-fit:cover;"/>
-  <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,20,40,0.65) 100%);"></div>
-  <div style="position:absolute;bottom:12px;left:16px;"><span style="background:#C9A84C;color:#0F1628;font-size:10px;font-weight:800;padding:3px 10px;border-radius:12px;text-transform:uppercase;letter-spacing:1px;">Growth</span></div>
-  <div style="position:absolute;top:12px;right:12px;background:#FF6B2B;color:#fff;font-size:10px;font-weight:800;padding:3px 10px;border-radius:12px;">NEW</div>
+  <img loading="lazy" src="https://jacoblund.com/cdn/shop/files/1126988f26f108f4ef02287e715f6404_1200x800.jpg?v=1759477228" alt="Successful entrepreneur using laptop and phone" style="width:100%;height:100%;object-fit:cover;object-position:center top;"/>
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(15,22,40,0.65) 100%);"></div>
+  <div style="position:absolute;bottom:12px;left:16px;">
+    <span style="background:#C9A84C;color:#0F1628;font-size:10px;font-weight:800;padding:3px 10px;border-radius:12px;text-transform:uppercase;letter-spacing:1px;">Growth</span>
+  </div>
 </div>
-<div class="article-body" style="padding:24px;">
-<h2 class="article-title" style="font-size:18px;color:#0F1628;margin-bottom:10px;line-height:1.4;">How to Get Your First Customer Online in 48 Hours</h2>
-<p class="article-excerpt" style="font-size:14px;color:#475569;line-height:1.6;margin-bottom:16px;">No tech skills. No big budget. Just 5 steps that work for modern businesses right now.</p>
-<div class="article-meta" style="display:flex;align-items:center;justify-content:space-between;">
-<span style="font-size:13px;color:#94a3b8;font-weight:600;">4 min read</span>
-<a href="article-7.html" style="background:#C9A84C;color:#0F1628;padding:8px 16px;border-radius:8px;font-size:13px;font-weight:800;text-decoration:none;">Read Now →</a>
+<div class="article-body">
+<span class="article-tag" style="color:#C9A84C;">Growth</span>
+<h2 class="article-title">How to Get Your First Customer Online in 48 Hours</h2>
+<p class="article-excerpt">No tech skills. No big budget. Just 5 steps that work for modern businesses right now.</p>
+<div class="article-meta">
+<span>BluWav Growth &middot; 4 min read</span>
+<a class="article-read" href="article-7.html" style="background:#C9A84C;color:#0F1628;padding:8px 16px;border-radius:8px;font-size:13px;font-weight:800;text-decoration:none;">Read Now &#8594;</a>
 </div>
 </div>
 </article>
+</div>
+<!-- ARTICLE 7 -->
+
 <!-- NEWSLETTER -->
 <div class="newsletter">
 <div style="position:relative;z-index:2;">
@@ -683,6 +724,24 @@ document.addEventListener('click',function(e){
   },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
   els.forEach(function(el){io.observe(el);});
 })();
+</script>
+
+<script>
+function filterArticles(category) {
+  // Update active button
+  document.querySelectorAll('.filter-btn').forEach(function(btn) {
+    btn.classList.toggle('active', btn.getAttribute('data-filter') === category);
+  });
+  // Show/hide cards
+  document.querySelectorAll('.article-card').forEach(function(card) {
+    if (category === 'all') {
+      card.classList.remove('hidden');
+    } else {
+      var cat = card.getAttribute('data-category');
+      card.classList.toggle('hidden', cat !== category);
+    }
+  });
+}
 </script>
 </body>
 </html>
