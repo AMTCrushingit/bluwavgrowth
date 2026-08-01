@@ -21,15 +21,29 @@
 
   /* ── Brand Tokens ── */
   :root {
-    --navy:       #002B49;
-    --coral:      #FF5500;
-    --cyan:       #00E0FF;
-    --turquoise:  #00C2D8;
-    --gold:       #F7C873;
+  /* ── Canonical Brand Tokens v2 ── */
+  --navy-deep:    #0A0E1A;
+  --navy-mid:     #0F1628;
+  --navy-light:   #161E35;
+  --navy-border:  #1E2A45;
+  --cyan:         #00C8E0;
+  --orange:       #FF6B2B;
+  --gold:         #C9A84C;
+  --gold-light:   #E8C96A;
+  --text-primary: #FFFFFF;
+  --text-secondary:#B0BAD0;
+  --text-muted:   #6B7A99;
+  --success:      #22C55E;
+  --error:        #EF4444;
+    --navy:       #0F1628;
+    --coral:      #FF6B2B;
+    --cyan:       #00C8E0;
+    --turquoise:  #00C8E0;
+    --gold:       #C9A84C;
     --sand:       #F4F2ED;
     --dark:       #1E1E1E;
-    --slate:      #64748B;
-    --elite-black:#0D0D0F;
+    --slate:      #6B7A99;
+    --elite-black:#0A0E1A;
     --elite-dark: #141416;
     --white:      #FFFFFF;
   }
@@ -132,13 +146,13 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse 70% 60% at 50% 110%, rgba(0,224,255,0.12) 0%, transparent 70%);
+    background: radial-gradient(ellipse 70% 60% at 50% 110%, rgba(0,200,224,0.12) 0%, transparent 70%);
     pointer-events: none;
   }
   .hero-eyebrow {
     display: inline-block;
-    background: rgba(0,224,255,0.15);
-    border: 1px solid rgba(0,224,255,0.35);
+    background: rgba(0,200,224,0.15);
+    border: 1px solid rgba(0,200,224,0.35);
     color: var(--cyan);
     font-size: 0.78rem;
     font-weight: 700;
@@ -185,18 +199,18 @@
     padding: 14px 32px;
     border-radius: 8px;
     transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-    box-shadow: 0 4px 20px rgba(255,85,0,0.35);
+    box-shadow: 0 4px 20px rgba(255,107,43,0.35);
   }
   .hero-scroll-btn:hover {
     background: #e04a00;
     transform: translateY(-2px);
-    box-shadow: 0 6px 28px rgba(255,85,0,0.45);
+    box-shadow: 0 6px 28px rgba(255,107,43,0.45);
   }
 
   /* ── Social Proof Bar ── */
   .proof-bar {
     background: var(--white);
-    border-bottom: 1px solid rgba(0,43,73,0.08);
+    border-bottom: 1px solid rgba(15,22,40,0.08);
     padding: 20px 24px;
   }
   .proof-bar-inner {
@@ -209,7 +223,7 @@
     gap: 8px 32px;
   }
   .proof-stars {
-    color: #F7C873;
+    color: #C9A84C;
     font-size: 1rem;
     font-weight: 700;
     display: flex;
@@ -220,7 +234,7 @@
   .proof-divider {
     width: 1px;
     height: 22px;
-    background: rgba(0,43,73,0.15);
+    background: rgba(15,22,40,0.15);
   }
   .proof-stat {
     font-size: 0.85rem;
@@ -266,8 +280,8 @@
   /* ── Plan Framing Line ── */
   .plan-framing {
     text-align: center;
-    background: rgba(0,43,73,0.04);
-    border: 1px solid rgba(0,43,73,0.09);
+    background: rgba(15,22,40,0.04);
+    border: 1px solid rgba(15,22,40,0.09);
     border-radius: 10px;
     padding: 16px 28px;
     max-width: 640px;
@@ -290,7 +304,7 @@
     background: var(--white);
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 2px 16px rgba(0,43,73,0.08);
+    box-shadow: 0 2px 16px rgba(15,22,40,0.08);
     border: 2px solid transparent;
     transition: transform 0.2s, box-shadow 0.2s;
     display: flex;
@@ -298,7 +312,7 @@
   }
   .plan-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 32px rgba(0,43,73,0.13);
+    box-shadow: 0 8px 32px rgba(15,22,40,0.13);
   }
 
   /* Popular card */
@@ -306,11 +320,11 @@
     background: var(--navy);
     border-color: var(--cyan);
     transform: translateY(-8px);
-    box-shadow: 0 12px 40px rgba(0,43,73,0.22);
+    box-shadow: 0 12px 40px rgba(15,22,40,0.22);
   }
   .plan-card.popular:hover {
     transform: translateY(-12px);
-    box-shadow: 0 16px 48px rgba(0,43,73,0.28);
+    box-shadow: 0 16px 48px rgba(15,22,40,0.28);
   }
 
   /* Elite card */
@@ -328,7 +342,7 @@
     text-transform: uppercase;
   }
   .plan-card:not(.popular):not(.elite) .plan-badge {
-    background: rgba(0,43,73,0.05);
+    background: rgba(15,22,40,0.05);
     color: var(--slate);
   }
   .plan-card.popular .plan-badge {
@@ -383,7 +397,7 @@
     display: flex;
     align-items: flex-start;
     gap: 8px;
-    background: rgba(0,224,255,0.07);
+    background: rgba(0,200,224,0.07);
     border-left: 3px solid var(--cyan);
     border-radius: 0 6px 6px 0;
     padding: 10px 12px;
@@ -392,17 +406,17 @@
     line-height: 1.5;
   }
   .plan-card:not(.popular):not(.elite) .plan-persona {
-    background: rgba(0,43,73,0.05);
+    background: rgba(15,22,40,0.05);
     border-color: var(--turquoise);
     color: var(--slate);
   }
   .plan-card.popular .plan-persona {
-    background: rgba(0,224,255,0.1);
+    background: rgba(0,200,224,0.1);
     border-color: var(--cyan);
     color: rgba(255,255,255,0.75);
   }
   .plan-card.elite .plan-persona {
-    background: rgba(247,200,115,0.08);
+    background: rgba(201,168,76,0.08);
     border-color: var(--gold);
     color: rgba(255,255,255,0.6);
   }
@@ -411,7 +425,7 @@
   .plan-pricing {
     margin-bottom: 24px;
     padding-bottom: 22px;
-    border-bottom: 1px solid rgba(0,43,73,0.08);
+    border-bottom: 1px solid rgba(15,22,40,0.08);
   }
   .plan-card.popular .plan-pricing { border-color: rgba(255,255,255,0.1); }
   .plan-card.elite .plan-pricing { border-color: rgba(255,255,255,0.08); }
@@ -447,7 +461,7 @@
   }
   .plan-card:not(.popular):not(.elite) .plan-price-period { color: var(--slate); }
   .plan-card.popular .plan-price-period { color: rgba(255,255,255,0.55); }
-  .plan-card.elite .plan-price-period { color: rgba(247,200,115,0.6); }
+  .plan-card.elite .plan-price-period { color: rgba(201,168,76,0.6); }
 
   .plan-features {
     list-style: none;
@@ -481,15 +495,15 @@
     margin-top: 1px;
   }
   .plan-card:not(.popular):not(.elite) .feat-check {
-    background: rgba(0,194,216,0.15);
+    background: rgba(0,200,224,0.15);
     color: var(--turquoise);
   }
   .plan-card.popular .feat-check {
-    background: rgba(0,224,255,0.2);
+    background: rgba(0,200,224,0.2);
     color: var(--cyan);
   }
   .plan-card.elite .feat-check {
-    background: rgba(247,200,115,0.15);
+    background: rgba(201,168,76,0.15);
     color: var(--gold);
   }
 
@@ -510,31 +524,31 @@
   .plan-card:not(.popular):not(.elite) .plan-cta {
     background: var(--turquoise);
     color: var(--white);
-    box-shadow: 0 3px 14px rgba(0,194,216,0.3);
+    box-shadow: 0 3px 14px rgba(0,200,224,0.3);
   }
   .plan-card:not(.popular):not(.elite) .plan-cta:hover {
     background: var(--cyan);
-    box-shadow: 0 5px 20px rgba(0,224,255,0.35);
+    box-shadow: 0 5px 20px rgba(0,200,224,0.35);
     transform: translateY(-1px);
   }
   .plan-card.popular .plan-cta {
     background: var(--coral);
     color: var(--white);
-    box-shadow: 0 4px 18px rgba(255,85,0,0.4);
+    box-shadow: 0 4px 18px rgba(255,107,43,0.4);
   }
   .plan-card.popular .plan-cta:hover {
     background: #e04a00;
-    box-shadow: 0 6px 24px rgba(255,85,0,0.5);
+    box-shadow: 0 6px 24px rgba(255,107,43,0.5);
     transform: translateY(-1px);
   }
   .plan-card.elite .plan-cta {
     background: var(--gold);
     color: var(--elite-black);
-    box-shadow: 0 4px 18px rgba(247,200,115,0.3);
+    box-shadow: 0 4px 18px rgba(201,168,76,0.3);
   }
   .plan-card.elite .plan-cta:hover {
     background: #f5c050;
-    box-shadow: 0 6px 24px rgba(247,200,115,0.45);
+    box-shadow: 0 6px 24px rgba(201,168,76,0.45);
     transform: translateY(-1px);
   }
 
@@ -649,8 +663,8 @@
   }
   .risk-closing {
     text-align: center;
-    background: rgba(0,43,73,0.04);
-    border: 1px solid rgba(0,43,73,0.1);
+    background: rgba(15,22,40,0.04);
+    border: 1px solid rgba(15,22,40,0.1);
     border-radius: 10px;
     padding: 20px 28px;
     font-size: 0.9rem;
@@ -679,7 +693,7 @@
     background: var(--white);
     border-radius: 14px;
     padding: 28px 26px;
-    box-shadow: 0 2px 14px rgba(0,43,73,0.07);
+    box-shadow: 0 2px 14px rgba(15,22,40,0.07);
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -731,7 +745,7 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background: rgba(0,194,216,0.1);
+    background: rgba(0,200,224,0.1);
     border-radius: 100px;
     padding: 5px 12px;
     font-size: 0.75rem;
@@ -750,9 +764,9 @@
     margin: 0 auto;
   }
   .faq-item {
-    border-bottom: 1px solid rgba(0,43,73,0.09);
+    border-bottom: 1px solid rgba(15,22,40,0.09);
   }
-  .faq-item:first-of-type { border-top: 1px solid rgba(0,43,73,0.09); }
+  .faq-item:first-of-type { border-top: 1px solid rgba(15,22,40,0.09); }
   .faq-question {
     width: 100%;
     background: none;
@@ -775,7 +789,7 @@
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    background: rgba(0,43,73,0.07);
+    background: rgba(15,22,40,0.07);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -811,7 +825,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse 60% 80% at 50% 100%, rgba(0,224,255,0.1) 0%, transparent 65%);
+    background: radial-gradient(ellipse 60% 80% at 50% 100%, rgba(0,200,224,0.1) 0%, transparent 65%);
     pointer-events: none;
   }
   .bottom-cta-inner { max-width: 620px; margin: 0 auto; position: relative; }
@@ -842,13 +856,13 @@
     padding: 16px 36px;
     border-radius: 8px;
     transition: all 0.2s;
-    box-shadow: 0 4px 22px rgba(255,85,0,0.4);
+    box-shadow: 0 4px 22px rgba(255,107,43,0.4);
     margin-bottom: 18px;
   }
   .bottom-cta-btn:hover {
     background: #e04a00;
     transform: translateY(-2px);
-    box-shadow: 0 6px 30px rgba(255,85,0,0.5);
+    box-shadow: 0 6px 30px rgba(255,107,43,0.5);
   }
   .bottom-cta-trust {
     display: flex;
@@ -915,10 +929,10 @@
 <nav>
 <a class="nav-logo" href="https://bluwavgrowth.com">
 <svg class="logo-icon" fill="none" viewbox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-<circle cx="20" cy="20" r="18" stroke="#00E0FF" stroke-dasharray="100 12" stroke-dashoffset="-3" stroke-width="2.5"></circle>
-<ellipse cx="20" cy="26" fill="#002B49" rx="13" ry="7"></ellipse>
-<path d="M7 24 Q13 19 20 22 Q27 25 33 20" fill="none" stroke="#00E0FF" stroke-linecap="round" stroke-width="2"></path>
-<path d="M8 27 Q14 22 20 25 Q26 28 32 23" fill="none" opacity="0.7" stroke="#00C2D8" stroke-linecap="round" stroke-width="1.5"></path>
+<circle cx="20" cy="20" r="18" stroke="#00C8E0" stroke-dasharray="100 12" stroke-dashoffset="-3" stroke-width="2.5"></circle>
+<ellipse cx="20" cy="26" fill="#0F1628" rx="13" ry="7"></ellipse>
+<path d="M7 24 Q13 19 20 22 Q27 25 33 20" fill="none" stroke="#00C8E0" stroke-linecap="round" stroke-width="2"></path>
+<path d="M8 27 Q14 22 20 25 Q26 28 32 23" fill="none" opacity="0.7" stroke="#00C8E0" stroke-linecap="round" stroke-width="1.5"></path>
 <path d="M14 16 Q17 10 20 9 Q23 10 26 16" fill="white" opacity="0.9"></path>
 </svg>
 <div class="logo-wordmark">
