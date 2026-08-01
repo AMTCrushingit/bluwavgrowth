@@ -80,7 +80,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 48px;d
 .tag-strategy{color:var(--gold);}
 
 /* NEWSLETTER */
-.newsletter{background:linear-gradient(135deg,#0F1628 0%,#1E2A45 100%);border-radius:0;padding:80px clamp(24px,8vw,120px);text-align:center;margin:0;width:100%;position:relative;overflow:hidden;border:none;box-shadow:none;border-top:3px solid #00C8E0;box-sizing:border-box;}
+.newsletter{background:#001828;border-radius:0;padding:80px clamp(24px,8vw,120px);text-align:center;margin:0;width:100%;position:relative;overflow:hidden;border:none;box-shadow:none;box-sizing:border-box;}
 
 
 /* FOOTER */
@@ -466,38 +466,54 @@ footer .footer-grid{gap:56px !important;}
 
 <!-- NEWSLETTER -->
 <section style="width:100%;margin:0;padding:0;">
-<div class="newsletter" style="margin-left:calc(-1 * var(--pad));margin-right:calc(-1 * var(--pad));width:calc(100% + 2 * var(--pad));" style="position:relative;overflow:hidden;">
-  <div style="position:absolute;top:-80px;left:-80px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(0,200,224,0.08) 0%,transparent 70%);pointer-events:none;"></div>
-  <div style="position:absolute;bottom:-60px;right:-60px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(255,107,43,0.07) 0%,transparent 70%);pointer-events:none;"></div>
-  <div style="position:relative;z-index:2;">
-    <div style="display:inline-flex;align-items:center;gap:8px;margin-bottom:16px;">
-      <div style="width:28px;height:2px;background:var(--gold);border-radius:2px;"></div>
-      <span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:var(--gold);">Stay on The Wave</span>
-      <div style="width:28px;height:2px;background:var(--gold);border-radius:2px;"></div>
-    </div>
-    <h2 style="font-family:'Manrope',sans-serif;font-size:clamp(24px,4vw,36px);font-weight:900;color:#fff;margin-bottom:12px;letter-spacing:-0.02em;">Stay on <span style="background:linear-gradient(135deg,#00C8E0,#C9A84C);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">The Wave.</span></h2>
-    <p style="font-size:16px;color:rgba(255,255,255,0.65);margin-bottom:36px;max-width:440px;margin-left:auto;margin-right:auto;line-height:1.65;">Short, practical tips for modern business owners. Drop your email and ride The Wave with us.</p>
-    <form id="wave-subscribe-form" onsubmit="handleWaveSubscribe(event)" style="display:flex;gap:12px;max-width:480px;margin:0 auto;flex-wrap:wrap;">
-      <input id="wave-email-input" type="email" required="" placeholder="your@email.com"
-        style="flex:1;min-width:200px;padding:14px 18px;border-radius:100px;border:2px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.08);color:#fff;font-size:15px;font-family:inherit;outline:none;transition:all 0.2s;"
-        onfocus="this.style.border='2px solid #00C8E0';this.style.background='rgba(255,255,255,0.12)'"
-        onblur="this.style.border='2px solid rgba(255,255,255,0.15)';this.style.background='rgba(255,255,255,0.08)'"
-      />
-      <button id="wave-subscribe-btn" type="submit"
-        style="background:var(--coral);color:#fff;font-size:15px;font-weight:800;padding:14px 28px;border-radius:100px;border:none;cursor:pointer;font-family:inherit;white-space:nowrap;box-shadow:0 4px 20px rgba(255,107,43,0.4);transition:all 0.2s;"
-        onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 28px rgba(255,107,43,0.55)'"
-        onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 20px rgba(255,107,43,0.4)'"
-      >Subscribe &#8594;</button>
-    </form>
-    <p style="font-size:12px;color:rgba(255,255,255,0.3);margin-top:14px;">No spam. Unsubscribe anytime.</p>
-    <div id="wave-subscribe-success" style="display:none;margin-top:20px;background:rgba(0,200,224,0.1);border:1px solid rgba(0,200,224,0.3);border-radius:16px;padding:16px 24px;max-width:480px;margin-left:auto;margin-right:auto;">
-      <p style="color:#00C8E0;font-weight:800;font-size:16px;margin-bottom:4px;">You're on The Wave!</p>
-      <p style="color:rgba(255,255,255,0.7);font-size:14px;">Thanks for subscribing. Practical digital growth tips coming your way.</p>
-    </div>
-    <div id="wave-subscribe-error" style="display:none;margin-top:20px;background:rgba(255,107,43,0.1);border:1px solid rgba(255,107,43,0.3);border-radius:16px;padding:16px 24px;max-width:480px;margin-left:auto;margin-right:auto;">
-      <p style="color:#FF6B2B;font-weight:800;font-size:14px;">Please enter a valid email address.</p>
-    </div>
-    <script>
+<div class="newslett<section style="width:100%;margin:0;padding:0;position:relative;">
+
+  <!-- Wave transition from content to newsletter (same style as hero bottom) -->
+  <div style="position:relative;height:90px;overflow:hidden;margin-bottom:-2px;background:var(--sand);">
+    <svg class="px-svg" preserveAspectRatio="none" viewBox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg" style="position:absolute;bottom:0;left:0;width:100%;height:100%;">
+      <path d="M0,60 C120,35 240,75 360,55 C480,35 600,70 720,50 C840,30 960,65 1080,45 C1200,25 1320,60 1440,40 L1440,90 L0,90 Z" fill="#001828" opacity="0.6"/>
+    </svg>
+    <svg class="px-svg" preserveAspectRatio="none" viewBox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg" style="position:absolute;bottom:0;left:0;width:100%;height:100%;">
+      <path d="M0,70 C120,45 240,80 360,65 C480,45 600,78 720,60 C840,42 960,72 1080,55 C1200,38 1320,68 1440,52 L1440,90 L0,90 Z" fill="rgba(0,200,224,0.25)"/>
+    </svg>
+    <svg class="px-svg" preserveAspectRatio="none" viewBox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg" style="position:absolute;bottom:0;left:0;width:100%;height:100%;">
+      <path d="M0,78 C120,58 240,85 360,72 C480,58 600,82 720,68 C840,54 960,78 1080,65 C1200,52 1320,74 1440,62 L1440,90 L0,90 Z" fill="#001828"/>
+    </svg>
+  </div>
+
+  <!-- Newsletter — matches footer color for seamless flow -->
+  <div class="newsletter">
+    <div style="position:absolute;top:-40px;left:-80px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(0,200,224,0.06) 0%,transparent 70%);pointer-events:none;"></div>
+    <div style="position:absolute;bottom:-60px;right:-60px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(255,107,43,0.05) 0%,transparent 70%);pointer-events:none;"></div>
+    <div style="position:relative;z-index:2;">
+      <div style="display:inline-flex;align-items:center;gap:8px;margin-bottom:16px;">
+        <div style="width:28px;height:2px;background:var(--gold);border-radius:2px;"></div>
+        <span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:var(--gold);">Stay on The Wave</span>
+        <div style="width:28px;height:2px;background:var(--gold);border-radius:2px;"></div>
+      </div>
+      <h2 style="font-family:'Manrope',sans-serif;font-size:clamp(24px,4vw,36px);font-weight:900;color:#fff;margin-bottom:12px;letter-spacing:-0.02em;">Stay on <span style="background:linear-gradient(135deg,#00C8E0,#C9A84C);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">The Wave.</span></h2>
+      <p style="font-size:16px;color:rgba(255,255,255,0.65);margin-bottom:36px;max-width:440px;margin-left:auto;margin-right:auto;line-height:1.65;">Short, practical tips for modern business owners. Drop your email and ride The Wave with us.</p>
+      <form id="wave-subscribe-form" onsubmit="handleWaveSubscribe(event)" style="display:flex;gap:12px;max-width:480px;margin:0 auto;flex-wrap:wrap;">
+        <input id="wave-email-input" type="email" required="" placeholder="your@email.com"
+          style="flex:1;min-width:200px;padding:14px 18px;border-radius:100px;border:2px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.08);color:#fff;font-size:15px;font-family:inherit;outline:none;transition:all 0.2s;"
+          onfocus="this.style.border='2px solid #00C8E0';this.style.background='rgba(255,255,255,0.12)'"
+          onblur="this.style.border='2px solid rgba(255,255,255,0.15)';this.style.background='rgba(255,255,255,0.08)'"
+        />
+        <button id="wave-subscribe-btn" type="submit"
+          style="background:var(--coral);color:#fff;font-size:15px;font-weight:800;padding:14px 28px;border-radius:100px;border:none;cursor:pointer;font-family:inherit;white-space:nowrap;box-shadow:0 4px 20px rgba(255,107,43,0.4);transition:all 0.2s;"
+          onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 28px rgba(255,107,43,0.55)'"
+          onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 20px rgba(255,107,43,0.4)'"
+        >Subscribe &#8594;</button>
+      </form>
+      <p style="font-size:12px;color:rgba(255,255,255,0.3);margin-top:14px;">No spam. Unsubscribe anytime.</p>
+      <div id="wave-subscribe-success" style="display:none;margin-top:20px;background:rgba(0,200,224,0.1);border:1px solid rgba(0,200,224,0.3);border-radius:16px;padding:16px 24px;max-width:480px;margin-left:auto;margin-right:auto;">
+        <p style="color:#00C8E0;font-weight:800;font-size:16px;margin-bottom:4px;">You're on The Wave!</p>
+        <p style="color:rgba(255,255,255,0.7);font-size:14px;">Thanks for subscribing. Practical digital growth tips coming your way.</p>
+      </div>
+      <div id="wave-subscribe-error" style="display:none;margin-top:20px;background:rgba(255,107,43,0.1);border:1px solid rgba(255,107,43,0.3);border-radius:16px;padding:16px 24px;max-width:480px;margin-left:auto;margin-right:auto;">
+        <p style="color:#FF6B2B;font-weight:800;font-size:14px;">Please enter a valid email address.</p>
+      </div>
+      <script>
 function handleWaveSubscribe(e){
   e.preventDefault();
   var email=document.getElementById('wave-email-input').value.trim();
@@ -512,15 +528,10 @@ function handleWaveSubscribe(e){
   if(!subscribers.includes(email)){subscribers.push(email);localStorage.setItem('bluwav_subscribers',JSON.stringify(subscribers));}
   setTimeout(function(){form.style.display='none';successBox.style.display='block';},800);
 }
-    </script>
+      </script>
+    </div>
   </div>
-</div>
-</section>
-
-<div class="wrap">
-</section>
-<!-- FOOTER -->
-<footer style="background:#001828;width:100%;box-sizing:border-box;">
+</section>ound:#001828;width:100%;box-sizing:border-box;">
 
   <!-- CTA STRIP -->
   <div style="border-bottom:1px solid rgba(255,255,255,0.08);padding:48px clamp(16px,4vw,80px);">
