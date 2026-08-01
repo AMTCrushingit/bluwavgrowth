@@ -80,7 +80,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 48px;d
 .tag-strategy{color:var(--gold);}
 
 /* NEWSLETTER */
-.newsletter{background:linear-gradient(135deg,#0A0E1A 0%,#0F1628 50%,#161E35 100%);border-radius:28px;padding:64px 56px;text-align:center;margin-bottom:80px;position:relative;overflow:hidden;border:1px solid rgba(0,200,224,0.12);box-shadow:0 20px 60px rgba(0,0,0,0.25);}
+.newsletter{background:linear-gradient(135deg,#0F1628 0%,#1E2A45 100%);border-radius:0;padding:80px clamp(24px,8vw,120px);text-align:center;margin:0;width:100%;position:relative;overflow:hidden;border:none;box-shadow:none;border-top:3px solid #00C8E0;box-sizing:border-box;}
 
 
 /* FOOTER */
@@ -416,7 +416,7 @@ footer .footer-grid{gap:56px !important;}
 </article>
 <!-- ARTICLE 5 -->
 <article class="article-card" data-category="website">
-<div style="height:200px;overflow:hidden;position:relative;"><img loading="lazy" src="article-5-hero.jpg" alt="Business woman frustrated with bad website" alt="Business woman frustrated with bad website on laptop" alt="Modern business website on multiple devices" style="width:100%;height:100%;object-fit:cover;object-position:center top;"/><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,20,40,0.65) 100%);"></div><div style="position:absolute;bottom:12px;left:16px;"><span style="background:#FF6B2B;color:#fff;font-size:10px;font-weight:800;padding:3px 10px;border-radius:12px;text-transform:uppercase;letter-spacing:1px;">Websites</span></div></div>
+<div style="height:200px;overflow:hidden;position:relative;"><img loading="lazy" src="article-5-hero.jpg" alt="Business woman frustrated with bad website" style="width:100%;height:100%;object-fit:cover;object-position:center top;"/><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,20,40,0.65) 100%);"></div><div style="position:absolute;bottom:12px;left:16px;"><span style="background:#FF6B2B;color:#fff;font-size:10px;font-weight:800;padding:3px 10px;border-radius:12px;text-transform:uppercase;letter-spacing:1px;">Websites</span></div></div>
 <div class="article-body">
 <span class="article-tag tag-website">Websites</span>
 <h2 class="article-title">5 Signs Your Website Is Costing You Customers</h2>
@@ -433,7 +433,7 @@ footer .footer-grid{gap:56px !important;}
 <div class="article-body">
 <span class="article-tag tag-seo">SEO</span>
 <h2 class="article-title">Search Visibility: How to Show Up When Customers Search</h2>
-<p class="article-excerpt">When someone in your area searches "best salon near me", does your business show up? If not, here is how to fix that.</p>
+<p class="article-excerpt">When customers search for what you offer, does your business show up? If not, here is how to fix that.</p>
 <div class="article-meta">
 <span>BluWav Growth · 5 min read</span>
 <a class="article-read" href="article-6.html" style="background:#00C8E0;color:#0F1628;padding:8px 16px;border-radius:8px;font-size:13px;font-weight:800;text-decoration:none;">Read Now →</a>
@@ -461,10 +461,12 @@ footer .footer-grid{gap:56px !important;}
 </div>
 </article>
 </div>
-<!-- ARTICLE 7 -->
+
+</div>
 
 <!-- NEWSLETTER -->
-<div class="newsletter" style="position:relative;overflow:hidden;">
+<section style="width:100%;margin:0;padding:0;">
+<div class="newsletter" style="margin-left:calc(-1 * var(--pad));margin-right:calc(-1 * var(--pad));width:calc(100% + 2 * var(--pad));" style="position:relative;overflow:hidden;">
   <div style="position:absolute;top:-80px;left:-80px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(0,200,224,0.08) 0%,transparent 70%);pointer-events:none;"></div>
   <div style="position:absolute;bottom:-60px;right:-60px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(255,107,43,0.07) 0%,transparent 70%);pointer-events:none;"></div>
   <div style="position:relative;z-index:2;">
@@ -513,6 +515,9 @@ function handleWaveSubscribe(e){
     </script>
   </div>
 </div>
+</section>
+
+<div class="wrap">
 </section>
 <!-- FOOTER -->
 <footer style="background:#001828;width:100%;box-sizing:border-box;">
