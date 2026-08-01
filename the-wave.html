@@ -80,8 +80,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 48px;d
 .tag-strategy{color:var(--gold);}
 
 /* NEWSLETTER */
-.newsletter{background:linear-gradient(135deg,var(--navy),#003d5c);border-radius:24px;padding:56px;text-align:center;margin-bottom:80px;position:relative;overflow:hidden;}
-.newsletter::before{content:'';position:absolute;top:-60px;right:-60px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(0,224,255,0.1) 0%,transparent 70%);pointer-events:none;}
+.newsletter{background:linear-gradient(135deg,#0A0E1A 0%,#0F1628 50%,#161E35 100%);border-radius:28px;padding:64px 56px;text-align:center;margin-bottom:80px;position:relative;overflow:hidden;border:1px solid rgba(0,200,224,0.12);box-shadow:0 20px 60px rgba(0,0,0,0.25);}
+
 
 /* FOOTER */
 footer{background:rgba(15,22,40,0.97);padding:60px 0 0;}
@@ -246,7 +246,8 @@ footer .footer-grid{gap:56px !important;}
     /* Image height on mobile */
     .article-card > div:first-child{height:160px!important;}
   }
-  @media(max-width:400px){
+  @media(max-width:640px){.newsletter{padding:40px 24px!important;border-radius:20px!important;}}
+@media(max-width:400px){
     .filter-tabs{gap:6px;}
     .filter-btn{padding:6px 12px;font-size:11px;}
   }
@@ -466,21 +467,62 @@ footer .footer-grid{gap:56px !important;}
 <!-- NEWSLETTER -->
 <div class="newsletter">
 <div style="position:relative;z-index:2;">
-<span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:var(--gold);display:block;margin-bottom:12px;">Stay on The Wave</span>
-<h2 style="font-family:'Manrope',sans-serif;font-size:32px;font-weight:800;color:#fff;margin-bottom:12px;">Stay on The Wave </h2>
-<p style="font-size:16px;color:rgba(255,255,255,0.7);margin-bottom:32px;">Short, practical tips for modern business owners. Drop your email and ride The Wave with us.</p>
-<form id="wave-subscribe-form" onsubmit="handleWaveSubscribe(event)" style="display:flex;gap:12px;max-width:480px;margin:0 auto;flex-wrap:wrap;">
-<input id="wave-email-input" onblur="this.style.border='2px solid transparent'" onfocus="this.style.border='2px solid #00C8E0'" placeholder="your@email.com" required="" style="flex:1;min-width:200px;padding:14px 18px;border-radius:11px;border:2px solid transparent;font-size:15px;font-family:inherit;outline:none;transition:border 0.2s;" type="email"/>
-<button id="wave-subscribe-btn" style="background:var(--coral);color:#fff;font-size:15px;font-weight:800;padding:14px 28px;border-radius:11px;border:none;cursor:pointer;font-family:inherit;white-space:nowrap;box-shadow:0 4px 20px rgba(255,85,0,0.4);transition:all 0.2s;" type="submit">Subscribe →</button>
-</form>
-<div id="wave-subscribe-success" style="display:none;margin-top:20px;background:rgba(0,224,255,0.1);border:1px solid rgba(0,224,255,0.3);border-radius:12px;padding:16px 24px;max-width:480px;margin-left:auto;margin-right:auto;">
-<p style="color:#00C8E0;font-weight:800;font-size:16px;margin-bottom:4px;">You're on the Wave!</p>
-<p style="color:rgba(255,255,255,0.7);font-size:14px;">Thanks for subscribing. Practical digital growth tips coming your way.</p>
-</div>
-<div id="wave-subscribe-error" style="display:none;margin-top:20px;background:rgba(255,85,0,0.1);border:1px solid rgba(255,85,0,0.3);border-radius:12px;padding:16px 24px;max-width:480px;margin-left:auto;margin-right:auto;">
-<p style="color:#FF6B2B;font-weight:800;font-size:14px;">Please enter a valid email address.</p>
-</div>
-<script>
+<span style="font-size:11px;font-weight:80<div class="newsletter" style="position:relative;overflow:hidden;">
+
+  <!-- Decorative orbs -->
+  <div style="position:absolute;top:-80px;left:-80px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(0,200,224,0.12) 0%,transparent 70%);pointer-events:none;"></div>
+  <div style="position:absolute;bottom:-60px;right:-60px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(255,107,43,0.1) 0%,transparent 70%);pointer-events:none;"></div>
+
+  <!-- Wave SVG top decoration -->
+  <div style="position:absolute;top:0;left:0;right:0;pointer-events:none;opacity:0.18;">
+    <svg viewBox="0 0 1200 120" preserveAspectRatio="none" style="width:100%;height:60px;display:block;">
+      <path d="M0,60 C200,20 400,100 600,60 C800,20 1000,100 1200,60 L1200,0 L0,0 Z" fill="#00C8E0"/>
+    </svg>
+  </div>
+
+  <!-- Wave SVG bottom decoration -->
+  <div style="position:absolute;bottom:0;left:0;right:0;pointer-events:none;opacity:0.12;">
+    <svg viewBox="0 0 1200 120" preserveAspectRatio="none" style="width:100%;height:50px;display:block;">
+      <path d="M0,40 C300,80 600,0 900,40 C1050,60 1150,20 1200,40 L1200,120 L0,120 Z" fill="#00C8E0"/>
+    </svg>
+  </div>
+
+  <!-- Animated wave line -->
+  <div style="position:absolute;top:50%;left:0;right:0;transform:translateY(-50%);pointer-events:none;opacity:0.06;">
+    <svg viewBox="0 0 1200 80" preserveAspectRatio="none" style="width:100%;height:80px;display:block;">
+      <path d="M0,40 C150,10 300,70 450,40 C600,10 750,70 900,40 C1050,10 1150,70 1200,40" stroke="#00C8E0" stroke-width="2" fill="none"/>
+    </svg>
+  </div>
+
+  <div style="position:relative;z-index:2;">
+    <div style="display:inline-flex;align-items:center;gap:8px;margin-bottom:16px;">
+      <div style="width:28px;height:2px;background:var(--gold);border-radius:2px;"></div>
+      <span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:var(--gold);">Stay on The Wave</span>
+      <div style="width:28px;height:2px;background:var(--gold);border-radius:2px;"></div>
+    </div>
+    <h2 style="font-family:'Manrope',sans-serif;font-size:clamp(24px,4vw,36px);font-weight:900;color:#fff;margin-bottom:12px;letter-spacing:-0.02em;">Stay on <span style="background:linear-gradient(135deg,#00C8E0,#C9A84C);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">The Wave.</span></h2>
+    <p style="font-size:16px;color:rgba(255,255,255,0.65);margin-bottom:36px;max-width:440px;margin-left:auto;margin-right:auto;line-height:1.65;">Short, practical tips for modern business owners. Drop your email and ride The Wave with us.</p>
+    <form id="wave-subscribe-form" onsubmit="handleWaveSubscribe(event)" style="display:flex;gap:12px;max-width:480px;margin:0 auto;flex-wrap:wrap;">
+      <input id="wave-email-input" type="email" required="" placeholder="your@email.com"
+        style="flex:1;min-width:200px;padding:14px 18px;border-radius:100px;border:2px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.08);color:#fff;font-size:15px;font-family:inherit;outline:none;transition:all 0.2s;backdrop-filter:blur(8px);"
+        onfocus="this.style.border='2px solid #00C8E0';this.style.background='rgba(255,255,255,0.12)'"
+        onblur="this.style.border='2px solid rgba(255,255,255,0.15)';this.style.background='rgba(255,255,255,0.08)'"
+      />
+      <button id="wave-subscribe-btn" type="submit"
+        style="background:var(--coral);color:#fff;font-size:15px;font-weight:800;padding:14px 28px;border-radius:100px;border:none;cursor:pointer;font-family:inherit;white-space:nowrap;box-shadow:0 4px 20px rgba(255,107,43,0.4);transition:all 0.2s;"
+        onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 28px rgba(255,107,43,0.55)'"
+        onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 20px rgba(255,107,43,0.4)'"
+      >Subscribe &#8594;</button>
+    </form>
+    <p style="font-size:12px;color:rgba(255,255,255,0.3);margin-top:14px;">No spam. Unsubscribe anytime.</p>
+    <div id="wave-subscribe-success" style="display:none;margin-top:20px;background:rgba(0,200,224,0.1);border:1px solid rgba(0,200,224,0.3);border-radius:16px;padding:16px 24px;max-width:480px;margin-left:auto;margin-right:auto;">
+      <p style="color:#00C8E0;font-weight:800;font-size:16px;margin-bottom:4px;">You're on The Wave!</p>
+      <p style="color:rgba(255,255,255,0.7);font-size:14px;">Thanks for subscribing. Practical digital growth tips coming your way.</p>
+    </div>
+    <div id="wave-subscribe-error" style="display:none;margin-top:20px;background:rgba(255,107,43,0.1);border:1px solid rgba(255,107,43,0.3);border-radius:16px;padding:16px 24px;max-width:480px;margin-left:auto;margin-right:auto;">
+      <p style="color:#FF6B2B;font-weight:800;font-size:14px;">Please enter a valid email address.</p>
+    </div>
+    <script>
 function handleWaveSubscribe(e) {
   e.preventDefault();
   var email = document.getElementById('wave-email-input').value.trim();
@@ -488,48 +530,19 @@ function handleWaveSubscribe(e) {
   var successBox = document.getElementById('wave-subscribe-success');
   var errorBox = document.getElementById('wave-subscribe-error');
   var form = document.getElementById('wave-subscribe-form');
-
-  // Basic email validation
   var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(email)) {
-    errorBox.style.display = 'block';
-    successBox.style.display = 'none';
-    return;
-  }
-
-  // Loading state
-  btn.textContent = 'Subscribing...';
-  btn.style.opacity = '0.7';
-  btn.disabled = true;
-  errorBox.style.display = 'none';
-
-  // Store in localStorage so it persists
-  var subscribers = JSON.parse(localStorage.getItem('bluwav_subscribers') || '[]');
-  if (!subscribers.includes(email)) {
-    subscribers.push(email);
-    localStorage.setItem('bluwav_subscribers', JSON.stringify(subscribers));
-  }
-
-  // Simulate brief processing then show success
-  setTimeout(function() {
-    form.style.display = 'none';
-    successBox.style.display = 'block';
-
-    // Also send to WhatsApp notification (optional, opens WA with subscriber email)
-    // Uncomment below to get notified on WhatsApp when someone subscribes:
-    // var waMsg = encodeURIComponent('New Wave subscriber: ' + email);
-    // // WA notification removed Formspree email handles team notification
-  }, 800);
+  if (!emailRegex.test(email)) { errorBox.style.display='block'; successBox.style.display='none'; return; }
+  btn.textContent='Subscribing...'; btn.style.opacity='0.7'; btn.disabled=true; errorBox.style.display='none';
+  var subscribers=JSON.parse(localStorage.getItem('bluwav_subscribers')||'[]');
+  if(!subscribers.includes(email)){subscribers.push(email);localStorage.setItem('bluwav_subscribers',JSON.stringify(subscribers));}
+  setTimeout(function(){form.style.display='none';successBox.style.display='block';},800);
 }
-</script>
-</div>
-</div>
-<!-- CTA -->
-<div style="text-align:center;padding:40px 0 20px;">
-<span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:var(--cyan);display:block;margin-bottom:12px;">Ready to Grow?</span>
+    </script>
+  </div>
+</div>;text-transform:uppercase;letter-spacing:3px;color:var(--cyan);display:block;margin-bottom:12px;">Ready to Grow?</span>
 <h2 style="font-family:'Manrope',sans-serif;font-size:clamp(22px,3.5vw,36px);font-weight:900;color:var(--navy);margin-bottom:12px;">Start with a free Health Check.</h2>
 <p style="font-size:16px;color:var(--slate);margin-bottom:28px;">See exactly what's working, what's broken, and what's stopping customers from finding your business.</p>
-<a href="health-check.html" target="_blank" onmouseout="this.style.transform='translateY(0)'" onmouseover="this.style.transform='translateY(-2px)'" style="display:inline-block;background:var(--coral);color:#fff;font-size:16px;font-weight:800;padding:18px 48px;border-radius:12px;box-shadow:0 6px 28px rgba(255,85,0,0.4);transition:all 0.2s;">Get My Free Digital Health Check →</a>
+<a href="health-check.html" target="_blank" onmouseout="this.style.transform='translateY(0)'" onmouseover="this.style.transform='translateY(-2px)'" style="display:inline-block;background:var(--coral);color:#fff;font-size:16px;font-weight:800;padding:18px 48px;border-radius:12px;box-shadow:0 6px 28px rgba(255,107,43,0.4);transition:all 0.2s;">Get My Free Digital Health Check →</a>
 </div>
 </div>
 </section>
