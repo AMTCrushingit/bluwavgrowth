@@ -399,6 +399,32 @@
         font-family: 'Inter', sans-serif;
       }
       .btn-white-outline-dark:hover { border-color: #94a3b8; }
+
+      /* ── MANIFESTO STRIP ── */
+      .manifesto-col {
+        padding: 0 40px;
+      }
+      .manifesto-col:first-child {
+        padding-left: 0;
+      }
+      .manifesto-col:last-child {
+        padding-right: 0;
+      }
+      @media (min-width: 768px) {
+        .manifesto-col:not(:last-child) {
+          border-right: 1px solid rgba(255,255,255,0.08);
+        }
+      }
+      @media (max-width: 767px) {
+        .manifesto-cols {
+          flex-direction: column !important;
+          gap: 40px !important;
+        }
+        .manifesto-col {
+          padding: 0 !important;
+          border-right: none !important;
+        }
+      }
     </style>
 </head>
 <body data-id="0">
@@ -476,7 +502,7 @@
         </p>
 
         <p data-id="46" class="fade-in" id="hero-body-4g5h" style="font-size:17px;color:var(--white-70);max-width:620px;margin:20px auto 0;line-height:1.7;">
-          A modern, modular system that brings together your website, Google visibility, WhatsApp automation, and CRM. Everything working together to grow your business.
+          BluWav Growth fills the marketing and sales gap for modern service businesses — helping you get found online, chosen first, and grow automatically. In 48 hours, we deliver your website, Google visibility, WhatsApp systems, CRM, and automation. Smart tech and real human support — built and run with you, so you stay focused on your business.
         </p>
 
         <div data-id="47" class="flex justify-center gap-4 flex-wrap mt-10 fade-in" id="hero-ctas-6i7j">
@@ -533,10 +559,10 @@
       <div data-id="79" class="fade-in text-center" id="growth-intro-q5r6" style="max-width:800px;margin:0 auto;">
         <div data-id="80" style="font-size:13px;font-weight:600;color:var(--cyan);letter-spacing:1.5px;text-transform:uppercase;">Growth System</div>
         <h2 data-id="81" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#0a0f1e;line-height:1.15;margin-top:12px;">
-          The digital growth system that works for you.
+          Close the gap between marketing and growth.
         </h2>
         <p data-id="82" style="font-size:20px;font-weight:600;color:#1e3a5f;margin-top:12px;">
-          Get found. Get chosen. Grow.
+          BluWav Growth helps modern service businesses get found online, chosen first, and grow automatically.
         </p>
 
         <div data-id="83" class="flex flex-wrap justify-center gap-3 mt-7" id="growth-pills-s7t8">
@@ -547,9 +573,8 @@
         </div>
 
         <div data-id="88" style="margin-top:28px;font-size:16px;color:#475569;line-height:2;">
-          Delivered in 48 hours.<br data-id="89">
-          Your data, always yours.<br data-id="90">
-          A Stratiix Group Company.
+          We deliver a human-powered, service-centric model that combines rapid digital setup with ongoing growth support — built and run with you.<br data-id="89">
+          <span data-id="90" style="color:#94a3b8;">Your data, always yours. · A Stratiix Group Company.</span>
         </div>
 
         <div data-id="91" class="flex flex-wrap justify-center gap-4 mt-10" id="growth-ctas-u9v0">
@@ -753,131 +778,163 @@
       </div>
     </section>
 
+    <!-- ═══════════════ MANIFESTO STRIP ═══════════════ -->
+    <section data-id="207" id="manifesto" class="fade-in" style="background:linear-gradient(135deg, #0d1f3a 0%, #0a1628 100%);border-top:1px solid rgba(0,212,255,0.15);border-bottom:1px solid rgba(0,212,255,0.15);padding:80px 24px;text-align:center;">
+      <div data-id="208" style="max-width:760px;margin:0 auto;">
+        <div data-id="209" style="font-size:13px;font-weight:600;letter-spacing:1.5px;color:var(--cyan);text-transform:uppercase;margin-bottom:24px;">OUR APPROACH</div>
+
+        <div data-id="210" class="manifesto-cols" style="display:flex;gap:0;">
+          <!-- Col 1 -->
+          <div data-id="211" class="manifesto-col" style="flex:1;text-align:center;">
+            <div data-id="212" style="font-size:36px;">🔧</div>
+            <h3 data-id="213" style="font-size:20px;font-weight:800;color:var(--white);margin-top:16px;">We build it with you.</h3>
+            <p data-id="214" style="font-size:15px;color:var(--white-70);margin-top:10px;line-height:1.65;">Your website, Google profile, WhatsApp system, CRM — live in 48 hours. Built right. Built to your business.</p>
+          </div>
+          <!-- Col 2 -->
+          <div data-id="215" class="manifesto-col" style="flex:1;text-align:center;">
+            <div data-id="216" style="font-size:36px;">⚙️</div>
+            <h3 data-id="217" style="font-size:20px;font-weight:800;color:var(--white);margin-top:16px;">We run it with you.</h3>
+            <p data-id="218" style="font-size:15px;color:var(--white-70);margin-top:10px;line-height:1.65;">Ongoing growth support, automation that works, a real person on WhatsApp. Human-powered. Always on.</p>
+          </div>
+          <!-- Col 3 -->
+          <div data-id="219" class="manifesto-col" style="flex:1;text-align:center;">
+            <div data-id="220" style="font-size:36px;">🎯</div>
+            <h3 data-id="221" style="font-size:20px;font-weight:800;color:var(--white);margin-top:16px;">You focus on your business.</h3>
+            <p data-id="222" style="font-size:15px;color:var(--white-70);margin-top:10px;line-height:1.65;">You serve your clients. We handle your digital presence, leads, and follow-ups. That's the BluWav model.</p>
+          </div>
+        </div>
+
+        <div data-id="223" style="margin-top:48px;font-size:22px;font-weight:800;color:var(--white);letter-spacing:-0.5px;">
+          Human-powered. Service-centric. Built to grow.
+        </div>
+      </div>
+    </section>
+
     <!-- ═══════════════ WAVE: DARK → LIGHT ═══════════════ -->
-    <div data-id="207" style="background:#0f172a;margin-bottom:-1px;">
-      <svg data-id="208" viewBox="0 0 1440 80" preserveAspectRatio="none" class="wave-svg"><path data-id="209" d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#f8fafc"/></svg>
+    <div data-id="224" style="background:#0a1628;margin-bottom:-1px;">
+      <svg data-id="225" viewBox="0 0 1440 80" preserveAspectRatio="none" class="wave-svg"><path data-id="226" d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#f8fafc"/></svg>
     </div>
 
     <!-- ═══════════════ CASE STUDIES ═══════════════ -->
-    <section data-id="210" id="case-studies" style="background:var(--light-bg);padding:100px 24px;">
-      <div data-id="211" class="text-center fade-in" id="cases-header-i9j0">
-        <div data-id="212" style="font-size:13px;font-weight:600;color:#0369a1;letter-spacing:1px;text-transform:uppercase;">Case Studies</div>
-        <h2 data-id="213" style="font-size:clamp(28px,4vw,48px);font-weight:800;color:#0a0f1e;margin:16px auto 60px;">
+    <section data-id="227" id="case-studies" style="background:var(--light-bg);padding:100px 24px;">
+      <div data-id="228" class="text-center fade-in" id="cases-header-i9j0">
+        <div data-id="229" style="font-size:13px;font-weight:600;color:#0369a1;letter-spacing:1px;text-transform:uppercase;">Case Studies</div>
+        <h2 data-id="230" style="font-size:clamp(28px,4vw,48px);font-weight:800;color:#0a0f1e;margin:16px auto 60px;">
           Real Businesses. Real Results. In 48 Hours.
         </h2>
       </div>
 
-      <div data-id="214" id="cases-grid-k1l2" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:980px;margin:0 auto;">
-        <div data-id="215" class="case-card fade-in" id="case-1-m3n4">
-          <div data-id="216" style="color:var(--gold);font-size:20px;margin-bottom:16px;">★★★★★</div>
-          <div data-id="217" style="font-size:22px;font-weight:800;color:#0a0f1e;line-height:1.2;margin-bottom:16px;">3–5 new enquiries/week</div>
-          <p data-id="218" style="font-size:15px;color:#475569;line-height:1.7;font-style:italic;flex-grow:1;">
+      <div data-id="231" id="cases-grid-k1l2" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:980px;margin:0 auto;">
+        <div data-id="232" class="case-card fade-in" id="case-1-m3n4">
+          <div data-id="233" style="color:var(--gold);font-size:20px;margin-bottom:16px;">★★★★★</div>
+          <div data-id="234" style="font-size:22px;font-weight:800;color:#0a0f1e;line-height:1.2;margin-bottom:16px;">3–5 new enquiries/week</div>
+          <p data-id="235" style="font-size:15px;color:#475569;line-height:1.7;font-style:italic;flex-grow:1;">
             "We went from invisible on Google to getting 3–5 new enquiries a week."
           </p>
-          <div data-id="219" style="font-size:14px;font-weight:600;color:#94a3b8;margin-top:20px;">— Kezia M., Salon Owner</div>
+          <div data-id="236" style="font-size:14px;font-weight:600;color:#94a3b8;margin-top:20px;">— Kezia M., Salon Owner</div>
         </div>
-        <div data-id="220" class="case-card fade-in" id="case-2-o5p6">
-          <div data-id="221" style="color:var(--gold);font-size:20px;margin-bottom:16px;">★★★★★</div>
-          <div data-id="222" style="font-size:22px;font-weight:800;color:#0a0f1e;line-height:1.2;margin-bottom:16px;">40+ Google reviews in one week</div>
-          <p data-id="223" style="font-size:15px;color:#475569;line-height:1.7;font-style:italic;flex-grow:1;">
+        <div data-id="237" class="case-card fade-in" id="case-2-o5p6">
+          <div data-id="238" style="color:var(--gold);font-size:20px;margin-bottom:16px;">★★★★★</div>
+          <div data-id="239" style="font-size:22px;font-weight:800;color:#0a0f1e;line-height:1.2;margin-bottom:16px;">40+ Google reviews in one week</div>
+          <p data-id="240" style="font-size:15px;color:#475569;line-height:1.7;font-style:italic;flex-grow:1;">
             "I had no idea how invisible we were before."
           </p>
-          <div data-id="224" style="font-size:14px;font-weight:600;color:#94a3b8;margin-top:20px;">— Ricardo T., Contractor</div>
+          <div data-id="241" style="font-size:14px;font-weight:600;color:#94a3b8;margin-top:20px;">— Ricardo T., Contractor</div>
         </div>
-        <div data-id="225" class="case-card fade-in" id="case-3-q7r8">
-          <div data-id="226" style="color:var(--gold);font-size:20px;margin-bottom:16px;">★★★★★</div>
-          <div data-id="227" style="font-size:22px;font-weight:800;color:#0a0f1e;line-height:1.2;margin-bottom:16px;">Full pipeline visibility, zero chasing</div>
-          <p data-id="228" style="font-size:15px;color:#475569;line-height:1.7;font-style:italic;flex-grow:1;">
+        <div data-id="242" class="case-card fade-in" id="case-3-q7r8">
+          <div data-id="243" style="color:var(--gold);font-size:20px;margin-bottom:16px;">★★★★★</div>
+          <div data-id="244" style="font-size:22px;font-weight:800;color:#0a0f1e;line-height:1.2;margin-bottom:16px;">Full pipeline visibility, zero chasing</div>
+          <p data-id="245" style="font-size:15px;color:#475569;line-height:1.7;font-style:italic;flex-grow:1;">
             "WhatsApp automation alone saved us hours every week."
           </p>
-          <div data-id="229" style="font-size:14px;font-weight:600;color:#94a3b8;margin-top:20px;">— Michelle A., Restaurant Owner</div>
+          <div data-id="246" style="font-size:14px;font-weight:600;color:#94a3b8;margin-top:20px;">— Michelle A., Restaurant Owner</div>
         </div>
       </div>
     </section>
 
     <!-- ═══════════════ WAVE: LIGHT → DARK ═══════════════ -->
-    <div data-id="230" style="background:var(--light-bg);margin-bottom:-1px;">
-      <svg data-id="231" viewBox="0 0 1440 80" preserveAspectRatio="none" class="wave-svg"><path data-id="232" d="M0,40 C360,0 1080,80 1440,40 L1440,0 L0,0 Z" fill="#0a0f1e"/></svg>
+    <div data-id="247" style="background:var(--light-bg);margin-bottom:-1px;">
+      <svg data-id="248" viewBox="0 0 1440 80" preserveAspectRatio="none" class="wave-svg"><path data-id="249" d="M0,40 C360,0 1080,80 1440,40 L1440,0 L0,0 Z" fill="#0a0f1e"/></svg>
     </div>
 
     <!-- ═══════════════ FINAL CTA ═══════════════ -->
-    <section data-id="233" id="final-cta" class="final-cta-glow section-pad" style="background:var(--navy);text-align:center;">
-      <h2 data-id="234" class="fade-in" id="final-h2-s9t0" style="font-size:clamp(28px,4vw,52px);font-weight:900;color:var(--white);line-height:1.15;">
+    <section data-id="250" id="final-cta" class="final-cta-glow section-pad" style="background:var(--navy);text-align:center;">
+      <h2 data-id="251" class="fade-in" id="final-h2-s9t0" style="font-size:clamp(28px,4vw,52px);font-weight:900;color:var(--white);line-height:1.15;">
         Not Sure Which Plan Is Right for You?
       </h2>
-      <p data-id="235" class="fade-in" id="final-sub-u1v2" style="font-size:22px;font-weight:600;color:var(--cyan);margin-top:16px;">
+      <p data-id="252" class="fade-in" id="final-sub-u1v2" style="font-size:22px;font-weight:600;color:var(--cyan);margin-top:16px;">
         Start with a free Digital Health Score.
       </p>
-      <p data-id="236" class="fade-in" id="final-body-w3x4" style="font-size:17px;color:var(--white-70);max-width:580px;margin:20px auto 0;line-height:1.7;">
+      <p data-id="253" class="fade-in" id="final-body-w3x4" style="font-size:17px;color:var(--white-70);max-width:580px;margin:20px auto 0;line-height:1.7;">
         We'll review your Google presence, website, and lead system — then WhatsApp you a personalized report within 48 hours.
       </p>
 
-      <div data-id="237" class="fade-in" id="final-cta-btn-y5z6" style="margin-top:44px;">
-        <a data-id="238" href="#health-score" class="btn-orange" style="font-size:18px;font-weight:700;padding:18px 48px;box-shadow:0 8px 32px rgba(255,101,53,0.35);transition:transform 0.2s,filter 0.2s;">Get My Digital Health Score</a>
+      <div data-id="254" class="fade-in" id="final-cta-btn-y5z6" style="margin-top:44px;">
+        <a data-id="255" href="#health-score" class="btn-orange" style="font-size:18px;font-weight:700;padding:18px 48px;box-shadow:0 8px 32px rgba(255,101,53,0.35);transition:transform 0.2s,filter 0.2s;">Get My Digital Health Score</a>
       </div>
 
-      <div data-id="239" class="fade-in flex flex-wrap justify-center gap-x-6 gap-y-2 mt-8" id="final-trust-a7b8" style="font-size:14px;color:var(--white-40);">
-        <span data-id="240">✓ 100% free</span>
-        <span data-id="241">·</span>
-        <span data-id="242">✓ Results in 48 hours</span>
-        <span data-id="243">·</span>
-        <span data-id="244">✓ No commitment</span>
-        <span data-id="245">·</span>
-        <span data-id="246">✓ No sales pitch</span>
+      <div data-id="256" class="fade-in flex flex-wrap justify-center gap-x-6 gap-y-2 mt-8" id="final-trust-a7b8" style="font-size:14px;color:var(--white-40);">
+        <span data-id="257">✓ 100% free</span>
+        <span data-id="258">·</span>
+        <span data-id="259">✓ Results in 48 hours</span>
+        <span data-id="260">·</span>
+        <span data-id="261">✓ No commitment</span>
+        <span data-id="262">·</span>
+        <span data-id="263">✓ No sales pitch</span>
       </div>
     </section>
   </main>
 
   <!-- ═══════════════ FOOTER ═══════════════ -->
-  <footer data-id="247" id="footer" style="background:#060c18;padding-top:60px;border-top:1px solid rgba(255,255,255,0.06);">
-    <div data-id="248" style="max-width:1100px;margin:0 auto;padding:0 24px;">
-      <div data-id="249" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:40px;">
+  <footer data-id="264" id="footer" style="background:#060c18;padding-top:60px;border-top:1px solid rgba(255,255,255,0.06);">
+    <div data-id="265" style="max-width:1100px;margin:0 auto;padding:0 24px;">
+      <div data-id="266" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:40px;">
 
         <!-- Col 1: Logo -->
-        <div data-id="250" style="min-width:200px;">
-          <div data-id="251">
-            <span data-id="252" style="font-size:20px;font-weight:700;color:var(--white);">BluWav</span><span data-id="253" style="font-size:20px;font-weight:700;color:var(--cyan);">Growth</span>
+        <div data-id="267" style="min-width:200px;">
+          <div data-id="268">
+            <span data-id="269" style="font-size:20px;font-weight:700;color:var(--white);">BluWav</span><span data-id="270" style="font-size:20px;font-weight:700;color:var(--cyan);">Growth</span>
           </div>
-          <a data-id="254" href="mailto:hello@bluwavgrowth.com" style="display:block;margin-top:12px;font-size:14px;color:var(--cyan);text-decoration:none;">hello@bluwavgrowth.com</a>
-          <a data-id="255" href="#footer" style="display:block;margin-top:8px;font-size:13px;color:var(--white-70);text-decoration:none;transition:color 0.2s;">The Wave Newsletter</a>
+          <a data-id="271" href="mailto:hello@bluwavgrowth.com" style="display:block;margin-top:12px;font-size:14px;color:var(--cyan);text-decoration:none;">hello@bluwavgrowth.com</a>
+          <a data-id="272" href="#footer" style="display:block;margin-top:8px;font-size:13px;color:var(--white-70);text-decoration:none;transition:color 0.2s;">The Wave Newsletter</a>
         </div>
 
         <!-- Col 2: Pages -->
-        <div data-id="256">
-          <div data-id="257" style="font-size:12px;font-weight:700;color:var(--white);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px;">Pages</div>
-          <a data-id="258" href="#hero" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Home</a>
-          <a data-id="259" href="#health-score" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Health Check</a>
-          <a data-id="260" href="#pricing" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Pricing</a>
-          <a data-id="261" href="#growth-system" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">About</a>
-          <a data-id="262" href="#footer" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Contact</a>
-          <a data-id="263" href="#case-studies" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Case Studies</a>
-          <a data-id="264" href="#pillars" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Growth Systems</a>
-          <a data-id="265" href="#hero" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Client Login</a>
+        <div data-id="273">
+          <div data-id="274" style="font-size:12px;font-weight:700;color:var(--white);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px;">Pages</div>
+          <a data-id="275" href="#hero" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Home</a>
+          <a data-id="276" href="#health-score" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Health Check</a>
+          <a data-id="277" href="#pricing" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Pricing</a>
+          <a data-id="278" href="#growth-system" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">About</a>
+          <a data-id="279" href="#footer" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Contact</a>
+          <a data-id="280" href="#case-studies" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Case Studies</a>
+          <a data-id="281" href="#pillars" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Growth Systems</a>
+          <a data-id="282" href="#hero" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Client Login</a>
         </div>
 
         <!-- Col 3: Get Started -->
-        <div data-id="266">
-          <div data-id="267" style="font-size:12px;font-weight:700;color:var(--white);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px;">Get Started</div>
-          <a data-id="268" href="#pricing" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Get Started</a>
-          <a data-id="269" href="#health-score" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Free Health Check</a>
-          <a data-id="270" href="https://bluwavgrowth.com/book" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Book a Call</a>
+        <div data-id="283">
+          <div data-id="284" style="font-size:12px;font-weight:700;color:var(--white);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px;">Get Started</div>
+          <a data-id="285" href="#pricing" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Get Started</a>
+          <a data-id="286" href="#health-score" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Free Health Check</a>
+          <a data-id="287" href="https://bluwavgrowth.com/book" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Book a Call</a>
         </div>
 
         <!-- Col 4: Legal -->
-        <div data-id="271">
-          <div data-id="272" style="font-size:12px;font-weight:700;color:var(--white);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px;">Legal</div>
-          <a data-id="273" href="#footer" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Privacy Policy</a>
-          <a data-id="274" href="#footer" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Careers</a>
+        <div data-id="288">
+          <div data-id="289" style="font-size:12px;font-weight:700;color:var(--white);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px;">Legal</div>
+          <a data-id="290" href="#footer" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Privacy Policy</a>
+          <a data-id="291" href="#footer" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Careers</a>
         </div>
       </div>
 
       <!-- Bottom bar -->
-      <div data-id="275" style="margin-top:48px;padding:20px 0;border-top:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:var(--white-40);">
-        <div data-id="276">© 2026 BluWav Growth · All rights reserved. · Built for modern businesses worldwide. · Made by Copilot</div>
-        <div data-id="277" style="display:flex;gap:16px;">
-          <a data-id="278" href="#footer" style="color:var(--white-40);text-decoration:none;transition:color 0.2s;">Privacy</a>
-          <a data-id="279" href="#footer" style="color:var(--white-40);text-decoration:none;transition:color 0.2s;">Contact</a>
-          <a data-id="280" href="#footer" style="color:var(--white-40);text-decoration:none;transition:color 0.2s;">Agent Agreement</a>
+      <div data-id="292" style="margin-top:48px;padding:20px 0;border-top:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:var(--white-40);">
+        <div data-id="293">© 2026 BluWav Growth · All rights reserved. · Built for modern businesses worldwide. · Made by Copilot</div>
+        <div data-id="294" style="display:flex;gap:16px;">
+          <a data-id="295" href="#footer" style="color:var(--white-40);text-decoration:none;transition:color 0.2s;">Privacy</a>
+          <a data-id="296" href="#footer" style="color:var(--white-40);text-decoration:none;transition:color 0.2s;">Contact</a>
+          <a data-id="297" href="#footer" style="color:var(--white-40);text-decoration:none;transition:color 0.2s;">Agent Agreement</a>
         </div>
       </div>
     </div>
