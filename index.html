@@ -113,7 +113,7 @@
       /* ── HERO ── */
       .hero-section {
         position: relative;
-        min-height: 100vh;
+        min-height: calc(100vh - 68px);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -361,7 +361,8 @@
       @media (min-width: 768px) { .section-pad { padding: 120px 24px; } }
 
       /* ── WAVE ── */
-      .wave-svg { display: block; width: 100%; height: 80px; }
+      .wave-svg { display: block; width: 100%; height: 80px; margin: 0; padding: 0; }
+      .wave-wrap { display: block; width: 100%; overflow: hidden; line-height: 0; margin: 0; padding: 0; font-size: 0; }
 
       /* ── CTA FINAL GLOW ── */
       .final-cta-glow {
@@ -680,7 +681,7 @@
     </section>
 
     <!-- ═══════════════ WAVE: DARK → LIGHT ═══════════════ -->
-    <div data-id="60" style="background:var(--navy);margin-top:-1px;">
+    <div class="wave-wrap" style="background:var(--navy);">
       <svg data-id="61" viewBox="0 0 1440 80" preserveAspectRatio="none" class="wave-svg"><path data-id="62" d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#f8fafc"/></svg>
     </div>
 
@@ -740,7 +741,7 @@
     </section>
 
     <!-- ═══════════════ WAVE: LIGHT → DARK ═══════════════ -->
-    <div data-id="94" style="background:var(--light-bg);margin-bottom:-1px;">
+    <div class="wave-wrap" style="background:var(--light-bg);">
       <svg data-id="95" viewBox="0 0 1440 80" preserveAspectRatio="none" class="wave-svg"><path data-id="96" d="M0,40 C360,0 1080,80 1440,40 L1440,0 L0,0 Z" fill="#0a0f1e"/></svg>
     </div>
 
@@ -782,7 +783,7 @@
     </section>
 
     <!-- ═══════════════ WAVE: DARK → LIGHT ═══════════════ -->
-    <div data-id="120" style="background:var(--navy);margin-bottom:-1px;">
+    <div class="wave-wrap" style="background:var(--navy);">
       <svg data-id="121" viewBox="0 0 1440 80" preserveAspectRatio="none" class="wave-svg"><path data-id="122" d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#f8fafc"/></svg>
     </div>
 
@@ -834,7 +835,7 @@
     </section>
 
     <!-- ═══════════════ WAVE: LIGHT → DARK ═══════════════ -->
-    <div data-id="145" style="background:var(--light-bg);margin-bottom:-1px;">
+    <div class="wave-wrap" style="background:var(--light-bg);">
       <svg data-id="146" viewBox="0 0 1440 80" preserveAspectRatio="none" class="wave-svg"><path data-id="147" d="M0,40 C360,0 1080,80 1440,40 L1440,0 L0,0 Z" fill="#0a0f1e"/></svg>
     </div>
 
@@ -1015,7 +1016,7 @@
     </section>
 
     <!-- ═══════════════ WAVE: DARK → LIGHT ═══════════════ -->
-    <div data-id="224" style="background:#0a1628;margin-bottom:-1px;">
+    <div class="wave-wrap" style="background:#0a1628;">
       <svg data-id="225" viewBox="0 0 1440 80" preserveAspectRatio="none" class="wave-svg"><path data-id="226" d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#f8fafc"/></svg>
     </div>
 
@@ -1057,7 +1058,7 @@
     </section>
 
     <!-- ═══════════════ WAVE: LIGHT → DARK ═══════════════ -->
-    <div data-id="247" style="background:var(--light-bg);margin-bottom:-1px;">
+    <div class="wave-wrap" style="background:var(--light-bg);">
       <svg data-id="248" viewBox="0 0 1440 80" preserveAspectRatio="none" class="wave-svg"><path data-id="249" d="M0,40 C360,0 1080,80 1440,40 L1440,0 L0,0 Z" fill="#0a0f1e"/></svg>
     </div>
 
