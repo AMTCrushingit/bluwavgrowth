@@ -818,155 +818,165 @@
     <section id="growth-system" style="background:var(--light-bg);padding:120px 24px;">
   <div style="max-width:1200px;margin:0 auto;">
 
-    <!-- Section header — centered, full width -->
-    <div class="fade-in" style="text-align:center;max-width:760px;margin:0 auto 80px;">
-      <div style="font-size:13px;font-weight:600;color:#ff6535;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:20px;">The BluWav Growth System</div>
-      <h2 style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#0a0f1e;line-height:1.1;margin-bottom:24px;">
-        Your business is losing customers<br/>you never knew you had.
-      </h2>
-      <p style="font-size:18px;color:#475569;line-height:1.75;margin-bottom:16px;">
-        Most service businesses are invisible online, slow to respond, and have no system to follow up. Every day without a fix is a day someone else gets the call.
-      </p>
-      <p style="font-size:18px;color:#475569;line-height:1.75;margin-bottom:24px;">
-        The BluWav Growth System fixes all three. Your website gets you found, Google visibility gets you chosen, WhatsApp captures every enquiry instantly, and BluWav CRM tracks, follows up, and closes automatically. No lead ever falls through the cracks.
-      </p>
-      <p style="font-size:17px;font-weight:700;color:#0a0f1e;">
-        Four pillars. One system. Powered by BluWav CRM.
-      </p>
-    </div>
+    <!-- Two-column: image left | copy + diagram right -->
+    <div class="fade-in" style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;">
 
-    <!-- Two-column: image left, diagram right -->
-    <div class="fade-in" style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
-
-      <!-- Left: Stressed image -->
+      <!-- LEFT: Stressed image — full height -->
       <div style="position:relative;border-radius:20px;overflow:hidden;box-shadow:0 24px 64px rgba(10,15,30,0.12);">
-        <img src="stressed-man-tropical.jpg" loading="lazy" alt="Business owner overwhelmed without a growth system" style="width:100%;height:540px;object-fit:cover;display:block;"/>
+        <img src="stressed-man-tropical.jpg" loading="lazy" alt="Business owner overwhelmed without a growth system" style="width:100%;height:100%;min-height:640px;object-fit:cover;display:block;"/>
         <div style="position:absolute;bottom:24px;left:24px;right:24px;background:rgba(10,15,30,0.88);backdrop-filter:blur(12px);border-radius:12px;padding:16px 20px;border:1px solid rgba(0,212,255,0.2);">
           <div style="font-size:11px;font-weight:700;color:#00d4ff;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px;">Sound familiar?</div>
           <div style="font-size:15px;color:#fff;font-weight:600;line-height:1.5;">"I know I need to fix my online presence. I just don't know where to start."</div>
         </div>
       </div>
 
-      <!-- Right: Interactive system diagram -->
-      <div>
-        <style>
-          .bw-system{position:relative;width:100%;padding-bottom:100%;}
-          .bw-system-inner{position:absolute;inset:0;}
-          .bw-hub{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:140px;height:140px;border-radius:50%;background:linear-gradient(135deg,#0a0f1e,#1e3a5f);border:2px solid rgba(0,212,255,0.3);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:0 0 40px rgba(0,212,255,0.15),0 0 80px rgba(0,212,255,0.05);z-index:10;transition:box-shadow .3s;}
-          .bw-hub:hover{box-shadow:0 0 60px rgba(0,212,255,0.3),0 0 100px rgba(0,212,255,0.1);}
-          .bw-hub-label{font-size:11px;font-weight:800;color:#00d4ff;letter-spacing:1.5px;text-transform:uppercase;line-height:1.4;}
-          .bw-hub-sub{font-size:9px;color:rgba(255,255,255,0.4);margin-top:4px;letter-spacing:1px;text-transform:uppercase;}
-          .bw-orbit{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:72%;height:72%;border-radius:50%;border:1.5px dashed rgba(0,212,255,0.2);animation:bwSpin 30s linear infinite;}
-          @keyframes bwSpin{from{transform:translate(-50%,-50%) rotate(0deg);}to{transform:translate(-50%,-50%) rotate(360deg);}}
-          @media(prefers-reduced-motion:reduce){.bw-orbit{animation:none;}}
-          .bw-node{position:absolute;width:110px;height:110px;border-radius:50%;background:#fff;border:2px solid rgba(10,15,30,0.08);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:10px;box-shadow:0 4px 24px rgba(10,15,30,0.08);cursor:pointer;transition:all .3s ease;z-index:10;}
-          .bw-node:hover{border-color:rgba(0,212,255,0.5);box-shadow:0 8px 40px rgba(0,212,255,0.15);}
-          .bw-node.active{border-color:#ff6535;box-shadow:0 8px 40px rgba(255,101,53,0.2);}
-          .bw-node-top{top:2%;left:50%;transform:translateX(-50%);}
-          .bw-node-right{top:50%;right:2%;transform:translateY(-50%);}
-          .bw-node-bottom{bottom:2%;left:50%;transform:translateX(-50%);}
-          .bw-node-left{top:50%;left:2%;transform:translateY(-50%);}
-          .bw-node-top:hover,.bw-node-top.active{transform:translateX(-50%) scale(1.08);}
-          .bw-node-right:hover,.bw-node-right.active{transform:translateY(-50%) scale(1.08);}
-          .bw-node-bottom:hover,.bw-node-bottom.active{transform:translateX(-50%) scale(1.08);}
-          .bw-node-left:hover,.bw-node-left.active{transform:translateY(-50%) scale(1.08);}
-          .bw-node-icon{font-size:24px;margin-bottom:5px;}
-          .bw-node-label{font-size:10px;font-weight:800;color:#0a0f1e;line-height:1.3;}
-          .bw-connectors{position:absolute;inset:0;pointer-events:none;}
-          .bw-info{margin-top:28px;background:#fff;border:1px solid rgba(10,15,30,0.08);border-radius:16px;padding:28px 32px;text-align:left;transition:all .3s ease;box-shadow:0 4px 24px rgba(10,15,30,0.06);}
-          .bw-info-title{font-size:18px;font-weight:800;color:#0a0f1e;margin-bottom:8px;display:flex;align-items:center;gap:10px;}
-          .bw-info-desc{font-size:15px;color:#475569;line-height:1.7;}
-          .bw-info-tag{display:inline-block;margin-top:12px;font-size:12px;font-weight:700;color:#ff6535;background:rgba(255,101,53,0.08);padding:4px 12px;border-radius:100px;}
-        </style>
+      <!-- RIGHT: Copy + diagram stacked -->
+      <div style="display:flex;flex-direction:column;gap:48px;">
 
-        <div class="bw-system">
-          <div class="bw-system-inner">
-            <svg class="bw-connectors" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <marker id="arr-c" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="rgba(0,212,255,0.6)"/></marker>
-                <marker id="arr-o" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="rgba(255,101,53,0.6)"/></marker>
-              </defs>
-              <line x1="200" y1="125" x2="200" y2="172" stroke="rgba(0,212,255,0.3)" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arr-c)"/>
-              <line x1="275" y1="200" x2="228" y2="200" stroke="rgba(0,212,255,0.3)" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arr-c)"/>
-              <line x1="200" y1="275" x2="200" y2="228" stroke="rgba(255,101,53,0.3)" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arr-o)"/>
-              <line x1="125" y1="200" x2="172" y2="200" stroke="rgba(255,101,53,0.3)" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arr-o)"/>
-              <path d="M 200,68 A 132,132 0 0,1 332,200" stroke="rgba(0,212,255,0.15)" stroke-width="1" fill="none" stroke-dasharray="6,4" marker-end="url(#arr-c)"/>
-              <path d="M 332,200 A 132,132 0 0,1 200,332" stroke="rgba(0,212,255,0.15)" stroke-width="1" fill="none" stroke-dasharray="6,4" marker-end="url(#arr-c)"/>
-              <path d="M 200,332 A 132,132 0 0,1 68,200" stroke="rgba(255,101,53,0.12)" stroke-width="1" fill="none" stroke-dasharray="6,4" marker-end="url(#arr-o)"/>
-              <path d="M 68,200 A 132,132 0 0,1 200,68" stroke="rgba(255,101,53,0.12)" stroke-width="1" fill="none" stroke-dasharray="6,4" marker-end="url(#arr-o)"/>
-            </svg>
-            <div class="bw-orbit"></div>
-            <div class="bw-hub">
-              <div class="bw-hub-label">BluWav<br/>Growth<br/>System</div>
-              <div class="bw-hub-sub">Powered by CRM</div>
-            </div>
-            <div class="bw-node bw-node-top active" onclick="bwActivate(this,'website')" data-key="website">
-              <div class="bw-node-icon">🌐</div>
-              <div class="bw-node-label">Website</div>
-            </div>
-            <div class="bw-node bw-node-right" onclick="bwActivate(this,'google')" data-key="google">
-              <div class="bw-node-icon">📍</div>
-              <div class="bw-node-label">Google Visibility</div>
-            </div>
-            <div class="bw-node bw-node-bottom" onclick="bwActivate(this,'whatsapp')" data-key="whatsapp">
-              <div class="bw-node-icon">💬</div>
-              <div class="bw-node-label">WhatsApp System</div>
-            </div>
-            <div class="bw-node bw-node-left" onclick="bwActivate(this,'crm')" data-key="crm">
-              <div class="bw-node-icon">📊</div>
-              <div class="bw-node-label">BluWav CRM&#8482;</div>
+        <!-- Copy block -->
+        <div>
+          <div style="font-size:13px;font-weight:600;color:#ff6535;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:20px;">The BluWav Growth System</div>
+          <h2 style="font-size:clamp(28px,3vw,42px);font-weight:800;color:#0a0f1e;line-height:1.1;margin-bottom:24px;">
+            Your business is losing customers<br/>you never knew you had.
+          </h2>
+          <p style="font-size:17px;color:#475569;line-height:1.75;margin-bottom:16px;">
+            Most service businesses are invisible online, slow to respond, and have no system to follow up. Every day without a fix is a day someone else gets the call.
+          </p>
+          <p style="font-size:17px;color:#475569;line-height:1.75;margin-bottom:20px;">
+            The BluWav Growth System fixes all three. Your website gets you found, Google visibility gets you chosen, WhatsApp captures every enquiry instantly, and BluWav CRM tracks, follows up, and closes automatically. No lead ever falls through the cracks.
+          </p>
+          <p style="font-size:16px;font-weight:700;color:#0a0f1e;">
+            Four pillars. One system. Powered by BluWav CRM.
+          </p>
+        </div>
+
+        <!-- Interactive diagram -->
+        <div>
+          <style>
+            .bw-system{position:relative;width:100%;padding-bottom:100%;}
+            .bw-system-inner{position:absolute;inset:0;}
+            .bw-hub{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:130px;height:130px;border-radius:50%;background:linear-gradient(135deg,#0a0f1e,#1e3a5f);border:2px solid rgba(0,212,255,0.3);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:0 0 40px rgba(0,212,255,0.15),0 0 80px rgba(0,212,255,0.05);z-index:10;transition:box-shadow .3s;}
+            .bw-hub:hover{box-shadow:0 0 60px rgba(0,212,255,0.3),0 0 100px rgba(0,212,255,0.1);}
+            .bw-hub-label{font-size:10px;font-weight:800;color:#00d4ff;letter-spacing:1.5px;text-transform:uppercase;line-height:1.4;}
+            .bw-hub-sub{font-size:8px;color:rgba(255,255,255,0.4);margin-top:4px;letter-spacing:1px;text-transform:uppercase;}
+            .bw-orbit{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:72%;height:72%;border-radius:50%;border:1.5px dashed rgba(0,212,255,0.2);animation:bwSpin 30s linear infinite;}
+            @keyframes bwSpin{from{transform:translate(-50%,-50%) rotate(0deg);}to{transform:translate(-50%,-50%) rotate(360deg);}}
+            @media(prefers-reduced-motion:reduce){.bw-orbit{animation:none;}}
+            .bw-node{position:absolute;width:100px;height:100px;border-radius:50%;background:#fff;border:2px solid rgba(10,15,30,0.08);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8px;box-shadow:0 4px 24px rgba(10,15,30,0.08);cursor:pointer;transition:all .3s ease;z-index:10;}
+            .bw-node:hover{border-color:rgba(0,212,255,0.5);box-shadow:0 8px 40px rgba(0,212,255,0.15);}
+            .bw-node.active{border-color:#ff6535;box-shadow:0 8px 40px rgba(255,101,53,0.2);}
+            .bw-node-top{top:2%;left:50%;transform:translateX(-50%);}
+            .bw-node-right{top:50%;right:2%;transform:translateY(-50%);}
+            .bw-node-bottom{bottom:2%;left:50%;transform:translateX(-50%);}
+            .bw-node-left{top:50%;left:2%;transform:translateY(-50%);}
+            .bw-node-top:hover,.bw-node-top.active{transform:translateX(-50%) scale(1.08);}
+            .bw-node-right:hover,.bw-node-right.active{transform:translateY(-50%) scale(1.08);}
+            .bw-node-bottom:hover,.bw-node-bottom.active{transform:translateX(-50%) scale(1.08);}
+            .bw-node-left:hover,.bw-node-left.active{transform:translateY(-50%) scale(1.08);}
+            .bw-node-icon{font-size:22px;margin-bottom:4px;}
+            .bw-node-label{font-size:9px;font-weight:800;color:#0a0f1e;line-height:1.3;}
+            .bw-connectors{position:absolute;inset:0;pointer-events:none;}
+            .bw-info{margin-top:20px;background:#fff;border:1px solid rgba(10,15,30,0.08);border-radius:14px;padding:24px 28px;text-align:left;transition:all .3s ease;box-shadow:0 4px 24px rgba(10,15,30,0.06);}
+            .bw-info-title{font-size:17px;font-weight:800;color:#0a0f1e;margin-bottom:8px;display:flex;align-items:center;gap:10px;}
+            .bw-info-desc{font-size:14px;color:#475569;line-height:1.7;}
+            .bw-info-tag{display:inline-block;margin-top:10px;font-size:11px;font-weight:700;color:#ff6535;background:rgba(255,101,53,0.08);padding:3px 10px;border-radius:100px;}
+          </style>
+
+          <div class="bw-system">
+            <div class="bw-system-inner">
+              <svg class="bw-connectors" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <marker id="arr-c" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="rgba(0,212,255,0.6)"/></marker>
+                  <marker id="arr-o" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="rgba(255,101,53,0.6)"/></marker>
+                </defs>
+                <line x1="200" y1="118" x2="200" y2="168" stroke="rgba(0,212,255,0.3)" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arr-c)"/>
+                <line x1="282" y1="200" x2="232" y2="200" stroke="rgba(0,212,255,0.3)" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arr-c)"/>
+                <line x1="200" y1="282" x2="200" y2="232" stroke="rgba(255,101,53,0.3)" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arr-o)"/>
+                <line x1="118" y1="200" x2="168" y2="200" stroke="rgba(255,101,53,0.3)" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arr-o)"/>
+                <path d="M 200,68 A 132,132 0 0,1 332,200" stroke="rgba(0,212,255,0.15)" stroke-width="1" fill="none" stroke-dasharray="6,4" marker-end="url(#arr-c)"/>
+                <path d="M 332,200 A 132,132 0 0,1 200,332" stroke="rgba(0,212,255,0.15)" stroke-width="1" fill="none" stroke-dasharray="6,4" marker-end="url(#arr-c)"/>
+                <path d="M 200,332 A 132,132 0 0,1 68,200" stroke="rgba(255,101,53,0.12)" stroke-width="1" fill="none" stroke-dasharray="6,4" marker-end="url(#arr-o)"/>
+                <path d="M 68,200 A 132,132 0 0,1 200,68" stroke="rgba(255,101,53,0.12)" stroke-width="1" fill="none" stroke-dasharray="6,4" marker-end="url(#arr-o)"/>
+              </svg>
+              <div class="bw-orbit"></div>
+              <div class="bw-hub">
+                <div class="bw-hub-label">BluWav<br/>Growth<br/>System</div>
+                <div class="bw-hub-sub">Powered by CRM</div>
+              </div>
+              <div class="bw-node bw-node-top active" onclick="bwActivate(this,'website')">
+                <div class="bw-node-icon">🌐</div>
+                <div class="bw-node-label">Website</div>
+              </div>
+              <div class="bw-node bw-node-right" onclick="bwActivate(this,'google')">
+                <div class="bw-node-icon">📍</div>
+                <div class="bw-node-label">Google Visibility</div>
+              </div>
+              <div class="bw-node bw-node-bottom" onclick="bwActivate(this,'whatsapp')">
+                <div class="bw-node-icon">💬</div>
+                <div class="bw-node-label">WhatsApp System</div>
+              </div>
+              <div class="bw-node bw-node-left" onclick="bwActivate(this,'crm')">
+                <div class="bw-node-icon">📊</div>
+                <div class="bw-node-label">BluWav CRM&#8482;</div>
+              </div>
             </div>
           </div>
+
+          <div class="bw-info" id="bwInfoPanel">
+            <div class="bw-info-title"><span id="bwInfoIcon">🌐</span><span id="bwInfoTitle">Website</span></div>
+            <div class="bw-info-desc" id="bwInfoDesc">Modern, mobile-first, and built to convert visitors into enquiries from day one. Your 24/7 digital storefront, live in 48 hours.</div>
+            <span class="bw-info-tag" id="bwInfoTag">Pillar 01 of 04</span>
+          </div>
+
+          <script>
+          var bwData={
+            website:{icon:'🌐',title:'Website',tag:'Pillar 01 of 04',desc:'Modern, mobile-first, and built to convert visitors into enquiries from day one. Your 24/7 digital storefront, live in 48 hours.'},
+            google:{icon:'📍',title:'Google Visibility',tag:'Pillar 02 of 04',desc:'Verified, optimized, and ranking so customers find you first, not your competitors. Show up in Google Maps and local search from day one.'},
+            whatsapp:{icon:'💬',title:'WhatsApp Response System',tag:'Pillar 03 of 04',desc:'Instant replies and automated follow-ups so every enquiry gets a response, even while you sleep. No lead ever falls through the cracks.'},
+            crm:{icon:'📊',title:'BluWav CRM™ + Automation',tag:'Pillar 04 of 04',desc:'Pipeline, tasks, reminders, and forecasting. Every lead tracked, every follow-up automated. Full visibility of your business growth in real time.'}
+          };
+          function bwActivate(el,key){
+            document.querySelectorAll('.bw-node').forEach(function(n){n.classList.remove('active');});
+            el.classList.add('active');
+            var d=bwData[key];
+            document.getElementById('bwInfoIcon').textContent=d.icon;
+            document.getElementById('bwInfoTitle').textContent=d.title;
+            document.getElementById('bwInfoDesc').textContent=d.desc;
+            document.getElementById('bwInfoTag').textContent=d.tag;
+          }
+          var bwKeys=['website','google','whatsapp','crm'];
+          var bwIdx=0;
+          var bwTimer=setInterval(function(){
+            bwIdx=(bwIdx+1)%4;
+            bwActivate(document.querySelectorAll('.bw-node')[bwIdx],bwKeys[bwIdx]);
+          },3000);
+          document.querySelectorAll('.bw-node').forEach(function(n){
+            n.addEventListener('click',function(){clearInterval(bwTimer);});
+          });
+          </script>
         </div>
 
-        <!-- Info panel -->
-        <div class="bw-info" id="bwInfoPanel">
-          <div class="bw-info-title"><span id="bwInfoIcon">🌐</span><span id="bwInfoTitle">Website</span></div>
-          <div class="bw-info-desc" id="bwInfoDesc">Modern, mobile-first, and built to convert visitors into enquiries from day one. Your 24/7 digital storefront, live in 48 hours.</div>
-          <span class="bw-info-tag" id="bwInfoTag">Pillar 01 of 04</span>
-        </div>
-
-        <script>
-        var bwData={
-          website:{icon:'🌐',title:'Website',tag:'Pillar 01 of 04',desc:'Modern, mobile-first, and built to convert visitors into enquiries from day one. Your 24/7 digital storefront, live in 48 hours.'},
-          google:{icon:'📍',title:'Google Visibility',tag:'Pillar 02 of 04',desc:'Verified, optimized, and ranking so customers find you first, not your competitors. Show up in Google Maps and local search from day one.'},
-          whatsapp:{icon:'💬',title:'WhatsApp Response System',tag:'Pillar 03 of 04',desc:'Instant replies and automated follow-ups so every enquiry gets a response, even while you sleep. No lead ever falls through the cracks.'},
-          crm:{icon:'📊',title:'BluWav CRM™ + Automation',tag:'Pillar 04 of 04',desc:'Pipeline, tasks, reminders, and forecasting. Every lead tracked, every follow-up automated. Full visibility of your business growth in real time.'}
-        };
-        function bwActivate(el,key){
-          document.querySelectorAll('.bw-node').forEach(function(n){n.classList.remove('active');});
-          el.classList.add('active');
-          var d=bwData[key];
-          document.getElementById('bwInfoIcon').textContent=d.icon;
-          document.getElementById('bwInfoTitle').textContent=d.title;
-          document.getElementById('bwInfoDesc').textContent=d.desc;
-          document.getElementById('bwInfoTag').textContent=d.tag;
-        }
-        var bwKeys=['website','google','whatsapp','crm'];
-        var bwIdx=0;
-        var bwTimer=setInterval(function(){
-          bwIdx=(bwIdx+1)%4;
-          bwActivate(document.querySelectorAll('.bw-node')[bwIdx],bwKeys[bwIdx]);
-        },3000);
-        document.querySelectorAll('.bw-node').forEach(function(n){
-          n.addEventListener('click',function(){clearInterval(bwTimer);});
-        });
-        </script>
-      </div>
-    </div>
+      </div><!-- end right column -->
+    </div><!-- end two-column -->
 
     <!-- CTAs -->
     <div class="fade-in" style="text-align:center;margin-top:80px;display:flex;flex-wrap:wrap;gap:16px;justify-content:center;">
       <a href="health-score.html" class="btn-orange" style="font-size:16px;padding:16px 36px;">Get My Free Health Score</a>
       <a href="#pricing" style="display:inline-flex;align-items:center;gap:8px;color:#0a0f1e;font-size:15px;font-weight:700;text-decoration:none;border:1.5px solid rgba(10,15,30,0.2);padding:16px 32px;border-radius:100px;transition:all .2s;" onmouseover="this.style.borderColor='rgba(0,212,255,0.5)';this.style.color='#0369a1'" onmouseout="this.style.borderColor='rgba(10,15,30,0.2)';this.style.color='#0a0f1e'">See Plans and Pricing</a>
     </div>
-
-    <div style="text-align:center;margin-top:20px;font-size:13px;color:#94a3b8;">
+    <div style="text-align:center;margin-top:16px;font-size:13px;color:#94a3b8;">
       Your data, always yours. Cancel anytime.
     </div>
 
   </div>
 </section>
+
+<style>
+@media(max-width:900px){
+  #growth-system [style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important;gap:48px!important;}
+  #growth-system img{min-height:320px!important;}
+}
+</style>
 
 <style>
 @media(max-width:900px){
