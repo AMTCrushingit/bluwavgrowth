@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="dark" />
-    <title>BluWav Growth  -  Homepage Rebuild</title>
+    <title>BluWav Growth | Digital Growth Systems for Modern Businesses</title>
+    <meta name="description" content="BluWav Growth fills the marketing and sales gap for modern service businesses. Website, Google visibility, WhatsApp, CRM and automation — live in 48 hours. Free Digital Health Score." />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -425,9 +426,105 @@
           border-right: none !important;
         }
       }
+
+      /* ── Compact Dashboard ── */
+      .hero-dashboard {
+        position: relative;
+        z-index: 2;
+        max-width: 680px;
+        margin: 40px auto 0;
+        border-radius: 14px;
+        border: 1px solid rgba(255,255,255,0.08);
+        padding: 14px 18px;
+        background: rgba(10,15,30,0.7);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 0 60px rgba(0,212,255,0.07);
+      }
+      .dash-bar {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-bottom: 12px;
+      }
+      .dash-dot { width: 8px; height: 8px; border-radius: 50%; }
+      .dash-title { font-size: 10px; color: rgba(255,255,255,0.3); font-weight: 600; margin-left: 6px; }
+      .dash-live { font-size: 9px; font-weight: 700; color: #22c55e; background: rgba(34,197,94,0.1); padding: 2px 7px; border-radius: 100px; margin-left: auto; }
+      .dash-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; }
+      .dash-col { background: rgba(255,255,255,0.03); border-radius: 8px; padding: 8px; }
+      .dash-col-head { display: flex; align-items: center; gap: 5px; margin-bottom: 8px; }
+      .dash-col-dot { width: 6px; height: 6px; border-radius: 50%; }
+      .dash-col-label { font-size: 8px; font-weight: 800; color: rgba(255,255,255,0.3); text-transform: uppercase; letter-spacing: .1em; }
+      .dash-col-count { font-size: 8px; color: rgba(255,255,255,0.2); margin-left: auto; }
+      .dash-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 6px; padding: 6px 8px; margin-bottom: 5px; }
+      .dash-card:last-child { margin-bottom: 0; }
+      .dash-card-name { font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.8); }
+      .dash-card-val { font-size: 9px; font-weight: 700; margin-top: 2px; }
+      .dash-card-won { border-color: rgba(34,197,94,0.2); }
+      .dash-card-won .dash-card-val { color: #22c55e; }
+      @media(max-width:640px) {
+        .hero-dashboard { display: none; }
+      }
+
+      /* ── WhatsApp Float ── */
+      .wa-float {
+        position: fixed; bottom: 24px; right: 24px; z-index: 500;
+        width: 52px; height: 52px; background: #25D366; border-radius: 50%;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 26px; box-shadow: 0 4px 20px rgba(37,211,102,0.45);
+        text-decoration: none; transition: transform .2s;
+      }
+      .wa-float:hover { transform: scale(1.1); }
+      @keyframes waPulse {
+        0%,100% { box-shadow: 0 4px 20px rgba(37,211,102,0.45); }
+        50% { box-shadow: 0 4px 40px rgba(37,211,102,0.8), 0 0 0 8px rgba(37,211,102,0.1); }
+      }
+      .wa-float { animation: waPulse 2.5s ease-in-out infinite; }
+
+      /* ── Scroll Progress ── */
+      #bw-progress {
+        position: fixed; top: 0; left: 0; height: 3px; z-index: 9999;
+        width: 0%; background: linear-gradient(90deg, var(--orange), var(--gold), var(--cyan));
+        border-radius: 0 2px 2px 0; transition: width .1s linear; pointer-events: none;
+      }
+
+      /* ── Mobile nav link style (was missing) ── */
+      .mobile-nav-link {
+        color: rgba(255,255,255,0.85);
+        font-size: 17px;
+        font-weight: 500;
+        text-decoration: none;
+        padding: 15px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        transition: color .15s;
+      }
+      .mobile-nav-link:hover { color: var(--cyan); }
+
+      /* ── Mobile hero text sizing ── */
+      @media(max-width:480px) {
+        .hero-section { padding-top: 80px; }
+        .pill-badge { font-size: 12px; padding: 6px 14px; }
+      }
+
+      /* ── Pricing grid mobile ── */
+      @media(max-width:640px) {
+        #pricing-grid-w7x8 { grid-template-columns: 1fr !important; }
+        #cases-grid-k1l2 { grid-template-columns: 1fr !important; }
+        #pillars-grid-y3z4 { grid-template-columns: 1fr !important; }
+        #metrics-grid-m1n2 { grid-template-columns: repeat(2,1fr) !important; }
+        .pricing-card-popular { transform: none !important; }
+      }
+
+      /* ── Reduced motion ── */
+      @media(prefers-reduced-motion:reduce) {
+        .fade-in, .hero-orb, .wa-float { animation: none !important; transition: none !important; opacity: 1 !important; transform: none !important; }
+      }
     </style>
 </head>
 <body data-id="0">
+  <div id="bw-progress"></div>
 
   <app-icon data-id="1" hidden data-icon="trending-up" data-palette="Blue"></app-icon>
 
@@ -436,7 +533,6 @@
     <div data-id="3" class="flex items-center gap-2">
       <div data-id="4">
         <span data-id="5" class="text-lg font-semibold text-white">BluWav</span><span data-id="6" class="text-lg font-semibold" style="color:var(--cyan);">Growth</span>
-        <div data-id="7" class="text-xs" style="color:var(--white-40);margin-top:-2px;">Powered by Stratiix</div>
       </div>
     </div>
 
@@ -445,11 +541,11 @@
       <a data-id="10" href="#growth-system" class="nav-link">How It Works</a>
       <a data-id="11" href="#pricing" class="nav-link">Pricing</a>
       <a data-id="12" href="#case-studies" class="nav-link">Case Studies</a>
-      <a data-id="13" href="#footer" class="nav-link">The Wave</a>
+      <a data-id="13" href="the-wave.html" class="nav-link">The Wave</a>
     </div>
 
     <div data-id="14" class="hidden md:flex items-center gap-3" id="desktop-nav-btns-77cc">
-      <a data-id="15" href="#health-score" class="btn-outline-cyan">Free Health Check</a>
+      <a data-id="15" href="health-check.html" class="btn-outline-cyan">Free Health Check</a>
       <a data-id="16" href="#pricing" class="btn-orange-sm">Get Started</a>
     </div>
 
@@ -472,9 +568,10 @@
     <a data-id="27" href="#growth-system" class="mobile-nav-link">How It Works</a>
     <a data-id="28" href="#pricing" class="mobile-nav-link">Pricing</a>
     <a data-id="29" href="#case-studies" class="mobile-nav-link">Case Studies</a>
-    <a data-id="30" href="#footer" class="mobile-nav-link">The Wave</a>
+    <a data-id="30" href="the-wave.html" class="mobile-nav-link">The Wave</a>
+    <a href="https://bluwavcrm.com/login.html" target="_blank" rel="noopener" class="mobile-nav-link" style="color:rgba(0,212,255,0.85);">🔐 Client Login</a>
     <div data-id="31" class="mt-8 flex flex-col gap-3">
-      <a data-id="32" href="#health-score" class="btn-outline-cyan text-center">Free Health Check</a>
+      <a data-id="32" href="health-check.html" class="btn-outline-cyan text-center">Free Health Check</a>
       <a data-id="33" href="#pricing" class="btn-orange-sm text-center">Get Started</a>
     </div>
   </div>
@@ -506,7 +603,7 @@
         </p>
 
         <div data-id="47" class="flex justify-center gap-4 flex-wrap mt-10 fade-in" id="hero-ctas-6i7j">
-          <a data-id="48" href="#health-score" class="btn-orange" style="font-size:16px;">Start Your Digital Health Score</a>
+          <a data-id="48" href="health-check.html" class="btn-orange" style="font-size:16px;">Get My Free Health Check →</a>
           <a data-id="49" href="#pricing" class="btn-ghost" style="font-size:16px;">See Pricing</a>
         </div>
 
@@ -520,6 +617,55 @@
           <span data-id="57">★★★★★ 5-star rated</span>
           <span data-id="58">·</span>
           <span data-id="59">🌍 Worldwide</span>
+
+        <!-- Compact Dashboard Mockup -->
+        <div class="hero-dashboard fade-in">
+          <div class="dash-bar">
+            <div class="dash-dot" style="background:#ef4444;"></div>
+            <div class="dash-dot" style="background:#f59e0b;"></div>
+            <div class="dash-dot" style="background:#22c55e;"></div>
+            <span class="dash-title">BluWav Growth Dashboard</span>
+            <span class="dash-live">● Live</span>
+          </div>
+          <div class="dash-grid">
+            <div class="dash-col">
+              <div class="dash-col-head">
+                <div class="dash-col-dot" style="background:#6b7a99;"></div>
+                <span class="dash-col-label">Lead</span>
+                <span class="dash-col-count">3</span>
+              </div>
+              <div class="dash-card"><div class="dash-card-name">Kezia M.</div><div class="dash-card-val" style="color:var(--cyan);">Beauty &amp; Wellness</div></div>
+              <div class="dash-card"><div class="dash-card-name">Ricardo T.</div><div class="dash-card-val" style="color:var(--cyan);">Construction</div></div>
+              <div class="dash-card"><div class="dash-card-name">New Enquiry</div><div class="dash-card-val" style="color:rgba(255,255,255,0.3);">Hospitality</div></div>
+            </div>
+            <div class="dash-col">
+              <div class="dash-col-head">
+                <div class="dash-col-dot" style="background:var(--cyan);"></div>
+                <span class="dash-col-label">Proposal</span>
+                <span class="dash-col-count">2</span>
+              </div>
+              <div class="dash-card"><div class="dash-card-name">Michelle A.</div><div class="dash-card-val" style="color:var(--cyan);">Food &amp; Beverage</div></div>
+              <div class="dash-card"><div class="dash-card-name">AADEK Consulting</div><div class="dash-card-val" style="color:var(--cyan);">Engineering</div></div>
+            </div>
+            <div class="dash-col">
+              <div class="dash-col-head">
+                <div class="dash-col-dot" style="background:var(--cyan);"></div>
+                <span class="dash-col-label">In Progress</span>
+                <span class="dash-col-count">2</span>
+              </div>
+              <div class="dash-card"><div class="dash-card-name">Wellness Studio</div><div class="dash-card-val" style="color:var(--cyan);">Website · 80%</div></div>
+              <div class="dash-card"><div class="dash-card-name">Tech Services</div><div class="dash-card-val" style="color:var(--cyan);">CRM · Live</div></div>
+            </div>
+            <div class="dash-col">
+              <div class="dash-col-head">
+                <div class="dash-col-dot" style="background:#22c55e;"></div>
+                <span class="dash-col-label">Closed Won</span>
+                <span class="dash-col-count">2</span>
+              </div>
+              <div class="dash-card dash-card-won"><div class="dash-card-name">Ripple ✓</div><div class="dash-card-val">$397/mo · Live</div></div>
+              <div class="dash-card dash-card-won"><div class="dash-card-name">Current ✓</div><div class="dash-card-val">$697/mo · Live</div></div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -574,12 +720,12 @@
 
         <div data-id="88" style="margin-top:28px;font-size:16px;color:#475569;line-height:2;">
           We deliver a human-powered, service-centric model that combines rapid digital setup with ongoing growth support - built and run with you.<br data-id="89">
-          <span data-id="90" style="color:#94a3b8;">Your data, always yours. · A Stratiix Group Company.</span>
+          <span data-id="90" style="color:#94a3b8;">Your data, always yours.</span>
         </div>
 
         <div data-id="91" class="flex flex-wrap justify-center gap-4 mt-10" id="growth-ctas-u9v0">
-          <a data-id="92" href="#health-score" class="btn-orange" style="font-size:16px;padding:14px 32px;">Get My Digital Health Score</a>
-          <a data-id="93" href="https://bluwavgrowth.com/book" class="btn-white-outline-dark">Book a Call</a>
+          <a data-id="92" href="health-check.html" class="btn-orange" style="font-size:16px;padding:14px 32px;">Get My Free Health Check →</a>
+          <a data-id="93" href="https://calendly.com/hello-bluwavgrowth/30min" class="btn-white-outline-dark">Book a Call</a>
         </div>
       </div>
     </section>
@@ -622,7 +768,7 @@
       </div>
 
       <div data-id="118" class="text-center mt-14 fade-in" id="pillars-cta-i3j4">
-        <a data-id="119" href="#pillars" class="btn-outline-cyan-lg">Explore the Growth System</a>
+        <a data-id="119" href="#growth-system" class="btn-outline-cyan-lg">Explore the Growth System</a>
       </div>
     </section>
 
@@ -673,7 +819,7 @@
       </div>
 
       <div data-id="142" class="fade-in" id="health-cta-s3t4" style="margin-top:44px;">
-        <a data-id="143" href="#health-score" class="btn-orange" style="font-size:16px;padding:16px 40px;">Find My Score</a>
+        <a data-id="143" href="health-check.html" class="btn-orange" style="font-size:16px;padding:16px 40px;">Get My Free Health Check →</a>
         <p data-id="144" style="margin-top:16px;font-size:14px;color:#64748b;">Results via WhatsApp in 48 hours.</p>
       </div>
     </section>
@@ -806,6 +952,55 @@
 
         <div data-id="223" style="margin-top:48px;font-size:22px;font-weight:800;color:var(--white);letter-spacing:-0.5px;">
           Human-powered. Service-centric. Built to grow.
+
+        <!-- Compact Dashboard Mockup -->
+        <div class="hero-dashboard fade-in">
+          <div class="dash-bar">
+            <div class="dash-dot" style="background:#ef4444;"></div>
+            <div class="dash-dot" style="background:#f59e0b;"></div>
+            <div class="dash-dot" style="background:#22c55e;"></div>
+            <span class="dash-title">BluWav Growth Dashboard</span>
+            <span class="dash-live">● Live</span>
+          </div>
+          <div class="dash-grid">
+            <div class="dash-col">
+              <div class="dash-col-head">
+                <div class="dash-col-dot" style="background:#6b7a99;"></div>
+                <span class="dash-col-label">Lead</span>
+                <span class="dash-col-count">3</span>
+              </div>
+              <div class="dash-card"><div class="dash-card-name">Kezia M.</div><div class="dash-card-val" style="color:var(--cyan);">Beauty &amp; Wellness</div></div>
+              <div class="dash-card"><div class="dash-card-name">Ricardo T.</div><div class="dash-card-val" style="color:var(--cyan);">Construction</div></div>
+              <div class="dash-card"><div class="dash-card-name">New Enquiry</div><div class="dash-card-val" style="color:rgba(255,255,255,0.3);">Hospitality</div></div>
+            </div>
+            <div class="dash-col">
+              <div class="dash-col-head">
+                <div class="dash-col-dot" style="background:var(--cyan);"></div>
+                <span class="dash-col-label">Proposal</span>
+                <span class="dash-col-count">2</span>
+              </div>
+              <div class="dash-card"><div class="dash-card-name">Michelle A.</div><div class="dash-card-val" style="color:var(--cyan);">Food &amp; Beverage</div></div>
+              <div class="dash-card"><div class="dash-card-name">AADEK Consulting</div><div class="dash-card-val" style="color:var(--cyan);">Engineering</div></div>
+            </div>
+            <div class="dash-col">
+              <div class="dash-col-head">
+                <div class="dash-col-dot" style="background:var(--cyan);"></div>
+                <span class="dash-col-label">In Progress</span>
+                <span class="dash-col-count">2</span>
+              </div>
+              <div class="dash-card"><div class="dash-card-name">Wellness Studio</div><div class="dash-card-val" style="color:var(--cyan);">Website · 80%</div></div>
+              <div class="dash-card"><div class="dash-card-name">Tech Services</div><div class="dash-card-val" style="color:var(--cyan);">CRM · Live</div></div>
+            </div>
+            <div class="dash-col">
+              <div class="dash-col-head">
+                <div class="dash-col-dot" style="background:#22c55e;"></div>
+                <span class="dash-col-label">Closed Won</span>
+                <span class="dash-col-count">2</span>
+              </div>
+              <div class="dash-card dash-card-won"><div class="dash-card-name">Ripple ✓</div><div class="dash-card-val">$397/mo · Live</div></div>
+              <div class="dash-card dash-card-won"><div class="dash-card-name">Current ✓</div><div class="dash-card-val">$697/mo · Live</div></div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -870,7 +1065,7 @@
       </p>
 
       <div data-id="254" class="fade-in" id="final-cta-btn-y5z6" style="margin-top:44px;">
-        <a data-id="255" href="#health-score" class="btn-orange" style="font-size:18px;font-weight:700;padding:18px 48px;box-shadow:0 8px 32px rgba(255,101,53,0.35);transition:transform 0.2s,filter 0.2s;">Get My Digital Health Score</a>
+        <a data-id="255" href="health-check.html" class="btn-orange" style="font-size:18px;font-weight:700;padding:18px 48px;box-shadow:0 8px 32px rgba(255,101,53,0.35);transition:transform 0.2s,filter 0.2s;">Get My Free Health Check →</a>
       </div>
 
       <div data-id="256" class="fade-in flex flex-wrap justify-center gap-x-6 gap-y-2 mt-8" id="final-trust-a7b8" style="font-size:14px;color:var(--white-40);">
@@ -895,8 +1090,8 @@
           <div data-id="268">
             <span data-id="269" style="font-size:20px;font-weight:700;color:var(--white);">BluWav</span><span data-id="270" style="font-size:20px;font-weight:700;color:var(--cyan);">Growth</span>
           </div>
-          <a data-id="271" href="mailto:hello@bluwavgrowth.com" style="display:block;margin-top:12px;font-size:14px;color:var(--cyan);text-decoration:none;">hello@bluwavgrowth.com</a>
-          <a data-id="272" href="#footer" style="display:block;margin-top:8px;font-size:13px;color:var(--white-70);text-decoration:none;transition:color 0.2s;">The Wave Newsletter</a>
+          <a data-id="271" href="/cdn-cgi/l/email-protection#ea828f868685aa88869f9d8b9c8d98859d9e82c4898587" style="display:block;margin-top:12px;font-size:14px;color:var(--cyan);text-decoration:none;"><span class="__cf_email__" data-cfemail="96fef3fafaf9d6f4fae3e1f7e0f1e4f9e1e2feb8f5f9fb">[email&#160;protected]</span></a>
+          <a data-id="272" href="the-wave.html" style="display:block;margin-top:8px;font-size:13px;color:var(--white-70);text-decoration:none;transition:color 0.2s;">The Wave Newsletter</a>
         </div>
 
         <!-- Col 2: Pages -->
@@ -905,11 +1100,13 @@
           <a data-id="275" href="#hero" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Home</a>
           <a data-id="276" href="#health-score" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Health Check</a>
           <a data-id="277" href="#pricing" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Pricing</a>
-          <a data-id="278" href="#growth-system" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">About</a>
-          <a data-id="279" href="#footer" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Contact</a>
+          <a data-id="278" href="about.html" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">About</a>
+          <a data-id="279" href="contact.html" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Contact</a>
           <a data-id="280" href="#case-studies" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Case Studies</a>
           <a data-id="281" href="#pillars" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Growth Systems</a>
-          <a data-id="282" href="#hero" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Client Login</a>
+          <a href="the-wave.html" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">The Wave</a>
+          <a href="case-study-aadek.html" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Case Studies</a>
+          <a data-id="282" href="https://bluwavcrm.com/login.html" target="_blank" rel="noopener" style="display:block;font-size:14px;color:var(--cyan);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">🔐 Client Login</a>
         </div>
 
         <!-- Col 3: Get Started -->
@@ -917,30 +1114,30 @@
           <div data-id="284" style="font-size:12px;font-weight:700;color:var(--white);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px;">Get Started</div>
           <a data-id="285" href="#pricing" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Get Started</a>
           <a data-id="286" href="#health-score" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Free Health Check</a>
-          <a data-id="287" href="https://bluwavgrowth.com/book" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Book a Call</a>
+          <a data-id="287" href="https://calendly.com/hello-bluwavgrowth/30min" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Book a Call</a>
         </div>
 
         <!-- Col 4: Legal -->
         <div data-id="288">
           <div data-id="289" style="font-size:12px;font-weight:700;color:var(--white);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px;">Legal</div>
-          <a data-id="290" href="#footer" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Privacy Policy</a>
-          <a data-id="291" href="#footer" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Careers</a>
+          <a data-id="290" href="privacy.html" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Privacy Policy</a>
+          <a data-id="291" href="careers.html" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Careers</a>
         </div>
       </div>
 
       <!-- Bottom bar -->
       <div data-id="292" style="margin-top:48px;padding:20px 0;border-top:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:var(--white-40);">
-        <div data-id="293">© 2026 BluWav Growth · All rights reserved. · Built for modern businesses worldwide. · Made by Copilot</div>
+        <div data-id="293">© 2026 BluWav Growth · All rights reserved. · Built for modern businesses worldwide.</div>
         <div data-id="294" style="display:flex;gap:16px;">
-          <a data-id="295" href="#footer" style="color:var(--white-40);text-decoration:none;transition:color 0.2s;">Privacy</a>
-          <a data-id="296" href="#footer" style="color:var(--white-40);text-decoration:none;transition:color 0.2s;">Contact</a>
-          <a data-id="297" href="#footer" style="color:var(--white-40);text-decoration:none;transition:color 0.2s;">Agent Agreement</a>
+          <a data-id="295" href="privacy.html" style="color:var(--white-40);text-decoration:none;transition:color 0.2s;">Privacy</a>
+          <a data-id="296" href="contact.html" style="color:var(--white-40);text-decoration:none;transition:color 0.2s;">Contact</a>
+          <a data-id="297" href="sales-agent-agreement.html" style="color:var(--white-40);text-decoration:none;transition:color 0.2s;">Agent Agreement</a>
         </div>
       </div>
     </div>
   </footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // ── ICONS (progressive enhancement) ──
     if (typeof lucide !== "undefined" && typeof lucide.createIcons === "function") {
       lucide.createIcons();
@@ -1021,6 +1218,18 @@
       });
     }
 
+
+    // ── Scroll Progress ──
+    var bwProgress = document.getElementById('bw-progress');
+    if (bwProgress) {
+      window.addEventListener('scroll', function() {
+        var scrollTop = window.scrollY || document.documentElement.scrollTop;
+        var docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        var pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        bwProgress.style.width = pct + '%';
+      }, { passive: true });
+    }
+
     // ── FOOTER LINK HOVER ──
     var footerLinks = document.querySelectorAll('footer a');
     footerLinks.forEach(function(link) {
@@ -1068,5 +1277,8 @@
     handleResponsive();
     window.addEventListener('resize', handleResponsive, { passive: true });
   </script>
+
+  <!-- WhatsApp Float -->
+  <a class="wa-float" href="https://wa.me/18687348473" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬</a>
 </body>
 </html>
