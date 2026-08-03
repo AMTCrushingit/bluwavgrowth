@@ -522,62 +522,70 @@
         .fade-in, .hero-orb, .wa-float { animation: none !important; transition: none !important; opacity: 1 !important; transform: none !important; }
       }
     img{max-width:100%;height:auto;}
+
+/* ── Standard BluWav Nav ── */
+.bw-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:68px;padding:0 clamp(16px,4vw,60px);display:flex;align-items:center;justify-content:space-between;background:rgba(10,15,30,0.96);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,200,224,0.12);box-shadow:0 2px 24px rgba(0,0,0,0.25);}
+.bw-nav-logo{text-decoration:none;display:flex;flex-direction:column;align-items:flex-start;line-height:1;padding:4px 0;flex-shrink:0;}
+.bw-nav-logo-name{font-family:'Kaushan Script',cursive;font-size:26px;color:#fff;line-height:1;}
+.bw-nav-logo-name span{color:#00d4ff;}
+.bw-nav-logo-sub{font-size:8px;font-weight:700;color:#00d4ff;letter-spacing:3px;text-transform:uppercase;margin-top:2px;}
+.bw-nav-links{display:flex;align-items:center;gap:24px;}
+.bw-nav-link{font-size:13px;font-weight:500;color:rgba(255,255,255,0.65);text-decoration:none;transition:color .2s;position:relative;}
+.bw-nav-link::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:#00d4ff;transition:width .3s;border-radius:2px;}
+.bw-nav-link:hover{color:#fff;}
+.bw-nav-link:hover::after{width:100%;}
+.bw-nav-link.active{color:#fff;}
+.bw-nav-link.active::after{width:100%;}
+.bw-nav-btn-outline{font-size:13px;font-weight:600;color:rgba(255,255,255,0.7);padding:8px 16px;border-radius:8px;border:1px solid rgba(255,255,255,0.15);text-decoration:none;transition:all .2s;}
+.bw-nav-btn-outline:hover{color:#fff;border-color:rgba(255,255,255,0.4);}
+.bw-nav-btn-cta{background:#ff6535;color:#fff;font-size:13px;font-weight:700;padding:10px 22px;border-radius:100px;text-decoration:none;box-shadow:0 4px 16px rgba(255,101,53,0.35);transition:all .2s;white-space:nowrap;}
+.bw-nav-btn-cta:hover{filter:brightness(1.1);transform:translateY(-1px);}
+.bw-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px;margin:-8px;}
+.bw-hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all .3s ease;}
+.bw-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.bw-hamburger.open span:nth-child(2){opacity:0;}
+.bw-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.bw-mob-nav{display:none;position:fixed;top:68px;left:0;right:0;background:rgba(10,15,30,0.99);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:2px solid rgba(0,200,224,0.15);z-index:999;flex-direction:column;padding:8px 0 20px;}
+.bw-mob-nav.open{display:flex;}
+.bw-mob-link{font-size:16px;font-weight:500;color:rgba(255,255,255,0.85);text-decoration:none;padding:15px 24px;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;gap:10px;transition:all .15s;}
+.bw-mob-link:hover{color:#00d4ff;background:rgba(0,212,255,0.05);}
+.bw-mob-cta{background:linear-gradient(135deg,#ff6535,#ff6535);color:#fff;font-weight:800;padding:16px 24px;text-align:center;margin:14px 20px 4px;font-size:16px;display:block;border-radius:12px;text-decoration:none;box-shadow:0 4px 20px rgba(255,101,53,0.4);}
+@media(max-width:1024px){.bw-nav-links{display:none!important;}.bw-hamburger{display:flex!important;}}
 </style>
 </head>
-<body data-id="0">
-  <div id="bw-progress"></div>
-
+<body style="padding-top:68px;"  data-id="0">
   <app-icon data-id="1" hidden data-icon="trending-up" data-palette="Blue"></app-icon>
 
-  <!-- ═══════════════ NAVIGATION ═══════════════ -->
-  <nav data-id="2" class="site-nav" id="site-nav-0x9a">
-    <div data-id="3" class="flex items-center gap-2">
-      <div data-id="4">
-        <span data-id="5" class="text-lg font-semibold text-white">BluWav</span><span data-id="6" class="text-lg font-semibold" style="color:var(--cyan);">Growth</span>
-      </div>
-    </div>
-
-    <div data-id="8" class="hidden md:flex items-center gap-7" id="desktop-nav-links-4f2b">
-      <a data-id="9" href="#pillars" class="nav-link">What We Do</a>
-      <a data-id="10" href="#growth-system" class="nav-link">How It Works</a>
-      <a data-id="11" href="#pricing" class="nav-link">Pricing</a>
-      <a data-id="12" href="#case-studies" class="nav-link">Case Studies</a>
-      <a data-id="13" href="the-wave.html" class="nav-link">The Wave</a>
-    </div>
-
-    <div data-id="14" class="hidden md:flex items-center gap-3" id="desktop-nav-btns-77cc">
-      <a data-id="15" href="health-check.html" class="btn-outline-cyan">Free Health Score</a>
-      <a data-id="16" href="#pricing" class="btn-orange-sm">Get Started</a>
-    </div>
-
-    <button data-id="17" class="md:hidden p-2 bg-transparent border-none cursor-pointer" id="hamburger-btn-a1b2" aria-label="Open menu">
-      <i data-id="18" data-lucide="menu" class="w-6 h-6 text-white"></i>
-    </button>
-  </nav>
-
-  <!-- Mobile Menu -->
-  <div data-id="19" class="mobile-menu" id="mobile-menu-3c4d">
-    <div data-id="20" class="flex justify-between items-center mb-8">
-      <div data-id="21">
-        <span data-id="22" class="text-lg font-semibold text-white">BluWav</span><span data-id="23" class="text-lg font-semibold" style="color:var(--cyan);">Growth</span>
-      </div>
-      <button data-id="24" class="p-2 bg-transparent border-none cursor-pointer" id="mobile-menu-close-5e6f" aria-label="Close menu">
-        <i data-id="25" data-lucide="x" class="w-6 h-6 text-white"></i>
-      </button>
-    </div>
-    <a data-id="26" href="#pillars" class="mobile-nav-link">What We Do</a>
-    <a data-id="27" href="#growth-system" class="mobile-nav-link">How It Works</a>
-    <a data-id="28" href="#pricing" class="mobile-nav-link">Pricing</a>
-    <a data-id="29" href="#case-studies" class="mobile-nav-link">Case Studies</a>
-    <a data-id="30" href="the-wave.html" class="mobile-nav-link">The Wave</a>
-    <a href="https://bluwavcrm.com/login.html" target="_blank" rel="noopener" class="mobile-nav-link" style="color:rgba(0,212,255,0.85);">🔐 Client Login</a>
-    <div data-id="31" class="mt-8 flex flex-col gap-3">
-      <a data-id="32" href="health-check.html" class="btn-outline-cyan text-center">Free Health Score</a>
-      <a data-id="33" href="#pricing" class="btn-orange-sm text-center">Get Started</a>
-    </div>
+  <!-- ── Standard BluWav Nav ── -->
+<nav class="bw-nav" id="bwNav">
+  <a class="bw-nav-logo" href="index.html">
+    <div class="bw-nav-logo-name">Blu<span>Wav</span></div>
+    <div class="bw-nav-logo-sub">Get Found. Get Chosen. Grow.</div>
+  </a>
+  <div class="bw-nav-links">
+    <a class="bw-nav-link active" href="index.html#pillars">What We Do</a>
+    <a class="bw-nav-link" href="index.html#growth-system">How It Works</a>
+    <a class="bw-nav-link" href="pricing.html">Pricing</a>
+    <a class="bw-nav-link" href="case-study-aadek.html">Case Studies</a>
+    <a class="bw-nav-link" href="the-wave.html">The Wave</a>
+    <a class="bw-nav-btn-outline" href="https://bluwavcrm.com/login.html" target="_blank" rel="noopener">Client Login</a>
+    <a class="bw-nav-btn-cta" href="health-score.html">Free Health Score</a>
   </div>
-
-  <main data-id="34">
+  <button class="bw-hamburger" id="bwHamburger" aria-label="Menu" onclick="bwToggleNav()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<!-- Mobile Nav -->
+<div class="bw-mob-nav" id="bwMobNav">
+  <a class="bw-mob-link" href="index.html#pillars" onclick="bwCloseNav()">🌐 What We Do</a>
+  <a class="bw-mob-link" href="index.html#growth-system" onclick="bwCloseNav()">⚡ How It Works</a>
+  <a class="bw-mob-link" href="pricing.html" onclick="bwCloseNav()">💰 Pricing</a>
+  <a class="bw-mob-link" href="case-study-aadek.html" onclick="bwCloseNav()">📐 Case Studies</a>
+  <a class="bw-mob-link" href="the-wave.html" onclick="bwCloseNav()" style="color:#00d4ff;">🌊 The Wave</a>
+  <a class="bw-mob-link" href="https://bluwavcrm.com/login.html" target="_blank" rel="noopener" onclick="bwCloseNav()" style="color:rgba(0,212,255,0.85);">🔐 Client Login</a>
+  <a class="bw-mob-cta" href="health-score.html" onclick="bwCloseNav()">Get My Free Health Score →</a>
+</div>
+<main data-id="34">
 
     <!-- ═══════════════ HERO ═══════════════ -->
     <section data-id="35" class="hero-section" id="hero">
@@ -1082,61 +1090,104 @@
   </main>
 
   <!-- ═══════════════ FOOTER ═══════════════ -->
-  <footer data-id="264" id="footer" style="background:#060c18;padding-top:60px;border-top:1px solid rgba(255,255,255,0.06);">
-    <div data-id="265" style="max-width:1100px;margin:0 auto;padding:0 24px;">
-      <div data-id="266" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:40px;">
+  <!-- ── Standard BluWav Footer ── -->
+<footer style="background:#060c18;padding-top:0;border-top:1px solid rgba(255,255,255,0.06);">
 
-        <!-- Col 1: Logo -->
-        <div data-id="267" style="min-width:200px;">
-          <div data-id="268">
-            <span data-id="269" style="font-size:20px;font-weight:700;color:var(--white);">BluWav</span><span data-id="270" style="font-size:20px;font-weight:700;color:var(--cyan);">Growth</span>
-          </div>
-          <a data-id="271" href="/cdn-cgi/l/email-protection#ea828f868685aa88869f9d8b9c8d98859d9e82c4898587" style="display:block;margin-top:12px;font-size:14px;color:var(--cyan);text-decoration:none;"><span class="__cf_email__" data-cfemail="96fef3fafaf9d6f4fae3e1f7e0f1e4f9e1e2feb8f5f9fb">[email&#160;protected]</span></a>
-          <a data-id="272" href="the-wave.html" style="display:block;margin-top:8px;font-size:13px;color:var(--white-70);text-decoration:none;transition:color 0.2s;">The Wave Newsletter</a>
-        </div>
-
-        <!-- Col 2: Pages -->
-        <div data-id="273">
-          <div data-id="274" style="font-size:12px;font-weight:700;color:var(--white);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px;">Pages</div>
-          <a data-id="275" href="#hero" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Home</a>
-          <a data-id="276" href="#health-score" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Health Check</a>
-          <a data-id="277" href="#pricing" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Pricing</a>
-          <a data-id="278" href="about.html" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">About</a>
-          <a data-id="279" href="contact.html" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Contact</a>
-          <a data-id="280" href="#case-studies" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Case Studies</a>
-          <a data-id="281" href="#pillars" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Growth Systems</a>
-          <a href="the-wave.html" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">The Wave</a>
-          <a href="case-study-aadek.html" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Case Studies</a>
-          <a data-id="282" href="https://bluwavcrm.com/login.html" target="_blank" rel="noopener" style="display:block;font-size:14px;color:var(--cyan);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">🔐 Client Login</a>
-        </div>
-
-        <!-- Col 3: Get Started -->
-        <div data-id="283">
-          <div data-id="284" style="font-size:12px;font-weight:700;color:var(--white);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px;">Get Started</div>
-          <a data-id="285" href="#pricing" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Get Started</a>
-          <a data-id="286" href="#health-score" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Free Health Score</a>
-          <a data-id="287" href="https://calendly.com/hello-bluwavgrowth/30min" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Book a Call</a>
-        </div>
-
-        <!-- Col 4: Legal -->
-        <div data-id="288">
-          <div data-id="289" style="font-size:12px;font-weight:700;color:var(--white);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px;">Legal</div>
-          <a data-id="290" href="privacy.html" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Privacy Policy</a>
-          <a data-id="291" href="careers.html" style="display:block;font-size:14px;color:var(--white-40);text-decoration:none;margin-bottom:10px;transition:color 0.2s;">Careers</a>
-        </div>
+  <!-- CTA Strip -->
+  <div style="border-bottom:1px solid rgba(255,255,255,0.08);padding:48px clamp(16px,4vw,80px);">
+    <div style="max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;">
+      <div>
+        <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:#00d4ff;margin-bottom:10px;">Ready to Grow?</div>
+        <h2 style="font-family:'Manrope',sans-serif;font-size:clamp(20px,3vw,32px);font-weight:800;color:#fff;line-height:1.2;margin:0;">The digital growth system that works <span style="color:#ff6535;">for you.</span></h2>
       </div>
-
-      <!-- Bottom bar -->
-      <div data-id="292" style="margin-top:48px;padding:20px 0;border-top:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:var(--white-40);">
-        <div data-id="293">© 2026 BluWav Growth · All rights reserved. · Built for modern businesses worldwide.</div>
-        <div data-id="294" style="display:flex;gap:16px;">
-          <a data-id="295" href="privacy.html" style="color:var(--white-40);text-decoration:none;transition:color 0.2s;">Privacy</a>
-          <a data-id="296" href="contact.html" style="color:var(--white-40);text-decoration:none;transition:color 0.2s;">Contact</a>
-          <a data-id="297" href="sales-agent-agreement.html" style="color:var(--white-40);text-decoration:none;transition:color 0.2s;">Agent Agreement</a>
-        </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;flex-shrink:0;">
+        <a href="health-score.html" style="display:inline-flex;align-items:center;gap:8px;background:#ff6535;color:#fff;font-size:14px;font-weight:800;padding:13px 24px;border-radius:10px;text-decoration:none;white-space:nowrap;transition:filter .2s;" onmouseover="this.style.filter='brightness(1.1)'" onmouseout="this.style.filter=''">Get My Free Health Score &#8594;</a>
+        <a href="https://calendly.com/hello-bluwavgrowth/30min" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:transparent;color:#fff;font-size:14px;font-weight:700;padding:13px 24px;border-radius:10px;text-decoration:none;border:1.5px solid rgba(255,255,255,0.2);white-space:nowrap;transition:border-color .2s;" onmouseover="this.style.borderColor='rgba(255,255,255,0.5)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.2)'">&#128197; Book a Call</a>
       </div>
     </div>
-  </footer>
+  </div>
+
+  <!-- Main Footer Grid -->
+  <div style="max-width:1400px;margin:0 auto;padding:56px clamp(16px,4vw,80px) 48px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;">
+
+    <!-- Brand -->
+    <div>
+      <a href="index.html" style="text-decoration:none;display:inline-block;margin-bottom:16px;">
+        <div style="font-family:'Kaushan Script',cursive;font-size:32px;color:#fff;line-height:1;">Blu<span style="color:#00d4ff;">Wav</span></div>
+        <div style="font-size:8px;font-weight:700;color:#00d4ff;letter-spacing:4px;text-transform:uppercase;margin-top:3px;">Get Found. Get Chosen. Grow.</div>
+      </a>
+      <p style="font-size:13px;color:rgba(255,255,255,0.45);line-height:1.75;max-width:300px;margin-bottom:20px;">The unified digital growth system for modern businesses — website, Google visibility, CRM, and automation. Delivered in 48 hours. You own everything forever.</p>
+      <div style="display:flex;gap:8px;">
+        <a href="https://facebook.com/bluwavgrowth" target="_blank" rel="noopener" aria-label="Facebook" style="width:36px;height:36px;border-radius:8px;border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);font-size:14px;font-weight:800;text-decoration:none;transition:all .2s;" onmouseover="this.style.borderColor='#1877F2';this.style.color='#1877F2'" onmouseout="this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='rgba(255,255,255,0.6)'">f</a>
+        <a href="https://www.instagram.com/bluwavgrowth/" target="_blank" rel="noopener" aria-label="Instagram" style="width:36px;height:36px;border-radius:8px;border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);font-size:16px;text-decoration:none;transition:all .2s;" onmouseover="this.style.borderColor='#E1306C';this.style.color='#E1306C'" onmouseout="this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='rgba(255,255,255,0.6)'">&#128247;</a>
+        <a href="mailto:hello@bluwavgrowth.com" aria-label="Email" style="width:36px;height:36px;border-radius:8px;border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);font-size:15px;text-decoration:none;transition:all .2s;" onmouseover="this.style.borderColor='#00d4ff';this.style.color='#00d4ff'" onmouseout="this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='rgba(255,255,255,0.6)'">&#9993;</a>
+      </div>
+    </div>
+
+    <!-- Navigate -->
+    <div>
+      <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;color:rgba(255,255,255,0.35);margin-bottom:20px;">Navigate</div>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <a href="index.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Home</a>
+        <a href="health-score.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Health Score</a>
+        <a href="about.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">About</a>
+        <a href="contact.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Contact</a>
+        <a href="index.html#pricing" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Growth Plans</a>
+        <a href="https://bluwavcrm.com/login.html" target="_blank" rel="noopener" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Client Login</a>
+        <a href="systems.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Growth Systems</a>
+        <a href="case-study-aadek.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Case Studies</a>
+      </div>
+    </div>
+
+    <!-- Get Started -->
+    <div>
+      <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;color:rgba(255,255,255,0.35);margin-bottom:20px;">Get Started</div>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <a href="health-score.html" style="font-size:13px;color:#00d4ff;text-decoration:none;font-weight:700;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#00d4ff'">&#129658; Free Health Score</a>
+        <a href="https://calendly.com/hello-bluwavgrowth/30min" target="_blank" rel="noopener" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">&#128197; Book a Call</a>
+        <a href="mailto:hello@bluwavgrowth.com" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">&#9993; hello@bluwavgrowth.com</a>
+        <a href="the-wave.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">&#127754; The Wave Newsletter</a>
+        <a href="privacy.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Privacy Policy</a>
+        <a href="careers.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Careers</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div style="border-top:1px solid rgba(255,255,255,0.06);padding:20px clamp(16px,4vw,80px);">
+    <div style="max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+      <div style="font-size:12px;color:rgba(255,255,255,0.25);">&#169; 2026 <span style="color:rgba(255,255,255,0.4);">BluWav Growth</span> &middot; All rights reserved. &middot; Built for modern businesses worldwide.</div>
+      <div style="display:flex;gap:20px;">
+        <a href="privacy.html" style="font-size:12px;color:rgba(255,255,255,0.25);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='rgba(255,255,255,0.6)'" onmouseout="this.style.color='rgba(255,255,255,0.25)'">Privacy</a>
+        <a href="contact.html" style="font-size:12px;color:rgba(255,255,255,0.25);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='rgba(255,255,255,0.6)'" onmouseout="this.style.color='rgba(255,255,255,0.25)'">Contact</a>
+        <a href="sales-agent-agreement.html" style="font-size:12px;color:rgba(255,255,255,0.25);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='rgba(255,255,255,0.6)'" onmouseout="this.style.color='rgba(255,255,255,0.25)'">Agent Agreement</a>
+      </div>
+    </div>
+  </div>
+
+</footer>
+
+<!-- WhatsApp Float -->
+<a class="bw-wa-float" href="https://wa.me/18687348473" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬</a>
+
+<!-- Scroll Progress -->
+<div id="bwProgress"></div>
+
+<style>
+.bw-wa-float{position:fixed;bottom:24px;right:24px;z-index:500;width:52px;height:52px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 4px 20px rgba(37,211,102,0.45);text-decoration:none;transition:transform .2s;}
+.bw-wa-float:hover{transform:scale(1.1);}
+@keyframes bwWaPulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.45);}50%{box-shadow:0 4px 40px rgba(37,211,102,0.8),0 0 0 8px rgba(37,211,102,0.1);}}
+.bw-wa-float{animation:bwWaPulse 2.5s ease-in-out infinite;}
+#bwProgress{position:fixed;top:0;left:0;height:3px;z-index:9999;width:0%;background:linear-gradient(90deg,#ff6535,#fbbf24,#00d4ff);border-radius:0 2px 2px 0;pointer-events:none;}
+@media(max-width:768px){footer [style*="grid-template-columns:2fr"]{grid-template-columns:1fr!important;}}
+@media(prefers-reduced-motion:reduce){.bw-wa-float,.bw-nav-link::after{animation:none!important;transition:none!important;}}
+</style>
+<script>
+(function(){
+  var p=document.getElementById('bwProgress');
+  if(p){window.addEventListener('scroll',function(){var s=window.scrollY,d=document.documentElement.scrollHeight-document.documentElement.clientHeight;p.style.width=d>0?(s/d*100)+'%':'0%';},{passive:true});}
+})();
+</script>
 
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // ── ICONS (progressive enhancement) ──
@@ -1279,7 +1330,5 @@
     window.addEventListener('resize', handleResponsive, { passive: true });
   </script>
 
-  <!-- WhatsApp Float -->
-  <a class="wa-float" href="https://wa.me/18687348473" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬</a>
-</body>
+  </body>
 </html>
