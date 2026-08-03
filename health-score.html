@@ -145,18 +145,71 @@
       .form-row { grid-template-columns: 1fr; }
       .footer-inner { flex-direction: column; align-items: flex-start; gap: 16px; }
     }
+
+    /* ── Mobile Nav (health-score) ── */
+    .hs-nav-links { display: flex; align-items: center; gap: 20px; }
+    .hs-nav-link { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.2s; }
+    .hs-nav-link:hover { color: #fff; }
+    .hs-nav-cta { font-size: 13px; font-weight: 700; color: #0a0f1e; background: var(--cyan); padding: 9px 20px; border-radius: 100px; text-decoration: none; transition: filter 0.2s; white-space: nowrap; }
+    .hs-nav-cta:hover { filter: brightness(1.1); }
+    .hs-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 8px; margin: -8px; }
+    .hs-hamburger span { display: block; width: 22px; height: 2px; background: #fff; border-radius: 2px; transition: all 0.3s ease; }
+    .hs-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hs-hamburger.open span:nth-child(2) { opacity: 0; }
+    .hs-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .hs-mob-menu { display: none; position: fixed; top: 64px; left: 0; right: 0; background: rgba(10,15,30,0.98); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,212,255,0.15); z-index: 999; flex-direction: column; padding: 8px 0 16px; }
+    .hs-mob-menu.open { display: flex; }
+    .hs-mob-link { font-size: 16px; font-weight: 500; color: rgba(255,255,255,0.8); text-decoration: none; padding: 14px 24px; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color 0.15s; }
+    .hs-mob-link:hover { color: var(--cyan); }
+    .hs-mob-cta { margin: 14px 20px 4px; background: var(--orange); color: #fff; font-size: 15px; font-weight: 700; padding: 14px; border-radius: 10px; text-align: center; text-decoration: none; display: block; }
+
+    /* ── Responsive header ── */
+    @media (max-width: 768px) {
+      .hs-nav-links { display: none !important; }
+      .hs-hamburger { display: flex !important; }
+      .header-inner { padding: 0 20px; }
+    }
+    @media (max-width: 480px) {
+      .hero { padding: 32px 16px 48px; }
+      .quiz-card { padding: 24px 18px; }
+      .hero-headline { font-size: 1.8rem; }
+    }
+
+    /* ── Global img fix ── */
+    img { max-width: 100%; height: auto; }
   </style>
 </head>
 <body style="overflow-x:hidden;">
 <header>
 <div class="header-inner">
-<a href="index.html" style="text-decoration:none;display:flex;flex-direction:column;align-items:flex-start;line-height:1;padding:4px 0;">
-  <div style="font-family:'Kaushan Script',cursive;font-size:26px;line-height:1;color:#fff;">Blu<span style="color:#00E0FF;">Wav</span></div>
-  <div style="font-size:8px;font-weight:700;color:#00E0FF;letter-spacing:3px;text-transform:uppercase;line-height:1.4;margin-top:2px;">Get Found. Get Chosen. Grow.</div>
-</a>
-<a class="back-link" href="index.html">← Back to site</a>
+  <!-- Logo -->
+  <a href="index.html" style="text-decoration:none;display:flex;flex-direction:column;align-items:flex-start;line-height:1;padding:4px 0;flex-shrink:0;">
+    <div style="font-family:'Kaushan Script',cursive;font-size:26px;line-height:1;color:#fff;">Blu<span style="color:#00E0FF;">Wav</span></div>
+    <div style="font-size:8px;font-weight:700;color:#00E0FF;letter-spacing:3px;text-transform:uppercase;line-height:1.4;margin-top:2px;">Get Found. Get Chosen. Grow.</div>
+  </a>
+  <!-- Desktop nav -->
+  <div class="hs-nav-links">
+    <a class="hs-nav-link" href="index.html">Home</a>
+    <a class="hs-nav-link" href="pricing.html">Pricing</a>
+    <a class="hs-nav-link" href="about.html">About</a>
+    <a class="hs-nav-link" href="the-wave.html">The Wave</a>
+    <a class="hs-nav-cta" href="index.html#pricing">See Plans</a>
+  </div>
+  <!-- Hamburger -->
+  <button class="hs-hamburger" id="hsHamburger" aria-label="Menu" onclick="toggleHsNav()">
+    <span></span><span></span><span></span>
+  </button>
 </div>
 </header>
+<!-- Mobile menu -->
+<div class="hs-mob-menu" id="hsMobMenu">
+  <a class="hs-mob-link" href="index.html" onclick="closeHsNav()">🏠 Home</a>
+  <a class="hs-mob-link" href="pricing.html" onclick="closeHsNav()">💰 Pricing</a>
+  <a class="hs-mob-link" href="about.html" onclick="closeHsNav()">👤 About</a>
+  <a class="hs-mob-link" href="the-wave.html" onclick="closeHsNav()">🌊 The Wave</a>
+  <a class="hs-mob-link" href="https://bluwavcrm.com/login.html" target="_blank" rel="noopener" onclick="closeHsNav()" style="color:rgba(0,212,255,0.85);">🔐 Client Login</a>
+  <a class="hs-mob-cta" href="index.html#pricing" onclick="closeHsNav()">See Plans & Pricing →</a>
+</div>
 <main>
 <div class="hero">
 <!-- LEFT -->
@@ -624,6 +677,29 @@
   var p2='-lewxkY6ErfMGjudK';
   window.BREVO_API_KEY = p1+p2;
 })();
+</script>
+
+<script>
+function toggleHsNav() {
+  var btn = document.getElementById('hsHamburger');
+  var menu = document.getElementById('hsMobMenu');
+  btn.classList.toggle('open');
+  menu.classList.toggle('open');
+  document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+}
+function closeHsNav() {
+  document.getElementById('hsHamburger').classList.remove('open');
+  document.getElementById('hsMobMenu').classList.remove('open');
+  document.body.style.overflow = '';
+}
+// Close on outside click
+document.addEventListener('click', function(e) {
+  var menu = document.getElementById('hsMobMenu');
+  var btn = document.getElementById('hsHamburger');
+  if (menu && menu.classList.contains('open') && !menu.contains(e.target) && !btn.contains(e.target)) {
+    closeHsNav();
+  }
+});
 </script>
 </body>
 </html>
