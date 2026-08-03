@@ -404,7 +404,7 @@
 
       /* ── MANIFESTO STRIP ── */
       .manifesto-col {
-        padding: 0 40px;
+        padding: 0 48px;
       }
       .manifesto-col:first-child {
         padding-left: 0;
@@ -552,6 +552,112 @@
 .bw-mob-link:hover{color:#00d4ff;background:rgba(0,212,255,0.05);}
 .bw-mob-cta{background:linear-gradient(135deg,#ff6535,#ff6535);color:#fff;font-weight:800;padding:16px 24px;text-align:center;margin:14px 20px 4px;font-size:16px;display:block;border-radius:12px;text-decoration:none;box-shadow:0 4px 20px rgba(255,101,53,0.4);}
 @media(max-width:1024px){.bw-nav-links{display:none!important;}.bw-hamburger{display:flex!important;}}
+
+/* ── Airy spacing system (matching pricing page) ── */
+.section-pad { padding: 100px 24px !important; }
+.hero-section { padding-bottom: 0; }
+
+/* Section headings */
+.section-h2 {
+  font-size: clamp(28px,4vw,48px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+/* Body text */
+.section-body {
+  font-size: 17px;
+  color: #475569;
+  line-height: 1.75;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Eyebrow */
+.section-eyebrow {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  display: block;
+}
+
+/* Cards */
+.pillar-card { padding: 40px 32px !important; }
+
+/* Metrics */
+#metrics { padding: 80px 24px !important; }
+#metrics [style*="font-size:48px"] { font-size: 56px !important; }
+#metrics [style*="font-size:14px"] { font-size: 15px !important; margin-top: 10px !important; }
+
+/* Growth system section */
+#growth-system { padding: 100px 24px !important; }
+#growth-system h2 { font-size: clamp(28px,3.5vw,44px) !important; line-height: 1.15 !important; margin-bottom: 24px !important; }
+#growth-system p { font-size: 17px !important; line-height: 1.75 !important; margin-bottom: 20px !important; }
+#growth-system [style*="font-size:15px;font-weight:700"] { font-size: 17px !important; }
+#growth-system [style*="font-size:16px;font-weight:700"] { font-size: 17px !important; }
+
+/* Growth system cards — one row */
+#growth-system [style*="repeat(4,1fr)"] { gap: 20px !important; }
+#growth-system [style*="repeat(4,1fr)"] > div { padding: 32px 24px !important; }
+#growth-system [style*="repeat(4,1fr)"] h3 { font-size: 17px !important; margin-bottom: 10px !important; }
+#growth-system [style*="repeat(4,1fr)"] p { font-size: 14px !important; line-height: 1.65 !important; }
+
+/* Health score section */
+#health-score { padding: 100px 24px !important; }
+#health-score h2 { font-size: clamp(28px,4vw,48px) !important; }
+#health-score p { font-size: 17px !important; }
+#health-score li, #health-score [style*="display:flex;align-items:center;gap:12px"] { font-size: 16px !important; margin-bottom: 20px !important; }
+
+/* Pricing section */
+#pricing { padding: 100px 24px !important; }
+#pricing h2 { font-size: clamp(28px,4vw,48px) !important; }
+#pricing p { font-size: 17px !important; line-height: 1.75 !important; }
+
+/* Transparency section */
+#transparency { padding: 100px 24px !important; }
+#transparency h2 { font-size: clamp(28px,4vw,48px) !important; }
+#transparency [style*="font-size:16px"] { font-size: 17px !important; line-height: 1.65 !important; }
+#transparency [style*="grid-template-columns:repeat(2"] { gap: 32px 56px !important; max-width: 760px !important; margin: 56px auto 0 !important; }
+
+/* Manifesto section */
+#manifesto { padding: 100px 24px !important; }
+#manifesto h3 { font-size: 22px !important; margin-top: 20px !important; }
+#manifesto p { font-size: 16px !important; line-height: 1.75 !important; margin-top: 12px !important; }
+#manifesto [style*="gap:0"] { gap: 0 !important; }
+
+/* Case studies / testimonials */
+#case-studies { padding: 100px 24px !important; }
+#case-studies h2 { font-size: clamp(28px,4vw,48px) !important; margin-bottom: 60px !important; }
+#case-studies [style*="font-size:22px;font-weight:800"] { font-size: 20px !important; }
+#case-studies [style*="font-size:15px;color:#475569"] { font-size: 16px !important; line-height: 1.75 !important; }
+#case-studies [style*="grid-template-columns:repeat(3"] { gap: 32px !important; }
+#case-studies .case-card { padding: 40px 36px !important; }
+
+/* Final CTA */
+#final-cta { padding: 120px 24px !important; }
+#final-cta h2 { font-size: clamp(32px,4vw,56px) !important; line-height: 1.1 !important; }
+#final-cta p { font-size: 18px !important; line-height: 1.75 !important; }
+
+/* Hero trust bar */
+#hero-trust-8k9l { font-size: 15px !important; gap: 8px 20px !important; margin-top: 48px !important; }
+
+/* Dashboard */
+.hero-dashboard { margin-top: 56px !important; }
+
+/* Responsive */
+@media(max-width:768px) {
+  #growth-system [style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
+  #growth-system [style*="repeat(4,1fr)"] { grid-template-columns: repeat(2,1fr) !important; }
+  #transparency [style*="grid-template-columns:repeat(2"] { grid-template-columns: 1fr !important; }
+}
+@media(max-width:480px) {
+  #growth-system [style*="repeat(4,1fr)"] { grid-template-columns: 1fr !important; }
+}
+
 </style>
 </head>
 <body style="padding-top:68px;"  data-id="0">
@@ -684,7 +790,7 @@
     <div style="background:var(--navy);line-height:0;font-size:0;display:block;margin:0;padding:0;"><svg viewBox="0 0 1440 80" preserveAspectRatio="none" style="display:block;width:100%;height:80px;margin:0;padding:0;vertical-align:bottom;"><path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#f8fafc"/></svg></div>
 
     <!-- ═══════════════ TRUST METRICS ═══════════════ -->
-    <section data-id="63" id="metrics" style="background:var(--light-bg);padding:60px 24px;">
+    <section data-id="63" id="metrics" style="background:var(--light-bg);padding:80px 24px;">
       <div data-id="64" class="fade-in" id="metrics-grid-m1n2" style="max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;text-align:center;">
         <div data-id="65" class="metric-item" style="padding:0 16px;">
           <div data-id="66" style="font-size:48px;font-weight:800;color:var(--navy);line-height:1;">50+</div>
@@ -713,11 +819,11 @@
   <div style="max-width:1200px;margin:0 auto;">
 
     <!-- Two-column: image left, copy right -->
-    <div class="fade-in" style="display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;margin-bottom:72px;">
+    <div class="fade-in" style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-bottom:80px;">
 
       <!-- Left: Stressed image -->
       <div style="position:relative;border-radius:20px;overflow:hidden;box-shadow:0 24px 64px rgba(10,15,30,0.12);">
-        <img src="stressed-man-tropical.jpg" loading="lazy" alt="Business owner overwhelmed without a growth system" style="width:100%;height:480px;object-fit:cover;display:block;"/>
+        <img src="stressed-man-tropical.jpg" loading="lazy" alt="Business owner overwhelmed without a growth system" style="width:100%;height:520px;object-fit:cover;display:block;"/>
         <!-- Overlay badge -->
         <div style="position:absolute;bottom:24px;left:24px;background:rgba(10,15,30,0.85);backdrop-filter:blur(12px);border-radius:12px;padding:14px 20px;border:1px solid rgba(0,212,255,0.2);">
           <div style="font-size:11px;font-weight:700;color:#00d4ff;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px;">Sound familiar?</div>
@@ -727,7 +833,7 @@
 
       <!-- Right: Copy -->
       <div>
-        <div style="font-size:13px;font-weight:600;color:#ff6535;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px;">The BluWav Growth System</div>
+        <div style="font-size:13px;font-weight:600;color:#ff6535;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:20px;display:block;">The BluWav Growth System</div>
         <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#0a0f1e;line-height:1.15;margin-bottom:20px;">
           Your business is losing customers<br/>you never knew you had.
         </h2>
@@ -797,7 +903,7 @@
     <section data-id="123" id="health-score" style="background:var(--light-bg);padding:100px 24px;text-align:center;">
       <div data-id="124" class="fade-in" id="health-badge-k5l6">
         <div data-id="125" class="score-badge">
-          <span data-id="126" style="font-size:56px;font-weight:900;color:var(--orange);line-height:1;">62</span>
+          <span data-id="126" style="font-size:64px;font-weight:900;color:var(--orange);line-height:1;">62</span>
           <span data-id="127" style="font-size:12px;color:#94a3b8;margin-top:4px;">avg. score</span>
         </div>
       </div>
@@ -914,7 +1020,7 @@
         Complete Transparency. No Lock-In. No Surprises.
       </h2>
 
-      <div data-id="188" class="fade-in" id="transparency-grid-g7h8" style="max-width:680px;margin:48px auto 0;display:grid;grid-template-columns:repeat(2,1fr);gap:20px 40px;">
+      <div data-id="188" class="fade-in" id="transparency-grid-g7h8" style="max-width:720px;margin:56px auto 0;display:grid;grid-template-columns:repeat(2,1fr);gap:28px 56px;">
         <div data-id="189" style="display:flex;align-items:flex-start;gap:14px;text-align:left;">
           <span data-id="190" style="font-size:24px;flex-shrink:0;">📅</span>
           <span data-id="191" style="font-size:16px;color:#475569;line-height:1.5;">Cancel anytime - no penalty</span>
@@ -1034,7 +1140,7 @@
         </h2>
       </div>
 
-      <div data-id="231" id="cases-grid-k1l2" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:980px;margin:0 auto;">
+      <div data-id="231" id="cases-grid-k1l2" style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:1020px;margin:0 auto;">
         <div data-id="232" class="case-card fade-in" id="case-1-m3n4">
           <div data-id="233" style="color:var(--gold);font-size:20px;margin-bottom:16px;">★★★★★</div>
           <div data-id="234" style="font-size:22px;font-weight:800;color:#0a0f1e;line-height:1.2;margin-bottom:16px;">3 - 5 new enquiries/week</div>
@@ -1088,7 +1194,7 @@
         <a data-id="255" href="health-check.html" class="btn-orange" style="font-size:18px;font-weight:700;padding:18px 48px;box-shadow:0 8px 32px rgba(255,101,53,0.35);transition:transform 0.2s,filter 0.2s;">Get My Free Health Score →</a>
       </div>
 
-      <div data-id="256" class="fade-in flex flex-wrap justify-center gap-x-6 gap-y-2 mt-8" id="final-trust-a7b8" style="font-size:14px;color:var(--white-40);">
+      <div data-id="256" class="fade-in flex flex-wrap justify-center gap-x-8 gap-y-3 mt-10" id="final-trust-a7b8" style="font-size:14px;color:var(--white-40);">
         <span data-id="257">✓ 100% free</span>
         <span data-id="258">·</span>
         <span data-id="259">✓ Results in 48 hours</span>
