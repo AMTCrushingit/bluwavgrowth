@@ -1,910 +1,138 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BluWav Growth  -  Pricing</title>
-    <meta name="color-scheme" content="dark light" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              navy: '#0a0f1e',
-              'navy-card': '#0d1525',
-              cyan: '#00d4ff',
-              orange: '#ff6535',
-              'light-bg': '#f8fafc',
-              gold: '#fbbf24',
-            },
-          },
-        },
-      };
-    </script>
-    <script src="https://unpkg.com/lucide@latest" defer></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-    <style>
-      :root {
-        --navy: #0a0f1e;
-        --navy-card: #0d1525;
-        --cyan: #00d4ff;
-        --cyan-dim: rgba(0,212,255,0.12);
-        --orange: #ff6535;
-        --white: #ffffff;
-        --white-70: rgba(255,255,255,0.70);
-        --white-40: rgba(255,255,255,0.40);
-        --light-bg: #f8fafc;
-        --gold: #fbbf24;
-      }
-      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-      html { scroll-behavior: smooth; }
-      body {
-        font-family: 'Inter', sans-serif;
-        background: var(--navy);
-        color: var(--white);
-        -webkit-font-smoothing: antialiased;
-        overflow-x: hidden;
-      }
-      a { text-decoration: none; color: inherit; }
-      button { font-family: 'Inter', sans-serif; }
-
-      /* ---- NAV ---- */
-      .site-nav {
-        position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-        backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
-        background: rgba(10,15,30,0.94);
-        border-bottom: 1px solid rgba(0,212,255,0.12);
-        padding: 14px max(24px, calc((100vw - 1200px) / 2));
-        display: flex; align-items: center; justify-content: space-between;
-      }
-      .nav-logo-sub { font-size: 10px; color: var(--white-40); margin-top: 1px; }
-      .nav-link {
-        color: var(--white-70); font-size: 14px; font-weight: 500;
-        transition: color 0.2s;
-      }
-      .nav-link:hover, .nav-link.active { color: var(--cyan); }
-      .nav-btn-outline {
-        border: 1.5px solid var(--cyan); color: var(--cyan);
-        padding: 9px 22px; border-radius: 100px; font-size: 14px; font-weight: 600;
-        background: transparent; cursor: pointer; transition: background 0.2s, color 0.2s;
-      }
-      .nav-btn-outline:hover { background: rgba(0,212,255,0.1); }
-      .nav-btn-solid {
-        background: var(--orange); color: #fff;
-        padding: 9px 22px; border-radius: 100px; font-size: 14px; font-weight: 600;
-        border: none; cursor: pointer; transition: filter 0.2s;
-      }
-      .nav-btn-solid:hover { filter: brightness(1.1); }
-
-      /* Mobile menu */
-      .mobile-menu {
-        display: none; position: fixed; inset: 0;
-        background: rgba(10,15,30,0.98); z-index: 1100;
-        flex-direction: column; padding: 24px;
-        backdrop-filter: blur(24px);
-      }
-      .mobile-menu.open { display: flex; }
-      .mobile-menu a, .mobile-menu button { margin-bottom: 12px; }
-
-      /* ---- FADE IN ---- */
-      .fade-in {
-        opacity: 0; transform: translateY(24px);
-        transition: opacity 0.5s ease, transform 0.5s ease;
-      }
-      .fade-in.visible { opacity: 1; transform: translateY(0); }
-
-      /* ---- HERO ---- */
-      .hero-section {
-        padding: 140px 24px 80px;
-        background: var(--navy);
-        position: relative;
-      }
-      .hero-section::before {
-        content: ''; position: absolute; inset: 0;
-        background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(0,212,255,0.1) 0%, transparent 70%);
-        pointer-events: none;
-      }
-      .hero-pill {
-        display: inline-block;
-        background: rgba(0,212,255,0.12); border: 1px solid rgba(0,212,255,0.3);
-        border-radius: 100px; padding: 8px 20px; font-size: 13px;
-        color: var(--cyan); font-weight: 500;
-      }
-      .hero-h1 {
-        font-size: clamp(40px,6vw,72px); font-weight: 900;
-        color: var(--white); letter-spacing: -2px; margin-top: 24px;
-        line-height: 1.05;
-      }
-      .hero-sub {
-        font-size: clamp(18px,2.5vw,22px); font-weight: 400;
-        color: var(--white-70); margin-top: 16px; line-height: 1.5;
-      }
-
-      /* ---- PLAN CARDS ---- */
-      .plan-card {
-        background: #fff; border: 1px solid #e2e8f0; border-radius: 16px;
-        padding: 40px 32px; box-shadow: 0 4px 24px rgba(0,0,0,0.06);
-        display: flex; flex-direction: column;
-      }
-      .plan-card-dark {
-        background: linear-gradient(135deg, #0d1f3a 0%, #0a1628 100%);
-        border: 1.5px solid rgba(0,212,255,0.4);
-        box-shadow: 0 0 60px rgba(0,212,255,0.18);
-      }
-      @media (min-width: 768px) {
-        .plan-card-dark { transform: translateY(-12px); }
-      }
-      .plan-feat li {
-        display: flex; gap: 10px; align-items: flex-start; margin-bottom: 12px;
-        font-size: 14px; line-height: 1.5;
-      }
-      .check-green { color: #10b981; font-weight: 700; flex-shrink: 0; }
-      .check-cyan { color: var(--cyan); font-weight: 700; flex-shrink: 0; }
-
-      .btn-outline-card {
-        margin-top: auto; width: 100%; padding: 14px; border-radius: 12px;
-        font-size: 15px; font-weight: 600; background: transparent;
-        color: #0a0f1e; border: 1.5px solid #cbd5e1; cursor: pointer;
-        transition: border-color 0.2s;
-      }
-      .btn-outline-card:hover { border-color: #0a0f1e; }
-      .btn-orange-card {
-        margin-top: auto; width: 100%; padding: 14px; border-radius: 12px;
-        font-size: 15px; font-weight: 700; background: var(--orange);
-        color: #fff; border: none; cursor: pointer; transition: filter 0.2s;
-      }
-      .btn-orange-card:hover { filter: brightness(1.1); }
-
-      /* ---- CRM CARDS ---- */
-      .crm-card {
-        background: #fff; border: 1px solid #e2e8f0; border-radius: 16px;
-        padding: 32px 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.05);
-        display: flex; flex-direction: column;
-      }
-      .crm-card-dark {
-        background: linear-gradient(135deg, #0d1f3a 0%, #0a1628 100%);
-        border: 1.5px solid rgba(0,212,255,0.35);
-        box-shadow: 0 0 40px rgba(0,212,255,0.15);
-      }
-      .crm-feat li {
-        font-size: 13px; line-height: 2; display: flex; gap: 8px; align-items: flex-start;
-      }
-      .btn-crm-outline {
-        margin-top: auto; width: 100%; padding: 12px; border-radius: 12px;
-        font-size: 14px; font-weight: 600; background: transparent;
-        color: #0a0f1e; border: 1.5px solid #cbd5e1; cursor: pointer;
-        transition: border-color 0.2s;
-      }
-      .btn-crm-outline:hover { border-color: #0a0f1e; }
-      .btn-crm-orange {
-        margin-top: auto; width: 100%; padding: 12px; border-radius: 12px;
-        font-size: 14px; font-weight: 700; background: var(--orange);
-        color: #fff; border: none; cursor: pointer; transition: filter 0.2s;
-      }
-      .btn-crm-orange:hover { filter: brightness(1.1); }
-
-      /* ---- STEPS ---- */
-      .step-circle {
-        width: 48px; height: 48px; min-width: 48px;
-        background: var(--cyan-dim); border: 1.5px solid rgba(0,212,255,0.4);
-        border-radius: 50%; display: flex; align-items: center; justify-content: center;
-        font-size: 18px; font-weight: 800; color: var(--cyan);
-      }
-      .step-connector {
-        flex-grow: 1; height: 1px; background: rgba(0,212,255,0.2);
-        align-self: center; min-width: 20px;
-      }
-      @media (max-width: 767px) { .step-connector { display: none; } }
-
-      /* ---- TABLE ---- */
-      .compare-table { width: 100%; border-collapse: collapse; font-size: 14px; }
-      .compare-table thead th {
-        background: #0a0f1e; color: #fff; font-weight: 700;
-        padding: 16px 20px; text-align: center;
-      }
-      .compare-table thead th:first-child { text-align: left; }
-      .compare-table .group-row td {
-        background: #f1f5f9; font-weight: 700; color: #0a0f1e;
-        font-size: 12px; letter-spacing: 1px; text-transform: uppercase;
-        padding: 12px 20px; text-align: left;
-      }
-      .compare-table tbody tr { transition: background 0.15s; }
-      .compare-table tbody tr:hover { background: #f8fafc; }
-      .compare-table tbody tr:nth-child(even) { background: #fafafa; }
-      .compare-table tbody tr:nth-child(even):hover { background: #f8fafc; }
-      .compare-table td {
-        padding: 14px 20px; color: #334155;
-      }
-      .compare-table td:not(:first-child) { text-align: center; }
-      .tcheck { color: #10b981; font-weight: 700; font-size: 18px; }
-      .tdash { color: #cbd5e1; }
-
-      /* ---- FAQ ---- */
-      .faq-item { border-bottom: 1px solid rgba(255,255,255,0.08); }
-      .faq-q {
-        width: 100%; display: flex; justify-content: space-between; align-items: center;
-        padding: 22px 0; font-size: 16px; font-weight: 600; color: #fff;
-        background: transparent; border: none; cursor: pointer; text-align: left;
-        font-family: 'Inter', sans-serif; gap: 16px;
-      }
-      .faq-icon { color: var(--cyan); font-size: 20px; font-weight: 300; flex-shrink: 0; }
-      .faq-a {
-        max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding-bottom 0.3s ease;
-        font-size: 15px; color: var(--white-70); line-height: 1.7;
-      }
-      .faq-item.open .faq-a { max-height: 600px; padding-bottom: 20px; }
-
-      /* ---- FINAL CTA ---- */
-      .final-cta-section { position: relative; }
-      .final-cta-section::before {
-        content: ''; position: absolute; inset: 0;
-        background: radial-gradient(ellipse 60% 50% at 50% 40%, rgba(0,212,255,0.08) 0%, transparent 70%);
-        pointer-events: none;
-      }
-      .btn-apply {
-        display: inline-block;
-        background: var(--orange); color: #fff; font-size: 17px; font-weight: 700;
-        padding: 18px 48px; border-radius: 100px;
-        box-shadow: 0 8px 32px rgba(255,101,53,0.3);
-        border: none; cursor: pointer; transition: transform 0.2s, filter 0.2s;
-      }
-      .btn-apply:hover { transform: translateY(-2px); filter: brightness(1.1); }
-
-      /* ---- FOOTER ---- */
-      .site-footer {
-        background: #060c18; padding-top: 60px;
-        border-top: 1px solid rgba(255,255,255,0.06);
-      }
-      .footer-col-head {
-        font-size: 12px; font-weight: 700; color: #fff;
-        letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 16px;
-      }
-      .footer-link {
-        display: block; font-size: 14px; color: var(--white-40);
-        margin-bottom: 10px; transition: color 0.2s;
-      }
-      .footer-link:hover { color: #fff; }
-
-      /* ---- ICON GRID ---- */
-      .icon-circle {
-        width: 56px; height: 56px; background: rgba(0,212,255,0.1);
-        border-radius: 50%; display: flex; align-items: center; justify-content: center;
-        font-size: 24px; margin: 0 auto;
-      }
-
-      /* ---- PAYMENT PILL ---- */
-      .pay-pill {
-        background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
-        border-radius: 100px; padding: 8px 20px; font-size: 14px;
-        color: var(--white-70); white-space: nowrap;
-      }
-    </style>
-</head>
-<body data-id="0">
-    <app-icon data-id="1" hidden data-icon="trending-up" data-palette="Blue"></app-icon>
-
-    <!-- ========== NAV ========== -->
-    <nav data-id="2" class="site-nav" id="site-nav-a1b2">
-        <a data-id="3" href="/" class="flex flex-col" style="line-height:1.2;">
-            <span data-id="4" style="font-size:20px;font-weight:700;color:#fff;">BluWav<span data-id="5" style="color:var(--cyan);">Growth</span></span>
-            <span data-id="6" class="nav-logo-sub">Powered by Stratiix</span>
-        </a>
-        <div data-id="7" class="hidden md:flex items-center gap-8">
-            <a data-id="8" href="/#pillars" class="nav-link">What We Do</a>
-            <a data-id="9" href="/#how-it-works" class="nav-link">How It Works</a>
-            <a data-id="10" href="/pricing" class="nav-link active">Pricing</a>
-            <a data-id="11" href="/#case-studies" class="nav-link">Case Studies</a>
-            <a data-id="12" href="/the-wave" class="nav-link">The Wave</a>
-        </div>
-        <div data-id="13" class="hidden md:flex items-center gap-3">
-            <a data-id="14" href="/#health-score" class="nav-btn-outline">Free Health Check</a>
-            <a data-id="15" href="/pricing" class="nav-btn-solid">Get Started</a>
-        </div>
-        <button data-id="16" id="mobile-menu-btn-c3d4" class="md:hidden p-2 bg-transparent border-none cursor-pointer" aria-label="Open menu">
-            <i data-id="17" data-lucide="menu" class="w-6 h-6" style="color:#fff;"></i>
-        </button>
-    </nav>
-
-    <!-- Mobile Menu -->
-    <div data-id="18" id="mobile-menu-e5f6" class="mobile-menu">
-        <button data-id="19" id="mobile-menu-close-g7h8" class="self-end p-2 bg-transparent border-none cursor-pointer mb-8" aria-label="Close menu">
-            <i data-id="20" data-lucide="x" class="w-6 h-6" style="color:#fff;"></i>
-        </button>
-        <a data-id="21" href="/#pillars" class="nav-link text-lg py-3">What We Do</a>
-        <a data-id="22" href="/#how-it-works" class="nav-link text-lg py-3">How It Works</a>
-        <a data-id="23" href="/pricing" class="nav-link active text-lg py-3">Pricing</a>
-        <a data-id="24" href="/#case-studies" class="nav-link text-lg py-3">Case Studies</a>
-        <a data-id="25" href="/the-wave" class="nav-link text-lg py-3">The Wave</a>
-        <div data-id="26" class="mt-6 flex flex-col gap-3">
-            <a data-id="27" href="/#health-score" class="nav-btn-outline text-center">Free Health Check</a>
-            <a data-id="28" href="/pricing" class="nav-btn-solid text-center">Get Started</a>
-        </div>
-    </div>
-
-    <main data-id="29">
-        <!-- ========== SECTION 1: HERO ========== -->
-        <section data-id="30" class="hero-section" id="hero-i9j0">
-            <div data-id="31" class="text-center relative z-10" style="max-width:720px;margin:0 auto;">
-                <div data-id="32" class="fade-in"><span data-id="33" class="hero-pill">Transparent Pricing. No surprises.</span></div>
-                <h1 data-id="34" class="hero-h1 fade-in">Invest in a Growth System.</h1>
-                <p data-id="35" class="hero-sub fade-in">Not just a website. Four pillars. One unified system. Get found, get chosen, and grow automatically.</p>
-                <div data-id="36" class="flex justify-center gap-8 flex-wrap mt-8 fade-in" style="font-size:15px;font-weight:600;">
-                    <span data-id="37" style="color:var(--white-70);">&#128269; Be Found Online</span>
-                    <span data-id="38" style="color:var(--white-70);">&#127760; Be Chosen First</span>
-                    <span data-id="39" style="color:var(--white-70);">&#128200; Grow Automatically</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Wave: Dark to Light -->
-        <svg data-id="40" viewBox="0 0 1440 80" preserveAspectRatio="none" style="display:block;width:100%;height:80px;"><path data-id="41" d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#f8fafc"/></svg>
-
-        <!-- ========== SECTION 2: GROWTH SYSTEM PLANS ========== -->
-        <section data-id="42" style="background:var(--light-bg);padding:100px 24px;" id="plans-k1l2">
-            <div data-id="43" class="text-center fade-in">
-                <p data-id="44" style="font-size:13px;font-weight:600;letter-spacing:1.5px;color:#0369a1;text-transform:uppercase;">GROWTH SYSTEM PLANS</p>
-                <h2 data-id="45" style="font-size:clamp(28px,4vw,48px);font-weight:800;color:#0a0f1e;margin:16px auto 12px;">Choose Your Level of Growth</h2>
-                <p data-id="46" style="font-size:17px;color:#475569;max-width:640px;margin:0 auto 60px;">Every plan includes a signed agreement. You own your website forever. Delivered in 48 to 72 hours.</p>
-            </div>
-
-            <div data-id="47" class="grid gap-6 mx-auto" style="grid-template-columns:repeat(3,1fr);max-width:1020px;" id="plan-grid-m3n4">
-                <!-- RIPPLE -->
-                <div data-id="48" class="plan-card fade-in" id="card-ripple-o5p6">
-                    <div data-id="49" class="flex items-center gap-2">
-                        <span data-id="50" style="font-size:32px;">&#127754;</span>
-                        <span data-id="51" style="font-size:12px;font-weight:600;color:#64748b;letter-spacing:1px;text-transform:uppercase;">Starter</span>
-                    </div>
-                    <h3 data-id="52" style="font-size:36px;font-weight:800;color:#0a0f1e;margin-top:16px;">Ripple</h3>
-                    <p data-id="53" style="font-size:16px;color:#475569;margin-top:8px;">Your digital foundation.</p>
-                    <p data-id="54" style="font-size:15px;color:#64748b;margin-top:12px;line-height:1.65;">Digital presence, Google visibility, and search performance working together from day one.</p>
-                    <div data-id="55" style="margin-top:24px;padding-top:24px;border-top:1px solid #f1f5f9;">
-                        <span data-id="56" style="font-size:44px;font-weight:900;color:#0a0f1e;">$1,800</span>
-                        <span data-id="57" style="font-size:14px;color:#94a3b8;"> setup</span>
-                        <p data-id="58" style="font-size:13px;color:#64748b;margin-top:6px;">Hosting from $200 per 6 months after first 6 months included.</p>
-                    </div>
-                    <p data-id="59" style="font-size:14px;font-weight:700;color:#0a0f1e;margin-top:28px;margin-bottom:14px;">What's Included:</p>
-                    <ul data-id="60" class="plan-feat" style="list-style:none;color:#334155;">
-                        <li data-id="61"><span data-id="62" class="check-green">&#10003;</span> Modern website (you own it forever)</li>
-                        <li data-id="63"><span data-id="64" class="check-green">&#10003;</span> Google Business Profile setup</li>
-                        <li data-id="65"><span data-id="66" class="check-green">&#10003;</span> Smart lead automation</li>
-                        <li data-id="67"><span data-id="68" class="check-green">&#10003;</span> Performance dashboard</li>
-                        <li data-id="69"><span data-id="70" class="check-green">&#10003;</span> On-page SEO essentials</li>
-                        <li data-id="71"><span data-id="72" class="check-green">&#10003;</span> Google Search Console setup</li>
-                        <li data-id="73"><span data-id="74" class="check-green">&#10003;</span> Google Analytics 4 setup</li>
-                        <li data-id="75"><span data-id="76" class="check-green">&#10003;</span> WhatsApp chat button</li>
-                        <li data-id="77"><span data-id="78" class="check-green">&#10003;</span> Mobile-optimized design</li>
-                        <li data-id="79"><span data-id="80" class="check-green">&#10003;</span> Fast, secure hosting</li>
-                        <li data-id="81"><span data-id="82" class="check-green">&#10003;</span> Standard support</li>
-                    </ul>
-                    <a data-id="83" href="#apply"><button data-id="84" class="btn-outline-card" style="margin-top:32px;">Get Started with Ripple</button></a>
-                </div>
-
-                <!-- CURRENT (MOST POPULAR) -->
-                <div data-id="85" class="plan-card plan-card-dark fade-in" id="card-current-q7r8">
-                    <div data-id="86" class="flex justify-between items-center">
-                        <div data-id="87" class="flex items-center gap-2">
-                            <span data-id="88" style="font-size:32px;">&#9889;</span>
-                            <span data-id="89" style="font-size:12px;font-weight:600;color:var(--cyan);letter-spacing:1px;text-transform:uppercase;">Growth</span>
-                        </div>
-                        <span data-id="90" style="background:var(--cyan);color:var(--navy);font-size:11px;font-weight:700;padding:4px 14px;border-radius:100px;">Most Popular</span>
-                    </div>
-                    <h3 data-id="91" style="font-size:36px;font-weight:800;color:#fff;margin-top:16px;">Current</h3>
-                    <p data-id="92" style="font-size:16px;color:var(--cyan);margin-top:8px;">The complete growth system.</p>
-                    <p data-id="93" style="font-size:15px;color:var(--white-70);margin-top:12px;line-height:1.65;">All four pillars activated. Digital presence, Google visibility, search performance, and digital systems working as one.</p>
-                    <div data-id="94" style="margin-top:24px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.08);">
-                        <span data-id="95" style="font-size:44px;font-weight:900;color:#fff;">$3,000</span>
-                        <span data-id="96" style="font-size:14px;color:var(--white-40);"> setup</span>
-                        <p data-id="97" style="font-size:13px;color:var(--white-40);margin-top:6px;">Hosting from $200 per 6 months after first 6 months included.</p>
-                    </div>
-                    <p data-id="98" style="font-size:14px;font-weight:700;color:#fff;margin-top:28px;margin-bottom:14px;">Everything in Ripple, plus:</p>
-                    <ul data-id="99" class="plan-feat" style="list-style:none;color:var(--white-70);">
-                        <li data-id="100"><span data-id="101" class="check-cyan">&#10003;</span> WhatsApp Business profile setup</li>
-                        <li data-id="102"><span data-id="103" class="check-cyan">&#10003;</span> WhatsApp product catalog setup</li>
-                        <li data-id="104"><span data-id="105" class="check-cyan">&#10003;</span> Quick replies and automated messages</li>
-                        <li data-id="106"><span data-id="107" class="check-cyan">&#10003;</span> Advanced WhatsApp lead sequences</li>
-                        <li data-id="108"><span data-id="109" class="check-cyan">&#10003;</span> Local SEO and competitor gap analysis</li>
-                        <li data-id="110"><span data-id="111" class="check-cyan">&#10003;</span> 5-star reputation builder</li>
-                        <li data-id="112"><span data-id="113" class="check-cyan">&#10003;</span> Automated lead pipeline</li>
-                        <li data-id="114"><span data-id="115" class="check-cyan">&#10003;</span> Conversion-optimized landing page</li>
-                        <li data-id="116"><span data-id="117" class="check-cyan">&#10003;</span> Monthly performance check-in call</li>
-                        <li data-id="118"><span data-id="119" class="check-cyan">&#10003;</span> Priority support</li>
-                    </ul>
-                    <a data-id="120" href="#apply"><button data-id="121" class="btn-orange-card" style="margin-top:32px;">Get Started with Current</button></a>
-                </div>
-
-                <!-- SURGE -->
-                <div data-id="122" class="plan-card fade-in" id="card-surge-s9t0">
-                    <div data-id="123" class="flex items-center gap-2">
-                        <span data-id="124" style="font-size:32px;">&#128640;</span>
-                        <span data-id="125" style="font-size:12px;font-weight:600;color:#64748b;letter-spacing:1px;text-transform:uppercase;">Full Transformation</span>
-                    </div>
-                    <h3 data-id="126" style="font-size:36px;font-weight:800;color:#0a0f1e;margin-top:16px;">Surge</h3>
-                    <p data-id="127" style="font-size:16px;color:#475569;margin-top:8px;">Full-scale growth. Every channel.</p>
-                    <p data-id="128" style="font-size:15px;color:#64748b;margin-top:12px;line-height:1.65;">Full-scale growth system deployment, every pillar maximised, every channel activated, with a dedicated team managing your growth.</p>
-                    <div data-id="129" style="margin-top:24px;padding-top:24px;border-top:1px solid #f1f5f9;">
-                        <span data-id="130" style="font-size:44px;font-weight:900;color:#0a0f1e;">$5,000+</span>
-                        <span data-id="131" style="font-size:14px;color:#94a3b8;"> setup</span>
-                        <p data-id="132" style="font-size:13px;color:#64748b;margin-top:6px;">Plus monthly plan. Dedicated team included.</p>
-                    </div>
-                    <p data-id="133" style="font-size:14px;font-weight:700;color:#0a0f1e;margin-top:28px;margin-bottom:14px;">Everything in Current, plus:</p>
-                    <ul data-id="134" class="plan-feat" style="list-style:none;color:#334155;">
-                        <li data-id="135"><span data-id="136" class="check-green">&#10003;</span> Full WhatsApp sales funnel</li>
-                        <li data-id="137"><span data-id="138" class="check-green">&#10003;</span> Google Ads campaign setup</li>
-                        <li data-id="139"><span data-id="140" class="check-green">&#10003;</span> Multi-search engine listing</li>
-                        <li data-id="141"><span data-id="142" class="check-green">&#10003;</span> Monthly visibility and performance report</li>
-                        <li data-id="143"><span data-id="144" class="check-green">&#10003;</span> Quarterly strategy review call</li>
-                        <li data-id="145"><span data-id="146" class="check-green">&#10003;</span> Dedicated account manager</li>
-                        <li data-id="147"><span data-id="148" class="check-green">&#10003;</span> SLA guarantee</li>
-                    </ul>
-                    <a data-id="149" href="#apply"><button data-id="150" class="btn-outline-card" style="margin-top:32px;">Get Started with Surge</button></a>
-                </div>
-            </div>
-        </section>
-
-        <!-- ========== SECTION 3: EVERY PLAN INCLUDES ========== -->
-        <!-- Wave: Light to Dark -->
-        <svg data-id="151" viewBox="0 0 1440 80" preserveAspectRatio="none" style="display:block;width:100%;height:80px;background:var(--light-bg);"><path data-id="152" d="M0,40 C360,0 1080,80 1440,40 L1440,0 L0,0 Z" fill="#0a0f1e"/></svg>
-
-        <section data-id="153" style="background:var(--navy);padding:100px 24px;" id="included-u1v2">
-            <div data-id="154" class="text-center fade-in">
-                <h2 data-id="155" style="font-size:clamp(24px,3vw,40px);font-weight:800;color:#fff;margin-bottom:16px;">Every Growth System Includes</h2>
-                <p data-id="156" style="font-size:17px;color:var(--white-70);max-width:600px;margin:0 auto 60px;">Website, Google, WhatsApp CRM trial, and automation. Everything your business needs, in one package. Delivered in 48 to 72 hours.</p>
-            </div>
-            <div data-id="157" class="grid gap-6 mx-auto fade-in" style="grid-template-columns:repeat(6,1fr);max-width:900px;" id="icon-grid-w3x4">
-                <div data-id="158" class="flex flex-col items-center gap-3">
-                    <div data-id="159" class="icon-circle">&#127760;</div>
-                    <span data-id="160" style="font-size:13px;font-weight:600;color:var(--white-70);text-align:center;">Website</span>
-                </div>
-                <div data-id="161" class="flex flex-col items-center gap-3">
-                    <div data-id="162" class="icon-circle">&#128205;</div>
-                    <span data-id="163" style="font-size:13px;font-weight:600;color:var(--white-70);text-align:center;">Google Profile</span>
-                </div>
-                <div data-id="164" class="flex flex-col items-center gap-3">
-                    <div data-id="165" class="icon-circle">&#128172;</div>
-                    <span data-id="166" style="font-size:13px;font-weight:600;color:var(--white-70);text-align:center;">WhatsApp</span>
-                </div>
-                <div data-id="167" class="flex flex-col items-center gap-3">
-                    <div data-id="168" class="icon-circle">&#128202;</div>
-                    <span data-id="169" style="font-size:13px;font-weight:600;color:var(--white-70);text-align:center;">CRM Trial</span>
-                </div>
-                <div data-id="170" class="flex flex-col items-center gap-3">
-                    <div data-id="171" class="icon-circle">&#9889;</div>
-                    <span data-id="172" style="font-size:13px;font-weight:600;color:var(--white-70);text-align:center;">Automation</span>
-                </div>
-                <div data-id="173" class="flex flex-col items-center gap-3">
-                    <div data-id="174" class="icon-circle">&#128200;</div>
-                    <span data-id="175" style="font-size:13px;font-weight:600;color:var(--white-70);text-align:center;">Dashboard</span>
-                </div>
-            </div>
-            <div data-id="176" class="text-center fade-in" style="margin-top:56px;">
-                <a data-id="177" href="#apply"><button data-id="178" style="background:var(--orange);color:#fff;font-size:16px;font-weight:700;padding:16px 40px;border-radius:100px;border:none;cursor:pointer;" class="btn-apply">Apply for a Package</button></a>
-            </div>
-        </section>
-
-        <!-- ========== SECTION 4: CRM OPTIONS ========== -->
-        <!-- Wave: Dark to Light -->
-        <svg data-id="179" viewBox="0 0 1440 80" preserveAspectRatio="none" style="display:block;width:100%;height:80px;background:var(--navy);"><path data-id="180" d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#f8fafc"/></svg>
-
-        <section data-id="181" style="background:var(--light-bg);padding:100px 24px;" id="crm-y5z6">
-            <div data-id="182" class="text-center fade-in">
-                <p data-id="183" style="font-size:13px;font-weight:600;letter-spacing:1.5px;color:#0369a1;text-transform:uppercase;">CRM OPTIONS</p>
-                <h2 data-id="184" style="font-size:clamp(24px,3vw,40px);font-weight:800;color:#0a0f1e;margin:16px auto 12px;">Add Your CRM</h2>
-                <p data-id="185" style="font-size:16px;color:#475569;max-width:580px;margin:0 auto 16px;">Every BluWav Growth plan includes a 14-day free trial of CRM Premium. Experience the full system before you choose.</p>
-                <p data-id="186" style="font-size:14px;font-weight:600;color:var(--orange);margin-bottom:48px;">&#9200; CRM Premium is $179/mo today. This introductory rate locks in for life.</p>
-            </div>
-
-            <div data-id="187" class="grid gap-5 mx-auto" style="grid-template-columns:repeat(4,1fr);max-width:1020px;" id="crm-grid-a7b8">
-                <!-- CRM Starter -->
-                <div data-id="188" class="crm-card fade-in" id="crm-starter-c9d0">
-                    <span data-id="189" style="font-size:11px;color:#64748b;font-weight:600;">Just Getting Started</span>
-                    <h3 data-id="190" style="font-size:22px;font-weight:800;color:#0a0f1e;margin-top:8px;">CRM Starter</h3>
-                    <div data-id="191" style="margin-top:16px;">
-                        <span data-id="192" style="font-size:36px;font-weight:900;color:#0a0f1e;">$59</span><span data-id="193" style="font-size:14px;color:#94a3b8;">/mo</span>
-                        <p data-id="194" style="font-size:13px;color:#64748b;margin-top:4px;">$99 onboarding</p>
-                    </div>
-                    <ul data-id="195" class="crm-feat" style="list-style:none;color:#334155;margin-top:20px;">
-                        <li data-id="196"><span data-id="197" class="check-green">&#10003;</span> 25 contacts</li>
-                        <li data-id="198"><span data-id="199" class="check-green">&#10003;</span> Lead tracking</li>
-                        <li data-id="200"><span data-id="201" class="check-green">&#10003;</span> Basic contact management</li>
-                        <li data-id="202"><span data-id="203" class="check-green">&#10003;</span> Solo operators</li>
-                    </ul>
-                    <a data-id="204" href="#apply"><button data-id="205" class="btn-crm-outline" style="margin-top:24px;">Start with Starter</button></a>
-                </div>
-
-                <!-- CRM Lite -->
-                <div data-id="206" class="crm-card fade-in" id="crm-lite-e1f2">
-                    <span data-id="207" style="font-size:11px;color:#64748b;font-weight:600;">Most Flexible</span>
-                    <h3 data-id="208" style="font-size:22px;font-weight:800;color:#0a0f1e;margin-top:8px;">CRM Lite</h3>
-                    <div data-id="209" style="margin-top:16px;">
-                        <span data-id="210" style="font-size:36px;font-weight:900;color:#0a0f1e;">$99</span><span data-id="211" style="font-size:14px;color:#94a3b8;">/mo</span>
-                        <p data-id="212" style="font-size:12px;color:#64748b;margin-top:4px;">$199 onboarding or $990/year (2 months free)</p>
-                    </div>
-                    <ul data-id="213" class="crm-feat" style="list-style:none;color:#334155;margin-top:20px;">
-                        <li data-id="214"><span data-id="215" class="check-green">&#10003;</span> Up to 250 contacts</li>
-                        <li data-id="216"><span data-id="217" class="check-green">&#10003;</span> Pipeline tracking</li>
-                        <li data-id="218"><span data-id="219" class="check-green">&#10003;</span> Basic automation</li>
-                        <li data-id="220"><span data-id="221" class="check-green">&#10003;</span> 2 team members</li>
-                        <li data-id="222"><span data-id="223" class="check-green">&#10003;</span> Standard reporting</li>
-                        <li data-id="224"><span data-id="225" class="check-green">&#10003;</span> Priority email support (48hr)</li>
-                    </ul>
-                    <a data-id="226" href="#apply"><button data-id="227" class="btn-crm-outline" style="margin-top:24px;">Start Free Trial</button></a>
-                </div>
-
-                <!-- CRM Premium (MOST POPULAR) -->
-                <div data-id="228" class="crm-card crm-card-dark fade-in" id="crm-premium-g3h4">
-                    <div data-id="229" class="flex justify-between items-start">
-                        <span data-id="230" style="font-size:11px;color:var(--cyan);font-weight:600;">Most Popular - Best Value</span>
-                        <span data-id="231" style="background:rgba(0,212,255,0.15);color:var(--cyan);font-size:10px;padding:2px 10px;border-radius:100px;white-space:nowrap;">Locks in for life</span>
-                    </div>
-                    <h3 data-id="232" style="font-size:22px;font-weight:800;color:#fff;margin-top:8px;">CRM Premium</h3>
-                    <div data-id="233" style="margin-top:16px;">
-                        <span data-id="234" style="font-size:36px;font-weight:900;color:#fff;">$179</span><span data-id="235" style="font-size:14px;color:var(--white-40);">/mo</span>
-                        <p data-id="236" style="font-size:12px;color:var(--cyan);margin-top:4px;">Introductory rate - locks in for life</p>
-                        <p data-id="237" style="font-size:12px;color:var(--white-40);margin-top:2px;">$299 onboarding or $1,990/year (2 months free)</p>
-                    </div>
-                    <ul data-id="238" class="crm-feat" style="list-style:none;color:var(--white-70);margin-top:20px;">
-                        <li data-id="239"><span data-id="240" class="check-cyan">&#10003;</span> Unlimited contacts</li>
-                        <li data-id="241"><span data-id="242" class="check-cyan">&#10003;</span> Full pipeline (Lead to Quote to Won)</li>
-                        <li data-id="243"><span data-id="244" class="check-cyan">&#10003;</span> Automated follow-ups (30/60/90 days)</li>
-                        <li data-id="245"><span data-id="246" class="check-cyan">&#10003;</span> WhatsApp integration</li>
-                        <li data-id="247"><span data-id="248" class="check-cyan">&#10003;</span> Revenue and aging reports</li>
-                        <li data-id="249"><span data-id="250" class="check-cyan">&#10003;</span> 5 team members</li>
-                        <li data-id="251"><span data-id="252" class="check-cyan">&#10003;</span> Document storage</li>
-                        <li data-id="253"><span data-id="254" class="check-cyan">&#10003;</span> Data export</li>
-                        <li data-id="255"><span data-id="256" class="check-cyan">&#10003;</span> All future features included</li>
-                        <li data-id="257"><span data-id="258" class="check-cyan">&#10003;</span> Priority support (24hr, email and SMS)</li>
-                    </ul>
-                    <a data-id="259" href="#apply"><button data-id="260" class="btn-crm-orange" style="margin-top:24px;">Start Free Trial - CRM Premium</button></a>
-                </div>
-
-                <!-- CRM Enterprise -->
-                <div data-id="261" class="crm-card fade-in" id="crm-enterprise-i5j6">
-                    <span data-id="262" style="font-size:11px;color:#64748b;font-weight:600;">For Teams and Agencies</span>
-                    <h3 data-id="263" style="font-size:22px;font-weight:800;color:#0a0f1e;margin-top:8px;">Enterprise</h3>
-                    <div data-id="264" style="margin-top:16px;">
-                        <span data-id="265" style="font-size:36px;font-weight:900;color:#0a0f1e;">$499</span><span data-id="266" style="font-size:14px;color:#94a3b8;">/mo</span>
-                        <p data-id="267" style="font-size:13px;color:#64748b;margin-top:4px;">$599 onboarding</p>
-                    </div>
-                    <ul data-id="268" class="crm-feat" style="list-style:none;color:#334155;margin-top:20px;">
-                        <li data-id="269"><span data-id="270" class="check-green">&#10003;</span> Unlimited team members</li>
-                        <li data-id="271"><span data-id="272" class="check-green">&#10003;</span> Custom workflows</li>
-                        <li data-id="273"><span data-id="274" class="check-green">&#10003;</span> Advanced analytics</li>
-                        <li data-id="275"><span data-id="276" class="check-green">&#10003;</span> API access</li>
-                        <li data-id="277"><span data-id="278" class="check-green">&#10003;</span> Data migration support</li>
-                        <li data-id="279"><span data-id="280" class="check-green">&#10003;</span> Custom integrations</li>
-                        <li data-id="281"><span data-id="282" class="check-green">&#10003;</span> Dedicated account manager</li>
-                        <li data-id="283"><span data-id="284" class="check-green">&#10003;</span> SLA guarantee</li>
-                        <li data-id="285"><span data-id="286" class="check-green">&#10003;</span> Quarterly strategy calls</li>
-                        <li data-id="287"><span data-id="288" class="check-green">&#10003;</span> Priority 12hr support</li>
-                    </ul>
-                    <a data-id="289" href="#apply"><button data-id="290" class="btn-crm-outline" style="margin-top:24px;">Book a Call</button></a>
-                </div>
-            </div>
-
-            <!-- Nonprofit note -->
-            <div data-id="291" class="fade-in" style="margin-top:40px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:20px 28px;max-width:680px;margin-left:auto;margin-right:auto;font-size:15px;color:#166534;">
-                &#127807; <strong data-id="292">Nonprofit Community Rate</strong> - Registered nonprofits qualify for $99/month (no setup fee). Email hello@bluwavgrowth.com with your registration number.
-            </div>
-            <!-- White-Label note -->
-            <div data-id="293" class="fade-in" style="margin-top:16px;background:#faf5ff;border:1px solid #e9d5ff;border-radius:12px;padding:20px 28px;max-width:680px;margin-left:auto;margin-right:auto;font-size:15px;color:#6b21a8;">
-                &#127970; <strong data-id="294">White-Label Plan</strong> - $697/mo plus $699 onboarding (annual contract). Your logo, your domain, clients never see BluWav. Manage unlimited client accounts. Book a demo call.
-            </div>
-        </section>
-
-        <!-- ========== SECTION 5: HOW TO GET STARTED ========== -->
-        <!-- Wave: Light to Dark -->
-        <svg data-id="295" viewBox="0 0 1440 80" preserveAspectRatio="none" style="display:block;width:100%;height:80px;background:var(--light-bg);"><path data-id="296" d="M0,40 C360,0 1080,80 1440,40 L1440,0 L0,0 Z" fill="#0a0f1e"/></svg>
-
-        <section data-id="297" style="background:var(--navy);padding:100px 24px;" id="steps-k7l8">
-            <div data-id="298" class="text-center fade-in">
-                <h2 data-id="299" style="font-size:clamp(24px,3vw,40px);font-weight:800;color:#fff;">Simple Process. No Upfront Payment.</h2>
-                <p data-id="300" style="font-size:16px;color:var(--white-70);max-width:580px;margin:0 auto 60px;">No payment upfront. No commitment until you approve your invoice.</p>
-            </div>
-
-            <div data-id="301" class="flex items-start mx-auto fade-in flex-col md:flex-row" style="gap:0;max-width:900px;" id="steps-row-m9n0">
-                <!-- Step 1 -->
-                <div data-id="302" class="flex flex-col items-center flex-1 px-4 mb-8 md:mb-0">
-                    <div data-id="303" class="step-circle">1</div>
-                    <h4 data-id="304" style="font-size:16px;font-weight:700;color:#fff;margin-top:16px;text-align:center;">Choose Your Plan</h4>
-                    <p data-id="305" style="font-size:14px;color:var(--white-70);margin-top:8px;line-height:1.6;text-align:center;">Pick Ripple, Current, or Surge. Or CRM only.</p>
-                </div>
-                <div data-id="306" class="step-connector"></div>
-                <!-- Step 2 -->
-                <div data-id="307" class="flex flex-col items-center flex-1 px-4 mb-8 md:mb-0">
-                    <div data-id="308" class="step-circle">2</div>
-                    <h4 data-id="309" style="font-size:16px;font-weight:700;color:#fff;margin-top:16px;text-align:center;">Submit Your Application</h4>
-                    <p data-id="310" style="font-size:14px;color:var(--white-70);margin-top:8px;line-height:1.6;text-align:center;">Takes 2 minutes. Tell us about your business and goals.</p>
-                </div>
-                <div data-id="311" class="step-connector"></div>
-                <!-- Step 3 -->
-                <div data-id="312" class="flex flex-col items-center flex-1 px-4 mb-8 md:mb-0">
-                    <div data-id="313" class="step-circle">3</div>
-                    <h4 data-id="314" style="font-size:16px;font-weight:700;color:#fff;margin-top:16px;text-align:center;">We WhatsApp You</h4>
-                    <p data-id="315" style="font-size:14px;color:var(--white-70);margin-top:8px;line-height:1.6;text-align:center;">Within 48 hours with your confirmed scope and invoice.</p>
-                </div>
-                <div data-id="316" class="step-connector"></div>
-                <!-- Step 4 -->
-                <div data-id="317" class="flex flex-col items-center flex-1 px-4">
-                    <div data-id="318" class="step-circle">4</div>
-                    <h4 data-id="319" style="font-size:16px;font-weight:700;color:#fff;margin-top:16px;text-align:center;">Pay and Go Live</h4>
-                    <p data-id="320" style="font-size:14px;color:var(--white-70);margin-top:8px;line-height:1.6;text-align:center;">Approve, pay securely, and go live in 48 to 72 hours.</p>
-                </div>
-            </div>
-
-            <div data-id="321" class="flex justify-center gap-3 flex-wrap fade-in" style="margin-top:48px;">
-                <span data-id="322" class="pay-pill">&#128179; WiPay (Caribbean cards)</span>
-                <span data-id="323" class="pay-pill">PayPal</span>
-                <span data-id="324" class="pay-pill">Bank Transfer</span>
-                <span data-id="325" class="pay-pill">Linx</span>
-            </div>
-        </section>
-
-        <!-- ========== SECTION 6: FEATURE COMPARISON TABLE ========== -->
-        <!-- Wave: Dark to Light -->
-        <svg data-id="326" viewBox="0 0 1440 80" preserveAspectRatio="none" style="display:block;width:100%;height:80px;background:var(--navy);"><path data-id="327" d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#f8fafc"/></svg>
-
-        <section data-id="328" style="background:var(--light-bg);padding:100px 24px;" id="compare-o1p2">
-            <h2 data-id="329" class="text-center fade-in" style="font-size:clamp(24px,3vw,40px);font-weight:800;color:#0a0f1e;margin-bottom:48px;">Compare Plans Side by Side</h2>
-
-            <div data-id="330" class="fade-in" style="max-width:900px;margin:0 auto;overflow-x:auto;border-radius:12px;border:1px solid #e2e8f0;">
-                <table data-id="331" class="compare-table">
-                    <thead data-id="332">
-                        <tr data-id="333">
-                            <th data-id="334" style="min-width:220px;">Feature</th>
-                            <th data-id="335" style="min-width:120px;">&#127754; Ripple $1,800</th>
-                            <th data-id="336" style="min-width:120px;">&#9889; Current $3,000</th>
-                            <th data-id="337" style="min-width:120px;">&#128640; Surge $5,000+</th>
-                        </tr>
-                    </thead>
-                    <tbody data-id="338">
-                        <tr data-id="339" class="group-row"><td data-id="340" colspan="4">Core - Included in Every Plan</td></tr>
-                        <tr data-id="341"><td data-id="342">Modern Website (you own it)</td><td data-id="343"><span data-id="344" class="tcheck">&#10003;</span></td><td data-id="345"><span data-id="346" class="tcheck">&#10003;</span></td><td data-id="347"><span data-id="348" class="tcheck">&#10003;</span></td></tr>
-                        <tr data-id="349"><td data-id="350">Google Business Profile setup</td><td data-id="351"><span data-id="352" class="tcheck">&#10003;</span></td><td data-id="353"><span data-id="354" class="tcheck">&#10003;</span></td><td data-id="355"><span data-id="356" class="tcheck">&#10003;</span></td></tr>
-                        <tr data-id="357"><td data-id="358">CRM Included (14-day trial)</td><td data-id="359"><span data-id="360" class="tcheck">&#10003;</span></td><td data-id="361"><span data-id="362" class="tcheck">&#10003;</span></td><td data-id="363"><span data-id="364" class="tcheck">&#10003;</span></td></tr>
-                        <tr data-id="365"><td data-id="366">Smart Lead Automation</td><td data-id="367"><span data-id="368" class="tcheck">&#10003;</span></td><td data-id="369"><span data-id="370" class="tcheck">&#10003;</span></td><td data-id="371"><span data-id="372" class="tcheck">&#10003;</span></td></tr>
-                        <tr data-id="373"><td data-id="374">Performance Dashboard</td><td data-id="375"><span data-id="376" class="tcheck">&#10003;</span></td><td data-id="377"><span data-id="378" class="tcheck">&#10003;</span></td><td data-id="379"><span data-id="380" class="tcheck">&#10003;</span></td></tr>
-                        <tr data-id="381"><td data-id="382">On-Page SEO Essentials</td><td data-id="383"><span data-id="384" class="tcheck">&#10003;</span></td><td data-id="385"><span data-id="386" class="tcheck">&#10003;</span></td><td data-id="387"><span data-id="388" class="tcheck">&#10003;</span></td></tr>
-                        <tr data-id="389"><td data-id="390">Google Search Console and GA4</td><td data-id="391"><span data-id="392" class="tcheck">&#10003;</span></td><td data-id="393"><span data-id="394" class="tcheck">&#10003;</span></td><td data-id="395"><span data-id="396" class="tcheck">&#10003;</span></td></tr>
-                        <tr data-id="397"><td data-id="398">WhatsApp Chat Button</td><td data-id="399"><span data-id="400" class="tcheck">&#10003;</span></td><td data-id="401"><span data-id="402" class="tcheck">&#10003;</span></td><td data-id="403"><span data-id="404" class="tcheck">&#10003;</span></td></tr>
-                        <tr data-id="405"><td data-id="406">Mobile-Optimized Design</td><td data-id="407"><span data-id="408" class="tcheck">&#10003;</span></td><td data-id="409"><span data-id="410" class="tcheck">&#10003;</span></td><td data-id="411"><span data-id="412" class="tcheck">&#10003;</span></td></tr>
-                        <tr data-id="413"><td data-id="414">Fast, Secure Hosting</td><td data-id="415"><span data-id="416" class="tcheck">&#10003;</span></td><td data-id="417"><span data-id="418" class="tcheck">&#10003;</span></td><td data-id="419"><span data-id="420" class="tcheck">&#10003;</span></td></tr>
-
-                        <tr data-id="421" class="group-row"><td data-id="422" colspan="4">Current and Surge - Growth Features</td></tr>
-                        <tr data-id="423"><td data-id="424">WhatsApp Business Profile</td><td data-id="425"><span data-id="426" class="tdash">&ndash;</span></td><td data-id="427"><span data-id="428" class="tcheck">&#10003;</span></td><td data-id="429"><span data-id="430" class="tcheck">&#10003;</span></td></tr>
-                        <tr data-id="431"><td data-id="432">WhatsApp Product Catalog</td><td data-id="433"><span data-id="434" class="tdash">&ndash;</span></td><td data-id="435"><span data-id="436" class="tcheck">&#10003;</span></td><td data-id="437"><span data-id="438" class="tcheck">&#10003;</span></td></tr>
-                        <tr data-id="439"><td data-id="440">Automated WhatsApp Sequences</td><td data-id="441"><span data-id="442" class="tdash">&ndash;</span></td><td data-id="443"><span data-id="444" class="tcheck">&#10003;</span></td><td data-id="445"><span data-id="446" class="tcheck">&#10003;</span></td></tr>
-                        <tr data-id="447"><td data-id="448">Local SEO and Competitor Analysis</td><td data-id="449"><span data-id="450" class="tdash">&ndash;</span></td><td data-id="451"><span data-id="452" class="tcheck">&#10003;</span></td><td data-id="453"><span data-id="454" class="tcheck">&#10003;</span></td></tr>
-                        <tr data-id="455"><td data-id="456">5-Star Reputation Builder</td><td data-id="457"><span data-id="458" class="tdash">&ndash;</span></td><td data-id="459"><span data-id="460" class="tcheck">&#10003;</span></td><td data-id="461"><span data-id="462" class="tcheck">&#10003;</span></td></tr>
-                        <tr data-id="463"><td data-id="464">Automated Lead Pipeline</td><td data-id="465"><span data-id="466" class="tdash">&ndash;</span></td><td data-id="467"><span data-id="468" class="tcheck">&#10003;</span></td><td data-id="469"><span data-id="470" class="tcheck">&#10003;</span></td></tr>
-                        <tr data-id="471"><td data-id="472">Conversion Landing Page</td><td data-id="473"><span data-id="474" class="tdash">&ndash;</span></td><td data-id="475"><span data-id="476" class="tcheck">&#10003;</span></td><td data-id="477"><span data-id="478" class="tcheck">&#10003;</span></td></tr>
-                        <tr data-id="479"><td data-id="480">Monthly Performance Check-in Call</td><td data-id="481"><span data-id="482" class="tdash">&ndash;</span></td><td data-id="483"><span data-id="484" class="tcheck">&#10003;</span></td><td data-id="485"><span data-id="486" class="tcheck">&#10003;</span></td></tr>
-
-                        <tr data-id="487" class="group-row"><td data-id="488" colspan="4">Surge Only - Full Domination</td></tr>
-                        <tr data-id="489"><td data-id="490">Full WhatsApp Sales Funnel</td><td data-id="491"><span data-id="492" class="tdash">&ndash;</span></td><td data-id="493"><span data-id="494" class="tdash">&ndash;</span></td><td data-id="495"><span data-id="496" class="tcheck">&#10003;</span></td></tr>
-                        <tr data-id="497"><td data-id="498">Google Ads Campaign Setup</td><td data-id="499"><span data-id="500" class="tdash">&ndash;</span></td><td data-id="501"><span data-id="502" class="tdash">&ndash;</span></td><td data-id="503"><span data-id="504" class="tcheck">&#10003;</span></td></tr>
-                        <tr data-id="505"><td data-id="506">Multi-Search Engine Listing</td><td data-id="507"><span data-id="508" class="tdash">&ndash;</span></td><td data-id="509"><span data-id="510" class="tdash">&ndash;</span></td><td data-id="511"><span data-id="512" class="tcheck">&#10003;</span></td></tr>
-                        <tr data-id="513"><td data-id="514">Monthly Visibility Report</td><td data-id="515"><span data-id="516" class="tdash">&ndash;</span></td><td data-id="517"><span data-id="518" class="tdash">&ndash;</span></td><td data-id="519"><span data-id="520" class="tcheck">&#10003;</span></td></tr>
-                        <tr data-id="521"><td data-id="522">Quarterly Strategy Review Call</td><td data-id="523"><span data-id="524" class="tdash">&ndash;</span></td><td data-id="525"><span data-id="526" class="tdash">&ndash;</span></td><td data-id="527"><span data-id="528" class="tcheck">&#10003;</span></td></tr>
-                        <tr data-id="529"><td data-id="530">Dedicated Account Manager</td><td data-id="531"><span data-id="532" class="tdash">&ndash;</span></td><td data-id="533"><span data-id="534" class="tdash">&ndash;</span></td><td data-id="535"><span data-id="536" class="tcheck">&#10003;</span></td></tr>
-
-                        <tr data-id="537" style="border-top:2px solid #e2e8f0;"><td data-id="538" style="font-weight:700;">Support Level</td><td data-id="539">Standard</td><td data-id="540" style="color:var(--cyan);font-weight:600;">Priority</td><td data-id="541" style="color:#0a0f1e;font-weight:700;">Dedicated</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <!-- ========== SECTION 7: FAQ ========== -->
-        <!-- Wave: Light to Dark -->
-        <svg data-id="542" viewBox="0 0 1440 80" preserveAspectRatio="none" style="display:block;width:100%;height:80px;background:var(--light-bg);"><path data-id="543" d="M0,40 C360,0 1080,80 1440,40 L1440,0 L0,0 Z" fill="#0a0f1e"/></svg>
-
-        <section data-id="544" style="background:var(--navy);padding:100px 24px;" id="faq-q3r4">
-            <h2 data-id="545" class="text-center fade-in" style="font-size:clamp(24px,3vw,40px);font-weight:800;color:#fff;margin-bottom:48px;">Frequently Asked Questions</h2>
-
-            <div data-id="546" style="max-width:760px;margin:0 auto;" id="faq-list-s5t6">
-                <div data-id="547" class="faq-item fade-in">
-                    <button data-id="548" class="faq-q" type="button"><span data-id="549">Do I really own everything?</span><span data-id="550" class="faq-icon">+</span></button>
-                    <div data-id="551" class="faq-a"><p data-id="552">Yes. Your website, CRM, automations, content, and accounts are all yours forever. BluWav does not lock you into monthly subscriptions or proprietary systems. You own it, full stop.</p></div>
-                </div>
-                <div data-id="553" class="faq-item fade-in">
-                    <button data-id="554" class="faq-q" type="button"><span data-id="555">Is there a monthly fee?</span><span data-id="556" class="faq-icon">+</span></button>
-                    <div data-id="557" class="faq-a"><p data-id="558">Your Growth System package is a one-time setup fee. Hosting is included for 6 months, then $200 every 6 months for secure hosting, SSL, updates, and support. The CRM is separate and optional.</p></div>
-                </div>
-                <div data-id="559" class="faq-item fade-in">
-                    <button data-id="560" class="faq-q" type="button"><span data-id="561">How fast will my system be ready?</span><span data-id="562" class="faq-icon">+</span></button>
-                    <div data-id="563" class="faq-a"><p data-id="564">Most businesses go live in 48 to 72 hours from the moment you provide your content and business details. We move fast. That is the BluWav promise.</p></div>
-                </div>
-                <div data-id="565" class="faq-item fade-in">
-                    <button data-id="566" class="faq-q" type="button"><span data-id="567">What is the CRM and how does it help me?</span><span data-id="568" class="faq-icon">+</span></button>
-                    <div data-id="569" class="faq-a"><p data-id="570">The CRM is your customer management hub. Track leads, manage contacts, automate follow-ups, and monitor your pipeline all in one place. Every plan includes a 14-day free trial of CRM Premium.</p></div>
-                </div>
-                <div data-id="571" class="faq-item fade-in">
-                    <button data-id="572" class="faq-q" type="button"><span data-id="573">What is the difference between the three plans?</span><span data-id="574" class="faq-icon">+</span></button>
-                    <div data-id="575" class="faq-a"><p data-id="576">Ripple ($1,800) is the fastest way to get online. Website, Google visibility, CRM trial, smart automation, and performance dashboard. Current ($3,000) is the complete growth engine. Everything in Ripple plus WhatsApp Business setup, advanced lead sequences, local SEO, reputation builder, and a monthly check-in call. Surge ($5,000+) is full multi-channel growth. Everything in Current plus Google Ads, WhatsApp sales funnel, monthly reports, quarterly reviews, and a dedicated account manager.</p></div>
-                </div>
-                <div data-id="577" class="faq-item fade-in">
-                    <button data-id="578" class="faq-q" type="button"><span data-id="579">What do I need to get started?</span><span data-id="580" class="faq-icon">+</span></button>
-                    <div data-id="581" class="faq-a"><p data-id="582">Just your business name, logo (if you have one), contact details, and a short description of what you offer. We handle everything else.</p></div>
-                </div>
-                <div data-id="583" class="faq-item fade-in">
-                    <button data-id="584" class="faq-q" type="button"><span data-id="585">Can I upgrade later?</span><span data-id="586" class="faq-icon">+</span></button>
-                    <div data-id="587" class="faq-a"><p data-id="588">Yes. Start with Ripple or Current and upgrade to Surge anytime. Your existing website, CRM data, and setup carry over. You never lose anything.</p></div>
-                </div>
-                <div data-id="589" class="faq-item fade-in">
-                    <button data-id="590" class="faq-q" type="button"><span data-id="591">Do you work with businesses in my country?</span><span data-id="592" class="faq-icon">+</span></button>
-                    <div data-id="593" class="faq-a"><p data-id="594">Yes. BluWav Growth works with businesses worldwide. Our systems are built for any market, any country, any industry.</p></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ========== SECTION 8: FINAL CTA ========== -->
-        <section data-id="595" class="final-cta-section" style="background:var(--navy);padding:100px 24px;text-align:center;" id="apply">
-            <div data-id="596" class="relative z-10 fade-in">
-                <h2 data-id="597" style="font-size:clamp(28px,4vw,52px);font-weight:900;color:#fff;line-height:1.1;">Ready to Grow Your Business Online?</h2>
-                <p data-id="598" style="font-size:20px;font-weight:600;color:var(--cyan);margin-top:16px;">Start with your free Digital Health Score.</p>
-                <p data-id="599" style="font-size:17px;color:var(--white-70);max-width:520px;margin:16px auto 0;line-height:1.7;">Takes 30 seconds. We will WhatsApp you a personalised report within 48 hours.</p>
-                <div data-id="600" style="margin-top:40px;">
-                    <a data-id="601" href="https://bluwavgrowth.com/apply"><button data-id="602" class="btn-apply">Apply Now, It's Free</button></a>
-                </div>
-                <div data-id="603" class="flex justify-center gap-5 flex-wrap" style="margin-top:28px;font-size:14px;color:var(--white-40);">
-                    <span data-id="604">&#10003; 100% free</span>
-                    <span data-id="605">&#10003; Results in 48 hours</span>
-                    <span data-id="606">&#10003; No commitment</span>
-                    <span data-id="607">&#10003; No sales pitch</span>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- ========== FOOTER ========== -->
-    <footer data-id="608" class="site-footer" id="footer-u7v8">
-        <div data-id="609" style="max-width:1100px;margin:0 auto;padding:0 24px;">
-            <div data-id="610" class="flex justify-between flex-wrap gap-10">
-                <!-- Col 1: Logo -->
-                <div data-id="611">
-                    <a data-id="612" href="/" style="font-size:22px;font-weight:700;color:#fff;line-height:1.2;">BluWav<span data-id="613" style="color:var(--cyan);">Growth</span></a>
-                    <p data-id="614" style="margin-top:12px;"><a data-id="615" href="mailto:hello@bluwavgrowth.com" style="color:var(--cyan);font-size:14px;">hello@bluwavgrowth.com</a></p>
-                    <p data-id="616" style="margin-top:6px;"><a data-id="617" href="/the-wave" style="color:var(--white-70);font-size:13px;">The Wave Newsletter</a></p>
-                </div>
-                <!-- Col 2: Pages -->
-                <div data-id="618">
-                    <h4 data-id="619" class="footer-col-head">Pages</h4>
-                    <a data-id="620" href="/" class="footer-link">Home</a>
-                    <a data-id="621" href="/#health-score" class="footer-link">Health Check</a>
-                    <a data-id="622" href="/pricing" class="footer-link">Pricing</a>
-                    <a data-id="623" href="/about" class="footer-link">About</a>
-                    <a data-id="624" href="/contact" class="footer-link">Contact</a>
-                    <a data-id="625" href="/#case-studies" class="footer-link">Case Studies</a>
-                    <a data-id="626" href="/the-wave" class="footer-link">The Wave</a>
-                </div>
-                <!-- Col 3: Get Started -->
-                <div data-id="627">
-                    <h4 data-id="628" class="footer-col-head">Get Started</h4>
-                    <a data-id="629" href="/apply" class="footer-link">Get Started</a>
-                    <a data-id="630" href="/#health-score" class="footer-link">Free Health Check</a>
-                    <a data-id="631" href="/contact" class="footer-link">Book a Call</a>
-                </div>
-                <!-- Col 4: Legal -->
-                <div data-id="632">
-                    <h4 data-id="633" class="footer-col-head">Legal</h4>
-                    <a data-id="634" href="/privacy-policy" class="footer-link">Privacy Policy</a>
-                    <a data-id="635" href="#" class="footer-link">Careers</a>
-                    <a data-id="636" href="/agent-agreement" class="footer-link">Agent Agreement</a>
-                </div>
-            </div>
-            <div data-id="637" class="flex justify-between flex-wrap items-center" style="margin-top:48px;padding:20px 0;border-top:1px solid rgba(255,255,255,0.06);font-size:13px;color:var(--white-40);">
-                <span data-id="638">&copy; 2026 BluWav Growth &middot; All rights reserved. Built for modern businesses worldwide.</span>
-                <div data-id="639" class="flex gap-4 flex-wrap" style="margin-top:8px;">
-                    <a data-id="640" href="/privacy-policy" style="color:var(--white-40);">Privacy</a>
-                    <a data-id="641" href="/contact" style="color:var(--white-40);">Contact</a>
-                    <a data-id="642" href="/agent-agreement" style="color:var(--white-40);">Agent Agreement</a>
-                </div>
-            </div>
-            <p data-id="643" style="text-align:center;font-size:12px;color:var(--white-40);padding:16px 0 24px;">Made by Copilot</p>
-        </div>
-    </footer>
-
-    <script>
-        // ---- Lucide Icons (Progressive Enhancement) ----
-        if (typeof lucide !== "undefined" && typeof lucide.createIcons === "function") {
-            lucide.createIcons();
-        }
-
-        // ---- Mobile Menu ----
-        var mobileMenuBtn = document.getElementById('mobile-menu-btn-c3d4');
-        var mobileMenu = document.getElementById('mobile-menu-e5f6');
-        var mobileMenuClose = document.getElementById('mobile-menu-close-g7h8');
-
-        if (mobileMenuBtn && mobileMenu) {
-            mobileMenuBtn.addEventListener('click', function() {
-                mobileMenu.classList.add('open');
-            });
-        }
-        if (mobileMenuClose && mobileMenu) {
-            mobileMenuClose.addEventListener('click', function() {
-                mobileMenu.classList.remove('open');
-            });
-        }
-        // Close mobile menu on link click
-        if (mobileMenu) {
-            mobileMenu.querySelectorAll('a').forEach(function(link) {
-                link.addEventListener('click', function() {
-                    mobileMenu.classList.remove('open');
-                });
-            });
-        }
-
-        // ---- FAQ Accordion ----
-        document.querySelectorAll('.faq-item').forEach(function(item) {
-            var btn = item.querySelector('.faq-q');
-            if (btn) {
-                btn.addEventListener('click', function() {
-                    var isOpen = item.classList.contains('open');
-                    // Close all others
-                    document.querySelectorAll('.faq-item').forEach(function(other) {
-                        other.classList.remove('open');
-                        var otherIcon = other.querySelector('.faq-icon');
-                        if (otherIcon) otherIcon.textContent = '+';
-                    });
-                    if (!isOpen) {
-                        item.classList.add('open');
-                        var icon = item.querySelector('.faq-icon');
-                        if (icon) icon.textContent = '-';
-                    }
-                });
-            }
-        });
-
-        // ---- Scroll Fade-In (IntersectionObserver) ----
-        var fadeEls = document.querySelectorAll('.fade-in');
-        if ('IntersectionObserver' in window) {
-            var observer = new IntersectionObserver(function(entries) {
-                entries.forEach(function(entry) {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.12 });
-            fadeEls.forEach(function(el) { observer.observe(el); });
-        } else {
-            // Fallback: show all
-            fadeEls.forEach(function(el) { el.classList.add('visible'); });
-        }
-
-        // ---- Responsive Grid Adjustments ----
-        var planGrid = document.getElementById('plan-grid-m3n4');
-        var crmGrid = document.getElementById('crm-grid-a7b8');
-        var iconGrid = document.getElementById('icon-grid-w3x4');
-
-        function handleResponsiveGrids() {
-            var w = window.innerWidth;
-            if (planGrid) {
-                planGrid.style.gridTemplateColumns = w < 768 ? '1fr' : 'repeat(3,1fr)';
-            }
-            if (crmGrid) {
-                if (w < 540) {
-                    crmGrid.style.gridTemplateColumns = '1fr';
-                } else if (w < 768) {
-                    crmGrid.style.gridTemplateColumns = 'repeat(2,1fr)';
-                } else {
-                    crmGrid.style.gridTemplateColumns = 'repeat(4,1fr)';
-                }
-            }
-            if (iconGrid) {
-                iconGrid.style.gridTemplateColumns = w < 768 ? 'repeat(3,1fr)' : 'repeat(6,1fr)';
-            }
-            // Remove transform on Current card mobile
-            var currentCard = document.getElementById('card-current-q7r8');
-            if (currentCard) {
-                currentCard.style.transform = w < 768 ? 'none' : 'translateY(-12px)';
-            }
-        }
-
-        handleResponsiveGrids();
-        window.addEventListener('resize', handleResponsiveGrids);
-    </script>
-</body>
-</html>
+>!DOCTYPE html>
+>html lang="en">
+>head>
+    >meta charset="UTF-8" />
+        >meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            >title>BluWav Growth  -  Pricing>/title>
+                >meta name="color-scheme" content="dark light" />
+                    >script src="https://cdn.tailwindcss.com">>/script>
+                        >script>
+                              tailwind.config = {
+                                      theme: {
+                                                extend: {
+                                                            colors: {
+                                                                          navy: '#0a0f1e',
+                                                                                        'navy-card': '#0d1525',
+                                                                                                      cyan: '#00d4ff',
+                                                                                                                    orange: '#ff6535',
+                                                                                                                                  'light-bg': '#f8fafc',
+                                                                                                                                                gold: '#fbbf24',
+                                                                                                                                                            },
+                                                                                                                                                                      },
+                                                                                                                                                                              },
+                                                                                                                                                                                    };
+                                                                                                                                                                                        >/script>
+                                                                                                                                                                                            >script src="https://unpkg.com/lucide@latest" defer>>/script>
+                                                                                                                                                                                                >link rel="preconnect" href="https://fonts.googleapis.com" />
+                                                                                                                                                                                                    >link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+                                                                                                                                                                                                        >link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+                                                                                                                                                                                                            >style>
+                                                                                                                                                                                                                  :root {
+                                                                                                                                                                                                                          --navy: #0a0f1e;
+                                                                                                                                                                                                                                  --navy-card: #0d1525;
+                                                                                                                                                                                                                                          --cyan: #00d4ff;
+                                                                                                                                                                                                                                                  --cyan-dim: rgba(0,212,255,0.12);
+                                                                                                                                                                                                                                                          --orange: #ff6535;
+                                                                                                                                                                                                                                                                  --white: #ffffff;
+                                                                                                                                                                                                                                                                          --white-70: rgba(255,255,255,0.70);
+                                                                                                                                                                                                                                                                                  --white-40: rgba(255,255,255,0.40);
+                                                                                                                                                                                                                                                                                          --light-bg: #f8fafc;
+                                                                                                                                                                                                                                                                                                  --gold: #fbbf24;
+                                                                                                                                                                                                                                                                                                        }
+                                                                                                                                                                                                                                                                                                              *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+                                                                                                                                                                                                                                                                                                                    html { scroll-behavior: smooth; }
+                                                                                                                                                                                                                                                                                                                          body {
+                                                                                                                                                                                                                                                                                                                                  font-family: 'Inter', sans-serif;
+                                                                                                                                                                                                                                                                                                                                          background: var(--navy);
+                                                                                                                                                                                                                                                                                                                                                  color: var(--white);
+                                                                                                                                                                                                                                                                                                                                                          -webkit-font-smoothing: antialiased;
+                                                                                                                                                                                                                                                                                                                                                                  overflow-x: hidden;
+                                                                                                                                                                                                                                                                                                                                                                        }
+                                                                                                                                                                                                                                                                                                                                                                              a { text-decoration: none; color: inherit; }
+                                                                                                                                                                                                                                                                                                                                                                                    button { font-family: 'Inter', sans-serif; }
+                                                                                                                                                                                                                                                                                                                                                                                    
+                                                                                                                                                                                                                                                                                                                                                                                          /* ---- NAV ---- */
+                                                                                                                                                                                                                                                                                                                                                                                                .site-nav {
+                                                                                                                                                                                                                                                                                                                                                                                                        position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+                                                                                                                                                                                                                                                                                                                                                                                                                backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+                                                                                                                                                                                                                                                                                                                                                                                                                        background: rgba(10,15,30,0.94);
+                                                                                                                                                                                                                                                                                                                                                                                                                                border-bottom: 1px solid rgba(0,212,255,0.12);
+                                                                                                                                                                                                                                                                                                                                                                                                                                        padding: 14px max(24px, calc((100vw - 1200px) / 2));
+                                                                                                                                                                                                                                                                                                                                                                                                                                                display: flex; align-items: center; justify-content: space-between;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                      }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                            .nav-logo-sub { font-size: 10px; color: var(--white-40); margin-top: 1px; }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                  .nav-link {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                          color: var(--white-70); font-size: 14px; font-weight: 500;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  transition: color 0.2s;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              .nav-link:hover, .nav-link.active { color: var(--cyan); }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    .nav-btn-outline {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            border: 1.5px solid var(--cyan); color: var(--cyan);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    padding: 9px 22px; border-radius: 100px; font-size: 14px; font-weight: 600;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            background: transparent; cursor: pointer; transition: background 0.2s, color 0.2s;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        .nav-btn-outline:hover { background: rgba(0,212,255,0.1); }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              .nav-btn-solid {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      background: var(--orange); color: #fff;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              padding: 9px 22px; border-radius: 100px; font-size: 14px; font-weight: 600;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      border: none; cursor: pointer; transition: filter 0.2s;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  .nav-btn-solid:hover { filter: brightness(1.1); }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        /* Mobile menu */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              .mobile-menu {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      display: none; position: fixed; inset: 0;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              background: rgba(10,15,30,0.98); z-index: 1100;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      flex-direction: column; padding: 24px;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              backdrop-filter: blur(24px);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          .mobile-menu.open { display: flex; }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                .mobile-menu a, .mobile-menu button { margin-bottom: 12px; }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      /* ---- FADE IN ---- */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            .fade-in {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    opacity: 0; transform: translateY(24px);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            transition: opacity 0.5s ease, transform 0.5s ease;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        .fade-in.visible { opacity: 1; transform: translateY(0); }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              /* ---- HERO ---- */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    .hero-section {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            padding: 140px 24px 80px;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    background: var(--navy);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            position: relative;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        .hero-section::before {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                content: ''; position: absolute; inset: 0;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(0,212,255,0.1) 0%, transparent 70%);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                pointer-events: none;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            .hero-pill {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    display: inline-block;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            background: rgba(0,212,255,0.12); border: 1px solid rgba(0,212,255,0.3);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    border-radius: 100px; padding: 8px 20px; font-size: 13px;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            color: var(--cyan); font-weight: 500;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        .hero-h1 {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                font-size: clamp(40px,6vw,72px); font-weight: 900;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        color: var(--white); letter-spacing: -2px; margin-top: 24px;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                line-height: 1.05;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            .hero-sub {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    font-size: clamp(18px,2.5vw,22px); font-weight: 400;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            color: var(--white-70); margin-top: 16px; line-height: 1.5;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        /* ---- PLAN CARDS ---- */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              .plan-card {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      background: #fff; border: 1px solid #e2e8f0; border-radius: 16px;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              padding: 40px 32px; box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      display: flex; flex-direction: column;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  .plan-card-dark {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          background: linear-gradient(135deg, #0d1f3a 0%, #0a1628 100%);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  border: 1.5px solid rgba(0,212,255,0.4);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          box-shadow: 0 0 60px rgba(0,212,255,0.18);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      @media (min-width: 768px) {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              .pla
