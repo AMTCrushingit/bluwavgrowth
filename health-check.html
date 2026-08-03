@@ -177,9 +177,38 @@
 
     /* ── Global img fix ── */
     img { max-width: 100%; height: auto; }
-  </style>
+  
+/* ── Standard BluWav Nav ── */
+.bw-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:68px;padding:0 clamp(16px,4vw,60px);display:flex;align-items:center;justify-content:space-between;background:rgba(10,15,30,0.96);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,200,224,0.12);box-shadow:0 2px 24px rgba(0,0,0,0.25);}
+.bw-nav-logo{text-decoration:none;display:flex;flex-direction:column;align-items:flex-start;line-height:1;padding:4px 0;flex-shrink:0;}
+.bw-nav-logo-name{font-family:'Kaushan Script',cursive;font-size:26px;color:#fff;line-height:1;}
+.bw-nav-logo-name span{color:#00d4ff;}
+.bw-nav-logo-sub{font-size:8px;font-weight:700;color:#00d4ff;letter-spacing:3px;text-transform:uppercase;margin-top:2px;}
+.bw-nav-links{display:flex;align-items:center;gap:24px;}
+.bw-nav-link{font-size:13px;font-weight:500;color:rgba(255,255,255,0.65);text-decoration:none;transition:color .2s;position:relative;}
+.bw-nav-link::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:#00d4ff;transition:width .3s;border-radius:2px;}
+.bw-nav-link:hover{color:#fff;}
+.bw-nav-link:hover::after{width:100%;}
+.bw-nav-link.active{color:#fff;}
+.bw-nav-link.active::after{width:100%;}
+.bw-nav-btn-outline{font-size:13px;font-weight:600;color:rgba(255,255,255,0.7);padding:8px 16px;border-radius:8px;border:1px solid rgba(255,255,255,0.15);text-decoration:none;transition:all .2s;}
+.bw-nav-btn-outline:hover{color:#fff;border-color:rgba(255,255,255,0.4);}
+.bw-nav-btn-cta{background:#ff6535;color:#fff;font-size:13px;font-weight:700;padding:10px 22px;border-radius:100px;text-decoration:none;box-shadow:0 4px 16px rgba(255,101,53,0.35);transition:all .2s;white-space:nowrap;}
+.bw-nav-btn-cta:hover{filter:brightness(1.1);transform:translateY(-1px);}
+.bw-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px;margin:-8px;}
+.bw-hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all .3s ease;}
+.bw-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.bw-hamburger.open span:nth-child(2){opacity:0;}
+.bw-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.bw-mob-nav{display:none;position:fixed;top:68px;left:0;right:0;background:rgba(10,15,30,0.99);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:2px solid rgba(0,200,224,0.15);z-index:999;flex-direction:column;padding:8px 0 20px;}
+.bw-mob-nav.open{display:flex;}
+.bw-mob-link{font-size:16px;font-weight:500;color:rgba(255,255,255,0.85);text-decoration:none;padding:15px 24px;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;gap:10px;transition:all .15s;}
+.bw-mob-link:hover{color:#00d4ff;background:rgba(0,212,255,0.05);}
+.bw-mob-cta{background:linear-gradient(135deg,#ff6535,#ff6535);color:#fff;font-weight:800;padding:16px 24px;text-align:center;margin:14px 20px 4px;font-size:16px;display:block;border-radius:12px;text-decoration:none;box-shadow:0 4px 20px rgba(255,101,53,0.4);}
+@media(max-width:1024px){.bw-nav-links{display:none!important;}.bw-hamburger{display:flex!important;}}
+</style>
 </head>
-<body style="overflow-x:hidden;">
+<body  style="overflow-x:hidden;">
 <header>
 <div class="header-inner">
   <!-- Logo -->
@@ -377,83 +406,104 @@
 </div><!-- /quiz-card -->
 </div><!-- /hero -->
 </main>
-<footer style="background:#001828;width:100%;box-sizing:border-box;">
+<!-- ── Standard BluWav Footer ── -->
+<footer style="background:#060c18;padding-top:0;border-top:1px solid rgba(255,255,255,0.06);">
 
-  <!-- CTA STRIP -->
+  <!-- CTA Strip -->
   <div style="border-bottom:1px solid rgba(255,255,255,0.08);padding:48px clamp(16px,4vw,80px);">
     <div style="max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;">
       <div>
-        <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:#00E0FF;margin-bottom:10px;">Ready to Grow?</div>
-        <h2 style="font-family:'Manrope',sans-serif;font-size:clamp(20px,3vw,32px);font-weight:800;color:#fff;line-height:1.2;margin:0;">The digital growth system that works <span style="color:#FF5500;">for you.</span></h2>
+        <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:#00d4ff;margin-bottom:10px;">Ready to Grow?</div>
+        <h2 style="font-family:'Manrope',sans-serif;font-size:clamp(20px,3vw,32px);font-weight:800;color:#fff;line-height:1.2;margin:0;">The digital growth system that works <span style="color:#ff6535;">for you.</span></h2>
       </div>
       <div style="display:flex;gap:12px;flex-wrap:wrap;flex-shrink:0;">
-        <a href="health-score.html" style="display:inline-flex;align-items:center;gap:8px;background:#FF5500;color:#fff;font-size:14px;font-weight:800;padding:13px 24px;border-radius:10px;text-decoration:none;white-space:nowrap;" onmouseover="this.style.background='#e84d00'" onmouseout="this.style.background='#FF5500'">Get My Free Health Score →</a>
-        <a href="https://calendly.com/hello-bluwavgrowth/30min" onclick="if(typeof gtag!=='undefined'){gtag('event','book_call_click',{'event_category':'CTA','event_label':'Book a Call','page':'footer'});}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:transparent;color:#fff;font-size:14px;font-weight:700;padding:13px 24px;border-radius:10px;text-decoration:none;border:1.5px solid rgba(255,255,255,0.2);white-space:nowrap;" onmouseover="this.style.borderColor='rgba(255,255,255,0.5)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.2)'">&#128197; Book a Call</a>
+        <a href="health-score.html" style="display:inline-flex;align-items:center;gap:8px;background:#ff6535;color:#fff;font-size:14px;font-weight:800;padding:13px 24px;border-radius:10px;text-decoration:none;white-space:nowrap;transition:filter .2s;" onmouseover="this.style.filter='brightness(1.1)'" onmouseout="this.style.filter=''">Get My Free Health Score &#8594;</a>
+        <a href="https://calendly.com/hello-bluwavgrowth/30min" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:transparent;color:#fff;font-size:14px;font-weight:700;padding:13px 24px;border-radius:10px;text-decoration:none;border:1.5px solid rgba(255,255,255,0.2);white-space:nowrap;transition:border-color .2s;" onmouseover="this.style.borderColor='rgba(255,255,255,0.5)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.2)'">&#128197; Book a Call</a>
       </div>
     </div>
   </div>
 
-  <!-- MAIN FOOTER CONTENT -->
+  <!-- Main Footer Grid -->
   <div style="max-width:1400px;margin:0 auto;padding:56px clamp(16px,4vw,80px) 48px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;">
 
-    <!-- LEFT: Brand -->
+    <!-- Brand -->
     <div>
       <a href="index.html" style="text-decoration:none;display:inline-block;margin-bottom:16px;">
-        <div style="font-family:'Kaushan Script',cursive;font-size:32px;color:#fff;line-height:1;">Blu<span style="color:#00E0FF;">Wav</span></div>
-        <div style="font-size:8px;font-weight:700;color:#00E0FF;letter-spacing:4px;text-transform:uppercase;margin-top:3px;">Get Found. Get Chosen. Grow.</div>
+        <div style="font-family:'Kaushan Script',cursive;font-size:32px;color:#fff;line-height:1;">Blu<span style="color:#00d4ff;">Wav</span></div>
+        <div style="font-size:8px;font-weight:700;color:#00d4ff;letter-spacing:4px;text-transform:uppercase;margin-top:3px;">Get Found. Get Chosen. Grow.</div>
       </a>
-      <p style="font-size:13px;color:rgba(255,255,255,0.45);line-height:1.75;max-width:300px;margin-bottom:20px;">The unified digital growth system for modern businesses &mdash; website, Google visibility, CRM, and automation. Delivered in 48 hours. You own everything forever.</p>
-      
+      <p style="font-size:13px;color:rgba(255,255,255,0.45);line-height:1.75;max-width:300px;margin-bottom:20px;">The unified digital growth system for modern businesses — website, Google visibility, CRM, and automation. Delivered in 48 hours. You own everything forever.</p>
       <div style="display:flex;gap:8px;">
-        <a href="https://facebook.com/bluwavgrowth" target="_blank" rel="noopener" aria-label="Facebook" style="width:36px;height:36px;border-radius:8px;border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);font-size:14px;font-weight:800;text-decoration:none;transition:all 0.2s;" onmouseover="this.style.borderColor='#1877F2';this.style.color='#1877F2'" onmouseout="this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='rgba(255,255,255,0.6)'">f</a>
-        <a href="https://www.instagram.com/bluwavgrowth/" target="_blank" rel="noopener" aria-label="Instagram" style="width:36px;height:36px;border-radius:8px;border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);font-size:16px;text-decoration:none;transition:all 0.2s;" onmouseover="this.style.borderColor='#E1306C';this.style.color='#E1306C'" onmouseout="this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='rgba(255,255,255,0.6)'">&#128247;</a>
-        <a href="/cdn-cgi/l/email-protection#86eee3eaeae9c6e4eaf3f1e7f0e1f4e9f1f2eea8e5e9eb" aria-label="Email" style="width:36px;height:36px;border-radius:8px;border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);font-size:15px;text-decoration:none;transition:all 0.2s;" onmouseover="this.style.borderColor='#00E0FF';this.style.color='#00E0FF'" onmouseout="this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='rgba(255,255,255,0.6)'">&#9993;</a>
+        <a href="https://facebook.com/bluwavgrowth" target="_blank" rel="noopener" aria-label="Facebook" style="width:36px;height:36px;border-radius:8px;border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);font-size:14px;font-weight:800;text-decoration:none;transition:all .2s;" onmouseover="this.style.borderColor='#1877F2';this.style.color='#1877F2'" onmouseout="this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='rgba(255,255,255,0.6)'">f</a>
+        <a href="https://www.instagram.com/bluwavgrowth/" target="_blank" rel="noopener" aria-label="Instagram" style="width:36px;height:36px;border-radius:8px;border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);font-size:16px;text-decoration:none;transition:all .2s;" onmouseover="this.style.borderColor='#E1306C';this.style.color='#E1306C'" onmouseout="this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='rgba(255,255,255,0.6)'">&#128247;</a>
+        <a href="mailto:hello@bluwavgrowth.com" aria-label="Email" style="width:36px;height:36px;border-radius:8px;border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);font-size:15px;text-decoration:none;transition:all .2s;" onmouseover="this.style.borderColor='#00d4ff';this.style.color='#00d4ff'" onmouseout="this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='rgba(255,255,255,0.6)'">&#9993;</a>
       </div>
     </div>
 
-    <!-- MIDDLE: Navigate -->
+    <!-- Navigate -->
     <div>
       <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;color:rgba(255,255,255,0.35);margin-bottom:20px;">Navigate</div>
       <div style="display:flex;flex-direction:column;gap:12px;">
-        <a href="index.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Home</a>
-        <a href="health-score.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Health Score</a>
-        <a href="about.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">About</a>
-        <a href="contact.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Contact</a>
-        <a href="index.html#pillars" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Growth Plans</a>
-        <a href="https://bluwavcrm.com/login.html" target="_blank" rel="noopener" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Client Login</a>
-        <a href="systems.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Growth Systems</a>
-        <a href="case-study-aadek.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Case Studies</a>
+        <a href="index.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Home</a>
+        <a href="health-score.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Health Score</a>
+        <a href="about.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">About</a>
+        <a href="contact.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Contact</a>
+        <a href="index.html#pricing" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Growth Plans</a>
+        <a href="https://bluwavcrm.com/login.html" target="_blank" rel="noopener" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Client Login</a>
+        <a href="systems.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Growth Systems</a>
+        <a href="case-study-aadek.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Case Studies</a>
       </div>
     </div>
 
-    <!-- RIGHT: Get Started -->
+    <!-- Get Started -->
     <div>
       <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;color:rgba(255,255,255,0.35);margin-bottom:20px;">Get Started</div>
       <div style="display:flex;flex-direction:column;gap:12px;">
-        <a href="health-score.html" style="font-size:13px;color:#00E0FF;text-decoration:none;font-weight:700;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#00E0FF'">&#129658; Free Health Score</a>
-        <a href="https://calendly.com/hello-bluwavgrowth/30min" onclick="if(typeof gtag!=='undefined'){gtag('event','book_call_click',{'event_category':'CTA','event_label':'Book a Call','page':'footer'});}" target="_blank" rel="noopener" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">&#128197; Book a Call</a>
-        <a href="/cdn-cgi/l/email-protection#7119141d1d1e31131d0406100716031e0605195f121e1c" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">&#9993; <span class="__cf_email__" data-cfemail="fb939e979794bb99978e8c9a8d9c89948c8f93d5989496">[email&#160;protected]</span></a>
-        <a href="the-wave.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">&#127754; The Wave Newsletter</a>
-        <a href="privacy.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Privacy Policy</a>
-        <a href="careers.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Careers</a>
+        <a href="health-score.html" style="font-size:13px;color:#00d4ff;text-decoration:none;font-weight:700;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#00d4ff'">&#129658; Free Health Score</a>
+        <a href="https://calendly.com/hello-bluwavgrowth/30min" target="_blank" rel="noopener" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">&#128197; Book a Call</a>
+        <a href="mailto:hello@bluwavgrowth.com" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">&#9993; hello@bluwavgrowth.com</a>
+        <a href="the-wave.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">&#127754; The Wave Newsletter</a>
+        <a href="privacy.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Privacy Policy</a>
+        <a href="careers.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Careers</a>
       </div>
     </div>
-
   </div>
 
-  <!-- BOTTOM BAR -->
+  <!-- Bottom Bar -->
   <div style="border-top:1px solid rgba(255,255,255,0.06);padding:20px clamp(16px,4vw,80px);">
     <div style="max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
       <div style="font-size:12px;color:rgba(255,255,255,0.25);">&#169; 2026 <span style="color:rgba(255,255,255,0.4);">BluWav Growth</span> &middot; All rights reserved. &middot; Built for modern businesses worldwide.</div>
       <div style="display:flex;gap:20px;">
-        <a href="privacy.html" style="font-size:12px;color:rgba(255,255,255,0.25);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='rgba(255,255,255,0.6)'" onmouseout="this.style.color='rgba(255,255,255,0.25)'">Privacy</a>
-        <a href="contact.html" style="font-size:12px;color:rgba(255,255,255,0.25);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='rgba(255,255,255,0.6)'" onmouseout="this.style.color='rgba(255,255,255,0.25)'">Contact</a>
-        <a href="sales-agent-agreement.html" style="font-size:12px;color:rgba(255,255,255,0.25);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='rgba(255,255,255,0.6)'" onmouseout="this.style.color='rgba(255,255,255,0.25)'">Agent Agreement</a>
+        <a href="privacy.html" style="font-size:12px;color:rgba(255,255,255,0.25);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='rgba(255,255,255,0.6)'" onmouseout="this.style.color='rgba(255,255,255,0.25)'">Privacy</a>
+        <a href="contact.html" style="font-size:12px;color:rgba(255,255,255,0.25);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='rgba(255,255,255,0.6)'" onmouseout="this.style.color='rgba(255,255,255,0.25)'">Contact</a>
+        <a href="sales-agent-agreement.html" style="font-size:12px;color:rgba(255,255,255,0.25);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='rgba(255,255,255,0.6)'" onmouseout="this.style.color='rgba(255,255,255,0.25)'">Agent Agreement</a>
       </div>
     </div>
   </div>
 
 </footer>
+
+<!-- WhatsApp Float -->
+<a class="bw-wa-float" href="https://wa.me/18687348473" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬</a>
+
+<!-- Scroll Progress -->
+<div id="bwProgress"></div>
+
+<style>
+.bw-wa-float{position:fixed;bottom:24px;right:24px;z-index:500;width:52px;height:52px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 4px 20px rgba(37,211,102,0.45);text-decoration:none;transition:transform .2s;}
+.bw-wa-float:hover{transform:scale(1.1);}
+@keyframes bwWaPulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.45);}50%{box-shadow:0 4px 40px rgba(37,211,102,0.8),0 0 0 8px rgba(37,211,102,0.1);}}
+.bw-wa-float{animation:bwWaPulse 2.5s ease-in-out infinite;}
+#bwProgress{position:fixed;top:0;left:0;height:3px;z-index:9999;width:0%;background:linear-gradient(90deg,#ff6535,#fbbf24,#00d4ff);border-radius:0 2px 2px 0;pointer-events:none;}
+@media(max-width:768px){footer [style*="grid-template-columns:2fr"]{grid-template-columns:1fr!important;}}
+@media(prefers-reduced-motion:reduce){.bw-wa-float,.bw-nav-link::after{animation:none!important;transition:none!important;}}
+</style>
+<script>
+(function(){
+  var p=document.getElementById('bwProgress');
+  if(p){window.addEventListener('scroll',function(){var s=window.scrollY,d=document.documentElement.scrollHeight-document.documentElement.clientHeight;p.style.width=d>0?(s/d*100)+'%':'0%';},{passive:true});}
+})();
+</script>
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 (function(){
   /* ── STATE ── */
