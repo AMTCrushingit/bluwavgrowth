@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>About | BluWav Growth</title>
-<meta name="description" content="BluWav Growth, building digital growth systems for modern businesses worldwide. Our story, mission, and approach."/>
+<meta name="description" content="BluWav Growth helps modern service businesses close their marketing and sales gap fast. Website, Google visibility, WhatsApp, CRM and automation, live in 48 hours. Smart tech. Real human support."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Kaushan+Script&display=swap" rel="stylesheet"/>
@@ -99,39 +99,46 @@ img{max-width:100%;height:auto;}
 </style>
 </head>
 <body style="padding-top:68px;" >
-<nav id="mainNav">
-<a href="index.html" class="nav-logo" style="display:flex;flex-direction:column;align-items:flex-start;line-height:1;padding:4px 0;text-decoration:none;">
-<div id="navLogoText" style="font-family:'Kaushan Script',cursive;font-size:26px;line-height:1;color:#fff;opacity:0;transition:opacity 0.3s;">Blu<span style="color:#00E0FF;">Wav</span></div>
-<div style="font-size:8px;font-weight:700;color:#00E0FF;letter-spacing:3px;text-transform:uppercase;line-height:1.4;margin-top:2px;">Get Found. Get Chosen. Grow.</div>
-</a>
-<div class="nav-links">
-  <a class="nav-link" href="health-score.html">Health Score</a>
-  <a class="nav-link" href="index.html#pillars">Growth Plans</a>
-  <a class="nav-link" href="about.html">About</a>
-  <a class="nav-link" href="contact.html">Contact</a>
-  <a class="nav-link" href="the-wave.html" style="color:#00E0FF;font-weight:600;">The Wave</a>
-  <a class="nav-link" href="https://bluwavcrm.com/login.html" target="_blank" rel="noopener" style="color:rgba(0,224,255,0.85);font-weight:600;">Client Login</a>
-  <a class="nav-cta" href="https://calendly.com/hello-bluwavgrowth/30min" onclick="if(typeof gtag!=='undefined'){gtag('event','book_call_click',{'event_category':'CTA','event_label':'Book a Call','page':'nav'});}" target="_blank" rel="noopener">Book a Call</a>
-</div>
-<button aria-label="Menu" class="hamburger" id="hamburgerBtn" onclick="toggleMob()"><span></span><span></span><span></span></button>
+<!-- Standard BluWav Nav -->
+<nav class="bw-nav" id="bwNav">
+  <a class="bw-nav-logo" href="index.html">
+    <div class="bw-nav-logo-name">Blu<span>Wav</span></div>
+    <div class="bw-nav-logo-sub">Get Found. Get Chosen. Grow.</div>
+  </a>
+  <div class="bw-nav-links">
+    <a class="bw-nav-link" href="index.html#pillars">What We Do</a>
+    <a class="bw-nav-link" href="index.html#growth-system">How It Works</a>
+    <a class="bw-nav-link" href="pricing.html">Pricing</a>
+    <a class="bw-nav-link" href="case-study-aadek.html">Case Studies</a>
+    <a class="bw-nav-link" href="the-wave.html">The Wave</a>
+    <a class="bw-nav-btn-outline" href="https://bluwavcrm.com/login.html" target="_blank" rel="noopener">Client Login</a>
+    <a class="bw-nav-btn-cta" href="health-score.html">Free Health Score</a>
+  </div>
+  <button class="bw-hamburger" id="bwHamburger" aria-label="Menu" onclick="bwToggleNav()">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
-<div class="mob-nav" id="mobNav">
-  <a class="mob-link" href="health-score.html" onclick="closeMob()">&#129658; Health Score</a>
-  <a class="mob-link" href="index.html#pillars" onclick="closeMob()">&#128176; Growth Plans</a>
-  <a class="mob-link" href="about.html" onclick="closeMob()">&#128100; About</a>
-  <a class="mob-link" href="contact.html" onclick="closeMob()">&#128222; Contact</a>
-  <a class="mob-link" href="the-wave.html" onclick="closeMob()" style="color:#00E0FF;">&#127754; The Wave</a>
-  <a class="mob-link" href="https://bluwavcrm.com/login.html" target="_blank" rel="noopener" onclick="closeMob()" style="color:rgba(0,224,255,0.85);">&#128274; Client Login</a>
-  <a class="mob-cta" href="https://calendly.com/hello-bluwavgrowth/30min" onclick="if(typeof gtag!=='undefined'){gtag('event','book_call_click',{'event_category':'CTA','event_label':'Book a Call','page':'nav'});}closeMob();" target="_blank" rel="noopener">&#128197; Book a Call</a>
+<div class="bw-mob-nav" id="bwMobNav">
+  <a class="bw-mob-link" href="index.html#pillars" onclick="bwCloseNav()">🌐 What We Do</a>
+  <a class="bw-mob-link" href="index.html#growth-system" onclick="bwCloseNav()">⚡ How It Works</a>
+  <a class="bw-mob-link" href="pricing.html" onclick="bwCloseNav()">💰 Pricing</a>
+  <a class="bw-mob-link" href="case-study-aadek.html" onclick="bwCloseNav()">📐 Case Studies</a>
+  <a class="bw-mob-link" href="the-wave.html" onclick="bwCloseNav()" style="color:#00d4ff;">🌊 The Wave</a>
+  <a class="bw-mob-link" href="https://bluwavcrm.com/login.html" target="_blank" rel="noopener" onclick="bwCloseNav()" style="color:rgba(0,212,255,0.85);">🔐 Client Login</a>
+  <a class="bw-mob-cta" href="health-score.html" onclick="bwCloseNav()">Get My Free Health Score</a>
 </div>
-</div>
-
+<script>
+function bwToggleNav(){var b=document.getElementById('bwHamburger'),m=document.getElementById('bwMobNav');b.classList.toggle('open');m.classList.toggle('open');document.body.style.overflow=m.classList.contains('open')?'hidden':'';}
+function bwCloseNav(){document.getElementById('bwHamburger').classList.remove('open');document.getElementById('bwMobNav').classList.remove('open');document.body.style.overflow='';}
+document.addEventListener('click',function(e){var m=document.getElementById('bwMobNav'),b=document.getElementById('bwHamburger');if(m&&m.classList.contains('open')&&!m.contains(e.target)&&!b.contains(e.target))bwCloseNav();});
+window.addEventListener('scroll',function(){document.getElementById('bwNav').style.background=window.scrollY>60?'rgba(10,15,30,0.99)':'rgba(10,15,30,0.96)';},{passive:true});
+</script>
 <!-- HERO -->
 <section class="page-hero">
   <div class="wrap" style="position:relative;z-index:2;">
     <span class="eyebrow">About BluWav Growth</span>
     <h1 class="page-h1"><span style="color:#fff;">Built for Modern Businesses.</span><br/><span style="color:#00E0FF;">Ready for the World.</span></h1>
-    <p class="page-lead">We build digital growth systems that help businesses get found, get chosen, and grow, automatically. No lock-in. No fluff. Just results.</p>
+    <p class="page-lead">We help modern service businesses close their marketing and sales gap fast, so they get found online, get chosen first, and grow automatically.</p>
   </div>
 </section>
 
@@ -142,8 +149,9 @@ img{max-width:100%;height:auto;}
       <div>
         <span class="eyebrow" style="color:#00C2D8;">Our Mission</span>
         <h2 class="page-h2"><span style="color:#002B49;">Every business deserves a digital presence</span><br/><span style="color:#00C2D8;">that works as hard as they do.</span></h2>
-        <p style="font-size:16px;color:var(--slate);line-height:1.75;margin-bottom:20px;">Most businesses are invisible online, not because they're not good at what they do, but because they don't have the right digital foundation. We fix that.</p>
-        <p style="font-size:16px;color:var(--slate);line-height:1.75;">BluWav Growth was built to give modern businesses access to the same digital systems that large companies use, delivered fast, owned by you, and built to grow.</p>
+        <p style="font-size:16px;color:var(--slate);line-height:1.75;margin-bottom:20px;">Most service businesses are losing customers every day not because their work is not good, but because they are invisible online, slow to respond, and have no system to follow up. We fix all of that in 48 hours.</p>
+        <p style="font-size:16px;color:var(--slate);line-height:1.75;margin-bottom:20px;">We launch your professional website, Google visibility, WhatsApp Business system, CRM and automation, all built specifically for how service businesses actually operate. Smart tech backed by real human support, not just a platform you are left to figure out alone.</p>
+        <p style="font-size:16px;color:var(--slate);line-height:1.75;font-weight:700;color:#002B49;">We build it with you. We run it with you. You stay focused on your business.</p>
       </div>
       <div style="background:linear-gradient(135deg,#001828,#002B49);border-radius:24px;padding:48px;">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
@@ -216,9 +224,14 @@ img{max-width:100%;height:auto;}
   <div class="wrap" style="max-width:760px;text-align:center;">
     <span class="eyebrow" style="color:#00E0FF;">Our Story</span>
     <h2 class="page-h2 light" style="margin-bottom:24px;">Why BluWav Exists</h2>
-    <p style="font-size:17px;color:rgba(255,255,255,0.7);line-height:1.8;margin-bottom:20px;">We saw too many great businesses failing online, not because of their product or service, but because their digital presence was broken, disconnected, or simply invisible.</p>
-    <p style="font-size:17px;color:rgba(255,255,255,0.7);line-height:1.8;margin-bottom:20px;">BluWav was built to solve exactly that. We connect the four pillars every modern business needs, digital presence, Google visibility, search performance, and lead conversion, into one seamless growth system.</p>
-    <p style="font-size:17px;color:rgba(255,255,255,0.7);line-height:1.8;">The result: businesses that get found, get chosen, and grow, automatically.</p>
+    <p style="font-size:17px;color:rgba(255,255,255,0.7);line-height:1.8;margin-bottom:20px;">We saw too many great service businesses losing customers every day, not because their work was not good, but because they were invisible online, slow to respond, and had no system to follow up.</p>
+    <p style="font-size:17px;color:rgba(255,255,255,0.7);line-height:1.8;margin-bottom:20px;">BluWav Growth was built to solve exactly that. We deliver a complete digital growth system, website, Google visibility, WhatsApp Business, CRM and automation, all connected and live in 48 hours. Everything a modern service business needs to get found, get chosen, and grow.</p>
+    <p style="font-size:17px;color:rgba(255,255,255,0.7);line-height:1.8;margin-bottom:32px;">We are not a platform you figure out alone. We build it with you, we run it with you, and you stay focused on your business.</p>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:16px;">
+      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(0,212,255,0.2);border-radius:12px;padding:16px 28px;font-size:15px;font-weight:700;color:#fff;">Smart tech.</div>
+      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(0,212,255,0.2);border-radius:12px;padding:16px 28px;font-size:15px;font-weight:700;color:#fff;">Real human support.</div>
+      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(0,212,255,0.2);border-radius:12px;padding:16px 28px;font-size:15px;font-weight:700;color:#fff;">Built and run with you.</div>
+    </div>
   </div>
 </section>
 
@@ -226,7 +239,7 @@ img{max-width:100%;height:auto;}
 <section class="section-white" style="text-align:center;">
   <div class="wrap">
     <h2 class="page-h2" style="margin-bottom:16px;">Ready to Work Together?</h2>
-    <p style="font-size:17px;color:var(--slate);margin-bottom:32px;">Start with a free Digital Health Score, no commitment, no sales pitch.</p>
+    <p style="font-size:17px;color:var(--slate);margin-bottom:32px;">Start with a free Digital Health Score. No commitment, no sales pitch, just a clear picture of where your business stands online.</p>
     <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
       <a href="health-score.html" class="btn-coral">Get My Free Health Score &#8594;</a>
       <a href="contact.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--sand);color:var(--navy);font-size:15px;font-weight:700;padding:16px 32px;border-radius:11px;text-decoration:none;border:2px solid var(--mist);transition:all 0.2s;" onmouseover="this.style.borderColor='#00C2D8'" onmouseout="this.style.borderColor='var(--mist)'">Contact Us</a>
@@ -332,10 +345,6 @@ img{max-width:100%;height:auto;}
   if(p){window.addEventListener('scroll',function(){var s=window.scrollY,d=document.documentElement.scrollHeight-document.documentElement.clientHeight;p.style.width=d>0?(s/d*100)+'%':'0%';},{passive:true});}
 })();
 </script>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-function toggleMob(){var n=document.getElementById('mobNav'),b=document.getElementById('hamburgerBtn');n.classList.toggle('open');if(b)b.classList.toggle('open');}
-function closeMob(){document.getElementById('mobNav').classList.remove('open');var b=document.getElementById('hamburgerBtn');if(b)b.classList.remove('open');}
-document.addEventListener('click',function(e){var n=document.getElementById('mobNav'),b=document.getElementById('hamburgerBtn');if(n&&b&&n.classList.contains('open')&&!n.contains(e.target)&&!b.contains(e.target)){n.classList.remove('open');if(b)b.classList.remove('open');}});
-</script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 </body>
 </html>
