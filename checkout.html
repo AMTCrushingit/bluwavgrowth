@@ -138,6 +138,7 @@ a{text-decoration:none;color:inherit;}
 /* Locked: dim non-selected cards subtly */
 .plan-option:not(.selected):not(.unlocked){opacity:0.6;transition:opacity 0.3s;}
 .plan-option.unlocked:not(.selected){opacity:1;transition:opacity 0.3s;}
+#payError a{color:#ff6535;font-weight:700;}
 </style>
 </head>
 <body>
@@ -394,9 +395,23 @@ function unlockPlans(e){
   // Update step title
   var lbl = document.getElementById('step1-label');
   if(lbl) lbl.textContent = 'Choose your plan';
-  // Update subtitle hint
+  // Update subtitle - replace change link with plain "selecting..." text
   var sub = document.getElementById('co-plan-subtitle');
-  if(sub) sub.innerHTML = sub.innerHTML.replace('change</a>', 'done</a>');
+  if(sub) sub.innerHTML = sub.innerHTML.replace(
+    /&nbsp;<a[^>]*>&#9998; change<\/a>/,
+    '&nbsp;<span style="font-size:13px;color:#94a3b8;font-style:italic;">selecting...</span>'
+  );
+}
+
+function relockPlans(){
+  plansLocked = true;
+  document.querySelectorAll('.plan-option').forEach(function(el){
+    el.classList.remove('unlocked');
+    el.onclick = null;
+  });
+  // Update step title back
+  var lbl = document.getElementById('step1-label');
+  if(lbl) lbl.textContent = 'Your selected plan';
 }
 
 function updateSubtitle(plan){
