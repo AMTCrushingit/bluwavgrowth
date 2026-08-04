@@ -775,28 +775,108 @@
 
     <!-- ═══════════════ TRUST METRICS ═══════════════ -->
     <section data-id="63" id="metrics" style="background:var(--light-bg);padding:80px 24px;">
-      <div data-id="64" class="fade-in" id="metrics-grid-m1n2" style="max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;text-align:center;">
-        <div data-id="65" class="metric-item" style="padding:0 16px;">
-          <div data-id="66" style="font-size:48px;font-weight:800;color:var(--navy);line-height:1;">50+</div>
-          <div data-id="67" style="font-size:14px;font-weight:500;color:#64748b;margin-top:6px;">Businesses Growing</div>
-        </div>
-        <div data-id="68" class="metric-item" style="padding:0 16px;">
-          <div data-id="69" style="font-size:48px;font-weight:800;color:var(--navy);line-height:1;">3.2×</div>
-          <div data-id="70" style="font-size:14px;font-weight:500;color:#64748b;margin-top:6px;">Avg. Conversion Lift</div>
-        </div>
-        <div data-id="71" class="metric-item" style="padding:0 16px;">
-          <div data-id="72" style="font-size:48px;font-weight:800;color:var(--navy);line-height:1;">94%</div>
-          <div data-id="73" style="font-size:14px;font-weight:500;color:#64748b;margin-top:6px;">Follow-up Rate</div>
-        </div>
-        <div data-id="74" class="metric-item" style="padding:0 16px;">
-          <div data-id="75" style="font-size:48px;font-weight:800;color:var(--navy);line-height:1;">48h</div>
-          <div data-id="76" style="font-size:14px;font-weight:500;color:#64748b;margin-top:6px;">Avg. Setup Time</div>
-        </div>
-      </div>
-      <div data-id="77" class="fade-in text-center mt-6" id="metrics-stars-o3p4" style="font-size:15px;color:#64748b;">
-        ★★★★★&nbsp; 5-star rated &nbsp;·&nbsp; 🌍&nbsp; Worldwide
-      </div>
-    </section>
+
+  <!-- CSS media queries for metrics — no JS dependency -->
+  <style>
+    .metrics-grid {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 0;
+      text-align: center;
+    }
+    .metric-item {
+      padding: 0 24px;
+      border-right: 1px solid rgba(10,15,30,0.08);
+    }
+    .metric-item:last-child { border-right: none; }
+    .metric-num {
+      font-size: 48px;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1;
+    }
+    .metric-label {
+      font-size: 14px;
+      font-weight: 500;
+      color: #64748b;
+      margin-top: 8px;
+      line-height: 1.4;
+    }
+    .metrics-stars {
+      text-align: center;
+      margin-top: 32px;
+      font-size: 15px;
+      color: #64748b;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+    }
+    /* Tablet: 2x2 grid */
+    @media(max-width:640px) {
+      .metrics-grid {
+        grid-template-columns: repeat(2,1fr);
+        gap: 32px 0;
+      }
+      .metric-item {
+        padding: 0 16px;
+        border-right: none;
+        border-bottom: none;
+      }
+      /* Add right border only to odd items (left column) */
+      .metric-item:nth-child(odd) {
+        border-right: 1px solid rgba(10,15,30,0.08);
+      }
+      /* Add bottom border to top row */
+      .metric-item:nth-child(1),
+      .metric-item:nth-child(2) {
+        padding-bottom: 32px;
+        border-bottom: 1px solid rgba(10,15,30,0.08);
+      }
+      .metric-num { font-size: 36px; }
+      .metric-label { font-size: 13px; }
+    }
+    /* Small phones */
+    @media(max-width:380px) {
+      .metric-num { font-size: 32px; }
+      .metric-label { font-size: 12px; }
+      .metrics-grid { gap: 24px 0; }
+      .metric-item:nth-child(1),
+      .metric-item:nth-child(2) { padding-bottom: 24px; }
+    }
+  </style>
+
+  <div class="fade-in metrics-grid" id="metrics-grid-m1n2">
+    <div class="metric-item">
+      <div class="metric-num">50+</div>
+      <div class="metric-label">Businesses Growing</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-num">3.2&times;</div>
+      <div class="metric-label">Avg. Conversion Lift</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-num">94%</div>
+      <div class="metric-label">Follow-up Rate</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-num">48h</div>
+      <div class="metric-label">Avg. Setup Time</div>
+    </div>
+  </div>
+
+  <div class="fade-in metrics-stars" id="metrics-stars-o3p4">
+    <span>&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+    <span style="color:#cbd5e1;">·</span>
+    <span>5-star rated</span>
+    <span style="color:#cbd5e1;">·</span>
+    <span>&#127760; Worldwide</span>
+  </div>
+
+</section>
 
     <!-- ═══════════════ GROWTH SYSTEM INTRO ═══════════════ -->
     <section id="growth-system" style="background:var(--light-bg);padding:0 0 120px;">
@@ -1563,9 +1643,7 @@
       if (casesGrid) {
         casesGrid.style.gridTemplateColumns = w <= 768 ? '1fr' : 'repeat(3,1fr)';
       }
-      if (metricsGrid) {
-        metricsGrid.style.gridTemplateColumns = w <= 640 ? 'repeat(2,1fr)' : 'repeat(4,1fr)';
-      }
+      // metrics grid handled by CSS media queries
       if (transparencyGrid) {
         transparencyGrid.style.gridTemplateColumns = w <= 640 ? '1fr' : 'repeat(2,1fr)';
       }
