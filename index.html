@@ -709,9 +709,7 @@
       <div data-id="42" class="relative z-10 text-center px-5 py-24 md:py-0" style="max-width:820px;margin:0 auto;">
         <div data-id="43" class="pill-badge mx-auto fade-in" id="hero-pill-8a9b">⚡ Growth System - Live in 48 Hours</div>
 
-        <h1 data-id="44" class="fade-in" id="hero-h1-c0d1" style="font-size:clamp(52px,8vw,96px);font-weight:900;line-height:1.05;color:var(--white);letter-spacing:-2px;margin-top:28px;">
-          Get Found. Get Chosen. Grow.
-        </h1>
+        <h1 data-id="44" id="hero-h1-c0d1" style="font-size:clamp(52px,8vw,96px);font-weight:900;line-height:1.05;color:var(--white);letter-spacing:-2px;margin-top:28px;opacity:0;"><span id="bw-typewriter"></span><span class="bw-cursor">|</span></h1>
 
         <p data-id="45" class="fade-in" id="hero-sub-e2f3" style="font-size:clamp(18px,2.5vw,24px);font-weight:400;color:var(--white-70);letter-spacing:-0.3px;margin-top:20px;">
           Your Growth System. Live in 48 hours.
@@ -1665,5 +1663,412 @@
     window.addEventListener('resize', handleResponsive, { passive: true });
   </script>
 
-  </body>
+  
+<!-- BluWav Animation System -->
+<style>
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   ANIMATION TOKENS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+:root {
+  --ease-out: cubic-bezier(0.22,1,0.36,1);
+  --ease-spring: cubic-bezier(0.34,1.56,0.64,1);
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   TYPEWRITER CURSOR
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.bw-cursor {
+  display: inline-block;
+  color: #00d4ff;
+  font-weight: 300;
+  animation: bwBlink 0.8s step-end infinite;
+  margin-left: 2px;
+}
+@keyframes bwBlink { 0%,100%{opacity:1;} 50%{opacity:0;} }
+.bw-cursor.done { animation: none; opacity: 0; }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   HERO ENTRANCE ANIMATIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+@keyframes bwFadeUp {
+  from { opacity:0; transform:translateY(32px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+@keyframes bwFadeIn {
+  from { opacity:0; }
+  to   { opacity:1; }
+}
+@keyframes bwSlideRight {
+  from { opacity:0; transform:translateX(-24px); }
+  to   { opacity:1; transform:translateX(0); }
+}
+@keyframes bwScaleIn {
+  from { opacity:0; transform:scale(0.92); }
+  to   { opacity:1; transform:scale(1); }
+}
+@keyframes bwGlowPulse {
+  0%,100% { box-shadow: 0 0 0 0 rgba(0,212,255,0.4); }
+  50%     { box-shadow: 0 0 0 12px rgba(0,212,255,0); }
+}
+@keyframes bwCountUp {
+  from { opacity:0; transform:translateY(16px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+@keyframes bwShimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes bwFloat {
+  0%,100% { transform: translateY(0px); }
+  50%     { transform: translateY(-8px); }
+}
+@keyframes bwRevealLeft {
+  from { opacity:0; transform:translateX(-40px); }
+  to   { opacity:1; transform:translateX(0); }
+}
+@keyframes bwRevealRight {
+  from { opacity:0; transform:translateX(40px); }
+  to   { opacity:1; transform:translateX(0); }
+}
+@keyframes bwStaggerFade {
+  from { opacity:0; transform:translateY(20px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   SCROLL-TRIGGERED CLASSES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.bw-reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+}
+.bw-reveal.bw-in { opacity:1; transform:translateY(0); }
+
+.bw-reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+}
+.bw-reveal-left.bw-in { opacity:1; transform:translateX(0); }
+
+.bw-reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+}
+.bw-reveal-right.bw-in { opacity:1; transform:translateX(0); }
+
+.bw-reveal-scale {
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+}
+.bw-reveal-scale.bw-in { opacity:1; transform:scale(1); }
+
+/* Stagger delays */
+.bw-d1 { transition-delay: 0.08s !important; }
+.bw-d2 { transition-delay: 0.16s !important; }
+.bw-d3 { transition-delay: 0.24s !important; }
+.bw-d4 { transition-delay: 0.32s !important; }
+.bw-d5 { transition-delay: 0.40s !important; }
+.bw-d6 { transition-delay: 0.48s !important; }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   HOVER MICRO-INTERACTIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* Cards lift on hover */
+.pillar-card, .case-card, .pricing-card, .pricing-card-popular {
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s ease, border-color 0.3s ease !important;
+}
+.pillar-card:hover, .case-card:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 20px 48px rgba(10,15,30,0.12) !important;
+}
+.pricing-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 16px 40px rgba(10,15,30,0.15) !important;
+}
+
+/* Nav links underline slide */
+.bw-nav-link {
+  transition: color 0.2s ease !important;
+}
+
+/* Buttons pulse on hover */
+.btn-orange:hover, .bw-nav-btn-cta:hover {
+  animation: bwGlowPulse 1s ease-out !important;
+}
+
+/* Metric numbers count-up shimmer */
+.metric-num {
+  background: linear-gradient(90deg, var(--navy) 0%, #1e3a5f 40%, var(--navy) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.metric-num.bw-counted {
+  animation: bwShimmer 2s linear;
+}
+
+/* Dashboard float */
+.hero-dashboard {
+  animation: bwFloat 6s ease-in-out infinite !important;
+}
+
+/* Pill badge glow */
+.pill-badge {
+  animation: bwGlowPulse 3s ease-in-out infinite !important;
+}
+
+/* Reduced motion */
+@media(prefers-reduced-motion:reduce) {
+  .bw-reveal, .bw-reveal-left, .bw-reveal-right, .bw-reveal-scale {
+    opacity:1 !important; transform:none !important; transition:none !important;
+  }
+  .bw-cursor { animation:none !important; }
+  .hero-dashboard { animation:none !important; }
+  .pill-badge { animation:none !important; }
+  .metric-num { animation:none !important; background:none !important; -webkit-text-fill-color:var(--navy) !important; }
+}
+</style>
+
+<script>
+(function() {
+  'use strict';
+
+  /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     1. TYPEWRITER — Hero headline
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+  var TWEl = document.getElementById('bw-typewriter');
+  var TWCursor = document.querySelector('.bw-cursor');
+  var TWH1 = document.getElementById('hero-h1-c0d1');
+
+  if (TWEl && TWH1) {
+    var phrases = ['Get Found.', 'Get Chosen.', 'Grow.'];
+    var fullText = 'Get Found. Get Chosen. Grow.';
+    var charIndex = 0;
+    var speed = 55; // ms per character
+
+    // Show h1 immediately (opacity was 0)
+    TWH1.style.opacity = '1';
+    TWH1.style.animation = 'none';
+
+    function typeChar() {
+      if (charIndex < fullText.length) {
+        TWEl.textContent = fullText.slice(0, charIndex + 1);
+        charIndex++;
+        setTimeout(typeChar, speed);
+      } else {
+        // Done — hide cursor after 1.5s
+        setTimeout(function() {
+          if (TWCursor) TWCursor.classList.add('done');
+        }, 1500);
+        // Trigger hero sub elements
+        triggerHeroSequence();
+      }
+    }
+
+    // Start typewriter after pill badge fades in (600ms)
+    setTimeout(typeChar, 700);
+  }
+
+  /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     2. HERO SEQUENCE — staggered entrance after typewriter
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+  function triggerHeroSequence() {
+    var els = [
+      { id: 'hero-sub-e2f3',  delay: 0   },
+      { id: 'hero-body-4g5h', delay: 150 },
+      { id: 'hero-ctas-6i7j', delay: 300 },
+    ];
+    els.forEach(function(item) {
+      setTimeout(function() {
+        var el = document.getElementById(item.id);
+        if (el) {
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+          el.style.transition = 'opacity 0.6s cubic-bezier(0.22,1,0.36,1), transform 0.6s cubic-bezier(0.22,1,0.36,1)';
+        }
+      }, item.delay);
+    });
+    // Dashboard slides up
+    setTimeout(function() {
+      var dash = document.querySelector('.hero-dashboard');
+      if (dash) {
+        dash.style.opacity = '1';
+        dash.style.transform = 'translateY(0)';
+        dash.style.transition = 'opacity 0.8s cubic-bezier(0.22,1,0.36,1), transform 0.8s cubic-bezier(0.22,1,0.36,1)';
+      }
+    }, 500);
+  }
+
+  // Set initial hidden state for hero elements
+  ['hero-sub-e2f3','hero-body-4g5h','hero-ctas-6i7j'].forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) { el.style.opacity = '0'; el.style.transform = 'translateY(24px)'; }
+  });
+  var dash = document.querySelector('.hero-dashboard');
+  if (dash) { dash.style.opacity = '0'; dash.style.transform = 'translateY(32px)'; }
+
+  /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     3. SCROLL REVEAL — IntersectionObserver
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+  if ('IntersectionObserver' in window) {
+    var revealObs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('bw-in');
+          revealObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.bw-reveal, .bw-reveal-left, .bw-reveal-right, .bw-reveal-scale').forEach(function(el) {
+      revealObs.observe(el);
+    });
+  } else {
+    // Fallback
+    document.querySelectorAll('.bw-reveal, .bw-reveal-left, .bw-reveal-right, .bw-reveal-scale').forEach(function(el) {
+      el.classList.add('bw-in');
+    });
+  }
+
+  /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     4. METRIC COUNT-UP ANIMATION
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+  var metrics = [
+    { id: null, selector: '.metric-num', targets: ['50', '3.2', '94', '48'], suffixes: ['+', '×', '%', 'h'] }
+  ];
+
+  var metricEls = document.querySelectorAll('.metric-num');
+  if (metricEls.length && 'IntersectionObserver' in window) {
+    var metricObs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var el = entry.target;
+          var target = parseFloat(el.getAttribute('data-target') || el.textContent);
+          var suffix = el.getAttribute('data-suffix') || '';
+          var duration = 1200;
+          var start = null;
+          var startVal = 0;
+
+          function step(ts) {
+            if (!start) start = ts;
+            var progress = Math.min((ts - start) / duration, 1);
+            var eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+            var current = startVal + (target - startVal) * eased;
+            el.textContent = (target % 1 !== 0 ? current.toFixed(1) : Math.floor(current)) + suffix;
+            if (progress < 1) requestAnimationFrame(step);
+            else {
+              el.textContent = target + suffix;
+              el.classList.add('bw-counted');
+            }
+          }
+          requestAnimationFrame(step);
+          metricObs.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    metricEls.forEach(function(el) {
+      // Parse current text to get target
+      var text = el.textContent.trim();
+      var num = parseFloat(text);
+      var suffix = text.replace(/[\d.]/g, '');
+      el.setAttribute('data-target', num);
+      el.setAttribute('data-suffix', suffix);
+      el.textContent = '0' + suffix;
+      metricObs.observe(el);
+    });
+  }
+
+  /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     5. ADD REVEAL CLASSES TO SECTIONS
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+  // Metrics section
+  var metricsGrid = document.getElementById('metrics-grid-m1n2');
+  if (metricsGrid) metricsGrid.classList.add('bw-reveal');
+
+  // Growth system section — left/right split
+  var growthImg = document.querySelector('#growth-system img');
+  if (growthImg) growthImg.closest('div').classList.add('bw-reveal-left');
+  var growthCopy = document.querySelector('#growth-system h2');
+  if (growthCopy) growthCopy.closest('div').classList.add('bw-reveal-right');
+
+  // Pillar cards stagger
+  document.querySelectorAll('.pillar-card').forEach(function(card, i) {
+    card.classList.add('bw-reveal');
+    card.classList.add('bw-d' + (i + 1));
+  });
+
+  // Health score section
+  var healthBadge = document.querySelector('.score-badge');
+  if (healthBadge) healthBadge.classList.add('bw-reveal-scale');
+
+  // Pricing cards stagger
+  document.querySelectorAll('.pricing-card, .pricing-card-popular').forEach(function(card, i) {
+    card.classList.add('bw-reveal');
+    card.classList.add('bw-d' + (i + 1));
+  });
+
+  // Transparency items stagger
+  document.querySelectorAll('#transparency [style*="display:flex;align-items:flex-start"]').forEach(function(item, i) {
+    item.classList.add('bw-reveal');
+    item.classList.add('bw-d' + Math.min(i + 1, 6));
+  });
+
+  // Manifesto items
+  document.querySelectorAll('#manifesto [style*="display:flex;align-items:flex-start;gap:24px"]').forEach(function(item, i) {
+    item.classList.add('bw-reveal');
+    item.classList.add('bw-d' + (i + 1));
+  });
+
+  // Testimonial cards stagger
+  document.querySelectorAll('.case-card').forEach(function(card, i) {
+    card.classList.add('bw-reveal');
+    card.classList.add('bw-d' + (i + 1));
+  });
+
+  // Case study strip
+  var csStrip = document.querySelector('#growth-system ~ div[style*="border-top"]');
+  if (csStrip) csStrip.classList.add('bw-reveal');
+
+  // Section headings
+  document.querySelectorAll('h2.fade-in, h2[class*="fade"]').forEach(function(h) {
+    if (!h.closest('#hero')) h.classList.add('bw-reveal');
+  });
+
+  // Pre-footer CTA
+  var pfCta = document.querySelector('[style*="linear-gradient(135deg,#0a1628"]');
+  if (pfCta) pfCta.classList.add('bw-reveal-scale');
+
+  /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     6. INTERACTIVE DIAGRAM — node hover ripple
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+  document.querySelectorAll('.bw-node').forEach(function(node) {
+    node.addEventListener('mouseenter', function() {
+      this.style.transition = 'all 0.2s cubic-bezier(0.34,1.56,0.64,1)';
+    });
+  });
+
+  /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     7. SMOOTH ANCHOR SCROLL with offset for fixed nav
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        var offset = 80; // nav height
+        var top = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      }
+    });
+  });
+
+})();
+</script>
+</body>
 </html>
