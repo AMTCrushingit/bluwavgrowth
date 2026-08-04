@@ -424,6 +424,7 @@ function updateSubtitle(plan){
 function selectPlan(plan){
   updateSubtitle(plan);
   sel=plan;
+  setTimeout(relockPlans, 150);
   ['ripple','current','surge'].forEach(function(p){
     document.getElementById('card-'+p).classList.remove('selected');
     document.getElementById('radio-'+p).className='plan-radio';
@@ -509,7 +510,11 @@ function submitPurchase(){
     document.getElementById('view2').style.display='block';
     window.scrollTo({top:0,behavior:'smooth'});
   }
-  function onFail(){if(done)return;done=true;showErr('Something went wrong \u2014 your card has NOT been charged. Please try again.',true);}
+  function onFail(){if(done)return;done=true;
+    showErr('We could not process your order. Your card has NOT been charged. Please check your details and try again, or contact us on WhatsApp for help.',true);
+    var btn=document.getElementById('purchaseBtn');
+    if(btn){btn.innerHTML='Purchase →';btn.disabled=false;}
+  }
   var t=setTimeout(onOK,8000);
   fetch('https://formspree.io/f/mrenyvld',{method:'POST',body:fd,headers:{'Accept':'application/json'}})
   .then(function(r){clearTimeout(t);if(r.ok){onOK();}else{onFail();}})
