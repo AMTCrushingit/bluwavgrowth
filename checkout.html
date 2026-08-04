@@ -149,7 +149,9 @@ a{text-decoration:none;color:inherit;}
 <div class="left-panel">
 <div class="panel-header">
 <h1>Complete Your Order</h1>
-<p>Select your plan and enter your payment details below.</p>
+<p id="co-plan-subtitle" style="font-size:16px;color:#475569;margin-top:4px;">
+  Loading your selected plan...
+</p>
 </div>
 <!-- STEP 1: Plan selection -->
 <div class="step-block">
@@ -361,10 +363,18 @@ var sel = 'ripple';
 /* Pre-select from URL */
 (function(){
   var p=new URLSearchParams(window.location.search).get('plan');
-  if(p&&plans[p]) selectPlan(p);
+  if(p&&plans[p]){ selectPlan(p); } else { updateSubtitle('current'); }
 })();
 
+function updateSubtitle(plan){
+  var names={ripple:'Ripple — Foundation',current:'Current — Growth (Most Popular)',surge:'Surge — Dominance'};
+  var sub=document.getElementById('co-plan-subtitle');
+  if(sub&&names[plan]){
+    sub.innerHTML='Selected plan: <strong style="color:#0a0f1e;">'+names[plan]+'</strong> &nbsp;<a href="pricing.html#plans-k1l2" style="font-size:13px;color:#ff6535;font-weight:600;text-decoration:none;">Change plan &rarr;</a>';
+  }
+}
 function selectPlan(plan){
+  updateSubtitle(plan);
   sel=plan;
   ['ripple','current','surge'].forEach(function(p){
     document.getElementById('card-'+p).classList.remove('selected');
