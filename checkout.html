@@ -134,6 +134,10 @@ a{text-decoration:none;color:inherit;}
   margin-top: 6px;
   font-style: italic;
 }
+
+/* Locked: dim non-selected cards subtly */
+.plan-option:not(.selected):not(.unlocked){opacity:0.6;transition:opacity 0.3s;}
+.plan-option.unlocked:not(.selected){opacity:1;transition:opacity 0.3s;}
 </style>
 </head>
 <body>
