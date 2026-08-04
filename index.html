@@ -1665,128 +1665,63 @@
 
   
 
-<!-- BluWav Animation System v2 -->
+
+<!-- BluWav Animations v3 - Safe, content-first -->
 <style>
-/* ── Typewriter cursor ── */
-.bw-cursor {
-  display: inline-block;
-  color: #00d4ff;
-  font-weight: 300;
-  animation: bwBlink 0.8s step-end infinite;
-  margin-left: 2px;
-}
-@keyframes bwBlink { 0%,100%{opacity:1;} 50%{opacity:0;} }
-.bw-cursor.done { animation:none; opacity:0; }
+/* Typewriter cursor only */
+.bw-cursor{display:inline-block;color:#00d4ff;font-weight:300;animation:bwBlink 0.8s step-end infinite;margin-left:2px;}
+@keyframes bwBlink{0%,100%{opacity:1;}50%{opacity:0;}}
+.bw-cursor.done{animation:none;opacity:0;}
 
-/* ── Hero CSS entrance animations (no JS needed) ── */
-@keyframes bwFadeUp {
-  from { opacity:0; transform:translateY(28px); }
-  to   { opacity:1; transform:translateY(0); }
-}
-@keyframes bwFadeIn {
-  from { opacity:0; }
-  to   { opacity:1; }
-}
-@keyframes bwFloat {
-  0%,100% { transform:translateY(0); }
-  50%     { transform:translateY(-8px); }
-}
-@keyframes bwGlowPulse {
-  0%,100% { box-shadow:0 0 0 0 rgba(0,212,255,0.4); }
-  50%     { box-shadow:0 0 0 10px rgba(0,212,255,0); }
-}
-@keyframes bwShimmer {
-  0%   { background-position:-200% center; }
-  100% { background-position:200% center; }
-}
+/* Hero entrance - subtle, short, no fill-mode so content always visible */
+@keyframes bwHeroUp{from{opacity:0.3;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+@keyframes bwHeroFade{from{opacity:0.3;}to{opacity:1;}}
+@keyframes bwFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+@keyframes bwGlow{0%,100%{box-shadow:0 0 0 0 rgba(0,212,255,0.4);}50%{box-shadow:0 0 0 10px rgba(0,212,255,0);}}
+@keyframes bwShimmer{0%{background-position:-200% center;}100%{background-position:200% center;}}
+@keyframes bwCountUp{from{opacity:0.5;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
 
-/* Hero elements — CSS animations with delays, always visible as fallback */
-#hero-pill-8a9b {
-  animation: bwFadeUp 0.6s cubic-bezier(0.22,1,0.36,1) 0.1s both;
-}
-#hero-h1-c0d1 {
-  animation: bwFadeIn 0.3s ease 0.2s both;
-}
-#hero-sub-e2f3 {
-  animation: bwFadeUp 0.6s cubic-bezier(0.22,1,0.36,1) 1.8s both;
-}
-#hero-body-4g5h {
-  animation: bwFadeUp 0.6s cubic-bezier(0.22,1,0.36,1) 2.0s both;
-}
-#hero-ctas-6i7j {
-  animation: bwFadeUp 0.6s cubic-bezier(0.22,1,0.36,1) 2.2s both;
-}
-.hero-dashboard {
-  animation: bwFadeUp 0.8s cubic-bezier(0.22,1,0.36,1) 2.5s both,
-             bwFloat 6s ease-in-out 4s infinite !important;
-}
+/* Hero animations - start from 0.3 opacity so content always partially visible */
+#hero-pill-8a9b{animation:bwHeroUp 0.5s ease 0.1s both;}
+#hero-h1-c0d1{animation:bwHeroFade 0.4s ease 0.2s both;}
+#hero-sub-e2f3{animation:bwHeroUp 0.5s ease 1.9s both;}
+#hero-body-4g5h{animation:bwHeroUp 0.5s ease 2.1s both;}
+#hero-ctas-6i7j{animation:bwHeroUp 0.5s ease 2.3s both;}
+.hero-dashboard{animation:bwHeroUp 0.7s ease 2.6s both,bwFloat 6s ease-in-out 4s infinite!important;}
+.pill-badge{animation:bwHeroUp 0.5s ease 0.1s both,bwGlow 3s ease-in-out 2s infinite!important;}
 
-/* Pill badge glow */
-.pill-badge {
-  animation: bwFadeUp 0.6s cubic-bezier(0.22,1,0.36,1) 0.1s both,
-             bwGlowPulse 3s ease-in-out 2s infinite !important;
+/* Scroll reveal - elements start VISIBLE, JS hides them only if observer available */
+.bw-will-reveal{
+  transition:opacity 0.65s cubic-bezier(0.22,1,0.36,1),
+             transform 0.65s cubic-bezier(0.22,1,0.36,1);
 }
+.bw-will-reveal.bw-hidden{opacity:0;transform:translateY(28px);}
+.bw-will-reveal.bw-hidden.bw-from-left{transform:translateX(-32px);}
+.bw-will-reveal.bw-hidden.bw-from-right{transform:translateX(32px);}
+.bw-will-reveal.bw-hidden.bw-scale{transform:scale(0.94);}
+.bw-will-reveal.bw-visible{opacity:1!important;transform:none!important;}
 
-/* ── Scroll reveal ── */
-.bw-reveal {
-  opacity:0;
-  transform:translateY(32px);
-  transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1);
-}
-.bw-reveal.bw-in { opacity:1; transform:translateY(0); }
-.bw-reveal-left {
-  opacity:0; transform:translateX(-36px);
-  transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1);
-}
-.bw-reveal-left.bw-in { opacity:1; transform:translateX(0); }
-.bw-reveal-right {
-  opacity:0; transform:translateX(36px);
-  transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1);
-}
-.bw-reveal-right.bw-in { opacity:1; transform:translateX(0); }
-.bw-reveal-scale {
-  opacity:0; transform:scale(0.93);
-  transition:opacity 0.6s cubic-bezier(0.22,1,0.36,1), transform 0.6s cubic-bezier(0.22,1,0.36,1);
-}
-.bw-reveal-scale.bw-in { opacity:1; transform:scale(1); }
+/* Stagger */
+.bw-d1{transition-delay:0.07s!important;}
+.bw-d2{transition-delay:0.14s!important;}
+.bw-d3{transition-delay:0.21s!important;}
+.bw-d4{transition-delay:0.28s!important;}
+.bw-d5{transition-delay:0.35s!important;}
 
-/* Stagger delays */
-.bw-d1{transition-delay:0.08s!important;}
-.bw-d2{transition-delay:0.16s!important;}
-.bw-d3{transition-delay:0.24s!important;}
-.bw-d4{transition-delay:0.32s!important;}
-.bw-d5{transition-delay:0.40s!important;}
-.bw-d6{transition-delay:0.48s!important;}
+/* Card hovers */
+.pillar-card,.case-card{transition:transform 0.3s cubic-bezier(0.22,1,0.36,1),box-shadow 0.3s ease,border-color 0.3s ease!important;}
+.pillar-card:hover{transform:translateY(-5px)!important;box-shadow:0 16px 40px rgba(10,15,30,0.1)!important;}
+.case-card:hover{transform:translateY(-4px)!important;box-shadow:0 12px 32px rgba(10,15,30,0.08)!important;}
 
-/* ── Card hover lifts ── */
-.pillar-card, .case-card {
-  transition: transform 0.3s cubic-bezier(0.22,1,0.36,1),
-              box-shadow 0.3s ease,
-              border-color 0.3s ease !important;
-}
-.pillar-card:hover { transform:translateY(-6px)!important; box-shadow:0 20px 48px rgba(10,15,30,0.12)!important; }
-.case-card:hover   { transform:translateY(-4px)!important; box-shadow:0 16px 40px rgba(10,15,30,0.10)!important; }
+/* Metric shimmer */
+.metric-num.bw-counted{background:linear-gradient(90deg,var(--navy) 0%,#1e3a5f 40%,var(--navy) 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:bwShimmer 1.5s linear;}
 
-/* ── Metric shimmer after count ── */
-.metric-num.bw-counted {
-  background:linear-gradient(90deg,var(--navy) 0%,#1e3a5f 40%,var(--navy) 100%);
-  background-size:200% auto;
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  background-clip:text;
-  animation:bwShimmer 1.5s linear;
-}
-
-/* ── Reduced motion ── */
+/* Reduced motion */
 @media(prefers-reduced-motion:reduce){
-  #hero-pill-8a9b,#hero-h1-c0d1,#hero-sub-e2f3,
-  #hero-body-4g5h,#hero-ctas-6i7j,.hero-dashboard,.pill-badge {
-    animation:none!important; opacity:1!important; transform:none!important;
-  }
-  .bw-reveal,.bw-reveal-left,.bw-reveal-right,.bw-reveal-scale {
-    opacity:1!important; transform:none!important; transition:none!important;
-  }
-  .bw-cursor { animation:none!important; }
+  #hero-pill-8a9b,#hero-h1-c0d1,#hero-sub-e2f3,#hero-body-4g5h,
+  #hero-ctas-6i7j,.hero-dashboard,.pill-badge{animation:none!important;}
+  .bw-will-reveal{transition:none!important;}
+  .bw-cursor{animation:none!important;}
 }
 </style>
 
@@ -1794,122 +1729,105 @@
 (function(){
 'use strict';
 
-/* ── 1. TYPEWRITER ── */
-var TWEl = document.getElementById('bw-typewriter');
-var TWCursor = document.querySelector('.bw-cursor');
-var TWH1 = document.getElementById('hero-h1-c0d1');
-
-if(TWEl && TWH1){
-  var fullText = 'Get Found. Get Chosen. Grow.';
-  var charIndex = 0;
-
-  function typeChar(){
-    if(charIndex < fullText.length){
-      TWEl.textContent = fullText.slice(0, charIndex+1);
-      charIndex++;
-      setTimeout(typeChar, charIndex < 10 ? 80 : charIndex < 20 ? 60 : 50);
-    } else {
-      setTimeout(function(){ if(TWCursor) TWCursor.classList.add('done'); }, 1500);
-    }
+/* 1. TYPEWRITER */
+var TWEl=document.getElementById('bw-typewriter');
+var TWCursor=document.querySelector('.bw-cursor');
+if(TWEl){
+  var txt='Get Found. Get Chosen. Grow.';
+  var i=0;
+  function type(){
+    if(i<txt.length){TWEl.textContent=txt.slice(0,i+1);i++;setTimeout(type,i<10?80:55);}
+    else{setTimeout(function(){if(TWCursor)TWCursor.classList.add('done');},1500);}
   }
-  // Start after h1 fades in (CSS delay is 0.2s)
-  setTimeout(typeChar, 400);
+  setTimeout(type,500);
 }
 
-/* ── 2. SCROLL REVEAL ── */
-if('IntersectionObserver' in window){
-  var obs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){ e.target.classList.add('bw-in'); obs.unobserve(e.target); }
-    });
-  },{threshold:0.1, rootMargin:'0px 0px -32px 0px'});
+/* 2. SCROLL REVEAL - safe: only hide elements AFTER confirming observer works */
+if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion:reduce)').matches){
+  var toReveal=[];
 
-  document.querySelectorAll('.bw-reveal,.bw-reveal-left,.bw-reveal-right,.bw-reveal-scale')
-    .forEach(function(el){ obs.observe(el); });
-} else {
-  document.querySelectorAll('.bw-reveal,.bw-reveal-left,.bw-reveal-right,.bw-reveal-scale')
-    .forEach(function(el){ el.classList.add('bw-in'); });
-}
+  function prep(el,dir,delay){
+    el.classList.add('bw-will-reveal');
+    if(dir==='left') el.classList.add('bw-from-left');
+    if(dir==='right') el.classList.add('bw-from-right');
+    if(dir==='scale') el.classList.add('bw-scale');
+    if(delay) el.classList.add('bw-d'+delay);
+    toReveal.push(el);
+  }
 
-/* ── 3. ADD REVEAL CLASSES ── */
-function addReveal(selector, cls, delay){
-  document.querySelectorAll(selector).forEach(function(el,i){
-    el.classList.add(cls);
-    if(delay) el.classList.add('bw-d'+(Math.min(i+1,6)));
+  // Metrics
+  var mg=document.getElementById('metrics-grid-m1n2');
+  if(mg) prep(mg);
+
+  // Growth system
+  var gImg=document.querySelector('#growth-system .bw-system');
+  if(gImg){var p=gImg.closest('[style*="position:relative"]');if(p)prep(p,'left');}
+  var gH2=document.querySelector('#growth-system h2');
+  if(gH2){var p2=gH2.closest('div');if(p2)prep(p2,'right');}
+
+  // Pillar cards
+  document.querySelectorAll('.pillar-card').forEach(function(c,i){prep(c,'',i+1);});
+
+  // Pricing cards
+  document.querySelectorAll('.pricing-card,.pricing-card-popular').forEach(function(c,i){prep(c,'',i+1);});
+
+  // Testimonial cards
+  document.querySelectorAll('.case-card').forEach(function(c,i){prep(c,'',i+1);});
+
+  // Section h2s
+  document.querySelectorAll('section:not(#hero) h2').forEach(function(h){prep(h);});
+
+  // NOW hide them all at once (after prep, so no flash)
+  requestAnimationFrame(function(){
+    toReveal.forEach(function(el){el.classList.add('bw-hidden');});
+
+    // Start observer
+    var obs=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.classList.remove('bw-hidden');
+          e.target.classList.add('bw-visible');
+          obs.unobserve(e.target);
+        }
+      });
+    },{threshold:0.08,rootMargin:'0px 0px -24px 0px'});
+
+    toReveal.forEach(function(el){obs.observe(el);});
   });
 }
 
-// Metrics
-var mg = document.getElementById('metrics-grid-m1n2');
-if(mg) mg.classList.add('bw-reveal');
-
-// Growth system
-var gImg = document.querySelector('#growth-system .bw-system');
-if(gImg) gImg.closest('div').classList.add('bw-reveal-right');
-var gCopy = document.querySelector('#growth-system h2');
-if(gCopy) gCopy.closest('div').classList.add('bw-reveal-left');
-
-// Pillar cards
-addReveal('.pillar-card','bw-reveal',true);
-
-// Pricing cards
-addReveal('.pricing-card,.pricing-card-popular','bw-reveal',true);
-
-// Testimonial cards
-addReveal('.case-card','bw-reveal',true);
-
-// Transparency items
-document.querySelectorAll('#transparency .fade-in').forEach(function(el,i){
-  el.classList.add('bw-reveal');
-  el.classList.add('bw-d'+Math.min(i+1,6));
-});
-
-// Manifesto items
-document.querySelectorAll('#manifesto [style*="display:flex;align-items:flex-start;gap:24px"]').forEach(function(el,i){
-  el.classList.add('bw-reveal');
-  el.classList.add('bw-d'+(i+1));
-});
-
-// Section headings (not in hero)
-document.querySelectorAll('section:not(#hero) h2').forEach(function(h){
-  if(!h.classList.contains('bw-reveal')) h.classList.add('bw-reveal');
-});
-
-/* ── 4. METRIC COUNT-UP ── */
-var metricEls = document.querySelectorAll('.metric-num');
-if(metricEls.length && 'IntersectionObserver' in window){
-  var mObs = new IntersectionObserver(function(entries){
+/* 3. METRIC COUNT-UP */
+var mEls=document.querySelectorAll('.metric-num');
+if(mEls.length&&'IntersectionObserver' in window){
+  var mObs=new IntersectionObserver(function(entries){
     entries.forEach(function(e){
-      if(!e.isIntersecting) return;
-      var el = e.target;
-      var text = el.textContent.trim();
-      var target = parseFloat(text);
-      var suffix = text.replace(/[\d.]/g,'');
-      var isDecimal = target % 1 !== 0;
-      var duration = 1000;
-      var start = null;
-
+      if(!e.isIntersecting)return;
+      var el=e.target;
+      var txt=el.textContent.trim();
+      var target=parseFloat(txt);
+      var suffix=txt.replace(/[\d.]/g,'');
+      var dec=target%1!==0;
+      var dur=900,start=null;
       function step(ts){
-        if(!start) start = ts;
-        var p = Math.min((ts-start)/duration,1);
-        var eased = 1-Math.pow(1-p,3);
-        var val = target * eased;
-        el.textContent = (isDecimal ? val.toFixed(1) : Math.floor(val)) + suffix;
-        if(p < 1){ requestAnimationFrame(step); }
-        else { el.textContent = target+suffix; el.classList.add('bw-counted'); }
+        if(!start)start=ts;
+        var p=Math.min((ts-start)/dur,1);
+        var ease=1-Math.pow(1-p,3);
+        el.textContent=(dec?(target*ease).toFixed(1):Math.floor(target*ease))+suffix;
+        if(p<1)requestAnimationFrame(step);
+        else{el.textContent=target+suffix;el.classList.add('bw-counted');}
       }
       requestAnimationFrame(step);
       mObs.unobserve(el);
     });
-  },{threshold:0.6});
-  metricEls.forEach(function(el){ mObs.observe(el); });
+  },{threshold:0.5});
+  mEls.forEach(function(el){mObs.observe(el);});
 }
 
-/* ── 5. SMOOTH SCROLL ── */
+/* 4. SMOOTH SCROLL */
 document.querySelectorAll('a[href^="#"]').forEach(function(a){
   a.addEventListener('click',function(e){
-    var t = document.querySelector(this.getAttribute('href'));
-    if(t){ e.preventDefault(); window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-80,behavior:'smooth'}); }
+    var t=document.querySelector(this.getAttribute('href'));
+    if(t){e.preventDefault();window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-80,behavior:'smooth'});}
   });
 });
 
