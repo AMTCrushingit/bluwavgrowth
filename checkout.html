@@ -122,6 +122,18 @@ a{text-decoration:none;color:inherit;}
   .form-row{grid-template-columns:1fr;}
 }
 @keyframes spin{to{transform:rotate(360deg);}}
+
+/* Plan locked state */
+.plan-option { cursor: default; }
+.plan-option.unlocked { cursor: pointer; }
+.plan-option.unlocked:hover { border-color: rgba(0,194,216,0.4); background: rgba(0,194,216,0.03); }
+.plan-change-hint {
+  display: inline-block;
+  font-size: 12px;
+  color: #94a3b8;
+  margin-top: 6px;
+  font-style: italic;
+}
 </style>
 </head>
 <body>
@@ -156,10 +168,10 @@ a{text-decoration:none;color:inherit;}
 <!-- STEP 1: Plan selection -->
 <div class="step-block">
 <div class="step-title"><span class="step-num">1</span> Choose your plan</div>
-<div class="plan-option selected" id="card-ripple" onclick="selectPlan('ripple')">
+<div class="plan-option selected" id="card-ripple" data-plan="ripple">
 <div class="plan-radio checked" id="radio-ripple"></div>
 <div style="flex:1;">
-<div class="plan-name">🌊 Ripple <span style="font-size:11px;font-weight:600;color:#00C2D8;font-style:italic;">Your First Wave Of Visibility</span></div>
+<div class="plan-name">Ripple <span style="font-size:11px;font-weight:600;color:#00C2D8;font-style:italic;">Your First Wave Of Visibility</span></div>
 <div style="font-size:12px;color:var(--slate);margin-top:2px;">Website · Google Profile · SEO · CRM trial · Automation</div>
 </div>
 <div class="plan-price-col">
@@ -167,7 +179,7 @@ a{text-decoration:none;color:inherit;}
 <div class="plan-monthly">+ $397/mo</div>
 </div>
 </div>
-<div class="plan-option" id="card-current" onclick="selectPlan('current')">
+<div class="plan-option" id="card-current" data-plan="current">
 <div class="plan-radio" id="radio-current"></div>
 <div style="flex:1;">
 <div class="plan-name">⚡ Current <span class="plan-badge" style="background:rgba(255,85,0,0.1);color:var(--coral);">Most Popular</span></div>
@@ -179,7 +191,7 @@ a{text-decoration:none;color:inherit;}
 <div class="plan-monthly">+ $697/mo</div>
 </div>
 </div>
-<div class="plan-option" id="card-surge" onclick="selectPlan('surge')">
+<div class="plan-option" id="card-surge" data-plan="surge">
 <div class="plan-radio" id="radio-surge"></div>
 <div style="flex:1;">
 <div class="plan-name">🚀 Surge <span style="font-size:11px;font-weight:600;color:var(--gold);font-style:italic;">Accelerated Business Momentum</span></div>
@@ -262,7 +274,7 @@ a{text-decoration:none;color:inherit;}
 <div class="summary-title">Order Summary</div>
 <div class="summary-plan">
 <div>
-<div class="summary-plan-name" id="sumName">🌊 Ripple</div>
+<div class="summary-plan-name" id="sumName">Ripple</div>
 <div class="summary-plan-sub" id="sumSub">Your First Wave Of Visibility</div>
 </div>
 <div>
@@ -301,7 +313,7 @@ a{text-decoration:none;color:inherit;}
 <!-- STEP 2: ONBOARDING -->
 <div id="view2" style="display:none;max-width:680px;margin:0 auto;padding:40px 24px;">
 <div style="text-align:center;margin-bottom:32px;">
-<div style="font-size:48px;margin-bottom:14px;">🌊</div>
+<div style="font-size:48px;margin-bottom:14px;">✅</div>
 <div style="font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#22c55e;margin-bottom:10px;">Payment Successful</div>
 <h2 style="font-family:'Manrope',sans-serif;font-size:clamp(24px,4vw,32px);font-weight:900;color:var(--navy);margin-bottom:10px;">Welcome to BluWav Growth!</h2>
 <p style="font-size:16px;color:var(--slate);line-height:1.7;">One last step — tell us about your business so we can build your system exactly right.</p>
@@ -354,8 +366,8 @@ a{text-decoration:none;color:inherit;}
 <script>
 /* ── PLAN DATA ── */
 var plans = {
-  ripple:  {name:'&#127754; Ripple', sub:'Your First Wave Of Visibility', setup:'$900',   monthly:'$397/mo',  setupNum:900},
-  current: {name:'&#9889; Current',  sub:'The Steady Flow Of Growth',     setup:'$1,250', monthly:'$697/mo',  setupNum:1250},
+  ripple:  {name:'Ripple', sub:'Your First Wave Of Visibility', setup:'$900',   monthly:'$397/mo',  setupNum:900},
+  current: {name:'Current',  sub:'The Steady Flow Of Growth',     setup:'$1,250', monthly:'$697/mo',  setupNum:1250},
   surge:   {name:'&#128640; Surge',  sub:'Accelerated Business Momentum', setup:'$2,500', monthly:'$1,497/mo+', setupNum:2500}
 };
 var sel = 'ripple';
@@ -366,11 +378,25 @@ var sel = 'ripple';
   if(p&&plans[p]){ selectPlan(p); } else { updateSubtitle('current'); }
 })();
 
+var plansLocked = true;
+
+function unlockPlans(e){
+  e.preventDefault();
+  plansLocked = false;
+  document.querySelectorAll('.plan-option').forEach(function(el){
+    el.classList.add('unlocked');
+    el.onclick = function(){ selectPlan(this.getAttribute('data-plan')); };
+  });
+  // Update subtitle hint
+  var sub = document.getElementById('co-plan-subtitle');
+  if(sub) sub.innerHTML = sub.innerHTML.replace('change</a>', 'done</a>');
+}
+
 function updateSubtitle(plan){
   var names={ripple:'Ripple — Foundation',current:'Current — Growth (Most Popular)',surge:'Surge — Dominance'};
   var sub=document.getElementById('co-plan-subtitle');
   if(sub&&names[plan]){
-    sub.innerHTML='Selected plan: <strong style="color:#0a0f1e;">'+names[plan]+'</strong> &nbsp;<a href="pricing.html#plans-k1l2" style="font-size:13px;color:#ff6535;font-weight:600;text-decoration:none;">Change plan &rarr;</a>';
+    sub.innerHTML='Selected plan: <strong style="color:#0a0f1e;">'+names[plan]+'</strong> &nbsp;<a href="pricing.html#plans-k1l2" style="font-size:13px;color:#94a3b8;font-weight:500;text-decoration:none;" onclick="unlockPlans(event)">change</a>';
   }
 }
 function selectPlan(plan){
@@ -505,6 +531,10 @@ function submitOnboarding(e){
     document.getElementById('view2').style.display='none';
     document.getElementById('view3').style.display='block';
     window.scrollTo({top:0,behavior:'smooth'});
+    // Redirect to thank-you page after 4 seconds
+    setTimeout(function(){
+      window.location.href='thank-you.html?plan='+sel+'&name='+encodeURIComponent(window.coName||'');
+    }, 4000);
   }
   var t=setTimeout(proceed,6000);
   fetch('https://formspree.io/f/mrenyvld',{method:'POST',body:fd,headers:{'Accept':'application/json'}})
