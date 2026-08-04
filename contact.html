@@ -6,7 +6,7 @@
 <meta name="description" content="Contact BluWav Growth for support, questions, or to book a call. We respond within a few hours."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Kaushan+Script&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Kaushan+Script&display=swap&font-display=swap" rel="stylesheet"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
@@ -108,6 +108,9 @@ img{max-width:100%;height:auto;}
 .form-input:focus,.form-select:focus{border-color:#00C2D8;box-shadow:0 0 0 3px rgba(0,194,216,0.1);}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
 @media(max-width:480px){.form-row{grid-template-columns:1fr;}}
+
+/* Font display swap for CLS prevention */
+@font-face{font-display:swap;}
 </style>
 </head>
 <body style="padding-top:68px;" >
@@ -396,63 +399,71 @@ function toggleFaq(btn){
 
 <footer style="background:#060c18;padding-top:0;border-top:none;">
 
-  <!-- Main Footer Grid -->
-  <div style="max-width:1400px;margin:0 auto;padding:56px clamp(16px,4vw,80px) 48px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;">
+  <div style="max-width:1200px;margin:0 auto;padding:64px clamp(16px,4vw,60px) 48px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:64px;">
 
     <!-- Brand -->
     <div>
-      <a href="index.html" style="text-decoration:none;display:inline-block;margin-bottom:16px;">
+      <a href="index.html" style="text-decoration:none;display:inline-block;margin-bottom:20px;">
         <div style="font-family:'Kaushan Script',cursive;font-size:32px;color:#fff;line-height:1;">Blu<span style="color:#00d4ff;">Wav</span></div>
-        <div style="font-size:8px;font-weight:700;color:#00d4ff;letter-spacing:4px;text-transform:uppercase;margin-top:3px;">Get Found. Get Chosen. Grow.</div>
+        <div style="font-size:9px;font-weight:700;color:#00d4ff;letter-spacing:4px;text-transform:uppercase;margin-top:4px;">Get Found. Get Chosen. Grow.</div>
       </a>
-      <p style="font-size:13px;color:rgba(255,255,255,0.45);line-height:1.75;max-width:300px;margin-bottom:20px;">The unified digital growth system for modern businesses, website, Google visibility, CRM, and automation. Delivered in 48 hours. You own everything forever.</p>
-      <div style="display:flex;gap:8px;">
-        <a href="https://facebook.com/bluwavgrowth" target="_blank" rel="noopener" aria-label="Facebook" style="width:36px;height:36px;border-radius:8px;border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);font-size:14px;font-weight:800;text-decoration:none;transition:all .2s;" onmouseover="this.style.borderColor='#1877F2';this.style.color='#1877F2'" onmouseout="this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='rgba(255,255,255,0.6)'">f</a>
-        <a href="https://www.instagram.com/bluwavgrowth/" target="_blank" rel="noopener" aria-label="Instagram" style="width:36px;height:36px;border-radius:8px;border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);font-size:16px;text-decoration:none;transition:all .2s;" onmouseover="this.style.borderColor='#E1306C';this.style.color='#E1306C'" onmouseout="this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='rgba(255,255,255,0.6)'">&#128247;</a>
-        <a href="/cdn-cgi/l/email-protection#620a070e0e0d22000e1715031405100d15160a4c010d0f" aria-label="Email" style="width:36px;height:36px;border-radius:8px;border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);font-size:15px;text-decoration:none;transition:all .2s;" onmouseover="this.style.borderColor='#00d4ff';this.style.color='#00d4ff'" onmouseout="this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='rgba(255,255,255,0.6)'">&#9993;</a>
+      <p style="font-size:14px;color:rgba(255,255,255,0.45);line-height:1.75;max-width:280px;margin-bottom:24px;">The unified digital growth system for modern businesses. Website, Google visibility, CRM, and automation. Delivered in 48 hours. You own everything forever.</p>
+      <div style="display:flex;gap:10px;">
+        <a href="https://facebook.com/bluwavgrowth" target="_blank" rel="noopener" aria-label="Facebook" style="width:40px;height:40px;border-radius:10px;border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);font-size:15px;font-weight:800;text-decoration:none;transition:all .2s;" onmouseover="this.style.borderColor='#1877F2';this.style.color='#1877F2'" onmouseout="this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='rgba(255,255,255,0.6)'">f</a>
+        <a href="https://www.instagram.com/bluwavgrowth/" target="_blank" rel="noopener" aria-label="Instagram" style="width:40px;height:40px;border-radius:10px;border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);font-size:18px;text-decoration:none;transition:all .2s;" onmouseover="this.style.borderColor='#E1306C';this.style.color='#E1306C'" onmouseout="this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='rgba(255,255,255,0.6)'">&#128247;</a>
+        <a href="mailto:hello@bluwavgrowth.com" aria-label="Email" style="width:40px;height:40px;border-radius:10px;border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);font-size:16px;text-decoration:none;transition:all .2s;" onmouseover="this.style.borderColor='#00d4ff';this.style.color='#00d4ff'" onmouseout="this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='rgba(255,255,255,0.6)'">&#9993;</a>
       </div>
     </div>
 
     <!-- Navigate -->
     <div>
-      <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;color:rgba(255,255,255,0.35);margin-bottom:20px;">Navigate</div>
-      <div style="display:flex;flex-direction:column;gap:12px;">
-        <a href="index.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Home</a>
-        <a href="health-score.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Health Score</a>
-        <a href="about.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">About</a>
-        <a href="contact.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Contact</a>
-        <a href="index.html#pricing" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Growth Plans</a>
-        <a href="https://bluwavcrm.com/login.html" target="_blank" rel="noopener" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Client Login</a>
-        <a href="systems.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Growth Systems</a>
-        <a href="case-study-aadek.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Case Studies</a>
+      <div style="font-size:13px;font-weight:700;color:rgba(255,255,255,0.35);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:24px;">Navigate</div>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <a href="index.html" style="font-size:14px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Home</a>
+        <a href="health-score.html" style="font-size:14px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Health Score</a>
+        <a href="about.html" style="font-size:14px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">About</a>
+        <a href="contact.html" style="font-size:14px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Contact</a>
+        <a href="index.html#pricing" style="font-size:14px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Growth Plans</a>
+        <a href="https://bluwavcrm.com/login.html" target="_blank" rel="noopener" style="font-size:14px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Client Login</a>
+        <a href="case-study-aadek.html" style="font-size:14px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Case Studies</a>
       </div>
     </div>
 
     <!-- Get Started -->
     <div>
-      <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;color:rgba(255,255,255,0.35);margin-bottom:20px;">Get Started</div>
-      <div style="display:flex;flex-direction:column;gap:12px;">
-        <a href="health-score.html" style="font-size:13px;color:#00d4ff;text-decoration:none;font-weight:700;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#00d4ff'">&#129658; Free Health Score</a>
-        <a href="https://calendly.com/hello-bluwavgrowth/30min" target="_blank" rel="noopener" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">&#128197; Book a Call</a>
-        <a href="/cdn-cgi/l/email-protection#9df5f8f1f1f2ddfff1e8eafcebfaeff2eae9f5b3fef2f0" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">&#9993; <span class="__cf_email__" data-cfemail="5f373a3333301f3d332a283e29382d30282b37713c3032">[email&#160;protected]</span></a>
-        <a href="the-wave.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">&#127754; The Wave Newsletter</a>
-        <a href="privacy.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Privacy Policy</a>
-        <a href="careers.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Careers</a>
+      <div style="font-size:13px;font-weight:700;color:rgba(255,255,255,0.35);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:24px;">Get Started</div>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <a href="health-score.html" style="font-size:14px;color:#00d4ff;font-weight:700;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#00d4ff'">&#129658; Free Health Score</a>
+        <a href="https://calendly.com/hello-bluwavgrowth/30min" target="_blank" rel="noopener" style="font-size:14px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">&#128197; Book a Call</a>
+        <a href="mailto:hello@bluwavgrowth.com" style="font-size:14px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">&#9993; hello@bluwavgrowth.com</a>
+        <a href="the-wave.html" style="font-size:14px;color:#00d4ff;font-weight:600;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#00d4ff'">&#127754; The Wave Newsletter</a>
+        <a href="privacy.html" style="font-size:14px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Privacy Policy</a>
+        <a href="careers.html" style="font-size:14px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Careers</a>
       </div>
     </div>
   </div>
 
   <!-- Bottom Bar -->
-  <div style="border-top:1px solid rgba(255,255,255,0.06);padding:20px clamp(16px,4vw,80px);">
-    <div style="max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
-      <div style="font-size:12px;color:rgba(255,255,255,0.25);">&#169; 2026 <span style="color:rgba(255,255,255,0.4);">BluWav Growth</span> &middot; All rights reserved. &middot; Built for modern businesses worldwide.</div>
-      <div style="display:flex;gap:20px;">
-        <a href="privacy.html" style="font-size:12px;color:rgba(255,255,255,0.25);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='rgba(255,255,255,0.6)'" onmouseout="this.style.color='rgba(255,255,255,0.25)'">Privacy</a>
-        <a href="contact.html" style="font-size:12px;color:rgba(255,255,255,0.25);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='rgba(255,255,255,0.6)'" onmouseout="this.style.color='rgba(255,255,255,0.25)'">Contact</a>
-        <a href="sales-agent-agreement.html" style="font-size:12px;color:rgba(255,255,255,0.25);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='rgba(255,255,255,0.6)'" onmouseout="this.style.color='rgba(255,255,255,0.25)'">Agent Agreement</a>
+  <div style="border-top:1px solid rgba(255,255,255,0.06);padding:24px clamp(16px,4vw,60px);">
+    <div style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+      <div style="font-size:13px;color:rgba(255,255,255,0.25);">&#169; 2026 <span style="color:rgba(255,255,255,0.4);">BluWav Growth</span> &middot; All rights reserved. &middot; Built for modern businesses worldwide.</div>
+      <div style="display:flex;gap:24px;">
+        <a href="privacy.html" style="font-size:13px;color:rgba(255,255,255,0.25);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='rgba(255,255,255,0.6)'" onmouseout="this.style.color='rgba(255,255,255,0.25)'">Privacy</a>
+        <a href="contact.html" style="font-size:13px;color:rgba(255,255,255,0.25);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='rgba(255,255,255,0.6)'" onmouseout="this.style.color='rgba(255,255,255,0.25)'">Contact</a>
+        <a href="sales-agent-agreement.html" style="font-size:13px;color:rgba(255,255,255,0.25);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='rgba(255,255,255,0.6)'" onmouseout="this.style.color='rgba(255,255,255,0.25)'">Agent Agreement</a>
       </div>
     </div>
   </div>
+
+  <style>
+    @media(max-width:768px){
+      footer [style*="grid-template-columns:2fr"]{grid-template-columns:1fr!important;gap:40px!important;}
+      footer [style*="padding:64px"]{padding:48px clamp(16px,4vw,32px) 40px!important;}
+    }
+    @media(max-width:480px){
+      footer [style*="justify-content:space-between"]{flex-direction:column!important;align-items:flex-start!important;}
+    }
+  </style>
 
 </footer>
 
