@@ -1155,19 +1155,32 @@
     </section>
 
     <!-- ═══════════════ MANIFESTO STRIP ═══════════════ -->
-    <section data-id="207" id="manifesto" class="fade-in" style="background:#fff;border-top:1px solid rgba(10,15,30,0.08);border-bottom:1px solid rgba(10,15,30,0.08);padding:100px 24px;">
-  <div style="max-width:1200px;margin:0 auto;">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
+    <section data-id="207" id="manifesto" class="fade-in" style="background:#fff;border-top:1px solid rgba(10,15,30,0.08);border-bottom:1px solid rgba(10,15,30,0.08);padding:0;">
+
+  <!-- Full-width image -->
+  <div style="position:relative;width:100%;overflow:hidden;">
+    <img src="approach-hero.png" loading="lazy" alt="BluWav Growth - professional growth support" style="width:100%;height:500px;object-fit:cover;object-position:center 20%;display:block;"/>
+    <!-- Gradient overlay — dark on left for text legibility -->
+    <div style="position:absolute;inset:0;background:linear-gradient(to right, rgba(10,15,30,0.82) 0%, rgba(10,15,30,0.5) 50%, rgba(10,15,30,0.15) 100%);"></div>
+    <!-- Overlay text -->
+    <div style="position:absolute;inset:0;display:flex;align-items:center;padding:0 clamp(24px,6vw,120px);">
+      <div style="max-width:520px;">
+        <div style="font-size:13px;font-weight:700;color:#ff6535;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px;">Our Approach</div>
+        <h2 style="font-size:clamp(28px,4vw,52px);font-weight:900;color:#fff;line-height:1.1;margin-bottom:0;">
+          Human-powered.<br/>Built to grow with you.
+        </h2>
+      </div>
+    </div>
+  </div>
+
+  <!-- Two-column: stacked items left | spacer right -->
+  <div style="max-width:1200px;margin:0 auto;padding:80px 24px;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;">
 
       <!-- LEFT: Stacked items -->
       <div>
-        <div style="font-size:13px;font-weight:700;color:#ff6535;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:20px;">Our Approach</div>
-        <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#0a0f1e;line-height:1.1;margin-bottom:48px;">
-          Human-powered.<br/>Built to grow with you.
-        </h2>
-
         <!-- Item 1 -->
-        <div style="display:flex;align-items:flex-start;gap:24px;margin-bottom:40px;">
+        <div style="display:flex;align-items:flex-start;gap:24px;margin-bottom:40px;padding-bottom:40px;border-bottom:1px solid rgba(10,15,30,0.07);">
           <div style="width:52px;height:52px;border-radius:14px;background:rgba(255,101,53,0.08);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;">🔧</div>
           <div>
             <h3 style="font-size:19px;font-weight:800;color:#0a0f1e;margin-bottom:8px;">We build it with you.</h3>
@@ -1176,7 +1189,7 @@
         </div>
 
         <!-- Item 2 -->
-        <div style="display:flex;align-items:flex-start;gap:24px;margin-bottom:40px;">
+        <div style="display:flex;align-items:flex-start;gap:24px;margin-bottom:40px;padding-bottom:40px;border-bottom:1px solid rgba(10,15,30,0.07);">
           <div style="width:52px;height:52px;border-radius:14px;background:rgba(0,212,255,0.08);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;">⚙️</div>
           <div>
             <h3 style="font-size:19px;font-weight:800;color:#0a0f1e;margin-bottom:8px;">We run it with you.</h3>
@@ -1192,26 +1205,32 @@
             <p style="font-size:16px;color:#475569;line-height:1.75;">You serve your clients. We handle your digital presence, leads, and follow-ups. That's the BluWav model.</p>
           </div>
         </div>
-
-        <!-- CTA -->
-        <div style="margin-top:48px;">
-          <a href="health-score.html" style="display:inline-flex;align-items:center;gap:8px;color:#ff6535;font-size:15px;font-weight:700;text-decoration:none;border:1.5px solid rgba(255,101,53,0.3);padding:13px 28px;border-radius:100px;transition:all .2s;" onmouseover="this.style.borderColor='rgba(255,101,53,0.7)';this.style.background='rgba(255,101,53,0.04)'" onmouseout="this.style.borderColor='rgba(255,101,53,0.3)';this.style.background=''">See how the BluWav Growth System works &rarr;</a>
-        </div>
       </div>
 
-      <!-- RIGHT: Image -->
-      <div style="position:relative;border-radius:20px;overflow:hidden;box-shadow:0 24px 64px rgba(10,15,30,0.1);">
-        <img src="woman-tropical-office.jpg" loading="lazy" alt="Business owner focused and growing with BluWav" style="width:100%;height:580px;object-fit:cover;object-position:center top;display:block;"/>
-        <!-- Subtle overlay badge -->
-        <div style="position:absolute;bottom:24px;left:24px;right:24px;background:rgba(10,15,30,0.85);backdrop-filter:blur(12px);border-radius:12px;padding:16px 20px;border:1px solid rgba(255,101,53,0.2);">
-          <div style="font-size:15px;color:#fff;font-weight:700;line-height:1.4;">Smart tech. Real human support.</div>
-          <div style="font-size:13px;color:rgba(255,255,255,0.55);margin-top:4px;">Built and run with you.</div>
+      <!-- RIGHT: Pull quote + CTA -->
+      <div style="padding-top:8px;">
+        <blockquote style="font-size:clamp(20px,2.5vw,28px);font-weight:800;color:#0a0f1e;line-height:1.3;margin:0 0 32px;border-left:4px solid #ff6535;padding-left:24px;">
+          "Stay because it's working, not because you're stuck."
+        </blockquote>
+        <p style="font-size:16px;color:#475569;line-height:1.75;margin-bottom:36px;">
+          No lock-in. No long contracts. We earn your business every month by delivering results. Your data is always yours.
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:14px;">
+          <a href="health-score.html" class="btn-orange" style="font-size:15px;padding:14px 28px;">Get My Free Health Score</a>
+          <a href="about.html" style="display:inline-flex;align-items:center;gap:8px;color:#0a0f1e;font-size:15px;font-weight:700;text-decoration:none;border:1.5px solid rgba(10,15,30,0.2);padding:14px 24px;border-radius:100px;transition:all .2s;" onmouseover="this.style.borderColor='rgba(0,212,255,0.5)'" onmouseout="this.style.borderColor='rgba(10,15,30,0.2)'">Our Story &rarr;</a>
         </div>
       </div>
 
     </div>
   </div>
 </section>
+
+<style>
+@media(max-width:900px){
+  #manifesto [style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important;gap:48px!important;}
+  #manifesto [style*="height:500px"]{height:320px!important;}
+}
+</style>
 
 <style>
 @media(max-width:900px){
