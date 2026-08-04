@@ -194,7 +194,7 @@
         font-size: 18px; font-weight: 800; color: var(--cyan);
       }
       .step-connector {
-        flex-grow: 1; height: 1px; background: rgba(0,212,255,0.2);
+        flex-grow: 1; height: 1px; background: rgba(10,15,30,0.12);
         align-self: center; min-width: 20px;
       }
       @media (max-width: 767px) { .step-connector { display: none; } }
@@ -223,17 +223,17 @@
       .tdash { color: #cbd5e1; }
 
       /* ---- FAQ ---- */
-      .faq-item { border-bottom: 1px solid rgba(255,255,255,0.08); }
+      .faq-item { border-bottom: 1px solid rgba(10,15,30,0.08); }
       .faq-q {
         width: 100%; display: flex; justify-content: space-between; align-items: center;
-        padding: 22px 0; font-size: 16px; font-weight: 600; color: #fff;
+        padding: 22px 0; font-size: 16px; font-weight: 600; color: #0a0f1e;
         background: transparent; border: none; cursor: pointer; text-align: left;
         font-family: 'Inter', sans-serif; gap: 16px;
       }
       .faq-icon { color: var(--cyan); font-size: 20px; font-weight: 300; flex-shrink: 0; }
       .faq-a {
         max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding-bottom 0.3s ease;
-        font-size: 15px; color: var(--white-70); line-height: 1.7;
+        font-size: 15px; color: #475569; line-height: 1.7;
       }
       .faq-item.open .faq-a { max-height: 600px; padding-bottom: 20px; }
 
@@ -311,6 +311,31 @@
 .bw-mob-link:hover{color:#00d4ff;background:rgba(0,212,255,0.05);}
 .bw-mob-cta{background:linear-gradient(135deg,#ff6535,#ff6535);color:#fff;font-weight:800;padding:16px 24px;text-align:center;margin:14px 20px 4px;font-size:16px;display:block;border-radius:12px;text-decoration:none;box-shadow:0 4px 20px rgba(255,101,53,0.4);}
 @media(max-width:1024px){.bw-nav-links{display:none!important;}.bw-hamburger{display:flex!important;}}
+
+/* ── Pricing page mobile fixes ── */
+@media(max-width:768px) {
+  /* Pricing cards stack */
+  #plans-k1l2 [style*="grid-template-columns:repeat(3"] { grid-template-columns: 1fr !important; }
+  /* Included section grid */
+  #included-u1v2 [style*="grid-template-columns:repeat(2"] { grid-template-columns: 1fr !important; }
+  #included-u1v2 [style*="grid-template-columns:repeat(3"] { grid-template-columns: 1fr !important; }
+  /* Process steps stack */
+  #steps-k7l8 [style*="display:flex"] { flex-direction: column !important; }
+  .step-connector { display: none !important; }
+  /* Compare table scroll */
+  #compare-o1p2 [style*="grid-template-columns:repeat(4"] { grid-template-columns: repeat(2,1fr) !important; }
+  #compare-o1p2 [style*="grid-template-columns:1fr 1fr 1fr"] { grid-template-columns: 1fr !important; }
+  /* FAQ full width */
+  #faq-q3r4 [style*="max-width:760px"] { max-width: 100% !important; }
+  /* Wave height on mobile */
+  .wave-svg { height: 48px !important; }
+  /* Section padding mobile */
+  #steps-k7l8, #faq-q3r4, #compare-o1p2 { padding: 72px 20px !important; }
+}
+@media(max-width:480px) {
+  #compare-o1p2 [style*="grid-template-columns"] { grid-template-columns: 1fr !important; overflow-x: auto !important; }
+  .faq-q { font-size: 15px !important; }
+}
 </style>
 </head>
 <body style="padding-top:68px;"  data-id="0">
