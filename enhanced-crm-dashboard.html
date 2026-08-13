@@ -31,6 +31,8 @@ html,body{height:100%;font-family:var(--font-body);background:var(--navy-deep);c
 .sidebar{width:var(--sidebar);background:rgba(10,14,26,0.98);border-right:1px solid var(--navy-border);display:flex;flex-direction:column;position:fixed;top:0;left:0;bottom:0;z-index:100;overflow-y:auto;transition:width 0.3s;}
 .sidebar.collapsed{width:60px;}
 .sidebar.collapsed .nav-label,.sidebar.collapsed .nav-text,.sidebar.collapsed .nb,.sidebar.collapsed .user-info,.sidebar.collapsed .trial-w,.sidebar.collapsed .logo-sub{display:none;}
+    .hamburger{display:none!important;}
+    @media(max-width:768px){.hamburger{display:flex!important;}}
 .sidebar.collapsed .logo-wm{font-size:16px;}
 .sidebar.collapsed .ni{justify-content:center;padding:10px;}
 .sidebar-logo{padding:18px 14px;border-bottom:1px solid var(--navy-border);display:flex;align-items:center;justify-content:space-between;}
@@ -261,21 +263,24 @@ html,body{height:100%;font-family:var(--font-body);background:var(--navy-deep);c
   </a>
   <button class="collapse-btn" onclick="toggleSidebar()">&#9776;</button>
 </div>
-<nav id="mainNav">
-<a href="index.html" class="nav-logo" style="display:flex;flex-direction:column;align-items:flex-start;line-height:1;padding:4px 0;text-decoration:none;">
-<div id="navLogoText" style="font-family:'Kaushan Script',cursive;font-size:26px;line-height:1;color:#fff;opacity:0;transition:opacity 0.3s;">Blu<span style="color:#00E0FF;">Wav</span></div>
-<div style="font-size:8px;font-weight:700;color:#00E0FF;letter-spacing:3px;text-transform:uppercase;line-height:1.4;margin-top:2px;">Get Found. Get Chosen. Grow.</div>
-</a>
-<div class="nav-links">
-  <a class="nav-link" href="health-score.html">Health Score</a>
-  <a class="nav-link" href="index.html#what-we-do-cont">Growth Plans</a>
-  <a class="nav-link" href="about.html">About</a>
-  <a class="nav-link" href="contact.html">Contact</a>
-  <a class="nav-link" href="the-wave.html" style="color:#00E0FF;font-weight:600;">The Wave</a>
-  <a class="nav-link" href="https://bluwavcrm.com/login.html" target="_blank" rel="noopener" style="color:rgba(0,224,255,0.85);font-weight:600;">Client Login</a>
-  <a class="nav-cta" href="https://calendly.com/hello-bluwavgrowth/30min" onclick="if(typeof gtag!=='undefined'){gtag('event','book_call_click',{'event_category':'CTA','event_label':'Book a Call','page':'nav'});}" target="_blank" rel="noopener">Book a Call</a>
-</div>
-<button aria-label="Menu" class="hamburger" id="hamburgerBtn" onclick="toggleMob()"><span></span><span></span><span></span></button>
+<nav class="sidebar-nav" id="mainNav">
+<div class="nav-label">Main</div>
+<a class="ni active" id="nav-dashboard" onclick="showView('dashboard')"><span class="ni-icon">📊</span> <span class="nav-text">Dashboard</span></a>
+<a class="ni" id="nav-contacts" onclick="showView('contacts')"><span class="ni-icon">👥</span> <span class="nav-text">Contacts</span><span class="nb" id="navContactCount"></span></a>
+<a class="ni" id="nav-deals" onclick="showView('deals')"><span class="ni-icon">💼</span> <span class="nav-text">Deals</span><span class="nb" id="navDealCount"></span></a>
+<a class="ni" onclick="showView('dashboard')"><span class="ni-icon">🏢</span> <span class="nav-text">Companies</span></a>
+<a class="ni" onclick="showView('dashboard')"><span class="ni-icon">✅</span> <span class="nav-text">Tasks</span></a>
+<a class="ni" onclick="showView('dashboard')"><span class="ni-icon">📅</span> <span class="nav-text">Calendar</span></a>
+<div class="nav-label">Communicate</div>
+<a class="ni" onclick="showView('dashboard')"><span class="ni-icon">📧</span> <span class="nav-text">Email</span></a>
+<a class="ni" onclick="showView('dashboard')"><span class="ni-icon">💬</span> <span class="nav-text">WhatsApp</span></a>
+<a class="ni" onclick="showView('dashboard')"><span class="ni-icon">🤖</span> <span class="nav-text">Automations</span></a>
+<div class="nav-label">Insights</div>
+<a class="ni" id="nav-reports" onclick="showView('reports')"><span class="ni-icon">📈</span> <span class="nav-text">Reports</span></a>
+<div class="nav-label">Organization</div>
+<a class="ni" id="nav-org" onclick="showView('org')"><span class="ni-icon">🏢</span> <span class="nav-text">Org Setup</span></a>
+<a class="ni" id="nav-settings" onclick="showView('settings')"><span class="ni-icon">⚙️</span> <span class="nav-text">Settings</span></a>
+<a class="ni" href="billing.html"><span class="ni-icon">💳</span> <span class="nav-text">Billing</span></a>
 </nav>
 <div class="sb-bottom">
   <div class="trial-w">
