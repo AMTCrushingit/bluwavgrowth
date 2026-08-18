@@ -154,6 +154,7 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
   .wrap{padding:0 12px!important;}
 }
 @media(max-width:480px){.tier-cards{grid-template-columns:1fr!important;}}
+@media(max-width:900px){.roles-grid{grid-template-columns:1fr!important;}}
 .wa-float{position:fixed;bottom:80px;right:24px;z-index:200;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 20px rgba(37,211,102,0.45);}
 
 /* Footer, full width like AADEK */
@@ -346,21 +347,21 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 <a href="#sales-agent" onmouseout="this.style.transform='translateY(0)'" onmouseover="this.style.transform='translateY(-2px)'" style="display:inline-flex;align-items:center;gap:8px;background:var(--coral);color:#fff;font-size:15px;font-weight:800;padding:14px 28px;border-radius:11px;box-shadow:0 4px 24px rgba(255,85,0,0.4);transition:all 0.2s;">Explore Current Opportunities ↓</a>
 </div>
 </div>
-<div class="hero-img-wrap">
-<img alt="BluWav Growth team, technology and business growth professionals" fetchpriority="high" loading="eager" src="career-hero-group.jpg"/>
-<div class="hero-img-overlay"></div>
-<div class="hero-img-badge">
-<div style="width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#002B49,#003d5c);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;"></div>
-<div>
-<div style="font-size:13px;font-weight:800;color:#fff;">Building growth systems. Shaping what's next.</div>
-<div style="font-size:11px;color:rgba(255,255,255,0.5);">BluWav Growth · Powered by technology, intelligence, and transformation</div>
-</div>
+<div style="position:relative;border-radius:20px;overflow:hidden;min-height:480px;">
+<img alt="BluWav Growth team" fetchpriority="high" loading="eager" src="team-careers-provide.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;position:absolute;inset:0;"/>
+<div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,43,73,0.1) 0%,rgba(0,43,73,0.65) 100%);"></div>
+<div style="position:absolute;bottom:28px;left:28px;right:28px;">
+<div style="font-size:12px;font-weight:800;color:#00E0FF;margin-bottom:6px;letter-spacing:1px;text-transform:uppercase;">A Stratiix Group Company</div>
+<div style="font-size:20px;font-weight:900;color:#fff;line-height:1.25;margin-bottom:8px;">Building growth systems.<br/>Shaping what's next.</div>
+<div style="font-size:13px;color:rgba(255,255,255,0.75);line-height:1.6;">Helping organizations grow through technology, automation, business intelligence, and AI-enabled solutions.</div>
 </div>
 </div>
 </section>
 <!-- ══ ROLE 1: SALES AGENT ════════════════════════════════════════════════ -->
-<section id="sales-agent" style="padding:40px 0 0;background:#F4F2ED;">
+<section style="padding:40px 0 0;background:#F4F2ED;">
 <div class="wrap">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;" class="roles-grid">
+<div id="sales-agent">
 <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
 <div style="width:48px;height:48px;border-radius:14px;background:var(--coral);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;">💼</div>
 <div>
@@ -440,27 +441,8 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 </a>
 <p style="font-size:12px;color:#94a3b8;margin-top:10px;">Subject line: <strong>Sales Closer Application</strong>. Send your application to careers@bluwavgrowth.com</p>
 </div>
-</div>
-</div>
-</section>
-<!-- ══ ROLE 2: DIGITAL MARKETING COORDINATOR ══════════════════════════════ -->
-<!-- FULL WIDTH TEAM BANNER, between roles -->
-<section style="position:relative;height:220px;overflow:hidden;">
-<img alt="BluWav Growth team, professional environment" loading="lazy" src="team-careers-provide.jpg?expires=1789189260&amp;signature=5bb84358abe77a3d88bcae26889b0760d067fbeca1ea22b1120f4c090dad0496&amp;kid=prod-250922" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;"/>
-<div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(244,242,237,0.3) 0%,rgba(0,43,73,0.75) 100%);"></div>
-<div style="position:absolute;bottom:0;left:0;right:0;padding:32px 48px;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px;">
-<div>
-<div style="font-size:13px;font-weight:800;color:#00E0FF;margin-bottom:6px;">A Stratiix Group Company</div>
-<h3 style="font-family:'Manrope',sans-serif;font-size:24px;font-weight:900;color:#fff;line-height:1.2;margin-bottom:10px;">Join a team building the future of business growth.</h3>
-<p style="font-size:15px;color:rgba(255,255,255,0.7);line-height:1.65;max-width:560px;">Helping organizations grow through technology, automation, business intelligence, and AI-enabled solutions.</p>
-</div>
-<a href="mailto:careers@bluwavgrowth.com" style="display:inline-flex;align-items:center;gap:8px;background:#FF5500;color:#fff;font-size:14px;font-weight:800;padding:13px 28px;border-radius:10px;white-space:nowrap;text-decoration:none;flex-shrink:0;">
-      ✉️ careers@bluwavgrowth.com
-</a>
-</div>
-</section>
-<section id="coordinator" style="padding:32px 0 0;background:#F4F2ED;">
-<div class="wrap">
+</div></div></div><!-- /sales col -->
+<div id="coordinator">
 <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
 <div style="width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,#C49A00,#F7C873);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;">📱</div>
 <div>
@@ -574,9 +556,9 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 </a>
 <p style="font-size:12px;color:#94a3b8;margin-top:10px;">Subject line: <strong>Growth &amp; Ecosystem Marketing Coordinator Application</strong>. Please include your résumé and links to any social media accounts or content you've managed.</p>
 </div>
-</div>
-</div>
-</div>
+</div></div><!-- /coordinator col -->
+</div><!-- /roles-grid -->
+</div><!-- /wrap -->
 </section>
 <!-- ══ PARTNER TIERS ══════════════════════════════════════════════════════ -->
 <section style="background:#F4F2ED;padding:40px 0 0;">
