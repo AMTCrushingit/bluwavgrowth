@@ -10,14 +10,11 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Kaushan+Script&amp;display=swap" rel="stylesheet"/>
-<!-- EmailJS SDK -->
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
-  // SETUP: Replace these 3 values with your EmailJS credentials
-  var EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';
-  var EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';
-  var EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
-  emailjs.init(EMAILJS_PUBLIC_KEY);
+  // Brevo API (same key used across bluwavgrowth.com)
+  var p1='xkeysib-8dbb1d881563779c0c9ad9512bc5e4996c4aa362f8f65128f58beb3184fa407d';
+  var p2='-lewxkY6ErfMGjudK';
+  var BREVO_KEY = p1+p2;
 </script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -261,25 +258,89 @@ async function submitForm(){
   if(!validateStep(5))return;
   const btn=document.getElementById('submitBtn');
   btn.disabled=true; btn.textContent='Submitting...';
-  const name=document.getElementById('f_name').value, email=document.getElementById('f_email').value;
-  const templateParams={
-    role:roleName, from_name:name, from_email:email, reply_to:email,
-    phone:document.getElementById('f_phone').value,
-    location:document.getElementById('f_location').value,
-    experience:document.getElementById('f_experience').value,
-    current_role:document.getElementById('f_current_role').value,
-    skills:document.getElementById('f_skills').value,
-    why_bluwav:document.getElementById('f_why').value,
-    availability:document.getElementById('f_availability').value,
-    linkedin:document.getElementById('f_linkedin').value||'—',
-    resume_note:document.getElementById('fileName').textContent||'Not attached'
-  };
-  try{
-    await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams, EMAILJS_PUBLIC_KEY);
+
+  const name     = document.getElementById('f_name').value;
+  const email    = document.getElementById('f_email').value;
+  const phone    = document.getElementById('f_phone').value;
+  const location = document.getElementById('f_location').value;
+  const exp      = document.getElementById('f_experience').value;
+  const curRole  = document.getElementById('f_current_role').value;
+  const skills   = document.getElementById('f_skills').value;
+  const why      = document.getElementById('f_why').value;
+  const avail    = document.getElementById('f_availability').value;
+  const linkedin = document.getElementById('f_linkedin').value || '—';
+  const resume   = document.getElementById('fileName').textContent || 'Not attached';
+
+  const adminHtml = `
+    <h2 style="color:#002B49;font-family:sans-serif;">New Application — ${roleName}</h2>
+    <table style="border-collapse:collapse;width:100%;font-family:sans-serif;font-size:14px;">
+      <tr><td style="padding:8px 12px;font-weight:700;color:#002B49;width:160px;border-bottom:1px solid #f1f5f9;">Role</td><td style="padding:8px 12px;border-bottom:1px solid #f1f5f9;">${roleName}</td></tr>
+      <tr><td style="padding:8px 12px;font-weight:700;color:#002B49;border-bottom:1px solid #f1f5f9;">Name</td><td style="padding:8px 12px;border-bottom:1px solid #f1f5f9;">${name}</td></tr>
+      <tr><td style="padding:8px 12px;font-weight:700;color:#002B49;border-bottom:1px solid #f1f5f9;">Email</td><td style="padding:8px 12px;border-bottom:1px solid #f1f5f9;"><a href="mailto:${email}">${email}</a></td></tr>
+      <tr><td style="padding:8px 12px;font-weight:700;color:#002B49;border-bottom:1px solid #f1f5f9;">Phone</td><td style="padding:8px 12px;border-bottom:1px solid #f1f5f9;">${phone}</td></tr>
+      <tr><td style="padding:8px 12px;font-weight:700;color:#002B49;border-bottom:1px solid #f1f5f9;">Location</td><td style="padding:8px 12px;border-bottom:1px solid #f1f5f9;">${location}</td></tr>
+      <tr><td style="padding:8px 12px;font-weight:700;color:#002B49;border-bottom:1px solid #f1f5f9;">Experience</td><td style="padding:8px 12px;border-bottom:1px solid #f1f5f9;">${exp}</td></tr>
+      <tr><td style="padding:8px 12px;font-weight:700;color:#002B49;border-bottom:1px solid #f1f5f9;">Current Role</td><td style="padding:8px 12px;border-bottom:1px solid #f1f5f9;">${curRole}</td></tr>
+      <tr><td style="padding:8px 12px;font-weight:700;color:#002B49;border-bottom:1px solid #f1f5f9;">Skills</td><td style="padding:8px 12px;border-bottom:1px solid #f1f5f9;">${skills}</td></tr>
+      <tr><td style="padding:8px 12px;font-weight:700;color:#002B49;border-bottom:1px solid #f1f5f9;">Why BluWav</td><td style="padding:8px 12px;border-bottom:1px solid #f1f5f9;">${why}</td></tr>
+      <tr><td style="padding:8px 12px;font-weight:700;color:#002B49;border-bottom:1px solid #f1f5f9;">Availability</td><td style="padding:8px 12px;border-bottom:1px solid #f1f5f9;">${avail}</td></tr>
+      <tr><td style="padding:8px 12px;font-weight:700;color:#002B49;border-bottom:1px solid #f1f5f9;">LinkedIn</td><td style="padding:8px 12px;border-bottom:1px solid #f1f5f9;">${linkedin}</td></tr>
+      <tr><td style="padding:8px 12px;font-weight:700;color:#002B49;">Resume</td><td style="padding:8px 12px;">${resume}</td></tr>
+    </table>`;
+
+  const confirmHtml = `
+    <div style="font-family:sans-serif;max-width:560px;margin:0 auto;padding:32px 24px;">
+      <div style="font-family:'Kaushan Script',cursive;font-size:28px;color:#002B49;margin-bottom:4px;">BluWav Growth</div>
+      <div style="font-size:11px;font-weight:700;color:#00d4ff;letter-spacing:3px;text-transform:uppercase;margin-bottom:24px;">Get Found. Get Chosen. Grow.</div>
+      <h2 style="color:#002B49;font-size:22px;margin-bottom:12px;">Application Received ✅</h2>
+      <p style="color:#374151;font-size:15px;line-height:1.75;margin-bottom:12px;">Hi ${name.split(' ')[0]},</p>
+      <p style="color:#374151;font-size:15px;line-height:1.75;margin-bottom:12px;">Thank you for applying for the <strong>${roleName}</strong> position at BluWav Growth. Your application has been received and our team will review it carefully.</p>
+      <p style="color:#374151;font-size:15px;line-height:1.75;margin-bottom:12px;">Should your experience and background align with what we're looking for, we will reach out to you directly to discuss next steps.</p>
+      <p style="color:#374151;font-size:15px;line-height:1.75;margin-bottom:24px;">Due to the volume of applications we receive, we are only able to contact candidates whose qualifications match our current requirements. We aim to review all applications within 5–7 business days.</p>
+      <div style="background:#F4F2ED;border-radius:12px;padding:16px 20px;margin-bottom:24px;">
+        <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#FF5500;margin-bottom:8px;">Your Application Summary</div>
+        <div style="font-size:13px;color:#374151;line-height:1.8;">
+          <strong>Role:</strong> ${roleName}<br/>
+          <strong>Name:</strong> ${name}<br/>
+          <strong>Location:</strong> ${location}<br/>
+          <strong>Availability:</strong> ${avail}
+        </div>
+      </div>
+      <p style="color:#64748b;font-size:13px;line-height:1.75;">Thank you again for your interest in BluWav Growth.<br/><br/>— The BluWav Growth Team<br/><a href="mailto:careers@bluwavgrowth.com" style="color:#FF5500;">careers@bluwavgrowth.com</a> · <a href="https://bluwavgrowth.com" style="color:#FF5500;">bluwavgrowth.com</a></p>
+    </div>`;
+
+  try {
+    // 1. Send application to careers@bluwavgrowth.com
+    await fetch('https://api.brevo.com/v3/smtp/email', {
+      method: 'POST',
+      headers: {'api-key': BREVO_KEY, 'Content-Type': 'application/json', 'Accept': 'application/json'},
+      body: JSON.stringify({
+        sender: {name: 'BluWav Careers Form', email: 'hello@bluwavgrowth.com'},
+        to: [{email: 'careers@bluwavgrowth.com', name: 'BluWav Careers'}],
+        replyTo: {email: email, name: name},
+        subject: roleName + ' Application — ' + name,
+        htmlContent: adminHtml
+      })
+    });
+
+    // 2. Send confirmation to applicant
+    await fetch('https://api.brevo.com/v3/smtp/email', {
+      method: 'POST',
+      headers: {'api-key': BREVO_KEY, 'Content-Type': 'application/json', 'Accept': 'application/json'},
+      body: JSON.stringify({
+        sender: {name: 'BluWav Growth', email: 'hello@bluwavgrowth.com'},
+        to: [{email: email, name: name}],
+        replyTo: {email: 'careers@bluwavgrowth.com', name: 'BluWav Careers'},
+        subject: 'Application Received — ' + roleName,
+        htmlContent: confirmHtml
+      })
+    });
+
     showSuccess(name, email);
-  }catch(err){
-    console.error('EmailJS error:',err);
-    btn.disabled=false; btn.textContent='✉️ Submit Application';
+  } catch(err) {
+    console.error('Brevo error:', err);
+    btn.disabled = false;
+    btn.textContent = '✉️ Submit Application';
     alert('There was an error submitting your application. Please try again or email us directly at careers@bluwavgrowth.com');
   }
 }
