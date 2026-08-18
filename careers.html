@@ -55,16 +55,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 32px;d
 .hero-img-badge{position:absolute;bottom:24px;left:24px;right:24px;background:rgba(0,43,73,0.92);backdrop-filter:blur(12px);border-radius:14px;padding:16px 20px;display:flex;align-items:center;gap:14px;border:1px solid rgba(0,224,255,0.15);}
 
 /* ── ROLE CARDS ── */
-.role-card{background:#fff;border-radius:24px;box-shadow:0 8px 48px rgba(0,43,73,0.09);overflow:hidden;margin-bottom:32px;}
-.role-header{padding:36px 40px;position:relative;}
+.role-card{background:#fff;border-radius:20px;box-shadow:0 4px 24px rgba(0,43,73,0.08);overflow:hidden;margin-bottom:20px;}
+.role-header{padding:20px 28px;position:relative;}
 .role-header.sales{background:linear-gradient(135deg,#002B49,#003d5c);}
 .role-header.coord{background:linear-gradient(135deg,#1a0a00,#2d1200,#3d1a00);}
 .now-hiring{position:absolute;top:24px;right:32px;font-size:10px;font-weight:900;letter-spacing:3px;padding:6px 14px;border-radius:20px;}
-.role-body{padding:40px;}
-.section-label{font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:3px;color:var(--coral);display:block;margin-bottom:14px;margin-top:28px;}
+.role-body{padding:24px 28px;}
+.section-label{font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:3px;color:var(--coral);display:block;margin-bottom:8px;margin-top:18px;}
 .section-label:first-child{margin-top:0;}
 .req-list{list-style:none;padding:0;margin:0;}
-.req-list li{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #f1f5f9;font-size:15px;color:#374151;line-height:1.6;}
+.req-list li{display:flex;align-items:flex-start;gap:10px;padding:6px 0;border-bottom:1px solid #f1f5f9;font-size:14px;color:#374151;line-height:1.5;}
 .req-list li:last-child{border-bottom:none;}
 .req-list li::before{content:'✓';font-weight:900;font-size:14px;flex-shrink:0;margin-top:2px;}
 .req-list.coral li::before{color:#FF5500;}
@@ -72,31 +72,31 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 32px;d
 
 /* ── SPLIT ROLE LAYOUT ── */
 .role-split{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch;}
-.role-split-img{position:relative;min-height:400px;overflow:hidden;}
+.role-split-img{position:relative;min-height:280px;overflow:hidden;}
 .role-split-img img{width:100%;height:100%;object-fit:cover;object-position:center top;}
 .role-split-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(0,43,73,0.3) 0%,transparent 60%);}
 .role-split-content{padding:40px;}
 
 /* ── PROVIDE GRID ── */
-.provide-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:4px;}
-.provide-item{background:#F4F2ED;border-radius:12px;padding:14px 16px;display:flex;align-items:flex-start;gap:10px;}
+.provide-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px;}
+.provide-item{background:#F4F2ED;border-radius:10px;padding:10px 12px;display:flex;align-items:flex-start;gap:8px;}
 .provide-item.dark{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);}
 .provide-icon{font-size:18px;flex-shrink:0;}
 .provide-text{font-size:13px;font-weight:600;line-height:1.4;}
 
 /* ── COMP CARDS ── */
 .comp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:4px;}
-.comp-card{border-radius:14px;padding:22px 18px;text-align:center;}
+.comp-card{border-radius:12px;padding:14px 12px;text-align:center;}
 .comp-card.navy{background:linear-gradient(135deg,#002B49,#003d5c);border:1px solid rgba(0,224,255,0.1);}
 .comp-card.warm{background:linear-gradient(135deg,#1a0800,#2d1200);border:1px solid rgba(247,200,115,0.15);}
-.comp-icon{font-size:26px;margin-bottom:10px;}
+.comp-icon{font-size:20px;margin-bottom:6px;}
 .comp-title{font-size:13px;font-weight:800;color:#fff;margin-bottom:6px;}
 .comp-desc{font-size:12px;color:rgba(255,255,255,0.5);line-height:1.5;}
 
 /* ── BRANDS GRID ── */
 .brands-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:4px;}
-.brand-card{border-radius:14px;padding:24px 20px;text-align:center;border:1.5px solid;}
-.brand-icon{font-size:28px;margin-bottom:10px;}
+.brand-card{border-radius:12px;padding:14px 14px;text-align:center;border:1.5px solid;}
+.brand-icon{font-size:22px;margin-bottom:6px;}
 .brand-name{font-size:15px;font-weight:900;margin-bottom:6px;}
 .brand-desc{font-size:12px;line-height:1.6;}
 
@@ -144,9 +144,14 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
   .comp-grid{grid-template-columns:1fr!important;}
   .brands-grid{grid-template-columns:1fr!important;}
   .tier-cards{grid-template-columns:1fr 1fr!important;}
-  .role-body{padding:24px 20px!important;}
-  .role-header{padding:24px 20px!important;}
-  .wrap{padding:0 16px!important;}
+  .role-body{padding:16px 14px!important;}
+  .role-header{padding:16px 14px!important;}
+  .provide-grid{grid-template-columns:1fr!important;}
+  .comp-grid{grid-template-columns:1fr 1fr!important;}
+  .brands-grid{grid-template-columns:1fr 1fr!important;}
+  .section-label{margin-top:12px!important;}
+  .req-list li{font-size:13px!important;padding:5px 0!important;}
+  .wrap{padding:0 12px!important;}
 }
 @media(max-width:480px){.tier-cards{grid-template-columns:1fr!important;}}
 .wa-float{position:fixed;bottom:80px;right:24px;z-index:200;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 20px rgba(37,211,102,0.45);}
@@ -354,9 +359,9 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 </div>
 </section>
 <!-- ══ ROLE 1: SALES AGENT ════════════════════════════════════════════════ -->
-<section id="sales-agent" style="padding:72px 0 0;background:#F4F2ED;">
+<section id="sales-agent" style="padding:40px 0 0;background:#F4F2ED;">
 <div class="wrap">
-<div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;">
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
 <div style="width:48px;height:48px;border-radius:14px;background:var(--coral);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;">💼</div>
 <div>
 <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:var(--coral);">Open Position 01</div>
@@ -368,7 +373,7 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 <span class="now-hiring" style="background:var(--coral);color:#fff;">NOW HIRING</span>
 <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:rgba(0,224,255,0.7);margin-bottom:10px;">BluWav Growth</div>
 <!-- FIX 3: Inline apply button in role header -->
-<a href="mailto:careers@bluwavgrowth.com?subject=Sales%20Closer%20Application" onclick="setTimeout(function(){window.location='careers-apply.html?role=sales'},500)" onmouseout="this.style.transform='translateY(0)'" onmouseover="this.style.transform='translateY(-1px)'" style="margin-left:auto;display:inline-flex;align-items:center;gap:8px;background:#FF5500;color:#fff;font-size:13px;font-weight:800;padding:10px 22px;border-radius:9px;text-decoration:none;white-space:nowrap;box-shadow:0 4px 16px rgba(255,85,0,0.4);transition:all 0.2s;flex-shrink:0;">
+<a href="careers-form.html?role=sales">
           ✉️ Apply Now
         </a>
 </div>
@@ -383,7 +388,7 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 <li>Lead Management &amp; Follow-Up Automation</li>
 <li>Digital Visibility Solutions</li>
 </ul>
-<div style="border-top:1px solid #f1f5f9;margin:28px 0;"></div>
+<div style="border-top:1px solid #f1f5f9;margin:16px 0;"></div>
 <span class="section-label">Ideal Candidate</span>
 <ul class="req-list coral">
 <li>5+ years professional experience</li>
@@ -394,7 +399,7 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 <li>Able to work independently in a remote environment</li>
 </ul>
 <p style="font-size:13px;color:#94a3b8;font-style:italic;margin-top:8px;">Only serious, qualified applicants will be considered.</p>
-<div style="border-top:1px solid #f1f5f9;margin:28px 0;"></div>
+<div style="border-top:1px solid #f1f5f9;margin:16px 0;"></div>
 <span class="section-label">What We Provide</span>
 <div class="provide-grid">
 <div class="provide-item"><span class="provide-icon">📚</span><div class="provide-text" style="color:#374151;">Full onboarding and sales training</div></div>
@@ -405,7 +410,7 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 <div class="provide-item"><span class="provide-icon">📞</span><div class="provide-text" style="color:#374151;">Weekly support and coaching</div></div>
 <div class="provide-item"><span class="provide-icon">🌐</span><div class="provide-text" style="color:#374151;">Access to the full BluWav Growth and Qualia ecosystem</div></div>
 </div>
-<div style="border-top:1px solid #f1f5f9;margin:28px 0;"></div>
+<div style="border-top:1px solid #f1f5f9;margin:16px 0;"></div>
 <span class="section-label">Earnings Structure</span>
 <div class="comp-grid" style="grid-template-columns:repeat(3,1fr);">
 <div class="comp-card navy"><div class="comp-icon">💰</div><div class="comp-title">10% on Activation</div><div class="comp-desc">Commission on Activation / Onboarding Fees.</div></div>
@@ -419,7 +424,7 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 </div>
 <div style="background:var(--coral);color:#fff;font-size:13px;font-weight:800;padding:10px 22px;border-radius:10px;">No Cap on Earnings</div>
 </div>
-<div style="border-top:1px solid #f1f5f9;margin:28px 0;"></div>
+<div style="border-top:1px solid #f1f5f9;margin:16px 0;"></div>
 <span class="section-label">Why Join BluWav?</span>
 <p style="font-size:15px;color:#374151;line-height:1.75;margin-bottom:16px;">You'll help businesses implement complete Growth Systems rather than selling isolated services. You'll also gain exposure to a growing ecosystem that includes:</p>
 <div class="provide-grid">
@@ -440,7 +445,7 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 </section>
 <!-- ══ ROLE 2: DIGITAL MARKETING COORDINATOR ══════════════════════════════ -->
 <!-- FULL WIDTH TEAM BANNER, between roles -->
-<section style="position:relative;height:360px;overflow:hidden;">
+<section style="position:relative;height:220px;overflow:hidden;">
 <img alt="BluWav Growth team, professional environment" loading="lazy" src="team-careers-provide.jpg?expires=1789189260&amp;signature=5bb84358abe77a3d88bcae26889b0760d067fbeca1ea22b1120f4c090dad0496&amp;kid=prod-250922" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;"/>
 <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(244,242,237,0.3) 0%,rgba(0,43,73,0.75) 100%);"></div>
 <div style="position:absolute;bottom:0;left:0;right:0;padding:32px 48px;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px;">
@@ -454,9 +459,9 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 </a>
 </div>
 </section>
-<section id="coordinator" style="padding:60px 0 0;background:#F4F2ED;">
+<section id="coordinator" style="padding:32px 0 0;background:#F4F2ED;">
 <div class="wrap">
-<div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;">
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
 <div style="width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,#C49A00,#F7C873);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;">📱</div>
 <div>
 <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:#C49A00;">Open Position 02</div>
@@ -511,7 +516,7 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 <div class="brand-desc" style="color:#64748b;">Installs the governance, workflows, and operating rhythms organisations need — so decisions are clearer, teams stay aligned, and execution becomes consistent.</div>
 </div>
 </div>
-<div style="border-top:1px solid #f1f5f9;margin:28px 0;"></div>
+<div style="border-top:1px solid #f1f5f9;margin:16px 0;"></div>
 <!-- Responsibilities -->
 <span class="section-label">Key Responsibilities</span>
 <ul class="req-list gold">
@@ -524,7 +529,7 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 <li>Support content creation for Qualia, BluWav Growth, Credii, and RIVVA</li>
 <li>Use AI tools to support content creation, research, campaign development, and marketing workflows</li>
 </ul>
-<div style="border-top:1px solid #f1f5f9;margin:28px 0;"></div>
+<div style="border-top:1px solid #f1f5f9;margin:16px 0;"></div>
 <!-- Requirements -->
 <span class="section-label">Requirements</span>
 <ul class="req-list gold">
@@ -536,7 +541,7 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 <li>Highly organised and able to manage multiple brands simultaneously</li>
 <li>Self-motivated and capable of working independently</li>
 </ul>
-<div style="border-top:1px solid #f1f5f9;margin:28px 0;"></div>
+<div style="border-top:1px solid #f1f5f9;margin:16px 0;"></div>
 <!-- Nice to Have -->
 <span class="section-label">Nice to Have</span>
 <ul class="req-list gold">
@@ -545,7 +550,7 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 <li>Understanding of SEO and digital growth strategies</li>
 <li>Experience working with small businesses, startups, consultants, or professional service firms</li>
 </ul>
-<div style="border-top:1px solid #f1f5f9;margin:28px 0;"></div>
+<div style="border-top:1px solid #f1f5f9;margin:16px 0;"></div>
 <!-- What we offer -->
 <span class="section-label">What We Offer</span>
 <div class="provide-grid">
@@ -555,7 +560,7 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 <div class="provide-item"><span class="provide-icon">💡</span><div class="provide-text" style="color:#374151;">Exposure to technology, business growth, workforce development, and marketplace brands</div></div>
 <div class="provide-item"><span class="provide-icon">📈</span><div class="provide-text" style="color:#374151;">Growth opportunities as the ecosystem expands</div></div>
 </div>
-<div style="border-top:1px solid #f1f5f9;margin:28px 0;"></div>
+<div style="border-top:1px solid #f1f5f9;margin:16px 0;"></div>
 <!-- Compensation -->
 <span class="section-label">Compensation</span>
 <div class="comp-grid">
@@ -564,7 +569,7 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 <div class="comp-card warm"><div class="comp-icon">📈</div><div class="comp-title">Growth Path</div><div class="comp-desc">Opportunity to grow into a full-time role as the group expands.</div></div>
 </div>
 <div style="margin-top:24px;text-align:center;">
-<a href="mailto:careers@bluwavgrowth.com?subject=Growth%20%26%20Ecosystem%20Marketing%20Coordinator%20Application" onclick="setTimeout(function(){window.location='careers-apply.html?role=marketing'},500)" onmouseout="this.style.transform='translateY(0)'" onmouseover="this.style.transform='translateY(-2px)'" style="display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#C49A00,#e6b84a);color:#fff;font-size:15px;font-weight:800;padding:16px 36px;border-radius:12px;box-shadow:0 4px 24px rgba(196,154,0,0.35);transition:all 0.2s;">
+<a href="careers-form.html?role=marketing">
           ✉️ Apply for Marketing Coordinator, <span class="__cf_email__" data-cfemail="fa999b889f9f8889ba98968f8d9b8c9d88958d8e92d4999597">[email protected]</span>
 </a>
 <p style="font-size:12px;color:#94a3b8;margin-top:10px;">Subject line: <strong>Growth &amp; Ecosystem Marketing Coordinator Application</strong>. Please include your résumé and links to any social media accounts or content you've managed.</p>
@@ -574,7 +579,7 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 </div>
 </section>
 <!-- ══ PARTNER TIERS ══════════════════════════════════════════════════════ -->
-<section style="background:#F4F2ED;padding:72px 0 0;">
+<section style="background:#F4F2ED;padding:40px 0 0;">
 <div class="wrap">
 <div style="text-align:center;margin-bottom:40px;">
 <span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:#FF5500;display:block;margin-bottom:12px;">Grow With Us</span>
@@ -621,7 +626,7 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 <li style="color:#374151;">Bonuses available</li>
 </ul>
 <p style="font-size:11px;color:#64748b;font-style:italic;margin-bottom:12px;">Ideal for experienced closers and business development professionals.</p>
-<a class="tier-cta" href="mailto:careers@bluwavgrowth.com?subject=Sales%20Closer%20Application" onclick="setTimeout(function(){window.location='careers-apply.html?role=sales'},500)" style="background:#FF5500;color:#fff;border:1.5px solid #FF5500;">Apply Now →</a>
+<a class="tier-cta" href="careers-form.html?role=sales">Apply Now →</a>
 </div>
 <!-- Tier 4 -->
 <div class="tier-card t4">
@@ -668,7 +673,7 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 </div>
 </section>
 <!-- ══ FINAL APPLY CTA ════════════════════════════════════════════════════ -->
-<section style="padding:60px 48px 80px;background:#F4F2ED;">
+<section style="padding:32px 24px 48px;background:#F4F2ED;">
 <div style="max-width:var(--max);margin:0 auto;">
 <div style="background:linear-gradient(135deg,#002B49,#003d5c);border-radius:24px;padding:52px 48px;text-align:center;position:relative;overflow:hidden;">
 <div style="position:absolute;top:-60px;right:-60px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(0,224,255,0.06) 0%,transparent 70%);pointer-events:none;"></div>
@@ -681,10 +686,10 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 <p style="font-size:15px;color:rgba(255,255,255,0.5);margin-bottom:28px;position:relative;z-index:1;">Qualified leads, training, tools, and support provided.</p>
 <p style="font-size:13px;font-weight:700;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:2px;margin-bottom:16px;position:relative;z-index:1;">Current Openings</p>
 <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1;">
-<a href="mailto:careers@bluwavgrowth.com?subject=Sales%20Closer%20Application" onclick="setTimeout(function(){window.location='careers-apply.html?role=sales'},500)" onmouseout="this.style.transform='translateY(0)'" onmouseover="this.style.transform='translateY(-2px)'" style="display:inline-flex;align-items:center;gap:8px;background:var(--coral);color:#fff;font-size:15px;font-weight:800;padding:16px 32px;border-radius:12px;box-shadow:0 4px 20px rgba(255,85,0,0.4);transition:all 0.2s;">
+<a href="careers-form.html?role=sales">
         💼 Apply, Sales Closer / Growth Advisor
       </a>
-<a href="mailto:careers@bluwavgrowth.com?subject=Growth%20%26%20Ecosystem%20Marketing%20Coordinator%20Application" onclick="setTimeout(function(){window.location='careers-apply.html?role=marketing'},500)" onmouseout="this.style.transform='translateY(0)'" onmouseover="this.style.transform='translateY(-2px)'" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#C49A00,#e6b84a);color:#fff;font-size:15px;font-weight:800;padding:16px 32px;border-radius:12px;box-shadow:0 4px 20px rgba(196,154,0,0.35);transition:all 0.2s;">
+<a href="careers-form.html?role=marketing">
         📱 Apply, Marketing Coordinator
       </a>
 </div>
