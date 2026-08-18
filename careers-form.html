@@ -10,6 +10,15 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Kaushan+Script&amp;display=swap" rel="stylesheet"/>
+<!-- EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  // SETUP: Replace these 3 values with your EmailJS credentials
+  var EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';
+  var EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';
+  var EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
+  emailjs.init(EMAILJS_PUBLIC_KEY);
+</script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
@@ -46,7 +55,7 @@ main{flex:1;padding:100px 16px 60px;display:flex;align-items:flex-start;justify-
 .form-card{background:#fff;border-radius:20px;padding:28px;box-shadow:0 4px 24px rgba(0,43,73,0.08);margin-bottom:16px;}
 .field{margin-bottom:18px;}
 .field label{display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:5px;}
-.field label .req{color:var(--coral);margin-left:2px;}
+.req{color:var(--coral);margin-left:2px;}
 .field input,.field select,.field textarea{width:100%;background:#F8FAFC;border:1.5px solid #e2e8f0;border-radius:10px;padding:10px 13px;font-size:14px;font-family:'Plus Jakarta Sans',sans-serif;color:#1E1E1E;outline:none;transition:border-color .2s,box-shadow .2s;}
 .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--navy);box-shadow:0 0 0 3px rgba(0,43,73,0.08);}
 .field textarea{resize:vertical;min-height:90px;line-height:1.6;}
@@ -84,7 +93,7 @@ main{flex:1;padding:100px 16px 60px;display:flex;align-items:flex-start;justify-
   .form-header h1{font-size:20px;}
   .step-label{display:none;}
   .btn-row{flex-direction:column-reverse;}
-  .btn-back,.btn-next,.btn-submit{width:100%;text-align:center;justify-content:center;}
+  .btn-back,.btn-next,.btn-submit{width:100%;text-align:center;}
 }
 </style>
 </head>
@@ -116,86 +125,28 @@ main{flex:1;padding:100px 16px 60px;display:flex;align-items:flex-start;justify-
 <div class="step"><div class="step-dot pending" id="dot5">5</div><span class="step-label" id="lbl5">Review</span></div>
 </div>
 <div class="form-card" id="formCard">
-<!-- Step 1: Personal Info -->
+<!-- Step 1 -->
 <div id="step1">
-<div class="field">
-<label>Full Name <span class="req">*</span></label>
-<input id="f_name" placeholder="e.g. Andrea Tanguay" type="text"/>
-<div class="field-error" id="err_name">Please enter your full name.</div>
+<div class="field"><label>Full Name <span class="req">*</span></label><input id="f_name" placeholder="e.g. Andrea Tanguay" type="text"/><div class="field-error" id="err_name">Please enter your full name.</div></div>
+<div class="field"><label>Email Address <span class="req">*</span></label><input id="f_email" placeholder="you@example.com" type="email"/><div class="field-error" id="err_email">Please enter a valid email address.</div></div>
+<div class="field"><label>Phone Number <span class="req">*</span></label><input id="f_phone" placeholder="+1 868 000 0000" type="tel"/><div class="field-error" id="err_phone">Please enter your phone number.</div></div>
+<div class="field"><label>Location (City, Country) <span class="req">*</span></label><input id="f_location" placeholder="e.g. Port of Spain, Trinidad" type="text"/><div class="field-error" id="err_location">Please enter your location.</div></div>
+<div class="btn-row"><span></span><button class="btn-next" onclick="nextStep(1)">Next — Experience →</button></div>
 </div>
-<div class="field">
-<label>Email Address <span class="req">*</span></label>
-<input id="f_email" placeholder="you@example.com" type="email"/>
-<div class="field-error" id="err_email">Please enter a valid email address.</div>
-</div>
-<div class="field">
-<label>Phone Number <span class="req">*</span></label>
-<input id="f_phone" placeholder="+1 868 000 0000" type="tel"/>
-<div class="field-error" id="err_phone">Please enter your phone number.</div>
-</div>
-<div class="field">
-<label>Location (City, Country) <span class="req">*</span></label>
-<input id="f_location" placeholder="e.g. Port of Spain, Trinidad" type="text"/>
-<div class="field-error" id="err_location">Please enter your location.</div>
-</div>
-<div class="btn-row">
-<span></span>
-<button class="btn-next" onclick="nextStep(1)">Next — Experience →</button>
-</div>
-</div>
-<!-- Step 2: Experience -->
+<!-- Step 2 -->
 <div id="step2" style="display:none;">
-<div class="field">
-<label>Years of relevant experience <span class="req">*</span></label>
-<select id="f_experience">
-<option value="">Select...</option>
-<option>Less than 1 year</option>
-<option>1–2 years</option>
-<option>3–5 years</option>
-<option>5–10 years</option>
-<option>10+ years</option>
-</select>
-<div class="field-error" id="err_experience">Please select your experience level.</div>
+<div class="field"><label>Years of relevant experience <span class="req">*</span></label><select id="f_experience"><option value="">Select...</option><option>Less than 1 year</option><option>1–2 years</option><option>3–5 years</option><option>5–10 years</option><option>10+ years</option></select><div class="field-error" id="err_experience">Please select your experience level.</div></div>
+<div class="field"><label>Current or most recent role <span class="req">*</span></label><input id="f_current_role" placeholder="e.g. Sales Manager at XYZ Ltd" type="text"/><div class="field-error" id="err_current_role">Please enter your current or most recent role.</div></div>
+<div class="field"><label>Relevant skills or tools you use <span class="req">*</span></label><textarea id="f_skills" placeholder="e.g. CRM platforms, Canva, social media scheduling, cold outreach, closing..."></textarea><div class="field-error" id="err_skills">Please describe your relevant skills.</div></div>
+<div class="btn-row"><button class="btn-back" onclick="prevStep(2)">← Back</button><button class="btn-next" onclick="nextStep(2)">Next — Why BluWav? →</button></div>
 </div>
-<div class="field">
-<label>Current or most recent role <span class="req">*</span></label>
-<input id="f_current_role" placeholder="e.g. Sales Manager at XYZ Ltd" type="text"/>
-<div class="field-error" id="err_current_role">Please enter your current or most recent role.</div>
-</div>
-<div class="field">
-<label>Relevant skills or tools you use <span class="req">*</span></label>
-<textarea id="f_skills" placeholder="e.g. CRM platforms, Canva, social media scheduling, cold outreach, closing..."></textarea>
-<div class="field-error" id="err_skills">Please describe your relevant skills.</div>
-</div>
-<div class="btn-row">
-<button class="btn-back" onclick="prevStep(2)">← Back</button>
-<button class="btn-next" onclick="nextStep(2)">Next — Why BluWav? →</button>
-</div>
-</div>
-<!-- Step 3: Fit -->
+<!-- Step 3 -->
 <div id="step3" style="display:none;">
-<div class="field">
-<label>Why do you want to join BluWav Growth? <span class="req">*</span></label>
-<textarea id="f_why" placeholder="Tell us what excites you about this role and the BluWav ecosystem..." style="min-height:110px;"></textarea>
-<div class="field-error" id="err_why">Please tell us why you want to join.</div>
+<div class="field"><label>Why do you want to join BluWav Growth? <span class="req">*</span></label><textarea id="f_why" placeholder="Tell us what excites you about this role and the BluWav ecosystem..." style="min-height:110px;"></textarea><div class="field-error" id="err_why">Please tell us why you want to join.</div></div>
+<div class="field"><label>What's your availability? <span class="req">*</span></label><select id="f_availability"><option value="">Select...</option><option>Available immediately</option><option>Within 2 weeks</option><option>Within 1 month</option><option>More than 1 month</option></select><div class="field-error" id="err_availability">Please select your availability.</div></div>
+<div class="btn-row"><button class="btn-back" onclick="prevStep(3)">← Back</button><button class="btn-next" onclick="nextStep(3)">Next — Resume →</button></div>
 </div>
-<div class="field">
-<label>What's your availability? <span class="req">*</span></label>
-<select id="f_availability">
-<option value="">Select...</option>
-<option>Available immediately</option>
-<option>Within 2 weeks</option>
-<option>Within 1 month</option>
-<option>More than 1 month</option>
-</select>
-<div class="field-error" id="err_availability">Please select your availability.</div>
-</div>
-<div class="btn-row">
-<button class="btn-back" onclick="prevStep(3)">← Back</button>
-<button class="btn-next" onclick="nextStep(3)">Next — Resume →</button>
-</div>
-</div>
-<!-- Step 4: Resume -->
+<!-- Step 4 -->
 <div id="step4" style="display:none;">
 <div class="field">
 <label>Resume / CV <span style="font-size:11px;color:#94a3b8;font-weight:500;">(optional — PDF, DOC, DOCX · max 5MB)</span></label>
@@ -208,16 +159,10 @@ main{flex:1;padding:100px 16px 60px;display:flex;align-items:flex-start;justify-
 </div>
 <p class="field-hint">No resume? No problem — you can still apply and we'll assess your application based on your answers.</p>
 </div>
-<div class="field">
-<label>LinkedIn or Portfolio URL <span style="font-size:11px;color:#94a3b8;font-weight:500;">(optional)</span></label>
-<input id="f_linkedin" placeholder="https://linkedin.com/in/yourname" type="url"/>
+<div class="field"><label>LinkedIn or Portfolio URL <span style="font-size:11px;color:#94a3b8;font-weight:500;">(optional)</span></label><input id="f_linkedin" placeholder="https://linkedin.com/in/yourname" type="url"/></div>
+<div class="btn-row"><button class="btn-back" onclick="prevStep(4)">← Back</button><button class="btn-next" onclick="nextStep(4)">Next — Review →</button></div>
 </div>
-<div class="btn-row">
-<button class="btn-back" onclick="prevStep(4)">← Back</button>
-<button class="btn-next" onclick="nextStep(4)">Next — Review →</button>
-</div>
-</div>
-<!-- Step 5: Review & Submit -->
+<!-- Step 5 -->
 <div id="step5" style="display:none;">
 <div style="background:#F4F2ED;border-radius:14px;padding:16px 18px;margin-bottom:18px;">
 <div style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--coral);margin-bottom:10px;">Review Your Application</div>
@@ -230,10 +175,7 @@ main{flex:1;padding:100px 16px 60px;display:flex;align-items:flex-start;justify-
 </label>
 <div class="field-error" id="err_consent">Please confirm your consent to proceed.</div>
 </div>
-<div class="btn-row">
-<button class="btn-back" onclick="prevStep(5)">← Back</button>
-<button class="btn-submit" id="submitBtn" onclick="submitForm()">✉️ Submit Application</button>
-</div>
+<div class="btn-row"><button class="btn-back" onclick="prevStep(5)">← Back</button><button class="btn-submit" id="submitBtn" onclick="submitForm()">✉️ Submit Application</button></div>
 </div>
 </div>
 <!-- SUCCESS -->
@@ -256,11 +198,7 @@ main{flex:1;padding:100px 16px 60px;display:flex;align-items:flex-start;justify-
 <script>
 const params = new URLSearchParams(window.location.search);
 const role = params.get('role') || 'general';
-const roleMap = {
-  sales: 'Sales Closer / Growth Advisor',
-  marketing: 'Growth & Ecosystem Marketing Coordinator',
-  general: 'Open Application'
-};
+const roleMap = { sales:'Sales Closer / Growth Advisor', marketing:'Growth & Ecosystem Marketing Coordinator', general:'Open Application' };
 const roleName = roleMap[role] || roleMap.general;
 document.getElementById('rolePill').textContent = roleName;
 document.getElementById('formTitle').textContent = 'Apply — ' + roleName;
@@ -269,201 +207,92 @@ let currentStep = 1;
 const totalSteps = 5;
 
 function updateProgress(step) {
-  document.getElementById('progressFill').style.width = (step / totalSteps * 100) + '%';
-  for (let i = 1; i <= totalSteps; i++) {
-    const dot = document.getElementById('dot' + i);
-    const lbl = document.getElementById('lbl' + i);
-    if (i < step) {
-      dot.className = 'step-dot done'; dot.textContent = '✓';
-      lbl.className = 'step-label done';
-    } else if (i === step) {
-      dot.className = 'step-dot active'; dot.textContent = i;
-      lbl.className = 'step-label active';
-    } else {
-      dot.className = 'step-dot pending'; dot.textContent = i;
-      lbl.className = 'step-label';
-    }
-    if (i < totalSteps) {
-      document.getElementById('line' + i).className = 'step-line' + (i < step ? ' done' : '');
-    }
+  document.getElementById('progressFill').style.width = (step/totalSteps*100)+'%';
+  for(let i=1;i<=totalSteps;i++){
+    const dot=document.getElementById('dot'+i), lbl=document.getElementById('lbl'+i);
+    if(i<step){dot.className='step-dot done';dot.textContent='✓';lbl.className='step-label done';}
+    else if(i===step){dot.className='step-dot active';dot.textContent=i;lbl.className='step-label active';}
+    else{dot.className='step-dot pending';dot.textContent=i;lbl.className='step-label';}
+    if(i<totalSteps) document.getElementById('line'+i).className='step-line'+(i<step?' done':'');
   }
 }
 
-function showStep(step) {
-  for (let i = 1; i <= totalSteps; i++) {
-    document.getElementById('step' + i).style.display = i === step ? 'block' : 'none';
-  }
+function showStep(step){
+  for(let i=1;i<=totalSteps;i++) document.getElementById('step'+i).style.display=i===step?'block':'none';
   updateProgress(step);
-  window.scrollTo({top: 0, behavior: 'smooth'});
+  window.scrollTo({top:0,behavior:'smooth'});
 }
 
-function validateStep(step) {
-  let valid = true;
-  const checks = {
-    1: [
-      {id:'f_name', err:'err_name', test: v => v.trim().length > 1},
-      {id:'f_email', err:'err_email', test: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)},
-      {id:'f_phone', err:'err_phone', test: v => v.trim().length > 5},
-      {id:'f_location', err:'err_location', test: v => v.trim().length > 2},
-    ],
-    2: [
-      {id:'f_experience', err:'err_experience', test: v => v !== ''},
-      {id:'f_current_role', err:'err_current_role', test: v => v.trim().length > 2},
-      {id:'f_skills', err:'err_skills', test: v => v.trim().length > 10},
-    ],
-    3: [
-      {id:'f_why', err:'err_why', test: v => v.trim().length > 20},
-      {id:'f_availability', err:'err_availability', test: v => v !== ''},
-    ],
-    5: [
-      {id:'f_consent', err:'err_consent', test: () => document.getElementById('f_consent').checked},
-    ]
+function validateStep(step){
+  let valid=true;
+  const checks={
+    1:[{id:'f_name',err:'err_name',test:v=>v.trim().length>1},{id:'f_email',err:'err_email',test:v=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)},{id:'f_phone',err:'err_phone',test:v=>v.trim().length>5},{id:'f_location',err:'err_location',test:v=>v.trim().length>2}],
+    2:[{id:'f_experience',err:'err_experience',test:v=>v!==''},{id:'f_current_role',err:'err_current_role',test:v=>v.trim().length>2},{id:'f_skills',err:'err_skills',test:v=>v.trim().length>10}],
+    3:[{id:'f_why',err:'err_why',test:v=>v.trim().length>20},{id:'f_availability',err:'err_availability',test:v=>v!==''}],
+    5:[{id:'f_consent',err:'err_consent',test:()=>document.getElementById('f_consent').checked}]
   };
-  (checks[step] || []).forEach(({id, err, test}) => {
-    const el = document.getElementById(id);
-    const errEl = document.getElementById(err);
-    const val = el ? el.value : '';
-    if (!test(val)) {
-      if (el) el.classList.add('error');
-      if (errEl) errEl.style.display = 'block';
-      valid = false;
-    } else {
-      if (el) el.classList.remove('error');
-      if (errEl) errEl.style.display = 'none';
-    }
+  (checks[step]||[]).forEach(({id,err,test})=>{
+    const el=document.getElementById(id), errEl=document.getElementById(err), val=el?el.value:'';
+    if(!test(val)){if(el)el.classList.add('error');if(errEl)errEl.style.display='block';valid=false;}
+    else{if(el)el.classList.remove('error');if(errEl)errEl.style.display='none';}
   });
   return valid;
 }
 
-function nextStep(from) {
-  if (!validateStep(from)) return;
-  if (from === 4) buildReview();
-  currentStep = from + 1;
-  showStep(currentStep);
+function nextStep(from){if(!validateStep(from))return;if(from===4)buildReview();currentStep=from+1;showStep(currentStep);}
+function prevStep(from){currentStep=from-1;showStep(currentStep);}
+
+function buildReview(){
+  const rows=[['Role',roleName],['Name',document.getElementById('f_name').value],['Email',document.getElementById('f_email').value],['Phone',document.getElementById('f_phone').value],['Location',document.getElementById('f_location').value],['Experience',document.getElementById('f_experience').value],['Current Role',document.getElementById('f_current_role').value],['Skills',document.getElementById('f_skills').value],['Why BluWav',document.getElementById('f_why').value],['Availability',document.getElementById('f_availability').value],['LinkedIn/Portfolio',document.getElementById('f_linkedin').value||'—'],['Resume',document.getElementById('fileName').textContent||'Not attached']];
+  document.getElementById('reviewContent').innerHTML=rows.map(([k,v])=>`<div style="display:flex;gap:8px;padding:3px 0;border-bottom:1px solid rgba(0,43,73,0.06);"><span style="font-weight:700;color:var(--navy);min-width:120px;flex-shrink:0;">${k}:</span><span style="color:#374151;">${v}</span></div>`).join('');
 }
 
-function prevStep(from) {
-  currentStep = from - 1;
-  showStep(currentStep);
-}
-
-function buildReview() {
-  const rows = [
-    ['Role', roleName],
-    ['Name', document.getElementById('f_name').value],
-    ['Email', document.getElementById('f_email').value],
-    ['Phone', document.getElementById('f_phone').value],
-    ['Location', document.getElementById('f_location').value],
-    ['Experience', document.getElementById('f_experience').value],
-    ['Current Role', document.getElementById('f_current_role').value],
-    ['Skills', document.getElementById('f_skills').value],
-    ['Why BluWav', document.getElementById('f_why').value],
-    ['Availability', document.getElementById('f_availability').value],
-    ['LinkedIn/Portfolio', document.getElementById('f_linkedin').value || '—'],
-    ['Resume', document.getElementById('fileName').textContent || 'Not attached'],
-  ];
-  document.getElementById('reviewContent').innerHTML = rows.map(([k,v]) =>
-    `<div style="display:flex;gap:8px;padding:3px 0;border-bottom:1px solid rgba(0,43,73,0.06);">
-      <span style="font-weight:700;color:var(--navy);min-width:120px;flex-shrink:0;">${k}:</span>
-      <span style="color:#374151;">${v}</span>
-    </div>`
-  ).join('');
-}
-
-document.getElementById('f_resume').addEventListener('change', function() {
-  const file = this.files[0];
-  const nameEl = document.getElementById('fileName');
-  if (file) {
-    if (file.size > 5 * 1024 * 1024) {
-      alert('File too large. Please upload under 5MB.');
-      this.value = '';
-      nameEl.style.display = 'none';
-      return;
-    }
-    nameEl.textContent = '📎 ' + file.name;
-    nameEl.style.display = 'block';
-  }
+document.getElementById('f_resume').addEventListener('change',function(){
+  const file=this.files[0], nameEl=document.getElementById('fileName');
+  if(file){if(file.size>5*1024*1024){alert('File too large. Please upload under 5MB.');this.value='';nameEl.style.display='none';return;}nameEl.textContent='📎 '+file.name;nameEl.style.display='block';}
 });
 
-const drop = document.getElementById('fileDrop');
-drop.addEventListener('dragover', e => { e.preventDefault(); drop.classList.add('dragover'); });
-drop.addEventListener('dragleave', () => drop.classList.remove('dragover'));
-drop.addEventListener('drop', e => {
-  e.preventDefault();
-  drop.classList.remove('dragover');
-  const file = e.dataTransfer.files[0];
-  if (file) {
-    document.getElementById('f_resume').files = e.dataTransfer.files;
-    document.getElementById('fileName').textContent = '📎 ' + file.name;
-    document.getElementById('fileName').style.display = 'block';
-  }
-});
+const drop=document.getElementById('fileDrop');
+drop.addEventListener('dragover',e=>{e.preventDefault();drop.classList.add('dragover');});
+drop.addEventListener('dragleave',()=>drop.classList.remove('dragover'));
+drop.addEventListener('drop',e=>{e.preventDefault();drop.classList.remove('dragover');const file=e.dataTransfer.files[0];if(file){document.getElementById('f_resume').files=e.dataTransfer.files;document.getElementById('fileName').textContent='📎 '+file.name;document.getElementById('fileName').style.display='block';}});
 
-async function submitForm() {
-  if (!validateStep(5)) return;
-  const btn = document.getElementById('submitBtn');
-  btn.disabled = true;
-  btn.textContent = 'Submitting...';
-
-  const name = document.getElementById('f_name').value;
-  const email = document.getElementById('f_email').value;
-  const resumeFile = document.getElementById('f_resume').files[0];
-
-  const fd = new FormData();
-  fd.append('_subject', roleName + ' Application — ' + name);
-  fd.append('_replyto', email);
-  fd.append('_template', 'table');
-  fd.append('Role', roleName);
-  fd.append('Name', name);
-  fd.append('Email', email);
-  fd.append('Phone', document.getElementById('f_phone').value);
-  fd.append('Location', document.getElementById('f_location').value);
-  fd.append('Experience', document.getElementById('f_experience').value);
-  fd.append('Current Role', document.getElementById('f_current_role').value);
-  fd.append('Skills', document.getElementById('f_skills').value);
-  fd.append('Why BluWav', document.getElementById('f_why').value);
-  fd.append('Availability', document.getElementById('f_availability').value);
-  fd.append('LinkedIn/Portfolio', document.getElementById('f_linkedin').value || '—');
-  if (resumeFile) fd.append('Resume', resumeFile);
-  fd.append('_autoresponse',
-    'Hi ' + name + ',\n\n' +
-    'Thank you for applying for the ' + roleName + ' position at BluWav Growth.\n\n' +
-    'Your application has been received and our team will review it carefully.\n\n' +
-    'Should your experience and background align with what we\'re looking for, we will reach out to you directly to discuss next steps.\n\n' +
-    'Due to the volume of applications we receive, we are only able to contact candidates whose qualifications match our current requirements. We aim to review all applications within 5–7 business days.\n\n' +
-    'Thank you again for your interest in BluWav Growth.\n\n' +
-    '— The BluWav Growth Team\n' +
-    'careers@bluwavgrowth.com | bluwavgrowth.com'
-  );
-
-  try {
-    const res = await fetch('https://formspree.io/f/xpwzgkqb', {
-      method: 'POST',
-      body: fd,
-      headers: { 'Accept': 'application/json' }
-    });
-    if (res.ok) {
-      showSuccess(name, email);
-    } else {
-      const data = await res.json();
-      throw new Error(data.error || 'Submission failed');
-    }
-  } catch (err) {
-    btn.disabled = false;
-    btn.textContent = '✉️ Submit Application';
+async function submitForm(){
+  if(!validateStep(5))return;
+  const btn=document.getElementById('submitBtn');
+  btn.disabled=true; btn.textContent='Submitting...';
+  const name=document.getElementById('f_name').value, email=document.getElementById('f_email').value;
+  const templateParams={
+    role:roleName, from_name:name, from_email:email, reply_to:email,
+    phone:document.getElementById('f_phone').value,
+    location:document.getElementById('f_location').value,
+    experience:document.getElementById('f_experience').value,
+    current_role:document.getElementById('f_current_role').value,
+    skills:document.getElementById('f_skills').value,
+    why_bluwav:document.getElementById('f_why').value,
+    availability:document.getElementById('f_availability').value,
+    linkedin:document.getElementById('f_linkedin').value||'—',
+    resume_note:document.getElementById('fileName').textContent||'Not attached'
+  };
+  try{
+    await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams, EMAILJS_PUBLIC_KEY);
+    showSuccess(name, email);
+  }catch(err){
+    console.error('EmailJS error:',err);
+    btn.disabled=false; btn.textContent='✉️ Submit Application';
     alert('There was an error submitting your application. Please try again or email us directly at careers@bluwavgrowth.com');
   }
 }
 
-function showSuccess(name, email) {
-  document.getElementById('formCard').style.display = 'none';
-  document.getElementById('progressFill').parentElement.style.display = 'none';
-  document.querySelector('.step-bar').style.display = 'none';
-  document.getElementById('successCard').style.display = 'block';
-  document.getElementById('successName').textContent = name.split(' ')[0];
-  document.getElementById('successRole').textContent = roleName;
-  document.getElementById('successEmail').textContent = email;
-  window.scrollTo({top: 0, behavior: 'smooth'});
+function showSuccess(name,email){
+  document.getElementById('formCard').style.display='none';
+  document.getElementById('progressFill').parentElement.style.display='none';
+  document.querySelector('.step-bar').style.display='none';
+  document.getElementById('successCard').style.display='block';
+  document.getElementById('successName').textContent=name.split(' ')[0];
+  document.getElementById('successRole').textContent=roleName;
+  document.getElementById('successEmail').textContent=email;
+  window.scrollTo({top:0,behavior:'smooth'});
 }
 </script>
 </body>
