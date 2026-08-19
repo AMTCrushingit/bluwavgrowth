@@ -966,6 +966,14 @@ document.addEventListener('click',function(e){var nav=document.getElementById('m
 </script>
 
 <script>
+// ── Auto-open from URL param ──
+(function(){
+  var p = new URLSearchParams(window.location.search).get('open');
+  if(p === 'sales' || p === 'marketing'){
+    setTimeout(function(){ openJob(p); }, 400);
+  }
+})();
+
 // ── Scroll reveal ──
 (function(){
   var els = document.querySelectorAll('.bw-reveal');
