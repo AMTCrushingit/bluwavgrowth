@@ -419,7 +419,7 @@ async function submitForm(){
         await sbClient.from('applications').insert({
           role: roleName, name, email, phone,
           location: loc, experience: exp,
-          current_role: curRole, skills, why_bluwav: why,
+          applicant_role: curRole, skills, why_bluwav: why,
           availability: avail, linkedin,
           resume_name: resumeName !== 'Not attached' ? resumeName : null,
           casl_consent: casl, status: 'New'
