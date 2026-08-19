@@ -154,8 +154,7 @@ footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
   .wrap{padding:0 12px!important;}
 }
 @media(max-width:480px){.tier-cards{grid-template-columns:1fr!important;}}
-@media(max-width:900px){.roles-grid{grid-template-columns:1fr!important;}.jobs-grid{grid-template-columns:1fr!important;gap:0!important;}}
-@media(max-width:768px){.cta-grid{grid-template-columns:1fr!important;gap:32px!important;} section[style*="padding:64px"]{padding:48px 0!important;} section[style*="padding:64px"] .wrap,[style*="padding:0 48px"]{padding:0 20px!important;}}
+@media(max-width:900px){.roles-grid{grid-template-columns:1fr!important;}}
 .wa-float{position:fixed;bottom:80px;right:24px;z-index:200;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 20px rgba(37,211,102,0.45);}
 
 /* Footer, full width like AADEK */
@@ -284,29 +283,21 @@ img{max-width:100%;height:auto;}
 .bw-mob-cta{background:linear-gradient(135deg,#ff6535,#ff6535);color:#fff;font-weight:800;padding:16px 24px;text-align:center;margin:14px 20px 4px;font-size:16px;display:block;border-radius:12px;text-decoration:none;box-shadow:0 4px 20px rgba(255,101,53,0.4);}
 @media(max-width:1024px){.bw-nav-links{display:none!important;}.bw-hamburger{display:flex!important;}}
 
-/* ── JOB ACCORDION ── */
-.jobs-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 48px;}
-.job-card{border-bottom:1px solid rgba(0,43,73,0.08);overflow:hidden;transition:all 0.3s;}
-.job-card:last-child{border-bottom:none;}
-.job-header{display:flex;align-items:center;justify-content:space-between;padding:22px 0;cursor:pointer;gap:16px;user-select:none;position:relative;}
-.job-header::before{content:'';position:absolute;left:-20px;top:50%;transform:translateY(-50%) scaleY(0);width:3px;height:60%;background:var(--coral);border-radius:2px;transition:transform 0.3s cubic-bezier(0.22,1,0.36,1);}
-.job-card.open .job-header::before{transform:translateY(-50%) scaleY(1);}
-.job-title-wrap{flex:1;}
-.job-meta{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#94a3b8;margin-bottom:5px;}
-.job-title{font-family:'Manrope',sans-serif;font-size:20px;font-weight:900;color:#002B49;line-height:1.2;transition:color 0.2s;}
-.job-card.open .job-title,.job-header:hover .job-title{color:var(--coral);}
-.job-toggle{width:32px;height:32px;border-radius:50%;border:1.5px solid rgba(0,43,73,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.3s;color:#94a3b8;font-size:14px;}
-.job-card.open .job-toggle{background:var(--coral);border-color:var(--coral);color:#fff;transform:rotate(45deg);}
-.job-body{max-height:0;overflow:hidden;transition:max-height 0.55s cubic-bezier(0.22,1,0.36,1);}
-.job-body.open{max-height:4000px;}
-.job-body-inner{padding:0 0 28px 0;}
-.apply-btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:800;padding:13px 28px;border-radius:11px;text-decoration:none;transition:all 0.2s;}
-.coral-btn{background:var(--coral);color:#fff;box-shadow:0 4px 16px rgba(255,85,0,0.3);}
-.coral-btn:hover{filter:brightness(1.08);transform:translateY(-2px);}
-.gold-btn{background:linear-gradient(135deg,#C49A00,#e6b84a);color:#fff;box-shadow:0 4px 16px rgba(196,154,0,0.3);}
-.gold-btn:hover{filter:brightness(1.08);transform:translateY(-2px);}
-
-/* ── HERO IMAGE FULL WIDTH ── */
+/* ── JOB TABS ── */
+.job-tab{transition:all 0.25s;}
+.job-tab:hover .tab-title{color:var(--coral);}
+.job-tab.active .tab-title{color:var(--coral);}
+.job-tab.active{border-bottom:3px solid var(--coral);}
+.job-tab.active-gold .tab-title{color:#C49A00;}
+.job-tab.active-gold{border-bottom:3px solid #C49A00;}
+.job-panel{animation:bw-slide-up 0.4s cubic-bezier(0.22,1,0.36,1) both;}
+@media(max-width:900px){
+  .jobs-tab-row{grid-template-columns:1fr!important;}
+  .job-tab{border-right:none!important;padding-right:0!important;padding-left:0!important;border-bottom:1px solid rgba(0,43,73,0.08);}
+  .job-panel > div{grid-template-columns:1fr!important;gap:24px!important;}
+  [style*="position:sticky"]{position:relative!important;top:auto!important;}
+}
+/* ── HERO IMAGE FULL WIDTH ── *//* ── HERO IMAGE FULL WIDTH ── */
 .careers-hero{min-height:85vh;background:linear-gradient(135deg,#001a2e 0%,#002B49 60%,#003d5c 100%);display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:110px 48px 60px;gap:0;position:relative;overflow:hidden;}
 .hero-right-img{position:relative;height:100%;min-height:500px;margin-right:-48px;margin-top:-110px;margin-bottom:-60px;}
 .hero-right-img img{width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;}
@@ -426,29 +417,43 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 <!-- ══ ROLE 1: SALES AGENT ════════════════════════════════════════════════ -->
 
 <!-- ══ OPEN POSITIONS ══════════════════════════════════════════════════════ -->
-<section id="open-positions" style="padding:48px 0;background:#F4F2ED;">
-<div style="max-width:1100px;margin:0 auto;padding:0 24px;">
+<section id="open-positions" style="padding:0 0 56px;background:#F4F2ED;">
+<div style="max-width:1100px;margin:0 auto;padding:0 48px;">
 
-<div style="margin-bottom:36px;" class="bw-reveal">
-<span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:var(--coral);display:block;margin-bottom:10px;">Now Interviewing</span>
-<h2 style="font-family:'Manrope',sans-serif;font-size:32px;font-weight:900;color:#002B49;line-height:1.15;">Current Openings</h2>
+<!-- Section header - left aligned, matches hero width -->
+<div style="padding:48px 0 32px;" class="bw-reveal">
+<div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:var(--coral);margin-bottom:10px;">Now Interviewing · Limited Positions</div>
+<div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+<h2 style="font-family:'Playfair Display',serif;font-size:36px;font-weight:800;color:#002B49;line-height:1.15;margin:0;">Current Openings</h2>
+<p style="font-size:14px;color:#64748b;max-width:420px;line-height:1.7;margin:0;">Whether you're a closer, marketer, or connector — there's a path to grow with us. Qualified leads, training, and tools provided.</p>
+</div>
 </div>
 
-<!-- Job Cards Grid -->
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;" class="jobs-grid">
+<!-- Job tabs row - full width, side by side -->
+<div style="display:grid;grid-template-columns:1fr 1fr;border-top:2px solid rgba(0,43,73,0.08);" class="jobs-tab-row">
 
-<!-- ── JOB 1: Sales Closer ── -->
-<div class="job-card bw-reveal bw-delay-1" id="job-sales">
-<div class="job-header" onclick="toggleJob('sales')">
-<div class="job-title-wrap">
-<div class="job-meta">Part-time · Remote · Commission-Based</div>
-<div class="job-title">Sales Closer / Growth Advisor</div>
+<div class="job-tab bw-reveal bw-delay-1" id="tab-sales" onclick="openJob('sales')" style="padding:24px 0 24px;border-right:1px solid rgba(0,43,73,0.08);padding-right:32px;cursor:pointer;">
+<div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#94a3b8;margin-bottom:6px;">Part-time · Remote · Commission-Based</div>
+<div style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+<div style="font-family:'Manrope',sans-serif;font-size:20px;font-weight:900;color:#002B49;line-height:1.2;" class="tab-title">Sales Closer / Growth Advisor</div>
+<div class="tab-arrow" style="font-size:22px;color:var(--coral);transition:transform 0.3s;flex-shrink:0;">↓</div>
 </div>
-<div class="job-toggle" id="chevron-sales">+</div>
 </div>
-<div class="job-body" id="body-sales">
-<div class="job-body-inner">
 
+<div class="job-tab bw-reveal bw-delay-2" id="tab-marketing" onclick="openJob('marketing')" style="padding:24px 0 24px;padding-left:32px;cursor:pointer;">
+<div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#94a3b8;margin-bottom:6px;">Part-time · Remote · 5 Brands</div>
+<div style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+<div style="font-family:'Manrope',sans-serif;font-size:20px;font-weight:900;color:#002B49;line-height:1.2;" class="tab-title">Growth &amp; Ecosystem Marketing Coordinator</div>
+<div class="tab-arrow" style="font-size:22px;color:#C49A00;transition:transform 0.3s;flex-shrink:0;">↓</div>
+</div>
+</div>
+
+</div><!-- /jobs-tab-row -->
+
+<!-- Job panels - full width, one at a time -->
+<div id="panel-sales" class="job-panel" style="display:none;border-top:3px solid var(--coral);padding-top:32px;animation:bw-slide-up 0.4s cubic-bezier(0.22,1,0.36,1) both;">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;">
+<div>
 <div class="role-body" style="padding:0;">
 <span class="section-label">What You'll Be Selling</span>
 <ul class="req-list coral">
@@ -511,21 +516,21 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 <a href="careers-form.html?role=sales" class="apply-btn coral-btn">✉️ Apply for This Role →</a>
 </div>
 </div>
+<div style="position:sticky;top:88px;">
+<div style="background:#002B49;border-radius:16px;padding:28px;color:#fff;">
+<div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#00E0FF;margin-bottom:12px;">Ready to Apply?</div>
+<h3 style="font-family:'Manrope',sans-serif;font-size:20px;font-weight:900;margin-bottom:10px;">Sales Closer / Growth Advisor</h3>
+<p style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:20px;">Part-time · Remote · Commission-Based<br/>Top performers earn US$2,500–$5,000+/month. No cap.</p>
+<a href="careers-form.html?role=sales" style="display:block;text-align:center;background:var(--coral);color:#fff;font-size:15px;font-weight:800;padding:14px 24px;border-radius:11px;text-decoration:none;box-shadow:0 4px 16px rgba(255,85,0,0.35);transition:all 0.2s;" onmouseover="this.style.filter='brightness(1.08)'" onmouseout="this.style.filter=''">✉️ Apply for This Role →</a>
+<p style="font-size:11px;color:rgba(255,255,255,0.35);text-align:center;margin-top:10px;">careers@bluwavgrowth.com</p>
+</div>
+</div>
 </div>
 </div>
 
-<!-- ── JOB 2: Marketing Coordinator ── -->
-<div class="job-card bw-reveal bw-delay-2" id="job-marketing">
-<div class="job-header" onclick="toggleJob('marketing')">
-<div class="job-title-wrap">
-<div class="job-meta" style="color:#C49A00;">Part-time · Remote · 5 Brands</div>
-<div class="job-title">Growth &amp; Ecosystem Marketing Coordinator</div>
-</div>
-<div class="job-toggle" id="chevron-marketing">+</div>
-</div>
-<div class="job-body" id="body-marketing">
-<div class="job-body-inner">
-
+<div id="panel-marketing" class="job-panel" style="display:none;border-top:3px solid #C49A00;padding-top:32px;animation:bw-slide-up 0.4s cubic-bezier(0.22,1,0.36,1) both;">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;">
+<div>
 <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
 <div style="width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,#C49A00,#F7C873);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;">📱</div>
 <div>
@@ -627,15 +632,21 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 <div style="margin-top:20px;text-align:center;">
 <a href="careers-form.html?role=marketing" class="apply-btn gold-btn">✉️ Apply for This Role →</a>
 </div>
+<div style="position:sticky;top:88px;">
+<div style="background:#1a0a00;border-radius:16px;padding:28px;color:#fff;">
+<div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#F7C873;margin-bottom:12px;">Ready to Apply?</div>
+<h3 style="font-family:'Manrope',sans-serif;font-size:20px;font-weight:900;margin-bottom:10px;">Growth &amp; Ecosystem Marketing Coordinator</h3>
+<p style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:20px;">Part-time · Remote · 5 Brands<br/>Flexible hours. Direct collaboration with the founder.</p>
+<a href="careers-form.html?role=marketing" style="display:block;text-align:center;background:linear-gradient(135deg,#C49A00,#e6b84a);color:#fff;font-size:15px;font-weight:800;padding:14px 24px;border-radius:11px;text-decoration:none;box-shadow:0 4px 16px rgba(196,154,0,0.3);transition:all 0.2s;" onmouseover="this.style.filter='brightness(1.08)'" onmouseout="this.style.filter=''">✉️ Apply for This Role →</a>
+<p style="font-size:11px;color:rgba(255,255,255,0.35);text-align:center;margin-top:10px;">careers@bluwavgrowth.com</p>
+</div>
 </div>
 </div>
 </div>
 
-</div><!-- /jobs-grid -->
-</div>
+</div><!-- /wrap -->
 </section>
-
-<!-- ══ PARTNER TIERS ══════════════════════════════════════════════════════ -->
+<!-- ══ PARTNER TIERS<!-- ══ PARTNER TIERS ══════════════════════════════════════════════════════ -->
 <section style="background:#F4F2ED;padding:40px 0 0;">
 <div class="wrap">
 <div style="text-align:center;margin-bottom:40px;">
@@ -729,35 +740,6 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 </div>
 </div>
 </section>
-<!-- ══ FINAL APPLY CTA ══════════════════════════════════════════════════════ -->
-<section style="padding:64px 0;background:linear-gradient(135deg,#001a2e 0%,#002B49 100%);position:relative;overflow:hidden;">
-<div style="position:absolute;top:0;right:0;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(0,224,255,0.04) 0%,transparent 70%);pointer-events:none;"></div>
-<div style="max-width:1100px;margin:0 auto;padding:0 48px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;" class="cta-grid">
-<div class="bw-reveal">
-<div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:#00E0FF;margin-bottom:16px;">Now Interviewing</div>
-<h2 style="font-family:'Playfair Display',serif;font-size:40px;font-weight:800;color:#fff;line-height:1.15;margin-bottom:16px;">Build Your Future<br/>With BluWav</h2>
-<p style="font-size:16px;color:rgba(255,255,255,0.65);line-height:1.8;margin-bottom:0;">Whether you're a connector, consultant, marketer, or experienced closer, there are multiple ways to earn while helping businesses grow. Qualified leads, training, tools, and support provided.</p>
-</div>
-<div class="bw-reveal bw-delay-2" style="display:flex;flex-direction:column;gap:16px;">
-<a href="careers-form.html?role=sales" style="display:flex;align-items:center;justify-content:space-between;padding:20px 24px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:14px;text-decoration:none;transition:all 0.25s;" onmouseover="this.style.background='rgba(255,85,0,0.15)';this.style.borderColor='rgba(255,85,0,0.4)'" onmouseout="this.style.background='rgba(255,255,255,0.06)';this.style.borderColor='rgba(255,255,255,0.1)'">
-<div>
-<div style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Part-time · Remote · Commission</div>
-<div style="font-size:16px;font-weight:800;color:#fff;">Sales Closer / Growth Advisor</div>
-</div>
-<span style="color:var(--coral);font-size:20px;font-weight:300;">→</span>
-</a>
-<a href="careers-form.html?role=marketing" style="display:flex;align-items:center;justify-content:space-between;padding:20px 24px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:14px;text-decoration:none;transition:all 0.25s;" onmouseover="this.style.background='rgba(196,154,0,0.15)';this.style.borderColor='rgba(196,154,0,0.4)'" onmouseout="this.style.background='rgba(255,255,255,0.06)';this.style.borderColor='rgba(255,255,255,0.1)'">
-<div>
-<div style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Part-time · Remote · 5 Brands</div>
-<div style="font-size:16px;font-weight:800;color:#fff;">Growth &amp; Ecosystem Marketing Coordinator</div>
-</div>
-<span style="color:#F7C873;font-size:20px;font-weight:300;">→</span>
-</a>
-<p style="font-size:12px;color:rgba(255,255,255,0.3);text-align:center;margin-top:4px;">Click a role above to apply · careers@bluwavgrowth.com</p>
-</div>
-</div>
-</section>
-@media(max-width:768px){.cta-grid{grid-template-columns:1fr!important;gap:32px!important;}}
 <!-- ── Standard BluWav Footer<!-- ── Standard BluWav Footer ── -->
 <!-- Standard Pre-Footer CTA -->
 <section style="background:linear-gradient(135deg,#0a1628 0%,#0d1f3a 100%);padding:72px 24px;text-align:center;border-top:2px solid rgba(0,212,255,0.2);">
@@ -967,22 +949,23 @@ document.addEventListener('click',function(e){var nav=document.getElementById('m
   els.forEach(function(el){obs.observe(el);});
 })();
 
-// ── Job accordion ──
-function toggleJob(id){
-  var body = document.getElementById('body-'+id);
-  var toggle = document.getElementById('chevron-'+id);
-  var card = document.getElementById('job-'+id);
-  var isOpen = body.classList.contains('open');
-  // Close all
-  document.querySelectorAll('.job-body').forEach(function(b){b.classList.remove('open');});
-  document.querySelectorAll('.job-toggle').forEach(function(t){t.textContent='+';});
-  document.querySelectorAll('.job-card').forEach(function(c){c.classList.remove('open');});
-  // Open clicked if it was closed
-  if(!isOpen){
-    body.classList.add('open');
-    card.classList.add('open');
-    toggle.textContent = '+';
-    setTimeout(function(){card.scrollIntoView({behavior:'smooth',block:'nearest'});},100);
+// ── Job tabs ──
+function openJob(id){
+  var panels = document.querySelectorAll('.job-panel');
+  var tabs = document.querySelectorAll('.job-tab');
+  // Hide all panels, deactivate all tabs
+  panels.forEach(function(p){p.style.display='none';});
+  tabs.forEach(function(t){t.classList.remove('active','active-gold');});
+  document.querySelectorAll('.tab-arrow').forEach(function(a){a.style.transform='';});
+  // Show selected
+  var panel = document.getElementById('panel-'+id);
+  var tab = document.getElementById('tab-'+id);
+  if(panel && tab){
+    var isGold = id==='marketing';
+    panel.style.display='block';
+    tab.classList.add(isGold?'active-gold':'active');
+    tab.querySelector('.tab-arrow').style.transform='rotate(180deg)';
+    setTimeout(function(){panel.scrollIntoView({behavior:'smooth',block:'nearest'});},50);
   }
 }
 </script>
