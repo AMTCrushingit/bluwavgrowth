@@ -53,16 +53,20 @@ export async function onRequestPost(context) {
       <p style="color:#94a3b8;font-size:12px;margin-top:8px;">BluWav Growth Inc. · bluwavgrowth.com</p>
     </div>`;
 
+    const { resume_base64, resume_mime, resume_name } = body;
+
     // Always send admin notification
-    const sends = [
-      brevoSend(BREVO_KEY, {
-        sender: { name: 'BluWav Careers Form', email: 'hello@bluwavgrowth.com' },
-        to: [{ email: 'careers@bluwavgrowth.com', name: 'BluWav Careers' }],
-        replyTo: { email, name },
-        subject: role + ' Application — ' + name,
-        htmlContent: adminHtml
-      })
-    ];
+    const adminPayload = {
+      sender: { name: 'BluWav Careers Form', email: 'hello@bluwavgrowth.com' },
+      to: [{ email: 'careers@bluwavgrowth.com', name: 'BluWav Careers' }],
+      replyTo: { email, name },
+      subject: role + ' Application — ' + name,
+      htmlContent: adminHtml
+    };
+    if (resume_base64 && resume_name && resume_name !== 'Not attached') {
+      adminPayload.attachment = [{ content: resume_base64, name: resume_name, type: resume_mime || 'application/octet-stream' }];
+    }
+    const sends = [ brevoSend(BREVO_KEY, adminPayload) ];
 
     // Only send confirmation if CASL consent given
     if (casl_consent) {
