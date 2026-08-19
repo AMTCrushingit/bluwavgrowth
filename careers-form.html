@@ -88,6 +88,13 @@ main{flex:1;padding:100px 16px 60px;display:flex;align-items:flex-start;justify-
   .btn-back,.btn-next,.btn-submit{width:100%;text-align:center;}
 }
 </style>
+  <!-- Supabase SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    const _su = 'https://izyuupdmlzcphvdpigrs.supabase.co';
+    const _sk = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml6eXV1cGRtbHpjcGh2ZHBpZ3JzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEzMjEwNDcsImV4cCI6MjA5Njg5NzA0N30.cmrOK8uAMZKzB1wPZAt7ClEpuUBEkx1PFy49MkhEyog';
+    const sbClient = supabase.createClient(_su, _sk);
+  </script>
 </head>
 <body>
 <nav>
@@ -406,7 +413,21 @@ async function submitForm(){
         }
       }else{const et=await r1.text();console.error('Brevo err:',et);}
     }
-    if(ok){showSuccess(name,email);}
+    if(ok){
+      // Save to Supabase applications table
+      try {
+        await sbClient.from('applications').insert({
+          role: roleName, name, email, phone,
+          location: loc, experience: exp,
+          current_role: curRole, skills, why_bluwav: why,
+          availability: avail, linkedin,
+          resume_name: resumeName !== 'Not attached' ? resumeName : null,
+          casl_consent: casl, status: 'New'
+        });
+        console.log('Application saved to Supabase');
+      } catch(dbErr) { console.warn('Supabase save failed (non-critical):', dbErr); }
+      showSuccess(name,email);
+    }
     else{throw new Error('Failed');}
   }catch(err){
     console.error('Submit err:',err);
