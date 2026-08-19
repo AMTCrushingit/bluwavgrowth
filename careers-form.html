@@ -160,12 +160,25 @@ main{flex:1;padding:100px 16px 60px;display:flex;align-items:flex-start;justify-
 <div style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--coral);margin-bottom:10px;">Review Your Application</div>
 <div id="reviewContent" style="font-size:13px;color:#374151;line-height:1.8;"></div>
 </div>
-<div class="field">
-<label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-weight:500;font-size:13px;">
-<input id="f_consent" style="width:auto;margin-top:2px;flex-shrink:0;" type="checkbox"/>
-<span>I confirm the information above is accurate and I consent to BluWav Growth storing and using it to process my application. <span class="req">*</span></span>
-</label>
-<div class="field-error" id="err_consent">Please confirm your consent to proceed.</div>
+<!-- CASL Consent Block -->
+<div style="background:#F8FAFC;border-radius:12px;padding:16px 18px;margin-bottom:16px;border:1px solid #e2e8f0;">
+  <div style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#64748b;margin-bottom:10px;">Privacy &amp; Consent</div>
+  <p style="font-size:12px;color:#64748b;line-height:1.7;margin-bottom:14px;">
+    BluWav Growth Inc. collects your personal information solely to evaluate your application for employment. Your information will be kept confidential and will not be shared with third parties except as required by law. You may withdraw your application at any time by emailing <a href="mailto:careers@bluwavgrowth.com" style="color:var(--coral);">careers@bluwavgrowth.com</a>.
+  </p>
+  <div class="field" style="margin-bottom:12px;">
+    <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-weight:500;font-size:13px;">
+      <input id="f_consent" style="width:auto;margin-top:2px;flex-shrink:0;" type="checkbox"/>
+      <span>I confirm the information above is accurate and I consent to BluWav Growth storing and using my personal information to process my application. <span class="req">*</span></span>
+    </label>
+    <div class="field-error" id="err_consent">Please confirm your consent to proceed.</div>
+  </div>
+  <div class="field" style="margin-bottom:0;">
+    <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-weight:500;font-size:13px;">
+      <input id="f_casl" style="width:auto;margin-top:2px;flex-shrink:0;" type="checkbox"/>
+      <span style="color:#374151;">I consent to receiving email communications from BluWav Growth related to my application, including a confirmation of receipt and follow-up regarding my candidacy. I understand I may withdraw this consent at any time by contacting <a href="mailto:careers@bluwavgrowth.com" style="color:var(--coral);">careers@bluwavgrowth.com</a>. <span style="font-size:11px;color:#94a3b8;">(Recommended — required to receive your confirmation email)</span></span>
+    </label>
+  </div>
 </div>
 <div class="btn-row"><button class="btn-back" onclick="prevStep(5)">← Back</button><button class="btn-submit" id="submitBtn" onclick="submitForm()">✉️ Submit Application</button></div>
 </div>
