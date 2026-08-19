@@ -374,9 +374,7 @@ img{max-width:100%;height:auto;}
 /* ── MOBILE: Jobs & Coordinator ── */
 @media(max-width:768px){
   .jobs-tab-row{grid-template-columns:1fr!important;}
-  #tab-sales{border-right:none!important;padding-right:0!important;border-bottom:1px solid rgba(0,43,73,0.08);}
-  #tab-marketing{padding-left:0!important;}
-  #panel-sales > div, #panel-marketing > div{grid-template-columns:1fr!important;gap:24px!important;}
+  #panel-sales > div{grid-template-columns:1fr!important;gap:24px!important;}
   [style*="position:sticky"]{position:relative!important;top:auto!important;}
   #open-positions > div{padding:0 16px!important;}
   #open-positions h2{font-size:26px!important;}
@@ -479,14 +477,14 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 <!-- Section header - left aligned, matches hero width -->
 <div style="padding:48px 0 32px;" class="bw-reveal">
 <div style="margin-bottom:12px;"><span class="urgency-tag"><span class="urgency-dot"></span>Interviewing Now · Limited Positions</span></div>
-<h2 style="font-family:'Manrope',sans-serif;font-size:36px;font-weight:900;color:#002B49;line-height:1.15;margin:0 0 10px;">Current Openings</h2>
+<h2 style="font-family:'Manrope',sans-serif;font-size:36px;font-weight:900;color:#002B49;line-height:1.15;margin:0 0 10px;">Current Opening</h2>
 <p style="font-size:15px;color:#64748b;line-height:1.75;margin:0;">Whether you're a closer, marketer, or connector — there's a path to grow with us. Qualified leads, training, and tools provided.</p>
 </div>
 
 <!-- Job tabs row - full width, side by side -->
-<div style="display:grid;grid-template-columns:1fr 1fr;border-top:2px solid rgba(0,43,73,0.08);" class="jobs-tab-row">
+<div style="border-top:2px solid rgba(0,43,73,0.08);" class="jobs-tab-row">
 
-<div class="job-tab bw-reveal bw-delay-1" id="tab-sales" onclick="openJob('sales')" style="padding:24px 0 24px;border-right:1px solid rgba(0,43,73,0.08);padding-right:32px;cursor:pointer;">
+<div class="job-tab bw-reveal bw-delay-1" id="tab-sales" onclick="openJob('sales')" style="padding:24px 0;cursor:pointer;">
 <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#94a3b8;margin-bottom:6px;">Part-time · Remote · Commission-Based</div>
 <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
 <div style="font-family:'Manrope',sans-serif;font-size:20px;font-weight:900;color:#002B49;line-height:1.2;" class="tab-title">Sales Closer / Growth Advisor</div>
@@ -494,19 +492,11 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 </div>
 </div>
 
-<div class="job-tab bw-reveal bw-delay-2" id="tab-marketing" onclick="openJob('marketing')" style="padding:24px 0 24px;padding-left:32px;cursor:pointer;">
-<div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#94a3b8;margin-bottom:6px;">Part-time · Remote · 5 Brands</div>
-<div style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
-<div style="font-family:'Manrope',sans-serif;font-size:20px;font-weight:900;color:#002B49;line-height:1.2;" class="tab-title">Growth &amp; Ecosystem Marketing Coordinator</div>
-<div class="tab-arrow" id="arrow-marketing" style="font-size:22px;color:#C49A00;transition:transform 0.3s,color 0.3s;flex-shrink:0;">↓</div>
-</div>
-</div>
-
 </div><!-- /jobs-tab-row -->
 
 <!-- Job panels - full width, one at a time -->
 <div id="panel-sales" class="job-panel" style="display:none;border-top:3px solid var(--coral);padding-top:24px;"><div class="panel-progress" id="prog-sales"></div>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;">
+<div style="display:grid;grid-template-columns:2fr 1fr;gap:48px;align-items:start;">
 <div>
 <div class="role-body" style="padding:0;">
 <span class="section-label">What You'll Be Selling</span>
@@ -578,111 +568,6 @@ You'll also gain exposure to a growing ecosystem that includes:</p>
 <h3 style="font-family:'Manrope',sans-serif;font-size:20px;font-weight:900;margin-bottom:10px;">Sales Closer / Growth Advisor</h3>
 <p style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:20px;">Part-time · Remote · Commission-Based<br/>High performers earn over US$1,500+/month. No cap on commissions.</p>
 <a href="careers-form.html?role=sales" style="display:block;text-align:center;background:var(--coral);color:#fff;font-size:15px;font-weight:800;padding:14px 24px;border-radius:11px;text-decoration:none;box-shadow:0 4px 16px rgba(255,85,0,0.35);transition:all 0.2s;" onmouseover="this.style.filter='brightness(1.08)'" onmouseout="this.style.filter=''">✉️ Apply for This Role →</a>
-<p style="font-size:11px;color:rgba(255,255,255,0.35);text-align:center;margin-top:10px;">careers@bluwavgrowth.com</p>
-</div>
-</div>
-</div>
-</div>
-
-<div id="panel-marketing" class="job-panel" style="display:none;border-top:3px solid #C49A00;padding-top:24px;"><div class="panel-progress gold" id="prog-marketing"></div>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;">
-<div>
-
-<div>
-<!-- The 5 brands -->
-<span class="section-label">The Five Brands You'll Support</span>
-<div class="brands-grid" style="grid-template-columns:repeat(3,1fr);">
-<div class="brand-card" style="border-color:rgba(0,194,216,0.3);background:rgba(0,194,216,0.04);">
-<div class="brand-icon">🌊</div>
-<div class="brand-name" style="color:#002B49;">BluWav Growth</div>
-<div class="brand-desc" style="color:#64748b;">Digital growth systems — websites, CRM, automation, and Google visibility for modern businesses.</div>
-</div>
-<div class="brand-card" style="border-color:rgba(196,154,0,0.3);background:rgba(196,154,0,0.04);">
-<div class="brand-icon">✨</div>
-<div class="brand-name" style="color:#002B49;">Qualia</div>
-<div class="brand-desc" style="color:#64748b;">A Stratiix ecosystem brand focused on transforming how businesses connect and develop.</div>
-</div>
-<div class="brand-card" style="border-color:rgba(255,85,0,0.3);background:rgba(255,85,0,0.04);">
-<div class="brand-icon">💳</div>
-<div class="brand-name" style="color:#002B49;">Credii</div>
-<div class="brand-desc" style="color:#64748b;">A nonprofit building credibility, skills standards, and access pathways for communities across the ecosystem.</div>
-</div>
-<div class="brand-card" style="border-color:rgba(0,180,120,0.3);background:rgba(0,180,120,0.04);">
-<div class="brand-icon">🌐</div>
-<div class="brand-name" style="color:#002B49;">RIVVA</div>
-<div class="brand-desc" style="color:#64748b;">A marketplace brand within the Stratiix ecosystem driving connection and growth.</div>
-</div>
-<div class="brand-card" style="border-color:rgba(100,80,200,0.3);background:rgba(100,80,200,0.04);">
-<div class="brand-icon">🏗️</div>
-<div class="brand-name" style="color:#002B49;">Stratiix</div>
-<div class="brand-desc" style="color:#64748b;">Installs the governance, workflows, and operating rhythms organisations need — so decisions are clearer, teams stay aligned, and execution becomes consistent.</div>
-</div>
-</div>
-<div style="border-top:1px solid #f1f5f9;margin:16px 0;"></div>
-<!-- Responsibilities -->
-<span class="section-label">Key Responsibilities</span>
-<ul class="req-list gold">
-<li><span class="role-highlight" data-highlight="LinkedIn, Facebook, Instagram & email">Manage and schedule social media content across all ecosystem brands</span></li>
-<li>Create engaging graphics and content using Canva</li>
-<li>Repurpose founder insights, client stories, webinars, and business conversations into social content</li>
-<li>Coordinate content across LinkedIn, Facebook, Instagram, and email</li>
-<li>Monitor engagement and community interactions</li>
-<li>Assist with health check campaigns, promotions, and product launches</li>
-<li>Support content creation for Qualia, BluWav Growth, Credii, and RIVVA</li>
-<li>Use AI tools to support content creation, research, campaign development, and marketing workflows</li>
-</ul>
-<div style="border-top:1px solid #f1f5f9;margin:16px 0;"></div>
-<!-- Requirements -->
-<span class="section-label">Requirements</span>
-<ul class="req-list gold">
-<li>2+ years experience in digital marketing, content marketing, or social media management</li>
-<li>Strong writing skills and attention to detail</li>
-<li>Experience with Canva</li>
-<li>Comfortable using AI tools such as Microsoft Copilot, ChatGPT, Canva Magic Studio, or similar platforms</li>
-<li>Familiarity with social scheduling tools</li>
-<li>Highly organised and able to manage multiple brands simultaneously</li>
-<li>Self-motivated and capable of working independently</li>
-</ul>
-<div style="border-top:1px solid #f1f5f9;margin:16px 0;"></div>
-<!-- Nice to Have -->
-<span class="section-label">Nice to Have</span>
-<ul class="req-list gold">
-<li>Experience with email marketing platforms</li>
-<li>Experience creating short-form video content</li>
-<li>Understanding of SEO and digital growth strategies</li>
-<li>Experience working with small businesses, startups, consultants, or professional service firms</li>
-</ul>
-<div style="border-top:1px solid #f1f5f9;margin:16px 0;"></div>
-<!-- What we offer -->
-<span class="section-label">What We Offer</span>
-<div class="provide-grid">
-<div class="provide-item"><span class="provide-icon">🌐</span><div class="provide-text" style="color:#374151;">Flexible remote work</div></div>
-<div class="provide-item"><span class="provide-icon">🤝</span><div class="provide-text" style="color:#374151;">Direct collaboration with the founder</div></div>
-<div class="provide-item"><span class="provide-icon">🚀</span><div class="provide-text" style="color:#374151;">Opportunity to help build a growing transformation ecosystem</div></div>
-<div class="provide-item"><span class="provide-icon">💡</span><div class="provide-text" style="color:#374151;">Exposure to technology, business growth, workforce development, and marketplace brands</div></div>
-<div class="provide-item"><span class="provide-icon">📈</span><div class="provide-text" style="color:#374151;">Growth opportunities as the ecosystem expands</div></div>
-</div>
-<div style="border-top:1px solid #f1f5f9;margin:16px 0;"></div>
-<!-- Compensation -->
-<span class="section-label">Compensation</span>
-<div class="comp-grid">
-<div class="comp-card warm"><div class="comp-icon">💰</div><div class="comp-title">Competitive Rate</div><div class="comp-desc">Part-time compensation discussed at interview based on experience.</div></div>
-<div class="comp-card warm"><div class="comp-icon">⏰</div><div class="comp-title">Flexible Hours</div><div class="comp-desc">Part-time · Remote / hybrid · Caribbean-based preferred.</div></div>
-<div class="comp-card warm"><div class="comp-icon">📈</div><div class="comp-title">Growth Path</div><div class="comp-desc">Opportunity to grow into a full-time role as the group expands.</div></div>
-</div>
-<div style="margin-top:24px;text-align:center;">
-<a href="careers-form.html?role=marketing">
-          ✉️ Apply for Marketing Coordinator, <span class="__cf_email__" data-cfemail="fa999b889f9f8889ba98968f8d9b8c9d88958d8e92d4999597">[email protected]</span>
-</a>
-<p style="font-size:12px;color:#94a3b8;margin-top:10px;">Subject line: <strong>Growth &amp; Ecosystem Marketing Coordinator Application</strong>. Please include your résumé and links to any social media accounts or content you've managed.</p>
-</div>
-
-<div style="position:sticky;top:88px;">
-<div style="background:#1a0a00;border-radius:16px;padding:28px;color:#fff;">
-<div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#F7C873;margin-bottom:12px;">Ready to Apply?</div>
-<h3 style="font-family:'Manrope',sans-serif;font-size:20px;font-weight:900;margin-bottom:10px;">Growth &amp; Ecosystem Marketing Coordinator</h3>
-<p style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:20px;">Part-time · Remote · 5 Brands<br/>Flexible hours. Direct collaboration with the founder.</p>
-<a href="careers-form.html?role=marketing" style="display:block;text-align:center;background:linear-gradient(135deg,#C49A00,#e6b84a);color:#fff;font-size:15px;font-weight:800;padding:14px 24px;border-radius:11px;text-decoration:none;box-shadow:0 4px 16px rgba(196,154,0,0.3);transition:all 0.2s;" onmouseover="this.style.filter='brightness(1.08)'" onmouseout="this.style.filter=''">✉️ Apply for This Role →</a>
 <p style="font-size:11px;color:rgba(255,255,255,0.35);text-align:center;margin-top:10px;">careers@bluwavgrowth.com</p>
 </div>
 </div>
