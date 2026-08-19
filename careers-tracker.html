@@ -115,6 +115,7 @@ tr:hover td{background:rgba(255,255,255,0.02);cursor:pointer;}
     <div class="logo">Blu<span>Wav</span> <span style="font-size:14px;color:#8b949e;font-weight:600;">Applicant Tracker</span></div>
     <div class="header-right">
       <span id="userEmail" style="font-size:12px;color:#8b949e;"></span>
+      <button class="btn btn-ghost" onclick="openChangePassword()">🔑 Change Password</button>
       <button class="btn btn-ghost" onclick="exportCSV()">⬇ Export CSV</button>
       <button class="btn btn-ghost" onclick="doSignOut()">Sign Out</button>
     </div>
@@ -327,6 +328,63 @@ function exportCSV(){
   a.click(); URL.revokeObjectURL(url);
 }
 
+
+// ── CHANGE PASSWORD ──
+function openChangePassword(){
+  const emailEl = document.getElementById('pwUserEmail');
+  const userEmailEl = document.getElementById('userEmail');
+  if(emailEl && userEmailEl) emailEl.textContent = userEmailEl.textContent;
+  document.getElementById('pwNew').value = '';
+  document.getElementById('pwConfirm').value = '';
+  const msg = document.getElementById('pwMsg');
+  msg.style.display = 'none';
+  document.getElementById('pwModal').classList.add('open');
+  setTimeout(()=>document.getElementById('pwNew').focus(), 100);
+}
+
+function closePwModal(){
+  document.getElementById('pwModal').classList.remove('open');
+}
+
+async function saveNewPassword(){
+  const newPw  = document.getElementById('pwNew').value;
+  const confPw = document.getElementById('pwConfirm').value;
+  const msg    = document.getElementById('pwMsg');
+
+  // Validate
+  if(newPw.length < 8){
+    msg.textContent = '⚠️ Password must be at least 8 characters.';
+    msg.style.background = 'rgba(239,68,68,0.1)';
+    msg.style.color = 'var(--red)';
+    msg.style.display = 'block';
+    return;
+  }
+  if(newPw !== confPw){
+    msg.textContent = '⚠️ Passwords do not match.';
+    msg.style.background = 'rgba(239,68,68,0.1)';
+    msg.style.color = 'var(--red)';
+    msg.style.display = 'block';
+    return;
+  }
+
+  msg.textContent = 'Updating...';
+  msg.style.background = 'rgba(0,224,255,0.08)';
+  msg.style.color = 'var(--cyan)';
+  msg.style.display = 'block';
+
+  const { error } = await sb.auth.updateUser({ password: newPw });
+  if(error){
+    msg.textContent = '❌ ' + error.message;
+    msg.style.background = 'rgba(239,68,68,0.1)';
+    msg.style.color = 'var(--red)';
+  } else {
+    msg.textContent = '✅ Password updated successfully!';
+    msg.style.background = 'rgba(34,197,94,0.1)';
+    msg.style.color = 'var(--green)';
+    setTimeout(closePwModal, 2000);
+  }
+}
+
 // ── INIT ──
 document.addEventListener('DOMContentLoaded', async ()=>{
   const {data:{session}} = await sb.auth.getSession();
@@ -336,6 +394,36 @@ document.addEventListener('DOMContentLoaded', async ()=>{
 document.getElementById('detailModal').addEventListener('click', function(e){
   if(e.target===this) closeModal();
 });
+document.getElementById('pwModal').addEventListener('click', function(e){
+  if(e.target===this) closePwModal();
+});
 </script>
+
+<!-- CHANGE PASSWORD MODAL -->
+<div class="modal-overlay" id="pwModal">
+  <div class="modal" style="max-width:420px;">
+    <div class="modal-header">
+      <div class="modal-title">Change Password</div>
+      <button class="modal-close" onclick="closePwModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <p style="font-size:13px;color:#8b949e;margin-bottom:20px;line-height:1.6;">Enter a new password for <strong id="pwUserEmail" style="color:#e6edf3;"></strong></p>
+      <div style="margin-bottom:14px;">
+        <label style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#8b949e;display:block;margin-bottom:6px;">New Password</label>
+        <input id="pwNew" type="password" placeholder="Min. 8 characters" style="width:100%;background:#0d1117;border:1px solid #30363d;border-radius:8px;padding:10px 14px;color:#e6edf3;font-size:14px;font-family:inherit;outline:none;" onfocus="this.style.borderColor='var(--cyan)'" onblur="this.style.borderColor='#30363d'"/>
+      </div>
+      <div style="margin-bottom:20px;">
+        <label style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#8b949e;display:block;margin-bottom:6px;">Confirm New Password</label>
+        <input id="pwConfirm" type="password" placeholder="Repeat new password" style="width:100%;background:#0d1117;border:1px solid #30363d;border-radius:8px;padding:10px 14px;color:#e6edf3;font-size:14px;font-family:inherit;outline:none;" onfocus="this.style.borderColor='var(--cyan)'" onblur="this.style.borderColor='#30363d'" onkeydown="if(event.key==='Enter')saveNewPassword()"/>
+      </div>
+      <div id="pwMsg" style="font-size:13px;margin-bottom:14px;display:none;padding:10px 14px;border-radius:8px;"></div>
+      <div style="display:flex;gap:10px;">
+        <button class="btn btn-ghost" onclick="closePwModal()" style="flex:1;">Cancel</button>
+        <button class="btn btn-primary" onclick="saveNewPassword()" style="flex:2;">Update Password</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
