@@ -175,7 +175,7 @@ main{flex:1;padding:100px 16px 60px;display:flex;align-items:flex-start;justify-
 <div class="success-icon">✅</div>
 <h2>Application Received!</h2>
 <p>Thank you, <strong id="successName"></strong>. Your application for the <strong id="successRole"></strong> role has been successfully submitted.</p>
-<p style="margin-top:4px;">A confirmation has been sent to <strong id="successEmail"></strong>.</p>
+<p style="margin-top:4px;" id="successEmailLine">A confirmation has been sent to <strong id="successEmail"></strong>.</p>
 <div class="success-next">
 <div class="success-next-title">What Happens Next</div>
 <div class="success-step"><span class="dot"></span><span>Our team will review your application and qualifications carefully.</span></div>
@@ -305,6 +305,7 @@ async function submitForm(){
     </div>`;
 
   try {
+    const caslConsent = document.getElementById('f_casl') ? document.getElementById('f_casl').checked : false;
     const res = await fetch('/functions/send-application', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -314,7 +315,8 @@ async function submitForm(){
         experience: exp,
         current_role: curRole,
         skills, why_bluwav: why, availability: avail,
-        linkedin, resume_note: resume
+        linkedin, resume_note: resume,
+        casl_consent: caslConsent
       })
     });
     const data = await res.json();
@@ -339,6 +341,14 @@ function showSuccess(name,email){
   document.getElementById('successName').textContent=name.split(' ')[0];
   document.getElementById('successRole').textContent=roleName;
   document.getElementById('successEmail').textContent=email;
+  // Show/hide confirmation email line based on CASL consent
+  var casl = document.getElementById('f_casl');
+  var emailLine = document.getElementById('successEmailLine');
+  if(emailLine && casl && !casl.checked){
+    emailLine.textContent = 'Your application has been submitted. You did not opt in to email communications, so no confirmation email will be sent.';
+    emailLine.style.color = '#94a3b8';
+    emailLine.style.fontStyle = 'italic';
+  }
   window.scrollTo({top:0,behavior:'smooth'});
 }
 </script>
