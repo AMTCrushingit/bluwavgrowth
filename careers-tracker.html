@@ -264,7 +264,7 @@ function openDetail(id){
   const rows = [
     ['Role', a.role],['Name', a.name],['Email', `<a href="mailto:${a.email}" style="color:var(--cyan);">${a.email}</a>`],
     ['Phone', a.phone],['Location', a.location],['Experience', a.experience],
-    ['Current Role', a.current_role],['Availability', a.availability],
+    ['Current Role', a.applicant_role],['Availability', a.availability],
     ['LinkedIn', a.linkedin&&a.linkedin!=='—'?`<a href="${a.linkedin}" target="_blank" style="color:var(--cyan);">${a.linkedin}</a>`:'—'],
     ['Resume', a.resume_name||'Not provided'],
     ['CASL Consent', a.casl_consent?'<span style="color:var(--green);">Yes — consented to email</span>':'<span style="color:#8b949e;">No</span>'],
@@ -316,7 +316,7 @@ function exportCSV(){
   const rows = allApps.map(a=>[
     new Date(a.created_at).toLocaleDateString('en-CA'),
     a.name,a.email,a.phone,a.location,a.role,a.experience,
-    a.current_role,a.availability,a.linkedin,a.resume_name||'',
+    a.applicant_role,a.availability,a.linkedin,a.resume_name||'',
     a.casl_consent?'Yes':'No',a.status,a.notes||''
   ].map(v=>`"${(v||'').toString().replace(/"/g,'""')}"`));
   const csv = [headers.join(','),...rows.map(r=>r.join(','))].join('\n');
