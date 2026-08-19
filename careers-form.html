@@ -10,12 +10,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Kaushan+Script&amp;display=swap" rel="stylesheet"/>
-<script>
-  // Brevo API (same key used across bluwavgrowth.com)
-  var p1='xkeysib-8dbb1d881563779c0c9ad9512bc5e4996c4aa362f8f65128f58beb3184fa407d';
-  var p2='-lewxkY6ErfMGjudK';
-  var BREVO_KEY = p1+p2;
-</script>
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
@@ -310,35 +305,26 @@ async function submitForm(){
     </div>`;
 
   try {
-    // 1. Send application to careers@bluwavgrowth.com
-    await fetch('https://api.brevo.com/v3/smtp/email', {
+    const res = await fetch('/functions/send-application', {
       method: 'POST',
-      headers: {'api-key': BREVO_KEY, 'Content-Type': 'application/json', 'Accept': 'application/json'},
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        sender: {name: 'BluWav Careers Form', email: 'hello@bluwavgrowth.com'},
-        to: [{email: 'careers@bluwavgrowth.com', name: 'BluWav Careers'}],
-        replyTo: {email: email, name: name},
-        subject: roleName + ' Application — ' + name,
-        htmlContent: adminHtml
+        role: roleName,
+        name, email, phone, location,
+        experience: exp,
+        current_role: curRole,
+        skills, why_bluwav: why, availability: avail,
+        linkedin, resume_note: resume
       })
     });
-
-    // 2. Send confirmation to applicant
-    await fetch('https://api.brevo.com/v3/smtp/email', {
-      method: 'POST',
-      headers: {'api-key': BREVO_KEY, 'Content-Type': 'application/json', 'Accept': 'application/json'},
-      body: JSON.stringify({
-        sender: {name: 'BluWav Growth', email: 'hello@bluwavgrowth.com'},
-        to: [{email: email, name: name}],
-        replyTo: {email: 'careers@bluwavgrowth.com', name: 'BluWav Careers'},
-        subject: 'Application Received — ' + roleName,
-        htmlContent: confirmHtml
-      })
-    });
-
-    showSuccess(name, email);
+    const data = await res.json();
+    if (data.success) {
+      showSuccess(name, email);
+    } else {
+      throw new Error(data.error || 'Submission failed');
+    }
   } catch(err) {
-    console.error('Brevo error:', err);
+    console.error('Submission error:', err);
     btn.disabled = false;
     btn.textContent = '✉️ Submit Application';
     alert('There was an error submitting your application. Please try again or email us directly at careers@bluwavgrowth.com');
