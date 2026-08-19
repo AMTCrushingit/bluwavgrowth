@@ -283,6 +283,37 @@ img{max-width:100%;height:auto;}
 .bw-mob-cta{background:linear-gradient(135deg,#ff6535,#ff6535);color:#fff;font-weight:800;padding:16px 24px;text-align:center;margin:14px 20px 4px;font-size:16px;display:block;border-radius:12px;text-decoration:none;box-shadow:0 4px 20px rgba(255,101,53,0.4);}
 @media(max-width:1024px){.bw-nav-links{display:none!important;}.bw-hamburger{display:flex!important;}}
 
+
+/* ── MICRO-INTERACTIONS ── */
+/* Urgency tag pulse */
+@keyframes bw-urgency{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.85;transform:scale(1.04);}}
+.urgency-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(255,85,0,0.08);border:1px solid rgba(255,85,0,0.2);border-radius:20px;padding:4px 12px;font-size:10px;font-weight:800;color:var(--coral);text-transform:uppercase;letter-spacing:1.5px;animation:bw-urgency 2.5s ease-in-out infinite;}
+.urgency-dot{width:6px;height:6px;border-radius:50%;background:var(--coral);animation:bw-pulse-glow 1.5s ease-in-out infinite;}
+
+/* Tab hover reveal */
+.job-tab{position:relative;overflow:hidden;}
+.job-tab::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--coral);transition:width 0.35s cubic-bezier(0.22,1,0.36,1);}
+.job-tab:hover::after,.job-tab.active::after{width:100%;}
+.job-tab.active-gold::after{background:#C49A00;}
+.job-tab:hover::after{background:rgba(255,85,0,0.4);}
+
+/* Role highlight hover reveal */
+.role-highlight{position:relative;display:inline-block;}
+.role-highlight::before{content:attr(data-highlight);position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%) translateY(6px);background:#002B49;color:#fff;font-size:11px;font-weight:700;padding:5px 10px;border-radius:8px;white-space:nowrap;opacity:0;pointer-events:none;transition:all 0.2s;z-index:10;}
+.role-highlight::after{content:'';position:absolute;bottom:calc(100% + 2px);left:50%;transform:translateX(-50%) translateY(6px);border:5px solid transparent;border-top-color:#002B49;opacity:0;transition:all 0.2s;}
+.role-highlight:hover::before,.role-highlight:hover::after{opacity:1;transform:translateX(-50%) translateY(0);}
+
+/* Progress bar on panel open */
+.panel-progress{height:2px;background:linear-gradient(90deg,var(--coral),#ff8c5a);width:0;transition:width 0.6s cubic-bezier(0.22,1,0.36,1);margin-bottom:24px;border-radius:2px;}
+.panel-progress.loaded{width:100%;}
+.panel-progress.gold{background:linear-gradient(90deg,#C49A00,#F7C873);}
+
+/* Job tab title underline on hover */
+.tab-title{position:relative;display:inline-block;}
+
+/* Shimmer on NOW HIRING badge */
+@keyframes bw-badge-shimmer{0%{background-position:200% center;}100%{background-position:-200% center;}}
+
 /* ── JOB TABS ── */
 .job-tab{transition:all 0.25s;}
 .job-tab:hover .tab-title{color:var(--coral);}
@@ -422,7 +453,7 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 
 <!-- Section header - left aligned, matches hero width -->
 <div style="padding:48px 0 32px;" class="bw-reveal">
-<div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:var(--coral);margin-bottom:10px;">Now Interviewing · Limited Positions</div>
+<div style="margin-bottom:12px;"><span class="urgency-tag"><span class="urgency-dot"></span>Interviewing Now · Limited Positions</span></div>
 <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px;">
 <h2 style="font-family:'Playfair Display',serif;font-size:36px;font-weight:800;color:#002B49;line-height:1.15;margin:0;">Current Openings</h2>
 <p style="font-size:14px;color:#64748b;max-width:420px;line-height:1.7;margin:0;">Whether you're a closer, marketer, or connector — there's a path to grow with us. Qualified leads, training, and tools provided.</p>
@@ -451,13 +482,13 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 </div><!-- /jobs-tab-row -->
 
 <!-- Job panels - full width, one at a time -->
-<div id="panel-sales" class="job-panel" style="display:none;border-top:3px solid var(--coral);padding-top:32px;animation:bw-slide-up 0.4s cubic-bezier(0.22,1,0.36,1) both;">
+<div id="panel-sales" class="job-panel" style="display:none;border-top:3px solid var(--coral);padding-top:24px;"><div class="panel-progress" id="prog-sales"></div>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;">
 <div>
 <div class="role-body" style="padding:0;">
 <span class="section-label">What You'll Be Selling</span>
 <ul class="req-list coral">
-<li>Business Growth Systems</li>
+<li><span class="role-highlight" data-highlight="Websites, CRM, automation & visibility">Business Growth Systems</span></li>
 <li>Digital Transformation Solutions</li>
 <li>Lead Generation &amp; Automation</li>
 <li>Customer Relationship Management Platform</li>
@@ -496,7 +527,7 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 <div style="background:rgba(0,43,73,0.04);border:1px solid rgba(0,43,73,0.1);border-radius:14px;padding:20px 24px;margin-top:16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
 <div>
 <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--coral);margin-bottom:6px;">Top Performer Earnings</div>
-<div style="font-family:'Sora',sans-serif;font-size:26px;font-weight:900;color:#002B49;">US$2,500 – US$5,000+<span style="font-size:14px;font-weight:600;color:#64748b;"> / month</span></div>
+<div style="font-family:'Sora',sans-serif;font-size:26px;font-weight:900;color:#002B49;">Over US$1,500+<span style="font-size:14px;font-weight:600;color:#64748b;"> / month</span></div>
 </div>
 <div style="background:var(--coral);color:#fff;font-size:13px;font-weight:800;padding:10px 22px;border-radius:10px;">No Cap on Earnings</div>
 </div>
@@ -520,7 +551,7 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 <div style="background:#002B49;border-radius:16px;padding:28px;color:#fff;">
 <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#00E0FF;margin-bottom:12px;">Ready to Apply?</div>
 <h3 style="font-family:'Manrope',sans-serif;font-size:20px;font-weight:900;margin-bottom:10px;">Sales Closer / Growth Advisor</h3>
-<p style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:20px;">Part-time · Remote · Commission-Based<br/>Top performers earn US$2,500–$5,000+/month. No cap.</p>
+<p style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:20px;">Part-time · Remote · Commission-Based<br/>High performers earn over US$1,500+/month. No cap on commissions.</p>
 <a href="careers-form.html?role=sales" style="display:block;text-align:center;background:var(--coral);color:#fff;font-size:15px;font-weight:800;padding:14px 24px;border-radius:11px;text-decoration:none;box-shadow:0 4px 16px rgba(255,85,0,0.35);transition:all 0.2s;" onmouseover="this.style.filter='brightness(1.08)'" onmouseout="this.style.filter=''">✉️ Apply for This Role →</a>
 <p style="font-size:11px;color:rgba(255,255,255,0.35);text-align:center;margin-top:10px;">careers@bluwavgrowth.com</p>
 </div>
@@ -528,7 +559,7 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 </div>
 </div>
 
-<div id="panel-marketing" class="job-panel" style="display:none;border-top:3px solid #C49A00;padding-top:32px;animation:bw-slide-up 0.4s cubic-bezier(0.22,1,0.36,1) both;">
+<div id="panel-marketing" class="job-panel" style="display:none;border-top:3px solid #C49A00;padding-top:24px;"><div class="panel-progress gold" id="prog-marketing"></div>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;">
 <div>
 <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
@@ -557,7 +588,7 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 <div class="brand-card" style="border-color:rgba(255,85,0,0.3);background:rgba(255,85,0,0.04);">
 <div class="brand-icon">💳</div>
 <div class="brand-name" style="color:#002B49;">Credii</div>
-<div class="brand-desc" style="color:#64748b;">Building credibility and access pathways for businesses and communities across the ecosystem.</div>
+<div class="brand-desc" style="color:#64748b;">Building credibility and access pathways for businesses, professionals, and communities across the ecosystem.</div>
 </div>
 <div class="brand-card" style="border-color:rgba(0,180,120,0.3);background:rgba(0,180,120,0.04);">
 <div class="brand-icon">🌐</div>
@@ -574,7 +605,7 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 <!-- Responsibilities -->
 <span class="section-label">Key Responsibilities</span>
 <ul class="req-list gold">
-<li>Manage and schedule social media content across all ecosystem brands</li>
+<li><span class="role-highlight" data-highlight="LinkedIn, Facebook, Instagram & email">Manage and schedule social media content across all ecosystem brands</span></li>
 <li>Create engaging graphics and content using Canva</li>
 <li>Repurpose founder insights, client stories, webinars, and business conversations into social content</li>
 <li>Coordinate content across LinkedIn, Facebook, Instagram, and email</li>
@@ -629,9 +660,7 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 <p style="font-size:12px;color:#94a3b8;margin-top:10px;">Subject line: <strong>Growth &amp; Ecosystem Marketing Coordinator Application</strong>. Please include your résumé and links to any social media accounts or content you've managed.</p>
 </div>
 </div>
-<div style="margin-top:20px;text-align:center;">
-<a href="careers-form.html?role=marketing" class="apply-btn gold-btn">✉️ Apply for This Role →</a>
-</div>
+
 <div style="position:sticky;top:88px;">
 <div style="background:#1a0a00;border-radius:16px;padding:28px;color:#fff;">
 <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#F7C873;margin-bottom:12px;">Ready to Apply?</div>
@@ -953,19 +982,27 @@ document.addEventListener('click',function(e){var nav=document.getElementById('m
 function openJob(id){
   var panels = document.querySelectorAll('.job-panel');
   var tabs = document.querySelectorAll('.job-tab');
+  var currentPanel = document.getElementById('panel-'+id);
+  var isAlreadyOpen = currentPanel && currentPanel.style.display !== 'none';
   // Hide all panels, deactivate all tabs
   panels.forEach(function(p){p.style.display='none';});
   tabs.forEach(function(t){t.classList.remove('active','active-gold');});
   document.querySelectorAll('.tab-arrow').forEach(function(a){a.style.transform='';});
+  document.querySelectorAll('.panel-progress').forEach(function(p){p.classList.remove('loaded');});
+  // Toggle: if already open, just close
+  if(isAlreadyOpen) return;
   // Show selected
   var panel = document.getElementById('panel-'+id);
   var tab = document.getElementById('tab-'+id);
+  var prog = document.getElementById('prog-'+id);
   if(panel && tab){
     var isGold = id==='marketing';
     panel.style.display='block';
     tab.classList.add(isGold?'active-gold':'active');
     tab.querySelector('.tab-arrow').style.transform='rotate(180deg)';
-    setTimeout(function(){panel.scrollIntoView({behavior:'smooth',block:'nearest'});},50);
+    // Trigger progress bar
+    if(prog) setTimeout(function(){prog.classList.add('loaded');},50);
+    setTimeout(function(){panel.scrollIntoView({behavior:'smooth',block:'nearest'});},80);
   }
 }
 </script>
