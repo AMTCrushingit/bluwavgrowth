@@ -264,7 +264,20 @@ async function submitForm(){
   const why      = document.getElementById('f_why').value;
   const avail    = document.getElementById('f_availability').value;
   const linkedin = document.getElementById('f_linkedin').value || '—';
-  const resume   = document.getElementById('fileName').textContent || 'Not attached';
+  const resumeFile = document.getElementById('f_resume').files[0];
+  const resume   = resumeFile ? resumeFile.name : 'Not attached';
+
+  // Read resume as base64 for email attachment
+  let resumeBase64 = null;
+  let resumeMime = null;
+  if (resumeFile) {
+    resumeBase64 = await new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.onload = (e) => resolve(e.target.result.split(',')[1]);
+      reader.readAsDataURL(resumeFile);
+    });
+    resumeMime = resumeFile.type || 'application/octet-stream';
+  }
 
   const adminHtml = `
     <h2 style="color:#002B49;font-family:sans-serif;">New Application — ${roleName}</h2>
@@ -315,7 +328,8 @@ async function submitForm(){
           role: roleName, name, email, phone, location,
           experience: exp, current_role: curRole,
           skills, why_bluwav: why, availability: avail,
-          linkedin, resume_note: resume, casl_consent: caslConsent
+          linkedin, resume_note: resume, casl_consent: caslConsent,
+          resume_base64: resumeBase64, resume_mime: resumeMime, resume_name: resume
         })
       });
       if (res.ok) {
@@ -341,7 +355,8 @@ async function submitForm(){
           to:[{email:'careers@bluwavgrowth.com',name:'BluWav Careers'}],
           replyTo:{email,name},
           subject:roleName+' Application — '+name,
-          htmlContent:adminHtml
+          htmlContent:adminHtml,
+          ...(resumeBase64 ? {attachment:[{content:resumeBase64,name:resume,type:resumeMime}]} : {})
         })
       });
       if (r1.ok) {
