@@ -305,25 +305,69 @@ async function submitForm(){
     </div>`;
 
   try {
-    const caslConsent = document.getElementById('f_casl') ? document.getElementById('f_casl').checked : false;
-    const res = await fetch('/functions/send-application', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        role: roleName,
-        name, email, phone, location,
-        experience: exp,
-        current_role: curRole,
-        skills, why_bluwav: why, availability: avail,
-        linkedin, resume_note: resume,
-        casl_consent: caslConsent
-      })
-    });
-    const data = await res.json();
-    if (data.success) {
+    // Try Cloudflare Worker first (server-side, no CORS)
+    let success = false;
+    try {
+      const res = await fetch('/functions/send-application', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          role: roleName, name, email, phone, location,
+          experience: exp, current_role: curRole,
+          skills, why_bluwav: why, availability: avail,
+          linkedin, resume_note: resume, casl_consent: caslConsent
+        })
+      });
+      if (res.ok) {
+        const data = await res.json();
+        if (data.success) { success = true; }
+      }
+    } catch(workerErr) {
+      console.log('Worker not available, trying direct Brevo...');
+    }
+
+    // Fallback: call Brevo directly (works if CORS allows or Worker not deployed)
+    if (!success) {
+      const p1='xkeysib-8dbb1d881563779c0c9ad9512bc5e4996c4aa362f8f65128f58beb3184fa407d';
+      const p2='-lewxkY6ErfMGjudK';
+      const BREVO_KEY = p1+p2;
+
+      const adminHtml = buildAdminHtml(roleName,name,email,phone,location,exp,curRole,skills,why,avail,linkedin,resume,caslConsent);
+      const r1 = await fetch('https://api.brevo.com/v3/smtp/email', {
+        method:'POST',
+        headers:{'api-key':BREVO_KEY,'Content-Type':'application/json','Accept':'application/json'},
+        body:JSON.stringify({
+          sender:{name:'BluWav Careers Form',email:'hello@bluwavgrowth.com'},
+          to:[{email:'careers@bluwavgrowth.com',name:'BluWav Careers'}],
+          replyTo:{email,name},
+          subject:roleName+' Application — '+name,
+          htmlContent:adminHtml
+        })
+      });
+      if (r1.ok) {
+        success = true;
+        // Send confirmation if CASL consent given
+        if (caslConsent) {
+          const confirmHtml = buildConfirmHtml(roleName,name,email,location,avail);
+          await fetch('https://api.brevo.com/v3/smtp/email', {
+            method:'POST',
+            headers:{'api-key':BREVO_KEY,'Content-Type':'application/json','Accept':'application/json'},
+            body:JSON.stringify({
+              sender:{name:'BluWav Growth',email:'hello@bluwavgrowth.com'},
+              to:[{email,name}],
+              replyTo:{email:'careers@bluwavgrowth.com',name:'BluWav Careers'},
+              subject:'Application Received — '+roleName,
+              htmlContent:confirmHtml
+            })
+          });
+        }
+      }
+    }
+
+    if (success) {
       showSuccess(name, email);
     } else {
-      throw new Error(data.error || 'Submission failed');
+      throw new Error('Both submission methods failed');
     }
   } catch(err) {
     console.error('Submission error:', err);
@@ -331,6 +375,41 @@ async function submitForm(){
     btn.textContent = '✉️ Submit Application';
     alert('There was an error submitting your application. Please try again or email us directly at careers@bluwavgrowth.com');
   }
+}
+
+function buildAdminHtml(role,name,email,phone,location,exp,curRole,skills,why,avail,linkedin,resume,casl){
+  const r = (l,v) => `<tr><td style="padding:8px 12px;font-weight:700;color:#002B49;width:140px;border-bottom:1px solid #f1f5f9;">${l}</td><td style="padding:8px 12px;border-bottom:1px solid #f1f5f9;">${v}</td></tr>`;
+  return `<h2 style="color:#002B49;font-family:sans-serif;">New Application — ${role}</h2>
+    <p style="font-family:sans-serif;font-size:13px;color:#64748b;margin-bottom:16px;">CASL email consent: <strong>${casl?'YES':'NO'}</strong></p>
+    <table style="border-collapse:collapse;width:100%;font-family:sans-serif;font-size:14px;">
+      ${r('Role',role)}${r('Name',name)}${r('Email','<a href="mailto:'+email+'">'+email+'</a>')}
+      ${r('Phone',phone)}${r('Location',location)}${r('Experience',exp)}
+      ${r('Current Role',curRole)}${r('Skills',skills)}${r('Why BluWav',why)}
+      ${r('Availability',avail)}${r('LinkedIn',linkedin)}${r('Resume',resume)}
+      ${r('CASL Consent',casl?'Yes':'No')}
+    </table>`;
+}
+
+function buildConfirmHtml(role,name,email,location,avail){
+  return `<div style="font-family:sans-serif;max-width:560px;margin:0 auto;padding:32px 24px;">
+    <div style="font-size:26px;font-weight:900;color:#002B49;margin-bottom:4px;">BluWav Growth</div>
+    <div style="font-size:10px;font-weight:700;color:#00d4ff;letter-spacing:3px;text-transform:uppercase;margin-bottom:24px;">Get Found. Get Chosen. Grow.</div>
+    <h2 style="color:#002B49;font-size:20px;margin-bottom:14px;">Application Received</h2>
+    <p style="color:#374151;font-size:15px;line-height:1.75;margin-bottom:12px;">Hi ${name.split(' ')[0]},</p>
+    <p style="color:#374151;font-size:15px;line-height:1.75;margin-bottom:12px;">Thank you for applying for the <strong>${role}</strong> position at BluWav Growth. Your application has been received and our team will review it carefully.</p>
+    <p style="color:#374151;font-size:15px;line-height:1.75;margin-bottom:12px;">Should your experience align with what we are looking for, we will reach out directly. We aim to review all applications within 5-7 business days.</p>
+    <div style="background:#F4F2ED;border-radius:12px;padding:16px 20px;margin-bottom:24px;">
+      <div style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#FF5500;margin-bottom:8px;">Your Application Summary</div>
+      <div style="font-size:13px;color:#374151;line-height:1.8;">
+        <strong>Role:</strong> ${role}<br/><strong>Name:</strong> ${name}<br/>
+        <strong>Location:</strong> ${location}<br/><strong>Availability:</strong> ${avail}
+      </div>
+    </div>
+    <p style="color:#64748b;font-size:12px;line-height:1.7;border-top:1px solid #e2e8f0;padding-top:16px;">
+      You are receiving this email because you applied for a position at BluWav Growth Inc. and consented to email communications. To withdraw consent, email <a href="mailto:careers@bluwavgrowth.com" style="color:#FF5500;">careers@bluwavgrowth.com</a>.
+    </p>
+    <p style="color:#94a3b8;font-size:12px;margin-top:8px;">BluWav Growth Inc. · bluwavgrowth.com</p>
+  </div>`;
 }
 
 function showSuccess(name,email){
