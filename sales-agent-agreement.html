@@ -29,18 +29,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 32px;d
 .nav-link:hover{color:#fff;}
 .nav-cta{background:var(--coral);color:#fff;font-size:13px;font-weight:700;padding:10px 24px;border-radius:9px;transition:transform 0.15s;text-decoration:none;}
 .nav-cta:hover{transform:translateY(-1px);}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px;margin:-8px;}
+
 .hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all 0.3s ease;}
 .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
 .hamburger.open span:nth-child(2){opacity:0;}
 .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-.mob-nav{display:none;position:fixed;top:70px;left:0;right:0;background:rgba(0,43,73,0.99);backdrop-filter:blur(20px);padding:20px 24px;flex-direction:column;gap:4px;z-index:10000;border-bottom:1px solid rgba(0,224,255,0.15);max-height:calc(100vh - 70px);overflow-y:auto;}
+
 .mob-nav.open{display:flex!important;}
-.mob-link{font-size:15px;font-weight:600;color:rgba(255,255,255,0.85);padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.1);display:block;}
+
 .mob-link.wave{color:#00E0FF;}
-.mob-cta{background:var(--coral);color:#fff;font-weight:700;padding:14px;border-radius:10px;text-align:center;margin-top:8px;font-size:15px;display:block;}
-@media(max-width:1100px){.nav-links{display:none!important;}.hamburger{display:flex!important;}}
-@media(max-width:768px){nav{padding:0 16px!important;height:60px!important;}.mob-nav{top:60px!important;}}
+
+@media(max-width:1100px){.nav-links{display:none!important;}}
+@media(max-width:768px){nav{padding:0 16px!important;height:60px!important;}}
 
 /* LAYOUT */
 .wrap{max-width:var(--max);margin:0 auto;padding:0 32px;}
@@ -180,6 +180,34 @@ img{max-width:100%;height:auto;}
 
 /* Font display swap for CLS prevention */
 @font-face{font-display:swap;}
+/* ── Standard BluWav Nav ── */
+.bw-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:68px;padding:0 clamp(16px,4vw,60px);display:flex;align-items:center;justify-content:space-between;background:rgba(10,15,30,0.96);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,200,224,0.12);box-shadow:0 2px 24px rgba(0,0,0,0.25);}
+.bw-nav-logo{text-decoration:none;display:flex;flex-direction:column;align-items:flex-start;line-height:1;padding:4px 0;flex-shrink:0;}
+.bw-nav-logo-name{font-family:'Kaushan Script',cursive;font-size:26px;color:#fff;line-height:1;}
+.bw-nav-logo-name span{color:#00d4ff;}
+.bw-nav-logo-sub{font-size:8px;font-weight:700;color:#00d4ff;letter-spacing:3px;text-transform:uppercase;margin-top:2px;}
+.bw-nav-links{display:flex;align-items:center;gap:24px;}
+.bw-nav-link{font-size:13px;font-weight:500;color:rgba(255,255,255,0.65);text-decoration:none;transition:color .2s;position:relative;}
+.bw-nav-link::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:#00d4ff;transition:width .3s;border-radius:2px;}
+.bw-nav-link:hover{color:#fff;}
+.bw-nav-link:hover::after{width:100%;}
+.bw-nav-link.active{color:#fff;}
+.bw-nav-link.active::after{width:100%;}
+.bw-nav-btn-outline{font-size:13px;font-weight:600;color:rgba(255,255,255,0.7);padding:8px 16px;border-radius:8px;border:1px solid rgba(255,255,255,0.15);text-decoration:none;transition:all .2s;}
+.bw-nav-btn-outline:hover{color:#fff;border-color:rgba(255,255,255,0.4);}
+.bw-nav-btn-cta{background:#ff6535;color:#fff;font-size:13px;font-weight:700;padding:10px 22px;border-radius:100px;text-decoration:none;box-shadow:0 4px 16px rgba(255,101,53,0.35);transition:all .2s;white-space:nowrap;}
+.bw-nav-btn-cta:hover{filter:brightness(1.1);transform:translateY(-1px);}
+.bw-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px;margin:-8px;}
+.bw-hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all .3s ease;}
+.bw-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.bw-hamburger.open span:nth-child(2){opacity:0;}
+.bw-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.bw-mob-nav{display:none;position:fixed;top:68px;left:0;right:0;background:rgba(10,15,30,0.99);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:2px solid rgba(0,200,224,0.15);z-index:999;flex-direction:column;padding:8px 0 20px;}
+.bw-mob-nav.open{display:flex;}
+.bw-mob-link{font-size:16px;font-weight:500;color:rgba(255,255,255,0.85);text-decoration:none;padding:15px 24px;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;gap:10px;transition:all .15s;}
+.bw-mob-link:hover{color:#00d4ff;background:rgba(0,212,255,0.05);}
+.bw-mob-cta{background:linear-gradient(135deg,#ff6535,#ff6535);color:#fff;font-weight:800;padding:16px 24px;text-align:center;margin:14px 20px 4px;font-size:16px;display:block;border-radius:12px;text-decoration:none;box-shadow:0 4px 20px rgba(255,101,53,0.4);}
+@media(max-width:1024px){.bw-nav-links{display:none!important;}.bw-hamburger{display:flex!important;}}
 </style>
 </head>
 <body>
@@ -219,30 +247,32 @@ if(sessionStorage.getItem('bwAgentAuth')==='1'){
 </script>
 
 
-<nav id="mainNav">
-<a href="index.html" class="nav-logo" style="display:flex;flex-direction:column;align-items:flex-start;line-height:1;padding:4px 0;text-decoration:none;">
-<div id="navLogoText" style="font-family:'Kaushan Script',cursive;font-size:26px;line-height:1;color:#fff;opacity:0;transition:opacity 0.3s;">Blu<span style="color:#00E0FF;">Wav</span></div>
-<div style="font-size:8px;font-weight:700;color:#00E0FF;letter-spacing:3px;text-transform:uppercase;line-height:1.4;margin-top:2px;">Get Found. Get Chosen. Grow.</div>
+<nav class="bw-nav" id="bwNav">
+<a class="bw-nav-logo" href="index.html">
+<div class="bw-nav-logo-name">Blu<span>Wav</span></div>
+<div class="bw-nav-logo-sub">Get Found. Get Chosen. Grow.</div>
 </a>
-<div class="nav-links">
-  <a class="nav-link" href="index.html#what-we-do-cont">What We Do</a>
-  <a class="nav-link" href="index.html#how-it-works">How It Works</a>
-  <a class="nav-link" href="index.html#pricing">Pricing</a>
-  <a class="nav-link" href="index.html#case-studies">Case Studies</a>
-  <a class="nav-link" href="the-wave.html" style="color:#00E0FF;font-weight:600;">The Wave</a>
-  <a class="nav-link" href="https://bluwavcrm.com/login.html" target="_blank" rel="noopener" style="background:transparent;border:1px solid rgba(255,255,255,0.25);padding:8px 18px;border-radius:8px;color:rgba(255,255,255,0.85);font-weight:600;">Client Login</a>
-  <a class="nav-cta" href="health-score.html" style="background:#FF5500;">Free Health Score</a>
+<div class="bw-nav-links">
+<a class="bw-nav-link" href="index.html#pillars">What We Do</a>
+<a class="bw-nav-link" href="index.html#growth-system">How It Works</a>
+<a class="bw-nav-link" href="pricing.html#plans-k1l2">Pricing</a>
+<a class="bw-nav-link" href="case-study-aadek.html">Case Studies</a>
+<a class="bw-nav-link" href="the-wave.html">The Wave</a>
+<a class="bw-nav-btn-outline" href="https://bluwavcrm.com/login.html" rel="noopener" target="_blank">Client Login</a>
+<a class="bw-nav-btn-cta" href="health-score.html">Free Health Score</a>
 </div>
-<button aria-label="Menu" class="hamburger" id="hamburgerBtn" onclick="toggleMob()"><span></span><span></span><span></span></button>
+<button aria-label="Menu" class="bw-hamburger" id="bwHamburger" onclick="bwToggleNav()">
+<span></span><span></span><span></span>
+</button>
 </nav>
-<div class="mob-nav" id="mobNav">
-  <a class="mob-link" href="index.html#what-we-do-cont" onclick="closeMob()">What We Do</a>
-  <a class="mob-link" href="index.html#how-it-works" onclick="closeMob()">How It Works</a>
-  <a class="mob-link" href="index.html#pricing" onclick="closeMob()">Pricing</a>
-  <a class="mob-link" href="index.html#case-studies" onclick="closeMob()">Case Studies</a>
-  <a class="mob-link" href="the-wave.html" onclick="closeMob()" style="color:#00E0FF;">The Wave</a>
-  <a class="mob-link" href="https://bluwavcrm.com/login.html" target="_blank" rel="noopener" onclick="closeMob()" style="color:rgba(0,224,255,0.85);">&#128274; Client Login</a>
-  <a class="mob-cta" href="health-score.html" onclick="closeMob();" style="background:#FF5500;">Free Health Score</a>
+<div class="bw-mob-nav" id="bwMobNav">
+<a class="bw-mob-link" href="index.html#pillars" onclick="bwCloseNav()">🌐 What We Do</a>
+<a class="bw-mob-link" href="index.html#growth-system" onclick="bwCloseNav()">⚡ How It Works</a>
+<a class="bw-mob-link" href="pricing.html#plans-k1l2" onclick="bwCloseNav()">💰 Pricing</a>
+<a class="bw-mob-link" href="case-study-aadek.html" onclick="bwCloseNav()">📐 Case Studies</a>
+<a class="bw-mob-link" href="the-wave.html" onclick="bwCloseNav()" style="color:#00d4ff;">The Wave</a>
+<a class="bw-mob-link" href="https://bluwavcrm.com/login.html" onclick="bwCloseNav()" rel="noopener" style="color:rgba(0,212,255,0.85);" target="_blank">🔐 Client Login</a>
+<a class="bw-mob-cta" href="health-score.html" onclick="bwCloseNav()">Get My Free Health Score →</a>
 </div>
 
 <!-- HERO -->
