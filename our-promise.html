@@ -220,6 +220,7 @@ footer .footer-grid{gap:56px !important;}
 @media(prefers-reduced-motion:reduce){
   .bw-reveal,.bw-reveal-left,.bw-reveal-right,.bw-reveal-scale{opacity:1!important;transform:none!important;transition:none!important;}
 }
+#bwProgress{position:fixed;top:0;left:0;height:3px;z-index:9999;width:0%;background:linear-gradient(90deg,#ff6535,#fbbf24,#00d4ff);border-radius:0 2px 2px 0;pointer-events:none;}
 </style>
 <script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -229,253 +230,67 @@ footer .footer-grid{gap:56px !important;}
   "url": "https://bluwavgrowth.com/our-promise.html",
   "provider": {"@type": "LocalBusiness", "name": "BluWav Growth", "url": "https://bluwavgrowth.com"}
 }</script>
-<!-- Meta Pixel Code -->
-<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1945068829544650');fbq('track','PageView');</script>
-<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1945068829544650&ev=PageView&noscript=1"/></noscript>
-<!-- End Meta Pixel Code -->
-</head>
-<body>
-
-<nav id="mainNav">
-<a href="index.html" class="nav-logo" style="display:flex;flex-direction:column;align-items:flex-start;line-height:1;padding:4px 0;text-decoration:none;">
-<div id="navLogoText" style="font-family:'Kaushan Script',cursive;font-size:26px;line-height:1;color:#fff;opacity:0;transition:opacity 0.3s;">Blu<span style="color:#00E0FF;">Wav</span></div>
-<div style="font-size:8px;font-weight:700;color:#00E0FF;letter-spacing:3px;text-transform:uppercase;line-height:1.4;margin-top:2px;">Get Found. Get Chosen. Grow.</div>
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer style="background:#060c18;padding-top:0;border-top:none;width:100%;">
+<div style="width:100%;padding:64px clamp(16px,5vw,80px) 48px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:64px;">
+<!-- Brand -->
+<div>
+<a href="index.html" style="text-decoration:none;display:inline-block;margin-bottom:20px;">
+<div style="font-family:'Kaushan Script',cursive;font-size:32px;color:#fff;line-height:1;">Blu<span style="color:#00d4ff;">Wav</span></div>
+<div style="font-size:9px;font-weight:700;color:#00d4ff;letter-spacing:4px;text-transform:uppercase;margin-top:4px;">Get Found. Get Chosen. Grow.</div>
 </a>
-<div class="nav-links">
-  <a class="nav-link" href="health-score.html">Health Score</a>
-  <a class="nav-link" href="index.html#what-we-do-cont">Growth Plans</a>
-  <a class="nav-link" href="about.html">About</a>
-  <a class="nav-link" href="contact.html">Contact</a>
-  <a class="nav-link" href="the-wave.html" style="color:#00E0FF;font-weight:600;">The Wave</a>
-  <a class="nav-link" href="https://bluwavcrm.com/login.html" target="_blank" rel="noopener" style="color:rgba(0,224,255,0.85);font-weight:600;">Client Login</a>
-  <a class="nav-cta" href="https://calendly.com/hello-bluwavgrowth/30min" onclick="if(typeof gtag!=='undefined'){gtag('event','book_call_click',{'event_category':'CTA','event_label':'Book a Call','page':'nav'});}" target="_blank" rel="noopener">Book a Call</a>
-</div>
-<button aria-label="Menu" class="hamburger" id="hamburgerBtn" onclick="toggleMob()"><span></span><span></span><span></span></button>
-</nav>
-<div class="mob-nav" id="mobNav">
-  <a class="mob-link" href="health-score.html" onclick="closeMob()">&#129658; Health Score</a>
-  <a class="mob-link" href="index.html#what-we-do-cont" onclick="closeMob()">&#128176; Growth Plans</a>
-  <a class="mob-link" href="about.html" onclick="closeMob()">&#128100; About</a>
-  <a class="mob-link" href="contact.html" onclick="closeMob()">&#128222; Contact</a>
-  <a class="mob-link" href="the-wave.html" onclick="closeMob()" style="color:#00E0FF;">&#127754; The Wave</a>
-  <a class="mob-link" href="https://bluwavcrm.com/login.html" target="_blank" rel="noopener" onclick="closeMob()" style="color:rgba(0,224,255,0.85);">&#128274; Client Login</a>
-  <a class="mob-cta" href="https://calendly.com/hello-bluwavgrowth/30min" onclick="if(typeof gtag!=='undefined'){gtag('event','book_call_click',{'event_category':'CTA','event_label':'Book a Call','page':'nav'});}closeMob();" target="_blank" rel="noopener">&#128197; Book a Call</a>
+<p style="font-size:14px;color:rgba(255,255,255,0.55);line-height:1.75;max-width:360px;margin-bottom:10px;">BluWav Growth helps modern service businesses get found, get chosen, and grow through complete growth systems built for visibility, lead capture, follow-up, and customer management.</p>
+<p style="font-size:13px;font-weight:700;color:rgba(255,255,255,0.4);line-height:1.75;max-width:360px;margin-bottom:10px;">Building growth systems. Shaping what's next.</p>
+<p style="font-size:13px;color:rgba(255,255,255,0.35);line-height:1.75;max-width:360px;margin-bottom:10px;">In as little as 48 hours: your website, Google visibility, WhatsApp, CRM, and automation working together. Built with you. Run with you.</p>
+<p style="font-size:13px;font-weight:700;color:#00d4ff;margin-bottom:24px;">Smart tech. Real human support.</p>
+<div style="display:flex;gap:10px;">
+<a aria-label="Facebook" href="https://facebook.com/bluwavgrowth" onmouseout="this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='rgba(255,255,255,0.6)'" onmouseover="this.style.borderColor='#1877F2';this.style.color='#1877F2'" rel="noopener" style="width:40px;height:40px;border-radius:10px;border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);font-size:15px;font-weight:800;text-decoration:none;transition:all .2s;" target="_blank">f</a>
+<a aria-label="Instagram" href="https://www.instagram.com/bluwavgrowth/" onmouseout="this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='rgba(255,255,255,0.6)'" onmouseover="this.style.borderColor='#E1306C';this.style.color='#E1306C'" rel="noopener" style="width:40px;height:40px;border-radius:10px;border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);font-size:18px;text-decoration:none;transition:all .2s;" target="_blank">📷</a>
+<a aria-label="Email" href="mailto:hello@bluwavgrowth.com" onmouseout="this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='rgba(255,255,255,0.6)'" onmouseover="this.style.borderColor='#00d4ff';this.style.color='#00d4ff'" style="width:40px;height:40px;border-radius:10px;border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);font-size:16px;text-decoration:none;transition:all .2s;">✉</a>
 </div>
 </div>
-
-<!-- HERO -->
-<section class="op-hero">
-  <div class="op-hero-bg">
-    <img loading="lazy" src="promise-hero-2.jpg" alt="BluWav Growth, Our Promise to modern Businesses, modern business handshake" fetchpriority="high" decoding="async"/>
-  </div>
-  <div class="op-hero-overlay"></div>
-  <div class="op-hero-inner">
-    <!-- Eyebrow -->
-    <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.15);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.3);border-radius:20px;padding:6px 16px;margin-bottom:20px;">
-      <span style="width:6px;height:6px;border-radius:50%;background:#F7C873;display:inline-block;"></span>
-      <span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#fff;">Our Promise to You</span>
-    </div>
-    <!-- Headline, elegant, not heavy -->
-    <h1 style="font-family:'Playfair Display',serif;font-size:52px;font-weight:700;color:#fff;line-height:1.15;letter-spacing:-0.3px;margin-bottom:16px;max-width:580px;text-shadow:0 2px 20px rgba(0,0,0,0.3);">
-      Built on trust.<br/>Delivered with care.<br/><span style="color:#F7C873;font-style:italic;">Every single time.</span>
-    </h1>
-    <!-- Subheadline -->
-    <p style="font-size:17px;color:rgba(255,255,255,0.90);line-height:1.7;max-width:480px;margin-bottom:32px;text-shadow:0 1px 8px rgba(0,0,0,0.3);">
-      You deserve digital tools built for how modern businesses really work, fast, simple, and designed for growth.
-    </p>
-    <!-- CTAs -->
-    <div style="display:flex;gap:12px;flex-wrap:wrap;">
-      <a href="health-check.html" target="_blank"
-         style="background:#FF5500;color:#fff;font-size:15px;font-weight:800;padding:14px 32px;border-radius:10px;box-shadow:0 4px 20px rgba(255,85,0,0.4);transition:transform 0.15s;display:inline-flex;align-items:center;gap:8px;"
-         onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
-        Get Your Free Health Check &#8594;
-      </a>
-      <a href="#promise-content"
-         style="background:rgba(255,255,255,0.18);color:#fff;font-size:15px;font-weight:600;padding:14px 28px;border-radius:10px;border:1px solid rgba(255,255,255,0.35);backdrop-filter:blur(8px);transition:all 0.2s;display:inline-block;">
-        See Our Commitments
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- SIX COMMITMENTS -->
-<section id="promise-content" style="background:#002B49;padding:100px 0;">
-<div class="wrap">
-  <div style="text-align:center;margin-bottom:56px;">
-    <span class="eyebrow reveal" style="color:var(--cyan);">Six Unbreakable Commitments</span>
-    <h2 class="h2 reveal" style="color:#fff;margin-top:8px;">These are not marketing words.<br/>These are our promises.</h2>
-  </div>
-  <div class="promise-grid">
-    <div class="promise-card teal reveal">
-      <div style="font-size:32px;margin-bottom:16px;">&#128221;</div>
-      <h3 style="font-size:18px;font-weight:800;color:#fff;margin-bottom:10px;">We Sign Before We Start</h3>
-      <p style="font-size:14px;color:rgba(255,255,255,0.6);line-height:1.65;">Every project begins with a signed agreement. You know exactly what you're getting, what it costs, and when it will be delivered, before we touch a single line of code.</p>
-    </div>
-    <div class="promise-card coral reveal">
-      <div style="font-size:32px;margin-bottom:16px;">&#9989;</div>
-      <h3 style="font-size:18px;font-weight:800;color:#fff;margin-bottom:10px;">Your Approval Before Launch</h3>
-      <p style="font-size:14px;color:rgba(255,255,255,0.6);line-height:1.65;">Nothing goes live without your sign-off. You review everything first. If it's not right, we fix it. No surprises, no arguments, just your approval, then launch.</p>
-    </div>
-    <div class="promise-card navy reveal">
-      <div style="font-size:32px;margin-bottom:16px;">&#128274;</div>
-      <h3 style="font-size:18px;font-weight:800;color:#fff;margin-bottom:10px;">Built on Trust. Forever.</h3>
-      <p style="font-size:14px;color:rgba(255,255,255,0.6);line-height:1.65;">Your website, your CRM, your accounts, your passwords, all yours from day one. We don't hold anything hostage. Stay because it's working, not because you're stuck.</p>
-    </div>
-    <div class="promise-card teal reveal">
-      <div style="font-size:32px;margin-bottom:16px;">&#9889;</div>
-      <h3 style="font-size:18px;font-weight:800;color:#fff;margin-bottom:10px;">48-Hour Delivery</h3>
-      <p style="font-size:14px;color:rgba(255,255,255,0.6);line-height:1.65;">We deliver in 48–72 hours. Not 6 weeks. Not "when we get to it." We've built the systems to move fast without cutting corners, and we stand behind that timeline.</p>
-    </div>
-    <div class="promise-card coral reveal">
-      <div style="font-size:32px;margin-bottom:16px;">&#127758;</div>
-      <h3 style="font-size:18px;font-weight:800;color:#fff;margin-bottom:10px;">Built for Modern Businesses</h3>
-      <p style="font-size:14px;color:rgba(255,255,255,0.6);line-height:1.65;">Every system we build is designed for how modern businesses actually work, mobile-first, WhatsApp-ready, relationship-driven.  Built for modern businesses worldwide.</p>
-    </div>
-    <div class="promise-card navy reveal">
-      <div style="font-size:32px;margin-bottom:16px;">&#128172;</div>
-      <h3 style="font-size:18px;font-weight:800;color:#fff;margin-bottom:10px;">Real People. Real Responses.</h3>
-      <p style="font-size:14px;color:rgba(255,255,255,0.6);line-height:1.65;">You'll always reach a real person on WhatsApp. No bots, no ticket systems, no waiting days for a reply. We communicate the way modern businesses do, directly and personally.</p>
-    </div>
-  </div>
-</div>
-</section>
-
-<!-- WHAT THIS MEANS -->
-<section style="background:var(--sand);padding:100px 0;">
-<div class="wrap">
-  <div style="margin-bottom:48px;border-radius:20px;overflow:hidden;height:280px;position:relative;box-shadow:0 16px 48px rgba(0,43,73,0.15);">
-  <img src="promise-hero-1.jpg" alt="modern business professionals shaking hands at market, BluWav Growth partnership"
-       loading="lazy" decoding="async"
-       style="width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;"/>
-  <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(0,43,73,0.7) 0%,rgba(0,43,73,0.2) 60%,transparent 100%);"></div>
-  <div style="position:absolute;top:50%;left:40px;transform:translateY(-50%);">
-    <div style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#F7C873;margin-bottom:8px;">A Real Partnership</div>
-    <div style="font-family:'Manrope',sans-serif;font-size:22px;font-weight:800;color:#fff;line-height:1.3;max-width:360px;">We sign before we start.<br/>You approve before we launch.</div>
-  </div>
-</div>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
-    <div class="reveal">
-      <span class="eyebrow">What This Means for You</span>
-      <h2 class="h2" style="margin-top:8px;margin-bottom:24px;">Zero risk.<br/>Complete peace of mind.</h2>
-      <p style="font-size:16px;color:var(--slate);line-height:1.75;margin-bottom:20px;">We've heard the horror stories. Web designers who disappear. Agencies that lock you into monthly fees. Developers who hold your website hostage.</p>
-      <p style="font-size:16px;color:var(--slate);line-height:1.75;margin-bottom:20px;">BluWav Growth was built specifically to be the opposite of all of that. Every promise above is in writing, in your contract, before we start.</p>
-      <p style="font-size:16px;color:var(--slate);line-height:1.75;">If we don't deliver what we promised, we make it right. That's not a marketing line, it's how we operate.</p>
-    </div>
-    <div class="reveal" style="display:flex;flex-direction:column;gap:16px;">
-      <div style="background:#fff;border-radius:16px;padding:24px 28px;border-left:4px solid var(--coral);box-shadow:0 4px 20px rgba(0,43,73,0.06);">
-        <div style="font-size:13px;font-weight:800;color:var(--coral);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">No Lock-in</div>
-        <div style="font-size:15px;color:var(--navy);font-weight:600;">Cancel anytime. Own everything. No penalties.</div>
-      </div>
-      <div style="background:#fff;border-radius:16px;padding:24px 28px;border-left:4px solid var(--turquoise);box-shadow:0 4px 20px rgba(0,43,73,0.06);">
-        <div style="font-size:13px;font-weight:800;color:var(--turquoise);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Transparent Pricing</div>
-        <div style="font-size:15px;color:var(--navy);font-weight:600;">Fixed prices. No hidden fees. No surprises.</div>
-      </div>
-      <div style="background:#fff;border-radius:16px;padding:24px 28px;border-left:4px solid var(--gold);box-shadow:0 4px 20px rgba(0,43,73,0.06);">
-        <div style="font-size:13px;font-weight:800;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Signed Agreement</div>
-        <div style="font-size:15px;color:var(--navy);font-weight:600;">Everything in writing before work begins.</div>
-      </div>
-      <div style="background:#fff;border-radius:16px;padding:24px 28px;border-left:4px solid #22c55e;box-shadow:0 4px 20px rgba(0,43,73,0.06);">
-        <div style="font-size:13px;font-weight:800;color:#16a34a;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">48-Hour Delivery</div>
-        <div style="font-size:15px;color:var(--navy);font-weight:600;">Live in 48 hours. Not 6 weeks.</div>
-      </div>
-    </div>
-  </div>
+<!-- Navigate -->
+<div>
+<div style="font-size:13px;font-weight:700;color:rgba(255,255,255,0.35);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:24px;">Navigate</div>
+<div style="display:flex;flex-direction:column;gap:14px;">
+<a href="index.html" onmouseout="this.style.color='rgba(255,255,255,0.55)'" onmouseover="this.style.color='#fff'" style="font-size:14px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;">Home</a>
+<a href="index.html#pillars" onmouseout="this.style.color='rgba(255,255,255,0.55)'" onmouseover="this.style.color='#fff'" style="font-size:14px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;">What We Do</a>
+<a href="pricing.html" onmouseout="this.style.color='rgba(255,255,255,0.55)'" onmouseover="this.style.color='#fff'" style="font-size:14px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;">Pricing</a>
+<a href="case-study-aadek.html" onmouseout="this.style.color='rgba(255,255,255,0.55)'" onmouseover="this.style.color='#fff'" style="font-size:14px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;">Case Studies</a>
+<a href="about.html" onmouseout="this.style.color='rgba(255,255,255,0.55)'" onmouseover="this.style.color='#fff'" style="font-size:14px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;">About</a>
+<a href="contact.html" onmouseout="this.style.color='rgba(255,255,255,0.55)'" onmouseover="this.style.color='#fff'" style="font-size:14px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;">Contact</a>
+<a href="careers.html" onmouseout="this.style.color='rgba(255,255,255,0.55)'" onmouseover="this.style.color='#fff'" style="font-size:14px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;">Careers</a>
+<a href="the-wave.html" onmouseout="this.style.color='#00d4ff'" onmouseover="this.style.color='#fff'" style="font-size:14px;color:#00d4ff;font-weight:600;text-decoration:none;transition:color .2s;">The Wave</a>
 </div>
 </div>
-</section>
-
-<!-- CTA -->
-<section style="background:linear-gradient(135deg,#003d5c,#005a7a);padding:100px 0;">
-<div class="wrap" style="text-align:center;">
-  <span class="eyebrow reveal" style="color:var(--gold);display:block;text-align:center;">Ready to Start?</span>
-  <h2 class="h2 reveal" style="color:#fff;margin-top:8px;margin-bottom:16px;">Ready to work with a team<br/>that keeps its promises?</h2>
-  <p style="font-size:17px;color:rgba(255,255,255,0.65);max-width:500px;margin:0 auto 36px;line-height:1.7;">Start with a free Digital Health Check. We'll review your business online and WhatsApp you the results within 48 hours. No cost. No commitment.</p>
-  <a href="health-check.html" target="_blank"
-     style="background:#FF5500;color:#fff;font-size:17px;font-weight:800;padding:18px 48px;border-radius:12px;display:inline-block;text-decoration:none;box-shadow:0 4px 24px rgba(255,85,0,0.4);transition:all 0.2s;"
-     onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 32px rgba(255,85,0,0.55)'"
-     onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 24px rgba(255,85,0,0.4)'">
-    Start with a Free Health Check &#8594;
-  </a>
-  <p style="font-size:13px;color:rgba(255,255,255,0.4);margin-top:16px;">&#10003; Free &nbsp;&middot;&nbsp; &#10003; No commitment &nbsp;&middot;&nbsp; &#10003; Results in 24 hours</p>
+<!-- Get Started -->
+<div>
+<div style="font-size:13px;font-weight:700;color:rgba(255,255,255,0.35);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:24px;">Get Started</div>
+<div style="display:flex;flex-direction:column;gap:14px;">
+<a href="health-score.html" onmouseout="this.style.color='#00d4ff'" onmouseover="this.style.color='#fff'" style="font-size:14px;color:#00d4ff;font-weight:700;text-decoration:none;transition:color .2s;">🩺 Free Health Score</a>
+<a href="https://calendly.com/hello-bluwavgrowth/30min" onmouseout="this.style.color='rgba(255,255,255,0.55)'" onmouseover="this.style.color='#fff'" rel="noopener" style="font-size:14px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" target="_blank">📅 Book a Call</a>
+<a href="https://wa.me/18687348473" onmouseout="this.style.color='#25D366'" onmouseover="this.style.color='#fff'" rel="noopener" style="font-size:14px;color:#25D366;font-weight:600;text-decoration:none;transition:color .2s;" target="_blank">💬 WhatsApp Us</a>
+<a href="mailto:hello@bluwavgrowth.com" onmouseout="this.style.color='rgba(255,255,255,0.55)'" onmouseover="this.style.color='#fff'" style="font-size:14px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;">✉ hello@bluwavgrowth.com</a>
+<a href="https://bluwavcrm.com/login.html" onmouseout="this.style.color='rgba(255,255,255,0.55)'" onmouseover="this.style.color='#fff'" rel="noopener" style="font-size:14px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" target="_blank">Client Login</a>
+<a href="sales-agent-agreement.html" onmouseout="this.style.color='rgba(255,255,255,0.55)'" onmouseover="this.style.color='#fff'" style="font-size:14px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;">Partner Portal</a>
+<a href="privacy.html" onmouseout="this.style.color='rgba(255,255,255,0.55)'" onmouseover="this.style.color='#fff'" style="font-size:14px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;">Privacy Policy</a>
 </div>
-</section>
-
-<footer style="background:#001828;width:100%;box-sizing:border-box;">
-
-  <!-- CTA STRIP -->
-  <div style="border-bottom:1px solid rgba(255,255,255,0.08);padding:48px clamp(16px,4vw,80px);">
-    <div style="max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;">
-      <div>
-        <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:#00E0FF;margin-bottom:10px;">Ready to Grow?</div>
-        <h2 style="font-family:'Manrope',sans-serif;font-size:clamp(20px,3vw,32px);font-weight:800;color:#fff;line-height:1.2;margin:0;">The digital growth system that works <span style="color:#FF5500;">for you.</span></h2>
-      </div>
-      <div style="display:flex;gap:12px;flex-wrap:wrap;flex-shrink:0;">
-        <a href="health-check.html" style="display:inline-flex;align-items:center;gap:8px;background:#FF5500;color:#fff;font-size:14px;font-weight:800;padding:13px 24px;border-radius:10px;text-decoration:none;white-space:nowrap;" onmouseover="this.style.background='#e84d00'" onmouseout="this.style.background='#FF5500'">Get My Free Health Score &#8594;</a>
-        <a href="https://calendly.com/hello-bluwavgrowth/30min" onclick="if(typeof gtag!=='undefined'){gtag('event','book_call_click',{'event_category':'CTA','event_label':'Book a Call','page':'footer'});}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:transparent;color:#fff;font-size:14px;font-weight:700;padding:13px 24px;border-radius:10px;text-decoration:none;border:1.5px solid rgba(255,255,255,0.2);white-space:nowrap;" onmouseover="this.style.borderColor='rgba(255,255,255,0.5)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.2)'">&#128197; Book a Call</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- MAIN FOOTER CONTENT -->
-  <div style="max-width:1400px;margin:0 auto;padding:56px clamp(16px,4vw,80px) 48px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;">
-
-    <!-- LEFT: Brand -->
-    <div>
-      <a href="index.html" style="text-decoration:none;display:inline-block;margin-bottom:16px;">
-        <div style="font-family:'Kaushan Script',cursive;font-size:32px;color:#fff;line-height:1;">Blu<span style="color:#00E0FF;">Wav</span></div>
-        <div style="font-size:8px;font-weight:700;color:#00E0FF;letter-spacing:4px;text-transform:uppercase;margin-top:3px;">Get Found. Get Chosen. Grow.</div>
-      </a>
-<p style="font-size:13px;color:rgba(255,255,255,0.45);line-height:1.75;max-width:300px;margin-bottom:20px;">The unified digital growth system for modern businesses. Website, Google visibility, CRM, and automation. Delivered in 48 hours. Your data, always yours.</p>
-      <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.25);letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;">A Stratiix Group Company</div>
-      <div style="display:flex;gap:8px;">
-        <a href="https://facebook.com/bluwavgrowth" target="_blank" rel="noopener" aria-label="Facebook" style="width:36px;height:36px;border-radius:8px;border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);font-size:14px;font-weight:800;text-decoration:none;transition:all 0.2s;" onmouseover="this.style.borderColor='#1877F2';this.style.color='#1877F2'" onmouseout="this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='rgba(255,255,255,0.6)'">f</a>
-        <a href="https://www.instagram.com/bluwavgrowth/" target="_blank" rel="noopener" aria-label="Instagram" style="width:36px;height:36px;border-radius:8px;border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);font-size:16px;text-decoration:none;transition:all 0.2s;" onmouseover="this.style.borderColor='#E1306C';this.style.color='#E1306C'" onmouseout="this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='rgba(255,255,255,0.6)'">&#128247;</a>
-        <a href="/cdn-cgi/l/email-protection#4b232e2727240b29273e3c2a3d2c39243c3f2365282426" aria-label="Email" style="width:36px;height:36px;border-radius:8px;border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);font-size:15px;text-decoration:none;transition:all 0.2s;" onmouseover="this.style.borderColor='#00E0FF';this.style.color='#00E0FF'" onmouseout="this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='rgba(255,255,255,0.6)'">&#9993;</a>
-      </div>
-    </div>
-
-    <!-- MIDDLE: Navigate -->
-    <div>
-      <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;color:rgba(255,255,255,0.35);margin-bottom:20px;">Navigate</div>
-      <div style="display:flex;flex-direction:column;gap:12px;">
-        <a href="index.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Home</a>
-        <a href="health-score.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Health Score</a>
-        <a href="about.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">About</a>
-        <a href="contact.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Contact</a>
-        <a href="index.html#what-we-do-cont" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Growth Plans</a>
-        <a href="https://bluwavcrm.com/login.html" target="_blank" rel="noopener" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Client Login</a>
-        <a href="systems.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Growth Systems</a>
-        <a href="case-study-aadek.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Case Studies</a>
-      </div>
-    </div>
-
-    <!-- RIGHT: Get Started -->
-    <div>
-      <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;color:rgba(255,255,255,0.35);margin-bottom:20px;">Get Started</div>
-      <div style="display:flex;flex-direction:column;gap:12px;">
-        <a href="health-check.html" style="font-size:13px;color:#00E0FF;text-decoration:none;font-weight:700;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#00E0FF'">&#129658; Free Health Score</a>
-        <a href="https://calendly.com/hello-bluwavgrowth/30min" onclick="if(typeof gtag!=='undefined'){gtag('event','book_call_click',{'event_category':'CTA','event_label':'Book a Call','page':'footer'});}" target="_blank" rel="noopener" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">&#128197; Book a Call</a>
-        <a href="/cdn-cgi/l/email-protection#abc3cec7c7c4ebc9c7dedccaddccd9c4dcdfc385c8c4c6" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">&#9993; <span class="__cf_email__" data-cfemail="365e535a5a5976545a4341574051445941425e1855595b">[email&#160;protected]</span></a>
-        <a href="the-wave.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">&#127754; The Wave Newsletter</a>
-        <a href="privacy.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Privacy Policy</a>
-        <a href="careers.html" style="font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Careers</a>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- BOTTOM BAR -->
-  <div style="border-top:1px solid rgba(255,255,255,0.06);padding:20px clamp(16px,4vw,80px);">
-    <div style="max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
-      <div style="font-size:12px;color:rgba(255,255,255,0.25);">&#169; 2026 <span style="color:rgba(255,255,255,0.4);">BluWav Growth</span> &middot; All rights reserved. &middot; Built for modern businesses worldwide.</div>
-      <div style="display:flex;gap:20px;">
-        <a href="privacy.html" style="font-size:12px;color:rgba(255,255,255,0.25);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='rgba(255,255,255,0.6)'" onmouseout="this.style.color='rgba(255,255,255,0.25)'">Privacy</a>
-        <a href="contact.html" style="font-size:12px;color:rgba(255,255,255,0.25);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='rgba(255,255,255,0.6)'" onmouseout="this.style.color='rgba(255,255,255,0.25)'">Contact</a>
-        <a href="sales-agent-agreement.html" style="font-size:12px;color:rgba(255,255,255,0.25);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='rgba(255,255,255,0.6)'" onmouseout="this.style.color='rgba(255,255,255,0.25)'">Agent Agreement</a>
-      </div>
-    </div>
-  </div>
-
+</div>
+</div>
+<!-- Bottom Bar -->
+<div style="border-top:1px solid rgba(255,255,255,0.06);padding:20px clamp(16px,5vw,80px);width:100%;">
+<div style="width:100%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+<div style="font-size:13px;color:rgba(255,255,255,0.25);">&copy; 2026 <span style="color:rgba(255,255,255,0.4);">BluWav Growth</span> &middot; All rights reserved. &middot; Built for modern businesses worldwide.</div>
+<div style="display:flex;gap:24px;">
+<a href="privacy.html" onmouseout="this.style.color='rgba(255,255,255,0.25)'" onmouseover="this.style.color='rgba(255,255,255,0.6)'" style="font-size:13px;color:rgba(255,255,255,0.25);text-decoration:none;transition:color .2s;">Privacy</a>
+<a href="contact.html" onmouseout="this.style.color='rgba(255,255,255,0.25)'" onmouseover="this.style.color='rgba(255,255,255,0.6)'" style="font-size:13px;color:rgba(255,255,255,0.25);text-decoration:none;transition:color .2s;">Contact</a>
+</div>
+</div>
+</div>
+<style>
+@media(max-width:900px){footer [style*="grid-template-columns:2fr"]{grid-template-columns:1fr 1fr!important;gap:40px!important;}}
+@media(max-width:600px){footer [style*="grid-template-columns:2fr"]{grid-template-columns:1fr!important;gap:32px!important;}footer [style*="justify-content:space-between"]{flex-direction:column!important;align-items:flex-start!important;}}
+</style>
 </footer>
 
 
@@ -601,6 +416,10 @@ document.addEventListener('click',function(e){
   },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
   els.forEach(function(el){io.observe(el);});
 })();
+</script>
+<script>
+  var p=document.getElementById('bwProgress');
+  if(p){window.addEventListener('scroll',function(){var s=window.scrollY,d=document.documentElement.scrollHeight-document.documentElement.clientHeight;p.style.width=d>0?(s/d*100)+'%':'0%';},{passive:true});}
 </script>
 </body>
 </html>
