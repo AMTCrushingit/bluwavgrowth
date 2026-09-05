@@ -842,6 +842,7 @@ async function handleSubmit(e){
   fd.append('_subject','🤝 New Sales Agent Agreement Signed, '+fullName);
   fd.append('_replyto',email);
   fd.append('_cc','careers@bluwavgrowth.com');
+  fd.append('_cc','careers@bluwavgrowth.com');
   fd.append('name',fullName);
   fd.append('email',email);
   fd.append('whatsapp',whatsapp);
@@ -859,8 +860,22 @@ async function handleSubmit(e){
   fd.append('onboarding_package_url','https://raw.githubusercontent.com/AMTCrushingit/clientflow/main/sales-package/BluWav-Sales-Agent-Onboarding-Package.pdf');
   fd.append('_autoresponse',autoMsg);
 
-  fetch('https://formspree.io/f/xvkpvgry',{method:'POST',body:fd,headers:{'Accept':'application/json'}})
-  .then(function(){
+  // Send via Cloudflare Function (Brevo email)
+  var payload = {
+    firstName: fName, lastName: lName, email: email,
+    whatsapp: whatsapp, business: business||'Not provided',
+    territory: territory, tier: tier, sigName: sigName,
+    signatureImage: getSigData()||'',
+    signedDate: signedDate, signedTime: signedTime,
+    sessionToken: audit.token, ipAddress: audit.ip,
+    location: audit.city+', '+audit.country,
+    userAgent: audit.ua,
+    agreementVersion: 'BluWav Growth Sales Agent Agreement v1.0, September 2026'
+  };
+  fetch('/functions/send-saa',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+  .then(function(res){return res.json();})
+  .then(function(data){
+    if(!data.success)throw new Error(data.error||'Submission failed');
     document.getElementById('signForm').style.display='none';
     document.getElementById('successState').style.display='block';
     document.getElementById('successState').scrollIntoView({behavior:'smooth'});
