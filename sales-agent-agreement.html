@@ -842,7 +842,6 @@ async function handleSubmit(e){
   fd.append('_subject','🤝 New Sales Agent Agreement Signed, '+fullName);
   fd.append('_replyto',email);
   fd.append('_cc','careers@bluwavgrowth.com');
-  fd.append('_cc','careers@bluwavgrowth.com');
   fd.append('name',fullName);
   fd.append('email',email);
   fd.append('whatsapp',whatsapp);
@@ -873,7 +872,13 @@ async function handleSubmit(e){
     agreementVersion: 'BluWav Growth Sales Agent Agreement v1.0, September 2026'
   };
   fetch('/functions/send-saa',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
-  .then(function(res){return res.json();})
+  .then(function(res){
+    // If function not available (404/500), fall back to Formspree
+    if(!res.ok && (res.status===404||res.status===500||res.status===0)){
+      throw new Error('function_unavailable');
+    }
+    return res.json();
+  })
   .then(function(data){
     if(!data.success){console.error('SAA function error:',data.error);throw new Error(data.error||'Submission failed');}
     document.getElementById('signForm').style.display='none';
@@ -913,15 +918,15 @@ async function handleSubmit(e){
     }, 800);
   })
   .catch(function(err){
-    // Fallback to Formspree if Cloudflare function fails
-    console.error('Cloudflare function error:', err);
+    // Always fall back to Formspree
+    console.log('Using Formspree fallback. Reason:', err && err.message);
     fetch('https://formspree.io/f/xvkpvgry',{method:'POST',body:fd,headers:{'Accept':'application/json'}})
     .then(function(){
       document.getElementById('signForm').style.display='none';
       document.getElementById('successState').style.display='block';
       document.getElementById('successState').scrollIntoView({behavior:'smooth'});
       if(typeof gtag!=='undefined')gtag('event','sales_agent_agreement_signed',{event_category:'Partner',event_label:tier});
-      var waMsg = encodeURIComponent('NEW SALES AGENT SIGNED (via fallback)\n\nName: '+fullName+'\nEmail: '+email+'\nTier: '+tier+'\nTerritory: '+territory+'\nSigned: '+signedDate+' at '+signedTime+' UTC');
+      var waMsg = encodeURIComponent('NEW SALES AGENT SIGNED\n\nName: '+fullName+'\nEmail: '+email+'\nTier: '+tier+'\nTerritory: '+territory+'\nSigned: '+signedDate+' at '+signedTime+' UTC');
       setTimeout(function(){window.open('https://wa.me/16478702599?text='+waMsg,'_blank');},800);
     })
     .catch(function(){
