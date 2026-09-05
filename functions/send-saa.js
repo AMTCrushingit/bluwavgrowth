@@ -13,6 +13,7 @@ export async function onRequestPost(context) {
 
   try {
     const body = await context.request.json();
+    console.log('[send-saa] Request received:', JSON.stringify({email: body.email, tier: body.tier}));
     const {
       firstName, lastName, email, whatsapp, business, territory, tier,
       sigName, signatureImage, signedDate, signedTime,
@@ -164,18 +165,20 @@ export async function onRequestPost(context) {
       })
     ];
 
-    const results = await Promise.all(sends);
-    const responseTexts = await Promise.all(results.map(r => r.text()));
-    const allOk = results.every(r => r.ok);
+    // Collect status and body together before consuming
+    const settled = await Promise.all(sends.map(async r => ({
+      ok: r.ok,
+      status: r.status,
+      body: await r.text()
+    })));
+    const allOk = settled.every(s => s.ok);
 
     if (allOk) {
       return new Response(JSON.stringify({ success: true }), { headers: corsHeaders() });
     }
-    // Return detailed error for debugging
     return new Response(JSON.stringify({ 
       success: false, 
-      error: responseTexts.join(' | '),
-      statuses: results.map(r => r.status)
+      error: settled.map(s => `[${s.status}] ${s.body}`).join(' | ')
     }), {
       status: 500, headers: corsHeaders()
     });
