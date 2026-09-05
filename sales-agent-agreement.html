@@ -557,7 +557,7 @@ if(sessionStorage.getItem('bwAgentAuth')==='1'){
       <a href="/cdn-cgi/l/email-protection#6c04090000032c0e00191b0d1a0b1e031b1804420f0301531f190e06090f18513f0d00091f4c2d0b0902184c2d0b1e0909010902184c3f050b0209084a0e0308155124054c2d02081e090d404c254c06191f184c1f050b0209084c01154c3f0d00091f4c2d0b0902184c2d0b1e090901090218424c3c00090d1f094c1f0902084c01094c01154c3f0d00091f4c2d0b0902184c23020e030d1e0805020b4c3c0d0f070d0b09424c38040d02074c15031942" style="color:var(--coral);font-weight:700;"><span class="__cf_email__" data-cfemail="aac2cfc6c6c5eac8c6dfddcbdccdd8c5dddec284c9c5c7">[email&#160;protected]</span></a>
       and she will send your package within 24 hours.
     </div>
-    <div style="margin-bottom:20px;text-align:center;"><a id="downloadCopyBtn" style="display:inline-flex;align-items:center;gap:8px;background:#002B49;color:#fff;font-weight:700;font-size:14px;padding:13px 28px;border-radius:10px;text-decoration:none;cursor:pointer;" download>&#8681; Download Your Signed Copy</a></div>
+    <div style="margin-bottom:20px;text-align:center;"><a id="downloadCopyBtn" onclick="downloadSignedCopy()" style="display:inline-flex;align-items:center;gap:8px;background:#002B49;color:#fff;font-weight:700;font-size:14px;padding:13px 28px;border-radius:10px;text-decoration:none;cursor:pointer;">&#8681; Download Your Signed Copy</a></div>
 <div class="next-steps">
       <div style="margin-top:20px;margin-bottom:16px;padding:14px 18px;background:#F0FFF4;border:1px solid rgba(34,197,94,0.3);border-radius:10px;font-size:13px;color:#374151;text-align:center;">
       <strong style="color:#166534;">&#10003; Andrea has been notified via WhatsApp.</strong>
@@ -846,9 +846,23 @@ function generateSignedCopy(data){
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
 
-  // Store download URL for the button on success screen
+  // Store HTML for re-download via button
+  window._saaSignedHtml = html;
   var dlBtn = document.getElementById('downloadCopyBtn');
-  if(dlBtn){ dlBtn.href=url; dlBtn.style.display='inline-flex'; }
+  if(dlBtn){ dlBtn.style.display='inline-flex'; }
+}
+
+function downloadSignedCopy(){
+  if(!window._saaSignedHtml){ alert('No signed copy available. Please resubmit the form.'); return; }
+  var blob = new Blob([window._saaSignedHtml], {type:'text/html'});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url;
+  a.download = 'BluWav-Signed-Agreement.html';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  setTimeout(function(){ URL.revokeObjectURL(url); }, 1000);
 }
 
 async function handleSubmit(e){
