@@ -875,7 +875,7 @@ async function handleSubmit(e){
   fetch('/functions/send-saa',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
   .then(function(res){return res.json();})
   .then(function(data){
-    if(!data.success)throw new Error(data.error||'Submission failed');
+    if(!data.success){console.error('SAA function error:',data.error);throw new Error(data.error||'Submission failed');}
     document.getElementById('signForm').style.display='none';
     document.getElementById('successState').style.display='block';
     document.getElementById('successState').scrollIntoView({behavior:'smooth'});
@@ -912,10 +912,23 @@ async function handleSubmit(e){
       window.open('https://wa.me/16478702599?text=' + waMsg, '_blank');
     }, 800);
   })
-  .catch(function(){
-    btn.textContent='✍️ Sign & Accept Agreement →';
-    btn.disabled=false;
-    alert('Submission failed. Please try again or WhatsApp us at hello@bluwavgrowth.com.');
+  .catch(function(err){
+    // Fallback to Formspree if Cloudflare function fails
+    console.error('Cloudflare function error:', err);
+    fetch('https://formspree.io/f/xvkpvgry',{method:'POST',body:fd,headers:{'Accept':'application/json'}})
+    .then(function(){
+      document.getElementById('signForm').style.display='none';
+      document.getElementById('successState').style.display='block';
+      document.getElementById('successState').scrollIntoView({behavior:'smooth'});
+      if(typeof gtag!=='undefined')gtag('event','sales_agent_agreement_signed',{event_category:'Partner',event_label:tier});
+      var waMsg = encodeURIComponent('NEW SALES AGENT SIGNED (via fallback)\n\nName: '+fullName+'\nEmail: '+email+'\nTier: '+tier+'\nTerritory: '+territory+'\nSigned: '+signedDate+' at '+signedTime+' UTC');
+      setTimeout(function(){window.open('https://wa.me/16478702599?text='+waMsg,'_blank');},800);
+    })
+    .catch(function(){
+      btn.textContent='✍️ Sign & Accept Agreement →';
+      btn.disabled=false;
+      alert('Submission failed. Please try again or WhatsApp us at hello@bluwavgrowth.com.');
+    });
   });
 }
 </script>

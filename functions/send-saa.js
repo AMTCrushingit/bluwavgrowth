@@ -147,7 +147,7 @@ export async function onRequestPost(context) {
     const sends = [
       // Admin notification to careers@
       brevoSend(BREVO_KEY, {
-        sender: { name: 'BluWav SAA System', email: 'hello@bluwavgrowth.com' },
+        sender: { name: 'BluWav Growth', email: 'hello@bluwavgrowth.com' },
         to: [{ email: 'careers@bluwavgrowth.com', name: 'BluWav Careers' }],
         cc: [{ email: 'hello@bluwavgrowth.com', name: 'Andrea' }],
         replyTo: { email, name: fullName },
@@ -165,13 +165,18 @@ export async function onRequestPost(context) {
     ];
 
     const results = await Promise.all(sends);
+    const responseTexts = await Promise.all(results.map(r => r.text()));
     const allOk = results.every(r => r.ok);
 
     if (allOk) {
       return new Response(JSON.stringify({ success: true }), { headers: corsHeaders() });
     }
-    const errors = await Promise.all(results.map(r => r.text()));
-    return new Response(JSON.stringify({ success: false, error: errors.join(' | ') }), {
+    // Return detailed error for debugging
+    return new Response(JSON.stringify({ 
+      success: false, 
+      error: responseTexts.join(' | '),
+      statuses: results.map(r => r.status)
+    }), {
       status: 500, headers: corsHeaders()
     });
 
