@@ -793,14 +793,27 @@ async function getAudit(){
 function generateSignedCopy(data){
   var sigImg = getSigData() || '';
 
-  // Capture the full agreement display as rendered on screen
+  // Build agreement parties section with actual agent data
+  var agentPartyHtml = '<div class="party-box">'
+    +'<div class="party-label">Sales Agent</div>'
+    +'<div class="party-name">'+data.fullName+'</div>'
+    +'<div class="party-detail">'+data.email+'</div>'
+    +(data.whatsapp ? '<div class="party-detail">WhatsApp: '+data.whatsapp+'</div>' : '')
+    +(data.business ? '<div class="party-detail">'+data.business+'</div>' : '')
+    +'<div class="party-detail">Territory: '+data.territory+'</div>'
+    +'</div>';
+
+  // Capture the full agreement display
   var agreementEl = document.querySelector('.agreement-display');
   var agreementHtml = agreementEl ? agreementEl.innerHTML : '';
 
-  // Fill in the agent details that were dynamically populated
+  // Replace placeholder agent box with populated data
   agreementHtml = agreementHtml
+    .replace(/<div class="party-box">[\s\S]*?Complete the form below[\s\S]*?<\/div>\s*<\/div>/,
+             agentPartyHtml)
     .replace(/Will populate on signing/g, data.signedDate + ' at ' + data.signedTime + ' UTC')
-    .replace(/Tier 3, Sales Closer/g, data.tier);
+    .replace(/Tier 2, Sales Agent/g, data.tier)
+    .replace(/Tier 3, Sales Closer \(20%.*?\)/g, data.tier);
 
   var html = '<!DOCTYPE html><html><head><meta charset="utf-8"/>'
     +'<title>BluWav Growth - Signed Sales Agent Agreement</title>'
