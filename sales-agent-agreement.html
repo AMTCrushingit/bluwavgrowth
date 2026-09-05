@@ -231,6 +231,7 @@ function checkPW(){
   if(pw==='BLUWAV2026'){
     document.getElementById('pwGate').style.display='none';
     sessionStorage.setItem('bwAgentAuth','1');
+    setTimeout(function(){if(typeof initCanvas==='function')initCanvas();},100);
   } else {
     err.style.display='block';
     document.getElementById('pwInput').value='';
@@ -241,7 +242,7 @@ function checkPW(){
 if(sessionStorage.getItem('bwAgentAuth')==='1'){
   document.addEventListener('DOMContentLoaded',function(){
     var g=document.getElementById('pwGate');
-    if(g)g.style.display='none';
+    if(g){g.style.display='none';setTimeout(function(){if(typeof initCanvas==='function')initCanvas();},100);}
   });
 }
 </script>
