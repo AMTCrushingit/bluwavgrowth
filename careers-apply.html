@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="#002B49" name="theme-color"/>
+<title>Application Received | BluWav Growth Careers</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Kaushan+Script&amp;display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:#F4F2ED;color:#1E1E1E;min-height:100vh;display:flex;flex-direction:column;}
+:root{--navy:#002B49;--coral:#FF5500;--gold:#F7C873;--cyan:#00E0FF;}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:68px;padding:0 clamp(16px,4vw,60px);display:flex;align-items:center;justify-content:space-between;background:rgba(10,15,30,0.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,200,224,0.12);}
+.nav-logo{text-decoration:none;display:flex;flex-direction:column;align-items:flex-start;line-height:1;}
+.nav-logo-name{font-family:'Kaushan Script',cursive;font-size:26px;color:#fff;line-height:1;}
+.nav-logo-name span{color:#00d4ff;}
+.nav-logo-sub{font-size:8px;font-weight:700;color:#00d4ff;letter-spacing:3px;text-transform:uppercase;margin-top:2px;}
+main{flex:1;display:flex;align-items:center;justify-content:center;padding:100px 24px 60px;}
+.card{background:#fff;border-radius:28px;padding:56px 48px;max-width:600px;width:100%;text-align:center;box-shadow:0 16px 64px rgba(0,43,73,0.1);}
+.icon{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,rgba(255,85,0,0.1),rgba(255,85,0,0.05));display:flex;align-items:center;justify-content:center;font-size:36px;margin:0 auto 24px;}
+.role-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,85,0,0.08);border:1px solid rgba(255,85,0,0.2);border-radius:20px;padding:6px 16px;margin-bottom:24px;}
+.role-badge span{font-size:12px;font-weight:700;color:var(--coral);letter-spacing:1px;text-transform:uppercase;}
+h1{font-family:'Manrope',sans-serif;font-size:32px;font-weight:900;color:var(--navy);line-height:1.2;margin-bottom:16px;}
+.subtitle{font-size:16px;color:#64748b;line-height:1.75;margin-bottom:32px;}
+.info-box{background:#F4F2ED;border-radius:16px;padding:24px;margin-bottom:32px;text-align:left;}
+.info-box-title{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--coral);margin-bottom:12px;}
+.info-item{display:flex;align-items:flex-start;gap:12px;padding:8px 0;border-bottom:1px solid rgba(0,43,73,0.06);font-size:14px;color:#374151;line-height:1.6;}
+.info-item:last-child{border-bottom:none;}
+.info-item .dot{width:6px;height:6px;border-radius:50%;background:var(--coral);flex-shrink:0;margin-top:7px;}
+.btn-group{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--coral);color:#fff;font-size:14px;font-weight:800;padding:14px 28px;border-radius:11px;text-decoration:none;box-shadow:0 4px 16px rgba(255,85,0,0.3);transition:all 0.2s;}
+.btn-primary:hover{transform:translateY(-2px);filter:brightness(1.05);}
+.btn-secondary{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--navy);font-size:14px;font-weight:700;padding:14px 28px;border-radius:11px;text-decoration:none;border:1.5px solid rgba(0,43,73,0.15);transition:all 0.2s;}
+.btn-secondary:hover{border-color:var(--navy);background:rgba(0,43,73,0.04);}
+.role-name{font-weight:800;color:var(--navy);}
+footer-note{display:block;font-size:12px;color:#94a3b8;margin-top:24px;line-height:1.6;}
+</style>
+</head>
+<body>
+<nav>
+<a class="nav-logo" href="index.html">
+<div class="nav-logo-name">Blu<span>Wav</span></div>
+<div class="nav-logo-sub">Get Found. Get Chosen. Grow.</div>
+</a>
+</nav>
+<main>
+<div class="card">
+<div class="icon">✅</div>
+<div class="role-badge">
+<span id="roleBadge">Application Submitted</span>
+</div>
+<h1>Thank You for Your Interest!</h1>
+<p class="subtitle">Your application for the <span class="role-name" id="roleName">position</span> at BluWav Growth has been received. We appreciate you taking the time to apply.</p>
+<div class="info-box">
+<div class="info-box-title">What Happens Next</div>
+<div class="info-item"><span class="dot"></span><span>Our team will review your application and qualifications carefully.</span></div>
+<div class="info-item"><span class="dot"></span><span>Should your experience and background align with what we're looking for, we will reach out to you directly to discuss next steps.</span></div>
+<div class="info-item"><span class="dot"></span><span>Due to the volume of applications we receive, we are only able to contact candidates whose qualifications match our current requirements.</span></div>
+<div class="info-item"><span class="dot"></span><span>We aim to review all applications within 5–7 business days.</span></div>
+</div>
+<div class="btn-group">
+<a class="btn-primary" href="careers.html">← Back to Careers</a>
+<a class="btn-secondary" href="index.html">Visit BluWav Growth</a>
+</div>
+<span class="footer-note">Questions? Email us at <a href="mailto:careers@bluwavgrowth.com" style="color:var(--coral);font-weight:700;">careers@bluwavgrowth.com</a></span>
+</div>
+</main>
+<script>
+// Read role from URL param and personalise the page
+const params = new URLSearchParams(window.location.search);
+const role = params.get('role');
+const roleMap = {
+  'sales': {badge: 'Sales Application Received', name: 'Sales Closer / Growth Advisor'},
+  'marketing': {badge: 'Marketing Application Received', name: 'Growth & Ecosystem Marketing Coordinator'},
+  'referral': {badge: 'Referral Partner Enquiry', name: 'Referral Partner'},
+  'affiliate': {badge: 'Growth Partner Enquiry', name: 'Growth Partner'},
+  'strategic': {badge: 'Strategic Partner Enquiry', name: 'Strategic Partner'},
+};
+if(role && roleMap[role]){
+  document.getElementById('roleBadge').textContent = roleMap[role].badge;
+  document.getElementById('roleName').textContent = roleMap[role].name;
+}
+</script>
+</body>
+</html>

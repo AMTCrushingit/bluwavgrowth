@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="theme-color" content="#002B49"/>
+<title>Privacy Policy | BluWav Growth</title>
+<meta name="description" content="BluWav Growth Privacy Policy, how we collect, use, and protect your personal information."/>
+<link rel="canonical" href="https://bluwavgrowth.com/privacy.html"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@700;800;900&family=Kaushan+Script&family=Playfair+Display:wght@700;800&display=swap&font-display=swap" rel="stylesheet"/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1F2YQ0NWT7"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-1F2YQ0NWT7');</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:#F4F2ED;color:#1E1E1E;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+:root{--navy:#002B49;--coral:#FF5500;--gold:#F7C873;--cyan:#00E0FF;--slate:#64748b;--sand:#F4F2ED;--mist:#e8e4de;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;padding:0 32px;display:flex;align-items:center;justify-content:space-between;background:rgba(0,43,73,0.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,224,255,0.15);}
+.nav-logo{display:flex;flex-direction:column;align-items:flex-start;line-height:1;padding:4px 0;}
+.nav-links{display:flex;align-items:center;gap:20px;}
+.nav-link{font-size:12px;font-weight:500;color:rgba(255,255,255,0.65);transition:color 0.2s;white-space:nowrap;}
+.nav-link:hover{color:#fff;}
+.nav-cta{background:var(--coral);color:#fff;font-size:13px;font-weight:700;padding:10px 24px;border-radius:9px;transition:transform 0.15s;}
+.nav-cta:hover{transform:translateY(-1px);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px;margin:-8px;}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all 0.3s;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mob-nav{display:none;position:fixed;top:70px;left:0;right:0;background:rgba(0,43,73,0.99);backdrop-filter:blur(20px);padding:20px 24px;flex-direction:column;gap:4px;z-index:10000;border-bottom:1px solid rgba(0,224,255,0.15);}
+.mob-nav.open{display:flex!important;}
+.mob-link{font-size:15px;font-weight:600;color:rgba(255,255,255,0.85);padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.1);display:block;}
+.mob-link.wave{color:#00E0FF;}
+.mob-cta{background:var(--coral);color:#fff;font-weight:700;padding:14px;border-radius:10px;text-align:center;margin-top:8px;font-size:15px;display:block;}
+@media(max-width:1100px){.nav-links{display:none!important;}.hamburger{display:flex!important;}}
+@media(max-width:768px){nav{padding:0 16px!important;height:60px!important;}.mob-nav{top:60px!important;}}
+
+/* HERO */
+.privacy-hero{background:linear-gradient(135deg,#002B49,#003d5c);padding:100px 48px 60px;text-align:center;}
+.privacy-hero h1{font-family:'Manrope',sans-serif;font-size:clamp(28px,5vw,44px);font-weight:800;color:#fff;margin-bottom:12px;}
+.privacy-hero p{font-size:15px;color:rgba(255,255,255,0.6);max-width:480px;margin:0 auto;}
+.last-updated{display:inline-block;background:rgba(0,224,255,0.1);border:1px solid rgba(0,224,255,0.2);border-radius:20px;padding:5px 14px;font-size:12px;font-weight:700;color:#00E0FF;margin-top:16px;}
+
+/* CONTENT */
+.privacy-body{max-width:800px;margin:0 auto;padding:64px 48px 80px;}
+.privacy-section{margin-bottom:48px;}
+.privacy-section h2{font-family:'Manrope',sans-serif;font-size:22px;font-weight:800;color:var(--navy);margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid var(--mist);}
+.privacy-section h3{font-size:16px;font-weight:800;color:var(--navy);margin:20px 0 10px;}
+.privacy-section p{font-size:15px;color:#374151;line-height:1.8;margin-bottom:12px;}
+.privacy-section ul{list-style:none;padding:0;margin:0 0 12px;}
+.privacy-section ul li{font-size:15px;color:#374151;line-height:1.8;padding:4px 0;display:flex;align-items:flex-start;gap:10px;}
+.privacy-section ul li::before{content:'→';color:var(--coral);font-weight:700;flex-shrink:0;margin-top:2px;}
+.highlight-box{background:#fff;border:1px solid var(--mist);border-radius:12px;padding:20px 24px;margin:16px 0;border-left:4px solid var(--coral);}
+.highlight-box p{margin-bottom:0;}
+.contact-box{background:var(--navy);border-radius:16px;padding:32px;text-align:center;margin-top:48px;}
+.contact-box h3{font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;color:#fff;margin-bottom:8px;}
+.contact-box p{font-size:14px;color:rgba(255,255,255,0.6);margin-bottom:20px;}
+.contact-box a{display:inline-flex;align-items:center;gap:8px;background:var(--coral);color:#fff;font-size:14px;font-weight:800;padding:12px 28px;border-radius:10px;transition:all 0.2s;}
+.contact-box a:hover{transform:translateY(-1px);}
+@media(max-width:768px){.privacy-body{padding:40px 20px 60px!important;}.privacy-hero{padding:90px 20px 48px!important;}}
+
+/* FOOTER */
+footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;max-width:1600px;margin:0 auto;padding-left:64px;padding-right:64px;}
+.footer-heading{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.4);margin-bottom:16px;}
+.footer-brand-name{font-family:'Kaushan Script',cursive;font-size:34px;color:#fff;line-height:1;margin-bottom:6px;}
+.footer-brand-name span{color:#00E0FF;}
+.footer-brand-sub{font-size:9px;font-weight:700;color:#F7C873;letter-spacing:5px;text-transform:uppercase;margin-bottom:12px;}
+.footer-brand-tag{font-size:12px;font-weight:500;color:#00E0FF;letter-spacing:1px;margin-bottom:6px;}
+.footer-desc{font-size:13px;color:rgba(255,255,255,0.4);line-height:1.65;margin-top:12px;}
+.footer-link{display:block;font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:8px;transition:color 0.2s,transform 0.2s;}
+.footer-link:hover{color:#fff;transform:translateX(4px);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding:20px 64px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;max-width:1600px;margin:0 auto;}
+.footer-bottom-text{font-size:12px;color:rgba(255,255,255,0.3);}
+@media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr!important;padding-left:32px!important;padding-right:32px!important;}.footer-bottom{padding:20px 32px!important;}}
+@media(max-width:600px){.footer-grid{grid-template-columns:1fr!important;padding-left:20px!important;padding-right:20px!important;}.footer-bottom{flex-direction:column;text-align:center;gap:8px;padding:20px!important;}}
+.wa-float{position:fixed;bottom:80px;right:24px;z-index:200;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 20px rgba(37,211,102,0.45);}
+/* ── Nav Active State ── */
+.nav-link.nav-active{color:#fff !important;font-weight:700 !important;}
+.nav-link.nav-active::after{width:100% !important;background:#FF5500 !important;}
+.mob-link.mob-active{color:#fff !important;font-weight:800 !important;border-left:3px solid #FF5500;padding-left:12px;}
+/* ── BluWav Page Animations ── */
+@keyframes bw-fade-up{from{opacity:0;transform:translateY(32px);}to{opacity:1;transform:translateY(0);}}
+@keyframes bw-fade-left{from{opacity:0;transform:translateX(-28px);}to{opacity:1;transform:translateX(0);}}
+@keyframes bw-fade-right{from{opacity:0;transform:translateX(28px);}to{opacity:1;transform:translateX(0);}}
+@keyframes bw-scale-in{from{opacity:0;transform:scale(0.93);}to{opacity:1;transform:scale(1);}}
+@keyframes bw-count{from{opacity:0;}to{opacity:1;}}
+.bw-reveal{opacity:0;transform:translateY(28px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1);}
+.bw-reveal.bw-in{opacity:1;transform:translateY(0);}
+.bw-reveal-left{opacity:0;transform:translateX(-28px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1);}
+.bw-reveal-left.bw-in{opacity:1;transform:translateX(0);}
+.bw-reveal-right{opacity:0;transform:translateX(28px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1);}
+.bw-reveal-right.bw-in{opacity:1;transform:translateX(0);}
+.bw-reveal-scale{opacity:0;transform:scale(0.93);transition:opacity 0.6s cubic-bezier(0.22,1,0.36,1),transform 0.6s cubic-bezier(0.22,1,0.36,1);}
+.bw-reveal-scale.bw-in{opacity:1;transform:scale(1);}
+.bw-delay-1{transition-delay:0.08s!important;}
+.bw-delay-2{transition-delay:0.16s!important;}
+.bw-delay-3{transition-delay:0.24s!important;}
+.bw-delay-4{transition-delay:0.32s!important;}
+.bw-delay-5{transition-delay:0.40s!important;}
+.bw-delay-6{transition-delay:0.48s!important;}
+@media(prefers-reduced-motion:reduce){
+  .bw-reveal,.bw-reveal-left,.bw-reveal-right,.bw-reveal-scale{opacity:1!important;transform:none!important;transition:none!important;}
+}
+img{max-width:100%;height:auto;}
+
+/* Font display swap for CLS prevention */
+@font-face{font-display:swap;}
+</style>
+</head>
+<body>
+
+<nav id="mainNav">
+<a href="index.html" class="nav-logo" style="display:flex;flex-direction:column;align-items:flex-start;line-height:1;padding:4px 0;text-decoration:none;">
+<div id="navLogoText" style="font-family:'Kaushan Script',cursive;font-size:26px;line-height:1;color:#fff;opacity:0;transition:opacity 0.3s;">Blu<span style="color:#00E0FF;">Wav</span></div>
+<div style="font-size:8px;font-weight:700;color:#00E0FF;letter-spacing:3px;text-transform:uppercase;line-height:1.4;margin-top:2px;">Get Found. Get Chosen. Grow.</div>
+</a>
+<div class="nav-links">
+  <a class="nav-link" href="health-score.html">Health Score</a>
+  <a class="nav-link" href="index.html#what-we-do-cont">Growth Plans</a>
+  <a class="nav-link" href="about.html">About</a>
+  <a class="nav-link" href="contact.html">Contact</a>
+  <a class="nav-link" href="the-wave.html" style="color:#00E0FF;font-weight:600;">The Wave</a>
+  <a class="nav-link" href="https://bluwavcrm.com/login.html" target="_blank" rel="noopener" style="color:rgba(0,224,255,0.85);font-weight:600;">Client Login</a>
+  <a class="nav-cta" href="https://calendly.com/hello-bluwavgrowth/30min" onclick="if(typeof gtag!=='undefined'){gtag('event','book_call_click',{'event_category':'CTA','event_label':'Book a Call','page':'nav'});}" target="_blank" rel="noopener">Book a Call</a>
+</div>
+<button aria-label="Menu" class="hamburger" id="hamburgerBtn" onclick="toggleMob()"><span></span><span></span><span></span></button>
+</nav>
+<div class="mob-nav" id="mobNav">
+  <a class="mob-link" href="health-score.html" onclick="closeMob()">&#129658; Health Score</a>
+  <a class="mob-link" href="index.html#what-we-do-cont" onclick="closeMob()">&#128176; Growth Plans</a>
+  <a class="mob-link" href="about.html" onclick="closeMob()">&#128100; About</a>
+  <a class="mob-link" href="contact.html" onclick="closeMob()">&#128222; Contact</a>
+  <a class="mob-link" href="the-wave.html" onclick="closeMob()" style="color:#00E0FF;">The Wave</a>
+  <a class="mob-link" href="https://bluwavcrm.com/login.html" target="_blank" rel="noopener" onclick="closeMob()" style="color:rgba(0,224,255,0.85);">&#128274; Client Login</a>
+  <a class="mob-cta" href="https://calendly.com/hello-bluwavgrowth/30min" onclick="if(typeof gtag!=='undefined'){gtag('event','book_call_click',{'event_category':'CTA','event_label':'Book a Call','page':'nav'});}closeMob();" target="_blank" rel="noopener">&#128197; Book a Call</a>
+</div>
+</div>
+
+<!-- HERO -->
+<section class="privacy-hero">
+  <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:rgba(0,224,255,0.7);margin-bottom:12px;">Legal</div>
+  <h1>Privacy Policy</h1>
+  <p>How BluWav Growth collects, uses, and protects your personal information.</p>
+  <span class="last-updated">Last updated: July 2026</span>
+</section>
+
+<!-- BODY -->
+<div class="privacy-body">
+
+  <div class="highlight-box">
+    <p><strong>Plain English summary:</strong> We collect only what we need to serve you. We never sell your data. You can ask us to delete it anytime. We use cookies and the Meta Pixel to improve our site and run ads. If you have questions, WhatsApp us at <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7c14191010133c1e10090b1d0a1b0e130b0814521f1311">[email&#160;protected]</a>.</p>
+  </div>
+
+  <div class="privacy-section">
+    <h2>1. Who We Are</h2>
+    <p>BluWav Growth is a digital growth agency operated by the Stratiix Group, headquartered in Canada and serving businesses across the Caribbean and globally. Our website is <strong>bluwavgrowth.com</strong>.</p>
+    <p>For privacy enquiries, contact us at: <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ec8489808083ac8e80999b8d9a8b9e839b9884c28f8381">[email&#160;protected]</a></strong></p>
+  </div>
+
+  <div class="privacy-section">
+    <h2>2. Information We Collect</h2>
+    <h3>Information you provide directly</h3>
+    <ul>
+      <li>Name, email address, and WhatsApp number when you submit a form</li>
+      <li>Business name, industry, and location when you apply for a package</li>
+      <li>Goals and project details you share in contact forms</li>
+      <li>Payment information (processed securely by WiPay, PayPal, or your bank, we do not store card details)</li>
+    </ul>
+    <h3>Information collected automatically</h3>
+    <ul>
+      <li>IP address and browser type when you visit our site</li>
+      <li>Pages visited, time spent, and links clicked (via Google Analytics 4)</li>
+      <li>Ad interactions and conversions (via Meta Pixel / Facebook)</li>
+      <li>Cookies and similar tracking technologies</li>
+    </ul>
+  </div>
+
+  <div class="privacy-section">
+    <h2>3. How We Use Your Information</h2>
+    <ul>
+      <li>To respond to your enquiries and deliver our services</li>
+      <li>To send you your project scope, invoice, and updates via WhatsApp or email</li>
+      <li>To improve our website and understand how visitors use it</li>
+      <li>To run targeted advertising on Facebook and Instagram (via Meta Pixel)</li>
+      <li>To send occasional marketing communications (you can opt out anytime)</li>
+      <li>To comply with legal obligations</li>
+    </ul>
+  </div>
+
+  <div class="privacy-section">
+    <h2>4. Cookies & Tracking</h2>
+    <p>We use the following tracking technologies on bluwavgrowth.com:</p>
+    <ul>
+      <li><strong>Google Analytics 4 (GA4)</strong>, tracks page views, user behaviour, and traffic sources. Data is anonymised and aggregated.</li>
+      <li><strong>Meta Pixel (Facebook)</strong>, tracks visits and conversions to help us run relevant ads on Facebook and Instagram. This may link your visit to your Facebook profile if you are logged in.</li>
+      <li><strong>Formspree</strong>, processes form submissions. Your form data is transmitted to Formspree's servers to deliver your enquiry to us.</li>
+    </ul>
+    <p>You can opt out of tracking by using browser privacy settings, ad blockers, or the <a href="https://www.facebook.com/ads/preferences" target="_blank" style="color:var(--coral);font-weight:700;">Facebook Ad Preferences</a> page.</p>
+  </div>
+
+  <div class="privacy-section">
+    <h2>5. How We Share Your Information</h2>
+    <p>We do <strong>not</strong> sell your personal information. We may share it with:</p>
+    <ul>
+      <li><strong>Service providers</strong>, Google (Analytics), Meta (Pixel), Formspree (forms), WiPay/PayPal (payments), only as needed to operate our services</li>
+      <li><strong>Legal authorities</strong>, if required by law or to protect our rights</li>
+      <li><strong>Stratiix Group companies</strong>, Stratiix and Credii Foundation, where relevant to your enquiry</li>
+    </ul>
+  </div>
+
+  <div class="privacy-section">
+    <h2>6. Data Retention</h2>
+    <p>We retain your personal information for as long as necessary to provide our services and comply with legal obligations. Typically:</p>
+    <ul>
+      <li>Enquiry data, 2 years from last contact</li>
+      <li>Client project data, 5 years from project completion</li>
+      <li>Analytics data, as per Google Analytics retention settings (14 months by default)</li>
+    </ul>
+    <p>You can request deletion of your data at any time by emailing <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1f777a7373705f7d736a687e69786d70686b77317c7072">[email&#160;protected]</a></strong>.</p>
+  </div>
+
+  <div class="privacy-section">
+    <h2>7. Your Rights</h2>
+    <p>Depending on your location, you may have the right to:</p>
+    <ul>
+      <li>Access the personal information we hold about you</li>
+      <li>Correct inaccurate information</li>
+      <li>Request deletion of your data ("right to be forgotten")</li>
+      <li>Opt out of marketing communications</li>
+      <li>Object to processing of your data for advertising purposes</li>
+    </ul>
+    <p>To exercise any of these rights, contact us at <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="80e8e5ececefc0e2ecf5f7e1f6e7f2eff7f4e8aee3efed">[email&#160;protected]</a></strong> or WhatsApp <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="cba3aea7a7a48ba9a7bebcaabdacb9a4bcbfa3e5a8a4a6">[email&#160;protected]</a></strong>.</p>
+  </div>
+
+  <div class="privacy-section">
+    <h2>8. Security</h2>
+    <p>We take reasonable technical and organisational measures to protect your personal information from unauthorised access, loss, or misuse. Our website is served over HTTPS. Payment processing is handled by PCI-compliant third-party providers.</p>
+    <p>No method of transmission over the internet is 100% secure. If you have concerns about the security of your data, please contact us immediately.</p>
+  </div>
+
+  <div class="privacy-section">
+    <h2>9. Third-Party Links</h2>
+    <p>Our website contains links to third-party sites (Google Forms, Facebook, WhatsApp, etc.). We are not responsible for the privacy practices of those sites. We encourage you to review their privacy policies.</p>
+  </div>
+
+  <div class="privacy-section">
+    <h2>10. Children's Privacy</h2>
+    <p>Our services are not directed to children under 13. We do not knowingly collect personal information from children. If you believe a child has provided us with personal information, please contact us and we will delete it promptly.</p>
+  </div>
+
+  <div class="privacy-section">
+    <h2>11. Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. We will notify you of significant changes by posting the new policy on this page with an updated date. Your continued use of our site after changes constitutes acceptance of the updated policy.</p>
+  </div>
+
+  <div class="contact-box">
+    <h3>Questions About Your Privacy?</h3>
+    <p>We're happy to explain anything in plain English. WhatsApp us or send an email, we respond within 48 hours.</p>
+    <a href="/cdn-cgi/l/email-protection#5d35383131321d3f31282a3c2b3a2f322a2935733e3230622e283f37383e29600d2f342b3c3e247d0d3231343e247d18332c28342f24">✉️ <span class="__cf_email__" data-cfemail="0e666b6262614e6c627b796f78697c61797a66206d6163">[email&#160;protected]</span></a>
+  </div>
+
+</div>
+
+<footer style="background:#060c18;padding-top:0;border-top:none;">
+
+  <div style="max-width:1200px;margin:0 auto;padding:64px clamp(16px,4vw,60px) 48px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:64px;">
+
+    <!-- Brand -->
+    <div>
+      <a href="index.html" style="text-decoration:none;display:inline-block;margin-bottom:20px;">
+        <div style="font-family:'Kaushan Script',cursive;font-size:32px;color:#fff;line-height:1;">Blu<span style="color:#00d4ff;">Wav</span></div>
+        <div style="font-size:9px;font-weight:700;color:#00d4ff;letter-spacing:4px;text-transform:uppercase;margin-top:4px;">Get Found. Get Chosen. Grow.</div>
+      </a>
+      <p style="font-size:14px;color:rgba(255,255,255,0.45);line-height:1.75;max-width:300px;margin-bottom:8px;">BluWav Growth fills the marketing and sales gap for modern service businesses, so you get found online, chosen first, and grow automatically.</p>
+      <p style="font-size:14px;color:rgba(255,255,255,0.35);line-height:1.75;max-width:300px;margin-bottom:16px;">In 48 hours: your website, Google visibility, WhatsApp, CRM, and automation. Built and run with you.</p>
+      <p style="font-size:13px;font-weight:700;color:#00d4ff;margin-bottom:24px;">Smart tech. Real human support.</p>
+      <div style="display:flex;gap:10px;">
+        <a href="https://facebook.com/bluwavgrowth" target="_blank" rel="noopener" aria-label="Facebook" style="width:40px;height:40px;border-radius:10px;border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);font-size:15px;font-weight:800;text-decoration:none;transition:all .2s;" onmouseover="this.style.borderColor='#1877F2';this.style.color='#1877F2'" onmouseout="this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='rgba(255,255,255,0.6)'">f</a>
+        <a href="https://www.instagram.com/bluwavgrowth/" target="_blank" rel="noopener" aria-label="Instagram" style="width:40px;height:40px;border-radius:10px;border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);font-size:18px;text-decoration:none;transition:all .2s;" onmouseover="this.style.borderColor='#E1306C';this.style.color='#E1306C'" onmouseout="this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='rgba(255,255,255,0.6)'">&#128247;</a>
+        <a href="mailto:hello@bluwavgrowth.com" aria-label="Email" style="width:40px;height:40px;border-radius:10px;border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);font-size:16px;text-decoration:none;transition:all .2s;" onmouseover="this.style.borderColor='#00d4ff';this.style.color='#00d4ff'" onmouseout="this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='rgba(255,255,255,0.6)'">&#9993;</a>
+      </div>
+    </div>
+
+    <!-- Navigate -->
+    <div>
+      <div style="font-size:13px;font-weight:700;color:rgba(255,255,255,0.35);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:24px;">Navigate</div>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <a href="index.html" style="font-size:14px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Home</a>
+        <a href="health-score.html" style="font-size:14px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Health Score</a>
+        <a href="about.html" style="font-size:14px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">About</a>
+        <a href="contact.html" style="font-size:14px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Contact</a>
+        <a href="index.html#pricing" style="font-size:14px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Growth Plans</a>
+        <a href="https://bluwavcrm.com/login.html" target="_blank" rel="noopener" style="font-size:14px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Client Login</a>
+        <a href="case-study-aadek.html" style="font-size:14px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Case Studies</a>
+      </div>
+    </div>
+
+    <!-- Get Started -->
+    <div>
+      <div style="font-size:13px;font-weight:700;color:rgba(255,255,255,0.35);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:24px;">Get Started</div>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <a href="health-score.html" style="font-size:14px;color:#00d4ff;font-weight:700;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#00d4ff'">&#129658; Free Health Score</a>
+        <a href="https://calendly.com/hello-bluwavgrowth/30min" target="_blank" rel="noopener" style="font-size:14px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">&#128197; Book a Call</a>
+        <a href="https://wa.me/18687348473" target="_blank" rel="noopener" style="font-size:14px;color:#25D366;font-weight:600;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#25D366'">&#128172; WhatsApp Us</a>
+        <a href="mailto:hello@bluwavgrowth.com" style="font-size:14px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">&#9993; hello@bluwavgrowth.com</a>
+        <a href="the-wave.html" style="font-size:14px;color:#00d4ff;font-weight:600;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#00d4ff'">The Wave Newsletter</a>
+        <a href="privacy.html" style="font-size:14px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Privacy Policy</a>
+        <a href="careers.html" style="font-size:14px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Careers</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div style="border-top:1px solid rgba(255,255,255,0.06);padding:24px clamp(16px,4vw,60px);">
+    <div style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+      <div style="font-size:13px;color:rgba(255,255,255,0.25);">&#169; 2026 <span style="color:rgba(255,255,255,0.4);">BluWav Growth</span> &middot; All rights reserved. &middot; Built for modern businesses worldwide.</div>
+      <div style="display:flex;gap:24px;">
+        <a href="privacy.html" style="font-size:13px;color:rgba(255,255,255,0.25);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='rgba(255,255,255,0.6)'" onmouseout="this.style.color='rgba(255,255,255,0.25)'">Privacy</a>
+        <a href="contact.html" style="font-size:13px;color:rgba(255,255,255,0.25);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='rgba(255,255,255,0.6)'" onmouseout="this.style.color='rgba(255,255,255,0.25)'">Contact</a>
+        <a href="sales-agent-agreement.html" style="font-size:13px;color:rgba(255,255,255,0.25);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='rgba(255,255,255,0.6)'" onmouseout="this.style.color='rgba(255,255,255,0.25)'">Agent Agreement</a>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    @media(max-width:768px){
+      footer [style*="grid-template-columns:2fr"]{grid-template-columns:1fr!important;gap:40px!important;}
+      footer [style*="padding:64px"]{padding:48px clamp(16px,4vw,32px) 40px!important;}
+    }
+    @media(max-width:480px){
+      footer [style*="justify-content:space-between"]{flex-direction:column!important;align-items:flex-start!important;}
+    }
+  </style>
+
+</footer>
+
+
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+function toggleMob(){var nav=document.getElementById('mobNav');var btn=document.getElementById('hamburgerBtn');nav.classList.toggle('open');if(btn)btn.classList.toggle('open');}
+function closeMob(){document.getElementById('mobNav').classList.remove('open');var btn=document.getElementById('hamburgerBtn');if(btn)btn.classList.remove('open');}
+document.addEventListener('click',function(e){var nav=document.getElementById('mobNav');var btn=document.getElementById('hamburgerBtn');if(nav&&btn&&nav.classList.contains('open')){if(!nav.contains(e.target)&&!btn.contains(e.target)){nav.classList.remove('open');if(btn)btn.classList.remove('open');}}}); 
+</script>
+<script>
+/* ── BluWav Nav Active State ── */
+(function(){
+  var path = window.location.pathname.split('/').pop() || 'index.html';
+  var map = {
+    'index.html':'home','':'home',
+    'pricing.html':'pricing',
+    'crm.html':'crm',
+    'the-wave.html':'wave',
+    'careers.html':'careers',
+    'our-promise.html':'promise',
+    'how-it-works.html':'how',
+    'case-study-aadek.html':'case',
+    'health-check.html':'health',
+    'free-audit.html':'audit',
+    'apply.html':'apply',
+    'contact.html':'contact'
+  };
+  var key = map[path] || path.replace('.html','');
+  document.querySelectorAll('.nav-link[data-page]').forEach(function(el){
+    if(el.getAttribute('data-page') === key){
+      el.classList.add('nav-active');
+    }
+  });
+  document.querySelectorAll('.mob-link[data-page]').forEach(function(el){
+    if(el.getAttribute('data-page') === key){
+      el.classList.add('mob-active');
+    }
+  });
+})();
+</script>
+<script>
+/* ── BluWav Scroll Animations ── */
+(function(){
+  var els = document.querySelectorAll('.bw-reveal,.bw-reveal-left,.bw-reveal-right,.bw-reveal-scale');
+  if(!els.length) return;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('bw-in');io.unobserve(e.target);}
+    });
+  },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(el){io.observe(el);});
+})();
+</script>
+</body>
+</html>
