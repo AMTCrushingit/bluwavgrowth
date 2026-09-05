@@ -375,8 +375,8 @@ if(sessionStorage.getItem('bwAgentAuth')==='1'){
         <tbody>
           <tr><td>3–4 deals</td><td>+$100</td><td>Package upsell (Ripple → Current or Current → Surge): +$50</td></tr>
           <tr><td>5–6 deals</td><td>+$300</td><td>Second-generation referral (client refers another client): +$75</td></tr>
-          <tr><td>7–9 deals</td><td>+$600</td><td></td></tr>
-          <tr><td>10+ deals</td><td>+$850</td><td></td></tr>
+          <tr><td>7–9 deals</td><td>+$550</td><td></td></tr>
+          <tr><td>10+ deals</td><td>+$800</td><td></td></tr>
         </tbody>
       </table>
       
@@ -386,7 +386,7 @@ if(sessionStorage.getItem('bwAgentAuth')==='1'){
         <li>Commission is paid within 7 business days of payment clearance.</li>
         <li>CRM recurring commissions are paid monthly for the first 3 months following the client's first payment.</li>
         <li>Minimum payout threshold: $50 USD equivalent.</li>
-        <li>If a client cancels or requests a full refund within 14 days of signing, the commission for that deal is reversed.</li>
+        <li>If a client cancels or requests a full refund within 30 days of signing, the commission for that deal is reversed.</li>
         <li>Payment will be made via bank transfer, PayPal, or WiPay as agreed.</li>
         <li>All commissions are paid in USD.</li>
         <li>The Sales Agent is responsible for any applicable taxes on commission income.</li>
@@ -409,7 +409,7 @@ if(sessionStorage.getItem('bwAgentAuth')==='1'){
         <li>Existing clients upgrading without Sales Agent involvement.</li>
         <li>Government or institutional contracts negotiated directly by BluWav Growth.</li>
         <li>Clients sourced directly by BluWav Growth without Sales Agent involvement.</li>
-        <li>CRM Solo ($999 one-time) sales.</li>
+        
         <li>Setup or onboarding fees on any CRM package.</li>
         <li>CRM recurring payments after the first 3 months.</li>
       </ul>
@@ -505,9 +505,9 @@ if(sessionStorage.getItem('bwAgentAuth')==='1'){
         <label class="form-label">Partner Tier</label>
         <div style="padding:14px 16px;background:#EFF6FF;border:2px solid rgba(0,194,209,0.3);border-radius:10px;font-size:15px;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:10px;">
           <span style="font-size:18px;">⭐</span>
-          Tier 2, Sales Agent &nbsp;·&nbsp; <span style="color:var(--coral);">20% commission + performance bonuses</span>
+          Tier 3, Sales Closer &nbsp;·&nbsp; <span style="color:var(--coral);">20% commission + performance bonuses</span>
         </div>
-        <input type="hidden" id="fTier" name="tier" value="Tier 2, Sales Agent (20% + bonuses)"/>
+        <input type="hidden" id="fTier" name="tier" value="Tier 3, Sales Closer (20% + bonuses)"/>
       </div>
 
       <!-- AGREE + SIGNATURE -->
@@ -559,26 +559,15 @@ if(sessionStorage.getItem('bwAgentAuth')==='1'){
     </div>
     <div style="margin-bottom:20px;text-align:center;"><a id="downloadCopyBtn" onclick="downloadSignedCopy()" style="display:inline-flex;align-items:center;gap:8px;background:#002B49;color:#fff;font-weight:700;font-size:14px;padding:13px 28px;border-radius:10px;text-decoration:none;cursor:pointer;">&#8681; Download Your Signed Copy</a></div>
 <div class="next-steps">
-      <div style="margin-top:20px;margin-bottom:16px;padding:14px 18px;background:#F0FFF4;border:1px solid rgba(34,197,94,0.3);border-radius:10px;font-size:13px;color:#374151;text-align:center;">
-      <strong style="color:#166534;">&#10003; Andrea has been notified via WhatsApp.</strong>
-      She will confirm your onboarding call within 24 hours.<br/>
-      <div style="margin-top:10px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
-        <a href="https://wa.me/16478702599" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:#25D366;color:#fff;font-size:13px;font-weight:800;padding:8px 18px;border-radius:8px;text-decoration:none;">&#128172; WhatsApp Andrea</a>
-        <a href="#" id="notifyEmailBtn" style="display:inline-flex;align-items:center;gap:6px;background:var(--navy);color:#fff;font-size:13px;font-weight:800;padding:8px 18px;border-radius:8px;text-decoration:none;">&#9993;&#65039; Email Andrea</a>
-      </div>
+      <div style="margin-top:20px;margin-bottom:16px;padding:14px 18px;background:#F0FFF4;border:1px solid rgba(34,197,94,0.3);border-radius:10px;font-size:13px;color:#166534;text-align:center;font-weight:600;">
+      &#10003; Andrea has been notified via WhatsApp.
     </div>
     <div class="next-steps-title">Your Next Steps</div>
       <div class="next-step-item"><div class="step-num">1</div><div>Check your email for your confirmation and Sales Agent Onboarding Package</div></div>
-      <div class="next-step-item"><div class="step-num">2</div><div>Read the package, especially the product sheets, sales scripts, and objection handler</div></div>
-      <div class="next-step-item"><div class="step-num">3</div><div>WhatsApp Andrea at <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="9ff7faf3f3f0dffdf3eae8fee9f8edf0e8ebf7b1fcf0f2">[email&#160;protected]</a> to confirm your onboarding call slot</div></div>
-      <div class="next-step-item"><div class="step-num">4</div><div>Identify your first 3 prospects before the onboarding call</div></div>
+      <div class="next-step-item"><div class="step-num">2</div><div>Read the package</div></div>
+      <div class="next-step-item"><div class="step-num">3</div><div>Identify your first 5 prospects before the onboarding call</div></div>
     </div>
-    <div style="margin-top:24px;">
-      <a href="https://wa.me/16478702599?text=Hi%20Andrea!%20I%20just%20signed%20my%20Sales%20Agent%20Agreement.%20I%27m%20ready%20to%20confirm%20my%20onboarding%20call%20slot." target="_blank"
-         style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;font-size:14px;font-weight:800;padding:12px 28px;border-radius:10px;text-decoration:none;">
-        💬 WhatsApp Andrea to Confirm Your Onboarding Call
-      </a>
-    </div>
+
   </div>
 
 </div>
@@ -812,7 +801,7 @@ function generateSignedCopy(data){
     .replace(/<div class="party-box">[\s\S]*?Complete the form below[\s\S]*?<\/div>\s*<\/div>/,
              agentPartyHtml)
     .replace(/Will populate on signing/g, data.signedDate + ' at ' + data.signedTime + ' UTC')
-    .replace(/Tier 2, Sales Agent/g, data.tier)
+    .replace(/Tier 3, Sales Closer/g, data.tier)
     .replace(/Tier 3, Sales Closer \(20%.*?\)/g, data.tier);
 
   var html = '<!DOCTYPE html><html><head><meta charset="utf-8"/>'
