@@ -920,7 +920,7 @@ async function handleSubmit(e){
   .catch(function(err){
     // Always fall back to Formspree
     console.log('Using Formspree fallback. Reason:', err && err.message);
-    fetch('https://formspree.io/f/xvkpvgry',{method:'POST',body:fd,headers:{'Accept':'application/json'}})
+    fetch('https://formspree.io/f/mrenyvld',{method:'POST',body:fd,headers:{'Accept':'application/json'}})
     .then(function(){
       document.getElementById('signForm').style.display='none';
       document.getElementById('successState').style.display='block';
