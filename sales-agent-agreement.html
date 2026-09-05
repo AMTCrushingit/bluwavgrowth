@@ -872,69 +872,43 @@ async function handleSubmit(e){
     userAgent: audit.ua,
     agreementVersion: 'BluWav Growth Sales Agent Agreement v1.0, September 2026'
   };
-  fetch('/functions/send-saa',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
-  .then(function(res){
-    // If function not available (404/500), fall back to Formspree
-    if(!res.ok && (res.status===404||res.status===500||res.status===0)){
-      throw new Error('function_unavailable');
-    }
-    return res.json();
+  // Web3Forms — sends email to hello@bluwavgrowth.com
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json','Accept':'application/json'},
+    body: JSON.stringify({
+      access_key: 'dd098a31-a2b5-434d-a9f3-b2e921bdab29',
+      subject: '\ud83e\udd1d New Sales Agent Signed: ' + fullName + ' \u2014 ' + tier,
+      from_name: 'BluWav SAA System',
+      replyto: email,
+      name: fullName,
+      email: email,
+      whatsapp: whatsapp || 'Not provided',
+      business: business || 'Not provided',
+      territory: territory,
+      tier: tier,
+      printed_name: sigName,
+      signed_date: signedDate + ' at ' + signedTime + ' UTC',
+      session_token: audit.token,
+      ip_address: audit.ip,
+      location: audit.city + ', ' + audit.country,
+      botcheck: ''
+    })
   })
+  .then(function(res){ return res.json(); })
   .then(function(data){
-    if(!data.success){console.error('SAA function error:',data.error);throw new Error(data.error||'Submission failed');}
+    if(!data.success) throw new Error(data.message || 'Submission failed');
     document.getElementById('signForm').style.display='none';
     document.getElementById('successState').style.display='block';
     document.getElementById('successState').scrollIntoView({behavior:'smooth'});
-
-    // Build dynamic mailto link for Andrea notification
-    var mailtoLink = 'mailto:hello@bluwavgrowth.com'
-      + '?subject=' + encodeURIComponent('NEW SALES AGENT SIGNED: ' + fullName)
-      + '&body=' + encodeURIComponent(
-          'New Sales Agent Agreement Signed\n\n'
-          + 'Name: ' + fullName + '\n'
-          + 'Email: ' + email + '\n'
-          + 'WhatsApp: ' + whatsapp + '\n'
-          + 'Tier: ' + tier + '\n'
-          + 'Territory: ' + territory + '\n'
-          + 'Signed: ' + signedDate + ' at ' + signedTime + ' UTC\n'
-          + 'Session: ' + audit.token
-        );
-    var emailBtn = document.getElementById('notifyEmailBtn');
-    if (emailBtn) emailBtn.href = mailtoLink;
     if(typeof gtag!=='undefined')gtag('event','sales_agent_agreement_signed',{event_category:'Partner',event_label:tier});
-
-    // Notify Andrea via WhatsApp immediately
-    var waMsg = encodeURIComponent(
-      'NEW SALES AGENT SIGNED\n\n' +
-      'Name: ' + fullName + '\n' +
-      'Email: ' + email + '\n' +
-      'WhatsApp: ' + whatsapp + '\n' +
-      'Tier: ' + tier + '\n' +
-      'Territory: ' + territory + '\n' +
-      'Signed: ' + signedDate + ' at ' + signedTime + ' UTC'
-    );
-    // Open WhatsApp notification to Andrea's personal number
-    setTimeout(function() {
-      window.open('https://wa.me/16478702599?text=' + waMsg, '_blank');
-    }, 800);
+    var waMsg = encodeURIComponent('NEW SALES AGENT SIGNED\n\nName: '+fullName+'\nEmail: '+email+'\nTier: '+tier+'\nTerritory: '+territory+'\nSigned: '+signedDate+' at '+signedTime+' UTC');
+    setTimeout(function(){window.open('https://wa.me/16478702599?text='+waMsg,'_blank');},800);
   })
-  .catch(function(err){
-    // Always fall back to Formspree
-    console.log('Using Formspree fallback. Reason:', err && err.message);
-    fetch('https://formspree.io/f/mrenyvld',{method:'POST',body:fd,headers:{'Accept':'application/json'}})
-    .then(function(){
-      document.getElementById('signForm').style.display='none';
-      document.getElementById('successState').style.display='block';
-      document.getElementById('successState').scrollIntoView({behavior:'smooth'});
-      if(typeof gtag!=='undefined')gtag('event','sales_agent_agreement_signed',{event_category:'Partner',event_label:tier});
-      var waMsg = encodeURIComponent('NEW SALES AGENT SIGNED\n\nName: '+fullName+'\nEmail: '+email+'\nTier: '+tier+'\nTerritory: '+territory+'\nSigned: '+signedDate+' at '+signedTime+' UTC');
-      setTimeout(function(){window.open('https://wa.me/16478702599?text='+waMsg,'_blank');},800);
-    })
-    .catch(function(){
-      btn.textContent='✍️ Sign & Accept Agreement →';
-      btn.disabled=false;
-      alert('Submission failed. Please try again or WhatsApp us at hello@bluwavgrowth.com.');
-    });
+  .catch(function(){
+    btn.textContent='\u270d\ufe0f Sign & Accept Agreement \u2192';
+    btn.disabled=false;
+    alert('Submission failed. Please try again or WhatsApp us at hello@bluwavgrowth.com.');
   });
 }
 </script>
