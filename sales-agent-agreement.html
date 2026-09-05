@@ -231,7 +231,6 @@ function checkPW(){
   if(pw==='BLUWAV2026'){
     document.getElementById('pwGate').style.display='none';
     sessionStorage.setItem('bwAgentAuth','1');
-    setTimeout(function(){if(typeof initCanvas==='function')initCanvas();},100);
   } else {
     err.style.display='block';
     document.getElementById('pwInput').value='';
@@ -242,7 +241,7 @@ function checkPW(){
 if(sessionStorage.getItem('bwAgentAuth')==='1'){
   document.addEventListener('DOMContentLoaded',function(){
     var g=document.getElementById('pwGate');
-    if(g){g.style.display='none';setTimeout(function(){if(typeof initCanvas==='function')initCanvas();},100);}
+    if(g)g.style.display='none';
   });
 }
 </script>
@@ -387,7 +386,7 @@ if(sessionStorage.getItem('bwAgentAuth')==='1'){
         <li>Commission is paid within 7 business days of payment clearance.</li>
         <li>CRM recurring commissions are paid monthly for the first 3 months following the client's first payment.</li>
         <li>Minimum payout threshold: $50 USD equivalent.</li>
-        <li>If a client cancels or requests a full refund within 30 days of signing, the commission for that deal is reversed.</li>
+        <li>If a client cancels or requests a full refund within 14 days of signing, the commission for that deal is reversed.</li>
         <li>Payment will be made via bank transfer, PayPal, or WiPay as agreed.</li>
         <li>All commissions are paid in USD.</li>
         <li>The Sales Agent is responsible for any applicable taxes on commission income.</li>
@@ -454,9 +453,9 @@ if(sessionStorage.getItem('bwAgentAuth')==='1'){
         </div>
         <div style="margin-top:14px;font-size:11px;color:var(--slate);font-style:italic;text-align:center;">These fields auto-populate when you complete and submit the form below. A full legal audit trail (timestamp, IP, session token) is recorded on submission.</div>
       </div>
-      <div class="footer-note" style="text-align:center;margin-top:28px;padding-top:20px;border-top:1px solid var(--mist);font-size:12px;color:var(--slate);line-height:2;">
-        Questions? Contact us at <strong>hello@bluwavgrowth.com</strong> or WhatsApp Andrea directly.<br/>
-        <strong style="color:var(--navy);">bluwavgrowth.com</strong> &nbsp;|&nbsp; Get Found. Get Chosen. Grow.<br/>
+      <div class="footer-note">
+        Questions? Contact us at <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ff96919990bf9d938a889e89988d90888b97d19c9092">[email&#160;protected]</a> or WhatsApp <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f39b969f9f9cb3919f8684928594819c84879bdd909c9e">[email&#160;protected]</a><br/>
+        <strong>bluwavgrowth.com</strong> &nbsp;|&nbsp; Get Found. Get Chosen. Grow.<br/>
         <em>This document is the property of BluWav Growth. Not to be distributed or re-used without permission.</em>
       </div>
     </div>
@@ -506,9 +505,9 @@ if(sessionStorage.getItem('bwAgentAuth')==='1'){
         <label class="form-label">Partner Tier</label>
         <div style="padding:14px 16px;background:#EFF6FF;border:2px solid rgba(0,194,209,0.3);border-radius:10px;font-size:15px;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:10px;">
           <span style="font-size:18px;">⭐</span>
-          Tier 3, Sales Closer &nbsp;·&nbsp; <span style="color:var(--coral);">20% commission + performance bonuses</span>
+          Tier 2, Sales Agent &nbsp;·&nbsp; <span style="color:var(--coral);">20% commission + performance bonuses</span>
         </div>
-        <input type="hidden" id="fTier" name="tier" value="Tier 3, Sales Closer (20% + bonuses)"/>
+        <input type="hidden" id="fTier" name="tier" value="Tier 2, Sales Agent (20% + bonuses)"/>
       </div>
 
       <!-- AGREE + SIGNATURE -->
@@ -841,8 +840,8 @@ async function handleSubmit(e){
 
   var fd=new FormData();
   fd.append('_subject','🤝 New Sales Agent Agreement Signed, '+fullName);
-  fd.append('_to','tanyersinc@gmail.com');
   fd.append('_replyto',email);
+  fd.append('_cc','careers@bluwavgrowth.com');
   fd.append('_cc','careers@bluwavgrowth.com');
   fd.append('name',fullName);
   fd.append('email',email);
@@ -873,43 +872,64 @@ async function handleSubmit(e){
     userAgent: audit.ua,
     agreementVersion: 'BluWav Growth Sales Agent Agreement v1.0, September 2026'
   };
-  // Web3Forms — sends email to hello@bluwavgrowth.com
-  fetch('https://api.web3forms.com/submit', {
-    method: 'POST',
-    headers: {'Content-Type':'application/json','Accept':'application/json'},
-    body: JSON.stringify({
-      access_key: 'dd098a31-a2b5-434d-a9f3-b2e921bdab29',
-      subject: '\ud83e\udd1d New Sales Agent Signed: ' + fullName + ' \u2014 ' + tier,
-      from_name: 'BluWav SAA System',
-      replyto: email,
-      name: fullName,
-      email: email,
-      whatsapp: whatsapp || 'Not provided',
-      business: business || 'Not provided',
-      territory: territory,
-      tier: tier,
-      printed_name: sigName,
-      signed_date: signedDate + ' at ' + signedTime + ' UTC',
-      session_token: audit.token,
-      ip_address: audit.ip,
-      location: audit.city + ', ' + audit.country,
-      botcheck: ''
-    })
-  })
-  .then(function(res){ return res.json(); })
+  fetch('/functions/send-saa',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+  .then(function(res){return res.json();})
   .then(function(data){
-    if(!data.success) throw new Error(data.message || 'Submission failed');
+    if(!data.success){console.error('SAA function error:',data.error);throw new Error(data.error||'Submission failed');}
     document.getElementById('signForm').style.display='none';
     document.getElementById('successState').style.display='block';
     document.getElementById('successState').scrollIntoView({behavior:'smooth'});
+
+    // Build dynamic mailto link for Andrea notification
+    var mailtoLink = 'mailto:hello@bluwavgrowth.com'
+      + '?subject=' + encodeURIComponent('NEW SALES AGENT SIGNED: ' + fullName)
+      + '&body=' + encodeURIComponent(
+          'New Sales Agent Agreement Signed\n\n'
+          + 'Name: ' + fullName + '\n'
+          + 'Email: ' + email + '\n'
+          + 'WhatsApp: ' + whatsapp + '\n'
+          + 'Tier: ' + tier + '\n'
+          + 'Territory: ' + territory + '\n'
+          + 'Signed: ' + signedDate + ' at ' + signedTime + ' UTC\n'
+          + 'Session: ' + audit.token
+        );
+    var emailBtn = document.getElementById('notifyEmailBtn');
+    if (emailBtn) emailBtn.href = mailtoLink;
     if(typeof gtag!=='undefined')gtag('event','sales_agent_agreement_signed',{event_category:'Partner',event_label:tier});
-    var BK=atob('eGtleXNpYi04ZGJiMWQ4ODE1NjM3NzljMGM5YWQ5NTEyYmM1ZTQ5OTZjNGFhMzYyZjhmNjUxMjhmNThiZWIzMTg0ZmE0MDdkLXVvc3lQc3dNWkZZa0xJTTk=');
-    var aHtml='<div style="font-family:sans-serif;max-width:600px;margin:0 auto;"><div style="background:#002B49;padding:24px 32px;border-radius:12px 12px 0 0;"><div style="font-size:22px;font-weight:900;color:#fff;">BluWav Growth</div><div style="font-size:9px;color:#00E0FF;letter-spacing:3px;text-transform:uppercase;">Get Found. Get Chosen. Grow.</div></div><div style="background:#FF5500;padding:10px 32px;"><div style="font-size:14px;font-weight:800;color:#fff;">New Sales Agent Agreement Signed</div></div><div style="background:#fff;padding:28px 32px;border:1px solid #e2e8f0;"><table style="width:100%;border-collapse:collapse;font-size:14px;"><tr><td style="padding:8px 12px;font-weight:700;color:#002B49;width:130px;border-bottom:1px solid #f1f5f9;">Name</td><td style="padding:8px 12px;border-bottom:1px solid #f1f5f9;">'+fullName+'</td></tr><tr><td style="padding:8px 12px;font-weight:700;color:#002B49;border-bottom:1px solid #f1f5f9;">Email</td><td style="padding:8px 12px;border-bottom:1px solid #f1f5f9;">'+email+'</td></tr><tr><td style="padding:8px 12px;font-weight:700;color:#002B49;border-bottom:1px solid #f1f5f9;">WhatsApp</td><td style="padding:8px 12px;border-bottom:1px solid #f1f5f9;">'+(whatsapp||'N/A')+'</td></tr><tr><td style="padding:8px 12px;font-weight:700;color:#002B49;border-bottom:1px solid #f1f5f9;">Business</td><td style="padding:8px 12px;border-bottom:1px solid #f1f5f9;">'+(business||'N/A')+'</td></tr><tr><td style="padding:8px 12px;font-weight:700;color:#002B49;border-bottom:1px solid #f1f5f9;">Territory</td><td style="padding:8px 12px;border-bottom:1px solid #f1f5f9;">'+territory+'</td></tr><tr><td style="padding:8px 12px;font-weight:700;color:#002B49;border-bottom:1px solid #f1f5f9;">Tier</td><td style="padding:8px 12px;border-bottom:1px solid #f1f5f9;">'+tier+'</td></tr><tr><td style="padding:8px 12px;font-weight:700;color:#002B49;border-bottom:1px solid #f1f5f9;">Signed</td><td style="padding:8px 12px;border-bottom:1px solid #f1f5f9;">'+signedDate+' at '+signedTime+' UTC</td></tr><tr><td style="padding:8px 12px;font-weight:700;color:#002B49;border-bottom:1px solid #f1f5f9;">Session</td><td style="padding:8px 12px;border-bottom:1px solid #f1f5f9;font-family:monospace;font-size:11px;">'+audit.token+'</td></tr><tr><td style="padding:8px 12px;font-weight:700;color:#002B49;">Location</td><td style="padding:8px 12px;">'+audit.city+', '+audit.country+'</td></tr></table></div><div style="background:#F8FAFC;padding:12px 32px;border:1px solid #e2e8f0;border-top:none;border-radius:0 0 12px 12px;text-align:center;font-size:11px;color:#94a3b8;">BluWav Growth</div></div>';
-    fetch('https://api.brevo.com/v3/smtp/email',{method:'POST',headers:{'api-key':BK,'Content-Type':'application/json'},body:JSON.stringify({sender:{name:'BluWav Growth',email:'hello@bluwavgrowth.com'},to:[{email:'hello@bluwavgrowth.com',name:'BluWav Growth'}],replyTo:{email:email,name:fullName},subject:'New Agent Signed: '+fullName,htmlContent:aHtml})}).catch(function(){});
-    var cHtml='<div style="font-family:sans-serif;max-width:600px;margin:0 auto;"><div style="background:#002B49;padding:24px 32px;border-radius:12px 12px 0 0;"><div style="font-size:22px;font-weight:900;color:#fff;">BluWav Growth</div><div style="font-size:9px;color:#00E0FF;letter-spacing:3px;text-transform:uppercase;">Get Found. Get Chosen. Grow.</div></div><div style="background:#fff;padding:32px;border:1px solid #e2e8f0;border-top:none;"><h2 style="color:#002B49;font-size:20px;margin:0 0 14px;">Welcome, '+fName+'!</h2><p style="color:#374151;font-size:15px;line-height:1.75;margin-bottom:16px;">Your Sales Agent Agreement has been signed. You are now a BluWav Growth <strong>'+tier+'</strong>.</p><div style="background:#F4F2ED;border-radius:10px;padding:16px 20px;margin-bottom:20px;font-size:13px;color:#374151;line-height:1.9;"><strong>Name:</strong> '+fullName+'<br/><strong>Tier:</strong> '+tier+'<br/><strong>Territory:</strong> '+territory+'<br/><strong>Signed:</strong> '+signedDate+' at '+signedTime+' UTC</div><div style="background:#EFF6FF;border-radius:10px;padding:16px 20px;margin-bottom:20px;"><p style="font-size:13px;color:#374151;margin-bottom:14px;">Download your 37-page Sales Agent Onboarding Package.</p><a href="https://raw.githubusercontent.com/AMTCrushingit/clientflow/main/sales-package/BluWav-Sales-Agent-Onboarding-Package.pdf" style="display:inline-block;background:#FF5500;color:#fff;font-weight:800;font-size:13px;padding:11px 24px;border-radius:8px;text-decoration:none;">Download Package</a></div><div style="font-size:14px;color:#374151;line-height:1.9;margin-bottom:20px;">1. Download and read your Onboarding Package<br/>2. WhatsApp Andrea to confirm your onboarding call<br/>3. Identify your first 3 prospects<br/>4. Start closing deals</div><div style="font-size:14px;color:#374151;">Questions? <a href="mailto:hello@bluwavgrowth.com" style="color:#FF5500;font-weight:700;">hello@bluwavgrowth.com</a></div><div style="margin-top:20px;font-size:15px;font-weight:800;color:#002B49;">Welcome to the team. Lets grow.</div><div style="font-size:12px;color:#64748b;margin-top:4px;">Andrea M. Tanguay, Founder and CEO, BluWav Growth</div></div><div style="background:#F8FAFC;padding:12px 32px;border:1px solid #e2e8f0;border-top:none;border-radius:0 0 12px 12px;text-align:center;font-size:11px;color:#94a3b8;">BluWav Growth - bluwavgrowth.com</div></div>';
-    fetch('https://api.brevo.com/v3/smtp/email',{method:'POST',headers:{'api-key':BK,'Content-Type':'application/json'},body:JSON.stringify({sender:{name:'BluWav Growth',email:'hello@bluwavgrowth.com'},to:[{email:email,name:fullName}],replyTo:{email:'hello@bluwavgrowth.com',name:'Andrea at BluWav Growth'},subject:'Welcome to BluWav Growth, '+fName+'! Your Agreement is Confirmed',htmlContent:cHtml})}).catch(function(){});
-    var waMsg=encodeURIComponent('NEW SALES AGENT SIGNED\n\nName: '+fullName+'\nEmail: '+email+'\nTier: '+tier+'\nTerritory: '+territory+'\nSigned: '+signedDate+' at '+signedTime+' UTC');
-    setTimeout(function(){window.open('https://wa.me/16478702599?text='+waMsg,'_blank');},800);
+
+    // Notify Andrea via WhatsApp immediately
+    var waMsg = encodeURIComponent(
+      'NEW SALES AGENT SIGNED\n\n' +
+      'Name: ' + fullName + '\n' +
+      'Email: ' + email + '\n' +
+      'WhatsApp: ' + whatsapp + '\n' +
+      'Tier: ' + tier + '\n' +
+      'Territory: ' + territory + '\n' +
+      'Signed: ' + signedDate + ' at ' + signedTime + ' UTC'
+    );
+    // Open WhatsApp notification to Andrea's personal number
+    setTimeout(function() {
+      window.open('https://wa.me/16478702599?text=' + waMsg, '_blank');
+    }, 800);
+  })
+  .catch(function(err){
+    // Fallback to Formspree if Cloudflare function fails
+    console.error('Cloudflare function error:', err);
+    fetch('https://formspree.io/f/xvkpvgry',{method:'POST',body:fd,headers:{'Accept':'application/json'}})
+    .then(function(){
+      document.getElementById('signForm').style.display='none';
+      document.getElementById('successState').style.display='block';
+      document.getElementById('successState').scrollIntoView({behavior:'smooth'});
+      if(typeof gtag!=='undefined')gtag('event','sales_agent_agreement_signed',{event_category:'Partner',event_label:tier});
+      var waMsg = encodeURIComponent('NEW SALES AGENT SIGNED (via fallback)\n\nName: '+fullName+'\nEmail: '+email+'\nTier: '+tier+'\nTerritory: '+territory+'\nSigned: '+signedDate+' at '+signedTime+' UTC');
+      setTimeout(function(){window.open('https://wa.me/16478702599?text='+waMsg,'_blank');},800);
+    })
+    .catch(function(){
+      btn.textContent='✍️ Sign & Accept Agreement →';
+      btn.disabled=false;
+      alert('Submission failed. Please try again or WhatsApp us at hello@bluwavgrowth.com.');
+    });
+  });
 }
 </script>
 <script>
