@@ -35,7 +35,7 @@
 
     /* HEADER */
     header { background: var(--bg); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
-    .header-inner { max-width: 1160px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+    .header-inner { width: 100%; padding: 0 clamp(16px,5vw,80px); height: 64px; display: flex; align-items: center; justify-content: space-between; }
     .logo { text-decoration: none; line-height: 1; }
     
     .back-link { color: var(--text-muted); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.18s; }
@@ -212,27 +212,35 @@
 </style>
 </head>
 <body style="overflow-x:hidden;">
-<header>
-<div class="header-inner">
-<!-- Logo -->
+<nav class="bw-nav" id="bwNav">
 <a class="bw-nav-logo" href="index.html">
 <div class="bw-nav-logo-name">Blu<span>Wav</span></div>
 <div class="bw-nav-logo-sub">Get Found. Get Chosen. Grow.</div>
 </a>
-<!-- Desktop nav -->
-<div class="hs-nav-links">
-<a class="hs-nav-link" href="index.html">Home</a>
-<a class="hs-nav-link" href="pricing.html">Pricing</a>
-<a class="hs-nav-link" href="about.html">About</a>
-<a class="hs-nav-link" href="the-wave.html">The Wave</a>
-<a class="hs-nav-cta" href="index.html#pricing">See Plans</a>
+<div class="bw-nav-links">
+<a class="bw-nav-link active" href="index.html#pillars">What We Do</a>
+<a class="bw-nav-link" href="index.html#growth-system">How It Works</a>
+<a class="bw-nav-link" href="pricing.html#plans-k1l2">Pricing</a>
+<a class="bw-nav-link" href="case-study-aadek.html">Case Studies</a>
+<a class="bw-nav-link" href="the-wave.html">The Wave</a>
+<a class="bw-nav-link" href="careers.html">Careers</a>
+<a class="bw-nav-btn-outline" href="https://bluwavcrm.com/login.html" rel="noopener" target="_blank">Client Login</a>
+<a class="bw-nav-btn-cta" href="health-score.html">Free Health Score</a>
 </div>
-<!-- Hamburger -->
-<button aria-label="Menu" class="hs-hamburger" id="hsHamburger" onclick="toggleHsNav()">
+<button aria-label="Menu" class="bw-hamburger" id="bwHamburger" onclick="bwToggleNav()">
 <span></span><span></span><span></span>
 </button>
+</nav>
+<div class="bw-mob-nav" id="bwMobNav">
+<a class="bw-mob-link" href="index.html#pillars" onclick="bwCloseNav()">🌐 What We Do</a>
+<a class="bw-mob-link" href="index.html#growth-system" onclick="bwCloseNav()">⚡ How It Works</a>
+<a class="bw-mob-link" href="pricing.html#plans-k1l2" onclick="bwCloseNav()">💰 Pricing</a>
+<a class="bw-mob-link" href="case-study-aadek.html" onclick="bwCloseNav()">📐 Case Studies</a>
+<a class="bw-mob-link" href="the-wave.html" onclick="bwCloseNav()" style="color:#00d4ff;">The Wave</a>
+<a class="bw-mob-link" href="careers.html" onclick="bwCloseNav()">Careers</a>
+<a class="bw-mob-link" href="https://bluwavcrm.com/login.html" onclick="bwCloseNav()" rel="noopener" style="color:rgba(0,212,255,0.85);" target="_blank">🔐 Client Login</a>
+<a class="bw-mob-cta" href="health-score.html" onclick="bwCloseNav()">Get My Free Health Score →</a>
 </div>
-</header>
 <!-- Mobile menu -->
 <div class="hs-mob-menu" id="hsMobMenu">
 <a class="hs-mob-link" href="index.html" onclick="closeHsNav()">🏠 Home</a>
