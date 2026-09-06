@@ -44,7 +44,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--white); min
 
     /* MAIN */
     main { flex: 1; }
-    .hero { max-width: 1160px; margin: 0 auto; padding: 64px 24px 80px; display: grid; grid-template-columns: 1fr 520px; gap: 56px; align-items: start; }
+    .hero { width: 100%; padding: 100px clamp(16px,5vw,80px) 80px; display: grid; grid-template-columns: 1fr 520px; gap: 56px; align-items: start; }
 
     /* LEFT */
     .hero-left { padding-top: 16px; }
@@ -136,7 +136,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--white); min
 
     /* RESPONSIVE */
     @media (max-width: 900px) {
-      .hero { grid-template-columns: 1fr; gap: 36px; padding: 40px 20px 60px; }
+      .hero { grid-template-columns: 1fr; gap: 36px; padding: 100px 20px 60px; }
       .hero-left { padding-top: 0; }
       .quiz-card { position: static; padding: 28px 22px; }
       .tiers { display: none; }
