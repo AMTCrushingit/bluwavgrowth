@@ -109,8 +109,10 @@ img{max-width:100%;height:auto;}
 
 /* Font display swap for CLS prevention */
 @font-face{font-display:swap;}
+#bwProgress{position:fixed;top:0;left:0;height:3px;z-index:9999;width:0%;background:linear-gradient(90deg,#ff6535,#fbbf24,#00d4ff);border-radius:0 2px 2px 0;pointer-events:none;}
 </style>
 </head>
+<div id="bwProgress"></div>
 <body>
 
 <nav id="mainNav">
@@ -377,6 +379,9 @@ document.addEventListener('click',function(e){var nav=document.getElementById('m
   },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
   els.forEach(function(el){io.observe(el);});
 })();
+</script>
+<script>
+(function(){var p=document.getElementById('bwProgress');if(p){window.addEventListener('scroll',function(){var s=window.scrollY,d=document.documentElement.scrollHeight-document.documentElement.clientHeight;p.style.width=d>0?(s/d*100)+'%':'0%';},{passive:true});}})();
 </script>
 </body>
 </html>

@@ -115,30 +115,34 @@ img{max-width:100%;height:auto;}
 </style>
 </head>
 <body style="padding-top:68px;">
-<nav id="mainNav">
-<a class="nav-logo" href="index.html" style="display:flex;flex-direction:column;align-items:flex-start;line-height:1;padding:4px 0;text-decoration:none;">
-<div id="navLogoText" style="font-family:'Kaushan Script',cursive;font-size:26px;line-height:1;color:#fff;opacity:0;transition:opacity 0.3s;">Blu<span style="color:#00E0FF;">Wav</span></div>
-<div style="font-size:8px;font-weight:700;color:#00E0FF;letter-spacing:3px;text-transform:uppercase;line-height:1.4;margin-top:2px;">Get Found. Get Chosen. Grow.</div>
+<nav class="bw-nav" id="bwNav">
+<a class="bw-nav-logo" href="index.html">
+<div class="bw-nav-logo-name">Blu<span>Wav</span></div>
+<div class="bw-nav-logo-sub">Get Found. Get Chosen. Grow.</div>
 </a>
-<div class="nav-links">
-<a class="nav-link" href="health-score.html">Health Score</a>
-<a class="nav-link" href="index.html#pillars">Growth Plans</a>
-<a class="nav-link" href="about.html">About</a>
-<a class="nav-link" href="contact.html">Contact</a>
-<a class="nav-link" href="the-wave.html" style="color:#00E0FF;font-weight:600;">The Wave</a>
-<a class="nav-link" href="https://bluwavcrm.com/login.html" rel="noopener" style="color:rgba(0,224,255,0.85);font-weight:600;" target="_blank">Client Login</a>
-<a class="nav-cta" href="https://calendly.com/hello-bluwavgrowth/30min" onclick="if(typeof gtag!=='undefined'){gtag('event','book_call_click',{'event_category':'CTA','event_label':'Book a Call','page':'nav'});}" rel="noopener" target="_blank">Book a Call</a>
+<div class="bw-nav-links">
+<a class="bw-nav-link" href="index.html#pillars">What We Do</a>
+<a class="bw-nav-link" href="index.html#growth-system">How It Works</a>
+<a class="bw-nav-link" href="pricing.html#plans-k1l2">Pricing</a>
+<a class="bw-nav-link" href="case-study-aadek.html">Case Studies</a>
+<a class="bw-nav-link" href="the-wave.html">The Wave</a>
+<a class="bw-nav-link" href="careers.html">Careers</a>
+<a class="bw-nav-btn-outline" href="https://bluwavcrm.com/login.html" rel="noopener" target="_blank">Client Login</a>
+<a class="bw-nav-btn-cta" href="health-score.html">Free Health Score</a>
 </div>
-<button aria-label="Menu" class="hamburger" id="hamburgerBtn" onclick="toggleMob()"><span></span><span></span><span></span></button>
+<button aria-label="Menu" class="bw-hamburger" id="bwHamburger" onclick="bwToggleNav()">
+<span></span><span></span><span></span>
+</button>
 </nav>
-<div class="mob-nav" id="mobNav">
-<a class="mob-link" href="health-score.html" onclick="closeMob()">🩺 Health Score</a>
-<a class="mob-link" href="index.html#pillars" onclick="closeMob()">💰 Growth Plans</a>
-<a class="mob-link" href="about.html" onclick="closeMob()">👤 About</a>
-<a class="mob-link" href="contact.html" onclick="closeMob()">📞 Contact</a>
-<a class="mob-link" href="the-wave.html" onclick="closeMob()" style="color:#00E0FF;">The Wave</a>
-<a class="mob-link" href="https://bluwavcrm.com/login.html" onclick="closeMob()" rel="noopener" style="color:rgba(0,224,255,0.85);" target="_blank">🔒 Client Login</a>
-<a class="mob-cta" href="https://calendly.com/hello-bluwavgrowth/30min" onclick="if(typeof gtag!=='undefined'){gtag('event','book_call_click',{'event_category':'CTA','event_label':'Book a Call','page':'nav'});}closeMob();" rel="noopener" target="_blank">📅 Book a Call</a>
+<div class="bw-mob-nav" id="bwMobNav">
+<a class="bw-mob-link" href="index.html#pillars" onclick="bwCloseNav()">🌐 What We Do</a>
+<a class="bw-mob-link" href="index.html#growth-system" onclick="bwCloseNav()">⚡ How It Works</a>
+<a class="bw-mob-link" href="pricing.html#plans-k1l2" onclick="bwCloseNav()">💰 Pricing</a>
+<a class="bw-mob-link" href="case-study-aadek.html" onclick="bwCloseNav()">📐 Case Studies</a>
+<a class="bw-mob-link" href="the-wave.html" onclick="bwCloseNav()" style="color:#00d4ff;">The Wave</a>
+<a class="bw-mob-link" href="careers.html" onclick="bwCloseNav()">Careers</a>
+<a class="bw-mob-link" href="https://bluwavcrm.com/login.html" onclick="bwCloseNav()" rel="noopener" style="color:rgba(0,212,255,0.85);" target="_blank">🔐 Client Login</a>
+<a class="bw-mob-cta" href="health-score.html" onclick="bwCloseNav()">Get My Free Health Score →</a>
 </div>
 
 <!-- HERO -->
