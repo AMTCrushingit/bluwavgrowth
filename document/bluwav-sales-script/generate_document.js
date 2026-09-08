@@ -270,7 +270,7 @@ const doc = new Document({
 
       // ── WHAT'S NEW ─────────────────────────────────────────────────────────
       h2("What's New in This Version"),
-      body('Updated to reflect BluWav Growth\'s current global positioning: tagline \u201cGet Found. Get Chosen. Grow.\u201d, three Growth Systems (Ripple / Current / Surge), five CRM tiers (Starter / Lite / Premium / Enterprise / White-Label), 14-day free CRM trial included in every plan, Health Check results delivered within 24 hours, global audience focus (no Caribbean-specific language), and updated objection responses throughout.'),
+      body('Updated to reflect BluWav Growth\'s current global positioning: tagline \u201cGet Found. Get Chosen. Grow.\u201d, three Growth Systems (Ripple / Current / Surge), five CRM tiers (Starter / Lite / Premium / Enterprise / Agency Edition™), 14-day free CRM trial included in every plan, Health Check results delivered within 24 hours, global audience focus (no Caribbean-specific language), and updated objection responses throughout.'),
       spacer(),
 
       // ── HOW TO USE ─────────────────────────────────────────────────────────
@@ -324,11 +324,11 @@ const doc = new Document({
       body('Every plan includes a 14-day free CRM trial \u2014 so even Ripple clients experience the full automation from day one.'),
       spacer(),
       h2('CRM Plans \u2014 Know the Tiers'),
-      bulletBold('CRM Starter: ', '$59/mo + $99 onboarding. 25 contacts, lead tracking, 1 user.', 'bullet-list-5'),
-      bulletBold('CRM Lite: ', '$99/mo + $199 onboarding. 250 contacts, pipeline, basic automation, 2 team members.', 'bullet-list-5'),
-      bulletBold('CRM Premium: ', '$179/mo + $299 onboarding. Unlimited contacts, full pipeline, WhatsApp integration, 5 team members. Introductory rate \u2014 locks in for life.', 'bullet-list-5'),
-      bulletBold('CRM Enterprise: ', '$499/mo + $599 onboarding. Unlimited team, custom workflows, API access, dedicated account manager.', 'bullet-list-5'),
-      bulletBold('White-Label: ', '$697/mo + $699 onboarding. For agencies \u2014 your brand, unlimited client accounts.', 'bullet-list-5'),
+      bulletBold('Foundation Plan™: ', '$59/mo + $99 onboarding. 25 contacts, lead tracking, 1 user.', 'bullet-list-5'),
+      bulletBold('Growth Plan™: ', '$99/mo + $199 onboarding. 250 contacts, pipeline, basic automation, 2 team members.', 'bullet-list-5'),
+      bulletBold('Founder Plan™: ', '$199/mo + $299 onboarding. Unlimited contacts, full pipeline, WhatsApp integration, 5 team members. Introductory rate \u2014 locks in for life.', 'bullet-list-5'),
+      bulletBold('Enterprise Plan™: ', '$399/mo + $599 onboarding. Unlimited team, custom workflows, API access, dedicated account manager.', 'bullet-list-5'),
+      bulletBold('Agency Edition™: ', '$899/mo + $699 onboarding. For agencies \u2014 your brand, unlimited client accounts.', 'bullet-list-5'),
       spacer(),
 
       // ── SECTION 2 ──────────────────────────────────────────────────────────
