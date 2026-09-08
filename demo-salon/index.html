@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>D's Beauty Salon | Hair · Makeup · Nails | Carapichaima, Trinidad</title>
+<meta name="description" content="D's Beauty Salon — Trinidad's premier beauty destination in Carapichaima. Hair styling, makeup artistry, manicure and pedicure. Book via WhatsApp today.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+<style>
+:root {
+  --plum: #2D0A3E;
+  --plum2: #3D1050;
+  --plum3: #4E1A63;
+  --gold: #C9A84C;
+  --gold2: #E2C06A;
+  --gold3: #F0D898;
+  --cream: #FDF6EC;
+  --cream2: #F5ECD8;
+  --ink: #1A0826;
+  --ink2: rgba(253,246,236,0.65);
+  --hf: 'Cormorant Garamond', serif;
+  --bf: 'Raleway', sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--bf);background:var(--plum);color:var(--cream);overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;padding:0 5%;display:flex;align-items:center;justify-content:space-between;background:rgba(45,10,62,0.95);backdrop-filter:blur(16px);border-bottom:1px solid rgba(201,168,76,0.15);}
+.nav-logo{display:flex;flex-direction:column;}
+.nav-name{font-family:var(--hf);font-size:1.5rem;font-weight:700;color:var(--cream);letter-spacing:1px;}
+.nav-name span{color:var(--gold);}
+.nav-sub{font-size:0.65rem;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--gold);opacity:0.7;}
+.nav-links{display:flex;align-items:center;gap:32px;}
+.nav-links a{font-size:0.82rem;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:rgba(253,246,236,0.7);transition:color 0.2s;}
+.nav-links a:hover{color:var(--gold);}
+.nav-book{background:var(--gold);color:var(--plum);font-size:0.78rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:10px 24px;border-radius:2px;transition:background 0.2s;}
+.nav-book:hover{background:var(--gold2);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--cream);}
+.mob-menu{display:none;position:fixed;top:72px;left:0;right:0;background:rgba(45,10,62,0.98);backdrop-filter:blur(16px);padding:24px 5%;flex-direction:column;gap:20px;z-index:99;border-bottom:1px solid rgba(201,168,76,0.15);}
+.mob-menu.open{display:flex;}
+.mob-menu a{font-size:1rem;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:rgba(253,246,236,0.8);padding:10px 0;border-bottom:1px solid rgba(201,168,76,0.1);}
+
+/* ── HERO ── */
+.hero{min-height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;}
+.hero-bg{position:absolute;inset:0;z-index:0;}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center top;}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(110deg,rgba(45,10,62,0.92) 0%,rgba(45,10,62,0.75) 50%,rgba(45,10,62,0.4) 100%);z-index:1;}
+.hero-content{position:relative;z-index:2;padding:120px 5% 80px;max-width:680px;}
+.hero-eyebrow{font-size:0.72rem;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:12px;}
+.hero-eyebrow::before{content:'';display:block;width:40px;height:1px;background:var(--gold);}
+.hero-h1{font-family:var(--hf);font-size:clamp(3rem,7vw,5.5rem);font-weight:600;line-height:1.05;color:var(--cream);margin-bottom:8px;font-style:italic;}
+.hero-h1 span{color:var(--gold);font-style:normal;}
+.hero-tagline{font-family:var(--hf);font-size:1.4rem;font-weight:400;color:rgba(253,246,236,0.75);margin-bottom:32px;font-style:italic;letter-spacing:1px;}
+.hero-services{display:flex;gap:20px;flex-wrap:wrap;margin-bottom:40px;}
+.hero-service{font-size:0.72rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold2);display:flex;align-items:center;gap:8px;}
+.hero-service::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--gold);}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap;}
+.btn-gold{background:var(--gold);color:var(--plum);font-size:0.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:16px 36px;border-radius:2px;display:inline-flex;align-items:center;gap:10px;transition:background 0.2s;}
+.btn-gold:hover{background:var(--gold2);}
+.btn-outline{background:transparent;color:var(--cream);border:1px solid rgba(253,246,236,0.3);font-size:0.78rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:16px 36px;border-radius:2px;display:inline-flex;align-items:center;gap:10px;transition:all 0.2s;}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);}
+/* Scroll indicator */
+.scroll-hint{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(253,246,236,0.4);font-size:0.65rem;letter-spacing:2px;text-transform:uppercase;}
+.scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,var(--gold),transparent);}
+
+/* ── SECTION COMMON ── */
+section{padding:96px 5%;}
+.inner{max-width:1200px;margin:0 auto;}
+.sec-eyebrow{font-size:0.68rem;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:12px;}
+.sec-eyebrow::before{content:'';display:block;width:32px;height:1px;background:var(--gold);}
+.sec-title{font-family:var(--hf);font-size:clamp(2rem,4vw,3.2rem);font-weight:600;color:var(--cream);line-height:1.15;margin-bottom:16px;}
+.sec-title em{color:var(--gold);font-style:italic;}
+.sec-desc{font-size:0.95rem;color:var(--ink2);line-height:1.8;max-width:560px;margin-bottom:56px;}
+
+/* ── SERVICES ── */
+.services-section{background:var(--plum2);}
+.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;}
+.service-card{background:var(--plum);padding:48px 32px;position:relative;overflow:hidden;transition:background 0.3s;}
+.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform 0.4s;}
+.service-card:hover{background:var(--plum3);}
+.service-card:hover::before{transform:scaleX(1);}
+.service-num{font-family:var(--hf);font-size:4rem;font-weight:700;color:rgba(201,168,76,0.08);position:absolute;top:16px;right:20px;line-height:1;}
+.service-icon{font-size:1.8rem;color:var(--gold);margin-bottom:20px;}
+.service-name{font-family:var(--hf);font-size:1.5rem;font-weight:600;color:var(--cream);margin-bottom:12px;}
+.service-desc{font-size:0.82rem;color:var(--ink2);line-height:1.7;margin-bottom:20px;}
+.service-items{display:flex;flex-direction:column;gap:6px;}
+.service-item{font-size:0.75rem;color:rgba(201,168,76,0.8);letter-spacing:0.5px;display:flex;align-items:center;gap:8px;}
+.service-item::before{content:'';width:16px;height:1px;background:var(--gold);opacity:0.5;}
+
+/* ── GALLERY ── */
+.gallery-section{background:var(--plum);}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto;gap:3px;}
+.gallery-item{overflow:hidden;position:relative;cursor:pointer;}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s ease;}
+.gallery-item:hover img{transform:scale(1.06);}
+.gallery-item.tall{grid-row:span 2;}
+.gallery-item.wide{grid-column:span 2;}
+.gallery-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(45,10,62,0.7) 0%,transparent 60%);opacity:0;transition:opacity 0.3s;}
+.gallery-item:hover .gallery-overlay{opacity:1;}
+.gallery-label{position:absolute;bottom:16px;left:16px;font-size:0.7rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);opacity:0;transition:opacity 0.3s;}
+.gallery-item:hover .gallery-label{opacity:1;}
+
+/* ── ABOUT ── */
+.about-section{background:var(--plum2);}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.about-img{position:relative;}
+.about-img img{width:100%;height:600px;object-fit:cover;object-position:center top;}
+.about-img::before{content:'';position:absolute;top:-16px;left:-16px;right:16px;bottom:16px;border:1px solid rgba(201,168,76,0.25);z-index:-1;}
+.about-img::after{content:'';position:absolute;bottom:-16px;right:-16px;width:120px;height:120px;background:var(--gold);opacity:0.08;z-index:-1;}
+.about-quote{font-family:var(--hf);font-size:1.8rem;font-weight:400;font-style:italic;color:var(--cream);line-height:1.5;margin-bottom:24px;border-left:2px solid var(--gold);padding-left:24px;}
+.about-text{font-size:0.9rem;color:var(--ink2);line-height:1.9;margin-bottom:32px;}
+.about-sig{font-family:var(--hf);font-size:1.4rem;font-style:italic;color:var(--gold);}
+.about-sig span{display:block;font-family:var(--bf);font-size:0.7rem;font-style:normal;letter-spacing:2px;text-transform:uppercase;color:var(--ink2);margin-top:4px;}
+
+/* ── PRICING ── */
+.pricing-section{background:var(--plum);}
+.pricing-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(201,168,76,0.1);}
+.price-col{background:var(--plum);padding:40px 28px;}
+.price-col-title{font-family:var(--hf);font-size:1.3rem;font-weight:600;color:var(--gold);margin-bottom:8px;letter-spacing:1px;}
+.price-col-sub{font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--ink2);margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid rgba(201,168,76,0.15);}
+.price-item{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid rgba(253,246,236,0.05);}
+.price-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+.price-name{font-size:0.82rem;color:rgba(253,246,236,0.8);}
+.price-val{font-family:var(--hf);font-size:1rem;font-weight:600;color:var(--gold2);}
+
+/* ── BOOK ── */
+.book-section{background:var(--plum2);text-align:center;}
+.book-inner{max-width:700px;margin:0 auto;}
+.book-title{font-family:var(--hf);font-size:clamp(2.5rem,5vw,4rem);font-weight:600;font-style:italic;color:var(--cream);margin-bottom:16px;line-height:1.1;}
+.book-title span{color:var(--gold);}
+.book-sub{font-size:0.9rem;color:var(--ink2);line-height:1.8;margin-bottom:40px;}
+.book-wa{display:inline-flex;align-items:center;gap:12px;background:#25D366;color:#fff;font-size:0.85rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:18px 48px;border-radius:2px;margin-bottom:32px;transition:background 0.2s;}
+.book-wa:hover{background:#1da851;}
+.book-details{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;}
+.book-detail{display:flex;flex-direction:column;align-items:center;gap:6px;}
+.book-detail i{color:var(--gold);font-size:1.1rem;}
+.book-detail span{font-size:0.75rem;letter-spacing:1px;text-transform:uppercase;color:var(--ink2);}
+.book-detail strong{font-size:0.85rem;color:var(--cream);}
+
+/* ── FOOTER ── */
+footer{background:var(--ink);padding:48px 5% 24px;border-top:1px solid rgba(201,168,76,0.1);}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px;margin-bottom:32px;}
+.footer-brand{font-family:var(--hf);font-size:1.4rem;font-weight:600;color:var(--cream);}
+.footer-brand span{color:var(--gold);}
+.footer-brand p{font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--ink2);margin-top:4px;}
+.footer-links{display:flex;gap:24px;flex-wrap:wrap;}
+.footer-links a{font-size:0.75rem;letter-spacing:1px;text-transform:uppercase;color:var(--ink2);transition:color 0.2s;}
+.footer-links a:hover{color:var(--gold);}
+.footer-bottom{border-top:1px solid rgba(253,246,236,0.05);padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.footer-copy{font-size:0.72rem;color:rgba(253,246,236,0.25);}
+.footer-credit{font-size:0.72rem;color:rgba(253,246,236,0.25);}
+.footer-credit a{color:rgba(201,168,76,0.5);}
+
+/* ── GOLD DIVIDER ── */
+.gold-divider{width:60px;height:1px;background:var(--gold);margin:0 auto 48px;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  section{padding:64px 4%;}
+  .services-grid{grid-template-columns:1fr 1fr;}
+  .gallery-grid{grid-template-columns:1fr 1fr;}
+  .gallery-item.tall{grid-row:span 1;}
+  .gallery-item.wide{grid-column:span 1;}
+  .about-grid{grid-template-columns:1fr;gap:40px;}
+  .about-img{display:none;}
+  .pricing-grid{grid-template-columns:1fr 1fr;}
+  .book-details{gap:24px;}
+  .footer-inner{flex-direction:column;align-items:flex-start;}
+}
+@media(max-width:600px){
+  .services-grid{grid-template-columns:1fr;}
+  .pricing-grid{grid-template-columns:1fr;}
+  .hero-h1{font-size:2.8rem;}
+  .hero-btns{flex-direction:column;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <div class="nav-name">D's <span>Beauty</span> Salon</div>
+    <div class="nav-sub">Carapichaima, Trinidad</div>
+  </div>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#about">About</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#book" class="nav-book">Book Now</a>
+  </div>
+  <div class="hamburger" onclick="document.getElementById('mob').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="mob-menu" id="mob">
+  <a href="#services" onclick="document.getElementById('mob').classList.remove('open')">Services</a>
+  <a href="#gallery" onclick="document.getElementById('mob').classList.remove('open')">Gallery</a>
+  <a href="#about" onclick="document.getElementById('mob').classList.remove('open')">About</a>
+  <a href="#pricing" onclick="document.getElementById('mob').classList.remove('open')">Pricing</a>
+  <a href="#book" onclick="document.getElementById('mob').classList.remove('open')">Book Now</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <img src="https://as1.ftcdn.net/jpg/07/69/77/18/1000_F_769771811_bEykCThargmwPvrF2AMTuB1WXSN0V4aP.jpg" alt="D's Beauty Salon">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Carapichaima, Trinidad</div>
+    <h1 class="hero-h1">Where Beauty<br><span>Becomes</span><br>Art.</h1>
+    <p class="hero-tagline">Trinidad's premier beauty experience</p>
+    <div class="hero-services">
+      <span class="hero-service">Hair Styling</span>
+      <span class="hero-service">Makeup Artistry</span>
+      <span class="hero-service">Manicure</span>
+      <span class="hero-service">Pedicure</span>
+    </div>
+    <div class="hero-btns">
+      <a href="https://wa.me/18680000000" class="btn-gold"><i class="fab fa-whatsapp"></i> Book via WhatsApp</a>
+      <a href="#services" class="btn-outline">Our Services</a>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section" id="services">
+  <div class="inner">
+    <div class="sec-eyebrow">What We Offer</div>
+    <h2 class="sec-title">Every Service,<br><em>Crafted for You</em></h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-num">01</div>
+        <div class="service-icon"><i class="fas fa-cut"></i></div>
+        <div class="service-name">Hair Styling</div>
+        <div class="service-desc">From sleek blowouts to bold colour transformations — we bring your vision to life.</div>
+        <div class="service-items">
+          <span class="service-item">Cuts &amp; Trims</span>
+          <span class="service-item">Colour &amp; Highlights</span>
+          <span class="service-item">Blowouts &amp; Styling</span>
+          <span class="service-item">Relaxers &amp; Treatments</span>
+          <span class="service-item">Braids &amp; Natural Styles</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">02</div>
+        <div class="service-icon"><i class="fas fa-magic"></i></div>
+        <div class="service-name">Makeup Artistry</div>
+        <div class="service-desc">Flawless looks for every occasion — from everyday glam to bridal perfection.</div>
+        <div class="service-items">
+          <span class="service-item">Bridal Makeup</span>
+          <span class="service-item">Event &amp; Party Glam</span>
+          <span class="service-item">Natural Everyday Look</span>
+          <span class="service-item">Editorial &amp; Creative</span>
+          <span class="service-item">Makeup Lessons</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">03</div>
+        <div class="service-icon"><i class="fas fa-hand-sparkles"></i></div>
+        <div class="service-name">Manicure</div>
+        <div class="service-desc">Beautifully shaped, polished nails — classic elegance or bold nail art.</div>
+        <div class="service-items">
+          <span class="service-item">Classic Manicure</span>
+          <span class="service-item">Gel &amp; Shellac</span>
+          <span class="service-item">Acrylic Extensions</span>
+          <span class="service-item">Nail Art &amp; Design</span>
+          <span class="service-item">French Manicure</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">04</div>
+        <div class="service-icon"><i class="fas fa-spa"></i></div>
+        <div class="service-name">Pedicure</div>
+        <div class="service-desc">Treat your feet to a luxurious experience — relaxing, refreshing, beautiful.</div>
+        <div class="service-items">
+          <span class="service-item">Classic Pedicure</span>
+          <span class="service-item">Spa Pedicure</span>
+          <span class="service-item">Gel Pedicure</span>
+          <span class="service-item">Callus Treatment</span>
+          <span class="service-item">Nail Art</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery-section" id="gallery">
+  <div class="inner">
+    <div class="sec-eyebrow">Our Work</div>
+    <h2 class="sec-title">The <em>Art</em> We Create</h2>
+    <div class="gold-divider"></div>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item tall">
+      <img src="https://honeybramble.com/wp-content/uploads/bathed-in-gold-makeup-look-for-women.jpg" alt="Gold Makeup Look">
+      <div class="gallery-overlay"></div>
+      <div class="gallery-label">Makeup Artistry</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.pexels.com/photos/18730147/pexels-photo-18730147.jpeg?cs=srgb&dl=pexels-honggyu-kim-582278127-18730147.jpg&fm=jpg" alt="Nail Art">
+      <div class="gallery-overlay"></div>
+      <div class="gallery-label">Nail Art</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://plus.unsplash.com/premium_photo-1661497681922-ab6295433aa9?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3" alt="Hair Styling">
+      <div class="gallery-overlay"></div>
+      <div class="gallery-label">Hair Styling</div>
+    </div>
+    <div class="gallery-item wide">
+      <img src="https://i.fbcd.co/products/resized/resized-750-500/cc3d6e6fc0287e3541f2fc2245a47dad95f0fd2314b0d032135e2e315048b197.jpg" alt="Salon Interior">
+      <div class="gallery-overlay"></div>
+      <div class="gallery-label">Our Salon</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://myafrocaribbeanwedding.com/wp-content/uploads/2022/03/10157548296867511.jpg" alt="Bridal Makeup">
+      <div class="gallery-overlay"></div>
+      <div class="gallery-label">Bridal Glam</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://www.journee-mondiale.com/en/wp-content/uploads/2024/11/msg_015TZJaWLonRtXdYm8LXxTHr.webp" alt="Luxury Nails">
+      <div class="gallery-overlay"></div>
+      <div class="gallery-label">Luxury Nails</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="inner">
+    <div class="about-grid">
+      <div class="about-img">
+        <img src="https://as1.ftcdn.net/jpg/07/69/77/18/1000_F_769771811_bEykCThargmwPvrF2AMTuB1WXSN0V4aP.jpg" alt="D's Beauty Salon">
+      </div>
+      <div class="about-text-col">
+        <div class="sec-eyebrow">Our Story</div>
+        <h2 class="sec-title">Beauty Is My<br><em>Calling</em></h2>
+        <blockquote class="about-quote">"Every woman deserves to feel like the most beautiful version of herself."</blockquote>
+        <p class="about-text">D's Beauty Salon was born from a simple belief — that world-class beauty services shouldn't require a trip to Port of Spain. Right here in Carapichaima, we've built a sanctuary where every client is treated like royalty.</p>
+        <p class="about-text" style="margin-top:16px;">With over 10 years of experience in hair, makeup, and nail artistry, D and her team bring passion, precision, and a personal touch to every appointment. We don't just do beauty — we create confidence.</p>
+        <div class="about-sig">
+          D
+          <span>Founder &amp; Lead Stylist, D's Beauty Salon</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="inner">
+    <div class="sec-eyebrow">Investment in You</div>
+    <h2 class="sec-title">Simple, <em>Transparent</em> Pricing</h2>
+    <p class="sec-desc">No hidden fees. No surprises. Just beautiful results at honest prices.</p>
+    <div class="pricing-grid">
+      <div class="price-col">
+        <div class="price-col-title">Hair</div>
+        <div class="price-col-sub">Styling Services</div>
+        <div class="price-item"><span class="price-name">Cut &amp; Style</span><span class="price-val">$150+</span></div>
+        <div class="price-item"><span class="price-name">Blowout</span><span class="price-val">$120+</span></div>
+        <div class="price-item"><span class="price-name">Colour</span><span class="price-val">$250+</span></div>
+        <div class="price-item"><span class="price-name">Highlights</span><span class="price-val">$300+</span></div>
+        <div class="price-item"><span class="price-name">Relaxer</span><span class="price-val">$200+</span></div>
+        <div class="price-item"><span class="price-name">Braids</span><span class="price-val">$180+</span></div>
+      </div>
+      <div class="price-col">
+        <div class="price-col-title">Makeup</div>
+        <div class="price-col-sub">Artistry Services</div>
+        <div class="price-item"><span class="price-name">Everyday Glam</span><span class="price-val">$200+</span></div>
+        <div class="price-item"><span class="price-name">Event Makeup</span><span class="price-val">$280+</span></div>
+        <div class="price-item"><span class="price-name">Bridal Makeup</span><span class="price-val">$500+</span></div>
+        <div class="price-item"><span class="price-name">Airbrush</span><span class="price-val">$350+</span></div>
+        <div class="price-item"><span class="price-name">Makeup Lesson</span><span class="price-val">$400+</span></div>
+      </div>
+      <div class="price-col">
+        <div class="price-col-title">Manicure</div>
+        <div class="price-col-sub">Nail Services</div>
+        <div class="price-item"><span class="price-name">Classic Mani</span><span class="price-val">$80+</span></div>
+        <div class="price-item"><span class="price-name">Gel Mani</span><span class="price-val">$120+</span></div>
+        <div class="price-item"><span class="price-name">Acrylic Set</span><span class="price-val">$180+</span></div>
+        <div class="price-item"><span class="price-name">Nail Art</span><span class="price-val">$150+</span></div>
+        <div class="price-item"><span class="price-name">French Mani</span><span class="price-val">$100+</span></div>
+      </div>
+      <div class="price-col">
+        <div class="price-col-title">Pedicure</div>
+        <div class="price-col-sub">Foot Care Services</div>
+        <div class="price-item"><span class="price-name">Classic Pedi</span><span class="price-val">$100+</span></div>
+        <div class="price-item"><span class="price-name">Spa Pedi</span><span class="price-val">$150+</span></div>
+        <div class="price-item"><span class="price-name">Gel Pedi</span><span class="price-val">$140+</span></div>
+        <div class="price-item"><span class="price-name">Callus Treatment</span><span class="price-val">$120+</span></div>
+        <div class="price-item"><span class="price-name">Nail Art</span><span class="price-val">$130+</span></div>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:24px;font-size:0.75rem;color:rgba(253,246,236,0.35);letter-spacing:1px;">All prices in TTD. Final price depends on hair length, complexity and products used.</p>
+  </div>
+</section>
+
+<!-- BOOK -->
+<section class="book-section" id="book">
+  <div class="inner book-inner">
+    <div class="sec-eyebrow" style="justify-content:center;">Ready to Glow?</div>
+    <h2 class="book-title">Book Your<br><span>Appointment</span></h2>
+    <p class="book-sub">WhatsApp us to book your appointment. We'll confirm your slot within 2 hours. Walk-ins welcome based on availability.</p>
+    <a href="https://wa.me/18680000000?text=Hi%20D's%20Beauty%20Salon!%20I'd%20like%20to%20book%20an%20appointment." class="book-wa">
+      <i class="fab fa-whatsapp" style="font-size:1.2rem;"></i>
+      Book via WhatsApp
+    </a>
+    <div class="book-details">
+      <div class="book-detail">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>Location</span>
+        <strong>Carapichaima, Trinidad</strong>
+      </div>
+      <div class="book-detail">
+        <i class="fas fa-clock"></i>
+        <span>Hours</span>
+        <strong>Mon–Sat: 9am – 7pm</strong>
+      </div>
+      <div class="book-detail">
+        <i class="fab fa-whatsapp"></i>
+        <span>WhatsApp</span>
+        <strong>+1 (868) 000-0000</strong>
+      </div>
+      <div class="book-detail">
+        <i class="fas fa-map"></i>
+        <span>Google Maps</span>
+        <strong>Find Us Online</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      D's <span>Beauty</span> Salon
+      <p>Carapichaima, Trinidad 🇹🇹</p>
+    </div>
+    <div class="footer-links">
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#about">About</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#book">Book Now</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 D's Beauty Salon. All rights reserved. Carapichaima, Trinidad.</p>
+    <p class="footer-credit">Website by <a href="https://clientflowcaribbean.com">ClientFlow Caribbean</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
