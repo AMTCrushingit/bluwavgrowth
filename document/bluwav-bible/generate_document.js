@@ -245,7 +245,7 @@ const doc = new Document({
       bulletBold('Speed \u2014 ', '48-hour delivery is a promise, not a target.', 'bullet-list'),
       bulletBold('Ownership \u2014 ', 'clients own everything, forever. No lock-in. No subscriptions unless chosen.', 'bullet-list'),
       bulletBold('Transparency \u2014 ', 'clear pricing, clear deliverables, signed agreements before work begins.', 'bullet-list'),
-      bulletBold('Continuous improvement \u2014 ', 'CRM Premium clients get every upgrade, every month.', 'bullet-list'),
+      bulletBold('Continuous improvement \u2014 ', 'Founder Plan™ clients get every upgrade, every month.', 'bullet-list'),
       spacer(),
 
       // ── SECTION 2 ──────────────────────────────────────────────────────────
@@ -330,7 +330,7 @@ const doc = new Document({
       h2('Unique Selling Points'),
       bullet('The only digital growth agency offering a complete system (not just a website) in 48 hours.', 'bullet-list-3'),
       bullet('CRM available in four tiers \u2014 Starter, Lite, Premium, and Enterprise \u2014 to match every stage of growth.', 'bullet-list-3'),
-      bullet('CRM Premium evolves every month \u2014 new features, new dashboards, new automation templates.', 'bullet-list-3'),
+      bullet('Founder Plan™ evolves every month \u2014 new features, new dashboards, new automation templates.', 'bullet-list-3'),
       bullet('Free Digital Health Check \u2014 lowest-friction entry point in the market.', 'bullet-list-3'),
       bullet('A Stratiix Group Company \u2014 institutional credibility behind a startup-speed agency.', 'bullet-list-3'),
       spacer(),
@@ -359,11 +359,11 @@ const doc = new Document({
         ['Stream', 'Detail'],
         [
           ['Growth System setup fees', 'Ripple $1,800 / Current $3,000 / Surge $5,000+'],
-          ['CRM Starter', '$99 onboarding + $59/month'],
-          ['CRM Lite', '$199 onboarding + $99/month (or $990/year)'],
-          ['CRM Premium', '$299 onboarding + $179/month (or $1,990/year)'],
-          ['CRM Enterprise', '$799 white-glove onboarding + $499/month'],
-          ['White-Label CRM', '$499 onboarding + $697/month (annual contract)'],
+          ['Foundation Plan™', '$99 onboarding + $59/month'],
+          ['Growth Plan™', '$199 onboarding + $99/month (or $990/year)'],
+          ['Founder Plan™', '$299 onboarding + $199/month (or $1,990/year)'],
+          ['Enterprise Plan™', '$799 white-glove onboarding + $399/month'],
+          ['Agency Edition™', '$499 onboarding + $899/month (annual contract)'],
           ['Hosting renewals', '$200 per 6 months after Year 1'],
         ]
       ),
@@ -382,7 +382,7 @@ const doc = new Document({
       new Paragraph({ children: [new PageBreak()] }),
       h1('5. Growth Systems \u2014 Service Packages', 'sec5'),
 
-      body('Every BluWav Growth System includes a 14-day free trial of CRM Premium. After the trial, clients choose their CRM plan.'),
+      body('Every BluWav Growth System includes a 14-day free trial of Founder Plan™. After the trial, clients choose their CRM plan.'),
       spacer(),
 
       featureTable(
@@ -391,7 +391,7 @@ const doc = new Document({
           ['Price', '$1,800+', '$3,000+', '$5,000+'],
           ['Modern website (owned forever)', '\u2713', '\u2713', '\u2713'],
           ['Google Business Profile setup', '\u2713', '\u2713', '\u2713'],
-          ['14-day CRM Premium trial', '\u2713', '\u2713', '\u2713'],
+          ['14-day Founder Plan™ trial', '\u2713', '\u2713', '\u2713'],
           ['Smart lead automation', '\u2713', '\u2713', '\u2713'],
           ['Performance dashboard', '\u2713', '\u2713', '\u2713'],
           ['On-page SEO essentials', '\u2713', '\u2713', '\u2713'],
@@ -436,7 +436,7 @@ const doc = new Document({
       body('Every BluWav CRM plan includes a 14-day free trial. No credit card required. Full access. After the trial, clients choose their plan.'),
       spacer(),
 
-      h2('CRM Starter \u2014 $59/month'),
+      h2('Foundation Plan™ \u2014 $59/month'),
       body('$99 one-time onboarding fee. Cancel anytime.'),
       featureTable(
         ['Feature', 'Status'],
@@ -455,12 +455,12 @@ const doc = new Document({
       ),
       spacer(),
 
-      h2('CRM Lite \u2014 $99/month'),
+      h2('Growth Plan™ \u2014 $99/month'),
       body('$199 one-time onboarding fee. Or $990/year (2 months free).'),
       featureTable(
         ['Feature', 'Status'],
         [
-          ['Everything in CRM Starter', '\u2713 Included'],
+          ['Everything in Foundation Plan™', '\u2713 Included'],
           ['Up to 250 contacts', '\u2713 Included'],
           ['Pipeline tracking', '\u2713 Included'],
           ['Basic automation', '\u2713 Included'],
@@ -471,12 +471,12 @@ const doc = new Document({
       ),
       spacer(),
 
-      h2('CRM Premium \u2014 $179/month (Introductory Rate)'),
+      h2('Founder Plan™ \u2014 $199/month (Introductory Rate)'),
       body('$299 one-time onboarding fee. Or $1,990/year (2 months free). Introductory rate \u2014 locks in for life. Price increases to $199/month when the Growth Dashboard launches.'),
       featureTable(
         ['Feature', 'Status'],
         [
-          ['Everything in CRM Lite', '\u2713 Included'],
+          ['Everything in Growth Plan™', '\u2713 Included'],
           ['Unlimited contacts', '\u2713 Included'],
           ['Full pipeline (Lead \u2192 Quote \u2192 Won)', '\u2713 Included'],
           ['Automated follow-ups (30/60/90 days)', '\u2713 Included'],
@@ -493,12 +493,12 @@ const doc = new Document({
       body('Nonprofit Community Rate: Registered nonprofits qualify for $99/month (no setup fee). Email hello@bluwavgrowth.com with registration number.'),
       spacer(),
 
-      h2('CRM Enterprise \u2014 $499/month'),
+      h2('Enterprise Plan™ \u2014 $399/month'),
       body('$799 white-glove onboarding. Covers full team setup, data migration, and training.'),
       featureTable(
         ['Feature', 'Status'],
         [
-          ['Everything in CRM Premium', '\u2713 Included'],
+          ['Everything in Founder Plan™', '\u2713 Included'],
           ['Unlimited team members', '\u2713 Included'],
           ['Custom workflows', '\u2713 Included'],
           ['Advanced analytics', '\u2713 Included'],
@@ -513,7 +513,7 @@ const doc = new Document({
       ),
       spacer(),
 
-      h2('White-Label CRM \u2014 $697/month'),
+      h2('Agency Edition™ \u2014 $899/month'),
       body('$499 one-time onboarding. Annual contract required. White-glove setup included.'),
       featureTable(
         ['Feature', 'Status'],
@@ -551,7 +551,7 @@ const doc = new Document({
       bullet('Primary: Caribbean (Trinidad & Tobago, Barbados, Jamaica, Guyana, Eastern Caribbean)', 'bullet-list-7'),
       bullet('Secondary: North America \u2014 diaspora communities and service businesses', 'bullet-list-7'),
       bullet('Tertiary: United Kingdom, Canada, and global English-speaking markets', 'bullet-list-7'),
-      bullet('Enterprise & White-Label: Global agencies and consultants', 'bullet-list-7'),
+      bullet('Enterprise & Agency Edition™: Global agencies and consultants', 'bullet-list-7'),
       spacer(),
 
       h2('Ideal Customer Profile'),
@@ -675,9 +675,9 @@ const doc = new Document({
         ['KPI', 'Target', 'Measurement'],
         [
           ['New Growth System clients', '50 (founding cohort campaign)', 'CRM pipeline'],
-          ['CRM Premium conversions', '30% of trial users', 'CRM data'],
-          ['CRM Enterprise clients', '5 signed accounts', 'CRM pipeline'],
-          ['White-Label partners', '3 active agencies', 'Partner agreements'],
+          ['Founder Plan™ conversions', '30% of trial users', 'CRM data'],
+          ['Enterprise Plan™ clients', '5 signed accounts', 'CRM pipeline'],
+          ['Agency Edition™ partners', '3 active agencies', 'Partner agreements'],
           ['Cost per lead (Facebook)', 'Under $6 USD', 'Ads Manager'],
           ['Health Check completions', '200+', 'Google Forms'],
           ['The Wave subscribers', '500+', 'Email platform'],
@@ -695,7 +695,7 @@ const doc = new Document({
       bulletBold('Speed is a value, not a feature \u2014 ', '48 hours is the standard, not the exception.', 'bullet-list-10'),
       bulletBold('Clients are partners \u2014 ', 'we succeed when they succeed.', 'bullet-list-10'),
       bulletBold('Ownership matters \u2014 ', 'we build things clients own, not things they rent from us.', 'bullet-list-10'),
-      bulletBold('Continuous improvement \u2014 ', 'CRM Premium is a promise to keep getting better every month.', 'bullet-list-10'),
+      bulletBold('Continuous improvement \u2014 ', 'Founder Plan™ is a promise to keep getting better every month.', 'bullet-list-10'),
       spacer(),
 
       h2('Operating Principles'),
@@ -732,11 +732,11 @@ const doc = new Document({
           ['Ripple setup ($1,800)', '$180', '$270', '$360'],
           ['Current setup ($3,000)', '$300', '$450', '$600'],
           ['Surge setup ($5,000)', '$500', '$750', '$1,000'],
-          ['CRM Starter /month ($59)', '$5.90/mo', '$8.85/mo', '$11.80/mo'],
-          ['CRM Lite /month ($99)', '$9.90/mo', '$14.85/mo', '$19.80/mo'],
-          ['CRM Premium /month ($179)', '$17.90/mo', '$26.85/mo', '$35.80/mo'],
-          ['CRM Enterprise /month ($499)', '$49.90/mo', '$74.85/mo', '$99.80/mo'],
-          ['White-Label /month ($697)', '$69.70/mo', '$104.55/mo', '$139.40/mo'],
+          ['Foundation Plan™ /month ($59)', '$5.90/mo', '$8.85/mo', '$11.80/mo'],
+          ['Growth Plan™ /month ($99)', '$9.90/mo', '$14.85/mo', '$19.80/mo'],
+          ['Founder Plan™ /month ($199)', '$17.90/mo', '$39.80/mo', '$39.80/mo'],
+          ['Enterprise Plan™ /month ($399)', '$49.90/mo', '$79.80/mo', '$79.80/mo'],
+          ['Agency Edition™ /month ($899)', '$69.70/mo', '$179.80/mo', '$179.80/mo'],
           ['Hosting renewal ($200)', '$20', '$30', '$40'],
         ]
       ),

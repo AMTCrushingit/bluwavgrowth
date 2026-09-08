@@ -250,22 +250,22 @@ const doc = new Document({
       makeTable(
         ['Plan', 'Monthly', 'Onboarding', 'Annual Option', 'Key Features'],
         [
-          ['CRM Starter',   '$59/mo',  '$99',  '\u2014',          '25 contacts, lead tracking, 1 user, email support'],
-          ['CRM Lite',      '$99/mo',  '$199', '$990/yr',         '250 contacts, pipeline, basic automation, 2 team members'],
-          ['CRM Premium \u2b50', '$179/mo', '$299', '$1,990/yr',  'Unlimited contacts, full pipeline, WhatsApp, 5 team members, all future features'],
-          ['CRM Enterprise','$499/mo', '$599', '\u2014',          'Unlimited team, custom workflows, API access, dedicated account manager, SLA'],
-          ['White-Label',   '$697/mo', '$699', 'Annual contract', 'Your brand, unlimited client accounts, Super Admin dashboard, agency revenue model'],
+          ['Foundation Plan™',   '$59/mo',  '$99',  '\u2014',          '25 contacts, lead tracking, 1 user, email support'],
+          ['Growth Plan™',      '$99/mo',  '$199', '$990/yr',         '250 contacts, pipeline, basic automation, 2 team members'],
+          ['Founder Plan™ \u2b50', '$199/mo', '$299', '$1,990/yr',  'Unlimited contacts, full pipeline, WhatsApp, 5 team members, all future features'],
+          ['Enterprise Plan™','$399/mo', '$599', '\u2014',          'Unlimited team, custom workflows, API access, dedicated account manager, SLA'],
+          ['Agency Edition™',   '$899/mo', '$699', 'Annual contract', 'Your brand, unlimited client accounts, Super Admin dashboard, agency revenue model'],
         ],
         [1560, 1200, 1200, 1560, 3840]
       ),
       spacer(),
-      highlight('CRM Premium Introductory Rate: $179/month. Price rises to $199/month when the BluWav Growth Dashboard launches. Sign up now and your rate is locked in for life. No exceptions.'),
+      highlight('Founder Plan™ Introductory Rate: $199/month. Price rises to $199/month when the BluWav Growth Dashboard launches. Sign up now and your rate is locked in for life. No exceptions.'),
       spacer(),
-      body('Nonprofit Community Rate: Registered nonprofits qualify for CRM Premium at $99/month (no setup fee). Email hello@bluwavgrowth.com with your registration number.'),
+      body('Nonprofit Community Rate: Registered nonprofits qualify for Founder Plan™ at $99/month (no setup fee). Email hello@bluwavgrowth.com with your registration number.'),
       spacer(),
 
-      // CRM Starter detail
-      h2('\uD83C\uDF0A CRM Starter \u2014 $59/month + $99 onboarding'),
+      // Foundation Plan™ detail
+      h2('\uD83C\uDF0A Foundation Plan™ \u2014 $59/month + $99 onboarding'),
       check('25 contacts', 'check4'),
       check('Lead tracking', 'check4'),
       check('Basic contact management', 'check4'),
@@ -278,10 +278,10 @@ const doc = new Document({
       cross('Team members', 'cross'),
       spacer(),
 
-      // CRM Lite detail
-      h2('\uD83D\uDCBC CRM Lite \u2014 $99/month + $199 onboarding'),
+      // Growth Plan™ detail
+      h2('\uD83D\uDCBC Growth Plan™ \u2014 $99/month + $199 onboarding'),
       body('or $990/year \u00b7 2 months free \u00b7 Cancel anytime'),
-      check('Everything in CRM Starter', 'check5'),
+      check('Everything in Foundation Plan™', 'check5'),
       check('Up to 250 contacts', 'check5'),
       check('Pipeline tracking', 'check5'),
       check('Basic automation', 'check5'),
@@ -290,10 +290,10 @@ const doc = new Document({
       check('Priority email support (48hr)', 'check5'),
       spacer(),
 
-      // CRM Premium detail
-      h2('\uD83D\uDDA4 CRM Premium \u2014 $179/month + $299 onboarding  \u2b50 Most Popular'),
+      // Founder Plan™ detail
+      h2('\uD83D\uDDA4 Founder Plan™ \u2014 $199/month + $299 onboarding  \u2b50 Most Popular'),
       body('or $1,990/year \u00b7 2 months free \u00b7 Introductory rate \u2014 locks in for life'),
-      check('Everything in CRM Lite', 'check6'),
+      check('Everything in Growth Plan™', 'check6'),
       check('Unlimited contacts', 'check6'),
       check('Full pipeline (Lead \u2192 Quote \u2192 Won)', 'check6'),
       check('Automated follow-ups (30/60/90 days)', 'check6'),
@@ -306,10 +306,10 @@ const doc = new Document({
       check('Growth Dashboard Pro (when launched)', 'check6'),
       spacer(),
 
-      // CRM Enterprise detail
-      h2('\uD83C\uDFDB\uFE0F CRM Enterprise \u2014 $499/month + $599 white-glove onboarding'),
+      // Enterprise Plan™ detail
+      h2('\uD83C\uDFDB\uFE0F Enterprise Plan™ \u2014 $399/month + $599 white-glove onboarding'),
       body('Full team setup, data migration & training included'),
-      check('Everything in CRM Premium', 'check7'),
+      check('Everything in Founder Plan™', 'check7'),
       check('Unlimited team members', 'check7'),
       check('Custom workflows', 'check7'),
       check('Advanced analytics', 'check7'),
@@ -322,8 +322,8 @@ const doc = new Document({
       check('Priority 12hr support', 'check7'),
       spacer(),
 
-      // White-Label detail
-      h2('\uD83C\uDFE2 White-Label CRM \u2014 $697/month + $699 onboarding'),
+      // Agency Edition™ detail
+      h2('\uD83C\uDFE2 Agency Edition™ \u2014 $899/month + $699 onboarding'),
       body('Annual contract \u00b7 White-glove setup included \u00b7 For agencies and consultants'),
       check('Your logo & domain \u2014 clients never see BluWav', 'check8'),
       check('Unlimited client accounts', 'check8'),
@@ -338,7 +338,7 @@ const doc = new Document({
         indent: { left: 360 },
         spacing: { before: 80, after: 80 },
         shading: { type: 'clear', color: 'auto', fill: 'FFFBF0' },
-        children: [new TextRun({ text: 'Revenue Example: 20 clients \u00d7 $697/mo = $13,940 MRR for your agency', size: 24, font: 'Cambria', bold: true, color: '002B49' })],
+        children: [new TextRun({ text: 'Revenue Example: 20 clients \u00d7 $899/mo = $13,940 MRR for your agency', size: 24, font: 'Cambria', bold: true, color: '002B49' })],
       }),
       spacer(),
 
@@ -353,7 +353,7 @@ const doc = new Document({
           ['Google Business Profile', 'Full Google Maps & Search setup so customers find you first when searching for what you offer.'],
           ['WhatsApp Business',       'Professional WhatsApp setup with catalog, quick replies, and automated lead sequences.'],
           ['Analytics & SEO',         'Google Analytics 4, Search Console, and on-page SEO so you track and grow your visibility.'],
-          ['CRM Trial',               '14-day free trial of CRM Premium \u2014 full access, no credit card required.'],
+          ['CRM Trial',               '14-day free trial of Founder Plan™ \u2014 full access, no credit card required.'],
           ['Smart Automation',        'Lead capture, automated follow-ups, and pipeline management from day one.'],
           ['Signed Agreement',        'Every project starts with a signed agreement. You own everything we build. No exceptions.'],
           ['Hosting',                 '6 months hosting included. After 6 months: $200 per 6 months (SSL, security, support).'],
