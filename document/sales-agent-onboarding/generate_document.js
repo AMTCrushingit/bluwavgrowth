@@ -244,9 +244,9 @@ const doc = new Document({
       makeTable(
         ['Package', 'Price', 'What It Includes', 'Months 1–3 Commission', 'Residual After Month 3'],
         [
-          ['Ripple',  '$397/mo + $900 setup', 'Website, Google Business Profile, CRM 14-day trial, on-page SEO, WhatsApp chat button, smart lead automation, performance dashboard.', '$79.40/mo + $180 setup', '5% ($19.85/mo)'],
-          ['Current', '$697/mo + $1,250 setup', 'Everything in Ripple, plus WhatsApp Business setup, product catalog, advanced lead sequences, local SEO + competitor analysis, 5-star reputation builder, automated lead pipeline, conversion landing page, monthly check-in call.', '$139.40/mo + $250 setup', '5% ($34.85/mo)'],
-          ['Surge',   '$1,497/mo + $2,500 setup', 'Everything in Current, plus Google Ads campaign setup, Bing Places + multi-search engine listing, full WhatsApp sales funnel, monthly visibility & performance report, quarterly strategy review, dedicated account manager.', '$299.40/mo + $500 setup', '5% ($74.85/mo)'],
+          ['Launch™',  '$397/mo + $900 setup', 'Website, Google Business Profile, CRM 14-day trial, on-page SEO, WhatsApp chat button, smart lead automation, performance dashboard.', '$79.40/mo + $180 setup', '5% ($19.85/mo)'],
+          ['Momentum™', '$697/mo + $1,250 setup', 'Everything in Launch™, plus WhatsApp Business setup, product catalog, advanced lead sequences, local SEO + competitor analysis, 5-star reputation builder, automated lead pipeline, conversion landing page, monthly check-in call.', '$139.40/mo + $250 setup', '5% ($34.85/mo)'],
+          ['Accelerate™',   '$1,497/mo + $2,500 setup', 'Everything in Momentum™, plus Google Ads campaign setup, Bing Places + multi-search engine listing, full WhatsApp sales funnel, monthly visibility & performance report, quarterly strategy review, dedicated account manager.', '$299.40/mo + $500 setup', '5% ($74.85/mo)'],
         ],
         [1200, 1100, 3960, 1440, 1200]
       ),
@@ -287,7 +287,7 @@ const doc = new Document({
       ),
       spacer(),
       h2('Additional Bonuses'),
-      bullet('Package upsell (Ripple to Current, or Current to Surge): +$50 per upsell.', 'bl3'),
+      bullet('Package upsell (Launch™ to Momentum™, or Momentum™ to Accelerate™): +$50 per upsell.', 'bl3'),
       bullet('Second-generation referral (your client refers another client): +$75.', 'bl3'),
       spacer(),
       h2('Payment Rules'),
@@ -328,7 +328,7 @@ const doc = new Document({
       scriptLine('Founder Plan™ is $199 per month. Unlimited contacts, full pipeline, WhatsApp integration, 5 team members, and all future features. Sign up today and get everything included from day one.'),
       spacer(),
       h2('Closing Script'),
-      scriptLine('Based on what you have told me, I think [Ripple / Current / Surge] is the right fit. The investment is [price]. We start as soon as your invoice is paid, and you are live within 48 to 72 hours. Shall I send you the details?'),
+      scriptLine('Based on what you have told me, I think [Launch™ / Momentum™ / Accelerate™] is the right fit. The investment is [price]. We start as soon as your invoice is paid, and you are live within 48 to 72 hours. Shall I send you the details?'),
       spacer(),
       h2('Free Health Check Script'),
       scriptLine('Before we go any further, let me offer you something completely free. It\u2019s a short online form \u2014 takes two minutes \u2014 and it shows you exactly where your business stands online right now. No commitment, no sales pitch. Results come back within 24 hours. Want me to send you the link?'),
@@ -355,7 +355,7 @@ const doc = new Document({
           ['\u201cWe tried digital marketing before and it didn\u2019t work.\u201d',
            '\u201cI\u2019m sorry to hear that. Can I ask what happened? [Listen] What BluWav does differently is bring everything into one connected system \u2014 website, Google, WhatsApp, CRM \u2014 so nothing falls through the cracks. The free Health Check is a great way to see exactly where the gaps are, with no commitment.\u201d'],
           ['\u201cWe\u2019re a small business, we don\u2019t need all this.\u201d',
-           '\u201cThat\u2019s exactly who BluWav is built for. Our Ripple plan starts at $397/month \u2014 you own everything we build, forever, and it includes a 14-day free CRM trial. The Health Check just shows you where the biggest opportunity is for your specific business. No commitment.\u201d'],
+           '\u201cThat\u2019s exactly who BluWav is built for. Our Launch™ plan starts at $397/month \u2014 you own everything we build, forever, and it includes a 14-day free CRM trial. The Health Check just shows you where the biggest opportunity is for your specific business. No commitment.\u201d'],
         ],
         [2800, 6560]
       ),

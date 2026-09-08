@@ -160,7 +160,7 @@ function callFlowTable() {
         ['Open',    '0\u20131 min',  'Earn attention. Lead with the free Health Check and the competitor angle immediately.'],
         ['Engage',  '1\u20132 min',  'Get a \u201cyes, I\u2019m open to that.\u201d Confirm they\u2019re the decision-maker.'],
         ['Discover','2\u20135 min',  'Ask 2\u20133 open questions about their online presence and lead capture. Listen actively.'],
-        ['Present', '5\u20137 min',  'Bridge 1\u20132 BluWav solutions to their specific pain. Reference Ripple / Current / Surge briefly.'],
+        ['Present', '5\u20137 min',  'Bridge 1\u20132 BluWav solutions to their specific pain. Reference Launch™ / Momentum™ / Accelerate™ briefly.'],
         ['Close',   '7\u20139 min',  'Complete the Health Check form together now, OR send the link immediately.'],
         ['Wrap',    '9\u201310 min', 'Confirm form submitted or link sent. Remind them: results in 24 hours. No meeting needed.'],
       ]).map((row, ri) => new TableRow({
@@ -270,7 +270,7 @@ const doc = new Document({
 
       // ── WHAT'S NEW ─────────────────────────────────────────────────────────
       h2("What's New in This Version"),
-      body('Updated to reflect BluWav Growth\'s current global positioning: tagline \u201cGet Found. Get Chosen. Grow.\u201d, three Growth Systems (Ripple / Current / Surge), five CRM tiers (Starter / Lite / Premium / Enterprise / Agency Edition™), 14-day free CRM trial included in every plan, Health Check results delivered within 24 hours, global audience focus (no Caribbean-specific language), and updated objection responses throughout.'),
+      body('Updated to reflect BluWav Growth\'s current global positioning: tagline \u201cGet Found. Get Chosen. Grow.\u201d, three Growth Systems (Launch™ / Momentum™ / Accelerate™), five CRM tiers (Foundation Plan™ / Growth Plan™ / Founder Plan™ / Enterprise Plan™ / Agency Edition™), 14-day free CRM trial included in every plan, Health Check results delivered within 24 hours, global audience focus (no Caribbean-specific language), and updated objection responses throughout.'),
       spacer(),
 
       // ── HOW TO USE ─────────────────────────────────────────────────────────
@@ -317,11 +317,11 @@ const doc = new Document({
       highlight('A no-cost, no-obligation form that gives BluWav a snapshot of the prospect\u2019s online presence. The client can fill it out themselves online, or you can fill it out on their behalf during the call. No meeting, no scheduling, no commitment. Once submitted, BluWav analyses the results and shows them exactly what\u2019s missing and what it\u2019s costing them. Results delivered within 24 hours. Zero pressure. Pure value.'),
       spacer(),
       h2('BluWav Growth Systems \u2014 Know These'),
-      bulletBold('RIPPLE ($1,800+): ', 'Website + Google Business Profile + CRM trial + smart automation. Gets them found and looking professional. Delivered in 48\u201372 hours.', 'bullet-list-4'),
-      bulletBold('CURRENT ($3,000+): ', 'Everything in Ripple + WhatsApp Business setup, advanced lead sequences, local SEO + competitor analysis, reputation builder, automated lead pipeline, conversion landing page, monthly check-in call.', 'bullet-list-4'),
-      bulletBold('SURGE ($5,000+): ', 'Full system with Google Ads, multi-search engine listing, full WhatsApp sales funnel, monthly visibility reports, quarterly strategy reviews, dedicated account manager.', 'bullet-list-4'),
+      bulletBold('LAUNCH™ ($397/mo + $900 setup): ', 'Website + Google Business Profile + CRM trial + smart automation. Gets them found and looking professional. Delivered in 48\u201372 hours.', 'bullet-list-4'),
+      bulletBold('MOMENTUM™ ($697/mo + $1,250 setup): ', 'Everything in Launch™ + WhatsApp Business setup, advanced lead sequences, local SEO + competitor analysis, reputation builder, automated lead pipeline, conversion landing page, monthly check-in call.', 'bullet-list-4'),
+      bulletBold('ACCELERATE™ ($1,497/mo + $2,500 setup): ', 'Full system with Google Ads, multi-search engine listing, full WhatsApp sales funnel, monthly visibility reports, quarterly strategy reviews, dedicated account manager.', 'bullet-list-4'),
       spacer(),
-      body('Every plan includes a 14-day free CRM trial \u2014 so even Ripple clients experience the full automation from day one.'),
+      body('Every plan includes a 14-day free CRM trial \u2014 so even Launch™ clients experience the full automation from day one.'),
       spacer(),
       h2('CRM Plans \u2014 Know the Tiers'),
       bulletBold('Foundation Plan™: ', '$59/mo + $99 onboarding. 25 contacts, lead tracking, 1 user.', 'bullet-list-5'),
@@ -413,11 +413,11 @@ const doc = new Document({
         ['\u201cI\u2019m too busy right now.\u201d', '\u201cI completely understand \u2014 that\u2019s actually exactly why I\u2019m calling. The Health Check is a short form \u2014 no meeting, no scheduling. I can walk you through it right now in two minutes, or send you the link and you do it whenever suits you. We do all the analysis, you get the results in 24 hours.\u201d'],
         ['\u201cWe\u2019re not interested in buying anything.\u201d', '\u201cThat\u2019s totally fine \u2014 this isn\u2019t a sales call. The Health Check is genuinely free with no obligation. It\u2019s a short form and we show you what we find \u2014 where you\u2019re invisible online, what\u2019s costing you customers \u2014 and you decide what, if anything, you want to do with it. Would you be open to that?\u201d'],
         ['\u201cWe already have a website / we\u2019re already online.\u201d', '\u201cThat\u2019s great \u2014 and honestly, that makes the Health Check even more useful. A lot of businesses have a website but it\u2019s not showing up on Google, or it\u2019s not capturing leads properly. We look at the full picture \u2014 Google, Maps, Bing, WhatsApp \u2014 and flag anything that could be working harder for you. It\u2019s free, so there\u2019s nothing to lose.\u201d'],
-        ['\u201cHow much does it cost?\u201d', '\u201cThe Health Check itself is completely free \u2014 no catch. If you decide you\u2019d like to explore BluWav\u2019s Growth Systems after, we have three plans \u2014 Ripple from $1,800, Current from $3,000, and Surge from $5,000 \u2014 and every single one includes a 14-day free CRM trial. But there\u2019s zero pressure and zero cost for the Health Check.\u201d'],
+        ['\u201cHow much does it cost?\u201d', '\u201cThe Health Check itself is completely free \u2014 no catch. If you decide you\u2019d like to explore BluWav\u2019s Growth Systems after, we have three plans \u2014 Launch™ from $397/mo, Momentum™ from $697/mo, and Accelerate™ from $1,497/mo \u2014 and every single one includes a 14-day free CRM trial. But there\u2019s zero pressure and zero cost for the Health Check.\u201d'],
         ['\u201cSend me some information first.\u201d', '\u201cAbsolutely, I can do that. I\u2019ll send something over right now. The Health Check link is in there too \u2014 it\u2019s a short form and takes two minutes. Have a look and if you have any questions, just reach out.\u201d'],
         ['\u201cWe tried digital marketing before and it didn\u2019t work.\u201d', '\u201cI\u2019m sorry to hear that \u2014 that\u2019s really frustrating. Can I ask what happened? [Listen] What BluWav does differently is bring everything into one connected system \u2014 website, Google, WhatsApp, CRM \u2014 so nothing falls through the cracks. The Health Check is a great way to see exactly where the gaps are, with no commitment.\u201d'],
         ['\u201cI don\u2019t think our customers use Google.\u201d', '\u201cThat\u2019s a really common assumption \u2014 and it\u2019s almost always wrong. Modern customers search Google before they call, visit, or buy. If your business isn\u2019t showing up, they\u2019re choosing someone who is. The Health Check would actually show you exactly how many people are searching for what you offer right now. Would you be open to seeing that?\u201d'],
-        ['\u201cWe\u2019re a small business, we don\u2019t need all this.\u201d', '\u201cThat\u2019s exactly who BluWav is built for. Our Ripple plan starts at $1,800 \u2014 it\u2019s a one-time investment, you own everything forever, and it includes a 14-day free CRM trial. The Health Check just shows you where the biggest opportunity is for your specific business. No commitment.\u201d'],
+        ['\u201cWe\u2019re a small business, we don\u2019t need all this.\u201d', '\u201cThat\u2019s exactly who BluWav is built for. Our Launch™ plan starts at $397/month \u2014 you own everything we build, forever, and it includes a 14-day free CRM trial. The Health Check just shows you where the biggest opportunity is for your specific business. No commitment.\u201d'],
       ]),
       spacer(),
 

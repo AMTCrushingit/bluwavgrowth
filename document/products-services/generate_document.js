@@ -196,8 +196,8 @@ const doc = new Document({
       body('Every Growth System includes a 14-day free CRM trial. Delivered in 48\u201372 hours. You own everything we build.'),
       spacer(),
 
-      // Ripple
-      h2('\uD83C\uDF0A BluWav Ripple \u2014 Starter  |  From $1,800  |  One-time investment'),
+      // Launch™
+      h2('\uD83C\uDF0A BluWav Launch™  |  $397/mo + $900 setup'),
       body('Your digital foundation. Website, Google visibility, and smart automation working together from day one.'),
       check('Modern website (you own it forever)', 'check'),
       check('Google Business Profile setup', 'check'),
@@ -212,9 +212,9 @@ const doc = new Document({
       check('Standard support', 'check'),
       spacer(),
 
-      // Current
-      h2('\u26A1 BluWav Current \u2014 Growth  |  From $3,000  |  One-time investment'),
-      body('The complete growth system. All four pillars activated. Everything in Ripple, plus:'),
+      // Momentum™
+      h2('\u26A1 BluWav Momentum™  |  $697/mo + $1,250 setup'),
+      body('The complete growth system. All four pillars activated. Everything in Launch™, plus:'),
       check('WhatsApp Business profile setup', 'check2'),
       check('WhatsApp product catalog setup', 'check2'),
       check('Quick replies & automated messages', 'check2'),
@@ -227,9 +227,9 @@ const doc = new Document({
       check('Priority support', 'check2'),
       spacer(),
 
-      // Surge
-      h2('\uD83D\uDE80 BluWav Surge \u2014 Full Transformation  |  From $5,000+  |  Setup + Monthly Plan'),
-      body('Full-scale growth system deployment. Every pillar maximised. Everything in Current, plus:'),
+      // Accelerate™
+      h2('\uD83D\uDE80 BluWav Accelerate™  |  $1,497/mo + $2,500 setup'),
+      body('Full-scale growth system deployment. Every pillar maximised. Everything in Momentum™, plus:'),
       check('Full WhatsApp sales funnel', 'check3'),
       check('Google Ads campaign setup & launch', 'check3'),
       check('Bing Places + multi-search engine listing', 'check3'),

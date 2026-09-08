@@ -107,7 +107,7 @@ export async function onRequestPost(context) {
           <p style="font-size:13px;color:#374151;line-height:1.7;margin-bottom:14px;">Download your 37-page onboarding package. It includes everything you need to start closing deals:</p>
           <ul style="font-size:13px;color:#374151;line-height:1.9;padding-left:20px;margin-bottom:16px;">
             <li>Welcome letter from Andrea</li>
-            <li>Product sheets (Ripple, Current, Surge, CRM, Growth Sprint)</li>
+            <li>Product sheets (Launch™, Momentum™, Accelerate™, CRM, Growth Sprint)</li>
             <li>Sales scripts and objection handler</li>
             <li>Commission structure and earnings scenarios</li>
             <li>Your 30-day action plan</li>

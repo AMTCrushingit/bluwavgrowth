@@ -24,7 +24,7 @@ export async function onRequestPost(context) {
         ${row('Role', role)}${row('Name', name)}
         ${row('Email', '<a href="mailto:'+email+'">'+email+'</a>')}
         ${row('Phone', phone)}${row('Location', location)}
-        ${row('Experience', experience)}${row('Current Role', current_role)}
+        ${row('Experience', experience)}${row('Momentum™ Role', current_role)}
         ${row('Skills', skills)}${row('Why BluWav', why_bluwav)}
         ${row('Availability', availability)}${row('LinkedIn', linkedin)}
         ${row('Resume', resume_note)}

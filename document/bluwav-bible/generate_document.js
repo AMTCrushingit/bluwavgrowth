@@ -358,7 +358,7 @@ const doc = new Document({
       featureTable(
         ['Stream', 'Detail'],
         [
-          ['Growth System setup fees', 'Ripple $1,800 / Current $3,000 / Surge $5,000+'],
+          ['Growth System setup fees', 'Launch™ $900 setup / Momentum™ $1,250 setup / Accelerate™ $2,500 setup'],
           ['Foundation Plan™', '$99 onboarding + $59/month'],
           ['Growth Plan™', '$199 onboarding + $99/month (or $990/year)'],
           ['Founder Plan™', '$299 onboarding + $199/month (or $1,990/year)'],
@@ -386,9 +386,9 @@ const doc = new Document({
       spacer(),
 
       featureTable(
-        ['Feature', 'Ripple (Starter)', 'Current (Growth)', 'Surge (Full)'],
+        ['Feature', 'Launch™ (Starter)', 'Momentum™ (Growth)', 'Accelerate™ (Full)'],
         [
-          ['Price', '$1,800+', '$3,000+', '$5,000+'],
+          ['Price', '$397/mo + $900 setup', '$697/mo + $1,250 setup', '$1,497/mo + $2,500 setup'],
           ['Modern website (owned forever)', '\u2713', '\u2713', '\u2713'],
           ['Google Business Profile setup', '\u2713', '\u2713', '\u2713'],
           ['14-day Founder Plan™ trial', '\u2713', '\u2713', '\u2713'],
@@ -655,7 +655,7 @@ const doc = new Document({
       new Paragraph({ children: [new PageBreak()] }),
       h1('11. Key Metrics & KPIs', 'sec11'),
 
-      h2('Current Metrics (July 2026)'),
+      h2('Momentum™ Metrics (July 2026)'),
       featureTable(
         ['Metric', 'Value'],
         [
@@ -729,9 +729,9 @@ const doc = new Document({
       featureTable(
         ['Product / Revenue', 'Tier 1 (10%)', 'Tier 2 (15%)', 'Tier 3\u20134 (20%)'],
         [
-          ['Ripple setup ($1,800)', '$180', '$270', '$360'],
-          ['Current setup ($3,000)', '$300', '$450', '$600'],
-          ['Surge setup ($5,000)', '$500', '$750', '$1,000'],
+          ['Launch™ ($397/mo)', '$79.40/mo', '$119.10/mo', '$158.80/mo'],
+          ['Momentum™ ($697/mo)', '$139.40/mo', '$209.10/mo', '$278.80/mo'],
+          ['Accelerate™ ($1,497/mo)', '$299.40/mo', '$449.10/mo', '$598.80/mo'],
           ['Foundation Plan™ /month ($59)', '$5.90/mo', '$8.85/mo', '$11.80/mo'],
           ['Growth Plan™ /month ($99)', '$9.90/mo', '$14.85/mo', '$19.80/mo'],
           ['Founder Plan™ /month ($199)', '$17.90/mo', '$39.80/mo', '$39.80/mo'],
