@@ -330,9 +330,9 @@ if(sessionStorage.getItem('bwAgentAuth')==='1'){
 <table class="agreement-table">
 <thead><tr><th>Package</th><th>Monthly Price</th><th>Setup Fee</th><th>Commission Rate</th><th>Monthly Commission</th><th>Setup Commission</th></tr></thead>
 <tbody>
-<tr><td><strong>BluWav Ripple</strong></td><td>$397/mo</td><td>$900</td><td>20%</td><td>$79.40/mo</td><td>$180</td></tr>
-<tr><td><strong>BluWav Current</strong></td><td>$899/mo</td><td>$1,250</td><td>20%</td><td>$179.80/mo</td><td>$250</td></tr>
-<tr><td><strong>BluWav Surge</strong></td><td>$1,497/mo</td><td>$2,500</td><td>20%</td><td>$299.40/mo</td><td>$500</td></tr>
+<tr><td><strong>BluWav Launch™</strong></td><td>$397/mo</td><td>$900</td><td>20%</td><td>$79.40/mo</td><td>$180</td></tr>
+<tr><td><strong>BluWav Momentum™</strong></td><td>$697/mo</td><td>$1,250</td><td>20%</td><td>$139.40/mo</td><td>$250</td></tr>
+<tr><td><strong>BluWav Accelerate™</strong></td><td>$1,497/mo</td><td>$2,500</td><td>20%</td><td>$299.40/mo</td><td>$500</td></tr>
 </tbody>
 </table>
 <p><strong>3.2 CRM Partner Commissions</strong></p>
@@ -370,7 +370,7 @@ if(sessionStorage.getItem('bwAgentAuth')==='1'){
 <table class="agreement-table">
 <thead><tr><th>Monthly Deals Closed</th><th>Flat Bonus</th><th>Additional Bonuses</th></tr></thead>
 <tbody>
-<tr><td>3–4 deals</td><td>+$100</td><td>Package upsell (Ripple → Current or Current → Surge): +$50</td></tr>
+<tr><td>3–4 deals</td><td>+$100</td><td>Package upsell (Launch™ → Momentum™ or Momentum™ → Accelerate™): +$50</td></tr>
 <tr><td>5–6 deals</td><td>+$300</td><td>Second-generation referral (client refers another client): +$75</td></tr>
 <tr><td>7–9 deals</td><td>+$550</td><td></td></tr>
 <tr><td>10+ deals</td><td>+$800</td><td></td></tr>
@@ -893,7 +893,7 @@ async function handleSubmit(e){
     '========================='
   ].join('\n');
 
-  var autoMsg='Dear '+fName+',\n\nWelcome to BluWav Growth! \n\nYour Sales Agent Agreement has been signed and accepted.\n\nAGREEMENT DETAILS:\n• Name: '+fullName+'\n• Tier: '+tier+'\n• Territory: '+territory+'\n• Signed: '+signedDate+' at '+signedTime+' UTC\n• Session Token: '+audit.token+'\n• IP Address: '+audit.ip+'\n\nYOUR ONBOARDING & SALES PACKAGE:\nDownload your Sales Agent Onboarding Package here:\nhttps://raw.githubusercontent.com/AMTCrushingit/clientflow/main/sales-package/BluWav-Sales-Agent-Onboarding-Package.pdf\n\nThis 37-page package includes everything you need to start closing deals:\n• Welcome letter from Andrea\n• Product sheets (Ripple, Current, Surge, CRM)\n• Sales scripts and objection handler\n• Commission structure and earnings scenarios\n• Your 30-day action plan\n\nNEXT STEPS:\n1. Download and read your Sales Agent Onboarding Package\n2. WhatsApp Andrea at hello@bluwavgrowth.com to confirm your onboarding call slot\n3. Identify your first 3 prospects before the call\n\nGet Found. Get Chosen. Grow.\n\nAndrea M. Tanguay\nFounder & CEO, BluWav Growth\nhello@bluwavgrowth.com | hello@bluwavgrowth.com | bluwavgrowth.com';
+  var autoMsg='Dear '+fName+',\n\nWelcome to BluWav Growth! \n\nYour Sales Agent Agreement has been signed and accepted.\n\nAGREEMENT DETAILS:\n• Name: '+fullName+'\n• Tier: '+tier+'\n• Territory: '+territory+'\n• Signed: '+signedDate+' at '+signedTime+' UTC\n• Session Token: '+audit.token+'\n• IP Address: '+audit.ip+'\n\nYOUR ONBOARDING & SALES PACKAGE:\nDownload your Sales Agent Onboarding Package here:\nhttps://raw.githubusercontent.com/AMTCrushingit/clientflow/main/sales-package/BluWav-Sales-Agent-Onboarding-Package.pdf\n\nThis 37-page package includes everything you need to start closing deals:\n• Welcome letter from Andrea\n• Product sheets (Launch™, Momentum™, Accelerate™, CRM)\n• Sales scripts and objection handler\n• Commission structure and earnings scenarios\n• Your 30-day action plan\n\nNEXT STEPS:\n1. Download and read your Sales Agent Onboarding Package\n2. WhatsApp Andrea at hello@bluwavgrowth.com to confirm your onboarding call slot\n3. Identify your first 3 prospects before the call\n\nGet Found. Get Chosen. Grow.\n\nAndrea M. Tanguay\nFounder & CEO, BluWav Growth\nhello@bluwavgrowth.com | hello@bluwavgrowth.com | bluwavgrowth.com';
 
   btn.textContent='Submitting...';
 

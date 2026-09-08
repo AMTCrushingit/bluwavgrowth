@@ -523,7 +523,7 @@ document.addEventListener("DOMContentLoaded", function() {
       <div class="card-title">Earnings Scenarios</div>
       <div class="card-sub">Click a scenario to see the full breakdown.</div>
       <div class="scenario-grid">
-        <div class="scenario-card" onclick="loadScenario('starter',this)"><div class="scenario-icon">&#127807;</div><div class="scenario-name">Getting Started</div><div class="scenario-earn">$720</div><div class="scenario-desc">2 Ripple deals/month</div></div>
+        <div class="scenario-card" onclick="loadScenario('starter',this)"><div class="scenario-icon">&#127807;</div><div class="scenario-name">Getting Started</div><div class="scenario-earn">$720</div><div class="scenario-desc">2 Launch™ deals/month</div></div>
         <div class="scenario-card" onclick="loadScenario('growing',this)"><div class="scenario-icon">&#128200;</div><div class="scenario-name">Growing</div><div class="scenario-earn">$1,526</div><div class="scenario-desc">3 deals + 2 CRM clients</div></div>
         <div class="scenario-card" onclick="loadScenario('solid',this)"><div class="scenario-icon">&#11088;</div><div class="scenario-name">Solid Month</div><div class="scenario-earn">$3,320</div><div class="scenario-desc">5 deals + bonus</div></div>
         <div class="scenario-card" onclick="loadScenario('strong',this)"><div class="scenario-icon">&#128293;</div><div class="scenario-name">Strong Month</div><div class="scenario-earn">$5,106</div><div class="scenario-desc">7 deals + CRM + bonuses</div></div>
@@ -548,7 +548,7 @@ document.addEventListener("DOMContentLoaded", function() {
       <div class="ref-grid">
         <div class="ref-card"><div class="ref-card-title">&#127754; Growth System Deals</div>
           <table class="ref-table"><thead><tr><th>Package</th><th>Sale Price</th><th class="rate">Commission</th></tr></thead>
-          <tbody><tr><td>Ripple</td><td>$1,800+</td><td class="rate">$360+</td></tr><tr><td>Current</td><td>$3,000+</td><td class="rate">$600+</td></tr><tr><td>Surge</td><td>$5,000+</td><td class="rate">$1,000+</td></tr></tbody></table>
+          <tbody><tr><td>Launch™</td><td>$397/mo</td><td class="rate">$79.40/mo</td></tr><tr><td>Momentum™</td><td>$697/mo</td><td class="rate">$139.40/mo</td></tr><tr><td>Accelerate™</td><td>$1,497/mo</td><td class="rate">$299.40/mo</td></tr></tbody></table>
           <div style="font-size:11px;color:var(--slate);margin-top:10px;">Rate: 20%. No commission on setup fees.</div>
         </div>
         <div class="ref-card"><div class="ref-card-title">&#128450; CRM Recurring (3 months)</div>
@@ -673,9 +673,9 @@ function switchTab(id){
 
 /* COMMISSION DATA */
 var PKG={
-  "Ripple ($1,800)":{price:1800},"Ripple ($2,000)":{price:2000},"Ripple ($2,500)":{price:2500},
-  "Current ($3,000)":{price:3000},"Current ($3,500)":{price:3500},"Current ($4,000)":{price:4000},
-  "Surge ($5,000)":{price:5000},"Surge ($6,000)":{price:6000},"Surge ($7,500)":{price:7500},
+  "Launch™ ($397/mo)":{price:397},"Launch™ ($500/mo)":{price:500},"Launch™ ($600/mo)":{price:600},
+  "Momentum™ ($697/mo)":{price:697},"Momentum™ ($800/mo)":{price:800},"Momentum™ ($900/mo)":{price:900},
+  "Accelerate™ ($1,497/mo)":{price:1497},"Accelerate™ ($1,600/mo)":{price:1600},"Accelerate™ ($1,800/mo)":{price:1800},
   "Custom Amount":{price:0,custom:true}
 };
 var CRM={
@@ -769,7 +769,7 @@ function updatePayoutTotal(){
 var pdc=0;
 function addPayoutDeal(){
   pdc++;var id="pd_"+pdc;
-  var h="<div class=\"deal-entry\" id=\""+id+"\" style=\"margin-bottom:10px;\"><div class=\"deal-entry-header\"><span class=\"deal-num\">Item #"+pdc+"</span><button type=\"button\" class=\"deal-remove\" onclick=\"rmv('"+id+"')\">Remove</button></div><div class=\"form-row\"><div class=\"form-group\"><label class=\"form-label\">Client Name</label><input class=\"form-input\" type=\"text\" placeholder=\"Client name\"/></div><div class=\"form-group\"><label class=\"form-label\">Package / Type</label><input class=\"form-input\" type=\"text\" placeholder=\"e.g. Ripple, CRM Lite Month 1\"/></div></div></div>";
+  var h="<div class=\"deal-entry\" id=\""+id+"\" style=\"margin-bottom:10px;\"><div class=\"deal-entry-header\"><span class=\"deal-num\">Item #"+pdc+"</span><button type=\"button\" class=\"deal-remove\" onclick=\"rmv('"+id+"')\">Remove</button></div><div class=\"form-row\"><div class=\"form-group\"><label class=\"form-label\">Client Name</label><input class=\"form-input\" type=\"text\" placeholder=\"Client name\"/></div><div class=\"form-group\"><label class=\"form-label\">Package / Type</label><input class=\"form-input\" type=\"text\" placeholder=\"e.g. Launch™, Foundation Plan™ Month 1\"/></div></div></div>";
   document.getElementById("payoutDealsList").insertAdjacentHTML("beforeend",h);
 }
 
@@ -795,11 +795,11 @@ function submitPayout(e){
 
 /* SCENARIOS */
 var SCEN={
-  starter:{name:"Getting Started - 2 Ripple Deals",items:[{label:"Ripple Deal #1",type:"Growth",sale:"$1,800",rate:"20%",comm:360},{label:"Ripple Deal #2",type:"Growth",sale:"$1,800",rate:"20%",comm:360}],bonusLabel:"",total:720},
-  growing:{name:"Growing - 3 Deals + 2 CRM Clients",items:[{label:"Ripple Deal",type:"Growth",sale:"$1,800",rate:"20%",comm:360},{label:"Current Deal",type:"Growth",sale:"$3,000",rate:"20%",comm:600},{label:"Ripple Deal",type:"Growth",sale:"$1,800",rate:"20%",comm:360},{label:"CRM Lite",type:"CRM",sale:"$99/mo",rate:"20%",comm:20},{label:"CRM Premium",type:"CRM",sale:"$199/mo",rate:"20%",comm:36}],bonusLabel:"3 deals = +$150 bonus",total:1526},
-  solid:{name:"Solid Month - 5 Deals + Bonus",items:[{label:"Ripple x2",type:"Growth",sale:"$1,800 x2",rate:"20%",comm:720},{label:"Current x2",type:"Growth",sale:"$3,000 x2",rate:"20%",comm:1200},{label:"Surge",type:"Growth",sale:"$5,000",rate:"20%",comm:1000}],bonusLabel:"5 deals = +$400 bonus",total:3320},
-  strong:{name:"Strong Month - 7 Deals + CRM + Bonuses",items:[{label:"Ripple x3",type:"Growth",sale:"$1,800 x3",rate:"20%",comm:1080},{label:"Current x2",type:"Growth",sale:"$3,000 x2",rate:"20%",comm:1200},{label:"Surge x2",type:"Growth",sale:"$5,000 x2",rate:"20%",comm:2000},{label:"CRM Lite x2",type:"CRM",sale:"$99/mo x2",rate:"20%",comm:40},{label:"CRM Premium",type:"CRM",sale:"$199/mo",rate:"20%",comm:36}],bonusLabel:"7 deals = +$750 bonus",total:5106},
-  top:{name:"Top Performer - 10+ Deals",items:[{label:"Ripple x3",type:"Growth",sale:"$1,800 x3",rate:"20%",comm:1080},{label:"Current x4",type:"Growth",sale:"$3,000 x4",rate:"20%",comm:2400},{label:"Surge x3",type:"Growth",sale:"$5,000 x3",rate:"20%",comm:3000},{label:"CRM Premium x2",type:"CRM",sale:"$199/mo x2",rate:"20%",comm:72}],bonusLabel:"10+ deals = +$1,000 bonus",total:7552},
+  starter:{name:"Getting Started - 2 Launch™ Deals",items:[{label:"Launch™ Deal #1",type:"Growth",sale:"$397/mo",rate:"20%",comm:79.40},{label:"Launch™ Deal #2",type:"Growth",sale:"$397/mo",rate:"20%",comm:79.40}],bonusLabel:"",total:158.80},
+  growing:{name:"Growing - 3 Deals + 2 CRM Clients",items:[{label:"Launch™ Deal",type:"Growth",sale:"$397/mo",rate:"20%",comm:79.40},{label:"Momentum™ Deal",type:"Growth",sale:"$697/mo",rate:"20%",comm:139.40},{label:"Launch™ Deal",type:"Growth",sale:"$397/mo",rate:"20%",comm:79.40},{label:"Growth Plan™",type:"CRM",sale:"$99/mo",rate:"20%",comm:19.80},{label:"Founder Plan™",type:"CRM",sale:"$199/mo",rate:"20%",comm:39.80}],bonusLabel:"3 deals = +$100 bonus",total:457.80},
+  solid:{name:"Solid Month - 5 Deals + Bonus",items:[{label:"Launch™ x2",type:"Growth",sale:"$397/mo x2",rate:"20%",comm:158.80},{label:"Momentum™ x2",type:"Growth",sale:"$697/mo x2",rate:"20%",comm:278.80},{label:"Accelerate™",type:"Growth",sale:"$1,497/mo",rate:"20%",comm:299.40}],bonusLabel:"5 deals = +$300 bonus",total:1037},
+  strong:{name:"Strong Month - 7 Deals + CRM + Bonuses",items:[{label:"Launch™ x3",type:"Growth",sale:"$397/mo x3",rate:"20%",comm:238.20},{label:"Momentum™ x2",type:"Growth",sale:"$697/mo x2",rate:"20%",comm:278.80},{label:"Accelerate™ x2",type:"Growth",sale:"$1,497/mo x2",rate:"20%",comm:598.80},{label:"Growth Plan™ x2",type:"CRM",sale:"$99/mo x2",rate:"20%",comm:39.60},{label:"Founder Plan™",type:"CRM",sale:"$199/mo",rate:"20%",comm:39.80}],bonusLabel:"7 deals = +$500 bonus",total:1695.20},
+  top:{name:"Top Performer - 10+ Deals",items:[{label:"Launch™ x3",type:"Growth",sale:"$397/mo x3",rate:"20%",comm:238.20},{label:"Momentum™ x4",type:"Growth",sale:"$697/mo x4",rate:"20%",comm:557.60},{label:"Accelerate™ x3",type:"Growth",sale:"$1,497/mo x3",rate:"20%",comm:898.20},{label:"Founder Plan™ x2",type:"CRM",sale:"$199/mo x2",rate:"20%",comm:79.60}],bonusLabel:"10+ deals = +$800 bonus",total:2573.60},
   crm:{name:"CRM Specialist - 3+ Clients (25% Rate)",items:[{label:"CRM Lite x2",type:"CRM",sale:"$99/mo x2",rate:"25%",comm:50},{label:"CRM Premium",type:"CRM",sale:"$199/mo",rate:"25%",comm:45},{label:"White-Label",type:"CRM",sale:"$697/mo",rate:"25%",comm:174}],bonusLabel:"3+ CRM clients = 25% rate unlocked!",total:269}
 };
 function loadScenario(key,el){
