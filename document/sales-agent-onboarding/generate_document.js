@@ -244,9 +244,9 @@ const doc = new Document({
       makeTable(
         ['Package', 'Price', 'What It Includes', 'Your Commission'],
         [
-          ['Ripple',  '$1,800+', 'Website, Google Business Profile, CRM 14-day trial, on-page SEO, WhatsApp chat button, smart lead automation, performance dashboard.', '$360+'],
-          ['Current', '$3,000+', 'Everything in Ripple, plus WhatsApp Business setup, product catalog, advanced lead sequences, local SEO + competitor analysis, 5-star reputation builder, automated lead pipeline, conversion landing page, monthly check-in call.', '$600+'],
-          ['Surge',   '$5,000+', 'Everything in Current, plus Google Ads campaign setup, Bing Places + multi-search engine listing, full WhatsApp sales funnel, monthly visibility & performance report, quarterly strategy review, dedicated account manager.', '$1,000+'],
+          ['Ripple',  '$397/mo + $900 setup', 'Website, Google Business Profile, CRM 14-day trial, on-page SEO, WhatsApp chat button, smart lead automation, performance dashboard.', '$79.40/mo + $180 setup'],
+          ['Current', '$697/mo + $1,250 setup', 'Everything in Ripple, plus WhatsApp Business setup, product catalog, advanced lead sequences, local SEO + competitor analysis, 5-star reputation builder, automated lead pipeline, conversion landing page, monthly check-in call.', '$139.40/mo + $250 setup'],
+          ['Surge',   '$1,497/mo + $2,500 setup', 'Everything in Current, plus Google Ads campaign setup, Bing Places + multi-search engine listing, full WhatsApp sales funnel, monthly visibility & performance report, quarterly strategy review, dedicated account manager.', '$299.40/mo + $500 setup'],
         ],
         [1560, 1200, 4680, 1920]
       ),
@@ -341,7 +341,7 @@ const doc = new Document({
         ['Objection', 'Your Response'],
         [
           ['\u201cIt is too expensive.\u201d',
-           '\u201cI understand. Let me put it in perspective. A professional website alone costs $3,000 to $8,000 at most agencies and takes 6 to 12 weeks. With BluWav, you get the website, Google setup, WhatsApp integration, and a CRM trial \u2014 all in 48 hours, starting at $1,800. You are not paying more; you are getting more, faster.\u201d'],
+           '\u201cI understand. Let me put it in perspective. A professional website alone costs $3,000 to $8,000 at most agencies and takes 6 to 12 weeks. With BluWav, you get the website, Google setup, WhatsApp integration, and a CRM trial \u2014 all in 48 hours, starting at $397/month. You are not paying more; you are getting more, faster.\u201d'],
           ['\u201cI can get a website cheaper elsewhere.\u201d',
            '\u201cYou can. But a website on its own does not grow your business. BluWav builds the full system: the website, the Google visibility, the WhatsApp setup, and the CRM. A cheaper website is just a page on the internet. Our system is what turns visitors into customers.\u201d'],
           ['\u201cI need to think about it.\u201d',
@@ -355,7 +355,7 @@ const doc = new Document({
           ['\u201cWe tried digital marketing before and it didn\u2019t work.\u201d',
            '\u201cI\u2019m sorry to hear that. Can I ask what happened? [Listen] What BluWav does differently is bring everything into one connected system \u2014 website, Google, WhatsApp, CRM \u2014 so nothing falls through the cracks. The free Health Check is a great way to see exactly where the gaps are, with no commitment.\u201d'],
           ['\u201cWe\u2019re a small business, we don\u2019t need all this.\u201d',
-           '\u201cThat\u2019s exactly who BluWav is built for. Our Ripple plan starts at $1,800 \u2014 it\u2019s a one-time investment, you own everything forever, and it includes a 14-day free CRM trial. The Health Check just shows you where the biggest opportunity is for your specific business. No commitment.\u201d'],
+           '\u201cThat\u2019s exactly who BluWav is built for. Our Ripple plan starts at $397/month \u2014 you own everything we build, forever, and it includes a 14-day free CRM trial. The Health Check just shows you where the biggest opportunity is for your specific business. No commitment.\u201d'],
         ],
         [2800, 6560]
       ),
@@ -390,7 +390,7 @@ const doc = new Document({
       numbered('Submit your first payout request if you have cleared commissions.', 'num4'),
       numbered('Book your Month 2 check-in with the VP, Sales & Marketing.', 'num4'),
       spacer(),
-      highlight('3 deals in Month 1 = $1,080 to $1,800 in commission, plus your performance bonus of $150. That is a strong start.'),
+      highlight('3 deals in Month 1 = $238 to $898 in monthly recurring commission, plus setup commissions and your performance bonus of $150. That is a strong start.'),
       spacer(),
 
       // ── SECTION 8: KEY CONTACTS & RESOURCES ───────────────────────────────
