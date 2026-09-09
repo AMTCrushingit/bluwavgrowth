@@ -176,7 +176,7 @@ a{text-decoration:none;color:inherit;}
 <div class="plan-option selected" id="card-ripple" data-plan="ripple">
 <div class="plan-radio checked" id="radio-ripple"></div>
 <div style="flex:1;">
-<div class="plan-name">Ripple <span style="font-size:11px;font-weight:600;color:#00C2D8;font-style:italic;">Your First Wave Of Visibility</span></div>
+<div class="plan-name">Launch™ <span style="font-size:11px;font-weight:600;color:#00C2D8;font-style:italic;">Your Digital Foundation</span></div>
 <div style="font-size:12px;color:var(--slate);margin-top:2px;">Website · Google Profile · SEO · CRM trial · Automation</div>
 </div>
 <div class="plan-price-col">
@@ -187,9 +187,9 @@ a{text-decoration:none;color:inherit;}
 <div class="plan-option" id="card-current" data-plan="current">
 <div class="plan-radio" id="radio-current"></div>
 <div style="flex:1;">
-<div class="plan-name">⚡ Current <span class="plan-badge" style="background:rgba(255,85,0,0.1);color:var(--coral);">Most Popular</span></div>
+<div class="plan-name">⚡ Momentum™ <span class="plan-badge" style="background:rgba(255,85,0,0.1);color:var(--coral);">Most Popular</span></div>
 <div style="font-size:11px;font-weight:700;color:var(--slate);font-style:italic;margin-top:1px;">The Steady Flow Of Growth</div>
-<div style="font-size:12px;color:var(--slate);margin-top:2px;">Everything in Ripple + WhatsApp · Local SEO · Lead pipeline</div>
+<div style="font-size:12px;color:var(--slate);margin-top:2px;">Everything in Launch™ + WhatsApp · Local SEO · Lead pipeline</div>
 </div>
 <div class="plan-price-col">
 <div class="plan-setup">$1,250</div>
@@ -199,8 +199,8 @@ a{text-decoration:none;color:inherit;}
 <div class="plan-option" id="card-surge" data-plan="surge">
 <div class="plan-radio" id="radio-surge"></div>
 <div style="flex:1;">
-<div class="plan-name">🚀 Surge <span style="font-size:11px;font-weight:600;color:var(--gold);font-style:italic;">Accelerated Business Momentum</span></div>
-<div style="font-size:12px;color:var(--slate);margin-top:2px;">Everything in Current + Google Ads · Full funnel · Account manager</div>
+<div class="plan-name">🚀 Accelerate™ <span style="font-size:11px;font-weight:600;color:var(--gold);font-style:italic;">Accelerated Business Momentum</span></div>
+<div style="font-size:12px;color:var(--slate);margin-top:2px;">Everything in Momentum™ + Google Ads · Full funnel · Account manager</div>
 </div>
 <div class="plan-price-col">
 <div class="plan-setup">$2,500</div>
@@ -279,7 +279,7 @@ a{text-decoration:none;color:inherit;}
 <div class="summary-title">Order Summary</div>
 <div class="summary-plan">
 <div>
-<div class="summary-plan-name" id="sumName">Ripple</div>
+<div class="summary-plan-name" id="sumName">Launch™</div>
 <div class="summary-plan-sub" id="sumSub">Your First Wave Of Visibility</div>
 </div>
 <div>
@@ -371,9 +371,9 @@ a{text-decoration:none;color:inherit;}
 <script>
 /* ── PLAN DATA ── */
 var plans = {
-  ripple:  {name:'Ripple', sub:'Your First Wave Of Visibility', setup:'$900',   monthly:'$397/mo',  setupNum:900},
-  current: {name:'Current',  sub:'The Steady Flow Of Growth',     setup:'$1,250', monthly:'$697/mo',  setupNum:1250},
-  surge:   {name:'&#128640; Surge',  sub:'Accelerated Business Momentum', setup:'$2,500', monthly:'$1,497/mo+', setupNum:2500}
+  ripple:  {name:'Launch™', sub:'Your First Wave Of Visibility', setup:'$900',   monthly:'$397/mo',  setupNum:900},
+  current: {name:'Momentum™',  sub:'The Steady Flow Of Growth',     setup:'$1,250', monthly:'$697/mo',  setupNum:1250},
+  accelerate:   {name:'&#128640; Accelerate™',  sub:'Full Growth Engine', setup:'$2,500', monthly:'$1,497/mo+', setupNum:2500}
 };
 var sel = 'ripple';
 
@@ -415,7 +415,7 @@ function relockPlans(){
 }
 
 function updateSubtitle(plan){
-  var names={ripple:'Ripple (Foundation)',current:'Current (Growth)',surge:'Surge (Dominance)'};
+  var names={launch:'Launch™ (Foundation)',momentum:'Momentum™ (Growth)',accelerate:'Accelerate™ (Full Scale)'};
   var sub=document.getElementById('co-plan-subtitle');
   if(sub&&names[plan]){
     sub.innerHTML='Selected plan: <strong style="color:#0a0f1e;">'+names[plan]+'</strong> &nbsp;<a href="pricing.html#plans-k1l2" style="font-size:13px;color:#94a3b8;font-weight:500;text-decoration:none;" onclick="unlockPlans(event)">change</a>';
