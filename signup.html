@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<!-- BW-VERSION:v2026-09-15 -->
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Create Account — BluWav CRM</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --navy-deep:#0A0E1A;--navy-mid:#0F1628;--navy-light:#161E35;--navy-border:#1E2A45;
+  --cyan:#00C8E0;--cyan-dark:#0099B0;--cyan-glow:rgba(0,200,224,0.12);
+  --orange:#FF6B2B;--orange-glow:rgba(255,107,43,0.12);
+  --gold:#C9A84C;--gold-light:#E8C96A;--gold-glow:rgba(201,168,76,0.12);
+  --success:#22C55E;--error:#EF4444;
+  --text:#FFFFFF;--text2:#B0BAD0;--text3:#6B7A99;
+  --font-body:system-ui,-apple-system,'Segoe UI',sans-serif;
+  --radius-sm:6px;--radius-md:12px;--radius-lg:20px;
+  --transition:all 0.2s cubic-bezier(0.4,0,0.2,1);
+}
+html,body{height:100%;font-family:var(--font-body);background:var(--navy-deep);color:var(--text);-webkit-font-smoothing:antialiased;}
+
+.layout{display:grid;grid-template-columns:1fr 1fr;min-height:100vh;}
+
+/* LEFT */
+.left{background:linear-gradient(160deg,var(--navy-mid) 0%,var(--navy-deep) 100%);padding:48px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;border-right:1px solid var(--navy-border);}
+.left::before{content:'';position:absolute;top:-120px;left:-120px;width:500px;height:500px;background:radial-gradient(circle,rgba(0,200,224,0.07) 0%,transparent 70%);pointer-events:none;}
+.left::after{content:'';position:absolute;bottom:-80px;right:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(255,107,43,0.06) 0%,transparent 70%);pointer-events:none;}
+
+.logo{display:flex;align-items:center;gap:8px;text-decoration:none;z-index:1;}
+.logo-word{font-size:2.1rem;font-weight:800;letter-spacing:-1px;}
+.blu{color:var(--text);}
+.wav{color:var(--cyan);}
+.logo-sub{font-size:0.52rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text3);border:1px solid var(--navy-border);padding:2px 6px;border-radius:4px;margin-top:4px;}
+
+.hero{z-index:1;margin-top:48px;}
+.hero h1{font-size:2.4rem;font-weight:800;line-height:1.15;margin-bottom:16px;letter-spacing:-0.5px;}
+.hero h1 span{color:var(--cyan);}
+.hero p{font-size:0.95rem;color:var(--text2);line-height:1.65;margin-bottom:32px;max-width:340px;}
+.features{display:flex;flex-direction:column;gap:14px;}
+.feat{display:flex;align-items:center;gap:12px;font-size:0.85rem;color:var(--text2);}
+.feat-dot{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+.fd-c{background:var(--cyan-glow);}
+.fd-g{background:var(--gold-glow);}
+.fd-o{background:var(--orange-glow);}
+.fd-s{background:rgba(34,197,94,0.1);}
+
+.bottom-card{z-index:1;background:rgba(0,0,0,0.3);border:1px solid var(--navy-border);border-radius:var(--radius-md);padding:16px 20px;display:flex;align-items:center;gap:14px;}
+.bc-icon{font-size:1.5rem;}
+.bc-text{font-size:0.78rem;color:var(--gold-light);line-height:1.5;}
+.bc-text strong{display:block;color:var(--gold);font-size:0.82rem;margin-bottom:1px;}
+
+/* RIGHT */
+.right{background:var(--navy-mid);display:flex;align-items:center;justify-content:center;padding:48px 40px;overflow-y:auto;}
+.box{width:100%;max-width:420px;}
+
+.box-header{margin-bottom:28px;}
+.box-header h2{font-size:1.8rem;font-weight:800;margin-bottom:6px;}
+.box-header p{font-size:0.85rem;color:var(--text3);}
+
+/* Alert */
+.alert{display:none;align-items:flex-start;gap:10px;padding:12px 16px;border-radius:var(--radius-md);font-size:0.82rem;margin-bottom:20px;line-height:1.5;}
+.alert.show{display:flex;}
+.alert.error{background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.25);color:#fca5a5;}
+.alert.success{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.25);color:#86efac;}
+
+/* Form */
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.fg{margin-bottom:16px;}
+.fl{display:block;font-size:0.8rem;font-weight:600;color:var(--text2);margin-bottom:7px;}
+.fl .req{color:var(--cyan);margin-left:2px;}
+.iw{position:relative;}
+.fi{width:100%;background:var(--navy-light);border:1px solid var(--navy-border);border-radius:var(--radius-md);color:var(--text);font-size:0.88rem;padding:11px 14px;outline:none;transition:var(--transition);font-family:inherit;}
+.fi:focus{border-color:var(--cyan);box-shadow:0 0 0 3px var(--cyan-glow);}
+.fi::placeholder{color:var(--text3);}
+.fi.pw{padding-right:44px;}
+select.fi{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236B7A99' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;}
+select.fi option{background:var(--navy-light);}
+
+.eye{position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-size:1rem;color:var(--text3);padding:4px;line-height:1;transition:color 0.15s;}
+.eye:hover{color:var(--text2);}
+
+.btn-submit{width:100%;padding:13px;background:linear-gradient(135deg,var(--cyan),var(--cyan-dark));color:var(--navy-deep);font-size:0.95rem;font-weight:700;border:none;border-radius:var(--radius-md);cursor:pointer;transition:var(--transition);display:flex;align-items:center;justify-content:center;gap:8px;margin-top:4px;}
+.btn-submit:hover{opacity:0.9;box-shadow:0 4px 20px rgba(0,200,224,0.3);}
+.btn-submit:disabled{opacity:0.6;cursor:not-allowed;}
+
+.spinner{width:16px;height:16px;border:2px solid rgba(10,14,26,0.3);border-top-color:var(--navy-deep);border-radius:50%;animation:spin 0.7s linear infinite;display:none;}
+.spinner.show{display:block;}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+/* Success */
+.success-state{display:none;text-align:center;padding:32px 0;}
+.success-state.show{display:block;}
+.success-icon{font-size:3rem;margin-bottom:16px;}
+.success-state h3{font-size:1.4rem;font-weight:700;margin-bottom:10px;color:var(--success);}
+.success-state p{font-size:0.88rem;color:var(--text2);line-height:1.6;margin-bottom:16px;}
+.email-chip{display:inline-block;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2);border-radius:var(--radius-sm);padding:8px 16px;font-size:0.85rem;color:#86efac;margin-bottom:20px;}
+.btn-goto{display:inline-flex;align-items:center;justify-content:center;width:100%;padding:13px;background:linear-gradient(135deg,var(--cyan),var(--cyan-dark));color:var(--navy-deep);font-size:0.95rem;font-weight:700;border:none;border-radius:var(--radius-md);cursor:pointer;text-decoration:none;margin-top:8px;}
+.btn-goto:hover{opacity:0.9;}
+
+.footer{text-align:center;margin-top:24px;font-size:0.8rem;color:var(--text3);}
+.footer a{color:var(--cyan);text-decoration:none;font-weight:600;}
+.footer a:hover{text-decoration:underline;}
+
+@media(max-width:768px){
+  .layout{grid-template-columns:1fr;}
+  .left{display:none;}
+  .right{padding:40px 24px;align-items:flex-start;padding-top:60px;}
+  .form-row{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<div class="layout">
+
+  <!-- LEFT -->
+  <div class="left">
+    <a class="logo" href="index.html">
+      <span class="logo-word"><span class="blu">Blu</span><span class="wav">Wav</span></span>
+      <span class="logo-sub">CRM</span>
+    </a>
+    <div class="hero">
+      <h1>Join your team<br/>on <span>BluWav</span> CRM</h1>
+      <p>The Caribbean's CRM built for growing businesses. Track leads, close deals, and collaborate with your team.</p>
+      <div class="features">
+        <div class="feat"><div class="feat-dot fd-c">👥</div>Multi-user with role-based access</div>
+        <div class="feat"><div class="feat-dot fd-g">📊</div>Track your own deals &amp; pipeline</div>
+        <div class="feat"><div class="feat-dot fd-o">📈</div>Real-time performance insights</div>
+        <div class="feat"><div class="feat-dot fd-s">💬</div>WhatsApp &amp; email integration</div>
+      </div>
+    </div>
+    <div class="bottom-card">
+      <div class="bc-icon">🖤</div>
+      <div class="bc-text">
+        <strong>BluWav CRM</strong>
+        Simple customer management that helps you grow online.
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="right">
+    <div class="box">
+
+      <!-- Form -->
+      <div id="formState">
+        <div class="box-header">
+          <h2>Create your account</h2>
+          <p>Join your team on BluWav CRM.</p>
+        </div>
+
+        <div class="alert" id="alertBox">
+          <span id="alertIcon">⚠️</span>
+          <span id="alertMsg"></span>
+        </div>
+
+        <form id="signupForm" novalidate onsubmit="handleSignup(event)">
+          <div class="form-row">
+            <div class="fg">
+              <label class="fl" for="firstName">First Name <span class="req">*</span></label>
+              <input class="fi" id="firstName" placeholder="Andrea" required type="text" autocomplete="given-name"/>
+            </div>
+            <div class="fg">
+              <label class="fl" for="lastName">Last Name <span class="req">*</span></label>
+              <input class="fi" id="lastName" placeholder="Myers" required type="text" autocomplete="family-name"/>
+            </div>
+          </div>
+
+          <div class="fg">
+            <label class="fl" for="emailInput">Email Address <span class="req">*</span></label>
+            <input class="fi" id="emailInput" placeholder="you@yourbusiness.com" required type="email" autocomplete="email"/>
+          </div>
+
+          <div class="fg">
+            <label class="fl" for="roleSelect">Your Role <span class="req">*</span></label>
+            <select class="fi" id="roleSelect" required>
+              <option value="">Select your role...</option>
+              <option value="admin">Admin</option>
+              <option value="manager">Manager</option>
+              <option value="salesperson">Salesperson</option>
+              <option value="support">Support</option>
+            </select>
+          </div>
+
+          <div class="fg">
+            <label class="fl" for="pw1">Password <span class="req">*</span></label>
+            <div class="iw">
+              <input class="fi pw" id="pw1" placeholder="Min. 8 characters" required type="password" autocomplete="new-password"/>
+              <button class="eye" id="eye1" onclick="togglePw('pw1','eye1')" title="Show/hide password" type="button">👁️</button>
+            </div>
+          </div>
+
+          <div class="fg">
+            <label class="fl" for="pw2">Confirm Password <span class="req">*</span></label>
+            <div class="iw">
+              <input class="fi pw" id="pw2" placeholder="Repeat your password" required type="password" autocomplete="new-password"/>
+              <button class="eye" id="eye2" onclick="togglePw('pw2','eye2')" title="Show/hide password" type="button">👁️</button>
+            </div>
+          </div>
+
+          <button class="btn-submit" id="submitBtn" type="submit">
+            <div class="spinner" id="spinner"></div>
+            <span id="submitText">Create Account →</span>
+          </button>
+        </form>
+
+        <div class="footer">
+          Already have an account? <a href="login.html">Sign in →</a><br/><br/>
+          <span>By creating an account you agree to our
+            <a href="privacy.html">Terms</a> and <a href="privacy.html">Privacy Policy</a>.
+          </span>
+        </div>
+      </div>
+
+      <!-- Success -->
+      <div class="success-state" id="successState">
+        <div class="success-icon">✅</div>
+        <h3>Check your email!</h3>
+        <p>We've sent a confirmation link to:</p>
+        <div class="email-chip" id="confirmedEmail"></div>
+        <p>Click the link in the email to activate your account, then sign in.</p>
+        <a class="btn-goto" href="login.html">Go to Sign In →</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+const {createClient} = supabase;
+const db = createClient(
+  'https://izyuupdmlzcphvdpigrs.supabase.co',
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml6eXV1cGRtbHpjcGh2ZHBpZ3JzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEzMjEwNDcsImV4cCI6MjA5Njg5NzA0N30.cmrOK8uAMZKzB1wPZAt7ClEpuUBEkx1PFy49MkhEyog'
+);
+
+/* Password toggle */
+const pwVisible = {};
+function togglePw(inputId, btnId) {
+  pwVisible[inputId] = !pwVisible[inputId];
+  document.getElementById(inputId).type = pwVisible[inputId] ? 'text' : 'password';
+  document.getElementById(btnId).textContent = pwVisible[inputId] ? '🙈' : '👁️';
+}
+
+/* Alert */
+function showAlert(msg, type='error') {
+  const box = document.getElementById('alertBox');
+  document.getElementById('alertIcon').textContent = type === 'error' ? '⚠️' : '✅';
+  document.getElementById('alertMsg').textContent = msg;
+  box.className = `alert show ${type}`;
+}
+function hideAlert() { document.getElementById('alertBox').className = 'alert'; }
+
+/* Signup */
+async function handleSignup(e) {
+  e.preventDefault();
+  hideAlert();
+
+  const firstName = document.getElementById('firstName').value.trim();
+  const lastName  = document.getElementById('lastName').value.trim();
+  const email     = document.getElementById('emailInput').value.trim();
+  const role      = document.getElementById('roleSelect').value;
+  const pw1       = document.getElementById('pw1').value;
+  const pw2       = document.getElementById('pw2').value;
+
+  if (!firstName || !lastName) return showAlert('Please enter your first and last name.');
+  if (!email)  return showAlert('Please enter your email address.');
+  if (!role)   return showAlert('Please select your role.');
+  if (pw1.length < 8) return showAlert('Password must be at least 8 characters.');
+  if (pw1 !== pw2) return showAlert('Passwords do not match. Please check and try again.');
+
+  const btn     = document.getElementById('submitBtn');
+  const spinner = document.getElementById('spinner');
+  const text    = document.getElementById('submitText');
+  btn.disabled  = true;
+  spinner.classList.add('show');
+  text.textContent = 'Creating account...';
+
+  try {
+    const {error} = await db.auth.signUp({
+      email, password: pw1,
+      options: { data: { first_name: firstName, last_name: lastName, full_name: `${firstName} ${lastName}`, role } }
+    });
+    if (error) throw error;
+    document.getElementById('confirmedEmail').textContent = email;
+    document.getElementById('formState').style.display = 'none';
+    document.getElementById('successState').classList.add('show');
+  } catch(err) {
+    showAlert(err.message || 'Something went wrong. Please try again.');
+    btn.disabled = false;
+    spinner.classList.remove('show');
+    text.textContent = 'Create Account →';
+  }
+}
+</script>
+</body>
+</html>
