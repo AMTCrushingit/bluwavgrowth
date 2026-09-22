@@ -27,26 +27,27 @@
 
 ## Pending Changes
 
-### 🔸 CHANGE-002 — sales-agent-agreement.html updates
+### 🔸 CHANGE-003 — index.html: Caribbean SMB repositioning
 - **Date**: 2026-09-22
 - **Branch**: staging
-- **Files Changed**: `sales-agent-agreement.html`
+- **Files Changed**: `index.html`
 - **Description**:
-  - Nav bar re-added to the sales agent agreement page
-  - Pricing update: Enterprise Plan monthly `$499 → $399/mo`, annual `$4,990 → $3,990/yr`
-  - Pricing update: Agency Edition setup fee `$699 → $499`
-  - New clause added: "No commission is payable on setup or onboarding fees" (Section 4)
-  - New exclusion added: "Setup or onboarding fees on any CRM package" (Section 6)
-- **Commit (staging)**: `a922acc`
-- **Status**: `[ ] Staging` — ⏳ Awaiting your approval
-- **Verified in staging**: ✅ Confirmed diff reviewed 2026-09-22
-- **Action needed**: Reply "approve CHANGE-002" to merge to main
+  - Hero: new headline, body copy, pill badge, CTAs (View Plans / Book a Consultation)
+  - Metrics bar: updated to Caribbean-focused stats (6+ countries, 50+ businesses)
+  - "How BluWav Helps" section: Get Found / Get Chosen / Grow framework with checklist
+  - Pricing: replaced 3-plan grid with 4 new plans (Launch US$99 / Presence US$149 / Growth US$249 / Pro US$399) with enrollment fees
+  - "Why Businesses Choose BluWav" section: 6 reasons replacing old transparency section
+  - Final CTA: "Become a Member" replacing "Get My Free Health Score"
+  - Footer: updated description to Caribbean-focused messaging
+  - All em dashes removed throughout
+  - Boxes reduced; checklist-style layout used instead
+- **Commit (staging)**: `4bf2211`
+- **Status**: `[ ] Staging` — awaiting Thursday presentation and your approval
+- **Staging URL**: https://clientflow-2wy.pages.dev (pending push — GitHub 503 in progress)
 
 ---
 
-## Completed Changes
 
-### ✅ CHANGE-001 — signup.html + login.html update
 - **Date**: 2026-09-22
 - **Branch**: staging
 - **Files Changed**: `signup.html` (new), `login.html` (link updates)
