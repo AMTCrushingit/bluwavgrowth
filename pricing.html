@@ -317,7 +317,10 @@
 /* ── Pricing page mobile fixes ── */
 @media(max-width:768px) {
   /* Pricing cards stack */
-  #plans-k1l2 [style*="grid-template-columns:repeat(3"] { grid-template-columns: 1fr !important; }
+  #plans-k1l2 [style*="grid-template-columns:repeat(4"] { grid-template-columns: repeat(2,1fr) !important; }
+}
+@media(max-width:480px) {
+  #plans-k1l2 [style*="grid-template-columns:repeat(4"] { grid-template-columns: 1fr !important; }
   /* Included section grid */
   #included-u1v2 [style*="grid-template-columns:repeat(2"] { grid-template-columns: 1fr !important; }
   #included-u1v2 [style*="grid-template-columns:repeat(3"] { grid-template-columns: 1fr !important; }
@@ -402,13 +405,13 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 <!-- ========== SECTION 1: HERO ========== -->
 <section class="hero-section" data-id="30" id="hero-i9j0">
 <div class="text-center relative z-10" data-id="31" style="max-width:720px;margin:0 auto;">
-<div class="fade-in" data-id="32"><span class="hero-pill" data-id="33">Transparent Pricing. No surprises.</span></div>
-<h1 class="hero-h1 fade-in" data-id="34">Invest in a Growth System.</h1>
-<p class="hero-sub fade-in" data-id="35">Not just a website. Four pillars. One unified system.</p>
+<div class="fade-in" data-id="32"><span class="hero-pill" data-id="33">Simple Monthly Memberships. No Large Upfront Fees.</span></div>
+<h1 class="hero-h1 fade-in" data-id="34">Membership Plans for Caribbean Businesses.</h1>
+<p class="hero-sub fade-in" data-id="35">Professional websites, business email, online visibility, and ongoing support. One predictable monthly investment.</p>
 <div class="flex justify-center gap-8 flex-wrap mt-8 fade-in" data-id="36" style="font-size:15px;font-weight:600;">
-<span data-id="37" style="color:var(--white-70);">🔍 Be Found Online</span>
-<span data-id="38" style="color:var(--white-70);">🌐 Be Chosen First</span>
-<span data-id="39" style="color:var(--white-70);">📈 Grow Automatically</span>
+<span style="color:var(--white-70);">🌊 Caribbean-Focused</span>
+<span style="color:var(--white-70);">✓ No Large Upfront Fees</span>
+<span style="color:var(--white-70);">✓ Cancel Anytime</span>
 </div>
 </div>
 </section>
@@ -417,96 +420,101 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 <!-- ========== SECTION 2: GROWTH SYSTEM PLANS ========== -->
 <section data-id="42" id="plans-k1l2" style="background:var(--light-bg);padding:100px 24px;">
 <div class="text-center fade-in" data-id="43">
-<p data-id="44" style="font-size:13px;font-weight:600;letter-spacing:1.5px;color:#0369a1;text-transform:uppercase;">GROWTH SYSTEM PLANS</p>
-<h2 data-id="45" style="font-size:clamp(28px,4vw,48px);font-weight:800;color:#0a0f1e;margin:16px auto 12px;">Choose Your Level of Growth</h2>
-<p data-id="46" style="font-size:17px;color:#475569;max-width:640px;margin:0 auto 60px;">Every plan includes a signed agreement. You own your website forever. Delivered in 48 to 72 hours.</p>
+<p data-id="44" style="font-size:13px;font-weight:600;letter-spacing:1.5px;color:#0369a1;text-transform:uppercase;">Membership Plans</p>
+<h2 data-id="45" style="font-size:clamp(28px,4vw,48px);font-weight:800;color:#0a0f1e;margin:16px auto 12px;">Choose Your Plan</h2>
+<p data-id="46" style="font-size:17px;color:#475569;max-width:640px;margin:0 auto 60px;">Professional websites, business email, online visibility, and ongoing support. Designed for Caribbean businesses.</p>
 </div>
-<div class="grid gap-6 mx-auto" data-id="47" id="plan-grid-m3n4" style="grid-template-columns:repeat(3,1fr);max-width:1020px;">
-<!-- RIPPLE -->
-<div class="plan-card fade-in" data-id="48" id="card-ripple-o5p6">
-<div class="flex items-center gap-2" data-id="49" style="display:flex;align-items:center;gap:8px;">
-<span data-id="50" style="font-size:32px;"></span>
-<span data-id="51" style="font-size:12px;font-weight:600;color:#64748b;letter-spacing:1px;text-transform:uppercase;">Launch Mode</span>
+<div class="grid gap-6 mx-auto" data-id="47" id="plan-grid-m3n4" style="grid-template-columns:repeat(4,1fr);max-width:1280px;gap:20px;">
+<!-- LAUNCH -->
+<div class="plan-card fade-in" id="card-launch">
+<div style="font-size:12px;font-weight:700;color:#ff6535;letter-spacing:1px;text-transform:uppercase;">Get Online</div>
+<h3 style="font-size:30px;font-weight:800;color:#0a0f1e;margin-top:10px;">Launch</h3>
+<p style="font-size:14px;color:#64748b;margin-top:10px;line-height:1.65;flex-grow:1;">Perfect for businesses that need a professional digital presence.</p>
+<div style="margin-top:20px;padding-top:20px;border-top:1px solid #f1f5f9;">
+<span style="font-size:38px;font-weight:900;color:#0a0f1e;">US$99</span><span style="font-size:15px;color:#94a3b8;font-weight:600;">/month</span><br/>
+<span style="font-size:13px;font-weight:600;color:#64748b;margin-top:4px;display:block;">US$199 Enrollment Fee</span>
 </div>
-<h3 data-id="52" style="font-size:36px;font-weight:800;color:#0a0f1e;margin-top:16px;">Launch™</h3>
-<p data-id="53" style="font-size:16px;color:#475569;margin-top:8px;">Your digital foundation.</p>
-<p data-id="54" style="font-size:15px;color:#64748b;margin-top:12px;line-height:1.65;">Presence, visibility, and search performance working together from day one.</p>
-<div data-id="55" style="margin-top:24px;padding-top:24px;border-top:1px solid #f1f5f9;">
-<span style="font-size:44px;font-weight:900;color:#0a0f1e;">$397</span><span style="font-size:18px;color:#94a3b8;font-weight:600;">/mo</span><br/>
-<span style="font-size:16px;font-weight:600;color:#64748b;">+ $900 setup and onboarding fee</span>
-<p data-id="58" style="font-size:13px;color:#64748b;margin-top:6px;">Hosting included for first 3 months.</p>
-</div>
-<p data-id="59" style="font-size:14px;font-weight:700;color:#0a0f1e;margin-top:28px;margin-bottom:14px;">What's Included:</p>
-<ul class="plan-feat" data-id="60" style="list-style:none;color:#334155;">
-<li data-id="61"><span class="check-green" data-id="62">✓</span> Modern website (you own it forever)</li>
-<li data-id="63"><span class="check-green" data-id="64">✓</span> Google Business Profile setup</li>
-<li data-id="65"><span class="check-green" data-id="66">✓</span> Smart lead automation</li>
-<li data-id="67"><span class="check-green" data-id="68">✓</span> Performance dashboard</li>
-<li data-id="69"><span class="check-green" data-id="70">✓</span> On-page SEO essentials</li>
-<li data-id="71"><span class="check-green" data-id="72">✓</span> Google Search Console setup</li>
-<li data-id="73"><span class="check-green" data-id="74">✓</span> Google Analytics 4 setup</li>
-<li data-id="75"><span class="check-green" data-id="76">✓</span> WhatsApp chat button</li>
-<li data-id="77"><span class="check-green" data-id="78">✓</span> Mobile-optimized design</li>
-<li data-id="79"><span class="check-green" data-id="80">✓</span> Fast, secure hosting</li>
-<li data-id="81"><span class="check-green" data-id="82">✓</span> Standard support</li>
+<ul class="plan-feat" style="list-style:none;color:#334155;margin-top:20px;">
+<li><span class="check-green">✓</span> Professional business website</li>
+<li><span class="check-green">✓</span> Domain registration</li>
+<li><span class="check-green">✓</span> Hosting and SSL security</li>
+<li><span class="check-green">✓</span> Professional business email</li>
+<li><span class="check-green">✓</span> Mobile optimization</li>
+<li><span class="check-green">✓</span> Contact form</li>
+<li><span class="check-green">✓</span> WhatsApp integration</li>
+<li><span class="check-green">✓</span> Basic SEO setup</li>
+<li><span class="check-green">✓</span> Search engine indexing</li>
+<li><span class="check-green">✓</span> Ongoing maintenance</li>
 </ul>
-<a data-id="83" href="checkout.html?plan=ripple"><button class="btn-outline-card" data-id="84" style="margin-top:32px;">Get Started with Launch™</button></a>
+<a href="checkout.html?plan=launch"><button class="btn-outline-card" style="margin-top:24px;">Become a Member</button></a>
 </div>
-<!-- CURRENT (MOST POPULAR) -->
-<div class="plan-card plan-card-dark fade-in" data-id="85" id="card-current-q7r8">
-<div class="flex justify-between items-center" data-id="86" style="display:flex;justify-content:space-between;align-items:center;">
-<div class="flex items-center gap-2" data-id="87" style="display:flex;align-items:center;gap:8px;">
-<span data-id="89" style="font-size:12px;font-weight:600;color:var(--cyan);letter-spacing:1px;text-transform:uppercase;">Momentum Mode</span>
+
+<!-- PRESENCE -->
+<div class="plan-card fade-in" id="card-presence">
+<div style="font-size:12px;font-weight:700;color:#ff6535;letter-spacing:1px;text-transform:uppercase;">Get Found</div>
+<h3 style="font-size:30px;font-weight:800;color:#0a0f1e;margin-top:10px;">Presence</h3>
+<p style="font-size:14px;color:#64748b;margin-top:10px;line-height:1.65;flex-grow:1;">Everything in Launch plus Google and LinkedIn visibility.</p>
+<div style="margin-top:20px;padding-top:20px;border-top:1px solid #f1f5f9;">
+<span style="font-size:38px;font-weight:900;color:#0a0f1e;">US$149</span><span style="font-size:15px;color:#94a3b8;font-weight:600;">/month</span><br/>
+<span style="font-size:13px;font-weight:600;color:#64748b;margin-top:4px;display:block;">US$249 Enrollment Fee</span>
 </div>
-<span data-id="90" style="background:var(--cyan);color:var(--navy);font-size:11px;font-weight:700;padding:4px 14px;border-radius:100px;">Most Popular</span>
-</div>
-<h3 data-id="91" style="font-size:36px;font-weight:800;color:#fff;margin-top:16px;">Momentum™</h3>
-<p data-id="92" style="font-size:16px;color:var(--cyan);margin-top:8px;">The complete growth system.</p>
-<p data-id="93" style="font-size:15px;color:var(--white-70);margin-top:12px;line-height:1.65;">All four pillars activated, turning visibility into consistent leads and bookings.</p>
-<div data-id="94" style="margin-top:24px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.08);">
-<span style="font-size:44px;font-weight:900;color:#fff;">$697</span><span style="font-size:18px;color:var(--white-40);font-weight:600;">/mo</span><br/>
-<span style="font-size:16px;font-weight:600;color:var(--white-40);">+ $1,250 setup and onboarding fee</span>
-<p data-id="97" style="font-size:13px;color:var(--white-40);margin-top:6px;">Hosting included for first 3 months.</p>
-</div>
-<p data-id="98" style="font-size:14px;font-weight:700;color:#fff;margin-top:28px;margin-bottom:14px;">Everything in Launch™, plus:</p>
-<ul class="plan-feat" data-id="99" style="list-style:none;color:var(--white-70);">
-<li data-id="100"><span class="check-cyan" data-id="101">✓</span> WhatsApp Business profile setup</li>
-<li data-id="102"><span class="check-cyan" data-id="103">✓</span> WhatsApp product catalog setup</li>
-<li data-id="104"><span class="check-cyan" data-id="105">✓</span> Quick replies and automated messages</li>
-<li data-id="106"><span class="check-cyan" data-id="107">✓</span> Advanced WhatsApp lead sequences</li>
-<li data-id="108"><span class="check-cyan" data-id="109">✓</span> Local SEO and competitor gap analysis</li>
-<li data-id="110"><span class="check-cyan" data-id="111">✓</span> 5-star reputation builder</li>
-<li data-id="112"><span class="check-cyan" data-id="113">✓</span> Automated lead pipeline</li>
-<li data-id="114"><span class="check-cyan" data-id="115">✓</span> Conversion-optimized landing page</li>
-<li data-id="116"><span class="check-cyan" data-id="117">✓</span> Monthly performance check-in call</li>
-<li data-id="118"><span class="check-cyan" data-id="119">✓</span> Priority support</li>
+<ul class="plan-feat" style="list-style:none;color:#334155;margin-top:20px;">
+<li><span class="check-green">✓</span> Everything in Launch</li>
+<li><span class="check-green">✓</span> Google Business Profile setup</li>
+<li><span class="check-green">✓</span> LinkedIn Business Page setup</li>
+<li><span class="check-green">✓</span> Google Maps visibility</li>
+<li><span class="check-green">✓</span> Business profile optimization</li>
+<li><span class="check-green">✓</span> Directory listing submissions</li>
+<li><span class="check-green">✓</span> One monthly website update</li>
+<li><span class="check-green">✓</span> Priority support</li>
 </ul>
-<a data-id="120" href="checkout.html?plan=current"><button class="btn-orange-card" data-id="121" style="margin-top:32px;">Get Started with Momentum™</button></a>
+<a href="checkout.html?plan=presence"><button class="btn-outline-card" style="margin-top:24px;">Become a Member</button></a>
 </div>
-<!-- SURGE -->
-<div class="plan-card fade-in" data-id="122" id="card-surge-s9t0">
-<div class="flex items-center gap-2" data-id="123" style="display:flex;align-items:center;gap:8px;">
-<span data-id="125" style="font-size:12px;font-weight:600;color:#64748b;letter-spacing:1px;text-transform:uppercase;">Power Mode</span>
+
+<!-- GROWTH - MOST POPULAR -->
+<div class="plan-card plan-card-dark fade-in" id="card-growth">
+<div style="display:flex;justify-content:space-between;align-items:center;">
+<div style="font-size:12px;font-weight:700;color:var(--cyan);letter-spacing:1px;text-transform:uppercase;">Get Chosen</div>
+<span style="background:var(--cyan);color:var(--navy);font-size:11px;font-weight:700;padding:4px 12px;border-radius:100px;">Most Popular</span>
 </div>
-<h3 data-id="126" style="font-size:36px;font-weight:800;color:#0a0f1e;margin-top:16px;">Accelerate™</h3>
-<p data-id="127" style="font-size:16px;color:#475569;margin-top:8px;">Full-scale growth. Every channel.</p>
-<p data-id="128" style="font-size:15px;color:#64748b;margin-top:12px;line-height:1.65;">Full-scale growth with a dedicated team behind you. Every channel activated, every opportunity captured.</p>
-<div data-id="129" style="margin-top:24px;padding-top:24px;border-top:1px solid #f1f5f9;">
-<span style="font-size:44px;font-weight:900;color:#0a0f1e;">$1,497</span><span style="font-size:18px;color:#94a3b8;font-weight:600;">/mo+</span><br/>
-<span style="font-size:16px;font-weight:600;color:#64748b;">+ $2,500 setup and onboarding fee</span>
-<p data-id="132" style="font-size:13px;color:#64748b;margin-top:6px;">Dedicated team included.</p>
+<h3 style="font-size:30px;font-weight:800;color:#fff;margin-top:10px;">Growth</h3>
+<p style="font-size:14px;color:var(--white-70);margin-top:10px;line-height:1.65;flex-grow:1;">Everything in Presence plus social media and lead capture.</p>
+<div style="margin-top:20px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.08);">
+<span style="font-size:38px;font-weight:900;color:#fff;">US$249</span><span style="font-size:15px;color:var(--white-40);font-weight:600;">/month</span><br/>
+<span style="font-size:13px;font-weight:600;color:var(--white-40);margin-top:4px;display:block;">US$299 Enrollment Fee</span>
 </div>
-<p data-id="133" style="font-size:14px;font-weight:700;color:#0a0f1e;margin-top:28px;margin-bottom:14px;">Everything in Momentum™, plus:</p>
-<ul class="plan-feat" data-id="134" style="list-style:none;color:#334155;">
-<li data-id="135"><span class="check-green" data-id="136">✓</span> Full WhatsApp sales funnel</li>
-<li data-id="137"><span class="check-green" data-id="138">✓</span> Google Ads campaign setup</li>
-<li data-id="139"><span class="check-green" data-id="140">✓</span> Multi-search engine listing</li>
-<li data-id="141"><span class="check-green" data-id="142">✓</span> Monthly visibility and performance report</li>
-<li data-id="143"><span class="check-green" data-id="144">✓</span> Quarterly strategy review call</li>
-<li data-id="145"><span class="check-green" data-id="146">✓</span> Dedicated account manager</li>
-<li data-id="147"><span class="check-green" data-id="148">✓</span> SLA guarantee</li>
+<ul class="plan-feat" style="list-style:none;color:var(--white-70);margin-top:20px;">
+<li><span class="check-cyan">✓</span> Everything in Presence</li>
+<li><span class="check-cyan">✓</span> Four social media posts monthly</li>
+<li><span class="check-cyan">✓</span> Monthly profile optimization</li>
+<li><span class="check-cyan">✓</span> Lead capture forms</li>
+<li><span class="check-cyan">✓</span> Landing page support</li>
+<li><span class="check-cyan">✓</span> Business analytics dashboard</li>
+<li><span class="check-cyan">✓</span> Quarterly business review</li>
+<li><span class="check-cyan">✓</span> Enhanced support</li>
 </ul>
-<a data-id="149" href="checkout.html?plan=surge"><button class="btn-outline-card" data-id="150" style="margin-top:32px;">Get Started with Accelerate™</button></a>
+<a href="checkout.html?plan=growth"><button class="btn-orange-card" style="margin-top:24px;">Become a Member</button></a>
+</div>
+
+<!-- PRO -->
+<div class="plan-card fade-in" id="card-pro">
+<div style="font-size:12px;font-weight:700;color:#ff6535;letter-spacing:1px;text-transform:uppercase;">Grow</div>
+<h3 style="font-size:30px;font-weight:800;color:#0a0f1e;margin-top:10px;">Pro</h3>
+<p style="font-size:14px;color:#64748b;margin-top:10px;line-height:1.65;flex-grow:1;">Everything in Growth plus reputation management and strategy.</p>
+<div style="margin-top:20px;padding-top:20px;border-top:1px solid #f1f5f9;">
+<span style="font-size:38px;font-weight:900;color:#0a0f1e;">US$399</span><span style="font-size:15px;color:#94a3b8;font-weight:600;">/month</span><br/>
+<span style="font-size:13px;font-weight:600;color:#64748b;margin-top:4px;display:block;">US$399 Enrollment Fee</span>
+</div>
+<ul class="plan-feat" style="list-style:none;color:#334155;margin-top:20px;">
+<li><span class="check-green">✓</span> Everything in Growth</li>
+<li><span class="check-green">✓</span> Reputation management support</li>
+<li><span class="check-green">✓</span> Review generation toolkit</li>
+<li><span class="check-green">✓</span> Monthly strategy call</li>
+<li><span class="check-green">✓</span> Advanced reporting</li>
+<li><span class="check-green">✓</span> Priority turnaround</li>
+<li><span class="check-green">✓</span> Quarterly growth assessment</li>
+</ul>
+<a href="checkout.html?plan=pro"><button class="btn-outline-card" style="margin-top:24px;">Become a Member</button></a>
 </div>
 </div>
 <!-- Compare plans link -->
@@ -550,6 +558,152 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 <a data-id="177" href="health-score.html"><button class="btn-apply" data-id="178" style="background:var(--orange);color:#fff;font-size:16px;font-weight:700;padding:16px 40px;border-radius:100px;border:none;cursor:pointer;">Apply for a Package</button></a>
 </div>
 </section>
+
+<!-- Wave: Light to Dark -->
+<svg preserveAspectRatio="none" style="display:block;width:100%;height:80px;background:var(--light-bg);" viewBox="0 0 1440 80"><path d="M0,40 C360,0 1080,80 1440,40 L1440,0 L0,0 Z" fill="#0a0f1e"></path></svg>
+
+<!-- ADD-ON SERVICES -->
+<section id="addons" style="background:var(--navy);padding:100px 24px;">
+<div class="text-center fade-in" style="margin-bottom:60px;">
+<p style="font-size:13px;font-weight:700;color:#ff6535;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px;">Additional Revenue Services</p>
+<h2 style="font-size:clamp(24px,3vw,40px);font-weight:800;color:#fff;margin-bottom:16px;">Add-On Services</h2>
+<p style="font-size:17px;color:var(--white-70);max-width:580px;margin:0 auto;">Enhance your membership with individual services available as one-time add-ons.</p>
+</div>
+<div class="fade-in" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:960px;margin:0 auto;">
+
+<div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:28px 24px;display:flex;justify-content:space-between;align-items:center;">
+<div>
+<div style="font-size:16px;font-weight:700;color:#fff;">Google Business Profile Setup</div>
+<div style="font-size:13px;color:var(--white-70);margin-top:4px;">Verified and optimized for local search</div>
+</div>
+<div style="font-size:22px;font-weight:900;color:var(--cyan);white-space:nowrap;margin-left:16px;">US$199</div>
+</div>
+
+<div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:28px 24px;display:flex;justify-content:space-between;align-items:center;">
+<div>
+<div style="font-size:16px;font-weight:700;color:#fff;">LinkedIn Business Page Setup</div>
+<div style="font-size:13px;color:var(--white-70);margin-top:4px;">Professional company profile and branding</div>
+</div>
+<div style="font-size:22px;font-weight:900;color:var(--cyan);white-space:nowrap;margin-left:16px;">US$149</div>
+</div>
+
+<div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:28px 24px;display:flex;justify-content:space-between;align-items:center;">
+<div>
+<div style="font-size:16px;font-weight:700;color:#fff;">WhatsApp Business Setup</div>
+<div style="font-size:13px;color:var(--white-70);margin-top:4px;">Profile, catalog, and quick replies</div>
+</div>
+<div style="font-size:22px;font-weight:900;color:var(--cyan);white-space:nowrap;margin-left:16px;">US$99</div>
+</div>
+
+<div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:28px 24px;display:flex;justify-content:space-between;align-items:center;">
+<div>
+<div style="font-size:16px;font-weight:700;color:#fff;">Business Email Setup</div>
+<div style="font-size:13px;color:var(--white-70);margin-top:4px;">Professional email with your domain</div>
+</div>
+<div style="font-size:22px;font-weight:900;color:var(--cyan);white-space:nowrap;margin-left:16px;">US$99</div>
+</div>
+
+<div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:28px 24px;display:flex;justify-content:space-between;align-items:center;">
+<div>
+<div style="font-size:16px;font-weight:700;color:#fff;">Review Growth Toolkit</div>
+<div style="font-size:13px;color:var(--white-70);margin-top:4px;">Strategy and tools to build 5-star reviews</div>
+</div>
+<div style="font-size:22px;font-weight:900;color:var(--cyan);white-space:nowrap;margin-left:16px;">US$149</div>
+</div>
+
+<div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:28px 24px;display:flex;justify-content:space-between;align-items:center;">
+<div>
+<div style="font-size:16px;font-weight:700;color:#fff;">Additional Landing Page</div>
+<div style="font-size:13px;color:var(--white-70);margin-top:4px;">Conversion-focused page for campaigns</div>
+</div>
+<div style="font-size:22px;font-weight:900;color:var(--cyan);white-space:nowrap;margin-left:16px;">US$149</div>
+</div>
+
+<div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:28px 24px;display:flex;justify-content:space-between;align-items:center;grid-column:1/-1;max-width:400px;margin:0 auto;width:100%;">
+<div>
+<div style="font-size:16px;font-weight:700;color:#fff;">Additional Website Update Requests</div>
+<div style="font-size:13px;color:var(--white-70);margin-top:4px;">Beyond your plan's included updates</div>
+</div>
+<div style="font-size:22px;font-weight:900;color:var(--cyan);white-space:nowrap;margin-left:16px;">US$49 each</div>
+</div>
+
+</div>
+<div style="text-align:center;margin-top:40px;">
+<a href="https://calendly.com/hello-bluwavgrowth/30min" rel="noopener" target="_blank" style="display:inline-flex;align-items:center;gap:8px;color:#00d4ff;font-size:15px;font-weight:700;text-decoration:none;border:1.5px solid rgba(0,212,255,0.3);padding:12px 28px;border-radius:100px;transition:all .2s;">Book a consultation to discuss add-ons</a>
+</div>
+</section>
+
+<!-- Wave: Dark to Light -->
+<div style="background:var(--navy);line-height:0;font-size:0;display:block;margin:0;padding:0;"><svg preserveAspectRatio="none" style="display:block;width:100%;height:80px;margin:0;padding:0;vertical-align:bottom;" viewBox="0 0 1440 80"><path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#f8fafc"></path></svg></div>
+
+<!-- STRATIIXONE -->
+<section id="stratiixone" style="background:var(--light-bg);padding:100px 24px;">
+<div class="text-center fade-in" style="margin-bottom:60px;">
+<p style="font-size:13px;font-weight:700;color:#0369a1;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px;">Future Product</p>
+<h2 style="font-size:clamp(24px,3vw,40px);font-weight:800;color:#0a0f1e;margin-bottom:16px;">StratiixOne</h2>
+<p style="font-size:17px;color:#475569;max-width:600px;margin:0 auto 12px;">A separate business management platform available to BluWav clients as they grow.</p>
+<p style="font-size:14px;color:#94a3b8;max-width:560px;margin:0 auto;">StratiixOne is not part of any BluWav membership package. It is a separate product with its own 14-day free trial.</p>
+</div>
+<div class="fade-in" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:900px;margin:0 auto;">
+
+<!-- Starter -->
+<div class="plan-card" style="border:1px solid #e2e8f0;">
+<div style="font-size:12px;font-weight:700;color:#64748b;letter-spacing:1px;text-transform:uppercase;">Starter</div>
+<h3 style="font-size:28px;font-weight:800;color:#0a0f1e;margin-top:8px;">Starter</h3>
+<div style="margin-top:16px;padding-top:16px;border-top:1px solid #f1f5f9;">
+<span style="font-size:36px;font-weight:900;color:#0a0f1e;">$59</span><span style="font-size:15px;color:#94a3b8;font-weight:600;">/month</span>
+</div>
+<ul class="plan-feat" style="list-style:none;color:#334155;margin-top:20px;">
+<li><span class="check-green">✓</span> Contacts</li>
+<li><span class="check-green">✓</span> Leads</li>
+<li><span class="check-green">✓</span> Opportunities</li>
+<li><span class="check-green">✓</span> Tasks</li>
+<li><span class="check-green">✓</span> Dashboard</li>
+</ul>
+<a href="https://stratiixone.com" rel="noopener" target="_blank"><button class="btn-outline-card" style="margin-top:24px;">Start Free Trial</button></a>
+</div>
+
+<!-- Professional -->
+<div class="plan-card plan-card-dark" style="">
+<div style="display:flex;justify-content:space-between;align-items:center;">
+<div style="font-size:12px;font-weight:700;color:var(--cyan);letter-spacing:1px;text-transform:uppercase;">Professional</div>
+<span style="background:var(--cyan);color:var(--navy);font-size:11px;font-weight:700;padding:4px 12px;border-radius:100px;">Popular</span>
+</div>
+<h3 style="font-size:28px;font-weight:800;color:#fff;margin-top:8px;">Professional</h3>
+<div style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.08);">
+<span style="font-size:36px;font-weight:900;color:#fff;">$99</span><span style="font-size:15px;color:var(--white-40);font-weight:600;">/month</span>
+</div>
+<p style="font-size:13px;color:var(--white-70);margin-top:8px;">Everything in Starter plus:</p>
+<ul class="plan-feat" style="list-style:none;color:var(--white-70);margin-top:12px;">
+<li><span class="check-cyan">✓</span> Forms</li>
+<li><span class="check-cyan">✓</span> Automation</li>
+<li><span class="check-cyan">✓</span> Reporting</li>
+<li><span class="check-cyan">✓</span> Team collaboration</li>
+</ul>
+<a href="https://stratiixone.com" rel="noopener" target="_blank"><button class="btn-orange-card" style="margin-top:24px;">Start Free Trial</button></a>
+</div>
+
+<!-- Founder -->
+<div class="plan-card" style="border:1px solid #e2e8f0;">
+<div style="font-size:12px;font-weight:700;color:#64748b;letter-spacing:1px;text-transform:uppercase;">Founder</div>
+<h3 style="font-size:28px;font-weight:800;color:#0a0f1e;margin-top:8px;">Founder</h3>
+<div style="margin-top:16px;padding-top:16px;border-top:1px solid #f1f5f9;">
+<span style="font-size:36px;font-weight:900;color:#0a0f1e;">$199</span><span style="font-size:15px;color:#94a3b8;font-weight:600;">/month</span>
+</div>
+<p style="font-size:13px;color:#64748b;margin-top:8px;">Everything in Professional plus:</p>
+<ul class="plan-feat" style="list-style:none;color:#334155;margin-top:12px;">
+<li><span class="check-green">✓</span> Executive dashboards</li>
+<li><span class="check-green">✓</span> KPI tracking</li>
+<li><span class="check-green">✓</span> AI insights</li>
+<li><span class="check-green">✓</span> Strategic planning templates</li>
+</ul>
+<a href="https://stratiixone.com" rel="noopener" target="_blank"><button class="btn-outline-card" style="margin-top:24px;">Start Free Trial</button></a>
+</div>
+
+</div>
+<p style="text-align:center;margin-top:32px;font-size:13px;color:#94a3b8;">14-day free trial available. StratiixOne is a separate product from BluWav Growth memberships.</p>
+</section>
+
 <!-- ========== SECTION 5: HOW TO GET STARTED ========== -->
 <!-- Wave: Light to Dark -->
 <div style="background:var(--navy);line-height:0;font-size:0;display:block;margin:0;padding:0;"><svg data-id="295" preserveAspectRatio="none" style="display:block;width:100%;height:80px;margin:0;padding:0;vertical-align:bottom;" viewBox="0 0 1440 80"><path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" data-id="296" fill="#f8fafc"></path></svg></div>
