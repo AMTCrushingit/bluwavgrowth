@@ -27,26 +27,11 @@
 
 ## Pending Changes
 
-### 🔸 CHANGE-002 — sales-agent-agreement.html updates
-- **Date**: 2026-09-22
-- **Branch**: staging
-- **Files Changed**: `sales-agent-agreement.html`
-- **Description**:
-  - Nav bar re-added to the sales agent agreement page
-  - Pricing update: Enterprise Plan monthly `$499 → $399/mo`, annual `$4,990 → $3,990/yr`
-  - Pricing update: Agency Edition setup fee `$699 → $499`
-  - New clause added: "No commission is payable on setup or onboarding fees" (Section 4)
-  - New exclusion added: "Setup or onboarding fees on any CRM package" (Section 6)
-- **Commit (staging)**: `a922acc`
-- **Status**: `[ ] Staging` — ⏳ Awaiting your approval
-- **Verified in staging**: ✅ Confirmed diff reviewed 2026-09-22
-- **Action needed**: Reply "approve CHANGE-002" to merge to main
+_No pending changes. Staging and main are in sync._
 
 ---
 
-## Completed Changes
 
-### ✅ CHANGE-001 — signup.html + login.html update
 - **Date**: 2026-09-22
 - **Branch**: staging
 - **Files Changed**: `signup.html` (new), `login.html` (link updates)
