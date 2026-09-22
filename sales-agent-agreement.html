@@ -247,6 +247,23 @@ if(sessionStorage.getItem('bwAgentAuth')==='1'){
   });
 }
 </script>
+<nav class="bw-nav" id="bwNav">
+<a class="bw-nav-logo" href="index.html" style="text-decoration:none;display:flex;flex-direction:column;align-items:flex-start;line-height:1;flex-shrink:0;">
+<div style="font-family:'Segoe UI',system-ui,sans-serif;font-size:22px;font-weight:700;line-height:1;letter-spacing:-0.2px;"><span style="color:#ffffff;">Blu</span><span style="color:#00C8E0;">Wav</span></div>
+</a>
+<div class="bw-nav-links">
+<a class="bw-nav-link" href="index.html#pillars">What We Do</a>
+<a class="bw-nav-link" href="index.html#growth-system">How It Works</a>
+<a class="bw-nav-link" href="pricing.html#plans-k1l2">Pricing</a>
+<a class="bw-nav-link" href="case-study-aadek.html">Case Studies</a>
+<a class="bw-nav-link" href="the-wave.html">The Wave</a>
+<a class="bw-nav-btn-outline" href="https://bluwavcrm.com/login.html" rel="noopener" target="_blank">Client Login</a>
+<a class="bw-nav-btn-cta" href="health-score.html">Free Health Score</a>
+</div>
+<button aria-label="Menu" class="bw-hamburger" id="bwHamburger" onclick="bwToggleNav()">
+<span></span><span></span><span></span>
+</button>
+</nav>
 <div class="bw-mob-nav" id="bwMobNav">
 <a class="bw-mob-link" href="index.html#pillars" onclick="bwCloseNav()">🌐 What We Do</a>
 <a class="bw-mob-link" href="index.html#growth-system" onclick="bwCloseNav()">⚡ How It Works</a>
@@ -345,8 +362,8 @@ if(sessionStorage.getItem('bwAgentAuth')==='1'){
 <tr><td><strong>Foundation Plan</strong></td><td>$99</td><td>$59/mo</td><td>$590/yr</td><td>$25</td><td>$12/mo x 3</td></tr>
 <tr><td><strong>Growth Plan</strong></td><td>$199</td><td>$99/mo</td><td>$990/yr</td><td>$50</td><td>$20/mo x 3</td></tr>
 <tr><td><strong>Founder Plan</strong></td><td>$299</td><td>$199/mo</td><td>$1,990/yr</td><td>$75</td><td>$40/mo x 3</td></tr>
-<tr><td><strong>Enterprise Plan</strong></td><td>$599</td><td>$499/mo</td><td>$4,990/yr</td><td>$150</td><td>$80/mo x 3</td></tr>
-<tr><td><strong>Agency Edition</strong></td><td>$699</td><td>$697/mo</td><td>$6,970/yr</td><td>$250</td><td>$180/mo x 3</td></tr>
+<tr><td><strong>Enterprise Plan</strong></td><td>$599</td><td>$399/mo</td><td>$3,990/yr</td><td>$150</td><td>$80/mo x 3</td></tr>
+<tr><td><strong>Agency Edition</strong></td><td>$499</td><td>$697/mo</td><td>$6,970/yr</td><td>$250</td><td>$180/mo x 3</td></tr>
 </tbody>
 </table>
 <div class="highlight-box">Annual Plan Commission: A flat rate of 13% applies to all paid annual CRM plans. This is calculated on the total annual payment received and paid as a one-time commission upon clearance of the client's annual payment.</div>
@@ -406,6 +423,7 @@ if(sessionStorage.getItem('bwAgentAuth')==='1'){
 <li>Payment will be made via bank transfer, PayPal, or WiPay as agreed.</li>
 <li>All commissions are paid in USD.</li>
 <li>The Sales Agent is responsible for any applicable taxes on commission income.</li>
+<li>No commission is payable on setup or onboarding fees.</li>
 </ul>
 <div class="section-num">5. Sales Agent Responsibilities</div>
 <p>The Sales Agent agrees to:</p>
@@ -424,6 +442,7 @@ if(sessionStorage.getItem('bwAgentAuth')==='1'){
 <li>Existing clients upgrading without Sales Agent involvement.</li>
 <li>Government or institutional contracts negotiated directly by BluWav Growth.</li>
 <li>Clients sourced directly by BluWav Growth without Sales Agent involvement.</li>
+<li>Setup or onboarding fees on any CRM package.</li>
 <li>CRM recurring payments after the first 3 months.</li>
 </ul>
 <div class="section-num">7. Exclusivity and Territory</div>
