@@ -954,10 +954,10 @@ a[style*="border-radius:8px"] {
   </div>
 </div>
 
-<!-- RIGHT: Monitor with real client website -->
+<!-- RIGHT: Client website carousel in monitor -->
 <div style="position:relative;display:flex;flex-direction:column;align-items:center;" id="hero-visual">
 
-  <!-- Monitor screen -->
+  <!-- Monitor frame -->
   <div style="width:100%;background:#111827;border-radius:10px 10px 0 0;border:3px solid #1f2937;box-shadow:0 24px 60px rgba(0,0,0,0.6),0 0 0 1px rgba(255,255,255,0.04);overflow:hidden;">
     <!-- Browser chrome -->
     <div style="height:30px;background:#0f172a;display:flex;align-items:center;padding:0 12px;gap:5px;border-bottom:1px solid rgba(255,255,255,0.06);">
@@ -965,28 +965,76 @@ a[style*="border-radius:8px"] {
       <div style="width:8px;height:8px;border-radius:50%;background:#f59e0b;opacity:0.8;"></div>
       <div style="width:8px;height:8px;border-radius:50%;background:#22c55e;opacity:0.8;"></div>
       <div style="flex:1;height:16px;background:rgba(255,255,255,0.05);border-radius:3px;margin:0 8px;display:flex;align-items:center;padding:0 8px;">
-        <span style="font-size:9px;color:rgba(255,255,255,0.25);font-family:Poppins,sans-serif;">&#128274; balancedasdesigned.com</span>
+        <span id="bwCarouselUrl" style="font-size:9px;color:rgba(255,255,255,0.3);font-family:Poppins,sans-serif;">balancedasdesigned.com</span>
       </div>
     </div>
-    <!-- Real screenshot -->
-    <img src="balanced-as-designed-screenshot.png"
-         alt="Balanced as Designed - real BluWav client website"
-         style="width:100%;display:block;height:300px;object-fit:cover;object-position:top center;"/>
+    <!-- Carousel viewport -->
+    <div style="position:relative;overflow:hidden;height:300px;">
+      <div id="bwCarouselTrack" style="display:flex;height:100%;transition:transform 0.6s cubic-bezier(0.22,1,0.36,1);">
+        <img src="hero-slide-balanced.jpg" alt="Balanced as Designed - BluWav client" style="width:100%;height:300px;object-fit:cover;object-position:top center;flex-shrink:0;"/>
+        <img src="hero-slide-caribbean-flavors.jpg" alt="Traditional Caribbean Flavors - BluWav client" style="width:100%;height:300px;object-fit:cover;object-position:top center;flex-shrink:0;"/>
+        <img src="hero-slide-topville.jpg" alt="Topville Jamaican Cuisine - BluWav client" style="width:100%;height:300px;object-fit:cover;object-position:top center;flex-shrink:0;"/>
+        <img src="hero-slide-credii.jpg" alt="Credii - BluWav client" style="width:100%;height:300px;object-fit:cover;object-position:top center;flex-shrink:0;"/>
+      </div>
+      <!-- Dots -->
+      <div style="position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:10;">
+        <div class="bw-dot" onclick="bwGoSlide(0)" style="width:7px;height:7px;border-radius:50%;background:#fff;cursor:pointer;opacity:1;transition:opacity .3s;"></div>
+        <div class="bw-dot" onclick="bwGoSlide(1)" style="width:7px;height:7px;border-radius:50%;background:#fff;cursor:pointer;opacity:0.35;transition:opacity .3s;"></div>
+        <div class="bw-dot" onclick="bwGoSlide(2)" style="width:7px;height:7px;border-radius:50%;background:#fff;cursor:pointer;opacity:0.35;transition:opacity .3s;"></div>
+        <div class="bw-dot" onclick="bwGoSlide(3)" style="width:7px;height:7px;border-radius:50%;background:#fff;cursor:pointer;opacity:0.35;transition:opacity .3s;"></div>
+      </div>
+    </div>
   </div>
 
   <!-- Monitor stand -->
   <div style="width:50px;height:18px;background:#1f2937;border-left:3px solid #374151;border-right:3px solid #374151;"></div>
   <div style="width:120px;height:8px;background:#1f2937;border:3px solid #374151;border-radius:0 0 6px 6px;"></div>
 
-  <!-- Client label -->
+  <!-- Label -->
   <div style="margin-top:14px;display:inline-flex;align-items:center;gap:7px;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.25);border-radius:6px;padding:6px 14px;">
     <div style="width:6px;height:6px;border-radius:50%;background:#22c55e;"></div>
-    <span style="font-size:11px;font-weight:600;color:#22c55e;font-family:Poppins,sans-serif;">Real client - Balanced as Designed, Nassau</span>
+    <span id="bwCarouselLabel" style="font-size:11px;font-weight:600;color:#22c55e;font-family:Poppins,sans-serif;">Real client websites built by BluWav</span>
   </div>
 
 </div>
 
-</div>
+<script>
+(function(){
+  var slides = [
+    { url: 'balancedasdesigned.com', label: 'Balanced as Designed, Nassau' },
+    { url: 'caribbeanflavors.com', label: 'Traditional Caribbean Flavors, Nassau' },
+    { url: 'topvillejamaicanfood.com', label: 'Topville Jamaican Cuisine, Ontario' },
+    { url: 'credii.org', label: 'Credii, Caribbean' }
+  ];
+  var current = 0;
+  var track = document.getElementById('bwCarouselTrack');
+  var dots = document.querySelectorAll('.bw-dot');
+  var urlEl = document.getElementById('bwCarouselUrl');
+  var labelEl = document.getElementById('bwCarouselLabel');
+  var total = slides.length;
+  var timer;
+
+  function bwGoSlide(n) {
+    current = n;
+    if(track) track.style.transform = 'translateX(-' + (current * 100) + '%)';
+    dots.forEach(function(d, i) { d.style.opacity = i === current ? '1' : '0.35'; });
+    if(urlEl) urlEl.textContent = slides[current].url;
+    if(labelEl) labelEl.textContent = slides[current].label;
+  }
+  window.bwGoSlide = bwGoSlide;
+
+  function bwNext() { bwGoSlide((current + 1) % total); }
+  function startTimer() { timer = setInterval(bwNext, 3500); }
+  function stopTimer() { clearInterval(timer); }
+  startTimer();
+
+  var visual = document.getElementById('hero-visual');
+  if(visual) {
+    visual.addEventListener('mouseenter', stopTimer);
+    visual.addEventListener('mouseleave', startTimer);
+  }
+})();
+</script>
 
 <style>
 @media(max-width:900px){
