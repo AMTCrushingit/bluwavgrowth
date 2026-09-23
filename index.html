@@ -972,9 +972,10 @@ a[style*="border-radius:8px"] {
     <div style="position:relative;overflow:hidden;height:300px;">
       <div id="bwCarouselTrack" style="display:flex;height:100%;transition:transform 0.6s cubic-bezier(0.22,1,0.36,1);">
         <img src="hero-slide-balanced.jpg" alt="Balanced as Designed - BluWav client" style="width:100%;height:300px;object-fit:cover;object-position:top center;flex-shrink:0;"/>
-        <img src="hero-slide-caribbean-flavors.jpg" alt="Traditional Caribbean Flavors - BluWav client" style="width:100%;height:300px;object-fit:cover;object-position:top center;flex-shrink:0;"/>
+        <img src="hero-slide-rivva.jpg" alt="Rivva - BluWav client, Trinidad" style="width:100%;height:300px;object-fit:cover;object-position:top center;flex-shrink:0;"/>
         <img src="hero-slide-topville.jpg" alt="Topville Jamaican Cuisine - BluWav client" style="width:100%;height:300px;object-fit:cover;object-position:top center;flex-shrink:0;"/>
         <img src="hero-slide-credii.jpg" alt="Credii - BluWav client" style="width:100%;height:300px;object-fit:cover;object-position:top center;flex-shrink:0;"/>
+        <img src="hero-slide-forwardly.jpg" alt="Forwardly - BluWav client, Ontario" style="width:100%;height:300px;object-fit:cover;object-position:top center;flex-shrink:0;"/>
       </div>
       <!-- Dots -->
       <div style="position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:10;">
@@ -982,6 +983,7 @@ a[style*="border-radius:8px"] {
         <div class="bw-dot" onclick="bwGoSlide(1)" style="width:7px;height:7px;border-radius:50%;background:#fff;cursor:pointer;opacity:0.35;transition:opacity .3s;"></div>
         <div class="bw-dot" onclick="bwGoSlide(2)" style="width:7px;height:7px;border-radius:50%;background:#fff;cursor:pointer;opacity:0.35;transition:opacity .3s;"></div>
         <div class="bw-dot" onclick="bwGoSlide(3)" style="width:7px;height:7px;border-radius:50%;background:#fff;cursor:pointer;opacity:0.35;transition:opacity .3s;"></div>
+        <div class="bw-dot" onclick="bwGoSlide(4)" style="width:7px;height:7px;border-radius:50%;background:#fff;cursor:pointer;opacity:0.35;transition:opacity .3s;"></div>
       </div>
     </div>
   </div>
@@ -1002,9 +1004,10 @@ a[style*="border-radius:8px"] {
 (function(){
   var slides = [
     { url: 'balancedasdesigned.com', label: 'Balanced as Designed, Nassau' },
-    { url: 'caribbeanflavors.com', label: 'Traditional Caribbean Flavors, Nassau' },
+    { url: 'rivva.co', label: 'Rivva, Trinidad' },
     { url: 'topvillejamaicanfood.com', label: 'Topville Jamaican Cuisine, Ontario' },
-    { url: 'credii.org', label: 'Credii, Caribbean' }
+    { url: 'credii.org', label: 'Credii, Caribbean' },
+    { url: 'forwardly.co', label: 'Forwardly, Ontario' }
   ];
   var current = 0;
   var track = document.getElementById('bwCarouselTrack');
