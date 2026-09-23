@@ -134,8 +134,17 @@
         content: '';
         position: absolute;
         inset: 0;
-        background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(0,212,255,0.12) 0%, transparent 70%);
+        background:
+          radial-gradient(ellipse 60% 50% at 20% 50%, rgba(0,200,224,0.12) 0%, transparent 60%),
+          radial-gradient(ellipse 50% 60% at 80% 20%, rgba(255,101,53,0.08) 0%, transparent 60%),
+          radial-gradient(ellipse 40% 40% at 60% 80%, rgba(0,200,224,0.06) 0%, transparent 50%);
         pointer-events: none;
+        animation: bwMeshShift 12s ease-in-out infinite alternate;
+      }
+      @keyframes bwMeshShift {
+        0% { opacity: 0.8; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.05); }
+        100% { opacity: 0.9; transform: scale(1) translateY(-10px); }
       }
 
       .hero-orb {
@@ -550,7 +559,7 @@
 .bw-nav-link.active::after{width:100%;}
 .bw-nav-btn-outline{font-size:13px;font-weight:600;color:rgba(255,255,255,0.7);padding:8px 16px;border-radius:8px;border:1px solid rgba(255,255,255,0.15);text-decoration:none;transition:all .2s;}
 .bw-nav-btn-outline:hover{color:#fff;border-color:rgba(255,255,255,0.4);}
-.bw-nav-btn-cta{background:#ff6535;color:#fff;font-size:13px;font-weight:700;padding:10px 22px;border-radius:100px;text-decoration:none;box-shadow:0 4px 16px rgba(255,101,53,0.35);transition:all .2s;white-space:nowrap;}
+.bw-nav-btn-cta{background:#ff6535;color:#fff;font-size:13px;font-weight:700;padding:10px 22px;border-radius:8px;text-decoration:none;box-shadow:0 4px 16px rgba(255,101,53,0.35);transition:all .2s;white-space:nowrap;}
 .bw-nav-btn-cta:hover{filter:brightness(1.1);transform:translateY(-1px);}
 .bw-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px;margin:-8px;}
 .bw-hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all .3s ease;}
@@ -774,6 +783,90 @@ body { animation: bwPageIn 0.4s ease; }
   .bw-device { margin: 0 auto; max-width: 320px; }
 }
 
+
+/* ── C7-style CTA buttons ── */
+.bw-cta-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ff6535;
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 14px 28px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: "Inter", sans-serif;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 4px 16px rgba(255,101,53,0.3);
+  position: relative;
+  overflow: hidden;
+}
+.bw-cta-primary::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0);
+  transition: background 0.2s;
+}
+.bw-cta-primary:hover {
+  background: #e8552a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255,101,53,0.45);
+}
+.bw-cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 13px 28px;
+  border-radius: 8px;
+  border: 1.5px solid rgba(255,255,255,0.3);
+  cursor: pointer;
+  text-decoration: none;
+  font-family: "Inter", sans-serif;
+  transition: border-color 0.2s, background 0.2s, transform 0.15s;
+}
+.bw-cta-secondary:hover {
+  border-color: rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.06);
+  transform: translateY(-2px);
+}
+/* Update all existing btn-orange to rectangular */
+.btn-orange {
+  border-radius: 8px !important;
+  padding: 14px 28px !important;
+}
+.btn-ghost {
+  border-radius: 8px !important;
+  padding: 13px 28px !important;
+}
+.btn-orange-full {
+  border-radius: 8px !important;
+}
+.btn-outline-white {
+  border-radius: 8px !important;
+}
+.btn-outline-card {
+  border-radius: 8px !important;
+}
+.btn-orange-card {
+  border-radius: 8px !important;
+}
+.bw-nav-btn-cta {
+  border-radius: 6px !important;
+  padding: 9px 18px !important;
+}
+/* Remove pill shape from all inline CTAs */
+a[style*="border-radius:8px"] {
+  border-radius: 8px !important;
+}
+
 /* Font display swap for CLS prevention */
 @font-face{font-display:swap;}
 </style>
@@ -815,8 +908,6 @@ body { animation: bwPageIn 0.4s ease; }
 <!-- ═══════════════ HERO ═══════════════ -->
 <section class="hero-section" data-id="35" id="hero">
 
-<!-- Floating particles -->
-<div id="bwParticles" aria-hidden="true" style="position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1;"></div>
 <div class="hero-orb" data-id="36"></div>
 <div class="hero-orb" data-id="37"></div>
 <div class="hero-orb" data-id="38"></div>
@@ -825,7 +916,7 @@ body { animation: bwPageIn 0.4s ease; }
 <div class="hero-orb" data-id="41"></div>
 <div class="relative z-10 text-center px-5 py-32 md:py-16" data-id="42" style="max-width:820px;margin:0 auto;padding-top:40px;">
 <div class="pill-badge mx-auto fade-in" data-id="43" id="hero-pill-8a9b">🌊 Trusted Digital Growth Partner for Caribbean Businesses</div>
-<h1 data-id="44" id="hero-h1-c0d1" style="font-size:clamp(52px,8vw,96px);font-weight:900;line-height:1.05;color:var(--white);letter-spacing:-2px;margin-top:28px;text-shadow:0 0 80px rgba(0,200,224,0.15);"><span id="bw-typewriter"></span><span class="bw-cursor">|</span></h1>
+<h1 data-id="44" id="hero-h1-c0d1" style="font-size:clamp(36px,5vw,64px);font-weight:800;line-height:1.1;color:var(--white);letter-spacing:-1.5px;margin-top:20px;"><span id="bw-typewriter"></span><span class="bw-cursor">|</span></h1>
 <p class="fade-in" data-id="46" id="hero-body-4g5h" style="font-size:17px;color:var(--white-70);max-width:620px;margin:20px auto 0;line-height:1.7;">
           Digital growth solutions designed for Caribbean small and medium-sized businesses.<br/><br/>BluWav helps businesses build a professional online presence, improve visibility, and attract more customers without large upfront website fees.<br/><br/><strong>Professional Website. Business Email. Online Visibility. Ongoing Support.</strong>
 </p>
@@ -977,7 +1068,7 @@ body { animation: bwPageIn 0.4s ease; }
         </p>
 <div style="display:flex;flex-wrap:wrap;gap:14px;">
 <a class="btn-orange" href="#review-form" style="font-size:16px;padding:16px 36px;">Get My Free Digital Presence Review</a>
-<a href="pricing.html#plans-k1l2" style="display:inline-flex;align-items:center;gap:8px;color:#0a0f1e;font-size:15px;font-weight:700;text-decoration:none;border:1.5px solid rgba(10,15,30,0.2);padding:16px 28px;border-radius:100px;transition:all .2s;">View Membership Plans</a>
+<a href="pricing.html#plans-k1l2" style="display:inline-flex;align-items:center;gap:8px;color:#0a0f1e;font-size:15px;font-weight:700;text-decoration:none;border:1.5px solid rgba(10,15,30,0.2);padding:16px 28px;border-radius:8px;transition:all .2s;">View Membership Plans</a>
 </div>
 </div>
 <!-- RIGHT: What's Included -->
@@ -1108,7 +1199,7 @@ body { animation: bwPageIn 0.4s ease; }
 <div class="pricing-card-popular fade-in" data-id="176" id="pricing-growth">
 <div style="display:flex;justify-content:space-between;align-items:center;">
 <div style="font-size:12px;font-weight:700;color:var(--cyan);letter-spacing:1px;text-transform:uppercase;">Get Chosen</div>
-<span style="background:var(--cyan);color:var(--navy);font-size:11px;font-weight:700;padding:4px 12px;border-radius:100px;">Most Popular</span>
+<span style="background:var(--cyan);color:var(--navy);font-size:11px;font-weight:700;padding:4px 12px;border-radius:8px;">Most Popular</span>
 </div>
 <div style="font-size:30px;font-weight:800;color:var(--white);margin-top:8px;">Growth</div>
 <p style="font-size:14px;color:var(--white-70);margin-top:12px;line-height:1.65;flex-grow:1;">
@@ -1157,7 +1248,7 @@ body { animation: bwPageIn 0.4s ease; }
 </div>
 <div class="fade-in" style="text-align:center;margin-top:40px;">
 <p style="font-size:15px;color:rgba(255,255,255,0.5);margin-bottom:16px;">Not sure which plan is right for you?</p>
-<a href="https://calendly.com/hello-bluwavgrowth/30min" rel="noopener" target="_blank" onmouseout="this.style.borderColor='rgba(0,212,255,0.3)'" onmouseover="this.style.borderColor='rgba(0,212,255,0.7)'" style="display:inline-flex;align-items:center;gap:8px;color:#00d4ff;font-size:15px;font-weight:700;text-decoration:none;border:1.5px solid rgba(0,212,255,0.3);padding:12px 28px;border-radius:100px;transition:all .2s;">Get My Free Digital Presence Review</a>
+<a href="https://calendly.com/hello-bluwavgrowth/30min" rel="noopener" target="_blank" onmouseout="this.style.borderColor='rgba(0,212,255,0.3)'" onmouseover="this.style.borderColor='rgba(0,212,255,0.7)'" style="display:inline-flex;align-items:center;gap:8px;color:#00d4ff;font-size:15px;font-weight:700;text-decoration:none;border:1.5px solid rgba(0,212,255,0.3);padding:12px 28px;border-radius:8px;transition:all .2s;">Get My Free Digital Presence Review</a>
 </div>
 </section>
 <div style="background:var(--navy);line-height:0;font-size:0;display:block;margin:0;padding:0;"><svg preserveAspectRatio="none" style="display:block;width:100%;height:80px;margin:0;padding:0;vertical-align:bottom;" viewBox="0 0 1440 80"><path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#f8fafc"></path></svg></div>
@@ -1207,13 +1298,13 @@ body { animation: bwPageIn 0.4s ease; }
 <h2 style="font-size:clamp(28px,4vw,52px);font-weight:900;color:#fff;line-height:1.1;margin-bottom:20px;">
           Smart tech.<br/>Real human support.
         </h2>
-<div style="display:inline-flex;align-items:center;gap:8px;background:rgba(0,212,255,0.15);border:1px solid rgba(0,212,255,0.35);border-radius:100px;padding:8px 18px;">
+<div style="display:inline-flex;align-items:center;gap:8px;background:rgba(0,212,255,0.15);border:1px solid rgba(0,212,255,0.35);border-radius:8px;padding:8px 18px;">
 <span style="font-size:16px;">⚡</span>
 <span style="font-size:13px;font-weight:700;color:#00d4ff;letter-spacing:0.5px;">AI-assisted automation</span>
 </div>
 <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:28px;">
 <a class="btn-orange" href="#review-form" style="font-size:15px;padding:14px 28px;">Get My Free Digital Presence Review</a>
-<a href="about.html" onmouseout="this.style.borderColor='rgba(255,255,255,0.3)'" onmouseover="this.style.borderColor='rgba(0,212,255,0.5)'" style="display:inline-flex;align-items:center;gap:8px;color:#fff;font-size:15px;font-weight:700;text-decoration:none;border:1.5px solid rgba(255,255,255,0.3);padding:14px 24px;border-radius:100px;transition:all .2s;">Our Story →</a>
+<a href="about.html" onmouseout="this.style.borderColor='rgba(255,255,255,0.3)'" onmouseover="this.style.borderColor='rgba(0,212,255,0.5)'" style="display:inline-flex;align-items:center;gap:8px;color:#fff;font-size:15px;font-weight:700;text-decoration:none;border:1.5px solid rgba(255,255,255,0.3);padding:14px 24px;border-radius:8px;transition:all .2s;">Our Story →</a>
 </div>
 </div>
 </div>
@@ -1417,7 +1508,7 @@ body { animation: bwPageIn 0.4s ease; }
 
 <div class="bw-reveal" style="text-align:center;">
 <p style="font-size:15px;color:#64748b;margin-bottom:20px;">Website styles shown are illustrative. Your website is personalized with your branding, content, and business information.</p>
-<a href="#review-form" style="display:inline-flex;align-items:center;gap:8px;background:#0a0f1e;color:#fff;font-size:15px;font-weight:700;padding:14px 32px;border-radius:100px;text-decoration:none;transition:all .2s;" onmouseover="this.style.background='#ff6535'" onmouseout="this.style.background='#0a0f1e'">Get My Free Digital Presence Review &#8594;</a>
+<a href="#review-form" style="display:inline-flex;align-items:center;gap:8px;background:#0a0f1e;color:#fff;font-size:15px;font-weight:700;padding:14px 32px;border-radius:8px;text-decoration:none;transition:all .2s;" onmouseover="this.style.background='#ff6535'" onmouseout="this.style.background='#0a0f1e'">Get My Free Digital Presence Review &#8594;</a>
 </div>
 </div>
 </section>
@@ -1536,7 +1627,7 @@ body { animation: bwPageIn 0.4s ease; }
 <div style="background:#fff;border-radius:12px;padding:24px 20px;border:1px solid rgba(10,15,30,0.08);text-align:center;"><div style="font-size:28px;margin-bottom:10px;">&#128640;</div><div style="font-size:14px;font-weight:600;color:#0a0f1e;">Startups and New Businesses</div></div>
 </div>
 <div class="fade-in" style="text-align:center;margin-top:40px;">
-<a href="#review-form" style="display:inline-flex;align-items:center;gap:8px;color:#0369a1;font-size:15px;font-weight:700;text-decoration:none;border:1.5px solid rgba(3,105,161,0.3);padding:12px 28px;border-radius:100px;transition:all .2s;">Get My Free Digital Presence Review</a>
+<a href="#review-form" style="display:inline-flex;align-items:center;gap:8px;color:#0369a1;font-size:15px;font-weight:700;text-decoration:none;border:1.5px solid rgba(3,105,161,0.3);padding:12px 28px;border-radius:8px;transition:all .2s;">Get My Free Digital Presence Review</a>
 </div>
 </div>
 </section>
@@ -1653,7 +1744,7 @@ BluWav membership plans do not include a CRM. As your business grows, BluWav cli
 <p style="font-size:17px;color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:32px;">
       Professional websites, online visibility, and growth support designed for Caribbean businesses.
     </p>
-<a href="pricing.html#plans-k1l2" onmouseout="this.style.filter='';this.style.transform=''" onmouseover="this.style.filter='brightness(1.1)';this.style.transform='translateY(-2px)'" style="display:inline-flex;align-items:center;gap:10px;background:#ff6535;color:#fff;font-size:16px;font-weight:700;padding:16px 40px;border-radius:100px;text-decoration:none;box-shadow:0 8px 32px rgba(255,101,53,0.35);transition:all .2s;">Get My Free Digital Presence Review</a>
+<a href="pricing.html#plans-k1l2" onmouseout="this.style.filter='';this.style.transform=''" onmouseover="this.style.filter='brightness(1.1)';this.style.transform='translateY(-2px)'" style="display:inline-flex;align-items:center;gap:10px;background:#ff6535;color:#fff;font-size:16px;font-weight:700;padding:16px 40px;border-radius:8px;text-decoration:none;box-shadow:0 8px 32px rgba(255,101,53,0.35);transition:all .2s;">Get My Free Digital Presence Review</a>
 <div style="margin-top:12px;margin-bottom:16px;"><a href="pricing.html#plans-k1l2" style="font-size:14px;color:rgba(255,255,255,0.5);text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.2);">View Membership Plans</a></div>
 <div style="margin-top:8px;font-size:13px;color:rgba(255,255,255,0.35);display:flex;flex-wrap:wrap;justify-content:center;gap:6px 16px;">
 <span>✓ No large upfront fees</span>
