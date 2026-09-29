@@ -54,7 +54,7 @@
 
       *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-      html { scroll-behavior: smooth; }
+      html { scroll-behavior: smooth; overflow-x: hidden; }
 
       body {
         font-family: 'Poppins', sans-serif;
@@ -867,8 +867,40 @@ a[style*="border-radius:8px"] {
   border-radius: 8px !important;
 }
 
+/* Customer-first homepage additions */
+.bw-home-band { padding: 92px 24px; }
+.bw-home-wrap { max-width: 1120px; margin: 0 auto; }
+.bw-home-eyebrow { color: var(--orange); font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 16px; }
+.bw-home-lead { max-width: 700px; margin: 16px auto 0; color: #475569; font-size: 17px; line-height: 1.75; }
+.bw-outcome-grid, .bw-help-grid, .bw-path-grid, .bw-region-grid { display: grid; gap: 20px; }
+.bw-outcome-grid { grid-template-columns: repeat(3, 1fr); margin-top: 44px; }
+.bw-help-grid { grid-template-columns: repeat(4, 1fr); margin-top: 44px; }
+.bw-path-grid { grid-template-columns: repeat(4, 1fr); margin-top: 40px; }
+.bw-region-grid { grid-template-columns: repeat(5, 1fr); margin-top: 36px; }
+.bw-outcome-card, .bw-help-card, .bw-path-card { background: #fff; border: 1px solid rgba(10,15,30,0.08); border-radius: 12px; padding: 26px; box-shadow: 0 4px 20px rgba(10,15,30,0.05); }
+.bw-outcome-card { text-align: center; }
+.bw-outcome-icon { width: 50px; height: 50px; margin: 0 auto 14px; border-radius: 12px; display: grid; place-items: center; background: rgba(0,200,224,0.1); font-size: 24px; }
+.bw-outcome-icon svg { width: 25px; height: 25px; stroke: var(--navy); stroke-width: 2; }
+.bw-outcome-card h3, .bw-help-card h3, .bw-path-card h3 { color: var(--navy); font-size: 19px; font-weight: 800; margin-bottom: 9px; }
+.bw-outcome-card p, .bw-help-card p, .bw-path-card p { color: #475569; font-size: 14px; line-height: 1.7; }
+.bw-help-card { border-top: 3px solid var(--cyan); }
+.bw-help-card:nth-child(2) { border-top-color: var(--orange); }
+.bw-help-card:nth-child(3) { border-top-color: var(--gold); }
+.bw-help-card:nth-child(4) { border-top-color: #22c55e; }
+.bw-help-label, .bw-path-card strong { display: block; color: var(--orange); font-size: 12px; font-weight: 700; margin-bottom: 11px; }
+.bw-region-band { background: var(--navy); color: #fff; text-align: center; }
+.bw-region-band .bw-home-lead { color: var(--white-70); }
+.bw-region-item { padding: 14px 10px; border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; color: var(--white-70); font-size: 13px; }
+@media(max-width:900px) { .bw-help-grid { grid-template-columns: repeat(2,1fr); } .bw-path-grid { grid-template-columns: repeat(2,1fr); } .bw-region-grid { grid-template-columns: repeat(3,1fr); } }
+@media(max-width:640px) { .bw-home-band { padding: 72px 20px; } .bw-outcome-grid, .bw-help-grid, .bw-path-grid { grid-template-columns: 1fr; } .bw-region-grid { grid-template-columns: repeat(2,1fr); } }
+.hero-grid { grid-template-columns: 1fr 1fr !important; max-width: 1200px !important; }
+#hero { background-image: linear-gradient(90deg, rgba(10,15,30,0.96) 0%, rgba(10,15,30,0.88) 34%, rgba(10,15,30,0.48) 58%, rgba(10,15,30,0.08) 100%), url('hero-business.webp') !important; background-position: center center !important; background-size: cover !important; background-repeat: no-repeat !important; }
+#hero-grid { grid-template-columns: 1fr !important; max-width: 1200px !important; gap: 0 !important; min-height: 680px; }
+#hero-grid > div:first-child { max-width: 560px; }
+#hero-visual { display: none !important; }
+#pricing, .pricing-wave { display: none !important; }
+@media(max-width:900px) { #hero { background-position: 62% center !important; } #hero-grid { min-height: 620px; } }
 /* Font display swap for CLS prevention */
-@font-face{font-display:swap;}
 </style>
 </head>
 <div id="bwScrollProgress"></div>
@@ -887,7 +919,7 @@ a[style*="border-radius:8px"] {
 <a class="bw-nav-link" href="the-wave.html">The Wave</a>
 <a class="bw-nav-link" href="careers.html">Careers</a>
 <a class="bw-nav-btn-outline" href="https://bluwavcrm.com/login.html" rel="noopener" target="_blank">Client Login</a>
-<a class="bw-nav-btn-cta" href="#review-form">Get My Free Digital Presence Review</a>
+<a class="bw-nav-btn-cta" href="https://calendly.com/hello-bluwavgrowth/30min" rel="noopener" target="_blank">Book a Free Growth Review</a>
 </div>
 <button aria-label="Menu" class="bw-hamburger" id="bwHamburger" onclick="bwToggleNav()">
 <span></span><span></span><span></span>
@@ -934,23 +966,13 @@ a[style*="border-radius:8px"] {
     Get Found. Get Chosen. Grow.
   </p>
 
-  <p style="font-size:19px;font-weight:600;color:rgba(255,255,255,0.85);margin-bottom:14px;line-height:1.4;">
-    Professional websites and digital visibility for Caribbean businesses.
-  </p>
-
-  <p id="hero-body-4g5h" style="font-size:15px;color:var(--white-70);line-height:1.8;margin-bottom:36px;max-width:460px;">
-    BluWav helps small and medium-sized businesses across the Caribbean build a credible online presence and attract more customers, without a large upfront website bill.
+  <p id="hero-body-4g5h" style="font-size:15px;font-weight:400;color:var(--white-70);line-height:1.8;margin-bottom:36px;max-width:460px;">
+    More enquiries, better visibility, and a clearer path to growth. Whatever your goals, BluWav helps you attract more customers, build trust, and grow your business with practical solutions tailored to your needs.
   </p>
 
   <div id="hero-ctas-6i7j" style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:36px;">
-    <a class="bw-cta-primary" href="#review-form">Get My Free Digital Presence Review</a>
-    <a class="bw-cta-secondary" href="pricing.html#plans-k1l2">View Membership Plans</a>
-  </div>
-
-  <div style="display:flex;flex-wrap:wrap;gap:20px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.08);">
-    <div style="display:flex;align-items:center;gap:7px;font-size:13px;color:rgba(255,255,255,0.5);"><span style="color:#22c55e;">&#10003;</span> No large upfront fees</div>
-    <div style="display:flex;align-items:center;gap:7px;font-size:13px;color:rgba(255,255,255,0.5);"><span style="color:#22c55e;">&#10003;</span> From US$99/month</div>
-    <div style="display:flex;align-items:center;gap:7px;font-size:13px;color:rgba(255,255,255,0.5);"><span style="color:#22c55e;">&#10003;</span> Caribbean-focused</div>
+    <a class="bw-cta-primary" href="https://calendly.com/hello-bluwavgrowth/30min" rel="noopener" target="_blank">Book a Free Growth Review</a>
+    <a class="bw-cta-secondary" href="#how-we-help">Explore Solutions</a>
   </div>
 </div>
 
@@ -1049,9 +1071,22 @@ a[style*="border-radius:8px"] {
 </style>
 </section>
 <!-- ═══════════════ WAVE: DARK → LIGHT ═══════════════ -->
-<div style="background:var(--navy);line-height:0;font-size:0;display:block;margin:0;padding:0;"><svg preserveAspectRatio="none" style="display:block;width:100%;height:80px;margin:0;padding:0;vertical-align:bottom;" viewBox="0 0 1440 80"><path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#f8fafc"></path></svg></div>
+<div style="background:var(--navy);line-height:0;font-size:0;display:block;margin:0;padding:0;"><svg preserveAspectRatio="none" style="display:block;width:100%;height:80px;margin:0;padding:0;vertical-align:bottom;" viewBox="0 0 1440 80" aria-hidden="true"><path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#f8fafc"></path></svg></div>
 <!-- ═══════════════ TRUST METRICS ═══════════════ -->
 <section data-id="63" id="metrics" style="background:var(--light-bg);padding:80px 24px;">
+<section class="bw-home-band" id="opportunity" style="padding-top:0;text-align:center;">
+<div class="bw-home-wrap">
+<div class="bw-home-eyebrow">You built the business. Now let's help it grow.</div>
+<h2 style="font-size:clamp(28px,4vw,48px);font-weight:800;color:var(--navy);line-height:1.15;">More enquiries. Better visibility. A clearer path to growth.</h2>
+<p class="bw-home-lead">Whether you're looking to attract more customers, build trust, strengthen customer relationships, or create more opportunities, you'll find practical solutions designed to help you move forward.</p>
+<div class="bw-outcome-grid">
+<div class="bw-outcome-card"><div class="bw-outcome-icon"><i data-lucide="search-check" aria-hidden="true"></i></div><h3>Get Found</h3><p>Help more customers discover your business online and connect with you more easily.</p></div>
+<div class="bw-outcome-card"><div class="bw-outcome-icon"><i data-lucide="badge-check" aria-hidden="true"></i></div><h3>Get Chosen</h3><p>Build credibility, trust, and a professional presence that helps customers choose you.</p></div>
+<div class="bw-outcome-card"><div class="bw-outcome-icon"><i data-lucide="chart-no-axes-combined" aria-hidden="true"></i></div><h3>Grow</h3><p>Create a stronger foundation with the tools, systems, and support needed to turn opportunities into results.</p></div>
+</div>
+<div style="max-width:780px;margin:42px auto 0;text-align:left;background:rgba(0,200,224,0.07);border-left:3px solid var(--cyan);border-radius:0 10px 10px 0;padding:22px 26px;"><h3 style="color:var(--navy);font-size:21px;font-weight:800;margin-bottom:8px;">Helping Caribbean Businesses Create More Opportunities</h3><p style="color:#475569;font-size:15px;line-height:1.75;">From Trinidad and Tobago and Jamaica to Barbados, Guyana, St. Lucia, Antigua and Barbuda, Grenada, Belize, St. Vincent and the Grenadines, Dominica, and across the wider Caribbean, businesses face many of the same challenges: attracting customers, improving visibility, standing out, and creating consistent growth.</p></div>
+</div>
+</section>
 <!-- CSS media queries for metrics - no JS dependency -->
 <style>
     .metrics-grid {
@@ -1153,6 +1188,19 @@ a[style*="border-radius:8px"] {
 </section>
 <!-- ═══════════════ HOW BLUWAV HELPS ═══════════════ -->
 <section id="growth-system" style="background:var(--light-bg);padding:0 0 120px;">
+<section class="bw-home-band" id="how-we-help" style="padding-top:0;text-align:center;">
+<div class="bw-home-wrap">
+<div class="bw-home-eyebrow">How We Help</div>
+<h2 style="font-size:clamp(28px,4vw,48px);font-weight:800;color:var(--navy);line-height:1.15;">Not sure what's holding your business back?</h2>
+<p class="bw-home-lead">Many businesses know they want more customers, more visibility, or better results, but they are not always sure what is standing in the way. Start with the challenge that sounds most like your business.</p>
+<div class="bw-help-grid" style="text-align:left;">
+<div class="bw-help-card"><span class="bw-help-label">Need clarity?</span><h3>Growth Assessment</h3><p>Discover missed opportunities and get a practical roadmap to attract more customers and move your business forward.</p><p style="font-weight:800;color:var(--navy);margin-top:16px;">From US$999</p></div>
+<div class="bw-help-card"><span class="bw-help-label">Need results?</span><h3>Growth Sprint</h3><p>A hands-on 30-day engagement designed to uncover problems, implement quick wins, and create momentum.</p><p style="font-weight:800;color:var(--navy);margin-top:16px;">From US$1,999</p></div>
+<div class="bw-help-card"><span class="bw-help-label">Need a complete solution?</span><h3>Growth Systems</h3><p>Done-for-you websites, customer management, visibility, automation, and growth tools working together.</p><p style="font-weight:800;color:var(--navy);margin-top:16px;">Built around your goals</p></div>
+<div class="bw-help-card"><span class="bw-help-label">Need ongoing support?</span><h3>Growth Memberships</h3><p>Affordable monthly support to help you stay visible, stay competitive, and stay focused on growth.</p><p style="font-weight:800;color:var(--navy);margin-top:16px;">From US$99/month</p></div>
+</div>
+</div>
+</section>
 <!-- Full-width hero image -->
 <div style="position:relative;width:100%;overflow:hidden;margin-bottom:80px;">
 <img alt="Happy Caribbean business owner on her phone" loading="lazy" src="happy-caribbean-woman.png" style="width:100%;height:480px;object-fit:cover;object-position:center top;display:block;"/>
@@ -1192,7 +1240,7 @@ a[style*="border-radius:8px"] {
 <!-- LEFT: Copy -->
 <div>
 <h3 style="font-size:clamp(24px,3vw,38px);font-weight:800;color:#0a0f1e;line-height:1.15;margin-bottom:24px;">
-          Get Found. Get Chosen. Grow.
+          Looking for a complete growth solution?
         </h3>
 <p style="font-size:17px;color:#475569;line-height:1.75;margin-bottom:20px;">
           <strong>Get Found</strong><br/>Make it easy for customers to discover your business online. Professional websites, Google visibility, business profiles, and search indexing help put your business where customers are looking.
@@ -1201,7 +1249,7 @@ a[style*="border-radius:8px"] {
           <strong>Get Chosen</strong><br/>Build trust and professionalism. A modern website, business email address, optimized company profiles, and consistent branding help customers choose you over competitors.
         </p>
 <p style="font-size:17px;color:#475569;line-height:1.75;margin-bottom:40px;">
-          <strong>Grow</strong><br/>Create a stronger digital foundation for long-term success. BluWav provides ongoing maintenance, updates, support, and growth services that help your business evolve as you grow.
+          <strong>Grow</strong><br/>Create a stronger digital foundation for long-term success with customer management, CRM support, ongoing maintenance, and practical growth services.
         </p>
 <div style="display:flex;flex-wrap:wrap;gap:14px;">
 <a class="btn-orange" href="#review-form" style="font-size:16px;padding:16px 36px;">Get My Free Digital Presence Review</a>
@@ -1269,7 +1317,7 @@ a[style*="border-radius:8px"] {
 }
 </style>
 <!-- ═══════════════ WAVE: LIGHT → DARK ═══════════════ -->
-<div style="background:var(--light-bg);line-height:0;font-size:0;display:block;margin:0;padding:0;"><svg preserveAspectRatio="none" style="display:block;width:100%;height:80px;margin:0;padding:0;vertical-align:bottom;" viewBox="0 0 1440 80"><path d="M0,40 C360,0 1080,80 1440,40 L1440,0 L0,0 Z" fill="#0a0f1e"></path></svg></div>
+<div class="pricing-wave" style="background:var(--light-bg);line-height:0;font-size:0;display:block;margin:0;padding:0;"><svg preserveAspectRatio="none" style="display:block;width:100%;height:80px;margin:0;padding:0;vertical-align:bottom;" viewBox="0 0 1440 80"><path d="M0,40 C360,0 1080,80 1440,40 L1440,0 L0,0 Z" fill="#0a0f1e"></path></svg></div>
 <!-- ═══════════════ PRICING ═══════════════ -->
 <section class="section-pad" data-id="148" id="pricing" style="background:var(--navy);">
 <div class="text-center fade-in" data-id="149" id="pricing-header-u5v6">
@@ -1382,7 +1430,7 @@ a[style*="border-radius:8px"] {
 <a href="https://calendly.com/hello-bluwavgrowth/30min" rel="noopener" target="_blank" onmouseout="this.style.borderColor='rgba(0,212,255,0.3)'" onmouseover="this.style.borderColor='rgba(0,212,255,0.7)'" style="display:inline-flex;align-items:center;gap:8px;color:#00d4ff;font-size:15px;font-weight:700;text-decoration:none;border:1.5px solid rgba(0,212,255,0.3);padding:12px 28px;border-radius:8px;transition:all .2s;">Get My Free Digital Presence Review</a>
 </div>
 </section>
-<div style="background:var(--navy);line-height:0;font-size:0;display:block;margin:0;padding:0;"><svg preserveAspectRatio="none" style="display:block;width:100%;height:80px;margin:0;padding:0;vertical-align:bottom;" viewBox="0 0 1440 80"><path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#f8fafc"></path></svg></div>
+<div class="pricing-wave" style="background:var(--navy);line-height:0;font-size:0;display:block;margin:0;padding:0;"><svg preserveAspectRatio="none" style="display:block;width:100%;height:80px;margin:0;padding:0;vertical-align:bottom;" viewBox="0 0 1440 80"><path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#f8fafc"></path></svg></div>
 <!-- ═══════════════ WHY BLUWAV ═══════════════ -->
 <section data-id="186" id="transparency" style="background:var(--light-bg);padding:100px 24px;text-align:center;">
 <h2 class="fade-in" data-id="187" id="transparency-h2-e5f6" style="font-size:clamp(28px,4vw,44px);font-weight:800;color:#0a0f1e;">
@@ -1759,6 +1807,24 @@ a[style*="border-radius:8px"] {
 <!-- Wave: Light to Dark -->
 <div style="background:var(--light-bg);line-height:0;font-size:0;"><svg preserveAspectRatio="none" style="display:block;width:100%;height:80px;" viewBox="0 0 1440 80"><path d="M0,40 C360,0 1080,80 1440,40 L1440,0 L0,0 Z" fill="#0a0f1e"></path></svg></div>
 
+<!-- CARIBBEAN FOCUS -->
+<section class="bw-home-band bw-region-band" id="caribbean">
+<div class="bw-home-wrap">
+<div class="bw-home-eyebrow">Why Caribbean Businesses Choose BluWav</div>
+<h2 style="font-size:clamp(28px,4vw,48px);font-weight:800;color:#fff;line-height:1.15;">Built for the way business works here.</h2>
+<p class="bw-home-lead">We understand the realities of running a business in our region. Budgets matter. Trust matters. Growth matters. Practical solutions often outperform complicated ones.</p>
+<div class="bw-region-grid"><div class="bw-region-item">🇹🇹 Trinidad &amp; Tobago</div><div class="bw-region-item">🇯🇲 Jamaica</div><div class="bw-region-item">🇧🇧 Barbados</div><div class="bw-region-item">🇬🇾 Guyana</div><div class="bw-region-item">🇱🇨 St. Lucia</div><div class="bw-region-item">🇦🇬 Antigua &amp; Barbuda</div><div class="bw-region-item">🇬🇩 Grenada</div><div class="bw-region-item">🇧🇿 Belize</div><div class="bw-region-item">🇻🇨 St. Vincent &amp; the Grenadines</div><div class="bw-region-item">🇩🇲 Dominica</div></div>
+<p style="max-width:720px;margin:34px auto 0;color:var(--white-70);font-size:15px;line-height:1.7;">Built for Caribbean businesses, priced for sustainable delivery, and designed to produce real growth across the wider Caribbean region.</p>
+</div>
+</section>
+<!-- START WHERE YOU ARE -->
+<section class="bw-home-band" style="background:var(--light-bg);text-align:center;">
+<div class="bw-home-wrap">
+<div class="bw-home-eyebrow">Start Where You Are</div>
+<h2 style="font-size:clamp(28px,4vw,48px);font-weight:800;color:var(--navy);line-height:1.15;">A practical next step for where your business is now.</h2>
+<div class="bw-path-grid" style="text-align:left;"><div class="bw-path-card"><strong>Need clarity?</strong><h3>Growth Assessment</h3><p>Understand what is getting in the way and what to fix first.</p></div><div class="bw-path-card"><strong>Need momentum?</strong><h3>Growth Sprint</h3><p>Implement quick wins and create measurable progress in 30 days.</p></div><div class="bw-path-card"><strong>Need a complete solution?</strong><h3>Growth Systems</h3><p>Combine digital presence, customer acquisition, automation, and CRM into one foundation.</p></div><div class="bw-path-card"><strong>Need ongoing support?</strong><h3>Memberships + CRM</h3><p>Stay visible, manage opportunities, and keep customer engagement moving forward.</p></div></div>
+</div>
+</section>
 <!-- 30-DAY GROWTH SPRINT -->
 <section style="background:var(--navy);padding:100px 24px;">
 <div style="max-width:900px;margin:0 auto;">
@@ -1866,7 +1932,7 @@ BluWav membership plans do not include a CRM. As your business grows, BluWav cli
 <p style="font-size:17px;color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:32px;">
       Professional websites, online visibility, and growth support designed for Caribbean businesses.
     </p>
-<a href="pricing.html#plans-k1l2" onmouseout="this.style.filter='';this.style.transform=''" onmouseover="this.style.filter='brightness(1.1)';this.style.transform='translateY(-2px)'" style="display:inline-flex;align-items:center;gap:10px;background:#ff6535;color:#fff;font-size:16px;font-weight:700;padding:16px 40px;border-radius:8px;text-decoration:none;box-shadow:0 8px 32px rgba(255,101,53,0.35);transition:all .2s;">Get My Free Digital Presence Review</a>
+<a href="https://calendly.com/hello-bluwavgrowth/30min" rel="noopener" target="_blank" onmouseout="this.style.filter='';this.style.transform=''" onmouseover="this.style.filter='brightness(1.1)';this.style.transform='translateY(-2px)'" style="display:inline-flex;align-items:center;gap:10px;background:#ff6535;color:#fff;font-size:16px;font-weight:700;padding:16px 40px;border-radius:8px;text-decoration:none;box-shadow:0 8px 32px rgba(255,101,53,0.35);transition:all .2s;">Book Your Free Growth Review</a>
 <div style="margin-top:12px;margin-bottom:16px;"><a href="pricing.html#plans-k1l2" style="font-size:14px;color:rgba(255,255,255,0.5);text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.2);">View Membership Plans</a></div>
 <div style="margin-top:8px;font-size:13px;color:rgba(255,255,255,0.35);display:flex;flex-wrap:wrap;justify-content:center;gap:6px 16px;">
 <span>✓ No large upfront fees</span>
@@ -1961,6 +2027,11 @@ BluWav membership plans do not include a CRM. As your business grows, BluWav cli
     if (typeof lucide !== "undefined" && typeof lucide.createIcons === "function") {
       lucide.createIcons();
     }
+    window.addEventListener('load', function() {
+      if (typeof lucide !== "undefined" && typeof lucide.createIcons === "function") {
+        lucide.createIcons();
+      }
+    });
 
     // ── MOBILE MENU ──
     const hamburgerBtn = document.getElementById('hamburger-btn-a1b2');
