@@ -13,6 +13,23 @@
   <url><loc>https://bluwavgrowth.com/article-5.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://bluwavgrowth.com/article-6.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://bluwavgrowth.com/article-7.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://bluwavgrowth.com/free-audit.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://bluwavgrowth.com/thank-you.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+
+  <url>
+    <loc>https://bluwavgrowth.com/case-studies.html</loc>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bluwavgrowth.com/systems.html</loc>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bluwavgrowth.com/health-check.html</loc>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
