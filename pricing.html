@@ -2,6 +2,7 @@
 
 <html lang="en">
 <head>
+<link rel="stylesheet" href="bluwav-brand.css"/>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>BluWav Growth  -  Pricing</title>
@@ -350,16 +351,16 @@
 <nav class="bw-nav" id="bwNav">
 <a class="bw-nav-logo" href="index.html" style="text-decoration:none;display:flex;flex-direction:column;align-items:flex-start;line-height:1;flex-shrink:0;">
 <div style="font-family:'Segoe UI',system-ui,sans-serif;font-size:22px;font-weight:700;line-height:1;letter-spacing:-0.2px;"><span style="color:#ffffff;">Blu</span><span style="color:#00C8E0;">Wav</span></div>
+<div style="font-size:10px;font-weight:600;color:rgba(0,200,224,0.7);letter-spacing:1.5px;text-transform:uppercase;margin-top:2px;">Caribbean</div>
 </a>
 <div class="bw-nav-links">
-<a class="bw-nav-link" href="index.html#pillars">What We Do</a>
+<a class="bw-nav-link" href="index.html#growth-system">What We Do</a>
 <a class="bw-nav-link" href="index.html#growth-system">How It Works</a>
-<a class="bw-nav-link active" href="pricing.html">Pricing</a>
-<a class="bw-nav-link" href="case-study-aadek.html">Case Studies</a>
+<a class="bw-nav-link" href="pricing.html#plans-k1l2" class="bw-nav-link active">Pricing</a>
+<a class="bw-nav-link" href="case-studies.html">Case Studies</a>
 <a class="bw-nav-link" href="the-wave.html">The Wave</a>
 <a class="bw-nav-link" href="careers.html">Careers</a>
-<a class="bw-nav-btn-outline" href="https://bluwavcrm.com/login.html" rel="noopener" target="_blank">Client Login</a>
-<a class="bw-nav-btn-cta" href="health-score.html">Free Health Score</a>
+<a class="bw-nav-btn-cta" href="https://calendly.com/hello-bluwavgrowth/30min" rel="noopener" target="_blank">Book a Free Growth Review</a>
 </div>
 <button aria-label="Menu" class="bw-hamburger" id="bwHamburger" onclick="bwToggleNav()">
 <span></span><span></span><span></span>
@@ -367,10 +368,10 @@
 </nav>
 <!-- Mobile Nav -->
 <div class="bw-mob-nav" id="bwMobNav">
-<a class="bw-mob-link" href="index.html#pillars" onclick="bwCloseNav()">🌐 What We Do</a>
+<a class="bw-mob-link" href="index.html#growth-system" onclick="bwCloseNav()">🌐 What We Do</a>
 <a class="bw-mob-link" href="index.html#growth-system" onclick="bwCloseNav()">⚡ How It Works</a>
 <a class="bw-mob-link" href="pricing.html" onclick="bwCloseNav()">💰 Pricing</a>
-<a class="bw-mob-link" href="case-study-aadek.html" onclick="bwCloseNav()">📐 Case Studies</a>
+<a class="bw-mob-link" href="case-studies.html" onclick="bwCloseNav()">📐 Case Studies</a>
 <a class="bw-mob-link" href="the-wave.html" onclick="bwCloseNav()" style="color:#00d4ff;">The Wave</a>
 <a class="bw-mob-link" href="careers.html" onclick="bwCloseNav()">Careers</a>
 <a class="bw-mob-link" href="https://bluwavcrm.com/login.html" onclick="bwCloseNav()" rel="noopener" style="color:rgba(0,212,255,0.85);" target="_blank">🔐 Client Login</a>
@@ -399,6 +400,182 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 </div>
 </div>
 <main data-id="29">
+<section class="pricing-experience" aria-labelledby="pricing-title">
+<style>
+  .pricing-experience { min-height:72vh; background:#f8fafc; color:#0a0f1e; padding:112px 24px 88px; }
+  .pricing-shell { max-width:940px; margin:0 auto; }
+  .pricing-intro { max-width:760px; margin-bottom:34px; }
+  .pricing-kicker { color:#0369a1; font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase; margin-bottom:12px; }
+  .pricing-intro h1 { color:#0a0f1e; font-size:clamp(30px,4vw,44px); font-weight:800; line-height:1.15; margin-bottom:14px; }
+  .pricing-intro p { color:#475569; font-size:16px; line-height:1.7; }
+  .pricing-views { display:flex; flex-wrap:wrap; gap:8px 22px; margin-bottom:32px; border-bottom:1px solid #dbe3eb; }
+  .pricing-view-link { padding:0 0 12px; background:none; border:0; border-bottom:2px solid transparent; color:#64748b; cursor:pointer; font-size:13px; font-weight:600; }
+  .pricing-view-link:hover,.pricing-view-link[aria-pressed="true"] { color:#0a0f1e; border-bottom-color:#00a9be; }
+  .pricing-panel[hidden] { display:none !important; }
+  .pricing-panel-heading { margin-bottom:22px; }
+  .pricing-panel-heading h2 { color:#0a0f1e; font-size:24px; font-weight:800; margin-bottom:8px; }
+  .pricing-panel-heading p { color:#475569; font-size:15px; line-height:1.65; max-width:740px; }
+  .system-plan-list { border-top:1px solid #dbe3eb; }
+  .system-plan { display:grid; grid-template-columns:minmax(0,1fr) 190px; align-items:center; gap:24px; padding:22px 0; border-bottom:1px solid #dbe3eb; }
+  .system-plan h3 { color:#0a0f1e; font-size:20px; font-weight:800; margin-bottom:6px; }
+  .system-plan p { color:#475569; font-size:14px; line-height:1.6; }
+  .system-plan-trial { display:block; color:#0f766e; font-size:12px; font-weight:600; margin-top:8px; }
+  .plan-details { margin-top:12px; }
+  .plan-details summary,.info-details summary { width:fit-content; color:#0369a1; cursor:pointer; font-size:13px; font-weight:600; }
+  .plan-details ul,.info-details ul { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px 24px; margin:12px 0 0; padding-left:18px; color:#475569; font-size:13px; line-height:1.5; }
+  .plan-details a { display:inline-block; margin-top:14px; color:#0a0f1e; font-size:13px; font-weight:700; text-decoration:underline; text-underline-offset:3px; }
+  .pricing-price-note { color:#64748b; font-size:12px; line-height:1.5; }
+  .pricing-cta { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:11px 18px; border-radius:6px; background:#ff6535; color:#fff; font-size:14px; font-weight:700; text-decoration:none; text-align:center; }
+  .pricing-cta:hover { background:#e8552a; }
+  .pricing-panel-body { max-width:760px; }
+  .pricing-panel-body > p { color:#475569; font-size:15px; line-height:1.7; margin-bottom:16px; }
+  .pricing-best-for { margin:22px 0; padding-left:16px; border-left:3px solid #00a9be; color:#334155; font-size:14px; line-height:1.65; }
+  .pricing-best-for strong { color:#0a0f1e; }
+  .info-details { margin:20px 0; }
+  .info-details ul { grid-template-columns:1fr; }
+  .pricing-price { color:#0a0f1e; font-size:18px; font-weight:700; margin:12px 0; }
+  @media(max-width:640px) {
+    .pricing-experience { padding:96px 20px 64px; }
+    .pricing-views { gap:8px 16px; }
+    .system-plan { grid-template-columns:1fr; gap:14px; }
+    .system-plan .pricing-price-note { order:1; }
+    .system-plan .pricing-cta { order:2; justify-self:start; }
+    .plan-details ul { grid-template-columns:1fr; }
+  }
+</style>
+<div class="pricing-shell">
+  <header class="pricing-intro">
+    <div class="pricing-kicker">BluWav Growth</div>
+    <h1 id="pricing-title">Find the Right Way to Grow Your Business</h1>
+    <p>Whether you need more customers, better visibility, stronger follow-up or a complete system to help your business grow, start here with several options that fit where your business is today.</p>
+  </header>
+  <nav class="pricing-views" aria-label="Growth options">
+    <button class="pricing-view-link" type="button" data-pricing-view="systems" aria-pressed="true">Growth Systems</button>
+    <button class="pricing-view-link" type="button" data-pricing-view="assessment" aria-pressed="false">Growth Assessment</button>
+    <button class="pricing-view-link" type="button" data-pricing-view="sprint" aria-pressed="false">30-Day Sprint</button>
+    <button class="pricing-view-link" type="button" data-pricing-view="memberships" aria-pressed="false">Memberships</button>
+    <button class="pricing-view-link" type="button" data-pricing-view="boosters" aria-pressed="false">Growth Boosters</button>
+  </nav>
+
+  <section class="pricing-panel" id="plans-k1l2" data-pricing-panel="systems" aria-labelledby="systems-heading">
+    <div class="pricing-panel-heading">
+      <h2 id="systems-heading">Need a Complete Growth System?</h2>
+      <p>BluWav Growth Systems bring together the website, CRM, visibility tools, customer follow-up, and support you need in one connected solution.</p>
+    </div>
+    <div class="system-plan-list">
+      <article class="system-plan">
+        <div>
+          <h3>Launch</h3>
+          <p>Build a professional foundation that helps customers find, trust, and contact your business.</p>
+          <span class="system-plan-trial">Includes a 14-day guided trial of the complete system.</span>
+          <details class="plan-details"><summary>View Launch</summary>
+            <ul><li>Professional website</li><li>Google Business Profile setup</li><li>CRM with 14-day trial</li><li>Smart lead automation</li><li>Performance dashboard</li><li>SEO and search setup</li><li>WhatsApp contact button</li><li>Hosting and standard support</li></ul>
+            <a href="checkout.html?plan=ripple">Continue to Launch checkout &#8594;</a>
+          </details>
+        </div>
+        <div class="pricing-price-note"><strong>$397/mo</strong><br/>+ $900 setup and onboarding fee</div>
+      </article>
+      <article class="system-plan">
+        <div>
+          <h3>Momentum</h3>
+          <p>Attract more enquiries, improve follow-up, and turn more opportunities into customers.</p>
+          <span class="system-plan-trial">Includes a 14-day guided trial of the complete system.</span>
+          <details class="plan-details"><summary>View Momentum</summary>
+            <ul><li>Everything in Launch</li><li>WhatsApp Business and catalog setup</li><li>Automated replies and lead sequences</li><li>Local SEO and competitor analysis</li><li>Reputation builder</li><li>Automated lead pipeline</li><li>Growth landing page</li><li>Monthly check-in and priority support</li></ul>
+            <a href="checkout.html?plan=current">Continue to Momentum checkout &#8594;</a>
+          </details>
+        </div>
+        <div class="pricing-price-note"><strong>$697/mo</strong><br/>+ $1,250 setup and onboarding fee</div>
+      </article>
+      <article class="system-plan">
+        <div>
+          <h3>Accelerate</h3>
+          <p>Build a stronger growth engine with advanced tools, customer management, and ongoing support.</p>
+          <span class="system-plan-trial">Includes a 14-day guided trial of the complete system.</span>
+          <details class="plan-details"><summary>View Accelerate</summary>
+            <ul><li>Everything in Momentum</li><li>WhatsApp sales funnel</li><li>Google Ads setup</li><li>Expanded search listings</li><li>Monthly visibility report</li><li>Quarterly strategy review</li><li>Dedicated account manager</li></ul>
+            <a href="checkout.html?plan=accelerate">Continue to Accelerate checkout &#8594;</a>
+          </details>
+        </div>
+        <div class="pricing-price-note"><strong>$1,497/mo+</strong><br/>+ $2,500 setup and onboarding fee</div>
+      </article>
+    </div>
+  </section>
+
+  <section class="pricing-panel" id="assessment" data-pricing-panel="assessment" aria-labelledby="assessment-heading" hidden>
+    <div class="pricing-panel-body">
+      <div class="pricing-panel-heading"><h2 id="assessment-heading">Growth Assessment</h2><p>Find out why you are losing or not getting customers and what opportunities you are missing.</p></div>
+      <div class="pricing-price">US$999</div>
+      <details class="info-details"><summary>You’ll receive</summary><ul><li>A complete review of your visibility and customer journey</li><li>Clear priorities based on your business</li><li>Practical recommendations</li><li>A 90-day growth plan</li><li>A session to walk through everything together</li></ul></details>
+      <p class="pricing-best-for"><strong>Best for you if:</strong> You know your business could be doing better, but you are unsure what to fix first.</p>
+      <a class="pricing-cta" href="contact.html#contact-form">Book Your Growth Assessment</a>
+    </div>
+  </section>
+
+  <section class="pricing-panel" id="sprint" data-pricing-panel="sprint" aria-labelledby="sprint-heading" hidden>
+    <div class="pricing-panel-body">
+      <div class="pricing-panel-heading"><h2 id="sprint-heading">Ready to Act and See Progress?</h2><p>30-Day Growth Sprint</p></div>
+      <div class="pricing-price">US$1,999</div>
+      <details class="info-details"><summary>You’ll receive</summary><p>Get clear on what is slowing growth, fix selected high-impact issues, and leave with a practical plan for what comes next.</p><ul><li>A focused review of your business</li><li>Identification of missed opportunities</li><li>Selected quick-win improvements</li><li>A prioritized growth plan</li><li>Hands-on support over 30 days</li></ul></details>
+      <p class="pricing-best-for"><strong>Best for you if:</strong> You want more than recommendations and are ready to start making improvements.</p>
+      <a class="pricing-cta" href="contact.html#contact-form">Start Your Growth Sprint</a>
+    </div>
+  </section>
+
+  <section class="pricing-panel" id="memberships" data-pricing-panel="memberships" aria-labelledby="memberships-heading" hidden>
+    <div class="pricing-panel-body">
+      <div class="pricing-panel-heading"><h2 id="memberships-heading">Want Ongoing Help?</h2><p>Growth Memberships — From US$149 per month</p></div>
+      <p>Keep your business visible, supported, and moving forward without paying for services you do not need.</p>
+      <p>Choose the level of support that fits your current priorities.</p>
+      <a class="pricing-cta" href="contact.html#contact-form">Compare Memberships</a>
+    </div>
+  </section>
+
+  <section class="pricing-panel" id="boosters" data-pricing-panel="boosters" aria-labelledby="boosters-heading" hidden>
+    <div class="pricing-panel-body">
+      <div class="pricing-panel-heading"><h2 id="boosters-heading">Need Help With One Specific Area?</h2><p>Growth Boosters — From US$99</p></div>
+      <p>Start with one focused improvement and build from there.</p>
+      <details class="info-details"><summary>Popular options</summary><ul><li>WhatsApp Business setup</li><li>Professional business email setup</li><li>Google Business Profile optimization</li><li>LinkedIn Business Page setup and launch content</li><li>CRM setup and onboarding</li><li>Growth Landing Page</li><li>Visibility and competitor reviews</li></ul></details>
+      <a class="pricing-cta" href="contact.html#contact-form">Explore Growth Boosters</a>
+    </div>
+  </section>
+</div>
+<script>
+(function() {
+  var viewButtons = document.querySelectorAll('[data-pricing-view]');
+  var pricingPanels = document.querySelectorAll('[data-pricing-panel]');
+  var hashToView = {
+    'plans-k1l2': 'systems',
+    'pricing-growth': 'systems',
+    'assessment': 'assessment',
+    'sprint': 'sprint',
+    'memberships': 'memberships',
+    'boosters': 'boosters'
+  };
+
+  function setPricingView(view, updateHash) {
+    var selectedPanel = document.querySelector('[data-pricing-panel="' + view + '"]');
+    if (!selectedPanel) return;
+    pricingPanels.forEach(function(panel) { panel.hidden = panel !== selectedPanel; });
+    viewButtons.forEach(function(button) {
+      button.setAttribute('aria-pressed', String(button.dataset.pricingView === view));
+    });
+    if (updateHash) history.replaceState(null, '', '#' + selectedPanel.id);
+  }
+
+  function setViewFromHash() {
+    var view = hashToView[window.location.hash.slice(1)] || 'systems';
+    setPricingView(view, false);
+  }
+
+  viewButtons.forEach(function(button) {
+    button.addEventListener('click', function() { setPricingView(button.dataset.pricingView, true); });
+  });
+  window.addEventListener('hashchange', setViewFromHash);
+  setViewFromHash();
+})();
+</script>
+<template id="legacy-pricing-content" hidden>
 <!-- ========== SECTION 1: HERO ========== -->
 <section class="hero-section" data-id="30" id="hero-i9j0">
 <div class="text-center relative z-10" data-id="31" style="max-width:720px;margin:0 auto;">
@@ -506,7 +683,7 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 <li data-id="145"><span class="check-green" data-id="146">✓</span> Dedicated account manager</li>
 <li data-id="147"><span class="check-green" data-id="148">✓</span> SLA guarantee</li>
 </ul>
-<a data-id="149" href="checkout.html?plan=surge"><button class="btn-outline-card" data-id="150" style="margin-top:32px;">Get Started with Accelerate™</button></a>
+<a data-id="149" href="checkout.html?plan=accelerate"><button class="btn-outline-card" data-id="150" style="margin-top:32px;">Get Started with Accelerate™</button></a>
 </div>
 </div>
 <!-- Compare plans link -->
@@ -669,11 +846,12 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 </div>
 <div class="faq-item fade-in" data-id="589">
 <button class="faq-q" data-id="590" type="button"><span data-id="591">Do you work with businesses in my country?</span><span class="faq-icon" data-id="592">+</span></button>
-<div class="faq-a" data-id="593"><p data-id="594">Yes. BluWav Growth works with businesses worldwide. Our systems are built for any market, any country, any industry.</p></div>
+<div class="faq-a" data-id="593"><p data-id="594">Yes. BluWav Growth serves Caribbean small and medium-sized businesses. Contact us to confirm availability and support for your country and business needs.</p></div>
 </div>
 </div>
 </section>
 <!-- ========== SECTION 8: FINAL CTA ========== -->
+</template>
 </main>
 <!-- ========== FOOTER ========== -->
 <!-- ── Standard BluWav Footer ── -->
@@ -700,7 +878,7 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 <a class="bw-nav-logo" href="index.html">
 <div class="bw-nav-logo-name">Blu<span>Wav</span></div>
 </a>
-<p style="font-size:14px;color:rgba(255,255,255,0.55);line-height:1.75;max-width:360px;margin-bottom:10px;">BluWav Growth helps modern service businesses get found, get chosen, and grow through complete growth systems built for visibility, lead capture, follow-up, and customer management.</p>
+<p style="font-size:14px;color:rgba(255,255,255,0.55);line-height:1.75;max-width:360px;margin-bottom:10px;">BluWav Growth helps Caribbean service businesses get found, get chosen, and grow through complete growth systems built for visibility, lead capture, follow-up, and customer management.</p>
 <p style="font-size:13px;font-weight:700;color:rgba(255,255,255,0.4);line-height:1.75;max-width:360px;margin-bottom:10px;">Building growth systems. Shaping what's next.</p>
 <p style="font-size:13px;color:rgba(255,255,255,0.35);line-height:1.75;max-width:360px;margin-bottom:10px;">In as little as 48 hours: your website, Google visibility, WhatsApp, CRM, and automation working together. Built with you. Run with you.</p>
 <p style="font-size:13px;font-weight:700;color:#00d4ff;margin-bottom:24px;">Smart tech. Real human support.</p>
@@ -715,9 +893,9 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 <div style="font-size:13px;font-weight:700;color:rgba(255,255,255,0.35);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:24px;">Navigate</div>
 <div style="display:flex;flex-direction:column;gap:14px;">
 <a href="index.html" onmouseout="this.style.color='rgba(255,255,255,0.55)'" onmouseover="this.style.color='#fff'" style="font-size:14px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;">Home</a>
-<a href="index.html#pillars" onmouseout="this.style.color='rgba(255,255,255,0.55)'" onmouseover="this.style.color='#fff'" style="font-size:14px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;">What We Do</a>
+<a href="index.html#growth-system" onmouseout="this.style.color='rgba(255,255,255,0.55)'" onmouseover="this.style.color='#fff'" style="font-size:14px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;">What We Do</a>
 <a href="pricing.html" onmouseout="this.style.color='rgba(255,255,255,0.55)'" onmouseover="this.style.color='#fff'" style="font-size:14px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;">Pricing</a>
-<a href="case-study-aadek.html" onmouseout="this.style.color='rgba(255,255,255,0.55)'" onmouseover="this.style.color='#fff'" style="font-size:14px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;">Case Studies</a>
+<a href="case-studies.html" onmouseout="this.style.color='rgba(255,255,255,0.55)'" onmouseover="this.style.color='#fff'" style="font-size:14px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;">Case Studies</a>
 <a href="about.html" onmouseout="this.style.color='rgba(255,255,255,0.55)'" onmouseover="this.style.color='#fff'" style="font-size:14px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;">About</a>
 <a href="contact.html" onmouseout="this.style.color='rgba(255,255,255,0.55)'" onmouseover="this.style.color='#fff'" style="font-size:14px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;">Contact</a>
 <a href="careers.html" onmouseout="this.style.color='rgba(255,255,255,0.55)'" onmouseover="this.style.color='#fff'" style="font-size:14px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;">Careers</a>
@@ -741,7 +919,7 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 <!-- Bottom Bar -->
 <div style="border-top:1px solid rgba(255,255,255,0.06);padding:20px clamp(16px,5vw,80px);width:100%;">
 <div style="width:100%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
-<div style="font-size:13px;color:rgba(255,255,255,0.25);">&copy; 2026 <span style="color:rgba(255,255,255,0.4);">BluWav Growth</span> &middot; All rights reserved. &middot; Built for modern businesses worldwide.</div>
+<div style="font-size:13px;color:rgba(255,255,255,0.25);">&copy; 2026 <span style="color:rgba(255,255,255,0.4);">BluWav Growth</span> &middot; All rights reserved. &middot; Built for Caribbean businesses.</div>
 <div style="display:flex;gap:24px;">
 
 <a href="contact.html" onmouseout="this.style.color='rgba(255,255,255,0.25)'" onmouseover="this.style.color='rgba(255,255,255,0.6)'" style="font-size:13px;color:rgba(255,255,255,0.25);text-decoration:none;transition:color .2s;">Contact</a>
