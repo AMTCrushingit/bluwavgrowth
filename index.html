@@ -938,12 +938,12 @@ a[style*="border-radius:8px"] {
 </div>
 <main data-id="34">
 <!-- ═══════════════ HERO ═══════════════ -->
-<section id="hero" style="position:relative;min-height:calc(100vh - 68px);display:flex;align-items:center;background:var(--navy);overflow:hidden;">
+<section id="hero" style="position:relative;min-height:calc(100vh - 68px);display:flex;align-items:center;background:linear-gradient(135deg,#060d1f 0%,#0a1628 50%,#0c1f35 100%);overflow:hidden;">
 
 <!-- Animated gradient mesh -->
 <div style="position:absolute;inset:0;pointer-events:none;z-index:0;">
-  <div style="position:absolute;width:700px;height:700px;top:-200px;left:-200px;background:radial-gradient(circle,rgba(0,200,224,0.10) 0%,transparent 70%);animation:bwOrb1 18s ease-in-out infinite;"></div>
-  <div style="position:absolute;width:500px;height:500px;bottom:-100px;right:-100px;background:radial-gradient(circle,rgba(255,101,53,0.07) 0%,transparent 70%);animation:bwOrb2 22s ease-in-out infinite 3s;"></div>
+  <div style="position:absolute;width:700px;height:700px;top:-200px;left:-200px;background:radial-gradient(circle,rgba(0,200,224,0.18) 0%,transparent 70%);animation:bwOrb1 18s ease-in-out infinite;"></div>
+  <div style="position:absolute;width:500px;height:500px;bottom:-100px;right:-100px;background:radial-gradient(circle,rgba(255,101,53,0.14) 0%,transparent 70%);animation:bwOrb2 22s ease-in-out infinite 3s;"></div>
   <div style="position:absolute;width:400px;height:400px;top:40%;left:40%;background:radial-gradient(circle,rgba(0,200,224,0.05) 0%,transparent 70%);animation:bwOrb3 26s ease-in-out infinite 6s;"></div>
 </div>
 <!-- Grid lines -->
@@ -976,39 +976,27 @@ a[style*="border-radius:8px"] {
   </div>
 </div>
 
-<!-- RIGHT: Client website carousel in monitor -->
-<div style="position:relative;display:flex;flex-direction:column;align-items:center;" id="hero-visual">
-
-  <!-- Monitor frame -->
-  <div style="width:100%;background:#111827;border-radius:10px 10px 0 0;border:3px solid #1f2937;box-shadow:0 24px 60px rgba(0,0,0,0.6),0 0 0 1px rgba(255,255,255,0.04);overflow:hidden;">
-    <!-- Browser chrome -->
-    <div style="height:30px;background:#0f172a;display:flex;align-items:center;padding:0 12px;gap:5px;border-bottom:1px solid rgba(255,255,255,0.06);">
-      <div style="width:8px;height:8px;border-radius:50%;background:#ef4444;opacity:0.8;"></div>
-      <div style="width:8px;height:8px;border-radius:50%;background:#f59e0b;opacity:0.8;"></div>
-      <div style="width:8px;height:8px;border-radius:50%;background:#22c55e;opacity:0.8;"></div>
-      <div style="flex:1;height:16px;background:rgba(255,255,255,0.05);border-radius:3px;margin:0 8px;display:flex;align-items:center;padding:0 8px;">
-        <span id="bwCarouselUrl" style="font-size:9px;color:rgba(255,255,255,0.3);font-family:Poppins,sans-serif;">balancedasdesigned.com</span>
-      </div>
+  <!-- Trust bar -->
+  <div style="display:flex;flex-wrap:wrap;gap:32px;margin-top:40px;padding-top:32px;border-top:1px solid rgba(255,255,255,0.1);">
+    <div>
+      <div style="font-size:24px;font-weight:900;color:#00C8E0;line-height:1;">300+</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.6);margin-top:4px;font-weight:500;">Businesses Empowered</div>
     </div>
-    <!-- Carousel viewport -->
-    <div style="position:relative;overflow:hidden;height:300px;">
-      <div id="bwCarouselTrack" style="display:flex;height:100%;transition:transform 0.6s cubic-bezier(0.22,1,0.36,1);">
-        <img src="hero-slide-balanced.jpg" alt="Balanced as Designed - BluWav client" style="width:100%;height:300px;object-fit:cover;object-position:top center;flex-shrink:0;"/>
-        <img src="hero-slide-rivva.jpg" alt="Rivva - BluWav client, Trinidad" style="width:100%;height:300px;object-fit:cover;object-position:top center;flex-shrink:0;"/>
-        <img src="hero-slide-topville.jpg" alt="Topville Jamaican Cuisine - BluWav client" style="width:100%;height:300px;object-fit:cover;object-position:top center;flex-shrink:0;"/>
-        <img src="hero-slide-credii.jpg" alt="Credii - BluWav client" style="width:100%;height:300px;object-fit:cover;object-position:top center;flex-shrink:0;"/>
-        <img src="hero-slide-forwardly.jpg" alt="Forwardly - BluWav client, Ontario" style="width:100%;height:300px;object-fit:cover;object-position:top center;flex-shrink:0;"/>
-      </div>
-      <!-- Dots -->
-      <div style="position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:10;">
-        <div class="bw-dot" onclick="bwGoSlide(0)" style="width:7px;height:7px;border-radius:50%;background:#fff;cursor:pointer;opacity:1;transition:opacity .3s;"></div>
-        <div class="bw-dot" onclick="bwGoSlide(1)" style="width:7px;height:7px;border-radius:50%;background:#fff;cursor:pointer;opacity:0.35;transition:opacity .3s;"></div>
-        <div class="bw-dot" onclick="bwGoSlide(2)" style="width:7px;height:7px;border-radius:50%;background:#fff;cursor:pointer;opacity:0.35;transition:opacity .3s;"></div>
-        <div class="bw-dot" onclick="bwGoSlide(3)" style="width:7px;height:7px;border-radius:50%;background:#fff;cursor:pointer;opacity:0.35;transition:opacity .3s;"></div>
-        <div class="bw-dot" onclick="bwGoSlide(4)" style="width:7px;height:7px;border-radius:50%;background:#fff;cursor:pointer;opacity:0.35;transition:opacity .3s;"></div>
-      </div>
+    <div>
+      <div style="font-size:24px;font-weight:900;color:#00C8E0;line-height:1;">15+</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.6);margin-top:4px;font-weight:500;">Markets Across the Caribbean</div>
+    </div>
+    <div>
+      <div style="font-size:24px;font-weight:900;color:#00C8E0;line-height:1;">98%</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.6);margin-top:4px;font-weight:500;">Client Satisfaction Rate</div>
     </div>
   </div>
+</div>
+
+<!-- RIGHT: Caribbean hero image -->
+<div style="position:relative;height:100%;min-height:500px;" id="hero-visual">
+  <img src="hero-caribbean.png" alt="Caribbean business growth — BluWav" style="width:100%;height:100%;min-height:500px;object-fit:cover;object-position:center top;display:block;border-radius:16px;box-shadow:0 24px 60px rgba(0,0,0,0.4);"/>
+</div>
 
   <!-- Monitor stand -->
   <div style="width:50px;height:18px;background:#1f2937;border-left:3px solid #374151;border-right:3px solid #374151;"></div>
@@ -1017,49 +1005,12 @@ a[style*="border-radius:8px"] {
   <!-- Label -->
   <div style="margin-top:14px;display:inline-flex;align-items:center;gap:7px;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.25);border-radius:6px;padding:6px 14px;">
     <div style="width:6px;height:6px;border-radius:50%;background:#22c55e;"></div>
-    <span id="bwCarouselLabel" style="font-size:11px;font-weight:600;color:#22c55e;font-family:Poppins,sans-serif;">Real client websites built by BluWav</span>
+    <span style="font-size:11px;font-weight:600;color:#22c55e;font-family:Poppins,sans-serif;">Real Caribbean businesses. Real growth.</span>
   </div>
 
 </div>
 
-<script>
-(function(){
-  var slides = [
-    { url: 'balancedasdesigned.com', label: 'Balanced as Designed, Nassau' },
-    { url: 'rivva.co', label: 'Rivva, Trinidad' },
-    { url: 'topvillejamaicanfood.com', label: 'Topville Jamaican Cuisine, Ontario' },
-    { url: 'credii.org', label: 'Credii, Caribbean' },
-    { url: 'forwardly.co', label: 'Forwardly, Ontario' }
-  ];
-  var current = 0;
-  var track = document.getElementById('bwCarouselTrack');
-  var dots = document.querySelectorAll('.bw-dot');
-  var urlEl = document.getElementById('bwCarouselUrl');
-  var labelEl = document.getElementById('bwCarouselLabel');
-  var total = slides.length;
-  var timer;
-
-  function bwGoSlide(n) {
-    current = n;
-    if(track) track.style.transform = 'translateX(-' + (current * 100) + '%)';
-    dots.forEach(function(d, i) { d.style.opacity = i === current ? '1' : '0.35'; });
-    if(urlEl) urlEl.textContent = slides[current].url;
-    if(labelEl) labelEl.textContent = slides[current].label;
-  }
-  window.bwGoSlide = bwGoSlide;
-
-  function bwNext() { bwGoSlide((current + 1) % total); }
-  function startTimer() { timer = setInterval(bwNext, 3500); }
-  function stopTimer() { clearInterval(timer); }
-  startTimer();
-
-  var visual = document.getElementById('hero-visual');
-  if(visual) {
-    visual.addEventListener('mouseenter', stopTimer);
-    visual.addEventListener('mouseleave', startTimer);
-  }
-})();
-</script>
+<
 
 <style>
 @media(max-width:900px){
@@ -1070,6 +1021,8 @@ a[style*="border-radius:8px"] {
 }
 </style>
 </section>
+
+
 
 <div style="background:var(--navy);line-height:0;font-size:0;display:block;margin:0;padding:0;"><svg preserveAspectRatio="none" style="display:block;width:100%;height:80px;margin:0;padding:0;vertical-align:bottom;" viewBox="0 0 1440 80" aria-hidden="true"><path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#f8fafc"></path></svg></div>
 <section style="background:var(--light-bg);padding:0;">
