@@ -68,102 +68,87 @@ body{font-family:'Inter',sans-serif;background:var(--white);color:var(--navy);ov
 
 
 
-<!-- Package detail links + expandable sections -->
+<!-- Package detail hover links -->
+<style>
+.detail-link-wrap{position:relative;display:inline-block;}
+.detail-link{background:none;border:none;cursor:pointer;font-size:14px;font-weight:600;color:#0891b2;text-decoration:underline;text-underline-offset:3px;padding:0;font-family:'Inter',sans-serif;}
+.detail-link:hover{color:#0c6e8a;}
+.detail-popover{display:none;position:absolute;bottom:calc(100% + 12px);left:50%;transform:translateX(-50%);background:#fff;border:1px solid rgba(8,145,178,0.2);border-radius:14px;box-shadow:0 12px 40px rgba(0,0,0,0.15);padding:20px 24px;width:300px;z-index:100;text-align:left;}
+.detail-popover::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:8px solid transparent;border-top-color:#fff;}
+.detail-link-wrap:hover .detail-popover{display:block;}
+.popover-title{font-size:12px;font-weight:700;color:#0891b2;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;}
+.popover-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:8px;}
+.popover-list li{font-size:13px;color:#475569;display:flex;gap:8px;line-height:1.5;}
+.popover-list li::before{content:'✓';color:#22c55e;font-weight:700;flex-shrink:0;}
+.compare-tbl{width:100%;border-collapse:collapse;font-size:12px;}
+.compare-tbl th{background:#0a0f1e;color:#fff;padding:8px 10px;text-align:center;font-weight:700;}
+.compare-tbl th:first-child{text-align:left;}
+.compare-tbl td{padding:7px 10px;border-bottom:1px solid #f1f5f9;color:#475569;}
+.compare-tbl td:first-child{font-weight:500;}
+.compare-tbl td:not(:first-child){text-align:center;}
+.compare-tbl tr:nth-child(even) td{background:#f8fafc;}
+</style>
 <div style="background:#fff;padding:20px 24px 0;text-align:center;">
   <div style="max-width:760px;margin:0 auto;">
     <div style="display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;">
-      <button onclick="toggleExpand('achieve')" style="background:none;border:none;cursor:pointer;font-size:14px;font-weight:600;color:#0891b2;text-decoration:underline;text-underline-offset:3px;padding:0;font-family:'Inter',sans-serif;">What You'll Achieve</button>
+      <div class="detail-link-wrap">
+        <button class="detail-link">What You'll Achieve</button>
+        <div class="detail-popover">
+          <div class="popover-title">What You'll Achieve</div>
+          <ul class="popover-list">
+            <li>Increase visibility on Google</li>
+            <li>Generate more customer enquiries</li>
+            <li>Improve conversion opportunities</li>
+            <li>Build trust and credibility online</li>
+            <li>Create a stronger growth engine</li>
+          </ul>
+        </div>
+      </div>
       <span style="color:#cbd5e1;">|</span>
-      <button onclick="toggleExpand('included')" style="background:none;border:none;cursor:pointer;font-size:14px;font-weight:600;color:#0891b2;text-decoration:underline;text-underline-offset:3px;padding:0;font-family:'Inter',sans-serif;">What's Included</button>
+      <div class="detail-link-wrap">
+        <button class="detail-link">What's Included</button>
+        <div class="detail-popover">
+          <div class="popover-title">What's Included</div>
+          <ul class="popover-list">
+            <li>Everything in Launch</li>
+            <li>Enhanced Local SEO</li>
+            <li>Competitor Visibility Review</li>
+            <li>Reputation and Reviews Strategy</li>
+            <li>Conversion-Focused Website Improvements</li>
+            <li>Dedicated Landing Page</li>
+            <li>Monthly Visibility Review</li>
+            <li>Monthly Growth Check-In</li>
+            <li>Priority Support</li>
+          </ul>
+        </div>
+      </div>
       <span style="color:#cbd5e1;">|</span>
-      <button onclick="toggleExpand('compare')" style="background:none;border:none;cursor:pointer;font-size:14px;font-weight:600;color:#0891b2;text-decoration:underline;text-underline-offset:3px;padding:0;font-family:'Inter',sans-serif;">Compare Packages</button>
-    </div>
-  </div>
-</div>
-
-<!-- EXPANDABLE SECTIONS -->
-<section style="background:#fff;padding:16px 24px 40px;">
-<div style="max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:0;">
-
-  <!-- What You'll Achieve -->
-  <div class="expand-wrap">
-    <button class="expand-btn" id="btn_achieve" onclick="toggleExpand('achieve')">
-      <span>What You'll Achieve</span>
-      <span class="arrow" id="arrow_achieve">&#8964;</span>
-    </button>
-    <div class="expand-content" id="content_achieve">
-      <ul class="included-list">
-        <li><span class="check">&#10003;</span><span>Increase visibility on Google</span></li>
-<li><span class="check">&#10003;</span><span>Generate more customer enquiries</span></li>
-<li><span class="check">&#10003;</span><span>Improve conversion opportunities</span></li>
-<li><span class="check">&#10003;</span><span>Build trust and credibility online</span></li>
-<li><span class="check">&#10003;</span><span>Create a stronger growth engine</span></li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- What's Included -->
-  <div class="expand-wrap">
-    <button class="expand-btn" id="btn_included" onclick="toggleExpand('included')">
-      <span>What's Included</span>
-      <span class="arrow" id="arrow_included">&#8964;</span>
-    </button>
-    <div class="expand-content" id="content_included">
-      <ul class="included-list">
-        <li><span class="check">&#10003;</span><span>Everything in Launch, plus:</span></li>
-<li><span class="check">&#10003;</span><span>Enhanced Local SEO</span></li>
-<li><span class="check">&#10003;</span><span>Competitor Visibility Review</span></li>
-<li><span class="check">&#10003;</span><span>Reputation and Reviews Strategy</span></li>
-<li><span class="check">&#10003;</span><span>Conversion-Focused Website Improvements</span></li>
-<li><span class="check">&#10003;</span><span>Dedicated Landing Page</span></li>
-<li><span class="check">&#10003;</span><span>Monthly Visibility Review</span></li>
-<li><span class="check">&#10003;</span><span>Monthly Growth Check-In</span></li>
-<li><span class="check">&#10003;</span><span>Priority Support</span></li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- Compare Packages -->
-  <div class="expand-wrap">
-    <button class="expand-btn" id="btn_compare" onclick="toggleExpand('compare')">
-      <span>Compare Packages</span>
-      <span class="arrow" id="arrow_compare">&#8964;</span>
-    </button>
-    <div class="expand-content" id="content_compare">
-      <div style="overflow-x:auto;margin-top:8px;">
-<table style="width:100%;border-collapse:collapse;font-size:13px;">
-<thead>
-<tr style="background:#0a0f1e;color:#fff;">
-  <th style="padding:12px 16px;text-align:left;font-weight:700;border-radius:8px 0 0 0;">Feature</th>
-  <th style="padding:12px 16px;text-align:center;font-weight:700;">Launch</th>
-  <th style="padding:12px 16px;text-align:center;font-weight:700;color:#00C8E0;">Momentum</th>
-  <th style="padding:12px 16px;text-align:center;font-weight:700;border-radius:0 8px 0 0;">Accelerate</th>
-</tr>
-</thead>
-<tbody>
-<tr style="background:#f8fafc;"><td style="padding:11px 16px;color:#475569;border-bottom:1px solid #e2e8f0;">Professional Website</td><td style="text-align:center;color:#22c55e;font-weight:700;border-bottom:1px solid #e2e8f0;">&#10003;</td><td style="text-align:center;color:#22c55e;font-weight:700;border-bottom:1px solid #e2e8f0;">&#10003;</td><td style="text-align:center;color:#22c55e;font-weight:700;border-bottom:1px solid #e2e8f0;">&#10003;</td></tr>
-<tr><td style="padding:11px 16px;color:#475569;border-bottom:1px solid #e2e8f0;">Mobile Optimization</td><td style="text-align:center;color:#22c55e;font-weight:700;border-bottom:1px solid #e2e8f0;">&#10003;</td><td style="text-align:center;color:#22c55e;font-weight:700;border-bottom:1px solid #e2e8f0;">&#10003;</td><td style="text-align:center;color:#22c55e;font-weight:700;border-bottom:1px solid #e2e8f0;">&#10003;</td></tr>
-<tr style="background:#f8fafc;"><td style="padding:11px 16px;color:#475569;border-bottom:1px solid #e2e8f0;">Google Business Profile</td><td style="text-align:center;color:#22c55e;font-weight:700;border-bottom:1px solid #e2e8f0;">&#10003;</td><td style="text-align:center;color:#22c55e;font-weight:700;border-bottom:1px solid #e2e8f0;">&#10003;</td><td style="text-align:center;color:#22c55e;font-weight:700;border-bottom:1px solid #e2e8f0;">&#10003;</td></tr>
-<tr><td style="padding:11px 16px;color:#475569;border-bottom:1px solid #e2e8f0;">Basic SEO</td><td style="text-align:center;color:#22c55e;font-weight:700;border-bottom:1px solid #e2e8f0;">&#10003;</td><td style="text-align:center;color:#22c55e;font-weight:700;border-bottom:1px solid #e2e8f0;">&#10003;</td><td style="text-align:center;color:#22c55e;font-weight:700;border-bottom:1px solid #e2e8f0;">&#10003;</td></tr>
-<tr style="background:#f8fafc;"><td style="padding:11px 16px;color:#475569;border-bottom:1px solid #e2e8f0;">Local SEO</td><td style="text-align:center;color:#cbd5e1;border-bottom:1px solid #e2e8f0;">-</td><td style="text-align:center;color:#22c55e;font-weight:700;border-bottom:1px solid #e2e8f0;">&#10003;</td><td style="text-align:center;color:#22c55e;font-weight:700;border-bottom:1px solid #e2e8f0;">&#10003;</td></tr>
-<tr><td style="padding:11px 16px;color:#475569;border-bottom:1px solid #e2e8f0;">Landing Page</td><td style="text-align:center;color:#cbd5e1;border-bottom:1px solid #e2e8f0;">-</td><td style="text-align:center;color:#22c55e;font-weight:700;border-bottom:1px solid #e2e8f0;">&#10003;</td><td style="text-align:center;color:#22c55e;font-weight:700;border-bottom:1px solid #e2e8f0;">&#10003;</td></tr>
-<tr style="background:#f8fafc;"><td style="padding:11px 16px;color:#475569;border-bottom:1px solid #e2e8f0;">Monthly Growth Check-In</td><td style="text-align:center;color:#cbd5e1;border-bottom:1px solid #e2e8f0;">-</td><td style="text-align:center;color:#22c55e;font-weight:700;border-bottom:1px solid #e2e8f0;">&#10003;</td><td style="text-align:center;color:#22c55e;font-weight:700;border-bottom:1px solid #e2e8f0;">&#10003;</td></tr>
-<tr><td style="padding:11px 16px;color:#475569;border-bottom:1px solid #e2e8f0;">Growth Reporting</td><td style="text-align:center;color:#cbd5e1;border-bottom:1px solid #e2e8f0;">-</td><td style="text-align:center;color:#cbd5e1;border-bottom:1px solid #e2e8f0;">-</td><td style="text-align:center;color:#22c55e;font-weight:700;border-bottom:1px solid #e2e8f0;">&#10003;</td></tr>
-<tr style="background:#f8fafc;"><td style="padding:11px 16px;color:#475569;border-bottom:1px solid #e2e8f0;">Quarterly Strategy Sessions</td><td style="text-align:center;color:#cbd5e1;border-bottom:1px solid #e2e8f0;">-</td><td style="text-align:center;color:#cbd5e1;border-bottom:1px solid #e2e8f0;">-</td><td style="text-align:center;color:#22c55e;font-weight:700;border-bottom:1px solid #e2e8f0;">&#10003;</td></tr>
-<tr><td style="padding:11px 16px;color:#475569;">Dedicated Success Manager</td><td style="text-align:center;color:#cbd5e1;">-</td><td style="text-align:center;color:#cbd5e1;">-</td><td style="text-align:center;color:#22c55e;font-weight:700;">&#10003;</td></tr>
-</tbody>
-</table>
-</div>
-      <div style="display:flex;gap:12px;margin-top:20px;flex-wrap:wrap;">
-        <a href="launch.html" style="font-size:13px;font-weight:700;color:#475569;text-decoration:none;border:1.5px solid rgba(10,15,30,0.15);padding:8px 18px;border-radius:100px;" onmouseover="this.style.borderColor='#0891b2';this.style.color='#0891b2'" onmouseout="this.style.borderColor='rgba(10,15,30,0.15)';this.style.color='#475569'">View Launch</a>
-        <a href="momentum.html" style="font-size:13px;font-weight:700;color:#475569;text-decoration:none;border:1.5px solid rgba(10,15,30,0.15);padding:8px 18px;border-radius:100px;" onmouseover="this.style.borderColor='#0891b2';this.style.color='#0891b2'" onmouseout="this.style.borderColor='rgba(10,15,30,0.15)';this.style.color='#475569'">View Momentum</a>
-        <a href="accelerate.html" style="font-size:13px;font-weight:700;color:#475569;text-decoration:none;border:1.5px solid rgba(10,15,30,0.15);padding:8px 18px;border-radius:100px;" onmouseover="this.style.borderColor='#0891b2';this.style.color='#0891b2'" onmouseout="this.style.borderColor='rgba(10,15,30,0.15)';this.style.color='#475569'">View Accelerate</a>
+      <div class="detail-link-wrap">
+        <button class="detail-link">Compare Packages</button>
+        <div class="detail-popover" style="width:360px;">
+          <div class="popover-title">Compare Packages</div>
+          <table class="compare-tbl">
+            <thead><tr><th>Feature</th><th>Launch</th><th style="color:#00C8E0;">Momentum</th><th>Accelerate</th></tr></thead>
+            <tbody>
+              <tr><td>Professional Website</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td></tr>
+              <tr><td>Google Business Profile</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td></tr>
+              <tr><td>Basic SEO</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td></tr>
+              <tr><td>Local SEO</td><td>-</td><td>&#10003;</td><td>&#10003;</td></tr>
+              <tr><td>Landing Page</td><td>-</td><td>&#10003;</td><td>&#10003;</td></tr>
+              <tr><td>Monthly Check-In</td><td>-</td><td>&#10003;</td><td>&#10003;</td></tr>
+              <tr><td>Growth Reporting</td><td>-</td><td>-</td><td>&#10003;</td></tr>
+              <tr><td>Quarterly Strategy</td><td>-</td><td>-</td><td>&#10003;</td></tr>
+            </tbody>
+          </table>
+          <div style="display:flex;gap:8px;margin-top:12px;">
+            <a href="launch.html" style="font-size:11px;font-weight:700;color:#475569;text-decoration:none;border:1px solid rgba(10,15,30,0.15);padding:5px 12px;border-radius:100px;">Launch</a>
+            <a href="accelerate.html" style="font-size:11px;font-weight:700;color:#475569;text-decoration:none;border:1px solid rgba(10,15,30,0.15);padding:5px 12px;border-radius:100px;">Accelerate</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-
 </div>
-</section>
 
 <!-- Optional Growth Boosters -->
 <section style="background:#f8fafc;padding:60px 24px;">
