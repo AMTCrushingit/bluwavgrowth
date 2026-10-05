@@ -137,15 +137,26 @@ body{background:var(--white);color:var(--navy);overflow-x:hidden;}
 </div>
 
 <!-- HERO -->
-<div style="position:relative;min-height:520px;display:flex;align-items:center;overflow:hidden;background:var(--navy);">
-  <img src="our-promise-hero.jpg" alt="BluWav Caribbean — Our Promise" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;opacity:0.35;"/>
-  <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(10,15,30,0.95) 40%,rgba(10,15,30,0.5) 100%);"></div>
-  <div style="position:relative;z-index:1;padding:140px clamp(24px,6vw,100px) 80px;max-width:680px;">
-    <div style="font-size:11px;font-weight:700;color:#00C8E0;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;">Our Promise</div>
-    <h1 style="font-size:clamp(32px,5vw,56px);font-weight:900;color:#fff;line-height:1.1;letter-spacing:-1px;margin-bottom:20px;">Built for Caribbean SMEs.<br/><span style="color:#00C8E0;">Focused on Your Growth.</span></h1>
-    <p style="font-size:17px;color:rgba(255,255,255,0.75);line-height:1.8;max-width:520px;">Running a business isn't easy. When you work with BluWav, our promise is simple: we'll help you focus on the things most likely to move your business forward.</p>
+<div style="position:relative;min-height:560px;display:grid;grid-template-columns:1fr 1fr;overflow:hidden;background:var(--navy);">
+  <!-- Orbs -->
+  <div style="position:absolute;width:500px;height:500px;top:-150px;left:-100px;background:radial-gradient(circle,rgba(8,145,178,0.15) 0%,transparent 70%);border-radius:50%;filter:blur(80px);pointer-events:none;z-index:0;"></div>
+  <!-- Left: Text -->
+  <div style="position:relative;z-index:1;padding:140px clamp(24px,5vw,80px) 80px;display:flex;flex-direction:column;justify-content:center;">
+    <div class="bw-fade-up" style="font-size:11px;font-weight:700;color:#00C8E0;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;">Our Promise</div>
+    <h1 class="bw-fade-up bw-delay-1" style="font-size:clamp(30px,4.5vw,52px);font-weight:900;color:#fff;line-height:1.1;letter-spacing:-1px;margin-bottom:20px;">Built for Caribbean SMEs.<br/><span style="color:#00C8E0;">Focused on Your Growth.</span></h1>
+    <p class="bw-fade-up bw-delay-2" style="font-size:17px;color:rgba(255,255,255,0.7);line-height:1.8;max-width:480px;">Running a business isn't easy. When you work with BluWav, our promise is simple: we'll help you focus on the things most likely to move your business forward.</p>
+  </div>
+  <!-- Right: Woman image -->
+  <div style="position:relative;overflow:hidden;background:url(promise-hero-woman.png) center top/cover no-repeat;">
+    <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(10,15,30,0.5) 0%,transparent 50%);"></div>
   </div>
 </div>
+<style>
+@media(max-width:768px){
+  [style*="grid-template-columns:1fr 1fr"]:first-of-type{grid-template-columns:1fr!important;}
+  [style*="background:url(promise-hero-woman.png)"]{display:none!important;}
+}
+</style>
 
 <!-- INTRO -->
 <section style="background:var(--teal);padding:48px clamp(24px,6vw,100px);">
