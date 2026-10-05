@@ -66,8 +66,23 @@ body{font-family:'Inter',sans-serif;background:var(--white);color:var(--navy);ov
   </div>
 </div>
 
+
+
+<!-- Package detail links + expandable sections -->
+<div style="background:#fff;padding:20px 24px 0;text-align:center;">
+  <div style="max-width:760px;margin:0 auto;">
+    <div style="display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;">
+      <button onclick="toggleExpand('achieve')" style="background:none;border:none;cursor:pointer;font-size:14px;font-weight:600;color:#0891b2;text-decoration:underline;text-underline-offset:3px;padding:0;font-family:'Inter',sans-serif;">What You'll Achieve</button>
+      <span style="color:#cbd5e1;">|</span>
+      <button onclick="toggleExpand('included')" style="background:none;border:none;cursor:pointer;font-size:14px;font-weight:600;color:#0891b2;text-decoration:underline;text-underline-offset:3px;padding:0;font-family:'Inter',sans-serif;">What's Included</button>
+      <span style="color:#cbd5e1;">|</span>
+      <button onclick="toggleExpand('compare')" style="background:none;border:none;cursor:pointer;font-size:14px;font-weight:600;color:#0891b2;text-decoration:underline;text-underline-offset:3px;padding:0;font-family:'Inter',sans-serif;">Compare Packages</button>
+    </div>
+  </div>
+</div>
+
 <!-- EXPANDABLE SECTIONS -->
-<section style="background:#fff;padding:60px 24px;">
+<section style="background:#fff;padding:16px 24px 40px;">
 <div style="max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:0;">
 
   <!-- What You'll Achieve -->
