@@ -47,6 +47,54 @@ p, li, td, th, label, input, select, textarea, button { font-size: var(--body); 
 small, .text-sm { font-size: var(--small); }
 .text-xs { font-size: var(--xs); }
 </style>
+<style>
+/* ── BluWav Animation & Visual System ── */
+@keyframes bwFadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+@keyframes bwFadeIn{from{opacity:0;}to{opacity:1;}}
+@keyframes bwSlideRight{from{opacity:0;transform:translateX(-24px);}to{opacity:1;transform:translateX(0);}}
+@keyframes bwSlideLeft{from{opacity:0;transform:translateX(24px);}to{opacity:1;transform:translateX(0);}}
+@keyframes bwPulse{0%,100%{transform:scale(1);}50%{transform:scale(1.04);}}
+@keyframes bwFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+@keyframes bwGlow{0%,100%{box-shadow:0 0 20px rgba(8,145,178,0.3);}50%{box-shadow:0 0 40px rgba(8,145,178,0.6);}}
+@keyframes bwOrb1{0%,100%{transform:translateY(0) translateX(0);}50%{transform:translateY(-30px) translateX(15px);}}
+@keyframes bwOrb2{0%,100%{transform:translateY(0) translateX(0);}50%{transform:translateY(-20px) translateX(-20px);}}
+
+.bw-fade-up{opacity:0;animation:bwFadeUp 0.7s ease forwards;}
+.bw-fade-in{opacity:0;animation:bwFadeIn 0.6s ease forwards;}
+.bw-slide-right{opacity:0;animation:bwSlideRight 0.7s ease forwards;}
+.bw-slide-left{opacity:0;animation:bwSlideLeft 0.7s ease forwards;}
+.bw-delay-1{animation-delay:0.15s;}
+.bw-delay-2{animation-delay:0.3s;}
+.bw-delay-3{animation-delay:0.45s;}
+.bw-delay-4{animation-delay:0.6s;}
+.bw-delay-5{animation-delay:0.75s;}
+
+/* Scroll-triggered fade */
+.bw-reveal{opacity:0;transform:translateY(20px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.bw-reveal.visible{opacity:1;transform:translateY(0);}
+.bw-reveal-left{opacity:0;transform:translateX(-20px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.bw-reveal-left.visible{opacity:1;transform:translateX(0);}
+.bw-reveal-right{opacity:0;transform:translateX(20px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.bw-reveal-right.visible{opacity:1;transform:translateX(0);}
+
+/* Section gradients */
+.bw-section-teal{background:linear-gradient(135deg,#f0f9ff 0%,#e0f2fe 100%);}
+.bw-section-warm{background:linear-gradient(135deg,#fff7ed 0%,#ffedd5 100%);}
+.bw-section-dark{background:linear-gradient(135deg,#060d1f 0%,#0a1628 100%);}
+
+/* Orb decorations */
+.bw-orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;z-index:0;}
+.bw-orb-teal{background:rgba(8,145,178,0.15);}
+.bw-orb-orange{background:rgba(255,101,53,0.12);}
+
+/* Card hover effects */
+.bw-card-hover{transition:transform 0.25s ease,box-shadow 0.25s ease;}
+.bw-card-hover:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,0.12)!important;}
+
+/* Hero headline standard */
+.bw-hero-white{color:#ffffff;}
+.bw-hero-teal{color:#00C8E0;}
+</style>
 </head>
 <body>
 <nav style="position:fixed;top:0;left:0;right:0;z-index:1000;height:68px;padding:0 clamp(16px,4vw,60px);display:flex;align-items:center;justify-content:space-between;background:rgba(10,15,30,0.96);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,200,224,0.12);">
@@ -76,7 +124,7 @@ small, .text-sm { font-size: var(--small); }
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;padding:60px 0;border-bottom:1px solid rgba(10,15,30,0.08);">
     <div>
       <div style="font-size:11px;font-weight:700;color:#64748b;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;">Foundation</div>
-      <h2 style="font-size:clamp(28px,4vw,44px);font-weight:900;color:#0a0f1e;margin-bottom:12px;">Launch</h2>
+      <h2 class="bw-reveal" style="font-size:clamp(28px,4vw,44px);font-weight:900;color:#0a0f1e;margin-bottom:12px;">Launch</h2>
       <div style="font-size:22px;font-weight:800;color:#0891b2;margin-bottom:8px;">US$397<span style="font-size:14px;font-weight:500;color:#64748b;">/month</span></div>
       <div style="font-size:14px;color:#94a3b8;margin-bottom:24px;">+ US$900 setup</div>
       <p style="font-size:16px;color:#475569;line-height:1.8;margin-bottom:28px;">Build a professional online presence that helps customers find, trust, and contact your business.</p>
@@ -110,7 +158,7 @@ small, .text-sm { font-size: var(--small); }
     </div>
     <div>
       <div style="font-size:11px;font-weight:700;color:#64748b;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;">Most Popular</div>
-      <h2 style="font-size:clamp(28px,4vw,44px);font-weight:900;color:#0a0f1e;margin-bottom:12px;">Momentum</h2>
+      <h2 class="bw-reveal" style="font-size:clamp(28px,4vw,44px);font-weight:900;color:#0a0f1e;margin-bottom:12px;">Momentum</h2>
       <div style="font-size:22px;font-weight:800;color:#0891b2;margin-bottom:8px;">US$597<span style="font-size:14px;font-weight:500;color:#64748b;">/month</span></div>
       <div style="font-size:14px;color:#94a3b8;margin-bottom:24px;">+ US$1,200 setup</div>
       <p style="font-size:16px;color:#475569;line-height:1.8;margin-bottom:28px;">Increase visibility, generate more enquiries, and attract more customers with a stronger growth engine.</p>
@@ -129,7 +177,7 @@ small, .text-sm { font-size: var(--small); }
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;padding:60px 0;">
     <div>
       <div style="font-size:11px;font-weight:700;color:#64748b;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;">Full Growth Engine</div>
-      <h2 style="font-size:clamp(28px,4vw,44px);font-weight:900;color:#0a0f1e;margin-bottom:12px;">Accelerate</h2>
+      <h2 class="bw-reveal" style="font-size:clamp(28px,4vw,44px);font-weight:900;color:#0a0f1e;margin-bottom:12px;">Accelerate</h2>
       <div style="font-size:22px;font-weight:800;color:#0891b2;margin-bottom:8px;">US$997<span style="font-size:14px;font-weight:500;color:#64748b;">/month</span></div>
       <div style="font-size:14px;color:#94a3b8;margin-bottom:24px;">+ US$1,600 setup</div>
       <p style="font-size:16px;color:#475569;line-height:1.8;margin-bottom:28px;">Ongoing optimization, growth support, and strategic guidance for businesses ready to scale.</p>
@@ -157,12 +205,25 @@ small, .text-sm { font-size: var(--small); }
 <!-- Not sure CTA -->
 <section style="background:#0a0f1e;padding:60px 24px;text-align:center;">
 <div style="max-width:600px;margin:0 auto;">
-  <h2 style="font-size:clamp(22px,3vw,32px);font-weight:900;color:#fff;margin-bottom:12px;">Not sure which system is right for you?</h2>
+  <h2 class="bw-reveal" style="font-size:clamp(22px,3vw,32px);font-weight:900;color:#fff;margin-bottom:12px;">Not sure which system is right for you?</h2>
   <p style="font-size:16px;color:rgba(255,255,255,0.6);margin-bottom:28px;line-height:1.7;">Start with a free Growth Review and we will help you choose the right path.</p>
   <a href="../health-check.html" class="btn-primary">Get My Free Growth Review</a>
 </div>
 </section>
 
 <style>@media(max-width:768px){[style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important;gap:32px!important;}}</style>
+
+<script>
+// Scroll reveal
+(function(){
+  var els = document.querySelectorAll('.bw-reveal,.bw-reveal-left,.bw-reveal-right');
+  if(!els.length) return;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');}});
+  },{threshold:0.12});
+  els.forEach(function(el){io.observe(el);});
+})();
+</script>
+
 </body>
 </html>

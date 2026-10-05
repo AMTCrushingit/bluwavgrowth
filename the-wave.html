@@ -227,6 +227,54 @@ p, li, td, th, label, input, select, textarea, button { font-size: var(--body); 
 small, .text-sm { font-size: var(--small); }
 .text-xs { font-size: var(--xs); }
 </style>
+<style>
+/* ── BluWav Animation & Visual System ── */
+@keyframes bwFadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+@keyframes bwFadeIn{from{opacity:0;}to{opacity:1;}}
+@keyframes bwSlideRight{from{opacity:0;transform:translateX(-24px);}to{opacity:1;transform:translateX(0);}}
+@keyframes bwSlideLeft{from{opacity:0;transform:translateX(24px);}to{opacity:1;transform:translateX(0);}}
+@keyframes bwPulse{0%,100%{transform:scale(1);}50%{transform:scale(1.04);}}
+@keyframes bwFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+@keyframes bwGlow{0%,100%{box-shadow:0 0 20px rgba(8,145,178,0.3);}50%{box-shadow:0 0 40px rgba(8,145,178,0.6);}}
+@keyframes bwOrb1{0%,100%{transform:translateY(0) translateX(0);}50%{transform:translateY(-30px) translateX(15px);}}
+@keyframes bwOrb2{0%,100%{transform:translateY(0) translateX(0);}50%{transform:translateY(-20px) translateX(-20px);}}
+
+.bw-fade-up{opacity:0;animation:bwFadeUp 0.7s ease forwards;}
+.bw-fade-in{opacity:0;animation:bwFadeIn 0.6s ease forwards;}
+.bw-slide-right{opacity:0;animation:bwSlideRight 0.7s ease forwards;}
+.bw-slide-left{opacity:0;animation:bwSlideLeft 0.7s ease forwards;}
+.bw-delay-1{animation-delay:0.15s;}
+.bw-delay-2{animation-delay:0.3s;}
+.bw-delay-3{animation-delay:0.45s;}
+.bw-delay-4{animation-delay:0.6s;}
+.bw-delay-5{animation-delay:0.75s;}
+
+/* Scroll-triggered fade */
+.bw-reveal{opacity:0;transform:translateY(20px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.bw-reveal.visible{opacity:1;transform:translateY(0);}
+.bw-reveal-left{opacity:0;transform:translateX(-20px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.bw-reveal-left.visible{opacity:1;transform:translateX(0);}
+.bw-reveal-right{opacity:0;transform:translateX(20px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.bw-reveal-right.visible{opacity:1;transform:translateX(0);}
+
+/* Section gradients */
+.bw-section-teal{background:linear-gradient(135deg,#f0f9ff 0%,#e0f2fe 100%);}
+.bw-section-warm{background:linear-gradient(135deg,#fff7ed 0%,#ffedd5 100%);}
+.bw-section-dark{background:linear-gradient(135deg,#060d1f 0%,#0a1628 100%);}
+
+/* Orb decorations */
+.bw-orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;z-index:0;}
+.bw-orb-teal{background:rgba(8,145,178,0.15);}
+.bw-orb-orange{background:rgba(255,101,53,0.12);}
+
+/* Card hover effects */
+.bw-card-hover{transition:transform 0.25s ease,box-shadow 0.25s ease;}
+.bw-card-hover:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,0.12)!important;}
+
+/* Hero headline standard */
+.bw-hero-white{color:#ffffff;}
+.bw-hero-teal{color:#00C8E0;}
+</style>
 </head>
 <body style="padding-top:68px;" >
 
@@ -323,7 +371,7 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 <section style="background:#f5f0e6;padding:80px 0;position:relative;z-index:1;">
   <div class="wrap">
     <div style="text-align:center;margin-bottom:48px;" class="bw-reveal">
-      <h2 style="font-family:'Manrope',sans-serif;font-size:clamp(22px,3.5vw,36px);font-weight:900;color:#0a0f1e;margin-bottom:8px;">Latest from The Wave</h2>
+      <h2 class="bw-reveal" style="font-family:'Manrope',sans-serif;font-size:clamp(22px,3.5vw,36px);font-weight:900;color:#0a0f1e;margin-bottom:8px;">Latest from The Wave</h2>
       <p style="font-size:16px;color:#64748B;">Short reads. Real insights. No fluff.</p>
     </div>
     <!-- FILTER TABS -->
@@ -345,7 +393,7 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
         </div>
         <div class="article-body">
           <span class="article-tag tag-google">Google Visibility</span>
-          <h2 class="article-title">Why Modern Businesses Lose Customers Online</h2>
+          <h2 class="bw-reveal" class="article-title">Why Modern Businesses Lose Customers Online</h2>
           <p class="article-excerpt">Your customers are searching Google right now. Most of them find your competitor instead. Here are the 3 things you can fix this week.</p>
           <div class="article-meta">
             <span>BluWav Growth &middot; 5 min read</span>
@@ -362,7 +410,7 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
         </div>
         <div class="article-body">
           <span class="article-tag tag-google">Google Business Profile</span>
-          <h2 class="article-title">Google Business Profile: The Free Tool Every Modern Business Needs</h2>
+          <h2 class="bw-reveal" class="article-title">Google Business Profile: The Free Tool Every Modern Business Needs</h2>
           <p class="article-excerpt">Free. 30 minutes to set up. Could be the most impactful thing you do this year. Most modern businesses skip it. Don't be one of them.</p>
           <div class="article-meta">
             <span>BluWav Growth &middot; 4 min read</span>
@@ -379,7 +427,7 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
         </div>
         <div class="article-body">
           <span class="article-tag tag-whatsapp">WhatsApp Business</span>
-          <h2 class="article-title">WhatsApp Business: How Modern Businesses Win More Customers</h2>
+          <h2 class="bw-reveal" class="article-title">WhatsApp Business: How Modern Businesses Win More Customers</h2>
           <p class="article-excerpt">Your customers don't email. They WhatsApp. If you're not set up properly, you're losing leads every day. Fix it in under an hour.</p>
           <div class="article-meta">
             <span>BluWav Growth &middot; 4 min read</span>
@@ -396,7 +444,7 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
         </div>
         <div class="article-body">
           <span class="article-tag tag-crm">CRM</span>
-          <h2 class="article-title">What Is a CRM and Why Does Your Business Need One?</h2>
+          <h2 class="bw-reveal" class="article-title">What Is a CRM and Why Does Your Business Need One?</h2>
           <p class="article-excerpt">You're losing customers you already have. Not because your service is bad, but because there's no system to follow up. A CRM fixes that.</p>
           <div class="article-meta">
             <span>BluWav Growth &middot; 3 min read</span>
@@ -413,7 +461,7 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
         </div>
         <div class="article-body">
           <span class="article-tag tag-website">Websites</span>
-          <h2 class="article-title">5 Signs Your Website Is Costing You Customers</h2>
+          <h2 class="bw-reveal" class="article-title">5 Signs Your Website Is Costing You Customers</h2>
           <p class="article-excerpt">A bad website is worse than no website. It tells customers you're not serious. Here are the 5 mistakes most modern businesses make.</p>
           <div class="article-meta">
             <span>BluWav Growth &middot; 4 min read</span>
@@ -430,7 +478,7 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
         </div>
         <div class="article-body">
           <span class="article-tag tag-seo">SEO</span>
-          <h2 class="article-title">Search Visibility: How to Show Up When Customers Search</h2>
+          <h2 class="bw-reveal" class="article-title">Search Visibility: How to Show Up When Customers Search</h2>
           <p class="article-excerpt">When customers search for what you offer, does your business show up? If not, here is how to fix that.</p>
           <div class="article-meta">
             <span>BluWav Growth &middot; 5 min read</span>
@@ -447,7 +495,7 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
         </div>
         <div class="article-body">
           <span class="article-tag" style="color:#C9A84C;">Growth</span>
-          <h2 class="article-title">How to Get Your First Customer Online in 48 Hours</h2>
+          <h2 class="bw-reveal" class="article-title">How to Get Your First Customer Online in 48 Hours</h2>
           <p class="article-excerpt">No tech skills. No big budget. Just 5 steps that work for modern businesses right now.</p>
           <div class="article-meta">
             <span>BluWav Growth &middot; 4 min read</span>
@@ -476,7 +524,7 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
         <span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:#C9A84C;">Stay on The Wave</span>
         <div style="width:28px;height:2px;background:#C9A84C;border-radius:2px;"></div>
       </div>
-      <h2 style="font-family:'Manrope',sans-serif;font-size:clamp(24px,4vw,36px);font-weight:900;color:#fff;margin-bottom:12px;letter-spacing:-0.02em;">Stay on <span style="color:#00d4ff;">The Wave.</span></h2>
+      <h2 class="bw-reveal" style="font-family:'Manrope',sans-serif;font-size:clamp(24px,4vw,36px);font-weight:900;color:#fff;margin-bottom:12px;letter-spacing:-0.02em;">Stay on <span style="color:#00d4ff;">The Wave.</span></h2>
       <p style="font-size:16px;color:rgba(255,255,255,0.65);margin-bottom:36px;max-width:440px;margin-left:auto;margin-right:auto;line-height:1.65;">Short, practical tips for modern business owners. Drop your email and ride The Wave with us.</p>
       <form id="wave-subscribe-form" onsubmit="handleWaveSubscribe(event)" style="display:flex;gap:12px;max-width:480px;margin:0 auto;flex-wrap:wrap;">
         <input id="wave-email-input" type="email" required placeholder="your@email.com"
@@ -507,7 +555,7 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
   <div style="background:linear-gradient(135deg,#0a0f1e 0%,#0c1a2e 100%);padding:64px clamp(16px,4vw,60px);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:32px;border-bottom:1px solid rgba(0,200,224,0.12);max-width:100%;">
     <div style="max-width:480px;">
       <div style="font-size:12px;font-weight:700;color:#00C8E0;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px;">Ready to Grow?</div>
-      <h2 style="font-size:clamp(22px,3.5vw,38px);font-weight:900;color:#fff;line-height:1.1;margin-bottom:10px;">Get Found. Get Chosen. Grow.</h2>
+      <h2 class="bw-reveal" style="font-size:clamp(22px,3.5vw,38px);font-weight:900;color:#fff;line-height:1.1;margin-bottom:10px;">Get Found. Get Chosen. Grow.</h2>
       <p style="font-size:15px;color:rgba(255,255,255,0.55);line-height:1.65;">Practical growth solutions built for Caribbean SMEs.</p>
     </div>
     <div style="display:flex;gap:14px;flex-wrap:wrap;">

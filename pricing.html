@@ -375,6 +375,54 @@ p, li, td, th, label, input, select, textarea, button { font-size: var(--body); 
 small, .text-sm { font-size: var(--small); }
 .text-xs { font-size: var(--xs); }
 </style>
+<style>
+/* ── BluWav Animation & Visual System ── */
+@keyframes bwFadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+@keyframes bwFadeIn{from{opacity:0;}to{opacity:1;}}
+@keyframes bwSlideRight{from{opacity:0;transform:translateX(-24px);}to{opacity:1;transform:translateX(0);}}
+@keyframes bwSlideLeft{from{opacity:0;transform:translateX(24px);}to{opacity:1;transform:translateX(0);}}
+@keyframes bwPulse{0%,100%{transform:scale(1);}50%{transform:scale(1.04);}}
+@keyframes bwFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+@keyframes bwGlow{0%,100%{box-shadow:0 0 20px rgba(8,145,178,0.3);}50%{box-shadow:0 0 40px rgba(8,145,178,0.6);}}
+@keyframes bwOrb1{0%,100%{transform:translateY(0) translateX(0);}50%{transform:translateY(-30px) translateX(15px);}}
+@keyframes bwOrb2{0%,100%{transform:translateY(0) translateX(0);}50%{transform:translateY(-20px) translateX(-20px);}}
+
+.bw-fade-up{opacity:0;animation:bwFadeUp 0.7s ease forwards;}
+.bw-fade-in{opacity:0;animation:bwFadeIn 0.6s ease forwards;}
+.bw-slide-right{opacity:0;animation:bwSlideRight 0.7s ease forwards;}
+.bw-slide-left{opacity:0;animation:bwSlideLeft 0.7s ease forwards;}
+.bw-delay-1{animation-delay:0.15s;}
+.bw-delay-2{animation-delay:0.3s;}
+.bw-delay-3{animation-delay:0.45s;}
+.bw-delay-4{animation-delay:0.6s;}
+.bw-delay-5{animation-delay:0.75s;}
+
+/* Scroll-triggered fade */
+.bw-reveal{opacity:0;transform:translateY(20px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.bw-reveal.visible{opacity:1;transform:translateY(0);}
+.bw-reveal-left{opacity:0;transform:translateX(-20px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.bw-reveal-left.visible{opacity:1;transform:translateX(0);}
+.bw-reveal-right{opacity:0;transform:translateX(20px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.bw-reveal-right.visible{opacity:1;transform:translateX(0);}
+
+/* Section gradients */
+.bw-section-teal{background:linear-gradient(135deg,#f0f9ff 0%,#e0f2fe 100%);}
+.bw-section-warm{background:linear-gradient(135deg,#fff7ed 0%,#ffedd5 100%);}
+.bw-section-dark{background:linear-gradient(135deg,#060d1f 0%,#0a1628 100%);}
+
+/* Orb decorations */
+.bw-orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;z-index:0;}
+.bw-orb-teal{background:rgba(8,145,178,0.15);}
+.bw-orb-orange{background:rgba(255,101,53,0.12);}
+
+/* Card hover effects */
+.bw-card-hover{transition:transform 0.25s ease,box-shadow 0.25s ease;}
+.bw-card-hover:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,0.12)!important;}
+
+/* Hero headline standard */
+.bw-hero-white{color:#ffffff;}
+.bw-hero-teal{color:#00C8E0;}
+</style>
 </head>
 <body data-id="0" style="padding-top:68px;">
 <app-icon data-icon="trending-up" data-id="1" data-palette="Blue" hidden=""></app-icon>
@@ -490,7 +538,7 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 
   <section class="pricing-panel" id="plans-k1l2" data-pricing-panel="systems" aria-labelledby="systems-heading">
     <div class="pricing-panel-heading">
-      <h2 id="systems-heading">Need a Complete Growth System?</h2>
+      <h2 class="bw-reveal" id="systems-heading">Need a Complete Growth System?</h2>
       <p>BluWav Growth Systems bring together the website, CRM, visibility tools, customer follow-up, and support you need in one connected solution.</p>
     </div>
     <div class="system-plan-list">
@@ -535,7 +583,7 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 
   <section class="pricing-panel" id="assessment" data-pricing-panel="assessment" aria-labelledby="assessment-heading" hidden>
     <div class="pricing-panel-body">
-      <div class="pricing-panel-heading"><h2 id="assessment-heading">Growth Assessment</h2><p>Find out why you are losing or not getting customers and what opportunities you are missing.</p></div>
+      <div class="pricing-panel-heading"><h2 class="bw-reveal" id="assessment-heading">Growth Assessment</h2><p>Find out why you are losing or not getting customers and what opportunities you are missing.</p></div>
       <div class="pricing-price">US$999</div>
       <details class="info-details"><summary>You’ll receive</summary><ul><li>A complete review of your visibility and customer journey</li><li>Clear priorities based on your business</li><li>Practical recommendations</li><li>A 90-day growth plan</li><li>A session to walk through everything together</li></ul></details>
       <p class="pricing-best-for"><strong>Best for you if:</strong> You know your business could be doing better, but you are unsure what to fix first.</p>
@@ -545,7 +593,7 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 
   <section class="pricing-panel" id="sprint" data-pricing-panel="sprint" aria-labelledby="sprint-heading" hidden>
     <div class="pricing-panel-body">
-      <div class="pricing-panel-heading"><h2 id="sprint-heading">Ready to Act and See Progress?</h2><p>30-Day Growth Sprint</p></div>
+      <div class="pricing-panel-heading"><h2 class="bw-reveal" id="sprint-heading">Ready to Act and See Progress?</h2><p>30-Day Growth Sprint</p></div>
       <div class="pricing-price">US$1,999</div>
       <details class="info-details"><summary>You’ll receive</summary><p>Get clear on what is slowing growth, fix selected high-impact issues, and leave with a practical plan for what comes next.</p><ul><li>A focused review of your business</li><li>Identification of missed opportunities</li><li>Selected quick-win improvements</li><li>A prioritized growth plan</li><li>Hands-on support over 30 days</li></ul></details>
       <p class="pricing-best-for"><strong>Best for you if:</strong> You want more than recommendations and are ready to start making improvements.</p>
@@ -555,7 +603,7 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 
   <section class="pricing-panel" id="memberships" data-pricing-panel="memberships" aria-labelledby="memberships-heading" hidden>
     <div class="pricing-panel-body">
-      <div class="pricing-panel-heading"><h2 id="memberships-heading">Want Ongoing Help?</h2><p>Growth Memberships — From US$149 per month</p></div>
+      <div class="pricing-panel-heading"><h2 class="bw-reveal" id="memberships-heading">Want Ongoing Help?</h2><p>Growth Memberships — From US$149 per month</p></div>
       <p>Keep your business visible, supported, and moving forward without paying for services you do not need.</p>
       <p>Choose the level of support that fits your current priorities.</p>
       <a class="pricing-cta" href="growth-systems/memberships.html">Compare Memberships</a>
@@ -564,7 +612,7 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 
   <section class="pricing-panel" id="boosters" data-pricing-panel="boosters" aria-labelledby="boosters-heading" hidden>
     <div class="pricing-panel-body">
-      <div class="pricing-panel-heading"><h2 id="boosters-heading">Need Help With One Specific Area?</h2><p>Growth Boosters — From US$99</p></div>
+      <div class="pricing-panel-heading"><h2 class="bw-reveal" id="boosters-heading">Need Help With One Specific Area?</h2><p>Growth Boosters — From US$99</p></div>
       <p>Start with one focused improvement and build from there.</p>
       <details class="info-details"><summary>Popular options</summary><ul><li>WhatsApp Business setup</li><li>Professional business email setup</li><li>Google Business Profile optimization</li><li>LinkedIn Business Page setup and launch content</li><li>CRM setup and onboarding</li><li>Growth Landing Page</li><li>Visibility and competitor reviews</li></ul></details>
       <a class="pricing-cta" href="growth-systems/boosters.html">Explore Growth Boosters</a>
@@ -611,7 +659,7 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 <section class="hero-section" data-id="30" id="hero-i9j0">
 <div class="text-center relative z-10" data-id="31" style="max-width:720px;margin:0 auto;">
 <div class="fade-in" data-id="32"><span class="hero-pill" data-id="33">Transparent Pricing. No surprises.</span></div>
-<h2 class="hero-h1 fade-in" data-id="34">Invest in a Growth System.</h2>
+<h2 class="bw-reveal" class="hero-h1 fade-in" data-id="34">Invest in a Growth System.</h2>
 <p class="hero-sub fade-in" data-id="35">Not just a website. Four pillars. One unified system.</p>
 <div class="flex justify-center gap-8 flex-wrap mt-8 fade-in" data-id="36" style="font-size:15px;font-weight:600;">
 <span data-id="37" style="color:var(--white-70);">🔍 Be Found Online</span>
@@ -626,7 +674,7 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 <section data-id="42" id="plans-k1l2" style="background:var(--light-bg);padding:100px 24px;">
 <div class="text-center fade-in" data-id="43">
 <p data-id="44" style="font-size:13px;font-weight:600;letter-spacing:1.5px;color:#0369a1;text-transform:uppercase;">GROWTH SYSTEM PLANS</p>
-<h2 data-id="45" style="font-size:clamp(28px,4vw,48px);font-weight:800;color:#0a0f1e;margin:16px auto 12px;">Choose Your Level of Growth</h2>
+<h2 class="bw-reveal" data-id="45" style="font-size:clamp(28px,4vw,48px);font-weight:800;color:#0a0f1e;margin:16px auto 12px;">Choose Your Level of Growth</h2>
 <p data-id="46" style="font-size:17px;color:#475569;max-width:640px;margin:0 auto 60px;">Every plan includes a signed agreement. You own your website forever. Delivered in 48 to 72 hours.</p>
 </div>
 <div class="grid gap-6 mx-auto" data-id="47" id="plan-grid-m3n4" style="grid-template-columns:repeat(3,1fr);max-width:1020px;">
@@ -729,7 +777,7 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 <svg data-id="151" preserveAspectRatio="none" style="display:block;width:100%;height:80px;background:var(--light-bg);" viewBox="0 0 1440 80"><path d="M0,40 C360,0 1080,80 1440,40 L1440,0 L0,0 Z" data-id="152" fill="#0a0f1e"></path></svg>
 <section data-id="153" id="included-u1v2" style="background:var(--navy);padding:100px 24px;">
 <div class="text-center fade-in" data-id="154">
-<h2 data-id="155" style="font-size:clamp(24px,3vw,40px);font-weight:800;color:#fff;margin-bottom:16px;">Every Growth System Includes</h2>
+<h2 class="bw-reveal" data-id="155" style="font-size:clamp(24px,3vw,40px);font-weight:800;color:#fff;margin-bottom:16px;">Every Growth System Includes</h2>
 <p data-id="156" style="font-size:17px;color:var(--white-70);max-width:600px;margin:0 auto 60px;">Website, Google, WhatsApp, and automation. Everything your business needs, in one package. Delivered in 48 to 72 hours.</p>
 </div>
 <div class="fade-in" data-id="157" id="icon-grid-w3x4" style="display:grid;grid-template-columns:repeat(5,1fr);gap:24px;max-width:800px;margin:0 auto;justify-items:center;">
@@ -763,7 +811,7 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 <div style="background:var(--navy);line-height:0;font-size:0;display:block;margin:0;padding:0;"><svg data-id="295" preserveAspectRatio="none" style="display:block;width:100%;height:80px;margin:0;padding:0;vertical-align:bottom;" viewBox="0 0 1440 80"><path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" data-id="296" fill="#f8fafc"></path></svg></div>
 <section data-id="297" id="steps-k7l8" style="background:var(--light-bg);padding:100px 24px;">
 <div class="text-center fade-in" data-id="298">
-<h2 data-id="299" style="font-size:clamp(24px,3vw,40px);font-weight:800;color:#0a0f1e;">Simple Process. No Upfront Payment.</h2>
+<h2 class="bw-reveal" data-id="299" style="font-size:clamp(24px,3vw,40px);font-weight:800;color:#0a0f1e;">Simple Process. No Upfront Payment.</h2>
 <p data-id="300" style="font-size:16px;color:#475569;max-width:580px;margin:0 auto 60px;">No payment upfront. No commitment until you approve your invoice.</p>
 </div>
 <div class="flex items-start mx-auto fade-in flex-col md:flex-row" data-id="301" id="steps-row-m9n0" style="gap:0;max-width:900px;">
@@ -806,7 +854,7 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 <!-- Wave: Dark to Light -->
 <svg data-id="326" preserveAspectRatio="none" style="display:block;width:100%;height:80px;background:var(--navy);" viewBox="0 0 1440 80"><path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" data-id="327" fill="#f8fafc"></path></svg>
 <section data-id="328" id="compare-o1p2" style="background:var(--light-bg);padding:100px 24px;">
-<h2 class="text-center fade-in" data-id="329" style="font-size:clamp(24px,3vw,40px);font-weight:800;color:#0a0f1e;margin-bottom:48px;">Compare Plans Side by Side</h2>
+<h2 class="bw-reveal" class="text-center fade-in" data-id="329" style="font-size:clamp(24px,3vw,40px);font-weight:800;color:#0a0f1e;margin-bottom:48px;">Compare Plans Side by Side</h2>
 <div class="fade-in" data-id="330" style="max-width:900px;margin:0 auto;overflow-x:auto;border-radius:12px;border:1px solid #e2e8f0;">
 <table class="compare-table" data-id="331">
 <thead data-id="332">
@@ -853,7 +901,7 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 <!-- Wave: Light to Dark -->
 <svg data-id="542" preserveAspectRatio="none" style="display:block;width:100%;height:80px;background:var(--light-bg);" viewBox="0 0 1440 80"><path d="M0,40 C360,0 1080,80 1440,40 L1440,0 L0,0 Z" data-id="543" fill="#0a0f1e"></path></svg>
 <section data-id="544" id="faq-q3r4" style="background:#fff;padding:100px 24px;">
-<h2 class="text-center fade-in" data-id="545" style="font-size:clamp(24px,3vw,40px);font-weight:800;color:#0a0f1e;margin-bottom:48px;">Frequently Asked Questions</h2>
+<h2 class="bw-reveal" class="text-center fade-in" data-id="545" style="font-size:clamp(24px,3vw,40px);font-weight:800;color:#0a0f1e;margin-bottom:48px;">Frequently Asked Questions</h2>
 <div data-id="546" id="faq-list-s5t6" style="max-width:760px;margin:0 auto;">
 <div class="faq-item fade-in" data-id="553">
 <button class="faq-q" data-id="554" type="button"><span data-id="555">Is there a monthly fee?</span><span class="faq-icon" data-id="556">+</span></button>
@@ -890,7 +938,7 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 <!-- Standard Pre-Footer CTA -->
 <section style="background:linear-gradient(135deg,#0a1628 0%,#0d1f3a 100%);padding:72px 24px;text-align:center;border-top:2px solid rgba(0,212,255,0.2);">
 <div style="max-width:600px;margin:0 auto;">
-<h2 style="font-size:clamp(24px,3.5vw,40px);font-weight:800;color:#fff;line-height:1.15;margin-bottom:24px;">
+<h2 class="bw-reveal" style="font-size:clamp(24px,3.5vw,40px);font-weight:800;color:#fff;line-height:1.15;margin-bottom:24px;">
       Ready to See Where Your Business Stands?
     </h2>
 <a href="health-score.html" onmouseout="this.style.filter='';this.style.transform=''" onmouseover="this.style.filter='brightness(1.1)';this.style.transform='translateY(-2px)'" style="display:inline-flex;align-items:center;gap:10px;background:#ff6535;color:#fff;font-size:16px;font-weight:700;padding:16px 40px;border-radius:100px;text-decoration:none;box-shadow:0 8px 32px rgba(255,101,53,0.35);transition:all .2s;">Get My Free Health Score →</a>
@@ -909,7 +957,7 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
   <div style="background:linear-gradient(135deg,#0a0f1e 0%,#0c1a2e 100%);padding:64px clamp(16px,4vw,60px);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:32px;border-bottom:1px solid rgba(0,200,224,0.12);max-width:100%;">
     <div style="max-width:480px;">
       <div style="font-size:12px;font-weight:700;color:#00C8E0;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px;">Ready to Grow?</div>
-      <h2 style="font-size:clamp(22px,3.5vw,38px);font-weight:900;color:#fff;line-height:1.1;margin-bottom:10px;">Get Found. Get Chosen. Grow.</h2>
+      <h2 class="bw-reveal" style="font-size:clamp(22px,3.5vw,38px);font-weight:900;color:#fff;line-height:1.1;margin-bottom:10px;">Get Found. Get Chosen. Grow.</h2>
       <p style="font-size:15px;color:rgba(255,255,255,0.55);line-height:1.65;">Practical growth solutions built for Caribbean SMEs.</p>
     </div>
     <div style="display:flex;gap:14px;flex-wrap:wrap;">

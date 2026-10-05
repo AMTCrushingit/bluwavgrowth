@@ -63,6 +63,54 @@ p, li, td, th, label, input, select, textarea, button { font-size: var(--body); 
 small, .text-sm { font-size: var(--small); }
 .text-xs { font-size: var(--xs); }
 </style>
+<style>
+/* ── BluWav Animation & Visual System ── */
+@keyframes bwFadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+@keyframes bwFadeIn{from{opacity:0;}to{opacity:1;}}
+@keyframes bwSlideRight{from{opacity:0;transform:translateX(-24px);}to{opacity:1;transform:translateX(0);}}
+@keyframes bwSlideLeft{from{opacity:0;transform:translateX(24px);}to{opacity:1;transform:translateX(0);}}
+@keyframes bwPulse{0%,100%{transform:scale(1);}50%{transform:scale(1.04);}}
+@keyframes bwFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+@keyframes bwGlow{0%,100%{box-shadow:0 0 20px rgba(8,145,178,0.3);}50%{box-shadow:0 0 40px rgba(8,145,178,0.6);}}
+@keyframes bwOrb1{0%,100%{transform:translateY(0) translateX(0);}50%{transform:translateY(-30px) translateX(15px);}}
+@keyframes bwOrb2{0%,100%{transform:translateY(0) translateX(0);}50%{transform:translateY(-20px) translateX(-20px);}}
+
+.bw-fade-up{opacity:0;animation:bwFadeUp 0.7s ease forwards;}
+.bw-fade-in{opacity:0;animation:bwFadeIn 0.6s ease forwards;}
+.bw-slide-right{opacity:0;animation:bwSlideRight 0.7s ease forwards;}
+.bw-slide-left{opacity:0;animation:bwSlideLeft 0.7s ease forwards;}
+.bw-delay-1{animation-delay:0.15s;}
+.bw-delay-2{animation-delay:0.3s;}
+.bw-delay-3{animation-delay:0.45s;}
+.bw-delay-4{animation-delay:0.6s;}
+.bw-delay-5{animation-delay:0.75s;}
+
+/* Scroll-triggered fade */
+.bw-reveal{opacity:0;transform:translateY(20px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.bw-reveal.visible{opacity:1;transform:translateY(0);}
+.bw-reveal-left{opacity:0;transform:translateX(-20px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.bw-reveal-left.visible{opacity:1;transform:translateX(0);}
+.bw-reveal-right{opacity:0;transform:translateX(20px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.bw-reveal-right.visible{opacity:1;transform:translateX(0);}
+
+/* Section gradients */
+.bw-section-teal{background:linear-gradient(135deg,#f0f9ff 0%,#e0f2fe 100%);}
+.bw-section-warm{background:linear-gradient(135deg,#fff7ed 0%,#ffedd5 100%);}
+.bw-section-dark{background:linear-gradient(135deg,#060d1f 0%,#0a1628 100%);}
+
+/* Orb decorations */
+.bw-orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;z-index:0;}
+.bw-orb-teal{background:rgba(8,145,178,0.15);}
+.bw-orb-orange{background:rgba(255,101,53,0.12);}
+
+/* Card hover effects */
+.bw-card-hover{transition:transform 0.25s ease,box-shadow 0.25s ease;}
+.bw-card-hover:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,0.12)!important;}
+
+/* Hero headline standard */
+.bw-hero-white{color:#ffffff;}
+.bw-hero-teal{color:#00C8E0;}
+</style>
 </head>
 <body>
 
@@ -184,7 +232,7 @@ small, .text-sm { font-size: var(--small); }
 <!-- Optional Growth Boosters -->
 <section style="background:#f8fafc;padding:60px 24px;">
 <div style="max-width:760px;margin:0 auto;">
-  <h2 style="font-size:22px;font-weight:800;color:#0a0f1e;margin-bottom:8px;">Add Optional Growth Boosters</h2>
+  <h2 class="bw-reveal" style="font-size:22px;font-weight:800;color:#0a0f1e;margin-bottom:8px;">Add Optional Growth Boosters</h2>
   <p style="font-size:14px;color:#64748b;margin-bottom:28px;line-height:1.6;">Enhance your package with targeted add-ons. Select any that apply and they will be added to your order.</p>
   <form id="boosterForm" style="display:flex;flex-direction:column;gap:14px;">
     <label style="display:flex;align-items:center;gap:14px;background:#fff;border:1.5px solid rgba(10,15,30,0.1);border-radius:10px;padding:16px 20px;cursor:pointer;transition:border-color .2s;" onmouseover="this.style.borderColor='#0891b2'" onmouseout="this.style.borderColor='rgba(10,15,30,0.1)'">
@@ -234,7 +282,7 @@ small, .text-sm { font-size: var(--small); }
 <!-- CTA -->
 <section style="background:linear-gradient(135deg,#0891b2,#0c6e8a);padding:80px 24px;text-align:center;">
 <div style="max-width:600px;margin:0 auto;">
-  <h2 style="font-size:clamp(26px,4vw,42px);font-weight:900;color:#fff;line-height:1.1;margin-bottom:16px;">Ready to Get Started?</h2>
+  <h2 class="bw-reveal" style="font-size:clamp(26px,4vw,42px);font-weight:900;color:#fff;line-height:1.1;margin-bottom:16px;">Ready to Get Started?</h2>
   <p style="font-size:16px;color:rgba(255,255,255,0.85);margin-bottom:36px;line-height:1.75;">US$397/month + US$900 setup. Then US$397/month thereafter.</p>
   <a href="checkout-launch.html" class="btn-primary">Get Started with Launch</a>
   <p style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:16px;">Cancel anytime. No lock-in. Your data is always yours.</p>
@@ -285,5 +333,18 @@ function toggleExpand(id){
   content.classList.toggle('open');
 }
 </script>
+
+<script>
+// Scroll reveal
+(function(){
+  var els = document.querySelectorAll('.bw-reveal,.bw-reveal-left,.bw-reveal-right');
+  if(!els.length) return;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');}});
+  },{threshold:0.12});
+  els.forEach(function(el){io.observe(el);});
+})();
+</script>
+
 </body>
 </html>
