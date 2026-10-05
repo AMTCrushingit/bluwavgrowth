@@ -214,29 +214,66 @@ body{font-family:'Inter',sans-serif;background:var(--white);color:var(--navy);ov
   </div>
 </div>
 </section>
-
-<!-- CTA -->
-<section style="background:linear-gradient(135deg,#0891b2,#0c6e8a);padding:80px 24px;text-align:center;">
-<div style="max-width:600px;margin:0 auto;">
-  <h2 style="font-size:clamp(26px,4vw,42px);font-weight:900;color:#fff;line-height:1.1;margin-bottom:16px;">Ready to Get Started?</h2>
-  <p style="font-size:16px;color:rgba(255,255,255,0.85);margin-bottom:36px;line-height:1.75;">US$597/month + US$1,200 setup. Then US$597/month thereafter.</p>
-  <a href="checkout-momentum.html" class="btn-primary">Get Started with Momentum</a>
-  <p style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:16px;">Cancel anytime. No lock-in. Your data is always yours.</p>
+<!-- GET STARTED CTA -->
+<section style="background:#fff;padding:40px 24px 60px;">
+<div style="max-width:760px;margin:0 auto;text-align:center;">
+  <div id="orderSummary" style="background:#f8fafc;border:1px solid rgba(8,145,178,0.15);border-radius:14px;padding:24px 28px;margin-bottom:28px;text-align:left;">
+    <div style="font-size:12px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;">Order Summary</div>
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(10,15,30,0.06);">
+      <span style="font-size:14px;color:#475569;">Momentum Setup</span>
+      <span style="font-size:14px;font-weight:700;color:#0a0f1e;">US$1,200</span>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(10,15,30,0.06);">
+      <span style="font-size:14px;color:#475569;">First Month</span>
+      <span style="font-size:14px;font-weight:700;color:#0a0f1e;">US$597</span>
+    </div>
+    <div id="boosterSummaryLine" style="display:none;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(10,15,30,0.06);">
+      <span style="font-size:14px;color:#475569;">Selected Boosters</span>
+      <span id="boosterSummaryAmt" style="font-size:14px;font-weight:700;color:#0891b2;">US$0</span>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 0 0;">
+      <span style="font-size:16px;font-weight:800;color:#0a0f1e;">Total Due Today</span>
+      <span id="grandTotal" style="font-size:22px;font-weight:900;color:#0a0f1e;">US$1,797</span>
+    </div>
+    <div style="font-size:12px;color:#94a3b8;margin-top:6px;text-align:right;">Then US$597/month thereafter</div>
+  </div>
+  <a href="payment-momentum.html" id="ctaBtn" class="btn-primary" style="font-size:18px;padding:20px 52px;">Get Started with Momentum</a>
+  <p style="font-size:13px;color:#94a3b8;margin-top:14px;">Cancel anytime. No lock-in. Your data is always yours.</p>
 </div>
 </section>
 
+<script>
+// Update order summary when boosters change
+function updateOrderSummary() {
+  var boosterTotal = parseInt(sessionStorage.getItem('boosterTotal') || '0');
+  var base = 1797;
+  var grand = base + boosterTotal;
+  var grandEl = document.getElementById('grandTotal');
+  var boosterLine = document.getElementById('boosterSummaryLine');
+  var boosterAmt = document.getElementById('boosterSummaryAmt');
+  if(grandEl) grandEl.textContent = 'US$' + grand.toLocaleString();
+  if(boosterTotal > 0){
+    boosterLine.style.display = 'flex';
+    boosterAmt.textContent = 'US$' + boosterTotal;
+  } else {
+    boosterLine.style.display = 'none';
+  }
+  // Pass total to payment page
+  var btn = document.getElementById('ctaBtn');
+  if(btn) btn.href = 'payment-momentum.html?total=' + grand + '&boosters=' + boosterTotal;
+}
+// Listen for booster changes
+document.addEventListener('change', function(e){
+  if(e.target && e.target.name === 'booster') updateOrderSummary();
+});
+updateOrderSummary();
+</script>
+
+
+
+
 <!-- FOOTER -->
-<footer style="background:#060c18;padding:40px clamp(16px,5vw,80px);text-align:center;">
-<div style="font-size:22px;font-weight:700;color:#fff;margin-bottom:12px;">Blu<span style="color:#00C8E0;">Wav</span> <span style="font-size:13px;font-weight:600;color:rgba(0,200,224,0.7);letter-spacing:1px;text-transform:uppercase;vertical-align:middle;">Caribbean</span></div>
-<p style="font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:16px;">Built for Caribbean businesses, priced for sustainable delivery, and designed to produce real growth.</p>
-<div style="display:flex;justify-content:center;gap:24px;flex-wrap:wrap;">
-  <a href="../index.html" style="font-size:13px;color:rgba(255,255,255,0.4);text-decoration:none;">Home</a>
-  <a href="../case-studies.html" style="font-size:13px;color:rgba(255,255,255,0.4);text-decoration:none;">Case Studies</a>
-  <a href="../privacy.html" style="font-size:13px;color:rgba(255,255,255,0.4);text-decoration:none;">Privacy</a>
-  <a href="../our-promise.html" style="font-size:13px;color:rgba(255,255,255,0.4);text-decoration:none;">Our Promise</a>
-</div>
-<div style="font-size:12px;color:rgba(255,255,255,0.25);margin-top:20px;">&copy; 2026 BluWav Caribbean. All rights reserved.</div>
-</footer>
+
 
 <script>
 document.querySelectorAll('input[name="booster"]').forEach(function(cb){

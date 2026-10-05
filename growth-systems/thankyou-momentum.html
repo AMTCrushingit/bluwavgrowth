@@ -1,60 +1,133 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Welcome to BluWav Growth | Launch Activated</title>
-<meta content="noindex" name="robots"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Payment Confirmed | BluWav Caribbean</title>
+<meta name="robots" content="noindex"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <style>
-:root{--navy:#0a0f1e;--teal:#0891b2;--orange:#ff6535;--slate:#475569;--green:#22c55e;}
+:root{--navy:#0a0f1e;--teal:#0891b2;--orange:#ff6535;--slate:#475569;--green:#22c55e;--border:rgba(10,15,30,0.12);}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#060d1f 0%,#0a1628 100%);color:#fff;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center;}
-.card{background:rgba(255,255,255,0.04);border:1px solid rgba(0,200,224,0.2);border-radius:24px;padding:56px 48px;max-width:600px;width:100%;}
-.success-icon{width:72px;height:72px;background:rgba(34,197,94,0.15);border:2px solid var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 28px;font-size:32px;}
-.btn-book{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--orange);color:#fff;font-size:17px;font-weight:800;padding:18px 40px;border-radius:100px;text-decoration:none;box-shadow:0 8px 32px rgba(255,101,53,0.4);transition:all .2s;margin-top:32px;}
-.btn-book:hover{filter:brightness(1.1);transform:translateY(-2px);}
-.step-list{display:flex;flex-direction:column;gap:16px;margin-top:32px;text-align:left;}
-.step-item{display:flex;align-items:flex-start;gap:14px;}
-.step-num{width:28px;height:28px;border-radius:50%;background:rgba(0,200,224,0.15);border:1px solid rgba(0,200,224,0.3);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#00C8E0;flex-shrink:0;}
+body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#060d1f 0%,#0a1628 100%);color:#fff;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;}
+.card{background:rgba(255,255,255,0.04);border:1px solid rgba(0,200,224,0.2);border-radius:24px;padding:48px 40px;max-width:580px;width:100%;}
+.success-icon{width:64px;height:64px;background:rgba(34,197,94,0.15);border:2px solid var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-size:28px;}
+.form-group{margin-bottom:18px;}
+.form-group label{display:block;font-size:13px;font-weight:600;color:rgba(255,255,255,0.7);margin-bottom:6px;}
+.form-group input,.form-group select{width:100%;padding:12px 16px;border:1.5px solid rgba(255,255,255,0.12);border-radius:8px;font-size:15px;font-family:'Inter',sans-serif;color:#fff;background:rgba(255,255,255,0.06);transition:border-color .2s;outline:none;}
+.form-group input:focus,.form-group select:focus{border-color:#00C8E0;}
+.form-group input::placeholder{color:rgba(255,255,255,0.3);}
+.form-group select option{background:#0a0f1e;color:#fff;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.btn-submit{width:100%;padding:16px;background:var(--orange);color:#fff;font-size:16px;font-weight:800;border:none;border-radius:100px;cursor:pointer;font-family:'Inter',sans-serif;box-shadow:0 8px 32px rgba(255,101,53,0.35);transition:all .2s;margin-top:8px;}
+.btn-submit:hover{filter:brightness(1.1);}
+@media(max-width:500px){.form-row{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
+
 <div class="card">
-<div class="success-icon">✓</div>
-<div style="font-size:13px;font-weight:700;color:#00C8E0;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px;">Payment Confirmed</div>
-<h1 style="font-size:clamp(28px,4vw,42px);font-weight:900;line-height:1.1;margin-bottom:16px;">Welcome to BluWav Growth</h1>
-<p style="font-size:17px;color:rgba(255,255,255,0.75);line-height:1.75;margin-bottom:8px;">Congratulations. Your Momentum Growth System is now reserved and onboarding can begin.</p>
-<p style="font-size:15px;color:rgba(255,255,255,0.5);line-height:1.7;">A confirmation email has been sent to your inbox. Check your spam folder if you don't see it within a few minutes.</p>
-<div class="step-list">
-<div class="step-item">
-<div class="step-num">1</div>
-<div>
-<div style="font-size:15px;font-weight:700;color:#fff;margin-bottom:4px;">Book Your Onboarding Session</div>
-<div style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.6;">Choose a time that works for you. We'll review your business, confirm goals, and plan implementation.</div>
+  <div class="success-icon">&#10003;</div>
+
+  <div style="text-align:center;margin-bottom:32px;">
+    <div style="font-size:12px;font-weight:700;color:#00C8E0;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px;">Payment Confirmed</div>
+    <h1 style="font-size:clamp(22px,4vw,32px);font-weight:900;line-height:1.1;margin-bottom:12px;">Welcome to BluWav Growth</h1>
+    <p style="font-size:15px;color:rgba(255,255,255,0.65);line-height:1.7;">Your Momentum Growth System is confirmed. Where should we send your invoice and how can we reach you?</p>
+  </div>
+
+  <!-- Contact & Invoice Details -->
+  <form id="contactForm" onsubmit="submitContact(event)">
+    <div style="font-size:12px;font-weight:700;color:#00C8E0;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;">Your Details</div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="contactName">Your Name *</label>
+        <input type="text" id="contactName" required placeholder="Full name"/>
+      </div>
+      <div class="form-group">
+        <label for="businessName">Business Name *</label>
+        <input type="text" id="businessName" required placeholder="Your business"/>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="email">Email Address *</label>
+        <input type="email" id="email" required placeholder="you@yourbusiness.com"/>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone Number *</label>
+        <input type="tel" id="phone" required placeholder="+1 868 000 0000"/>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="country">Country *</label>
+        <select id="country" required>
+          <option value="">Select country</option>
+          <option>Trinidad & Tobago</option>
+          <option>Jamaica</option>
+          <option>Barbados</option>
+          <option>Guyana</option>
+          <option>St. Lucia</option>
+          <option>Antigua & Barbuda</option>
+          <option>Grenada</option>
+          <option>St. Vincent & the Grenadines</option>
+          <option>Dominica</option>
+          <option>Belize</option>
+          <option>Bahamas</option>
+          <option>Other Caribbean</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="website">Website <span style="font-size:11px;color:rgba(255,255,255,0.35);">Optional</span></label>
+        <input type="url" id="website" placeholder="https://yourbusiness.com"/>
+      </div>
+    </div>
+
+    <!-- Invoice summary -->
+    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:16px 20px;margin:20px 0;">
+      <div style="font-size:12px;font-weight:700;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">Invoice Summary</div>
+      <div style="display:flex;justify-content:space-between;font-size:14px;color:rgba(255,255,255,0.6);margin-bottom:6px;"><span>Momentum Growth System</span><span>US$1,797</span></div>
+      <div id="boosterInvoiceLine" style="display:none;justify-content:space-between;font-size:14px;color:rgba(255,255,255,0.6);margin-bottom:6px;"><span>Growth Boosters</span><span id="boosterInvoiceAmt"></span></div>
+      <div style="display:flex;justify-content:space-between;font-size:16px;font-weight:800;color:#fff;padding-top:10px;border-top:1px solid rgba(255,255,255,0.1);"><span>Total Paid</span><span id="totalPaid">US$1,797</span></div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.35);margin-top:4px;text-align:right;">Then US$597/month thereafter</div>
+    </div>
+
+    <button type="submit" class="btn-submit">Send My Invoice & Continue</button>
+    <p style="text-align:center;font-size:12px;color:rgba(255,255,255,0.35);margin-top:10px;">Your invoice will be emailed within minutes.</p>
+  </form>
 </div>
-</div>
-<div class="step-item">
-<div class="step-num">2</div>
-<div>
-<div style="font-size:15px;font-weight:700;color:#fff;margin-bottom:4px;">Complete Your Intake Form</div>
-<div style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.6;">After booking, you'll be redirected to a short intake form so we can prepare for your session.</div>
-</div>
-</div>
-<div class="step-item">
-<div class="step-num">3</div>
-<div>
-<div style="font-size:15px;font-weight:700;color:#fff;margin-bottom:4px;">We Build. You Grow.</div>
-<div style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.6;">Your website, CRM, and growth tools will be live within 48 hours of your onboarding session.</div>
-</div>
-</div>
-</div>
-<a class="btn-book" href="booking-momentum.html">📅 Book My Onboarding Session</a>
-<p style="font-size:12px;color:rgba(255,255,255,0.35);margin-top:16px;">30-minute kickoff call · Choose your preferred time</p>
-</div>
-<div style="margin-top:24px;">
-<a href="../index.html" style="font-size:13px;color:rgba(255,255,255,0.3);text-decoration:none;">Return to BluWav Caribbean</a>
-</div>
+
+<script>
+// Show booster totals
+var boosterTotal = parseInt(sessionStorage.getItem('momentumBoosters') || '0');
+var grandTotal = parseInt(sessionStorage.getItem('momentumTotal') || '1797');
+if(boosterTotal > 0){
+  document.getElementById('boosterInvoiceLine').style.display = 'flex';
+  document.getElementById('boosterInvoiceAmt').textContent = 'US$' + boosterTotal;
+}
+document.getElementById('totalPaid').textContent = 'US$' + grandTotal.toLocaleString();
+
+function submitContact(e){
+  e.preventDefault();
+  var btn = document.querySelector('.btn-submit');
+  btn.disabled = true;
+  btn.textContent = 'Saving...';
+
+  // Store contact info
+  sessionStorage.setItem('momentumOrder', JSON.stringify({
+    contactName: document.getElementById('contactName').value,
+    businessName: document.getElementById('businessName').value,
+    email: document.getElementById('email').value,
+    phone: document.getElementById('phone').value,
+    country: document.getElementById('country').value,
+    website: document.getElementById('website').value,
+  }));
+
+  setTimeout(function(){ window.location.href = 'booking-momentum.html'; }, 800);
+}
+</script>
 </body>
 </html>
