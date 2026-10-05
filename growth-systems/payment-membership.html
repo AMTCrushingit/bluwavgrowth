@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Payment — Growth Membership | BluWav Caribbean</title>
+<meta name="robots" content="noindex"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+:root{--font:'Plus Jakarta Sans',sans-serif;--navy:#0a0f1e;--teal:#0891b2;--orange:#ff6535;--slate:#475569;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;font-family:var(--font)!important;}
+body{background:#f8fafc;color:var(--navy);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;}
+.payment-card{background:#fff;border-radius:20px;padding:48px 40px;max-width:480px;width:100%;box-shadow:0 8px 40px rgba(0,0,0,0.1);border:1px solid rgba(10,15,30,0.08);text-align:center;}
+.btn-pay{width:100%;padding:18px;background:var(--orange);color:#fff;font-size:17px;font-weight:800;border:none;border-radius:100px;cursor:pointer;font-family:var(--font)!important;box-shadow:0 8px 32px rgba(255,101,53,0.35);transition:all .2s;}
+.btn-pay:hover{filter:brightness(1.1);transform:translateY(-1px);}
+</style>
+</head>
+<body>
+<div class="payment-card">
+  <div style="font-size:22px;font-weight:800;margin-bottom:32px;"><span style="color:var(--navy);">Blu</span><span style="color:#00C8E0;">Wav</span> <span style="font-size:10px;font-weight:600;color:rgba(0,136,178,0.7);letter-spacing:1.5px;text-transform:uppercase;vertical-align:middle;">Caribbean</span></div>
+  <div style="font-size:22px;font-weight:800;color:var(--navy);margin-bottom:8px;" id="tierName">Growth Membership</div>
+  <div style="font-size:14px;color:var(--slate);margin-bottom:32px;">BluWav Caribbean · Monthly subscription</div>
+  <div style="font-size:13px;font-weight:700;color:var(--slate);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Due Today</div>
+  <div style="font-size:52px;font-weight:900;color:var(--navy);line-height:1;margin-bottom:4px;" id="totalAmount">US$149</div>
+  <div style="font-size:13px;color:#94a3b8;margin-bottom:40px;">Then same amount monthly · Cancel anytime</div>
+  <div style="background:#f8fafc;border:2px dashed rgba(8,145,178,0.3);border-radius:12px;padding:28px;margin-bottom:28px;">
+    <div style="font-size:20px;font-weight:800;color:#635bff;margin-bottom:10px;">stripe</div>
+    <p style="font-size:13px;color:var(--slate);line-height:1.6;">Secure payment processing via Stripe. Card details entered here once Stripe is configured.</p>
+  </div>
+  <button class="btn-pay" onclick="simulatePayment()">&#128274; Pay Now</button>
+  <div style="font-size:12px;color:#94a3b8;margin-top:14px;display:flex;align-items:center;justify-content:center;gap:6px;">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+    256-bit SSL encryption · Powered by Stripe
+  </div>
+  <a href="checkout-membership.html" style="font-size:13px;color:var(--teal);text-decoration:none;margin-top:20px;display:inline-block;">← Back to checkout</a>
+</div>
+<script>
+var params = new URLSearchParams(window.location.search);
+var tier = params.get('tier') || 'essential';
+var price = params.get('price') || '149';
+var tierNames = {essential:'Visibility Membership', growth:'Momentum Membership', premium:'Accelerate Membership'};
+document.getElementById('tierName').textContent = tierNames[tier] || 'Growth Membership';
+document.getElementById('totalAmount').textContent = 'US$' + price;
+sessionStorage.setItem('membershipTier', tier);
+sessionStorage.setItem('membershipPrice', price);
+function simulatePayment(){
+  var btn = document.querySelector('.btn-pay');
+  btn.disabled = true; btn.textContent = 'Processing...';
+  setTimeout(function(){ window.location.href = 'thankyou-membership.html'; }, 1500);
+}
+</script>
+</body>
+</html>

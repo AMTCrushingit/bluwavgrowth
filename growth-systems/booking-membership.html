@@ -6,11 +6,11 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Book Your Onboarding Session | BluWav Caribbean</title>
 <meta content="noindex" name="robots"/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus Jakarta Sans:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
 <style>
 :root{--navy:#0a0f1e;--teal:#0891b2;--orange:#ff6535;--slate:#475569;--green:#22c55e;}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Inter',sans-serif;background:#f8fafc;color:var(--navy);min-height:100vh;}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:#f8fafc;color:var(--navy);min-height:100vh;}
 .page-header{background:var(--navy);padding:48px 24px 40px;text-align:center;}
 .wrap{max-width:760px;margin:0 auto;padding:48px 24px;}
 .session-details{background:#fff;border-radius:16px;padding:32px;border:1px solid rgba(10,15,30,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.06);margin-bottom:32px;}
@@ -18,46 +18,15 @@ body{font-family:'Inter',sans-serif;background:#f8fafc;color:var(--navy);min-hei
 .detail-item:last-child{margin-bottom:0;}
 .detail-icon{width:36px;height:36px;border-radius:8px;background:rgba(8,145,178,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;}
 .zoho-embed{background:#fff;border-radius:16px;padding:32px;border:1px solid rgba(10,15,30,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.06);}
-.btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--orange);color:#fff;font-size:16px;font-weight:800;padding:16px 36px;border-radius:100px;text-decoration:none;box-shadow:0 8px 32px rgba(255,101,53,0.35);transition:all .2s;border:none;cursor:pointer;font-family:'Inter',sans-serif;width:100%;}
+.btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--orange);color:#fff;font-size:16px;font-weight:800;padding:16px 36px;border-radius:100px;text-decoration:none;box-shadow:0 8px 32px rgba(255,101,53,0.35);transition:all .2s;border:none;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;width:100%;}
 .btn-primary:hover{filter:brightness(1.1);transform:translateY(-1px);}
 /* Zoho form fields */
 .form-group{margin-bottom:20px;}
 .form-group label{display:block;font-size:14px;font-weight:600;color:var(--navy);margin-bottom:6px;}
-.form-group input,.form-group select,.form-group textarea{width:100%;padding:12px 16px;border:1.5px solid rgba(10,15,30,0.12);border-radius:8px;font-size:15px;font-family:'Inter',sans-serif;color:var(--navy);background:#fff;transition:border-color .2s;outline:none;}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:12px 16px;border:1.5px solid rgba(10,15,30,0.12);border-radius:8px;font-size:15px;font-family:'Plus Jakarta Sans',sans-serif;color:var(--navy);background:#fff;transition:border-color .2s;outline:none;}
 .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--teal);}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
 @media(max-width:600px){.form-row{grid-template-columns:1fr;}}
-</style>
-<style>
-/* ── Plus Jakarta Sans Typography System ── */
-:root {
-  --font: 'Plus Jakarta Sans', sans-serif;
-  --h1: clamp(32px, 5vw, 64px);
-  --h2: clamp(24px, 3.5vw, 44px);
-  --h3: clamp(18px, 2.5vw, 28px);
-  --h4: clamp(15px, 2vw, 20px);
-  --body: 16px;
-  --small: 14px;
-  --xs: 12px;
-  --fw-regular: 400;
-  --fw-medium: 500;
-  --fw-semibold: 600;
-  --fw-bold: 700;
-  --fw-extrabold: 800;
-  --fw-black: 900;
-  --lh-tight: 1.1;
-  --lh-snug: 1.3;
-  --lh-normal: 1.6;
-  --lh-relaxed: 1.75;
-}
-* { font-family: var(--font) !important; }
-h1 { font-size: var(--h1); font-weight: var(--fw-black); line-height: var(--lh-tight); letter-spacing: -0.03em; }
-h2 { font-size: var(--h2); font-weight: var(--fw-extrabold); line-height: var(--lh-tight); letter-spacing: -0.02em; }
-h3 { font-size: var(--h3); font-weight: var(--fw-bold); line-height: var(--lh-snug); }
-h4 { font-size: var(--h4); font-weight: var(--fw-semibold); line-height: var(--lh-snug); }
-p, li, td, th, label, input, select, textarea, button { font-size: var(--body); line-height: var(--lh-relaxed); }
-small, .text-sm { font-size: var(--small); }
-.text-xs { font-size: var(--xs); }
 </style>
 </head>
 <body>
@@ -137,7 +106,7 @@ small, .text-sm { font-size: var(--small); }
 <script>
 // Pre-fill from sessionStorage if available
 window.addEventListener('load', function() {
-  var order = JSON.parse(sessionStorage.getItem('momentumOrder') || '{}');
+  var order = JSON.parse(sessionStorage.getItem('membershipOrder') || '{}');
   if (order.contactName) document.getElementById('bookName').value = order.contactName;
   if (order.email) document.getElementById('bookEmail').value = order.email;
 
@@ -153,7 +122,7 @@ function submitBooking(e) {
   var email = document.getElementById('bookEmail').value;
   var date = document.getElementById('bookDate').value;
   var time = document.getElementById('bookTime').value;
-  var reason = document.getElementById('bookReason').value || 'Momentum Growth System Onboarding';
+  var reason = document.getElementById('bookReason').value || 'Growth Membership Onboarding';
 
   // Format date for Zoho API: MM/dd/yyyy
   var d = new Date(date);
@@ -176,7 +145,7 @@ function submitBooking(e) {
   // Open Zoho in new tab, redirect to intake
   window.open(zohoUrl, '_blank');
   setTimeout(function() {
-    window.location.href = 'intake-momentum.html';
+    window.location.href = 'intake-membership.html';
   }, 1000);
 }
 </script>

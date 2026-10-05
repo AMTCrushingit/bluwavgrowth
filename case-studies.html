@@ -10,7 +10,7 @@
 <meta property="og:description" content="Real Caribbean businesses. Real results. See how BluWav Growth has helped businesses across the Caribbean."/>
 <meta property="og:url" content="https://bluwavgrowth.com/case-studies.html"/>
 <meta property="og:type" content="website"/>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap&font-display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap:wght@300;400;500;600;700;800&display=swap:wght@300;400;500;600;700;800;900&display=swap&font-display=swap" rel="stylesheet"/>
 <style>
 :root{--navy:#0a0f1e;--cyan:#00C8E0;--orange:#ff6535;--white:#ffffff;--white-70:rgba(255,255,255,0.70);--light-bg:#f8fafc;}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -43,12 +43,43 @@ img{max-width:100%;height:auto;}
 .bw-wa-float{animation:bwWaPulse 2.5s ease-in-out infinite;}
 @media(max-width:768px){#case-grid{grid-template-columns:1fr!important;}}
 </style>
+<style>
+/* ── Plus Jakarta Sans Typography System ── */
+:root {
+  --font: 'Plus Jakarta Sans', sans-serif;
+  --h1: clamp(32px, 5vw, 64px);
+  --h2: clamp(24px, 3.5vw, 44px);
+  --h3: clamp(18px, 2.5vw, 28px);
+  --h4: clamp(15px, 2vw, 20px);
+  --body: 16px;
+  --small: 14px;
+  --xs: 12px;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+  --fw-black: 900;
+  --lh-tight: 1.1;
+  --lh-snug: 1.3;
+  --lh-normal: 1.6;
+  --lh-relaxed: 1.75;
+}
+* { font-family: var(--font) !important; }
+h1 { font-size: var(--h1); font-weight: var(--fw-black); line-height: var(--lh-tight); letter-spacing: -0.03em; }
+h2 { font-size: var(--h2); font-weight: var(--fw-extrabold); line-height: var(--lh-tight); letter-spacing: -0.02em; }
+h3 { font-size: var(--h3); font-weight: var(--fw-bold); line-height: var(--lh-snug); }
+h4 { font-size: var(--h4); font-weight: var(--fw-semibold); line-height: var(--lh-snug); }
+p, li, td, th, label, input, select, textarea, button { font-size: var(--body); line-height: var(--lh-relaxed); }
+small, .text-sm { font-size: var(--small); }
+.text-xs { font-size: var(--xs); }
+</style>
 </head>
 <body style="padding-top:68px;">
 
 <nav class="bw-nav" id="bwNav">
 <a class="bw-nav-logo" href="index.html" style="text-decoration:none;display:flex;flex-direction:column;align-items:flex-start;line-height:1;flex-shrink:0;">
-<div style="font-family:'Segoe UI',system-ui,sans-serif;font-size:22px;font-weight:700;line-height:1;letter-spacing:-0.2px;"><span style="color:#ffffff;">Blu</span><span style="color:#00C8E0;">Wav</span></div>
+<div style="font-family:'Plus Jakarta Sans', sans-serif;font-size:22px;font-weight:700;line-height:1;letter-spacing:-0.2px;"><span style="color:#ffffff;">Blu</span><span style="color:#00C8E0;">Wav</span></div>
 <div style="font-size:10px;font-weight:600;color:rgba(0,200,224,0.7);letter-spacing:1.5px;text-transform:uppercase;margin-top:2px;">Caribbean</div>
 </a>
 <div class="bw-nav-links">
@@ -190,7 +221,7 @@ function bwCloseNav(){document.getElementById("bwHamburger").classList.remove("o
     <!-- Column 1: Brand -->
     <div>
       <a href="index.html" style="text-decoration:none;display:inline-block;margin-bottom:16px;">
-        <div style="font-family:'Segoe UI',system-ui,sans-serif;font-size:26px;font-weight:700;letter-spacing:-0.3px;color:#fff;line-height:1;">Blu<span style="color:#00C8E0;">Wav</span></div>
+        <div style="font-family:'Plus Jakarta Sans', sans-serif;font-size:26px;font-weight:700;letter-spacing:-0.3px;color:#fff;line-height:1;">Blu<span style="color:#00C8E0;">Wav</span></div>
         <div style="font-size:10px;font-weight:700;color:rgba(0,200,224,0.6);letter-spacing:2px;text-transform:uppercase;margin-top:3px;">Caribbean</div>
       </a>
       <p style="font-size:14px;color:rgba(255,255,255,0.5);line-height:1.75;max-width:280px;margin-bottom:20px;">Helping Caribbean SMEs improve visibility, attract more customers, and put practical systems in place for sustainable growth.</p>

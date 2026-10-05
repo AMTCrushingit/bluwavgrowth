@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Payment Confirmed | BluWav Caribbean</title>
+<meta name="robots" content="noindex"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+:root{--font:'Plus Jakarta Sans',sans-serif;--navy:#0a0f1e;--teal:#0891b2;--orange:#ff6535;--slate:#475569;--green:#22c55e;--border:rgba(10,15,30,0.12);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;font-family:var(--font)!important;}
+body{background:linear-gradient(135deg,#060d1f 0%,#0a1628 100%);color:#fff;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;}
+.card{background:rgba(255,255,255,0.04);border:1px solid rgba(0,200,224,0.2);border-radius:24px;padding:48px 40px;max-width:580px;width:100%;}
+.form-group{margin-bottom:18px;}
+.form-group label{display:block;font-size:13px;font-weight:600;color:rgba(255,255,255,0.7);margin-bottom:6px;}
+.form-group input,.form-group select{width:100%;padding:12px 16px;border:1.5px solid rgba(255,255,255,0.12);border-radius:8px;font-size:15px;font-family:var(--font)!important;color:#fff;background:rgba(255,255,255,0.06);outline:none;transition:border-color .2s;}
+.form-group input:focus,.form-group select:focus{border-color:#00C8E0;}
+.form-group input::placeholder{color:rgba(255,255,255,0.3);}
+.form-group select option{background:#0a0f1e;color:#fff;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.btn-submit{width:100%;padding:16px;background:var(--orange);color:#fff;font-size:16px;font-weight:800;border:none;border-radius:100px;cursor:pointer;font-family:var(--font)!important;box-shadow:0 8px 32px rgba(255,101,53,0.35);transition:all .2s;margin-top:8px;}
+.btn-submit:hover{filter:brightness(1.1);}
+@media(max-width:500px){.form-row{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="card">
+  <div style="width:60px;height:60px;background:rgba(34,197,94,0.15);border:2px solid var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-size:26px;">&#10003;</div>
+  <div style="text-align:center;margin-bottom:32px;">
+    <div style="font-size:12px;font-weight:700;color:#00C8E0;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px;">Payment Confirmed</div>
+    <h1 style="font-size:clamp(22px,4vw,32px);font-weight:900;line-height:1.1;margin-bottom:12px;">Welcome to BluWav Growth</h1>
+    <p style="font-size:15px;color:rgba(255,255,255,0.65);line-height:1.7;">Your Growth Membership is confirmed. Where should we send your invoice and how can we reach you?</p>
+  </div>
+  <form id="contactForm" onsubmit="submitContact(event)">
+    <div style="font-size:12px;font-weight:700;color:#00C8E0;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;">Your Details</div>
+    <div class="form-row">
+      <div class="form-group"><label>Your Name *</label><input type="text" id="contactName" required placeholder="Full name"/></div>
+      <div class="form-group"><label>Business Name *</label><input type="text" id="businessName" required placeholder="Your business"/></div>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label>Email Address *</label><input type="email" id="email" required placeholder="you@yourbusiness.com"/></div>
+      <div class="form-group"><label>Phone Number *</label><input type="tel" id="phone" required placeholder="+1 868 000 0000"/></div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Country *</label>
+        <select id="country" required>
+          <option value="">Select country</option>
+          <option>Trinidad & Tobago</option><option>Jamaica</option><option>Barbados</option>
+          <option>Guyana</option><option>St. Lucia</option><option>Antigua & Barbuda</option>
+          <option>Grenada</option><option>St. Vincent & the Grenadines</option>
+          <option>Dominica</option><option>Belize</option><option>Bahamas</option>
+          <option>Other Caribbean</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Website <span style="font-size:11px;color:rgba(255,255,255,0.35);">Optional</span></label><input type="url" id="website" placeholder="https://yourbusiness.com"/></div>
+    </div>
+    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:16px 20px;margin:20px 0;">
+      <div style="font-size:12px;font-weight:700;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">Invoice Summary</div>
+      <div style="display:flex;justify-content:space-between;font-size:14px;color:rgba(255,255,255,0.6);margin-bottom:6px;"><span id="invoiceTierName">Growth Membership</span><span id="invoicePrice">US$149/mo</span></div>
+      <div style="display:flex;justify-content:space-between;font-size:16px;font-weight:800;color:#fff;padding-top:10px;border-top:1px solid rgba(255,255,255,0.1);"><span>Total Paid</span><span id="totalPaid">US$149</span></div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.35);margin-top:4px;text-align:right;">Then same amount monthly</div>
+    </div>
+    <button type="submit" class="btn-submit">Send My Invoice &amp; Continue</button>
+    <p style="text-align:center;font-size:12px;color:rgba(255,255,255,0.35);margin-top:10px;">Your invoice will be emailed within minutes.</p>
+  </form>
+</div>
+<script>
+var tier = sessionStorage.getItem('membershipTier') || 'essential';
+var price = sessionStorage.getItem('membershipPrice') || '149';
+var tierNames = {essential:'Visibility Membership', growth:'Momentum Membership', premium:'Accelerate Membership'};
+var name = tierNames[tier] || 'Growth Membership';
+document.getElementById('invoiceTierName').textContent = name;
+document.getElementById('invoicePrice').textContent = 'US$' + price + '/mo';
+document.getElementById('totalPaid').textContent = 'US$' + price;
+function submitContact(e){
+  e.preventDefault();
+  var btn = document.querySelector('.btn-submit');
+  btn.disabled = true; btn.textContent = 'Saving...';
+  sessionStorage.setItem('membershipOrder', JSON.stringify({
+    contactName: document.getElementById('contactName').value,
+    businessName: document.getElementById('businessName').value,
+    email: document.getElementById('email').value,
+    phone: document.getElementById('phone').value,
+    country: document.getElementById('country').value,
+    website: document.getElementById('website').value,
+  }));
+  setTimeout(function(){ window.location.href = 'booking-membership.html'; }, 800);
+}
+</script>
+</body>
+</html>

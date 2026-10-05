@@ -377,7 +377,7 @@ input,button,select,textarea{
 footer{background:rgba(0,43,73,0.97);padding:60px 0 0;}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;}
 .footer-heading{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.4);margin-bottom:16px;}
-.footer-brand-name{font-family:'Segoe UI',system-ui,sans-serif;font-size:28px;font-weight:700;letter-spacing:-0.3px;color:#fff;line-height:1;margin-bottom:6px;}
+.footer-brand-name{font-family:'Plus Jakarta Sans', sans-serif;font-size:28px;font-weight:700;letter-spacing:-0.3px;color:#fff;line-height:1;margin-bottom:6px;}
 .footer-brand-name span{color:#00E0FF;}
 .footer-brand-sub{font-size:9px;font-weight:700;color:#F7C873;letter-spacing:5px;text-transform:uppercase;margin-bottom:12px;}
 .footer-brand-tag{font-size:12px;font-weight:500;color:#00E0FF;letter-spacing:1px;margin-bottom:6px;}
@@ -552,12 +552,46 @@ a[style*="background:#00E0FF"]:hover::after,a[style*="background:var(--cyan)"]:h
 <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1945068829544650');fbq('track','PageView');</script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1945068829544650&ev=PageView&noscript=1"/></noscript>
 <!-- End Meta Pixel Code -->
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+/* ── Plus Jakarta Sans Typography System ── */
+:root {
+  --font: 'Plus Jakarta Sans', sans-serif;
+  --h1: clamp(32px, 5vw, 64px);
+  --h2: clamp(24px, 3.5vw, 44px);
+  --h3: clamp(18px, 2.5vw, 28px);
+  --h4: clamp(15px, 2vw, 20px);
+  --body: 16px;
+  --small: 14px;
+  --xs: 12px;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+  --fw-black: 900;
+  --lh-tight: 1.1;
+  --lh-snug: 1.3;
+  --lh-normal: 1.6;
+  --lh-relaxed: 1.75;
+}
+* { font-family: var(--font) !important; }
+h1 { font-size: var(--h1); font-weight: var(--fw-black); line-height: var(--lh-tight); letter-spacing: -0.03em; }
+h2 { font-size: var(--h2); font-weight: var(--fw-extrabold); line-height: var(--lh-tight); letter-spacing: -0.02em; }
+h3 { font-size: var(--h3); font-weight: var(--fw-bold); line-height: var(--lh-snug); }
+h4 { font-size: var(--h4); font-weight: var(--fw-semibold); line-height: var(--lh-snug); }
+p, li, td, th, label, input, select, textarea, button { font-size: var(--body); line-height: var(--lh-relaxed); }
+small, .text-sm { font-size: var(--small); }
+.text-xs { font-size: var(--xs); }
+</style>
 </head>
 <body>
 <!-- NAV -->
 <nav class="bw-nav" id="bwNav">
 <a class="bw-nav-logo" href="index.html" style="text-decoration:none;display:flex;flex-direction:column;align-items:flex-start;line-height:1;flex-shrink:0;">
-<div style="font-family:'Segoe UI',system-ui,sans-serif;font-size:22px;font-weight:700;line-height:1;letter-spacing:-0.2px;"><span style="color:#ffffff;">Blu</span><span style="color:#00C8E0;">Wav</span></div>
+<div style="font-family:'Plus Jakarta Sans', sans-serif;font-size:22px;font-weight:700;line-height:1;letter-spacing:-0.2px;"><span style="color:#ffffff;">Blu</span><span style="color:#00C8E0;">Wav</span></div>
 <div style="font-size:10px;font-weight:600;color:rgba(0,200,224,0.7);letter-spacing:1.5px;text-transform:uppercase;margin-top:2px;">Caribbean</div>
 </a>
 <div class="bw-nav-links">
@@ -868,7 +902,7 @@ a[style*="background:#00E0FF"]:hover::after,a[style*="background:var(--cyan)"]:h
     <!-- Column 1: Brand -->
     <div>
       <a href="index.html" style="text-decoration:none;display:inline-block;margin-bottom:16px;">
-        <div style="font-family:'Segoe UI',system-ui,sans-serif;font-size:26px;font-weight:700;letter-spacing:-0.3px;color:#fff;line-height:1;">Blu<span style="color:#00C8E0;">Wav</span></div>
+        <div style="font-family:'Plus Jakarta Sans', sans-serif;font-size:26px;font-weight:700;letter-spacing:-0.3px;color:#fff;line-height:1;">Blu<span style="color:#00C8E0;">Wav</span></div>
         <div style="font-size:10px;font-weight:700;color:rgba(0,200,224,0.6);letter-spacing:2px;text-transform:uppercase;margin-top:3px;">Caribbean</div>
       </a>
       <p style="font-size:14px;color:rgba(255,255,255,0.5);line-height:1.75;max-width:280px;margin-bottom:20px;">Helping Caribbean SMEs improve visibility, attract more customers, and put practical systems in place for sustainable growth.</p>

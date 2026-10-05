@@ -35,7 +35,7 @@
     </script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap&font-display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap:wght@300;400;500;600;700;800&display=swap:wght@300;400;500;600;700;800;900&display=swap&font-display=swap" rel="stylesheet"/>
 <script defer="" src="https://unpkg.com/lucide@latest"></script>
 <style>
       :root {
@@ -57,7 +57,7 @@
       html { scroll-behavior: smooth; overflow-x: hidden; }
 
       body {
-        font-family: 'Poppins', sans-serif;
+        font-family: 'Plus Jakarta Sans', sans-serif;
         background: var(--navy);
         color: var(--white);
         overflow-x: hidden;
@@ -193,7 +193,7 @@
         cursor: pointer;
         text-decoration: none;
         transition: filter 0.2s, transform 0.2s;
-        font-family: 'Poppins', sans-serif;
+        font-family: 'Plus Jakarta Sans', sans-serif;
       }
       .btn-orange:hover { filter: brightness(1.1); transform: scale(1.02); }
 
@@ -210,7 +210,7 @@
         cursor: pointer;
         text-decoration: none;
         transition: border-color 0.2s;
-        font-family: 'Poppins', sans-serif;
+        font-family: 'Plus Jakarta Sans', sans-serif;
       }
       .btn-ghost:hover { border-color: var(--white); }
 
@@ -227,7 +227,7 @@
         cursor: pointer;
         text-decoration: none;
         transition: background 0.2s;
-        font-family: 'Poppins', sans-serif;
+        font-family: 'Plus Jakarta Sans', sans-serif;
       }
       .btn-outline-cyan-lg:hover { background: var(--cyan-dim); }
 
@@ -245,7 +245,7 @@
         cursor: pointer;
         text-decoration: none;
         transition: border-color 0.2s;
-        font-family: 'Poppins', sans-serif;
+        font-family: 'Plus Jakarta Sans', sans-serif;
         font-size: 15px;
       }
       .btn-outline-white:hover { border-color: var(--white); }
@@ -264,7 +264,7 @@
         cursor: pointer;
         text-decoration: none;
         transition: filter 0.2s;
-        font-family: 'Poppins', sans-serif;
+        font-family: 'Plus Jakarta Sans', sans-serif;
         font-size: 15px;
       }
       .btn-orange-full:hover { filter: brightness(1.1); }
@@ -416,7 +416,7 @@
         cursor: pointer;
         text-decoration: none;
         transition: border-color 0.2s;
-        font-family: 'Poppins', sans-serif;
+        font-family: 'Plus Jakarta Sans', sans-serif;
       }
       .btn-white-outline-dark:hover { border-color: #94a3b8; }
 
@@ -546,7 +546,7 @@
 /* ── Standard BluWav Nav ── */
 .bw-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:68px;padding:0 clamp(16px,4vw,60px);display:flex;align-items:center;justify-content:space-between;background:rgba(10,15,30,0.96);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,200,224,0.12);box-shadow:0 2px 24px rgba(0,0,0,0.25);}
 .bw-nav-logo{text-decoration:none;display:flex;align-items:center;gap:10px;flex-shrink:0;}
-.bw-nav-logo-name{font-family:'Segoe UI',system-ui,sans-serif;font-size:20px;font-weight:700;line-height:1;letter-spacing:-0.2px;}
+.bw-nav-logo-name{font-family:'Plus Jakarta Sans', sans-serif;font-size:20px;font-weight:700;line-height:1;letter-spacing:-0.2px;}
 .bw-nav-logo-name .blu{color:#ffffff;}
 .bw-nav-logo-name .wav{color:#00C8E0;}
 .bw-nav-logo-sub{font-size:7px;font-weight:700;color:#00C8E0;letter-spacing:2.5px;text-transform:uppercase;margin-top:2px;opacity:0.8;}
@@ -757,7 +757,7 @@ body { animation: bwPageIn 0.4s ease; }
 .bw-ticker-track:hover { animation-play-state: paused; }
 
 /* Section number accent */
-.bw-section-num { font-size: 120px; font-weight: 900; color: rgba(0,200,224,0.04); position: absolute; top: -20px; left: -10px; line-height: 1; pointer-events: none; user-select: none; font-family: Poppins, sans-serif; }
+.bw-section-num { font-size: 120px; font-weight: 900; color: rgba(0,200,224,0.04); position: absolute; top: -20px; left: -10px; line-height: 1; pointer-events: none; user-select: none; font-family: 'Plus Jakarta Sans', sans-serif; }
 
 /* Highlight underline */
 .bw-underline { position: relative; display: inline-block; }
@@ -902,6 +902,37 @@ a[style*="border-radius:8px"] {
 @media(max-width:900px) { #hero { background-position: 62% center !important; } #hero-grid { min-height: 620px; } }
 /* Font display swap for CLS prevention */
 </style>
+<style>
+/* ── Plus Jakarta Sans Typography System ── */
+:root {
+  --font: 'Plus Jakarta Sans', sans-serif;
+  --h1: clamp(32px, 5vw, 64px);
+  --h2: clamp(24px, 3.5vw, 44px);
+  --h3: clamp(18px, 2.5vw, 28px);
+  --h4: clamp(15px, 2vw, 20px);
+  --body: 16px;
+  --small: 14px;
+  --xs: 12px;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+  --fw-black: 900;
+  --lh-tight: 1.1;
+  --lh-snug: 1.3;
+  --lh-normal: 1.6;
+  --lh-relaxed: 1.75;
+}
+* { font-family: var(--font) !important; }
+h1 { font-size: var(--h1); font-weight: var(--fw-black); line-height: var(--lh-tight); letter-spacing: -0.03em; }
+h2 { font-size: var(--h2); font-weight: var(--fw-extrabold); line-height: var(--lh-tight); letter-spacing: -0.02em; }
+h3 { font-size: var(--h3); font-weight: var(--fw-bold); line-height: var(--lh-snug); }
+h4 { font-size: var(--h4); font-weight: var(--fw-semibold); line-height: var(--lh-snug); }
+p, li, td, th, label, input, select, textarea, button { font-size: var(--body); line-height: var(--lh-relaxed); }
+small, .text-sm { font-size: var(--small); }
+.text-xs { font-size: var(--xs); }
+</style>
 </head>
 <div id="bwScrollProgress"></div>
 <body data-id="0" style="padding-top:68px;">
@@ -909,7 +940,7 @@ a[style*="border-radius:8px"] {
 <!-- ── Standard BluWav Nav ── -->
 <nav class="bw-nav" id="bwNav">
 <a class="bw-nav-logo" href="index.html" style="text-decoration:none;display:flex;flex-direction:column;align-items:flex-start;line-height:1;flex-shrink:0;">
-<div style="font-family:'Segoe UI',system-ui,sans-serif;font-size:22px;font-weight:700;line-height:1;letter-spacing:-0.2px;"><span style="color:#ffffff;">Blu</span><span style="color:#00C8E0;">Wav</span></div>
+<div style="font-family:'Plus Jakarta Sans', sans-serif;font-size:22px;font-weight:700;line-height:1;letter-spacing:-0.2px;"><span style="color:#ffffff;">Blu</span><span style="color:#00C8E0;">Wav</span></div>
 <div style="font-size:10px;font-weight:600;color:rgba(0,200,224,0.7);letter-spacing:1.5px;text-transform:uppercase;margin-top:2px;">Caribbean</div>
 </a>
 <div class="bw-nav-links">
@@ -1502,7 +1533,7 @@ a[style*="border-radius:8px"] {
     <!-- Column 1: Brand -->
     <div>
       <a href="index.html" style="text-decoration:none;display:inline-block;margin-bottom:16px;">
-        <div style="font-family:'Segoe UI',system-ui,sans-serif;font-size:26px;font-weight:700;letter-spacing:-0.3px;color:#fff;line-height:1;">Blu<span style="color:#00C8E0;">Wav</span></div>
+        <div style="font-family:'Plus Jakarta Sans', sans-serif;font-size:26px;font-weight:700;letter-spacing:-0.3px;color:#fff;line-height:1;">Blu<span style="color:#00C8E0;">Wav</span></div>
         <div style="font-size:10px;font-weight:700;color:rgba(0,200,224,0.6);letter-spacing:2px;text-transform:uppercase;margin-top:3px;">Caribbean</div>
       </a>
       <p style="font-size:14px;color:rgba(255,255,255,0.5);line-height:1.75;max-width:280px;margin-bottom:20px;">Helping Caribbean SMEs improve visibility, attract more customers, and put practical systems in place for sustainable growth.</p>
