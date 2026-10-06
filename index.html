@@ -1405,15 +1405,22 @@ small, .text-sm { font-size: var(--small); }
 </div>
 </section>
 <!-- ═══════════════ FINAL CTA ═══════════════ -->
-<section id="final-cta" style="background:linear-gradient(135deg,#0891b2,#0c6e8a);padding:100px 24px;text-align:center;">
-<div style="max-width:680px;margin:0 auto;">
-  <h2 style="font-size:clamp(28px,4vw,48px);font-weight:900;color:#fff;line-height:1.1;letter-spacing:-0.5px;margin-bottom:20px;">Ready to Grow?</h2>
-  <p style="font-size:17px;color:rgba(255,255,255,0.85);line-height:1.75;margin-bottom:36px;">Let's talk about your business, your goals, and what's standing in the way.</p>
-  <a href="https://calendly.com/hello-bluwavgrowth/30min" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;background:#ff6535;color:#fff;font-size:16px;font-weight:700;padding:18px 40px;border-radius:100px;text-decoration:none;margin-bottom:32px;box-shadow:0 4px 20px rgba(255,101,53,0.4);">Book Your Free Growth Review &#8594;</a>
-  <p style="font-size:15px;color:rgba(255,255,255,0.75);margin-bottom:8px;font-weight:600;">Get Found. Get Chosen. Grow.</p>
-  <p style="font-size:13px;color:rgba(255,255,255,0.5);">Built for Caribbean businesses, priced for sustainable delivery, and designed to produce real growth.</p>
+<!-- ═══════════════ PRE-FOOTER CTA ═══════════════ -->
+<!-- ═══════════════ PRE-FOOTER CTA ═══════════════ -->
+<section style="background:linear-gradient(135deg,#0891b2 0%,#0c6e8a 100%);padding:48px clamp(16px,4vw,60px);">
+<div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;">
+  <div>
+    <h2 style="font-size:clamp(20px,2.5vw,28px);font-weight:900;color:#fff;line-height:1.2;margin-bottom:4px;white-space:nowrap;">Ready to Grow?</h2>
+    <p style="font-size:15px;color:rgba(255,255,255,0.75);margin:0;">Practical growth solutions built for Caribbean SMEs.</p>
+  </div>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;flex-shrink:0;">
+    <a href="health-check.html" style="display:inline-flex;align-items:center;gap:8px;background:#ff6535;color:#fff;font-size:15px;font-weight:700;padding:13px 26px;border-radius:100px;text-decoration:none;box-shadow:0 4px 16px rgba(255,101,53,0.35);transition:all .2s;" onmouseover="this.style.filter='brightness(1.1)'" onmouseout="this.style.filter=''">Book a Free Growth Review &#8594;</a>
+    <a href="https://calendly.com/hello-bluwavgrowth/30min" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.15);color:#fff;font-size:15px;font-weight:700;padding:13px 26px;border-radius:100px;text-decoration:none;border:1.5px solid rgba(255,255,255,0.3);transition:all .2s;" onmouseover="this.style.background='rgba(255,255,255,0.25)'" onmouseout="this.style.background='rgba(255,255,255,0.15)'">&#128197; Book a Call</a>
+  </div>
 </div>
 </section>
+
+
 <!-- ═══════════════ CANONICAL FOOTER ═══════════════ -->
 <footer style="background:#060c18;padding:0;">
 
@@ -1625,74 +1632,29 @@ if(nav){
 })();
 </script>
 
-<script>/* BluWav Caribbean — Cookie Consent Banner */
+<style>
+@keyframes bwBannerSlide{from{transform:translateY(100%);opacity:0;}to{transform:translateY(0);opacity:1;}}
+#bwCookieBanner{animation:bwBannerSlide 0.4s cubic-bezier(0.22,1,0.36,1) forwards;}
+</style>
+<script>
 (function(){
   if(localStorage.getItem('bwCookieConsent')) return;
-  
-  var banner = document.createElement('div');
-  banner.id = 'bwCookieBanner';
-  banner.innerHTML = `
-    <div style="position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#0a0f1e;border-top:2px solid rgba(0,200,224,0.3);padding:20px clamp(16px,4vw,60px);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;font-family:'Plus Jakarta Sans',sans-serif;box-shadow:0 -8px 40px rgba(0,0,0,0.4);" id="bwCookieInner">
-      <div style="flex:1;min-width:280px;">
-        <div style="font-size:15px;font-weight:700;color:#fff;margin-bottom:6px;">&#127850; We Use Cookies</div>
-        <p style="font-size:13px;color:rgba(255,255,255,0.65);line-height:1.6;margin:0;">BluWav uses cookies to improve your experience, understand how visitors use our website, and support our marketing and analytics efforts. <a href="/cookie-policy.html" style="color:#00C8E0;text-decoration:none;font-weight:600;">Cookie Policy</a> &middot; <a href="/privacy.html" style="color:#00C8E0;text-decoration:none;font-weight:600;">Privacy Policy</a></p>
-      </div>
-      <div style="display:flex;gap:10px;flex-wrap:wrap;flex-shrink:0;">
-        <button onclick="bwCookieAccept('essential')" style="background:transparent;color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.2);font-size:13px;font-weight:600;padding:10px 18px;border-radius:100px;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all .2s;" onmouseover="this.style.borderColor='rgba(255,255,255,0.5)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.2)'">Essential Only</button>
-        <button onclick="bwCookieManage()" style="background:transparent;color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.2);font-size:13px;font-weight:600;padding:10px 18px;border-radius:100px;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all .2s;" onmouseover="this.style.borderColor='rgba(255,255,255,0.5)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.2)'">Manage Preferences</button>
-        <button onclick="bwCookieAccept('all')" style="background:#ff6535;color:#fff;border:none;font-size:13px;font-weight:700;padding:10px 22px;border-radius:100px;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;box-shadow:0 4px 16px rgba(255,101,53,0.35);transition:all .2s;" onmouseover="this.style.filter='brightness(1.1)'" onmouseout="this.style.filter=''">Accept All</button>
-      </div>
-    </div>`;
-  
-  document.body.appendChild(banner);
-  
-  window.bwCookieAccept = function(type){
-    localStorage.setItem('bwCookieConsent', type);
+  var b = document.createElement('div');
+  b.id = 'bwCookieBanner';
+  b.style.cssText = 'position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#0a0f1e;border-top:2px solid rgba(0,200,224,0.3);padding:20px clamp(16px,4vw,60px);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;font-family:Plus Jakarta Sans,sans-serif;box-shadow:0 -8px 40px rgba(0,0,0,0.4);transform:translateY(100%);';
+  b.innerHTML = '<div style="flex:1;min-width:280px;"><div style="font-size:15px;font-weight:700;color:#fff;margin-bottom:6px;">&#127850; We Use Cookies</div><p style="font-size:13px;color:rgba(255,255,255,0.65);line-height:1.6;margin:0;">BluWav uses cookies to improve your experience and support analytics. <a href="/cookie-policy.html" style="color:#00C8E0;text-decoration:none;font-weight:600;">Cookie Policy</a> &middot; <a href="/privacy.html" style="color:#00C8E0;text-decoration:none;font-weight:600;">Privacy</a></p></div><div style="display:flex;gap:10px;flex-wrap:wrap;flex-shrink:0;"><button onclick="bwCA('essential')" style="background:transparent;color:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.25);font-size:13px;font-weight:600;padding:10px 18px;border-radius:100px;cursor:pointer;font-family:Plus Jakarta Sans,sans-serif;transition:all .2s;">Essential Only</button><button onclick="bwCA('all')" style="background:#ff6535;color:#fff;border:none;font-size:13px;font-weight:700;padding:10px 22px;border-radius:100px;cursor:pointer;font-family:Plus Jakarta Sans,sans-serif;box-shadow:0 4px 16px rgba(255,101,53,0.35);transition:all .2s;">Accept All</button></div>';
+  document.body.appendChild(b);
+  // Animate in after short delay
+  setTimeout(function(){ b.style.transform = 'translateY(0)'; b.style.transition = 'transform 0.4s cubic-bezier(0.22,1,0.36,1), opacity 0.4s ease'; b.style.opacity = '1'; }, 800);
+  window.bwCA = function(t){
+    var banner = document.getElementById('bwCookieBanner');
+    banner.style.transform = 'translateY(100%)';
+    banner.style.opacity = '0';
+    setTimeout(function(){ banner.remove(); }, 400);
+    localStorage.setItem('bwCookieConsent', t);
     localStorage.setItem('bwCookieDate', new Date().toISOString());
-    document.getElementById('bwCookieBanner').remove();
   };
-  
-  window.bwCookieManage = function(){
-    var prefs = document.createElement('div');
-    prefs.innerHTML = `
-      <div style="position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:10000;display:flex;align-items:center;justify-content:center;padding:24px;" id="bwCookieModal">
-        <div style="background:#fff;border-radius:16px;padding:36px;max-width:480px;width:100%;font-family:'Plus Jakarta Sans',sans-serif;">
-          <h3 style="font-size:20px;font-weight:800;color:#0a0f1e;margin-bottom:8px;">Manage Cookie Preferences</h3>
-          <p style="font-size:14px;color:#475569;margin-bottom:24px;line-height:1.6;">Choose which cookies you'd like to allow.</p>
-          <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:28px;">
-            <label style="display:flex;align-items:center;justify-content:space-between;padding:14px 16px;background:#f8fafc;border-radius:10px;border:1px solid rgba(10,15,30,0.1);">
-              <div><div style="font-size:14px;font-weight:700;color:#0a0f1e;">Essential Cookies</div><div style="font-size:12px;color:#64748b;margin-top:2px;">Required for the website to function</div></div>
-              <input type="checkbox" checked disabled style="width:18px;height:18px;accent-color:#0891b2;"/>
-            </label>
-            <label style="display:flex;align-items:center;justify-content:space-between;padding:14px 16px;background:#f8fafc;border-radius:10px;border:1px solid rgba(10,15,30,0.1);cursor:pointer;">
-              <div><div style="font-size:14px;font-weight:700;color:#0a0f1e;">Analytics Cookies</div><div style="font-size:12px;color:#64748b;margin-top:2px;">Help us understand how visitors use the site</div></div>
-              <input type="checkbox" id="bwAnalytics" style="width:18px;height:18px;accent-color:#0891b2;cursor:pointer;"/>
-            </label>
-            <label style="display:flex;align-items:center;justify-content:space-between;padding:14px 16px;background:#f8fafc;border-radius:10px;border:1px solid rgba(10,15,30,0.1);cursor:pointer;">
-              <div><div style="font-size:14px;font-weight:700;color:#0a0f1e;">Marketing Cookies</div><div style="font-size:12px;color:#64748b;margin-top:2px;">Help us measure marketing effectiveness</div></div>
-              <input type="checkbox" id="bwMarketing" style="width:18px;height:18px;accent-color:#0891b2;cursor:pointer;"/>
-            </label>
-          </div>
-          <div style="display:flex;gap:10px;justify-content:flex-end;">
-            <button onclick="document.getElementById('bwCookieModal').remove()" style="background:transparent;color:#475569;border:1px solid rgba(10,15,30,0.2);font-size:14px;font-weight:600;padding:10px 20px;border-radius:100px;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;">Cancel</button>
-            <button onclick="bwSavePrefs()" style="background:#0891b2;color:#fff;border:none;font-size:14px;font-weight:700;padding:10px 24px;border-radius:100px;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;">Save Preferences</button>
-          </div>
-        </div>
-      </div>`;
-    document.body.appendChild(prefs);
-    
-    window.bwSavePrefs = function(){
-      var prefs = {
-        essential: true,
-        analytics: document.getElementById('bwAnalytics').checked,
-        marketing: document.getElementById('bwMarketing').checked
-      };
-      localStorage.setItem('bwCookieConsent', JSON.stringify(prefs));
-      localStorage.setItem('bwCookieDate', new Date().toISOString());
-      document.getElementById('bwCookieModal').remove();
-      document.getElementById('bwCookieBanner').remove();
-    };
-  };
+  window.bwOpenCookiePrefs = function(){ localStorage.removeItem('bwCookieConsent'); location.reload(); };
 })();
 </script>
 

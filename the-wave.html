@@ -508,42 +508,20 @@ window.addEventListener('scroll',function(){document.getElementById('bwNav').sty
 </section>
 
 <!-- ══════════════ NEWSLETTER ══════════════ -->
-<section style="width:100%;margin:0;padding:0;position:relative;z-index:1;">
-  <div style="position:relative;height:90px;overflow:hidden;margin-bottom:-2px;background:#f5f0e6;">
-    <svg preserveAspectRatio="none" viewBox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg" style="position:absolute;bottom:0;left:0;width:100%;height:100%;">
-      <path d="M0,60 C120,35 240,75 360,55 C480,35 600,70 720,50 C840,30 960,65 1080,45 C1200,25 1320,60 1440,40 L1440,90 L0,90 Z" fill="#001828" opacity="0.6"/>
-    </svg>
-    <svg preserveAspectRatio="none" viewBox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg" style="position:absolute;bottom:0;left:0;width:100%;height:100%;">
-      <path d="M0,78 C120,58 240,85 360,72 C480,58 600,82 720,68 C840,54 960,78 1080,65 C1200,52 1320,74 1440,62 L1440,90 L0,90 Z" fill="#001828"/>
-    </svg>
+<!-- ═══════════════ PRE-FOOTER CTA ═══════════════ -->
+<section style="background:linear-gradient(135deg,#0891b2 0%,#0c6e8a 100%);padding:48px clamp(16px,4vw,60px);">
+<div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;">
+  <div>
+    <h2 style="font-size:clamp(20px,2.5vw,28px);font-weight:900;color:#fff;line-height:1.2;margin-bottom:4px;white-space:nowrap;">Ready to Grow?</h2>
+    <p style="font-size:15px;color:rgba(255,255,255,0.75);margin:0;">Practical growth solutions built for Caribbean SMEs.</p>
   </div>
-  <div class="newsletter">
-    <div style="position:relative;z-index:2;">
-      <div style="display:inline-flex;align-items:center;gap:8px;margin-bottom:16px;">
-        <div style="width:28px;height:2px;background:#C9A84C;border-radius:2px;"></div>
-        <span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:#C9A84C;">Stay on The Wave</span>
-        <div style="width:28px;height:2px;background:#C9A84C;border-radius:2px;"></div>
-      </div>
-      <h2 class="bw-reveal" style="font-family:'Manrope',sans-serif;font-size:clamp(24px,4vw,36px);font-weight:900;color:#fff;margin-bottom:12px;letter-spacing:-0.02em;">Stay on <span style="color:#00d4ff;">The Wave.</span></h2>
-      <p style="font-size:16px;color:rgba(255,255,255,0.65);margin-bottom:36px;max-width:440px;margin-left:auto;margin-right:auto;line-height:1.65;">Short, practical tips for modern business owners. Drop your email and ride The Wave with us.</p>
-      <form id="wave-subscribe-form" onsubmit="handleWaveSubscribe(event)" style="display:flex;gap:12px;max-width:480px;margin:0 auto;flex-wrap:wrap;">
-        <input id="wave-email-input" type="email" required placeholder="your@email.com"
-          style="flex:1;min-width:200px;padding:14px 18px;border-radius:100px;border:2px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.08);color:#fff;font-size:15px;font-family:inherit;outline:none;transition:all 0.2s;"
-          onfocus="this.style.border='2px solid #00d4ff';this.style.background='rgba(255,255,255,0.12)'"
-          onblur="this.style.border='2px solid rgba(255,255,255,0.15)';this.style.background='rgba(255,255,255,0.08)'"/>
-        <button id="wave-subscribe-btn" type="submit"
-          style="background:#ff6535;color:#fff;font-size:15px;font-weight:800;padding:14px 28px;border-radius:100px;border:none;cursor:pointer;font-family:inherit;white-space:nowrap;box-shadow:0 4px 20px rgba(255,101,53,0.4);transition:all 0.2s;"
-          onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 28px rgba(255,101,53,0.55)'"
-          onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 20px rgba(255,101,53,0.4)'">Subscribe &#8594;</button>
-      </form>
-      <p style="font-size:12px;color:rgba(255,255,255,0.3);margin-top:14px;">No spam. Unsubscribe anytime.</p>
-      <div id="wave-subscribe-success" style="display:none;margin-top:20px;background:rgba(0,212,255,0.1);border:1px solid rgba(0,212,255,0.3);border-radius:16px;padding:16px 24px;max-width:480px;margin-left:auto;margin-right:auto;">
-        <p style="color:#00d4ff;font-weight:800;font-size:16px;margin-bottom:4px;">You're on The Wave!</p>
-        <p style="color:rgba(255,255,255,0.7);font-size:14px;">Thanks for subscribing. Practical digital growth tips coming your way.</p>
-      </div>
-    </div>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;flex-shrink:0;">
+    <a href="health-check.html" style="display:inline-flex;align-items:center;gap:8px;background:#ff6535;color:#fff;font-size:15px;font-weight:700;padding:13px 26px;border-radius:100px;text-decoration:none;box-shadow:0 4px 16px rgba(255,101,53,0.35);transition:all .2s;" onmouseover="this.style.filter='brightness(1.1)'" onmouseout="this.style.filter=''">Book a Free Growth Review &#8594;</a>
+    <a href="https://calendly.com/hello-bluwavgrowth/30min" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.15);color:#fff;font-size:15px;font-weight:700;padding:13px 26px;border-radius:100px;text-decoration:none;border:1.5px solid rgba(255,255,255,0.3);transition:all .2s;" onmouseover="this.style.background='rgba(255,255,255,0.25)'" onmouseout="this.style.background='rgba(255,255,255,0.15)'">&#128197; Book a Call</a>
   </div>
+</div>
 </section>
+
 
 <!-- ══════════════ MAIN SITE FOOTER ══════════════ -->
 <!-- ── Standard BluWav Footer ── -->
