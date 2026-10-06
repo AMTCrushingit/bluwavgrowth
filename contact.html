@@ -30,116 +30,58 @@ body{background:#fff;color:var(--navy);overflow-x:hidden;}
 .bw-btn-cta:active,.btn-primary:active{transform:translateY(1px) scale(0.97)!important;filter:brightness(0.94)!important;animation:none!important;}
 </style>
 <style>
-/* ══════════════════════════════════════════
-   BluWav Animation System v2
-   Scroll reveals, hover effects, parallax
-══════════════════════════════════════════ */
-
-/* Keyframes */
-@keyframes bwFadeUp{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
+/* BluWav Safe Animation System */
+@keyframes bwFadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
 @keyframes bwFadeIn{from{opacity:0;}to{opacity:1;}}
-@keyframes bwSlideLeft{from{opacity:0;transform:translateX(32px);}to{opacity:1;transform:translateX(0);}}
-@keyframes bwSlideRight{from{opacity:0;transform:translateX(-32px);}to{opacity:1;transform:translateX(0);}}
-@keyframes bwScaleIn{from{opacity:0;transform:scale(0.92);}to{opacity:1;transform:scale(1);}}
+@keyframes bwGlow{0%,100%{box-shadow:0 4px 20px rgba(255,101,53,0.35);}50%{box-shadow:0 4px 40px rgba(255,101,53,0.6),0 0 0 5px rgba(255,101,53,0.1);}}
+@keyframes bwGlowTeal{0%,100%{box-shadow:0 4px 20px rgba(8,145,178,0.3);}50%{box-shadow:0 4px 40px rgba(8,145,178,0.5),0 0 0 5px rgba(8,145,178,0.1);}}
 @keyframes bwOrb1{0%,100%{transform:translateY(0) translateX(0);}50%{transform:translateY(-30px) translateX(15px);}}
 @keyframes bwOrb2{0%,100%{transform:translateY(0);}50%{transform:translateY(-20px) translateX(-15px);}}
-@keyframes bwPulse{0%,100%{transform:scale(1);}50%{transform:scale(1.05);}}
-@keyframes bwGlow{0%,100%{box-shadow:0 4px 20px rgba(255,101,53,0.35);}50%{box-shadow:0 4px 40px rgba(255,101,53,0.65),0 0 0 6px rgba(255,101,53,0.1);}}
-@keyframes bwGlowTeal{0%,100%{box-shadow:0 4px 20px rgba(8,145,178,0.3);}50%{box-shadow:0 4px 40px rgba(8,145,178,0.55),0 0 0 6px rgba(8,145,178,0.1);}}
-@keyframes bwFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
-@keyframes bwShimmer{0%{background-position:-200% 0;}100%{background-position:200% 0;}}
-@keyframes bwCountUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
 
-/* Scroll reveal classes */
-.bw-reveal{opacity:0;transform:translateY(24px);transition:opacity 0.75s cubic-bezier(0.22,1,0.36,1),transform 0.75s cubic-bezier(0.22,1,0.36,1);}
+/* Scroll reveal — ONLY applied to elements with these classes */
+.bw-reveal{opacity:0;transform:translateY(20px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1);}
 .bw-reveal.visible{opacity:1;transform:translateY(0);}
-.bw-reveal-left{opacity:0;transform:translateX(32px);transition:opacity 0.75s cubic-bezier(0.22,1,0.36,1),transform 0.75s cubic-bezier(0.22,1,0.36,1);}
+.bw-reveal-left{opacity:0;transform:translateX(28px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1);}
 .bw-reveal-left.visible{opacity:1;transform:translateX(0);}
-.bw-reveal-right{opacity:0;transform:translateX(-32px);transition:opacity 0.75s cubic-bezier(0.22,1,0.36,1),transform 0.75s cubic-bezier(0.22,1,0.36,1);}
+.bw-reveal-right{opacity:0;transform:translateX(-28px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1);}
 .bw-reveal-right.visible{opacity:1;transform:translateX(0);}
-.bw-reveal-scale{opacity:0;transform:scale(0.94);transition:opacity 0.7s ease,transform 0.7s cubic-bezier(0.22,1,0.36,1);}
-.bw-reveal-scale.visible{opacity:1;transform:scale(1);}
 .bw-delay-1{transition-delay:0.1s!important;}
 .bw-delay-2{transition-delay:0.2s!important;}
 .bw-delay-3{transition-delay:0.3s!important;}
-.bw-delay-4{transition-delay:0.4s!important;}
-.bw-delay-5{transition-delay:0.5s!important;}
 
-/* Button animations */
-.bw-btn-cta,.btn-primary,[class*="bw-nav-btn-cta"]{
-  position:relative;overflow:hidden;
-  transition:transform .2s cubic-bezier(0.34,1.56,0.64,1),filter .15s ease,box-shadow .3s ease!important;
-}
-.bw-btn-cta:hover,.btn-primary:hover{
-  transform:translateY(-3px) scale(1.03)!important;
-  filter:brightness(1.08)!important;
-  animation:bwGlow 2s ease-in-out infinite;
-}
-.bw-btn-cta:active,.btn-primary:active{transform:translateY(1px) scale(0.97)!important;animation:none!important;}
+/* Button hover — safe, no animation on load */
+.bw-btn-cta,.btn-primary{transition:transform .2s cubic-bezier(0.34,1.56,0.64,1),filter .15s ease,box-shadow .25s ease!important;}
+.bw-btn-cta:hover,.btn-primary:hover{transform:translateY(-2px) scale(1.03)!important;filter:brightness(1.08)!important;box-shadow:0 8px 32px rgba(255,101,53,0.5)!important;}
+.bw-btn-cta:active,.btn-primary:active{transform:translateY(1px) scale(0.97)!important;}
 
-/* Ripple effect on click */
-.bw-btn-cta::after,.btn-primary::after{
-  content:'';position:absolute;border-radius:50%;
-  width:0;height:0;background:rgba(255,255,255,0.3);
-  top:50%;left:50%;transform:translate(-50%,-50%);
-  transition:width .4s ease,height .4s ease,opacity .4s ease;opacity:0;
-}
-.bw-btn-cta:active::after,.btn-primary:active::after{width:200px;height:200px;opacity:0;}
+/* Ghost button hover */
+.bw-btn-ghost{transition:transform .2s ease,border-color .2s,background .2s!important;}
+.bw-btn-ghost:hover{transform:translateY(-2px) scale(1.02)!important;}
 
 /* Card hover lift */
 .bw-card-hover{transition:transform .25s cubic-bezier(0.22,1,0.36,1),box-shadow .25s ease!important;}
-.bw-card-hover:hover{transform:translateY(-6px)!important;box-shadow:0 20px 60px rgba(0,0,0,0.15)!important;}
+.bw-card-hover:hover{transform:translateY(-5px)!important;box-shadow:0 16px 48px rgba(0,0,0,0.12)!important;}
 
-/* Link hover underline slide */
-.bw-link-hover{position:relative;text-decoration:none;}
-.bw-link-hover::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;background:currentColor;transition:width .25s ease;}
-.bw-link-hover:hover::after{width:100%;}
-
-/* Image parallax container */
-.bw-parallax{overflow:hidden;}
-.bw-parallax img{transition:transform .1s linear;will-change:transform;}
-
-/* Section entrance gradient */
-.bw-section-enter{position:relative;}
-.bw-section-enter::before{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(to bottom,rgba(8,145,178,0.03) 0%,transparent 100%);
-  pointer-events:none;opacity:0;transition:opacity .5s;
-}
-.bw-section-enter.visible::before{opacity:1;}
-
-/* Nav link active indicator */
+/* Nav link underline */
 .bw-nav-link{position:relative;}
-.bw-nav-link::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:#00C8E0;transition:width .25s ease;border-radius:2px;}
+.bw-nav-link::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:2px;background:#00C8E0;transition:width .2s ease;border-radius:2px;}
 .bw-nav-link:hover::after,.bw-nav-link.active::after{width:100%;}
 
-/* Teal button glow */
-.btn-teal:hover{animation:bwGlowTeal 2s ease-in-out infinite!important;}
+/* Nav scroll shadow */
+.bw-nav-scrolled{box-shadow:0 4px 32px rgba(0,0,0,0.35)!important;}
 
 /* Footer link hover */
-footer a{transition:color .2s,transform .2s!important;}
-footer a:hover{transform:translateX(3px)!important;}
+footer a{transition:color .2s,opacity .2s!important;}
+footer a:hover{opacity:1!important;}
 
-/* Case study card */
-.cs-card{transition:transform .3s cubic-bezier(0.22,1,0.36,1),box-shadow .3s ease!important;}
-.cs-card:hover{transform:translateY(-8px) scale(1.01)!important;box-shadow:0 24px 64px rgba(0,0,0,0.15)!important;}
+/* Case study image zoom */
+.cs-card img,.case-card img{transition:transform .4s ease!important;}
+.cs-card:hover img,.case-card:hover img{transform:scale(1.04)!important;}
 
-/* Stat counter animation */
-.bw-stat{transition:transform .3s ease;}
-.bw-stat:hover{transform:scale(1.05);}
-
-/* Progress bar animation */
-@keyframes bwBar{from{width:0;}to{width:var(--w,100%);}}
-.bw-bar{animation:bwBar 1.2s cubic-bezier(0.22,1,0.36,1) forwards;}
-
-/* Floating orbs */
-.bw-orb{animation:bwOrb1 20s ease-in-out infinite;}
-.bw-orb-2{animation:bwOrb2 25s ease-in-out infinite 3s;}
-
-/* Mobile: reduce motion */
+/* Accessibility */
 @media(prefers-reduced-motion:reduce){
-  .bw-reveal,.bw-reveal-left,.bw-reveal-right,.bw-reveal-scale{opacity:1!important;transform:none!important;transition:none!important;}
-  .bw-btn-cta:hover,.btn-primary:hover{animation:none!important;}
+  .bw-reveal,.bw-reveal-left,.bw-reveal-right{opacity:1!important;transform:none!important;transition:none!important;}
+  .bw-btn-cta:hover,.btn-primary:hover{animation:none!important;transform:none!important;}
 }
 </style>
 </head>
@@ -364,93 +306,37 @@ function submitForm(e){
 </script>
 <style>@media(max-width:768px){[style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important;}[style*="repeat(3,1fr)"]{grid-template-columns:1fr!important;}}</style>
 <script>
-/* ── BluWav Animation Engine ── */
+/* BluWav Safe Animation Engine */
 (function(){
-  // Scroll reveal
-  var revealEls = document.querySelectorAll('.bw-reveal,.bw-reveal-left,.bw-reveal-right,.bw-reveal-scale,.bw-section-enter');
+  // Scroll reveal — ONLY elements already marked with bw-reveal classes
+  var revealEls = document.querySelectorAll('.bw-reveal,.bw-reveal-left,.bw-reveal-right');
   if(revealEls.length){
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(e){
-        if(e.isIntersecting){
-          e.target.classList.add('visible');
-          io.unobserve(e.target);
-        }
+        if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}
       });
-    },{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+    },{threshold:0.1,rootMargin:'0px 0px -30px 0px'});
     revealEls.forEach(function(el){io.observe(el);});
   }
 
-  // Parallax on hero images
-  var parallaxEls = document.querySelectorAll('.bw-parallax img');
-  if(parallaxEls.length){
+  // Nav shadow on scroll
+  var nav = document.querySelector('.bw-nav');
+  if(nav){
     window.addEventListener('scroll',function(){
-      var scrollY = window.pageYOffset;
-      parallaxEls.forEach(function(img){
-        var rect = img.closest('.bw-parallax').getBoundingClientRect();
-        if(rect.bottom > 0 && rect.top < window.innerHeight){
-          var speed = parseFloat(img.dataset.speed || '0.3');
-          img.style.transform = 'translateY(' + (scrollY * speed * 0.1) + 'px)';
-        }
-      });
+      nav.classList.toggle('bw-nav-scrolled', window.pageYOffset > 20);
     },{passive:true});
   }
 
-  // Add bw-reveal to section headings not already animated
-  document.querySelectorAll('section h2:not(.bw-reveal):not(.bw-fade-up)').forEach(function(h,i){
-    h.classList.add('bw-reveal');
-    if(i % 3 === 1) h.classList.add('bw-delay-1');
-  });
-
-  // Add card hover to case study cards
-  document.querySelectorAll('.case-card:not(.bw-card-hover)').forEach(function(c){
-    c.classList.add('bw-card-hover');
-  });
-
-  // Stagger children of grids
-  document.querySelectorAll('[style*="display:grid"] > *:not(.bw-reveal)').forEach(function(el,i){
-    if(!el.classList.contains('bw-reveal') && !el.closest('nav') && !el.closest('footer')){
-      el.classList.add('bw-reveal');
-      if(i % 4 === 1) el.classList.add('bw-delay-1');
-      if(i % 4 === 2) el.classList.add('bw-delay-2');
-      if(i % 4 === 3) el.classList.add('bw-delay-3');
-    }
-  });
-
-  // Nav scroll effect
-  var nav = document.querySelector('.bw-nav,nav.bw-nav');
-  if(nav){
+  // Subtle parallax on hero background image only
+  var heroImg = document.querySelector('#hero img');
+  if(heroImg){
     window.addEventListener('scroll',function(){
-      if(window.pageYOffset > 20){
-        nav.style.boxShadow = '0 4px 32px rgba(0,0,0,0.3)';
-      } else {
-        nav.style.boxShadow = '';
+      var scrollY = window.pageYOffset;
+      if(scrollY < window.innerHeight * 1.5){
+        heroImg.style.transform = 'translateY(' + (scrollY * 0.15) + 'px)';
       }
     },{passive:true});
   }
-
-  // Smooth counter animation for stats
-  document.querySelectorAll('[data-count]').forEach(function(el){
-    var io2 = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(e.isIntersecting){
-          var target = parseInt(el.dataset.count);
-          var suffix = el.dataset.suffix || '';
-          var duration = 1500;
-          var start = performance.now();
-          function update(now){
-            var progress = Math.min((now - start) / duration, 1);
-            var ease = 1 - Math.pow(1 - progress, 3);
-            el.textContent = Math.round(ease * target) + suffix;
-            if(progress < 1) requestAnimationFrame(update);
-          }
-          requestAnimationFrame(update);
-          io2.unobserve(el);
-        }
-      });
-    },{threshold:0.5});
-    io2.observe(el);
-  });
-
 })();
 </script>
 </body>
