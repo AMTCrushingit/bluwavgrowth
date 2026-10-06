@@ -27,61 +27,6 @@ body{background:#fff;color:var(--navy);overflow-x:hidden;}
 .bw-btn-cta:hover,.btn-primary:hover{transform:translateY(-2px) scale(1.03)!important;filter:brightness(1.08)!important;animation:bwBtnGlow 2s ease-in-out infinite;}
 .bw-btn-cta:active,.btn-primary:active{transform:translateY(1px) scale(0.97)!important;filter:brightness(0.94)!important;animation:none!important;}
 </style>
-<style>
-/* BluWav Safe Animation System */
-@keyframes bwFadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
-@keyframes bwFadeIn{from{opacity:0;}to{opacity:1;}}
-@keyframes bwGlow{0%,100%{box-shadow:0 4px 20px rgba(255,101,53,0.35);}50%{box-shadow:0 4px 40px rgba(255,101,53,0.6),0 0 0 5px rgba(255,101,53,0.1);}}
-@keyframes bwGlowTeal{0%,100%{box-shadow:0 4px 20px rgba(8,145,178,0.3);}50%{box-shadow:0 4px 40px rgba(8,145,178,0.5),0 0 0 5px rgba(8,145,178,0.1);}}
-@keyframes bwOrb1{0%,100%{transform:translateY(0) translateX(0);}50%{transform:translateY(-30px) translateX(15px);}}
-@keyframes bwOrb2{0%,100%{transform:translateY(0);}50%{transform:translateY(-20px) translateX(-15px);}}
-
-/* Scroll reveal — ONLY applied to elements with these classes */
-.bw-reveal{opacity:0;transform:translateY(20px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1);}
-.bw-reveal.visible{opacity:1;transform:translateY(0);}
-.bw-reveal-left{opacity:0;transform:translateX(28px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1);}
-.bw-reveal-left.visible{opacity:1;transform:translateX(0);}
-.bw-reveal-right{opacity:0;transform:translateX(-28px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1);}
-.bw-reveal-right.visible{opacity:1;transform:translateX(0);}
-.bw-delay-1{transition-delay:0.1s!important;}
-.bw-delay-2{transition-delay:0.2s!important;}
-.bw-delay-3{transition-delay:0.3s!important;}
-
-/* Button hover — safe, no animation on load */
-.bw-btn-cta,.btn-primary{transition:transform .2s cubic-bezier(0.34,1.56,0.64,1),filter .15s ease,box-shadow .25s ease!important;}
-.bw-btn-cta:hover,.btn-primary:hover{transform:translateY(-2px) scale(1.03)!important;filter:brightness(1.08)!important;box-shadow:0 8px 32px rgba(255,101,53,0.5)!important;}
-.bw-btn-cta:active,.btn-primary:active{transform:translateY(1px) scale(0.97)!important;}
-
-/* Ghost button hover */
-.bw-btn-ghost{transition:transform .2s ease,border-color .2s,background .2s!important;}
-.bw-btn-ghost:hover{transform:translateY(-2px) scale(1.02)!important;}
-
-/* Card hover lift */
-.bw-card-hover{transition:transform .25s cubic-bezier(0.22,1,0.36,1),box-shadow .25s ease!important;}
-.bw-card-hover:hover{transform:translateY(-5px)!important;box-shadow:0 16px 48px rgba(0,0,0,0.12)!important;}
-
-/* Nav link underline */
-.bw-nav-link{position:relative;}
-.bw-nav-link::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:2px;background:#00C8E0;transition:width .2s ease;border-radius:2px;}
-.bw-nav-link:hover::after,.bw-nav-link.active::after{width:100%;}
-
-/* Nav scroll shadow */
-.bw-nav-scrolled{box-shadow:0 4px 32px rgba(0,0,0,0.35)!important;}
-
-/* Footer link hover */
-footer a{transition:color .2s,opacity .2s!important;}
-footer a:hover{opacity:1!important;}
-
-/* Case study image zoom */
-.cs-card img,.case-card img{transition:transform .4s ease!important;}
-.cs-card:hover img,.case-card:hover img{transform:scale(1.04)!important;}
-
-/* Accessibility */
-@media(prefers-reduced-motion:reduce){
-  .bw-reveal,.bw-reveal-left,.bw-reveal-right{opacity:1!important;transform:none!important;transition:none!important;}
-  .bw-btn-cta:hover,.btn-primary:hover{animation:none!important;transform:none!important;}
-}
-</style>
 </head>
 <body>
 <nav class="bw-nav" id="bwNav">
@@ -102,12 +47,14 @@ footer a:hover{opacity:1!important;}
 </button>
 </nav>
 <div class="bw-mob-nav" id="bwMobNav">
-  <a class="bw-mob-link" href="index.html#growth-system">What We Do</a>
-  <a class="bw-mob-link" href="how-it-works.html">How It Works</a>
-  <a class="bw-mob-link" href="case-studies.html">Case Studies</a>
-  <a class="bw-mob-link" href="the-wave.html">The Wave</a>
-  <a class="bw-mob-link" href="careers.html">Careers</a>
-  <a class="bw-mob-cta" href="https://calendly.com/hello-bluwavgrowth/30min" rel="noopener" target="_blank">Book a Free Growth Review</a>
+<a class="bw-mob-link" href="index.html#pillars" onclick="bwCloseNav()">🌐 What We Do</a>
+<a class="bw-mob-link" href="index.html#growth-system" onclick="bwCloseNav()">⚡ How It Works</a>
+<a class="bw-mob-link" href="pricing.html" onclick="bwCloseNav()">💰 Pricing</a>
+<a class="bw-mob-link" href="case-study-aadek.html" onclick="bwCloseNav()">📐 Case Studies</a>
+<a class="bw-mob-link" href="the-wave.html" onclick="bwCloseNav()" style="color:#00d4ff;">The Wave</a>
+<a class="bw-mob-link" href="careers.html" onclick="bwCloseNav()">Careers</a>
+<a class="bw-mob-link" href="https://bluwavcrm.com/login.html" onclick="bwCloseNav()" rel="noopener" style="color:rgba(0,212,255,0.85);" target="_blank">🔐 Client Login</a>
+<a class="bw-mob-cta" href="health-score.html" onclick="bwCloseNav()">Book a Free Growth Review</a>
 </div>
 
 <!-- HERO -->
@@ -220,18 +167,7 @@ footer a:hover{opacity:1!important;}
 </section>
 
 <!-- CTA -->
-<section style="background:linear-gradient(135deg,#0891b2 0%,#0c6e8a 100%);padding:48px clamp(16px,4vw,60px);">
-<div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;">
-  <div>
-    <h2 style="font-size:clamp(20px,2.5vw,28px);font-weight:900;color:#fff;line-height:1.2;margin-bottom:4px;white-space:nowrap;">Ready to Grow?</h2>
-    <p style="font-size:15px;color:rgba(255,255,255,0.75);margin:0;">Practical growth solutions built for Caribbean SMEs.</p>
-  </div>
-  <div style="display:flex;gap:12px;flex-wrap:wrap;flex-shrink:0;">
-    <a href="health-check.html" class="btn-primary bw-btn-cta">Book a Free Growth Review &#8594;</a>
-    <a href="https://calendly.com/hello-bluwavgrowth/30min" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.15);color:#fff;font-size:15px;font-weight:700;padding:13px 26px;border-radius:100px;text-decoration:none;border:1.5px solid rgba(255,255,255,0.3);">&#128197; Book a Call</a>
-  </div>
-</div>
-</section>
+
 
 <footer style="background:#060c18;padding:0;">
   <!-- Pre-footer CTA strip -->
@@ -323,39 +259,5 @@ footer a:hover{opacity:1!important;}
 function bwToggleNav(){document.getElementById('bwMobNav').classList.toggle('open');document.getElementById('bwHamburger').classList.toggle('open');}
 </script>
 <style>@media(max-width:900px){[style*="repeat(3,1fr)"]{grid-template-columns:1fr 1fr!important;}}@media(max-width:480px){[style*="repeat(3,1fr)"]{grid-template-columns:1fr!important;}}</style>
-<script>
-/* BluWav Safe Animation Engine */
-(function(){
-  // Scroll reveal — ONLY elements already marked with bw-reveal classes
-  var revealEls = document.querySelectorAll('.bw-reveal,.bw-reveal-left,.bw-reveal-right');
-  if(revealEls.length){
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}
-      });
-    },{threshold:0.1,rootMargin:'0px 0px -30px 0px'});
-    revealEls.forEach(function(el){io.observe(el);});
-  }
-
-  // Nav shadow on scroll
-  var nav = document.querySelector('.bw-nav');
-  if(nav){
-    window.addEventListener('scroll',function(){
-      nav.classList.toggle('bw-nav-scrolled', window.pageYOffset > 20);
-    },{passive:true});
-  }
-
-  // Subtle parallax on hero background image only
-  var heroImg = document.querySelector('#hero img');
-  if(heroImg){
-    window.addEventListener('scroll',function(){
-      var scrollY = window.pageYOffset;
-      if(scrollY < window.innerHeight * 1.5){
-        heroImg.style.transform = 'translateY(' + (scrollY * 0.15) + 'px)';
-      }
-    },{passive:true});
-  }
-})();
-</script>
 </body>
 </html>
