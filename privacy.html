@@ -32,6 +32,47 @@ body{background:#fff;color:var(--navy);overflow-x:hidden;}
 .policy-section ul li::before{content:"→";color:var(--teal);font-weight:700;flex-shrink:0;}
 .contact-box{background:var(--light);border-radius:12px;padding:24px 28px;border:1px solid var(--border);}
 </style>
+<style>
+/* BluWav Button Micro-animations */
+@keyframes bwBtnGlow{0%,100%{box-shadow:0 4px 20px rgba(255,101,53,0.35);}50%{box-shadow:0 4px 32px rgba(255,101,53,0.6),0 0 0 4px rgba(255,101,53,0.12);}}
+@keyframes bwBtnGlowTeal{0%,100%{box-shadow:0 4px 20px rgba(8,145,178,0.3);}50%{box-shadow:0 4px 32px rgba(8,145,178,0.55),0 0 0 4px rgba(8,145,178,0.1);}}
+.bw-btn-cta,.btn-primary,[class*="btn-orange"],[class*="bw-nav-btn-cta"],[class*="bw-mob-cta"]{
+  position:relative;overflow:hidden;
+  transition:transform .15s cubic-bezier(0.34,1.56,0.64,1),filter .15s ease,box-shadow .3s ease!important;
+}
+.bw-btn-cta:hover,.btn-primary:hover,[class*="btn-orange"]:hover{
+  transform:translateY(-2px) scale(1.03)!important;
+  filter:brightness(1.08)!important;
+  animation:bwBtnGlow 2s ease-in-out infinite;
+}
+.bw-btn-cta:active,.btn-primary:active,[class*="btn-orange"]:active{
+  transform:translateY(1px) scale(0.97)!important;
+  filter:brightness(0.94)!important;
+  animation:none!important;
+}
+.bw-btn-ghost,.btn-outline,[class*="btn-ghost"]{
+  transition:transform .15s cubic-bezier(0.34,1.56,0.64,1),border-color .2s,background .2s!important;
+}
+.bw-btn-ghost:hover,.btn-outline:hover,[class*="btn-ghost"]:hover{
+  transform:translateY(-2px) scale(1.02)!important;
+}
+.bw-btn-ghost:active,.btn-outline:active,[class*="btn-ghost"]:active{
+  transform:translateY(1px) scale(0.98)!important;
+}
+/* Mobile CTA banner responsive */
+@media(max-width:640px){
+  [style*="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap"]{
+    flex-direction:column!important;align-items:flex-start!important;
+  }
+  [style*="display:flex;gap:14px;flex-wrap:wrap;flex-shrink:0"]{
+    width:100%!important;flex-direction:column!important;
+  }
+  [style*="display:flex;gap:14px;flex-wrap:wrap;flex-shrink:0"] a{
+    width:100%!important;justify-content:center!important;
+  }
+  [style*="white-space:nowrap"]{white-space:normal!important;}
+}
+</style>
 </head>
 <body>
 <nav class="bw-nav">
@@ -45,7 +86,7 @@ body{background:#fff;color:var(--navy);overflow-x:hidden;}
   <a class="bw-nav-link" href="case-studies.html">Case Studies</a>
   <a class="bw-nav-link" href="the-wave.html">The Wave</a>
   <a class="bw-nav-link" href="careers.html">Careers</a>
-  <a class="bw-nav-btn-cta" href="https://calendly.com/hello-bluwavgrowth/30min" rel="noopener" target="_blank">Book a Free Growth Review</a>
+  <a class="bw-nav-btn-cta bw-btn-cta" href="https://calendly.com/hello-bluwavgrowth/30min" rel="noopener" target="_blank">Book a Free Growth Review</a>
 </div>
 <button class="bw-hamburger"><span></span><span></span><span></span></button>
 </nav>
@@ -158,8 +199,8 @@ body{background:#fff;color:var(--navy);overflow-x:hidden;}
       <p style="font-size:15px;color:rgba(255,255,255,0.55);line-height:1.65;">Practical growth solutions built for Caribbean SMEs.</p>
     </div>
     <div style="display:flex;gap:14px;flex-wrap:wrap;">
-      <a href="health-check.html" style="display:inline-flex;align-items:center;gap:8px;background:#ff6535;color:#fff;font-size:15px;font-weight:700;padding:14px 28px;border-radius:100px;text-decoration:none;box-shadow:0 4px 20px rgba(255,101,53,0.35);transition:all .2s;" onmouseover="this.style.filter='brightness(1.1)'" onmouseout="this.style.filter=''">Book a Free Growth Review &#8594;</a>
-      <a href="https://calendly.com/hello-bluwavgrowth/30min" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:transparent;color:#fff;font-size:15px;font-weight:700;padding:14px 28px;border-radius:100px;text-decoration:none;border:1.5px solid rgba(255,255,255,0.25);transition:all .2s;" onmouseover="this.style.borderColor='rgba(255,255,255,0.6)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.25)'">&#128197; Book a Call</a>
+      <a href="health-check.html" class="bw-btn-cta" style="display:inline-flex;align-items:center;gap:8px;background:#ff6535;color:#fff;font-size:15px;font-weight:700;padding:14px 28px;border-radius:100px;text-decoration:none;box-shadow:0 4px 20px rgba(255,101,53,0.35);">Book a Free Growth Review &#8594;</a>
+      <a href="https://calendly.com/hello-bluwavgrowth/30min" target="_blank" rel="noopener" class="bw-btn-ghost" style="display:inline-flex;align-items:center;gap:8px;background:transparent;color:#fff;font-size:15px;font-weight:700;padding:14px 28px;border-radius:100px;text-decoration:none;border:1.5px solid rgba(255,255,255,0.25);">&#128197; Book a Call</a>
     </div>
   </div>
   <!-- Main footer columns -->
@@ -217,8 +258,22 @@ body{background:#fff;color:var(--navy);overflow-x:hidden;}
     </div>
   </div>
   <style>
+    @keyframes bwRipple{0%{transform:scale(0);opacity:0.6;}100%{transform:scale(4);opacity:0;}}
+    @keyframes bwGlow{0%,100%{box-shadow:0 4px 20px rgba(255,101,53,0.35);}50%{box-shadow:0 4px 32px rgba(255,101,53,0.6),0 0 0 4px rgba(255,101,53,0.15);}}
+    .bw-btn-cta{position:relative;overflow:hidden;transition:transform .15s ease,filter .15s ease,box-shadow .3s ease!important;}
+    .bw-btn-cta:hover{transform:translateY(-2px) scale(1.02)!important;filter:brightness(1.08);animation:bwGlow 2s ease-in-out infinite;}
+    .bw-btn-cta:active{transform:translateY(1px) scale(0.98)!important;filter:brightness(0.95);}
+    .bw-btn-ghost{transition:transform .15s ease,border-color .2s,background .2s!important;}
+    .bw-btn-ghost:hover{transform:translateY(-2px) scale(1.02)!important;border-color:rgba(255,255,255,0.6)!important;background:rgba(255,255,255,0.08)!important;}
+    .bw-btn-ghost:active{transform:translateY(1px) scale(0.98)!important;}
     @media(max-width:900px){footer [style*="grid-template-columns:2fr 1fr 1fr 1fr"]{grid-template-columns:1fr 1fr!important;}}
-    @media(max-width:600px){footer [style*="grid-template-columns:2fr 1fr 1fr 1fr"]{grid-template-columns:1fr!important;} footer [style*="justify-content:space-between"]{flex-direction:column!important;align-items:flex-start!important;}}
+    @media(max-width:600px){
+      footer [style*="grid-template-columns:2fr 1fr 1fr 1fr"]{grid-template-columns:1fr!important;}
+      footer [style*="justify-content:space-between"]{flex-direction:column!important;align-items:flex-start!important;}
+      footer [style*="display:flex;gap:14px"]{flex-direction:column!important;width:100%!important;}
+      footer .bw-btn-cta,footer .bw-btn-ghost{width:100%!important;justify-content:center!important;}
+      footer [style*="white-space:nowrap"]{white-space:normal!important;}
+    }
   </style>
 </footer>
 </body>
