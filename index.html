@@ -1281,70 +1281,55 @@ small, .text-sm { font-size: var(--small); }
 </div>
 </section>
 <!-- ═══════════════ CASE STUDIES ═══════════════ -->
-<section id="case-studies" style="background:var(--light-bg);padding:80px 24px;">
-<div style="max-width:1200px;margin:0 auto;">
+<section id="case-studies" style="background:#fff;padding:80px 24px;">
+<div style="max-width:1100px;margin:0 auto;">
 
-  <h2 style="font-size:clamp(28px,3.5vw,42px);font-weight:900;color:#0a0f1e;line-height:1.1;letter-spacing:-0.5px;margin-bottom:56px;">Selected Case Studies</h2>
+  <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:48px;flex-wrap:wrap;gap:16px;">
+    <h2 style="font-size:clamp(28px,3.5vw,42px);font-weight:900;color:#0a0f1e;line-height:1.1;letter-spacing:-0.5px;">Selected Case Studies</h2>
+    <a href="case-studies.html" style="font-size:14px;font-weight:700;color:#0891b2;text-decoration:none;white-space:nowrap;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">View All Case Studies &#8594;</a>
+  </div>
 
-  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;align-items:start;">
+  <!-- Two featured case studies — side by side, full height -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;border-radius:20px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,0.1);">
 
     <!-- Balanced as Designed -->
-    <div style="padding-top:0;">
-      <div style="border-radius:12px;overflow:hidden;height:200px;margin-bottom:18px;">
-        <img src="cs-balanced.jpg" alt="Balanced as Designed" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;"/>
+    <a href="case-study-balanced-as-designed.html" style="text-decoration:none;display:block;position:relative;overflow:hidden;min-height:480px;" onmouseover="this.querySelector('.cs-overlay').style.opacity='1';this.querySelector('.cs-arrow').style.transform='translateX(6px)'" onmouseout="this.querySelector('.cs-overlay').style.opacity='0';this.querySelector('.cs-arrow').style.transform='translateX(0)'">
+      <img src="ba.png" alt="Balanced as Designed" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;min-height:480px;transition:transform .4s ease;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'"/>
+      <!-- Gradient overlay always visible -->
+      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,15,30,0.92) 0%,rgba(10,15,30,0.3) 50%,transparent 100%);"></div>
+      <!-- Hover overlay -->
+      <div class="cs-overlay" style="position:absolute;inset:0;background:rgba(8,145,178,0.15);opacity:0;transition:opacity .3s;"></div>
+      <!-- Content -->
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:32px;">
+        <div style="font-size:10px;font-weight:700;color:#22c55e;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;">Digital Growth System · Nassau, Bahamas</div>
+        <h3 style="font-size:24px;font-weight:900;color:#fff;margin-bottom:10px;line-height:1.2;">Balanced as Designed</h3>
+        <p style="font-size:14px;color:rgba(255,255,255,0.75);line-height:1.65;margin-bottom:16px;">Website, Google visibility, WhatsApp Business, CRM, and automations — live within days.</p>
+        <div style="display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:#fff;border-bottom:1.5px solid rgba(255,255,255,0.4);padding-bottom:2px;">Read Case Study <span class="cs-arrow" style="transition:transform .2s;">&#8594;</span></div>
       </div>
-      <span style="font-size:10px;font-weight:700;color:#22c55e;letter-spacing:1px;text-transform:uppercase;">Digital Growth System</span>
-      <h3 style="font-size:17px;font-weight:800;color:#0a0f1e;margin:6px 0 8px;line-height:1.2;">Balanced as Designed</h3>
-      <p style="font-size:13px;color:#64748b;line-height:1.7;margin-bottom:14px;">Website, Google visibility, WhatsApp Business, CRM, and automations — live within days.</p>
-      <a href="case-study-balanced-as-designed.html" style="font-size:13px;font-weight:700;color:#0a0f1e;text-decoration:none;border-bottom:2px solid #0891b2;padding-bottom:2px;" onmouseover="this.style.color='#0891b2'" onmouseout="this.style.color='#0a0f1e'">Read Case Study &#8594;</a>
-    </div>
+    </a>
 
-    <!-- RIVVA — offset 48px -->
-    <div style="padding-top:48px;">
-      <div style="border-radius:12px;overflow:hidden;height:230px;margin-bottom:18px;">
-        <img src="cs-rivva.jpg" alt="RIVVA" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;"/>
+    <!-- Stratiix -->
+    <a href="case-study-stratiix.html" style="text-decoration:none;display:block;position:relative;overflow:hidden;min-height:480px;" onmouseover="this.querySelector('.cs-overlay').style.opacity='1';this.querySelector('.cs-arrow').style.transform='translateX(6px)'" onmouseout="this.querySelector('.cs-overlay').style.opacity='0';this.querySelector('.cs-arrow').style.transform='translateX(0)'">
+      <img src="str.png" alt="Stratiix" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;min-height:480px;transition:transform .4s ease;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'"/>
+      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,15,30,0.92) 0%,rgba(10,15,30,0.3) 50%,transparent 100%);"></div>
+      <div class="cs-overlay" style="position:absolute;inset:0;background:rgba(255,101,53,0.15);opacity:0;transition:opacity .3s;"></div>
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:32px;">
+        <div style="font-size:10px;font-weight:700;color:#ff6535;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;">Brand &amp; Niche · Caribbean</div>
+        <h3 style="font-size:24px;font-weight:900;color:#fff;margin-bottom:10px;line-height:1.2;">Stratiix</h3>
+        <p style="font-size:14px;color:rgba(255,255,255,0.75);line-height:1.65;margin-bottom:16px;">Leadership alignment, accountability, and execution for growing companies.</p>
+        <div style="display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:#fff;border-bottom:1.5px solid rgba(255,255,255,0.4);padding-bottom:2px;">Read Case Study <span class="cs-arrow" style="transition:transform .2s;">&#8594;</span></div>
       </div>
-      <span style="font-size:10px;font-weight:700;color:#00C8E0;letter-spacing:1px;text-transform:uppercase;">Platform Build</span>
-      <h3 style="font-size:17px;font-weight:800;color:#0a0f1e;margin:6px 0 8px;line-height:1.2;">RIVVA</h3>
-      <p style="font-size:13px;color:#64748b;line-height:1.7;margin-bottom:14px;">The Caribbean's first trust-verified service marketplace across six islands.</p>
-      <a href="case-study-rivva.html" style="font-size:13px;font-weight:700;color:#0a0f1e;text-decoration:none;border-bottom:2px solid #0891b2;padding-bottom:2px;" onmouseover="this.style.color='#0891b2'" onmouseout="this.style.color='#0a0f1e'">Read Case Study &#8594;</a>
-    </div>
-
-    <!-- Stratiix — offset 24px -->
-    <div style="padding-top:24px;">
-      <div style="border-radius:12px;overflow:hidden;height:215px;margin-bottom:18px;">
-        <img src="stressed-man-tropical.jpg" alt="Stratiix" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/>
-      </div>
-      <span style="font-size:10px;font-weight:700;color:#ff6535;letter-spacing:1px;text-transform:uppercase;">Brand &amp; Niche</span>
-      <h3 style="font-size:17px;font-weight:800;color:#0a0f1e;margin:6px 0 8px;line-height:1.2;">Stratiix</h3>
-      <p style="font-size:13px;color:#64748b;line-height:1.7;margin-bottom:14px;">Leadership alignment, accountability, and execution for growing companies.</p>
-      <a href="case-studies.html" style="font-size:13px;font-weight:700;color:#0a0f1e;text-decoration:none;border-bottom:2px solid #0891b2;padding-bottom:2px;" onmouseover="this.style.color='#0891b2'" onmouseout="this.style.color='#0a0f1e'">Read Case Study &#8594;</a>
-    </div>
-
-    <!-- Forwardly — offset 72px -->
-    <div style="padding-top:72px;">
-      <div style="border-radius:12px;overflow:hidden;height:185px;margin-bottom:18px;">
-        <img src="step3-golive.jpg" alt="Forwardly" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/>
-      </div>
-      <span style="font-size:10px;font-weight:700;color:#8b5cf6;letter-spacing:1px;text-transform:uppercase;">Digital Product</span>
-      <h3 style="font-size:17px;font-weight:800;color:#0a0f1e;margin:6px 0 8px;line-height:1.2;">Forwardly</h3>
-      <p style="font-size:13px;color:#64748b;line-height:1.7;margin-bottom:14px;">A toolkit storefront for founders, consultants, nonprofits, and professionals.</p>
-      <a href="case-studies.html" style="font-size:13px;font-weight:700;color:#0a0f1e;text-decoration:none;border-bottom:2px solid #0891b2;padding-bottom:2px;" onmouseover="this.style.color='#0891b2'" onmouseout="this.style.color='#0a0f1e'">Read Case Study &#8594;</a>
-    </div>
+    </a>
 
   </div>
 
   <style>
-    @media(max-width:900px){
-      #case-studies [style*="repeat(4,1fr)"]{grid-template-columns:repeat(2,1fr)!important;}
-      #case-studies [style*="padding-top:48px"],#case-studies [style*="padding-top:24px"],#case-studies [style*="padding-top:72px"]{padding-top:0!important;}
+    @media(max-width:768px){
+      #case-studies [style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important;}
+      #case-studies a[style*="min-height:480px"]{min-height:320px!important;}
+      #case-studies img[style*="min-height:480px"]{min-height:320px!important;}
     }
-    @media(max-width:480px){#case-studies [style*="repeat(4,1fr)"]{grid-template-columns:1fr!important;}}
   </style>
-
-  <div style="margin-top:56px;padding-top:40px;border-top:1px solid rgba(10,15,30,0.08);">
-    <a href="case-studies.html" style="font-size:14px;font-weight:700;color:#0a0f1e;text-decoration:none;border-bottom:2px solid #0891b2;padding-bottom:2px;" onmouseover="this.style.color='#0891b2'" onmouseout="this.style.color='#0a0f1e'">View All Case Studies &#8594;</a>
-  </div>
 
 </div>
 </section>
