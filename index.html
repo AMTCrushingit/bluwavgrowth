@@ -970,65 +970,50 @@ small, .text-sm { font-size: var(--small); }
 <!-- ═══════════════ HERO ═══════════════ -->
 <section id="hero" style="position:relative;min-height:calc(100vh - 68px);display:flex;align-items:center;overflow:hidden;background:#060d1f;">
 
-  <!-- Full-bleed background image -->
-  <div style="position:absolute;inset:0;z-index:0;">
-    <img src="hero-woman-dashboard.png" 
-         alt="BluWav Caribbean growth dashboard" 
-         style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"
-         loading="eager"/>
-    <!-- Dark gradient overlay — left side darker for text legibility -->
-    <div style="position:absolute;inset:0;background:linear-gradient(to right, rgba(6,13,31,0.92) 0%, rgba(6,13,31,0.75) 45%, rgba(6,13,31,0.2) 100%);"></div>
+  <!-- Full-bleed background image — cropped to hide AI watermark (top-right) -->
+  <div style="position:absolute;inset:0;z-index:0;overflow:hidden;">
+    <img src="hero-woman-dashboard.png"
+         alt="BluWav Caribbean growth"
+         loading="eager"
+         style="position:absolute;top:0;left:0;width:110%;height:110%;object-fit:cover;object-position:20% top;display:block;"/>
+    <!-- Gradient: strong left for text, fades right to show image -->
+    <div style="position:absolute;inset:0;background:linear-gradient(105deg, rgba(6,13,31,0.96) 0%, rgba(6,13,31,0.88) 38%, rgba(6,13,31,0.55) 60%, rgba(6,13,31,0.15) 100%);"></div>
+    <!-- Top-right corner cover to hide AI watermark -->
+    <div style="position:absolute;top:0;right:0;width:120px;height:40px;background:#060d1f;"></div>
   </div>
 
-  <!-- Content — left aligned, z-index above image -->
-  <div style="position:relative;z-index:2;width:100%;max-width:1200px;margin:0 auto;padding:80px clamp(16px,4vw,60px);">
-    <div style="max-width:580px;">
+  <!-- Content -->
+  <div style="position:relative;z-index:2;width:100%;padding:80px clamp(16px,4vw,60px);">
+    <div style="max-width:560px;">
 
-      <!-- Pill badge -->
       <div class="bw-fade-up" id="hero-pill-8a9b" style="display:inline-flex;align-items:center;gap:8px;background:rgba(0,200,224,0.1);border:1px solid rgba(0,200,224,0.25);border-radius:6px;padding:8px 16px;font-size:11px;font-weight:700;color:#00C8E0;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:28px;">DIGITAL GROWTH SOLUTIONS FOR CARIBBEAN SMEs</div>
 
-      <!-- H1 -->
       <h1 class="bw-fade-up bw-delay-1" id="hero-h1-c0d1" style="font-size:clamp(32px,5vw,58px);font-weight:900;line-height:1.08;color:#fff;letter-spacing:-1.5px;margin-bottom:16px;">
         Stop Losing Customers<br/>Because They Can't<br/><span style="color:#00C8E0;">Find You Online.</span>
       </h1>
 
-      <!-- Subheading -->
       <p class="bw-fade-up bw-delay-2" style="font-size:clamp(17px,2vw,21px);font-weight:700;color:rgba(255,255,255,0.85);margin-bottom:14px;line-height:1.3;">Get Found. Get Chosen. Grow.</p>
 
-      <!-- Body -->
       <p class="bw-fade-up bw-delay-2" id="hero-body-4g5h" style="font-size:15px;color:rgba(255,255,255,0.7);line-height:1.8;margin-bottom:36px;max-width:460px;">More enquiries, better visibility, and a clearer path to growth. BluWav helps Caribbean businesses attract more customers, build trust, and grow with practical solutions tailored to your needs.</p>
 
-      <!-- CTAs -->
       <div class="bw-fade-up bw-delay-3" id="hero-ctas-6i7j" style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:40px;">
-        <a class="bw-cta-primary bw-btn-cta" href="https://calendly.com/hello-bluwavgrowth/30min" rel="noopener" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#ff6535;color:#fff;font-size:15px;font-weight:700;padding:15px 28px;border-radius:100px;text-decoration:none;box-shadow:0 8px 32px rgba(255,101,53,0.4);">Book a Free Growth Review &#8594;</a>
+        <a class="bw-btn-cta" href="https://calendly.com/hello-bluwavgrowth/30min" rel="noopener" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#ff6535;color:#fff;font-size:15px;font-weight:700;padding:15px 28px;border-radius:100px;text-decoration:none;box-shadow:0 8px 32px rgba(255,101,53,0.4);">Book a Free Growth Review &#8594;</a>
         <a class="bw-btn-ghost" href="#how-we-help" style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.08);color:#fff;font-size:15px;font-weight:700;padding:15px 28px;border-radius:100px;text-decoration:none;border:1.5px solid rgba(255,255,255,0.25);">Explore Solutions</a>
       </div>
 
-      <!-- Trust checkmarks -->
       <div class="bw-fade-up bw-delay-3" style="display:flex;flex-wrap:wrap;gap:20px;padding-top:28px;border-top:1px solid rgba(255,255,255,0.1);">
-        <div style="display:flex;align-items:center;gap:8px;">
-          <span style="color:#22c55e;font-size:16px;font-weight:900;">&#10003;</span>
-          <span style="font-size:14px;color:rgba(255,255,255,0.85);font-weight:600;">Websites &amp; Visibility</span>
-        </div>
-        <div style="display:flex;align-items:center;gap:8px;">
-          <span style="color:#22c55e;font-size:16px;font-weight:900;">&#10003;</span>
-          <span style="font-size:14px;color:rgba(255,255,255,0.85);font-weight:600;">CRM &amp; Growth Systems</span>
-        </div>
-        <div style="display:flex;align-items:center;gap:8px;">
-          <span style="color:#22c55e;font-size:16px;font-weight:900;">&#10003;</span>
-          <span style="font-size:14px;color:rgba(255,255,255,0.85);font-weight:600;">Designed for Caribbean SMEs</span>
-        </div>
+        <div style="display:flex;align-items:center;gap:8px;"><span style="color:#22c55e;font-size:16px;font-weight:900;">&#10003;</span><span style="font-size:14px;color:rgba(255,255,255,0.85);font-weight:600;">Websites &amp; Visibility</span></div>
+        <div style="display:flex;align-items:center;gap:8px;"><span style="color:#22c55e;font-size:16px;font-weight:900;">&#10003;</span><span style="font-size:14px;color:rgba(255,255,255,0.85);font-weight:600;">CRM &amp; Growth Systems</span></div>
+        <div style="display:flex;align-items:center;gap:8px;"><span style="color:#22c55e;font-size:16px;font-weight:900;">&#10003;</span><span style="font-size:14px;color:rgba(255,255,255,0.85);font-weight:600;">Designed for Caribbean SMEs</span></div>
       </div>
 
     </div>
   </div>
 
-  <!-- Mobile responsive -->
   <style>
     @media(max-width:768px){
-      #hero [style*="max-width:580px"]{max-width:100%!important;}
-      #hero img{object-position:70% top!important;}
-      #hero [style*="background:linear-gradient"]{background:linear-gradient(to bottom,rgba(6,13,31,0.85) 0%,rgba(6,13,31,0.7) 100%)!important;}
+      #hero img{object-position:60% top!important;width:100%!important;height:100%!important;}
+      #hero [style*="background:linear-gradient(105deg"]{background:linear-gradient(to bottom,rgba(6,13,31,0.92) 0%,rgba(6,13,31,0.75) 100%)!important;}
     }
   </style>
 
