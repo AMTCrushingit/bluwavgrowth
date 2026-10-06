@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Checkout — 30-Day Growth Sprint | BluWav Caribbean</title>
+<meta content="noindex" name="robots"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --navy: #0a0f1e;
+  --teal: #0891b2;
+  --teal-light: #f0f9ff;
+  --orange: #ff6535;
+  --white: #ffffff;
+  --slate: #475569;
+  --light-bg: #f8fafc;
+  --green: #22c55e;
+  --border: rgba(10,15,30,0.12);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--light-bg); color: var(--navy); min-height: 100vh; }
+
+/* MINIMAL NAV */
+.checkout-nav {
+  background: var(--navy);
+  padding: 16px clamp(16px,4vw,60px);
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid rgba(0,200,224,0.12);
+}
+.secure-badge { display: flex; align-items: center; gap: 6px; font-size: 13px; color: rgba(255,255,255,0.5); }
+
+/* LAYOUT */
+.checkout-wrap {
+  max-width: 960px; margin: 48px auto; padding: 0 24px;
+  display: grid; grid-template-columns: 1fr 380px; gap: 32px; align-items: start;
+}
+
+/* FORM */
+.form-card { background: #fff; border-radius: 16px; padding: 40px; box-shadow: 0 4px 24px rgba(0,0,0,0.06); border: 1px solid var(--border); }
+.form-section-title { font-size: 13px; font-weight: 700; color: var(--teal); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; }
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+.form-group input, .form-group select {
+  width: 100%; padding: 12px 16px; border: 1.5px solid var(--border);
+  border-radius: 8px; font-size: 15px; font-family: 'Plus Jakarta Sans', sans-serif;
+  color: var(--navy); background: #fff; transition: border-color .2s;
+  outline: none;
+}
+.form-group input:focus, .form-group select:focus { border-color: var(--teal); }
+.form-group input::placeholder { color: #94a3b8; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+/* AGREEMENT */
+.agreement { margin-top: 28px; display: flex; flex-direction: column; gap: 14px; }
+.check-item { display: flex; align-items: flex-start; gap: 12px; }
+.check-item input[type="checkbox"] { width: 18px; height: 18px; margin-top: 2px; flex-shrink: 0; accent-color: var(--teal); cursor: pointer; }
+.check-item label { font-size: 14px; color: var(--slate); line-height: 1.5; cursor: pointer; }
+.check-item a { color: var(--teal); text-decoration: none; }
+
+/* SUBMIT */
+.btn-submit {
+  width: 100%; padding: 18px; background: var(--orange); color: #fff;
+  font-size: 17px; font-weight: 800; border: none; border-radius: 100px;
+  cursor: pointer; font-family: 'Plus Jakarta Sans', sans-serif; margin-top: 28px;
+  box-shadow: 0 8px 32px rgba(255,101,53,0.35); transition: all .2s;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+.btn-submit:hover { filter: brightness(1.1); transform: translateY(-1px); }
+.btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+/* ORDER SUMMARY */
+.summary-card { background: var(--navy); border-radius: 16px; padding: 32px; color: #fff; position: sticky; top: 24px; }
+.summary-title { font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; }
+.summary-product { font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 4px; }
+.summary-tag { display: inline-block; background: rgba(0,200,224,0.15); border: 1px solid rgba(0,200,224,0.3); border-radius: 100px; padding: 3px 12px; font-size: 11px; font-weight: 700; color: #00C8E0; margin-bottom: 24px; }
+.summary-line { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.08); font-size: 14px; color: rgba(255,255,255,0.7); }
+.summary-line:last-of-type { border-bottom: none; }
+.summary-total { display: flex; justify-content: space-between; align-items: center; padding: 16px 0 0; margin-top: 8px; border-top: 2px solid rgba(255,255,255,0.15); }
+.summary-total-label { font-size: 15px; font-weight: 700; color: #fff; }
+.summary-total-amount { font-size: 28px; font-weight: 900; color: #fff; }
+.summary-recurring { font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 8px; text-align: right; }
+.trust-items { margin-top: 24px; display: flex; flex-direction: column; gap: 10px; }
+.trust-item { display: flex; align-items: center; gap: 8px; font-size: 12px; color: rgba(255,255,255,0.5); }
+
+@media(max-width:768px) {
+  .checkout-wrap { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .summary-card { position: static; }
+}
+</style>
+<style>
+/* ── Plus Jakarta Sans Typography System ── */
+:root {
+  --font: 'Plus Jakarta Sans', sans-serif;
+  --h1: clamp(32px, 5vw, 64px);
+  --h2: clamp(24px, 3.5vw, 44px);
+  --h3: clamp(18px, 2.5vw, 28px);
+  --h4: clamp(15px, 2vw, 20px);
+  --body: 16px;
+  --small: 14px;
+  --xs: 12px;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+  --fw-black: 900;
+  --lh-tight: 1.1;
+  --lh-snug: 1.3;
+  --lh-normal: 1.6;
+  --lh-relaxed: 1.75;
+}
+* { font-family: var(--font) !important; }
+h1 { font-size: var(--h1); font-weight: var(--fw-black); line-height: var(--lh-tight); letter-spacing: -0.03em; }
+h2 { font-size: var(--h2); font-weight: var(--fw-extrabold); line-height: var(--lh-tight); letter-spacing: -0.02em; }
+h3 { font-size: var(--h3); font-weight: var(--fw-bold); line-height: var(--lh-snug); }
+h4 { font-size: var(--h4); font-weight: var(--fw-semibold); line-height: var(--lh-snug); }
+p, li, td, th, label, input, select, textarea, button { font-size: var(--body); line-height: var(--lh-relaxed); }
+small, .text-sm { font-size: var(--small); }
+.text-xs { font-size: var(--xs); }
+</style>
+</head>
+<body>
+<!-- MINIMAL NAV -->
+<nav class="checkout-nav">
+<a href="../index.html" style="text-decoration:none;">
+<div style="font-size:20px;font-weight:700;"><span style="color:#fff;">Blu</span><span style="color:#00C8E0;">Wav</span> <span style="font-size:10px;font-weight:600;color:rgba(0,200,224,0.7);letter-spacing:1.5px;text-transform:uppercase;vertical-align:middle;">Caribbean</span></div>
+</a>
+<div class="secure-badge">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14"><rect height="11" rx="2" width="18" x="3" y="11"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+    Secure Checkout
+  </div>
+</nav>
+<!-- CHECKOUT -->
+<div class="checkout-wrap">
+<!-- FORM -->
+<div class="form-card">
+<h1 style="font-size:26px;font-weight:900;color:var(--navy);margin-bottom:8px;">Your Information</h1>
+<p style="font-size:15px;color:var(--slate);margin-bottom:32px;">Complete your details below to get started with 30-Day Growth Sprint.</p>
+<form id="checkoutForm" onsubmit="handleSubmit(event)">
+<div class="form-section-title">Business Information</div>
+<div class="form-row">
+<div class="form-group">
+<label for="contactName">Contact Name *</label>
+<input id="contactName" name="contactName" placeholder="Your full name" required="" type="text"/>
+</div>
+<div class="form-group">
+<label for="businessName">Business Name *</label>
+<input id="businessName" name="businessName" placeholder="Your business name" required="" type="text"/>
+</div>
+</div>
+<div class="form-row">
+<div class="form-group">
+<label for="email">Email Address *</label>
+<input id="email" name="email" placeholder="you@yourbusiness.com" required="" type="email"/>
+</div>
+<div class="form-group">
+<label for="phone">Phone Number *</label>
+<input id="phone" name="phone" placeholder="+1 868 000 0000" required="" type="tel"/>
+</div>
+</div>
+<div class="form-row">
+<div class="form-group">
+<label for="country">Country *</label>
+<select id="country" name="country" required="">
+<option value="">Select your country</option>
+<option>Trinidad &amp; Tobago</option>
+<option>Jamaica</option>
+<option>Barbados</option>
+<option>Guyana</option>
+<option>St. Lucia</option>
+<option>Antigua &amp; Barbuda</option>
+<option>Grenada</option>
+<option>St. Vincent &amp; the Grenadines</option>
+<option>Dominica</option>
+<option>Belize</option>
+<option>Bahamas</option>
+<option>Other Caribbean</option>
+</select>
+</div>
+<div class="form-group">
+<label for="website">Website (Optional)</label>
+<input id="website" name="website" placeholder="https://yourbusiness.com" type="url"/>
+</div>
+</div>
+<!-- AGREEMENT -->
+<div class="agreement">
+<div class="check-item">
+<input id="agreeOnboarding" name="agreeOnboarding" required="" type="checkbox"/>
+<label for="agreeOnboarding">I understand that onboarding begins after payment is confirmed.</label>
+</div>
+<div class="check-item">
+<input id="agreeTerms" name="agreeTerms" required="" type="checkbox"/>
+<label for="agreeTerms">I agree to the <a href="../our-promise.html" target="_blank">Terms of Service</a> and understand this is a monthly subscription at $397/month after the first payment.</label>
+</div>
+</div>
+<button class="btn-submit" id="submitBtn" type="submit">
+        🔒 Proceed to Secure Payment
+      </button>
+<p style="text-align:center;font-size:12px;color:#94a3b8;margin-top:12px;">You will be redirected to our secure payment page.</p>
+</form>
+</div>
+<!-- ORDER SUMMARY -->
+<div class="summary-card">
+<div class="summary-title">Order Summary</div>
+<div class="summary-product">30-Day Growth Sprint</div>
+<div class="summary-tag">BluWav Caribbean</div>
+<div class="summary-line">
+<span>Setup &amp; Onboarding</span>
+<span style="color:#fff;font-weight:600;">$900</span>
+</div>
+<div class="summary-line">
+<span>First Month</span>
+<span style="color:#fff;font-weight:600;">$397</span>
+</div>
+<div class="summary-total">
+<div class="summary-total-label">Total Due Today</div>
+<div class="summary-total-amount">US$1,999</div>
+</div>
+<div class="summary-recurring">One-time investment</div>
+<div class="trust-items">
+<div class="trust-item">
+<svg fill="none" height="14" stroke="#22c55e" stroke-width="2" viewbox="0 0 24 24" width="14"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        Cancel anytime — no penalty
+      </div>
+<div class="trust-item">
+<svg fill="none" height="14" stroke="#22c55e" stroke-width="2" viewbox="0 0 24 24" width="14"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        Your data is always yours
+      </div>
+<div class="trust-item">
+<svg fill="none" height="14" stroke="#22c55e" stroke-width="2" viewbox="0 0 24 24" width="14"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        Onboarding begins within 48 hours
+      </div>
+<div class="trust-item">
+<svg fill="none" height="14" stroke="#22c55e" stroke-width="2" viewbox="0 0 24 24" width="14"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        14-day guided trial included
+      </div>
+</div>
+</div>
+</div>
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  var btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  btn.textContent = 'Processing...';
+
+  // Store form data in sessionStorage for thank-you page
+  var data = {
+    contactName: document.getElementById('contactName').value,
+    businessName: document.getElementById('businessName').value,
+    email: document.getElementById('email').value,
+    phone: document.getElementById('phone').value,
+    country: document.getElementById('country').value,
+    website: document.getElementById('website').value,
+  };
+  sessionStorage.setItem('sprintOrder', JSON.stringify(data));
+
+  // Redirect to payment page (Stripe placeholder)
+  setTimeout(function() {
+    window.location.href = 'payment-sprint.html';
+  }, 800);
+}
+</script>
+</body>
+</html>
