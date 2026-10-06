@@ -1038,85 +1038,143 @@ small, .text-sm { font-size: var(--small); }
 <div style="background:var(--light-bg);line-height:0;font-size:0;display:block;margin:0;padding:0;"><svg preserveAspectRatio="none" style="display:block;width:100%;height:80px;margin:0;padding:0;vertical-align:bottom;" viewBox="0 0 1440 80" aria-hidden="true"><path d="M0,40 C360,0 1080,80 1440,40 L1440,0 L0,0 Z" fill="#0a0f1e"></path></svg></div>
 <!-- ══════════════════ HOW WOULD YOU LIKE TO GROW ══════════════════ -->
 <section id="find-right-way" style="background:#fff;padding:100px 24px;">
+<style>
+/* Pathway hover animations */
+.bw-path-item{
+  display:grid;grid-template-columns:80px 1fr auto;gap:32px;align-items:start;
+  padding:40px 32px;border-top:1px solid rgba(10,15,30,0.08);
+  cursor:pointer;transition:background .25s,border-color .25s;
+  border-radius:0;position:relative;
+}
+.bw-path-item::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:transparent;transition:background .25s;border-radius:0 2px 2px 0;
+}
+.bw-path-item:hover{background:rgba(10,15,30,0.02);}
+.bw-path-item:hover::before{background:var(--path-color,#ff6535);}
+.bw-path-item:hover .bw-path-num{color:var(--path-color,#ff6535);transform:scale(1.1);}
+.bw-path-item:hover .bw-path-title{color:var(--path-color,#ff6535);}
+.bw-path-item:hover .bw-path-arrow{transform:translateX(8px);opacity:1;}
+.bw-path-item:hover .bw-path-explore{background:var(--path-color,#ff6535);color:#fff;border-color:var(--path-color,#ff6535);}
+.bw-path-num{font-size:13px;font-weight:700;letter-spacing:1px;padding-top:4px;transition:color .25s,transform .25s;color:rgba(10,15,30,0.3);}
+.bw-path-title{font-size:clamp(20px,2.5vw,26px);font-weight:900;color:#0a0f1e;margin-bottom:6px;line-height:1.2;transition:color .25s;}
+.bw-path-sub{font-size:14px;font-weight:700;margin-bottom:14px;letter-spacing:0.3px;}
+.bw-path-body{font-size:15px;color:#475569;line-height:1.8;max-width:520px;margin-bottom:16px;}
+.bw-path-includes{font-size:13px;color:#94a3b8;margin-bottom:20px;}
+.bw-path-includes span{color:#475569;font-weight:600;}
+.bw-path-explore{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:14px;font-weight:700;padding:11px 22px;
+  border-radius:100px;text-decoration:none;
+  border:1.5px solid rgba(10,15,30,0.2);color:#0a0f1e;
+  background:transparent;transition:all .25s;white-space:nowrap;
+}
+.bw-path-arrow{font-size:16px;transition:transform .25s;opacity:0.4;}
+.bw-path-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:4px;transition:transform .25s;}
+.bw-path-item:hover .bw-path-icon{transform:scale(1.08);}
+/* Additional solutions */
+.bw-add-item{
+  display:flex;align-items:center;gap:20px;padding:20px 32px;
+  border-radius:10px;text-decoration:none;
+  border:1px solid rgba(10,15,30,0.08);background:#fff;
+  transition:all .25s;
+}
+.bw-add-item:hover{border-color:var(--teal,#0891b2);background:#f0f9ff;transform:translateX(4px);}
+.bw-add-item:hover .bw-add-arrow{transform:translateX(6px);}
+.bw-add-arrow{font-size:16px;color:#0891b2;transition:transform .25s;margin-left:auto;}
+@media(max-width:640px){
+  .bw-path-item{grid-template-columns:1fr!important;gap:16px!important;padding:28px 16px!important;}
+  .bw-path-item > div:last-child{display:none!important;}
+}
+</style>
+
 <div style="max-width:960px;margin:0 auto;">
 
   <!-- Header -->
-  <div style="margin-bottom:72px;">
+  <div style="margin-bottom:64px;">
     <h2 style="font-size:clamp(28px,4vw,48px);font-weight:900;color:#0a0f1e;line-height:1.1;letter-spacing:-0.5px;margin-bottom:14px;">How Would You Like to Grow?</h2>
     <p style="font-size:17px;color:#64748b;max-width:480px;line-height:1.7;">Choose the path that best fits where your business is today.</p>
   </div>
 
   <!-- Three main pathways -->
-  <div style="display:flex;flex-direction:column;gap:0;">
+  <div>
 
     <!-- 01 Triple A Growth -->
-    <div style="display:grid;grid-template-columns:80px 1fr auto;gap:32px;align-items:start;padding:40px 0;border-top:1px solid rgba(10,15,30,0.08);">
-      <div style="font-size:13px;font-weight:700;color:#ff6535;letter-spacing:1px;padding-top:4px;">01</div>
+    <a href="growth-systems/triple-a-growth.html" class="bw-path-item" style="--path-color:#ff6535;text-decoration:none;display:grid;">
+      <div class="bw-path-num">01</div>
       <div>
-        <h3 style="font-size:clamp(20px,2.5vw,26px);font-weight:900;color:#0a0f1e;margin-bottom:6px;line-height:1.2;">Triple A Growth</h3>
-        <div style="font-size:14px;font-weight:700;color:#ff6535;margin-bottom:14px;letter-spacing:0.3px;">Assess. Act. Accelerate.</div>
-        <p style="font-size:15px;color:#475569;line-height:1.8;max-width:520px;margin-bottom:16px;">If you're not sure what's holding growth back, we'll help you identify the barriers, uncover opportunities, and create a clear plan forward.</p>
-        <div style="font-size:13px;color:#94a3b8;margin-bottom:20px;">Includes: <span style="color:#475569;font-weight:600;">Growth Assessment · Growth Sprint</span></div>
-        <a href="growth-systems/triple-a-growth.html" style="display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:700;color:#ff6535;text-decoration:none;transition:gap .2s;" onmouseover="this.style.gap='10px'" onmouseout="this.style.gap='6px'">&#8594; Explore Triple A Growth</a>
+        <div class="bw-path-title">Triple A Growth</div>
+        <div class="bw-path-sub" style="color:#ff6535;">Assess. Act. Accelerate.</div>
+        <p class="bw-path-body">If you're not sure what's holding growth back, we'll help you identify the barriers, uncover opportunities, and create a clear plan forward.</p>
+        <div class="bw-path-includes">Includes: <span>Growth Assessment · Growth Sprint</span></div>
+        <span class="bw-path-explore">Explore Triple A Growth <span class="bw-path-arrow">&#8594;</span></span>
       </div>
-      <div style="width:48px;height:48px;border-radius:12px;background:#fff7ed;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;margin-top:4px;">&#128269;</div>
-    </div>
+      <div class="bw-path-icon" style="background:#fff7ed;border:1.5px solid rgba(255,101,53,0.2);">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ff6535" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+      </div>
+    </a>
 
     <!-- 02 Growth Systems -->
-    <div style="display:grid;grid-template-columns:80px 1fr auto;gap:32px;align-items:start;padding:40px 0;border-top:1px solid rgba(10,15,30,0.08);">
-      <div style="font-size:13px;font-weight:700;color:#0891b2;letter-spacing:1px;padding-top:4px;">02</div>
+    <a href="growth-systems/growth-systems.html" class="bw-path-item" style="--path-color:#0891b2;text-decoration:none;display:grid;">
+      <div class="bw-path-num">02</div>
       <div>
-        <h3 style="font-size:clamp(20px,2.5vw,26px);font-weight:900;color:#0a0f1e;margin-bottom:6px;line-height:1.2;">Growth Systems</h3>
-        <div style="font-size:14px;font-weight:700;color:#0891b2;margin-bottom:14px;letter-spacing:0.3px;">Get Found. Get Chosen. Grow.</div>
-        <p style="font-size:15px;color:#475569;line-height:1.8;max-width:520px;margin-bottom:16px;">Integrated solutions designed to help you improve visibility, attract opportunities, and support business growth.</p>
-        <div style="font-size:13px;color:#94a3b8;margin-bottom:20px;">Includes: <span style="color:#475569;font-weight:600;">Launch · Momentum · Accelerate</span></div>
-        <a href="growth-systems/growth-systems.html" style="display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:700;color:#0891b2;text-decoration:none;transition:gap .2s;" onmouseover="this.style.gap='10px'" onmouseout="this.style.gap='6px'">&#8594; Explore Growth Systems</a>
+        <div class="bw-path-title">Growth Systems</div>
+        <div class="bw-path-sub" style="color:#0891b2;">Get Found. Get Chosen. Grow.</div>
+        <p class="bw-path-body">Integrated solutions designed to help you improve visibility, attract opportunities, and support business growth.</p>
+        <div class="bw-path-includes">Includes: <span>Launch · Momentum · Accelerate</span></div>
+        <span class="bw-path-explore">Explore Growth Systems <span class="bw-path-arrow">&#8594;</span></span>
       </div>
-      <div style="width:48px;height:48px;border-radius:12px;background:#f0f9ff;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;margin-top:4px;">&#127760;</div>
-    </div>
+      <div class="bw-path-icon" style="background:#f0f9ff;border:1.5px solid rgba(8,145,178,0.2);">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0891b2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+      </div>
+    </a>
 
     <!-- 03 Growth Memberships -->
-    <div style="display:grid;grid-template-columns:80px 1fr auto;gap:32px;align-items:start;padding:40px 0;border-top:1px solid rgba(10,15,30,0.08);border-bottom:1px solid rgba(10,15,30,0.08);">
-      <div style="font-size:13px;font-weight:700;color:#22c55e;letter-spacing:1px;padding-top:4px;">03</div>
+    <a href="growth-systems/memberships.html" class="bw-path-item" style="--path-color:#22c55e;text-decoration:none;display:grid;border-bottom:1px solid rgba(10,15,30,0.08);">
+      <div class="bw-path-num">03</div>
       <div>
-        <h3 style="font-size:clamp(20px,2.5vw,26px);font-weight:900;color:#0a0f1e;margin-bottom:6px;line-height:1.2;">Growth Memberships</h3>
-        <div style="font-size:14px;font-weight:700;color:#22c55e;margin-bottom:14px;letter-spacing:0.3px;">Ongoing Support &amp; Growth Guidance</div>
-        <p style="font-size:15px;color:#475569;line-height:1.8;max-width:520px;margin-bottom:16px;">Stay visible, supported, and moving forward with ongoing reviews, optimization, accountability, and practical guidance.</p>
-        <div style="font-size:13px;color:#94a3b8;margin-bottom:20px;">Includes: <span style="color:#475569;font-weight:600;">Essential · Growth · Partner</span></div>
-        <a href="growth-systems/memberships.html" style="display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:700;color:#22c55e;text-decoration:none;transition:gap .2s;" onmouseover="this.style.gap='10px'" onmouseout="this.style.gap='6px'">&#8594; Explore Memberships</a>
+        <div class="bw-path-title">Growth Memberships</div>
+        <div class="bw-path-sub" style="color:#22c55e;">Ongoing Support &amp; Growth Guidance</div>
+        <p class="bw-path-body">Stay visible, supported, and moving forward with ongoing reviews, optimization, accountability, and practical guidance.</p>
+        <div class="bw-path-includes">Includes: <span>Essential · Growth · Partner</span></div>
+        <span class="bw-path-explore">Explore Memberships <span class="bw-path-arrow">&#8594;</span></span>
       </div>
-      <div style="width:48px;height:48px;border-radius:12px;background:#f0fdf4;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;margin-top:4px;">&#128200;</div>
-    </div>
+      <div class="bw-path-icon" style="background:#f0fdf4;border:1.5px solid rgba(34,197,94,0.2);">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+      </div>
+    </a>
 
   </div>
 
   <!-- Additional Solutions -->
-  <div style="margin-top:48px;padding-top:48px;border-top:1px solid rgba(10,15,30,0.06);">
-    <div style="font-size:11px;font-weight:700;color:#94a3b8;letter-spacing:2px;text-transform:uppercase;margin-bottom:28px;">Additional Solutions</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;">
+  <div style="margin-top:48px;padding-top:40px;border-top:1px solid rgba(10,15,30,0.06);">
+    <div style="font-size:11px;font-weight:700;color:#94a3b8;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;">Additional Solutions</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
 
-      <div>
-        <div style="font-size:16px;font-weight:800;color:#0a0f1e;margin-bottom:6px;">Growth Boosters</div>
-        <p style="font-size:14px;color:#64748b;line-height:1.65;margin-bottom:12px;">Targeted help for one specific area.</p>
-        <a href="growth-systems/boosters.html" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:#0891b2;text-decoration:none;transition:gap .2s;" onmouseover="this.style.gap='10px'" onmouseout="this.style.gap='6px'">&#8594; Explore Boosters</a>
-      </div>
+      <a href="growth-systems/boosters.html" class="bw-add-item" style="--teal:#0891b2;">
+        <div style="width:36px;height:36px;border-radius:8px;background:#f0f9ff;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0891b2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <div>
+          <div style="font-size:15px;font-weight:800;color:#0a0f1e;margin-bottom:3px;">Growth Boosters</div>
+          <div style="font-size:13px;color:#64748b;">Targeted help for one specific area.</div>
+        </div>
+        <span class="bw-add-arrow">&#8594;</span>
+      </a>
 
-      <div>
-        <div style="font-size:16px;font-weight:800;color:#0a0f1e;margin-bottom:6px;">Growth Advisory</div>
-        <p style="font-size:14px;color:#64748b;line-height:1.65;margin-bottom:12px;">Strategic guidance for business owners and leadership teams.</p>
-        <a href="growth-systems/advisory.html" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:#0891b2;text-decoration:none;transition:gap .2s;" onmouseover="this.style.gap='10px'" onmouseout="this.style.gap='6px'">&#8594; Learn More</a>
-      </div>
+      <a href="growth-systems/advisory.html" class="bw-add-item" style="--teal:#0891b2;">
+        <div style="width:36px;height:36px;border-radius:8px;background:#f0f9ff;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0891b2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+        </div>
+        <div>
+          <div style="font-size:15px;font-weight:800;color:#0a0f1e;margin-bottom:3px;">Growth Advisory</div>
+          <div style="font-size:13px;color:#64748b;">Strategic guidance for business owners.</div>
+        </div>
+        <span class="bw-add-arrow">&#8594;</span>
+      </a>
 
     </div>
   </div>
-
-  <style>
-    @media(max-width:640px){
-      #find-right-way [style*="grid-template-columns:80px 1fr auto"]{grid-template-columns:1fr!important;}
-      #find-right-way [style*="grid-template-columns:80px 1fr auto"] > div:last-child{display:none!important;}
-      #find-right-way [style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important;}
-    }
-  </style>
 
 </div>
 </section>
