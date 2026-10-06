@@ -970,16 +970,13 @@ small, .text-sm { font-size: var(--small); }
 <!-- ═══════════════ HERO ═══════════════ -->
 <section id="hero" style="position:relative;min-height:calc(100vh - 68px);display:flex;align-items:center;overflow:hidden;background:#060d1f;">
 
-  <!-- Full-bleed background image — cropped to hide AI watermark (top-right) -->
-  <div style="position:absolute;inset:0;z-index:0;overflow:hidden;">
-    <img src="hero-woman-dashboard.png"
+  <!-- Full-bleed background image -->
+  <div style="position:absolute;inset:0;z-index:0;">
+    <img src="main-hero.webp"
          alt="BluWav Caribbean growth"
          loading="eager"
-         style="position:absolute;top:0;left:0;width:110%;height:110%;object-fit:cover;object-position:20% top;display:block;"/>
-    <!-- Gradient: strong left for text, fades right to show image -->
-    <div style="position:absolute;inset:0;background:linear-gradient(105deg, rgba(6,13,31,0.96) 0%, rgba(6,13,31,0.88) 38%, rgba(6,13,31,0.55) 60%, rgba(6,13,31,0.15) 100%);"></div>
-    <!-- Top-right corner cover to hide AI watermark -->
-    <div style="position:absolute;top:0;right:0;width:120px;height:40px;background:#060d1f;"></div>
+         style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/>
+    <div style="position:absolute;inset:0;background:linear-gradient(100deg, rgba(6,13,31,0.95) 0%, rgba(6,13,31,0.88) 35%, rgba(6,13,31,0.5) 60%, rgba(6,13,31,0.1) 100%);"></div>
   </div>
 
   <!-- Content -->
@@ -1012,8 +1009,8 @@ small, .text-sm { font-size: var(--small); }
 
   <style>
     @media(max-width:768px){
-      #hero img{object-position:60% top!important;width:100%!important;height:100%!important;}
-      #hero [style*="background:linear-gradient(105deg"]{background:linear-gradient(to bottom,rgba(6,13,31,0.92) 0%,rgba(6,13,31,0.75) 100%)!important;}
+      #hero img{object-position:70% top!important;}
+      #hero [style*="background:linear-gradient(100deg"]{background:rgba(6,13,31,0.88)!important;}
     }
   </style>
 
