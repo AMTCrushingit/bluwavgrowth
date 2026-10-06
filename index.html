@@ -980,7 +980,7 @@ small, .text-sm { font-size: var(--small); }
 <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(0,200,224,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,200,224,0.025) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0;"></div>
 
 <!-- Two-column content -->
-<div style="position:relative;z-index:2;width:100%;max-width:1200px;margin:0 auto;padding:80px 24px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;" id="hero-grid">
+<div style="position:relative;z-index:2;width:100%;max-width:1200px;margin:0 auto;padding:80px clamp(16px,4vw,60px);display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;min-height:500px;" id="hero-grid">
 
 <!-- LEFT -->
 <div>
@@ -1025,13 +1025,9 @@ small, .text-sm { font-size: var(--small); }
 </div>
 
 <!-- RIGHT: Caribbean hero image -->
-<div style="position:relative;min-height:520px;height:100%;display:flex;align-items:stretch;overflow:hidden;background:url(hero-caribbean.png) center top/cover no-repeat;border-radius:16px;box-shadow:0 32px 80px rgba(0,0,0,0.5);position:relative;" id="hero-visual" style="display:flex;flex-direction:column;gap:12px;justify-content:center;padding:8px 0;">
-
-  <!-- Monitor: Website & Visibility Metrics -->
-  <div style="background:#111827;border-radius:10px;border:2px solid #1f2937;box-shadow:0 16px 48px rgba(0,0,0,0.5);overflow:hidden;">
-    <!-- Browser chrome -->
-    <div style="height:28px;background:#0f172a;display:flex;align-items:center;padding:0 12px;gap:5px;border-bottom:1px solid rgba(255,255,255,0.06);">
-      <div style="width:7px;height:7px;border-radius:50%;background:#ef4444;opacity:0.8;"></div>
+<div style="position:relative;min-height:520px;height:100%;display:flex;align-items:stretch;overflow:hidden;background:url(hero-caribbean.png) center top/cover no-repeat;border-radius:16px;box-shadow:0 32px 80px rgba(0,0,0,0.5);position:relative;" id="hero-visual" style="position:relative;min-height:520px;height:100%;display:flex;align-items:stretch;overflow:hidden;border-radius:16px;box-shadow:0 32px 80px rgba(0,0,0,0.5);">
+  <img src="hero-woman-dashboard.png" alt="BluWav Caribbean growth dashboard" style="width:100%;height:100%;min-height:520px;object-fit:cover;object-position:center top;display:block;"/>
+</div>
       <div style="width:7px;height:7px;border-radius:50%;background:#f59e0b;opacity:0.8;"></div>
       <div style="width:7px;height:7px;border-radius:50%;background:#22c55e;opacity:0.8;"></div>
       <div style="flex:1;height:14px;background:rgba(255,255,255,0.05);border-radius:3px;margin:0 8px;display:flex;align-items:center;padding:0 8px;">
@@ -1504,7 +1500,6 @@ small, .text-sm { font-size: var(--small); }
   <!-- Pre-footer CTA strip -->
   <div style="background:linear-gradient(135deg,#0a0f1e 0%,#0c1a2e 100%);padding:64px clamp(16px,4vw,60px);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:32px;border-bottom:1px solid rgba(0,200,224,0.12);">
     <div style="max-width:480px;">
-      <div style="font-size:12px;font-weight:700;color:#00C8E0;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px;">Ready to Grow?</div>
       <h2 style="font-size:clamp(22px,3.5vw,38px);font-weight:900;color:#fff;line-height:1.1;margin-bottom:10px;white-space:nowrap;">Get Found. Get Chosen. Grow.</h2>
       <p style="font-size:15px;color:rgba(255,255,255,0.55);line-height:1.65;">Practical growth solutions built for Caribbean SMEs.</p>
     </div>
