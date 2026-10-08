@@ -13,8 +13,41 @@
 <meta property="og:url" content="https://bluwavgrowth.com/"/>
 <meta property="og:type" content="website"/>
 <meta property="og:image" content="https://bluwavgrowth.com/hero-main.png"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"BluWav Caribbean","url":"https://bluwavgrowth.com","description":"Digital growth membership for Caribbean small and medium-sized businesses. Professional websites, business email, Google visibility and ongoing support.","areaServed":{"@type":"Place","name":"Caribbean"},"serviceType":["Website Development","Google Business Profile","Business Email","Digital Marketing"],"contactPoint":{"@type":"ContactPoint","contactType":"customer service","email":"hello@bluwavgrowth.com"}}</script>
-<meta content="BluWav helps Caribbean small and medium-sized businesses build a professional online presence, improve visibility, and attract more customers. Professional websites, business email, and ongoing support." name="description"/>
+<meta property="og:image:alt" content="BluWav Caribbean helping a business improve its online visibility"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="BluWav Caribbean | Digital Growth Membership for Caribbean Businesses"/>
+<meta name="twitter:description" content="Professional websites, business email, Google visibility and ongoing support for Caribbean businesses. From US$99 per month."/>
+<meta name="twitter:image" content="https://bluwavgrowth.com/hero-main.png"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://bluwavgrowth.com/#organization",
+      "name": "BluWav Caribbean",
+      "url": "https://bluwavgrowth.com/",
+      "description": "Digital growth membership for Caribbean small and medium-sized businesses, including professional websites, business email, Google visibility, and ongoing support.",
+      "areaServed": { "@type": "Place", "name": "Caribbean" },
+      "knowsAbout": ["Website development", "Google Business Profile optimization", "Business email", "Digital marketing", "Customer relationship management"],
+      "sameAs": ["https://facebook.com/bluwavgrowth", "https://www.instagram.com/bluwavgrowth/"],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "email": "hello@bluwavgrowth.com"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://bluwavgrowth.com/#website",
+      "url": "https://bluwavgrowth.com/",
+      "name": "BluWav Caribbean",
+      "publisher": { "@id": "https://bluwavgrowth.com/#organization" },
+      "inLanguage": "en"
+    }
+  ]
+}
+</script>
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
       tailwind.config = {
@@ -35,7 +68,7 @@
     </script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap:wght@300;400;500;600;700;800&display=swap:wght@300;400;500;600;700;800;900&display=swap&font-display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <script defer="" src="https://unpkg.com/lucide@latest"></script>
 <script>document.addEventListener("DOMContentLoaded",function(){if(window.lucide&&typeof window.lucide.createIcons==="function"){window.lucide.createIcons();}});</script>
 <style>
@@ -987,6 +1020,8 @@ footer a:hover{opacity:1!important;}
 @media(prefers-reduced-motion:reduce){
   .bw-reveal,.bw-reveal-left,.bw-reveal-right{opacity:1!important;transform:none!important;transition:none!important;}
   .bw-btn-cta:hover,.btn-primary:hover{animation:none!important;transform:none!important;}
+  html{scroll-behavior:auto!important;}
+  *,*::before,*::after{animation:none!important;transition:none!important;}
 }
 </style>
 </head>
@@ -1133,6 +1168,14 @@ footer a:hover{opacity:1!important;}
   border-radius:10px;text-decoration:none;
   border:1px solid rgba(10,15,30,0.08);background:#fff;
   transition:all .25s;
+  min-width:0;
+}
+.bw-add-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}
+.bw-add-item > div:nth-child(2){min-width:0;}
+@media(max-width:640px){
+  #start-here .bw-start-grid{grid-template-columns:minmax(0,1fr)!important;}
+  #case-studies-new .bw-case-feature{grid-template-columns:minmax(0,1fr)!important;gap:24px!important;padding:28px 20px!important;}
+  #case-studies-new [style*="grid-template-columns:repeat(3,1fr)"]{grid-template-columns:minmax(0,1fr)!important;}
 }
 .bw-add-item:hover{border-color:var(--teal,#0891b2);background:#f0f9ff;transform:translateX(4px);}
 .bw-add-item:hover .bw-add-arrow{transform:translateX(6px);}
@@ -1140,6 +1183,8 @@ footer a:hover{opacity:1!important;}
 @media(max-width:640px){
   .bw-path-item{grid-template-columns:1fr!important;gap:16px!important;padding:28px 16px!important;}
   .bw-path-item > div:last-child{display:none!important;}
+  .bw-add-grid{grid-template-columns:minmax(0,1fr)!important;}
+  .bw-add-item{gap:12px;padding:16px!important;}
 }
 </style>
 
@@ -1204,7 +1249,7 @@ footer a:hover{opacity:1!important;}
   <!-- Additional Solutions -->
   <div style="margin-top:48px;padding-top:40px;border-top:1px solid rgba(10,15,30,0.06);">
     <div style="font-size:11px;font-weight:700;color:#94a3b8;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;">Additional Solutions</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+    <div class="bw-add-grid">
 
       <a href="growth-systems/boosters.html" class="bw-add-item" style="--teal:#0891b2;">
         <div style="width:36px;height:36px;border-radius:8px;background:#f0f9ff;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
@@ -1305,7 +1350,7 @@ footer a:hover{opacity:1!important;}
     <h2 style="font-size:clamp(26px,4vw,44px);font-weight:900;color:#0a0f1e;line-height:1.1;letter-spacing:-0.5px;">Real Businesses. Real Results.</h2>
   </div>
   <!-- Karen M. horizontal -->
-  <div style="background:#fff;border-radius:16px;padding:40px 48px;box-shadow:0 4px 24px rgba(0,0,0,0.07);border:1px solid rgba(8,145,178,0.15);display:grid;grid-template-columns:1fr 160px;gap:48px;align-items:center;margin-bottom:24px;">
+  <div class="bw-case-feature" style="background:#fff;border-radius:16px;padding:40px 48px;box-shadow:0 4px 24px rgba(0,0,0,0.07);border:1px solid rgba(8,145,178,0.15);display:grid;grid-template-columns:1fr 160px;gap:48px;align-items:center;margin-bottom:24px;">
     <div>
       <div style="color:#fbbf24;font-size:18px;margin-bottom:14px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
       <div style="font-size:19px;font-weight:800;color:#0a0f1e;line-height:1.2;margin-bottom:14px;">A complete growth system, live within days</div>
@@ -1463,7 +1508,7 @@ footer a:hover{opacity:1!important;}
     <h2 style="font-size:clamp(24px,3.5vw,40px);font-weight:900;color:#0a0f1e;line-height:1.1;letter-spacing:-0.5px;margin-bottom:16px;">BluWav Has a Solution for Every Stage</h2>
     <p style="font-size:16px;color:#475569;max-width:620px;margin:0 auto;line-height:1.75;">Whether you're launching a new business, trying to attract more customers, improving visibility, managing customer relationships, or preparing for your next stage of growth — start here.</p>
   </div>
-  <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;">
+  <div class="bw-start-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;">
     <div style="background:#fff;border-radius:12px;padding:28px 24px;border:1px solid rgba(8,145,178,0.12);box-shadow:0 2px 12px rgba(0,0,0,0.05);display:flex;flex-direction:column;">
       <div style="font-size:20px;font-weight:800;color:#0a0f1e;margin-bottom:8px;">Growth Assessment</div>
       <p style="font-size:14px;color:#475569;line-height:1.65;flex-grow:1;margin-bottom:16px;">Find out why you're losing or not getting customers and what opportunities you're missing.</p>
