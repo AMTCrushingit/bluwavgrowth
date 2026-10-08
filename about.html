@@ -19,6 +19,19 @@ body{background:#fff;color:var(--navy);overflow-x:hidden;}
 .btn-outline:hover{background:var(--light);}
 .check-item{display:flex;gap:12px;align-items:flex-start;font-size:16px;color:var(--slate);line-height:1.6;margin-bottom:14px;}
 .check-icon{color:var(--green);font-size:18px;font-weight:900;flex-shrink:0;}
+.bw-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:68px;padding:0 clamp(16px,4vw,60px);display:flex;align-items:center;justify-content:space-between;background:rgba(10,15,30,0.96);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,200,224,0.12);}
+.bw-nav-links{display:flex;align-items:center;gap:28px;}
+.bw-nav-link{font-size:14px;font-weight:500;color:rgba(255,255,255,0.75);text-decoration:none;transition:color .2s;}
+.bw-nav-link:hover,.bw-nav-link.active{color:#00C8E0;}
+.bw-nav-btn-cta{background:#ff6535;color:#fff;font-size:13px;font-weight:700;padding:10px 22px;border-radius:100px;text-decoration:none;transition:all .2s;white-space:nowrap;}
+.bw-nav-btn-cta:hover{filter:brightness(1.1);}
+.bw-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px;}
+.bw-hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;}
+.bw-mob-nav{display:none;position:fixed;top:68px;left:0;right:0;background:rgba(10,15,30,0.99);backdrop-filter:blur(24px);border-bottom:2px solid rgba(0,200,224,0.15);z-index:999;flex-direction:column;padding:8px 0 20px;}
+.bw-mob-nav.open{display:flex;}
+.bw-mob-link{font-size:16px;font-weight:500;color:rgba(255,255,255,0.85);text-decoration:none;padding:15px 24px;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;gap:10px;}
+.bw-mob-cta{background:#ff6535;color:#fff;font-weight:800;padding:16px 24px;text-align:center;margin:14px 20px 4px;font-size:16px;display:block;border-radius:12px;text-decoration:none;}
+@media(max-width:1024px){.bw-nav-links{display:none!important;}.bw-hamburger{display:flex!important;}}
 </style>
 <title>About BluWav Caribbean | Built for Caribbean SMEs</title>
 <meta name="description" content="BluWav Caribbean was created to help Caribbean businesses improve visibility, attract more customers, and build practical systems that support growth."/>
@@ -175,7 +188,6 @@ footer a:hover{opacity:1!important;}
   <!-- Pre-footer CTA strip -->
   <div style="background:linear-gradient(135deg,#0a0f1e 0%,#0c1a2e 100%);padding:64px clamp(16px,4vw,60px);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:32px;border-bottom:1px solid rgba(0,200,224,0.12);">
     <div style="max-width:480px;">
-      <div style="font-size:12px;font-weight:700;color:#00C8E0;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px;">Ready to Grow?</div>
       <h2 style="font-size:clamp(22px,3.5vw,38px);font-weight:900;color:#fff;line-height:1.1;margin-bottom:10px;white-space:nowrap;">Get Found. Get Chosen. Grow.</h2>
       <p style="font-size:15px;color:rgba(255,255,255,0.55);line-height:1.65;">Practical growth solutions built for Caribbean SMEs.</p>
     </div>
