@@ -1537,7 +1537,7 @@ footer a div:first-child {
 <div style="max-width:1100px;margin:0 auto;">
 
   <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:48px;flex-wrap:wrap;gap:16px;">
-    <h2 style="font-size:clamp(28px,3.5vw,42px);font-weight:900;color:#0a0f1e;line-height:1.1;letter-spacing:-0.5px;">Selected Case Studies</h2>
+    <h2 style="font-size:clamp(28px,3.5vw,42px);font-weight:900;color:#0a0f1e;line-height:1.1;letter-spacing:-0.5px;">See What Happens When We Get to Work.</h2>
     <a href="case-studies.html" style="font-size:14px;font-weight:700;color:#0891b2;text-decoration:none;white-space:nowrap;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">View All Case Studies &#8594;</a>
   </div>
 
@@ -1586,28 +1586,55 @@ footer a div:first-child {
 </div>
 </section>
 <!-- ═══════════════ WHY BLUWAV ═══════════════ -->
-<section id="why-bluwav" style="background:#fff;padding:80px 24px;">
-<div style="max-width:1100px;margin:0 auto;">
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
-    <div>
-      <h2 style="font-size:clamp(24px,3.5vw,40px);font-weight:900;color:#0a0f1e;line-height:1.15;margin-bottom:20px;">We're Not Trying to Be the Biggest Agency.</h2>
-      <p style="font-size:16px;color:#475569;line-height:1.75;margin-bottom:24px;">We're focused on helping Caribbean businesses succeed.</p>
-      <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:32px;">
-        <div style="display:flex;align-items:flex-start;gap:12px;"><div style="width:8px;height:8px;border-radius:50%;background:#0891b2;flex-shrink:0;margin-top:8px;"></div><p style="font-size:15px;color:#475569;line-height:1.7;">We understand the realities of running a business in our region.</p></div>
-        <div style="display:flex;align-items:flex-start;gap:12px;"><div style="width:8px;height:8px;border-radius:50%;background:#0891b2;flex-shrink:0;margin-top:8px;"></div><p style="font-size:15px;color:#475569;line-height:1.7;">We know budgets matter.</p></div>
-        <div style="display:flex;align-items:flex-start;gap:12px;"><div style="width:8px;height:8px;border-radius:50%;background:#0891b2;flex-shrink:0;margin-top:8px;"></div><p style="font-size:15px;color:#475569;line-height:1.7;">We know growth matters.</p></div>
-        <div style="display:flex;align-items:flex-start;gap:12px;"><div style="width:8px;height:8px;border-radius:50%;background:#0891b2;flex-shrink:0;margin-top:8px;"></div><p style="font-size:15px;color:#475569;line-height:1.7;">And we know that practical solutions often outperform complicated ones.</p></div>
-      </div>
-      <div style="background:#f0f9ff;border-left:4px solid #0891b2;border-radius:0 12px 12px 0;padding:24px 28px;">
-        <p style="font-size:16px;color:#0a0f1e;font-weight:600;line-height:1.7;">Built for Caribbean businesses, priced for sustainable delivery, and designed to produce real growth.</p>
-      </div>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:16px;">
-      <img src="beach-hero.png" alt="Caribbean business growth" style="width:100%;border-radius:16px;object-fit:cover;height:260px;object-position:center;"/>
-      <img src="woman-tropical-office.jpg" alt="Caribbean business owner" style="width:100%;border-radius:16px;object-fit:cover;height:180px;object-position:center top;"/>
-    </div>
+<!-- ═══════════════ WHY BLUWAV ═══════════════ -->
+<section id="why-bluwav" style="position:relative;padding:0;overflow:hidden;min-height:480px;">
+
+  <!-- Caribbean beach backdrop — conch shell image fills entire section -->
+  <div style="position:absolute;inset:0;z-index:0;">
+    <img src="caribbean-beach.png" alt="Caribbean" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"/>
+    <!-- Strong overlay so text is readable -->
+    <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,15,30,0.88) 0%,rgba(10,15,30,0.75) 50%,rgba(10,15,30,0.65) 100%);"></div>
   </div>
-</div>
+
+  <!-- Content over image -->
+  <div style="position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:80px 24px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
+
+    <!-- Left: Why BluWav -->
+    <div>
+      <h2 style="font-size:clamp(26px,3.5vw,42px);font-weight:900;color:#fff;line-height:1.1;margin-bottom:20px;">We Know Caribbean Business. <span style="color:#00C8E0;">Period.</span></h2>
+      <p style="font-size:17px;color:rgba(255,255,255,0.8);line-height:1.8;margin-bottom:24px;">We understand the realities of running a business in our region.</p>
+      <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:32px;">
+        <div style="display:flex;gap:12px;align-items:flex-start;">
+          <div style="width:6px;height:6px;border-radius:50%;background:#00C8E0;flex-shrink:0;margin-top:10px;"></div>
+          <span style="font-size:16px;color:rgba(255,255,255,0.85);line-height:1.7;">We know budgets matter.</span>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start;">
+          <div style="width:6px;height:6px;border-radius:50%;background:#00C8E0;flex-shrink:0;margin-top:10px;"></div>
+          <span style="font-size:16px;color:rgba(255,255,255,0.85);line-height:1.7;">We know growth matters.</span>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start;">
+          <div style="width:6px;height:6px;border-radius:50%;background:#00C8E0;flex-shrink:0;margin-top:10px;"></div>
+          <span style="font-size:16px;color:rgba(255,255,255,0.85);line-height:1.7;">And we know practical solutions beat complicated ones.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Philosophy callout -->
+    <div>
+      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(0,200,224,0.3);border-radius:16px;padding:36px;backdrop-filter:blur(8px);">
+        <div style="font-size:12px;font-weight:700;color:#00C8E0;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:16px;">Our Philosophy</div>
+        <p style="font-size:clamp(18px,2.5vw,24px);font-weight:800;color:#fff;line-height:1.4;">Built for Caribbean businesses. Priced for sustainable growth. Designed to deliver.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <style>
+    @media(max-width:768px){
+      #why-bluwav [style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important;gap:32px!important;}
+    }
+  </style>
+
 </section>
 
 <!-- ═══════════════ START WHERE YOU ARE ═══════════════ -->
