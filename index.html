@@ -1383,154 +1383,153 @@ footer a div:first-child {
 
 <!-- ═══════════════ TESTIMONIALS ═══════════════ -->
 <style>
-@keyframes bwCardPulse{0%,100%{transform:translateY(0);}50%{transform:translateY(-4px);}}
-.bw-tcard{
-  background:#fff;border-radius:16px;padding:28px;
-  border:2px solid transparent;
-  box-shadow:0 4px 20px rgba(0,0,0,0.06);
-  transition:all .3s cubic-bezier(0.22,1,0.36,1);
-  display:flex;flex-direction:column;
-  position:relative;overflow:hidden;
-}
-.bw-tcard::before{
-  content:'';position:absolute;inset:0;opacity:0;
-  transition:opacity .3s;border-radius:14px;
-}
-.bw-tcard:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,0.15);}
-.bw-tcard.c-orange:hover{border-color:#ff6535;background:linear-gradient(135deg,#fff7ed,#fff);}
-.bw-tcard.c-teal:hover{border-color:#0891b2;background:linear-gradient(135deg,#f0f9ff,#fff);}
-.bw-tcard.c-green:hover{border-color:#22c55e;background:linear-gradient(135deg,#f0fdf4,#fff);}
-.bw-tcard.c-purple:hover{border-color:#8b5cf6;background:linear-gradient(135deg,#faf5ff,#fff);}
-.bw-tcard.c-cyan:hover{border-color:#00C8E0;background:linear-gradient(135deg,#ecfeff,#fff);}
-.bw-tcard.c-rose:hover{border-color:#f43f5e;background:linear-gradient(135deg,#fff1f2,#fff);}
-.bw-tcard.c-amber:hover{border-color:#f59e0b;background:linear-gradient(135deg,#fffbeb,#fff);}
-.bw-tcard-featured{
-  background:#fff;border-radius:16px;padding:36px 40px;
-  border:2px solid transparent;
-  box-shadow:0 4px 24px rgba(0,0,0,0.07);
-  transition:all .3s cubic-bezier(0.22,1,0.36,1);
-  display:grid;grid-template-columns:1fr 180px;gap:40px;align-items:center;
-  margin-bottom:20px;
-}
-.bw-tcard-featured:hover{transform:translateY(-4px);border-color:#ff6535;box-shadow:0 20px 60px rgba(255,101,53,0.15);background:linear-gradient(135deg,#fff7ed,#fff);}
-.bw-stars{color:#fbbf24;font-size:16px;margin-bottom:12px;letter-spacing:2px;}
-.bw-tquote{font-size:14px;color:#475569;line-height:1.75;font-style:italic;flex-grow:1;margin-bottom:16px;}
-.bw-tauthor{display:flex;align-items:center;gap:12px;margin-top:auto;}
-.bw-tavatar{width:44px;height:44px;border-radius:50%;object-fit:cover;object-position:center top;flex-shrink:0;border:2px solid rgba(10,15,30,0.1);}
-.bw-tname{font-size:14px;font-weight:700;color:#0a0f1e;}
-.bw-tloc{font-size:12px;color:#64748b;margin-top:2px;}
+#bwTestiTrack::-webkit-scrollbar{display:none;}
+.bw-tslide{min-width:320px;max-width:360px;flex-shrink:0;scroll-snap-align:start;background:#fff;border-radius:16px;padding:28px;border:2px solid transparent;box-shadow:0 4px 20px rgba(0,0,0,0.06);transition:border-color .3s;}
+.bw-tslide:hover{border-color:#0891b2;}
 </style>
 
-<section id="case-studies-new" style="background:#f0f9ff;padding:80px 24px;border-top:4px solid #0891b2;">
-<div style="max-width:1100px;margin:0 auto;">
-
-  <div style="text-align:center;margin-bottom:56px;">
+<section id="case-studies-new" style="background:#f0f9ff;padding:64px 0;border-top:4px solid #0891b2;overflow:hidden;">
+<div style="max-width:1100px;margin:0 auto;padding:0 24px;">
+  <div style="text-align:center;margin-bottom:40px;">
     <div style="font-size:11px;font-weight:700;color:#ff6535;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;">What Our Clients Say</div>
-    <h2 style="font-size:clamp(26px,4vw,44px);font-weight:900;color:#0a0f1e;line-height:1.1;letter-spacing:-0.5px;">We Said We'd Deliver. We Did.</h2>
+    <h2 style="font-size:clamp(26px,4vw,40px);font-weight:900;color:#0a0f1e;line-height:1.1;letter-spacing:-0.5px;">We Said We'd Deliver. We Did.</h2>
   </div>
-
-  <!-- Featured card — Karen M. horizontal -->
-  <div class="bw-tcard-featured">
-    <div>
-      <div class="bw-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <div style="font-size:18px;font-weight:800;color:#0a0f1e;margin-bottom:14px;line-height:1.2;">A complete growth system, live within days</div>
-      <p class="bw-tquote">"As the President of Balanced as Designed, working with BluWav Caribbean was an amazing experience. They didn't just build me a beautiful website — they set up a complete growth system including Google visibility, WhatsApp Business, CRM, and automations. Everything was live within days, and I've already started receiving more inquiries."</p>
-      <div class="bw-tauthor">
-        <img src="hvac-engineer.jpg" alt="Karen M." class="bw-tavatar"/>
-        <div>
-          <div class="bw-tname">Karen M.</div>
-          <div class="bw-tloc"><a href="https://balancedasdesigned.com/" rel="noopener" target="_blank" style="color:#0891b2;text-decoration:none;font-weight:600;">Balanced as Designed</a> · Nassau, Bahamas</div>
-        </div>
-      </div>
-    </div>
-    <div style="display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;">
-      <img src="hvac-engineer.jpg" alt="Karen M." style="width:120px;height:120px;border-radius:50%;object-fit:cover;object-position:center top;border:3px solid rgba(255,101,53,0.3);"/>
-      <div style="font-size:12px;font-weight:700;color:#ff6535;text-transform:uppercase;letter-spacing:1px;">Featured Review</div>
-    </div>
-  </div>
-
-  <!-- Row 1: 3 cards -->
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:16px;">
-
-    <div class="bw-tcard c-teal">
-      <div class="bw-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <div style="font-size:15px;font-weight:800;color:#0a0f1e;margin-bottom:10px;line-height:1.3;">From invisible to 3-5 new enquiries every week</div>
-      <p class="bw-tquote">"We went from having no online presence to getting 3-5 new enquiries a week. BluWav set up our website, Google profile, and WhatsApp in 48 hours. Customers in Barbados can now find us easily."</p>
-      <div class="bw-tauthor">
-        <img src="ricardo-t.png" alt="Ricardo T." class="bw-tavatar"/>
-        <div><div class="bw-tname">Ricardo T.</div><div class="bw-tloc">Construction · Barbados</div></div>
-      </div>
-    </div>
-
-    <div class="bw-tcard c-green">
-      <div class="bw-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <div style="font-size:15px;font-weight:800;color:#0a0f1e;margin-bottom:10px;line-height:1.3;">Professional presence that wins us bookings</div>
-      <p class="bw-tquote">"Before BluWav, guests couldn't find us online and we were losing bookings to competitors. Now we have a professional website, a verified Google profile, and WhatsApp set up to respond instantly."</p>
-      <div class="bw-tauthor">
-        <img src="contact-lady.jpg" alt="Michelle A." class="bw-tavatar"/>
-        <div><div class="bw-tname">Michelle A.</div><div class="bw-tloc">Hospitality · St. Lucia</div></div>
-      </div>
-    </div>
-
-    <div class="bw-tcard c-orange">
-      <div class="bw-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <div style="font-size:15px;font-weight:800;color:#0a0f1e;margin-bottom:10px;line-height:1.3;">More customers found us — and kept coming back</div>
-      <p class="bw-tquote">"BluWav helped us get our business properly set up online. Now customers can find us, see our work, and reach out directly. It made a real difference."</p>
-      <div class="bw-tauthor">
-        <img src="fb-alicia.png" alt="Alicia J." class="bw-tavatar"/>
-        <div><div class="bw-tname">Alicia J.</div><div class="bw-tloc">Culinary Arts · Trinidad</div></div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Row 2: 3 cards -->
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
-
-    <div class="bw-tcard c-purple">
-      <div class="bw-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <div style="font-size:15px;font-weight:800;color:#0a0f1e;margin-bottom:10px;line-height:1.3;">Systems and visibility made the difference</div>
-      <p class="bw-tquote">"The biggest difference wasn't the website. It was the systems and visibility improvements that helped us generate more inquiries."</p>
-      <div class="bw-tauthor">
-        <img src="hvac-engineer.jpg" alt="Service Business Owner" class="bw-tavatar"/>
-        <div><div class="bw-tname">Service Business Owner</div><div class="bw-tloc">Barbados</div></div>
-      </div>
-    </div>
-
-    <div class="bw-tcard c-cyan">
-      <div class="bw-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <div style="font-size:15px;font-weight:800;color:#0a0f1e;margin-bottom:10px;line-height:1.3;">A professional presence we're proud of</div>
-      <p class="bw-tquote">"The team understood our business and worked with us every step of the way. We finally have a professional presence we're proud of."</p>
-      <div class="bw-tauthor">
-        <img src="contact-lady.jpg" alt="Business Owner" class="bw-tavatar"/>
-        <div><div class="bw-tname">Business Owner</div><div class="bw-tloc">Jamaica</div></div>
-      </div>
-    </div>
-
-    <div class="bw-tcard c-amber">
-      <div class="bw-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <div style="font-size:15px;font-weight:800;color:#0a0f1e;margin-bottom:10px;line-height:1.3;">Stopped guessing, started growing</div>
-      <p class="bw-tquote">"BluWav helped us stop guessing and start focusing on what actually drives growth."</p>
-      <div class="bw-tauthor">
-        <img src="confident-success.jpg" alt="Entrepreneur" class="bw-tavatar"/>
-        <div><div class="bw-tname">Entrepreneur</div><div class="bw-tloc">Guyana</div></div>
-      </div>
-    </div>
-
-  </div>
-
-  <style>
-    @media(max-width:900px){
-      .bw-tcard-featured{grid-template-columns:1fr!important;}
-      .bw-tcard-featured > div:last-child{display:none!important;}
-      #case-studies-new [style*="repeat(3,1fr)"]{grid-template-columns:1fr 1fr!important;}
-    }
-    @media(max-width:480px){
-      #case-studies-new [style*="repeat(3,1fr)"]{grid-template-columns:1fr!important;}
-    }
-  </style>
-
 </div>
+
+<!-- Full-width scroll track -->
+<div style="position:relative;">
+  <div style="position:absolute;top:0;left:0;bottom:0;width:80px;background:linear-gradient(to right,#f0f9ff,transparent);pointer-events:none;z-index:2;"></div>
+  <div style="position:absolute;top:0;right:0;bottom:0;width:80px;background:linear-gradient(to left,#f0f9ff,transparent);pointer-events:none;z-index:2;"></div>
+
+  <div id="bwTestiTrack" style="display:flex;gap:20px;padding:8px 80px 16px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;">
+
+    <!-- Karen M. — featured -->
+    <div class="bw-tslide" style="min-width:480px;max-width:540px;border-color:rgba(255,101,53,0.2);background:linear-gradient(135deg,#fff7ed,#fff);">
+      <div style="color:#fbbf24;font-size:14px;margin-bottom:10px;letter-spacing:2px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div style="font-size:16px;font-weight:800;color:#0a0f1e;margin-bottom:12px;line-height:1.3;">A complete growth system, live within days</div>
+      <p style="font-size:14px;color:#475569;line-height:1.75;font-style:italic;margin-bottom:18px;">"As the President of Balanced as Designed, working with BluWav Caribbean was an amazing experience. They didn't just build me a beautiful website — they set up a complete growth system including Google visibility, WhatsApp Business, CRM, and automations. Everything was live within days."</p>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <img src="hvac-engineer.jpg" alt="Karen M." style="width:44px;height:44px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid rgba(255,101,53,0.3);"/>
+        <div><div style="font-size:14px;font-weight:700;color:#0a0f1e;">Karen M.</div><div style="font-size:12px;color:#64748b;"><a href="https://balancedasdesigned.com/" rel="noopener" target="_blank" style="color:#0891b2;text-decoration:none;">Balanced as Designed</a> · Nassau, Bahamas</div></div>
+      </div>
+    </div>
+
+    <!-- Ricardo T. -->
+    <div class="bw-tslide">
+      <div style="color:#fbbf24;font-size:14px;margin-bottom:10px;letter-spacing:2px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div style="font-size:15px;font-weight:800;color:#0a0f1e;margin-bottom:10px;line-height:1.3;">From invisible to 3-5 new enquiries every week</div>
+      <p style="font-size:14px;color:#475569;line-height:1.75;font-style:italic;margin-bottom:18px;">"We went from having no online presence to getting 3-5 new enquiries a week. BluWav set up our website, Google profile, and WhatsApp in 48 hours. Customers in Barbados can now find us easily."</p>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <img src="ricardo-t.png" alt="Ricardo T." style="width:44px;height:44px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid rgba(8,145,178,0.3);"/>
+        <div><div style="font-size:14px;font-weight:700;color:#0a0f1e;">Ricardo T.</div><div style="font-size:12px;color:#64748b;">Construction · Barbados</div></div>
+      </div>
+    </div>
+
+    <!-- Michelle A. -->
+    <div class="bw-tslide">
+      <div style="color:#fbbf24;font-size:14px;margin-bottom:10px;letter-spacing:2px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div style="font-size:15px;font-weight:800;color:#0a0f1e;margin-bottom:10px;line-height:1.3;">Professional presence that wins us bookings</div>
+      <p style="font-size:14px;color:#475569;line-height:1.75;font-style:italic;margin-bottom:18px;">"Before BluWav, guests couldn't find us online and we were losing bookings to competitors. Now we have a professional website, a verified Google profile, and WhatsApp set up to respond instantly."</p>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <img src="contact-lady.jpg" alt="Michelle A." style="width:44px;height:44px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid rgba(34,197,94,0.3);"/>
+        <div><div style="font-size:14px;font-weight:700;color:#0a0f1e;">Michelle A.</div><div style="font-size:12px;color:#64748b;">Hospitality · St. Lucia</div></div>
+      </div>
+    </div>
+
+    <!-- Alicia J. -->
+    <div class="bw-tslide">
+      <div style="color:#fbbf24;font-size:14px;margin-bottom:10px;letter-spacing:2px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div style="font-size:15px;font-weight:800;color:#0a0f1e;margin-bottom:10px;line-height:1.3;">More customers found us — and kept coming back</div>
+      <p style="font-size:14px;color:#475569;line-height:1.75;font-style:italic;margin-bottom:18px;">"BluWav helped us get our business properly set up online. Now customers can find us, see our work, and reach out directly. It made a real difference."</p>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <img src="alicia-j.png" alt="Alicia J." style="width:44px;height:44px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid rgba(139,92,246,0.3);"/>
+        <div><div style="font-size:14px;font-weight:700;color:#0a0f1e;">Alicia J.</div><div style="font-size:12px;color:#64748b;">Culinary Arts · Trinidad</div></div>
+      </div>
+    </div>
+
+    <!-- Service Business Owner -->
+    <div class="bw-tslide">
+      <div style="color:#fbbf24;font-size:14px;margin-bottom:10px;letter-spacing:2px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div style="font-size:15px;font-weight:800;color:#0a0f1e;margin-bottom:10px;line-height:1.3;">Systems and visibility made the difference</div>
+      <p style="font-size:14px;color:#475569;line-height:1.75;font-style:italic;margin-bottom:18px;">"The biggest difference wasn't the website. It was the systems and visibility improvements that helped us generate more inquiries."</p>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <img src="hvac-engineer.jpg" alt="Service Business Owner" style="width:44px;height:44px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid rgba(8,145,178,0.3);"/>
+        <div><div style="font-size:14px;font-weight:700;color:#0a0f1e;">Service Business Owner</div><div style="font-size:12px;color:#64748b;">Barbados</div></div>
+      </div>
+    </div>
+
+    <!-- Business Owner Jamaica -->
+    <div class="bw-tslide">
+      <div style="color:#fbbf24;font-size:14px;margin-bottom:10px;letter-spacing:2px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div style="font-size:15px;font-weight:800;color:#0a0f1e;margin-bottom:10px;line-height:1.3;">A professional presence we're proud of</div>
+      <p style="font-size:14px;color:#475569;line-height:1.75;font-style:italic;margin-bottom:18px;">"The team understood our business and worked with us every step of the way. We finally have a professional presence we're proud of."</p>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <img src="contact-lady.jpg" alt="Business Owner" style="width:44px;height:44px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid rgba(34,197,94,0.3);"/>
+        <div><div style="font-size:14px;font-weight:700;color:#0a0f1e;">Business Owner</div><div style="font-size:12px;color:#64748b;">Jamaica</div></div>
+      </div>
+    </div>
+
+    <!-- Entrepreneur Guyana -->
+    <div class="bw-tslide">
+      <div style="color:#fbbf24;font-size:14px;margin-bottom:10px;letter-spacing:2px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div style="font-size:15px;font-weight:800;color:#0a0f1e;margin-bottom:10px;line-height:1.3;">Stopped guessing, started growing</div>
+      <p style="font-size:14px;color:#475569;line-height:1.75;font-style:italic;margin-bottom:18px;">"BluWav helped us stop guessing and start focusing on what actually drives growth."</p>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <img src="confident-success.jpg" alt="Entrepreneur" style="width:44px;height:44px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid rgba(245,158,11,0.3);"/>
+        <div><div style="font-size:14px;font-weight:700;color:#0a0f1e;">Entrepreneur</div><div style="font-size:12px;color:#64748b;">Guyana</div></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Dot indicators -->
+<div id="bwDots" style="display:flex;justify-content:center;gap:8px;margin-top:16px;padding:0 24px;"></div>
+
+<script>
+(function(){
+  var track = document.getElementById('bwTestiTrack');
+  var dotsEl = document.getElementById('bwDots');
+  if(!track||!dotsEl) return;
+  var slides = track.querySelectorAll('.bw-tslide');
+  var total = slides.length;
+  var current = 0;
+  var timer;
+
+  for(var i=0;i<total;i++){
+    var d=document.createElement('button');
+    d.style.cssText='width:8px;height:8px;border-radius:50%;border:none;cursor:pointer;padding:0;transition:all .3s;background:rgba(10,15,30,0.2);';
+    d.dataset.i=i;
+    d.addEventListener('click',function(){goTo(parseInt(this.dataset.i));reset();});
+    dotsEl.appendChild(d);
+  }
+
+  function dots(){
+    dotsEl.querySelectorAll('button').forEach(function(d,i){
+      d.style.background=i===current?'#0891b2':'rgba(10,15,30,0.2)';
+      d.style.width=i===current?'24px':'8px';
+      d.style.borderRadius=i===current?'4px':'50%';
+    });
+  }
+
+  function goTo(n){
+    current=(n+total)%total;
+    var s=slides[current];
+    if(s) track.scrollTo({left:s.offsetLeft-80,behavior:'smooth'});
+    dots();
+  }
+
+  function reset(){clearInterval(timer);timer=setInterval(function(){goTo(current+1);},4500);}
+
+  track.addEventListener('mouseenter',function(){clearInterval(timer);});
+  track.addEventListener('mouseleave',reset);
+  track.addEventListener('touchstart',function(){clearInterval(timer);},{passive:true});
+  track.addEventListener('touchend',reset,{passive:true});
+
+  dots();
+  reset();
+})();
+</script>
 </section>
 <!-- ═══════════════ CASE STUDIES ═══════════════ -->
 <section id="case-studies" style="background:#f8fafc;padding:80px 24px;">
