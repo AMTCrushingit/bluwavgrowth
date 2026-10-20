@@ -1533,43 +1533,44 @@ footer a div:first-child {
 </div>
 </section>
 <!-- ═══════════════ CASE STUDIES ═══════════════ -->
-<section id="case-studies" style="background:#fff;padding:80px 24px;">
+<section id="case-studies" style="background:#f8fafc;padding:80px 24px;">
 <div style="max-width:1100px;margin:0 auto;">
 
-  <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:48px;flex-wrap:wrap;gap:16px;">
-    <h2 style="font-size:clamp(28px,3.5vw,42px);font-weight:900;color:#0a0f1e;line-height:1.1;letter-spacing:-0.5px;">See What Happens When We Get to Work.</h2>
-    <a href="case-studies.html" style="font-size:14px;font-weight:700;color:#0891b2;text-decoration:none;white-space:nowrap;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">View All Case Studies &#8594;</a>
+  <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:56px;flex-wrap:wrap;gap:16px;">
+    <h2 style="font-size:clamp(24px,3.5vw,38px);font-weight:900;color:#0a0f1e;line-height:1.1;letter-spacing:-0.5px;">See What Happens When<br/>We Get to Work.</h2>
+    <a href="case-studies.html" style="font-size:14px;font-weight:700;color:#0891b2;text-decoration:none;white-space:nowrap;border-bottom:1.5px solid #0891b2;padding-bottom:2px;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">View All Case Studies &#8594;</a>
   </div>
 
-  <!-- Two featured case studies — side by side, full height -->
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;border-radius:20px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,0.1);">
+  <!-- Two featured case studies — full-height editorial, no cards, no black -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;border-radius:20px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,0.1);">
 
     <!-- Balanced as Designed -->
-    <a href="case-study-balanced-as-designed.html" style="text-decoration:none;display:block;position:relative;overflow:hidden;min-height:480px;" onmouseover="this.querySelector('.cs-overlay').style.opacity='1';this.querySelector('.cs-arrow').style.transform='translateX(6px)'" onmouseout="this.querySelector('.cs-overlay').style.opacity='0';this.querySelector('.cs-arrow').style.transform='translateX(0)'">
-      <img src="ba.png" alt="Balanced as Designed" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;min-height:480px;transition:transform .4s ease;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'"/>
-      <!-- Gradient overlay always visible -->
-      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,15,30,0.92) 0%,rgba(10,15,30,0.3) 50%,transparent 100%);"></div>
-      <!-- Hover overlay -->
-      <div class="cs-overlay" style="position:absolute;inset:0;background:rgba(8,145,178,0.15);opacity:0;transition:opacity .3s;"></div>
-      <!-- Content -->
-      <div style="position:absolute;bottom:0;left:0;right:0;padding:32px;">
+    <a href="case-study-balanced-as-designed.html" style="text-decoration:none;display:block;position:relative;overflow:hidden;min-height:480px;"
+       onmouseover="this.querySelector('.cs-img').style.transform='scale(1.04)';this.querySelector('.cs-arrow').style.transform='translateX(6px)'"
+       onmouseout="this.querySelector('.cs-img').style.transform='scale(1)';this.querySelector('.cs-arrow').style.transform='translateX(0)'">
+      <img class="cs-img" src="ba.png" alt="Balanced as Designed" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform .4s ease;"/>
+      <!-- Gradient: navy-teal, not black -->
+      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(8,145,178,0.92) 0%,rgba(10,15,30,0.5) 50%,rgba(10,15,30,0.1) 100%);"></div>
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:36px;">
         <div style="font-size:10px;font-weight:700;color:#22c55e;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;">Digital Growth System · Nassau, Bahamas</div>
-        <h3 style="font-size:24px;font-weight:900;color:#fff;margin-bottom:10px;line-height:1.2;">Balanced as Designed</h3>
-        <p style="font-size:14px;color:rgba(255,255,255,0.75);line-height:1.65;margin-bottom:16px;">Website, Google visibility, WhatsApp Business, CRM, and automations — live within days.</p>
-        <div style="display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:#fff;border-bottom:1.5px solid rgba(255,255,255,0.4);padding-bottom:2px;">Read Case Study <span class="cs-arrow" style="transition:transform .2s;">&#8594;</span></div>
+        <h3 style="font-size:26px;font-weight:900;color:#fff;margin-bottom:10px;line-height:1.2;">Balanced as Designed</h3>
+        <p style="font-size:14px;color:rgba(255,255,255,0.8);line-height:1.65;margin-bottom:18px;">Website, Google visibility, WhatsApp Business, CRM, and automations — live within days.</p>
+        <div style="display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:#fff;border-bottom:1.5px solid rgba(255,255,255,0.5);padding-bottom:2px;">Read Case Study <span class="cs-arrow" style="transition:transform .2s;">&#8594;</span></div>
       </div>
     </a>
 
     <!-- Stratiix -->
-    <a href="case-study-stratiix.html" style="text-decoration:none;display:block;position:relative;overflow:hidden;min-height:480px;" onmouseover="this.querySelector('.cs-overlay').style.opacity='1';this.querySelector('.cs-arrow').style.transform='translateX(6px)'" onmouseout="this.querySelector('.cs-overlay').style.opacity='0';this.querySelector('.cs-arrow').style.transform='translateX(0)'">
-      <img src="str.png" alt="Stratiix" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;min-height:480px;transition:transform .4s ease;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'"/>
-      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,15,30,0.92) 0%,rgba(10,15,30,0.3) 50%,transparent 100%);"></div>
-      <div class="cs-overlay" style="position:absolute;inset:0;background:rgba(255,101,53,0.15);opacity:0;transition:opacity .3s;"></div>
-      <div style="position:absolute;bottom:0;left:0;right:0;padding:32px;">
+    <a href="case-study-stratiix.html" style="text-decoration:none;display:block;position:relative;overflow:hidden;min-height:480px;"
+       onmouseover="this.querySelector('.cs-img').style.transform='scale(1.04)';this.querySelector('.cs-arrow').style.transform='translateX(6px)'"
+       onmouseout="this.querySelector('.cs-img').style.transform='scale(1)';this.querySelector('.cs-arrow').style.transform='translateX(0)'">
+      <img class="cs-img" src="str.png" alt="Stratiix" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform .4s ease;"/>
+      <!-- Gradient: orange-teal, not black -->
+      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(255,101,53,0.88) 0%,rgba(10,15,30,0.5) 50%,rgba(10,15,30,0.1) 100%);"></div>
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:36px;">
         <div style="font-size:10px;font-weight:700;color:#ff6535;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;">Brand &amp; Niche · Caribbean</div>
-        <h3 style="font-size:24px;font-weight:900;color:#fff;margin-bottom:10px;line-height:1.2;">Stratiix</h3>
-        <p style="font-size:14px;color:rgba(255,255,255,0.75);line-height:1.65;margin-bottom:16px;">Leadership alignment, accountability, and execution for growing companies.</p>
-        <div style="display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:#fff;border-bottom:1.5px solid rgba(255,255,255,0.4);padding-bottom:2px;">Read Case Study <span class="cs-arrow" style="transition:transform .2s;">&#8594;</span></div>
+        <h3 style="font-size:26px;font-weight:900;color:#fff;margin-bottom:10px;line-height:1.2;">Stratiix</h3>
+        <p style="font-size:14px;color:rgba(255,255,255,0.8);line-height:1.65;margin-bottom:18px;">Leadership alignment, accountability, and execution for growing companies.</p>
+        <div style="display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:#fff;border-bottom:1.5px solid rgba(255,255,255,0.5);padding-bottom:2px;">Read Case Study <span class="cs-arrow" style="transition:transform .2s;">&#8594;</span></div>
       </div>
     </a>
 
@@ -1579,7 +1580,6 @@ footer a div:first-child {
     @media(max-width:768px){
       #case-studies [style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important;}
       #case-studies a[style*="min-height:480px"]{min-height:320px!important;}
-      #case-studies img[style*="min-height:480px"]{min-height:320px!important;}
     }
   </style>
 
