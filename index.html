@@ -13,41 +13,8 @@
 <meta property="og:url" content="https://bluwavgrowth.com/"/>
 <meta property="og:type" content="website"/>
 <meta property="og:image" content="https://bluwavgrowth.com/hero-main.png"/>
-<meta property="og:image:alt" content="BluWav Caribbean helping a business improve its online visibility"/>
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="BluWav Caribbean | Digital Growth Membership for Caribbean Businesses"/>
-<meta name="twitter:description" content="Professional websites, business email, Google visibility and ongoing support for Caribbean businesses. From US$99 per month."/>
-<meta name="twitter:image" content="https://bluwavgrowth.com/hero-main.png"/>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://bluwavgrowth.com/#organization",
-      "name": "BluWav Caribbean",
-      "url": "https://bluwavgrowth.com/",
-      "description": "Digital growth membership for Caribbean small and medium-sized businesses, including professional websites, business email, Google visibility, and ongoing support.",
-      "areaServed": { "@type": "Place", "name": "Caribbean" },
-      "knowsAbout": ["Website development", "Google Business Profile optimization", "Business email", "Digital marketing", "Customer relationship management"],
-      "sameAs": ["https://facebook.com/bluwavgrowth", "https://www.instagram.com/bluwavgrowth/"],
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "contactType": "customer service",
-        "email": "hello@bluwavgrowth.com"
-      }
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://bluwavgrowth.com/#website",
-      "url": "https://bluwavgrowth.com/",
-      "name": "BluWav Caribbean",
-      "publisher": { "@id": "https://bluwavgrowth.com/#organization" },
-      "inLanguage": "en"
-    }
-  ]
-}
-</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"BluWav Caribbean","url":"https://bluwavgrowth.com","description":"Digital growth membership for Caribbean small and medium-sized businesses. Professional websites, business email, Google visibility and ongoing support.","areaServed":{"@type":"Place","name":"Caribbean"},"serviceType":["Website Development","Google Business Profile","Business Email","Digital Marketing"],"contactPoint":{"@type":"ContactPoint","contactType":"customer service","email":"hello@bluwavgrowth.com"}}</script>
+<meta content="BluWav helps Caribbean small and medium-sized businesses build a professional online presence, improve visibility, and attract more customers. Professional websites, business email, and ongoing support." name="description"/>
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
       tailwind.config = {
@@ -68,9 +35,8 @@
     </script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap:wght@300;400;500;600;700;800&display=swap:wght@300;400;500;600;700;800;900&display=swap&font-display=swap" rel="stylesheet"/>
 <script defer="" src="https://unpkg.com/lucide@latest"></script>
-<script>document.addEventListener("DOMContentLoaded",function(){if(window.lucide&&typeof window.lucide.createIcons==="function"){window.lucide.createIcons();}});</script>
 <style>
       :root {
         --navy: #0a0f1e;
@@ -968,60 +934,14 @@ small, .text-sm { font-size: var(--small); }
 .text-xs { font-size: var(--xs); }
 </style>
 <style>
-/* BluWav Safe Animation System */
-@keyframes bwFadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
-@keyframes bwFadeIn{from{opacity:0;}to{opacity:1;}}
-@keyframes bwGlow{0%,100%{box-shadow:0 4px 20px rgba(255,101,53,0.35);}50%{box-shadow:0 4px 40px rgba(255,101,53,0.6),0 0 0 5px rgba(255,101,53,0.1);}}
-@keyframes bwGlowTeal{0%,100%{box-shadow:0 4px 20px rgba(8,145,178,0.3);}50%{box-shadow:0 4px 40px rgba(8,145,178,0.5),0 0 0 5px rgba(8,145,178,0.1);}}
-@keyframes bwOrb1{0%,100%{transform:translateY(0) translateX(0);}50%{transform:translateY(-30px) translateX(15px);}}
-@keyframes bwOrb2{0%,100%{transform:translateY(0);}50%{transform:translateY(-20px) translateX(-15px);}}
-
-/* Scroll reveal — ONLY applied to elements with these classes */
-.bw-reveal{opacity:0;transform:translateY(20px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1);}
-.bw-reveal.visible{opacity:1;transform:translateY(0);}
-.bw-reveal-left{opacity:0;transform:translateX(28px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1);}
-.bw-reveal-left.visible{opacity:1;transform:translateX(0);}
-.bw-reveal-right{opacity:0;transform:translateX(-28px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1);}
-.bw-reveal-right.visible{opacity:1;transform:translateX(0);}
-.bw-delay-1{transition-delay:0.1s!important;}
-.bw-delay-2{transition-delay:0.2s!important;}
-.bw-delay-3{transition-delay:0.3s!important;}
-
-/* Button hover — safe, no animation on load */
-.bw-btn-cta,.btn-primary{transition:transform .2s cubic-bezier(0.34,1.56,0.64,1),filter .15s ease,box-shadow .25s ease!important;}
-.bw-btn-cta:hover,.btn-primary:hover{transform:translateY(-2px) scale(1.03)!important;filter:brightness(1.08)!important;box-shadow:0 8px 32px rgba(255,101,53,0.5)!important;}
-.bw-btn-cta:active,.btn-primary:active{transform:translateY(1px) scale(0.97)!important;}
-
-/* Ghost button hover */
-.bw-btn-ghost{transition:transform .2s ease,border-color .2s,background .2s!important;}
-.bw-btn-ghost:hover{transform:translateY(-2px) scale(1.02)!important;}
-
-/* Card hover lift */
-.bw-card-hover{transition:transform .25s cubic-bezier(0.22,1,0.36,1),box-shadow .25s ease!important;}
-.bw-card-hover:hover{transform:translateY(-5px)!important;box-shadow:0 16px 48px rgba(0,0,0,0.12)!important;}
-
-/* Nav link underline */
-.bw-nav-link{position:relative;}
-.bw-nav-link::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:2px;background:#00C8E0;transition:width .2s ease;border-radius:2px;}
-.bw-nav-link:hover::after,.bw-nav-link.active::after{width:100%;}
-
-/* Nav scroll shadow */
-.bw-nav-scrolled{box-shadow:0 4px 32px rgba(0,0,0,0.35)!important;}
-
-/* Footer link hover */
-footer a{transition:color .2s,opacity .2s!important;}
-footer a:hover{opacity:1!important;}
-
-/* Case study image zoom */
-.cs-card img,.case-card img{transition:transform .4s ease!important;}
-.cs-card:hover img,.case-card:hover img{transform:scale(1.04)!important;}
-
-/* Accessibility */
-@media(prefers-reduced-motion:reduce){
-  .bw-reveal,.bw-reveal-left,.bw-reveal-right{opacity:1!important;transform:none!important;transition:none!important;}
-  .bw-btn-cta:hover,.btn-primary:hover{animation:none!important;transform:none!important;}
-  html{scroll-behavior:auto!important;}
-  *,*::before,*::after{animation:none!important;transition:none!important;}
+/* BluWav Logo Glow */
+.bw-nav-logo div:first-child,
+footer a div:first-child {
+  animation: bwLogoGlow 3s ease-in-out infinite;
+}
+@keyframes bwLogoGlow {
+  0%,100% { filter: brightness(1); }
+  50% { filter: brightness(1.15) drop-shadow(0 0 8px rgba(0,212,255,0.5)); }
 }
 </style>
 </head>
@@ -1031,7 +951,7 @@ footer a:hover{opacity:1!important;}
 <!-- ── Standard BluWav Nav ── -->
 <nav class="bw-nav" id="bwNav">
 <a class="bw-nav-logo" href="index.html" style="text-decoration:none;display:flex;flex-direction:column;align-items:flex-start;line-height:1;flex-shrink:0;">
-<div style="font-family:'Plus Jakarta Sans', sans-serif;font-size:22px;font-weight:700;line-height:1;letter-spacing:-0.2px;"><span style="color:#ffffff;">Blu</span><span style="color:#00C8E0;">Wav</span></div>
+<div style="font-family:'Plus Jakarta Sans', sans-serif;font-size:22px;font-weight:700;line-height:1;letter-spacing:-0.2px;"><span style="color:#e8f4ff;text-shadow:0 0 20px rgba(255,255,255,0.5);">Blu</span><span style="color:#00d4ff;text-shadow:0 0 16px rgba(0,212,255,0.9),0 0 40px rgba(0,212,255,0.5);">Wav</span></div>
 <div style="font-size:10px;font-weight:600;color:rgba(0,200,224,0.7);letter-spacing:1.5px;text-transform:uppercase;margin-top:2px;">Caribbean</div>
 </a>
 <div class="bw-nav-links">
@@ -1059,7 +979,7 @@ footer a:hover{opacity:1!important;}
 </div>
 <main data-id="34">
 <!-- ═══════════════ HERO ═══════════════ -->
-<section id="hero" class="bw-parallax" style="position:relative;min-height:calc(100vh - 68px);display:flex;align-items:center;overflow:hidden;background:#060d1f;">
+<section id="hero" style="position:relative;min-height:calc(100vh - 68px);display:flex;align-items:center;overflow:hidden;background:#060d1f;">
 
   <!-- Full-bleed background image -->
   <div style="position:absolute;inset:0;z-index:0;">
@@ -1074,15 +994,27 @@ footer a:hover{opacity:1!important;}
   <div style="position:relative;z-index:2;width:100%;padding:80px clamp(16px,4vw,60px);">
     <div style="max-width:560px;">
 
-      <div class="bw-fade-up" id="hero-pill-8a9b" style="display:inline-flex;align-items:center;gap:8px;background:rgba(0,200,224,0.1);border:1px solid rgba(0,200,224,0.25);border-radius:6px;padding:8px 16px;font-size:11px;font-weight:700;color:#00C8E0;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:28px;">DIGITAL GROWTH SOLUTIONS FOR CARIBBEAN SMEs</div>
-
-      <h1 class="bw-fade-up bw-delay-1 bw-reveal" id="hero-h1-c0d1" style="font-size:clamp(32px,5vw,58px);font-weight:900;line-height:1.08;color:#fff;letter-spacing:-1.5px;margin-bottom:16px;">
-        Stop Losing Customers<br/>Because They Can't<br/><span style="color:#00C8E0;">Find You Online.</span>
+      <h1 class="bw-fade-up" id="hero-h1-c0d1" style="font-size:clamp(26px,4vw,48px);font-weight:900;line-height:1.15;color:#fff;letter-spacing:-0.5px;margin-bottom:24px;">
+        Tired of feeling like your business<br/>is sitting on the sidelines?<br/><span style="color:#00C8E0;">Not anymore.</span>
       </h1>
 
-      <p class="bw-fade-up bw-delay-2" style="font-size:clamp(17px,2vw,21px);font-weight:700;color:rgba(255,255,255,0.85);margin-bottom:14px;line-height:1.3;">Get Found. Get Chosen. Grow.</p>
+      <div class="bw-fade-up bw-delay-1" style="display:flex;flex-direction:column;gap:10px;margin-bottom:24px;">
+        <div style="display:flex;align-items:center;gap:10px;font-size:16px;font-weight:700;color:#fff;">
+          <span style="color:#22c55e;font-size:18px;">&#10003;</span> Show up on Google. <span style="color:#00C8E0;">Check.</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:16px;font-weight:700;color:#fff;">
+          <span style="color:#22c55e;font-size:18px;">&#10003;</span> Stand out from the crowd. <span style="color:#00C8E0;">Check.</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:16px;font-weight:700;color:#fff;">
+          <span style="color:#22c55e;font-size:18px;">&#10003;</span> Be the business everybody knows. <span style="color:#00C8E0;">Check.</span>
+        </div>
+      </div>
 
-      <p class="bw-fade-up bw-delay-2" id="hero-body-4g5h" style="font-size:15px;color:rgba(255,255,255,0.7);line-height:1.8;margin-bottom:36px;max-width:460px;">More enquiries, better visibility, and a clearer path to growth. BluWav helps Caribbean businesses attract more customers, build trust, and grow with practical solutions tailored to your needs.</p>
+      <p class="bw-fade-up bw-delay-2" id="hero-body-4g5h" style="font-size:15px;color:rgba(255,255,255,0.75);line-height:1.85;margin-bottom:12px;max-width:480px;">You already do great work. You know your customers. You deliver.<br/>Now it's time everybody else knew it too.</p>
+
+      <p class="bw-fade-up bw-delay-2" style="font-size:16px;font-weight:800;color:#fff;margin-bottom:8px;">Get seen. Get noticed. Get more business. <span style="color:#ff6535;">Period.</span></p>
+
+      <p class="bw-fade-up bw-delay-2" style="font-size:14px;color:rgba(255,255,255,0.6);margin-bottom:28px;">BluWav Caribbean is on your team. Let's go win the digital game!</p>
 
       <div class="bw-fade-up bw-delay-3" id="hero-ctas-6i7j" style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:40px;">
         <a class="bw-btn-cta" href="https://calendly.com/hello-bluwavgrowth/30min" rel="noopener" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#ff6535;color:#fff;font-size:15px;font-weight:700;padding:15px 28px;border-radius:100px;text-decoration:none;box-shadow:0 8px 32px rgba(255,101,53,0.4);">Book a Free Growth Review &#8594;</a>
@@ -1109,8 +1041,8 @@ footer a:hover{opacity:1!important;}
 
 
 
-<div style="position:relative;z-index:2;background:transparent;line-height:0;font-size:0;display:block;height:80px;margin:-80px 0 0;padding:0;"><svg preserveAspectRatio="none" style="display:block;width:100%;height:80px;margin:0;padding:0;vertical-align:bottom;" viewBox="0 0 1440 80" aria-hidden="true"><path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#f8fafc"></path></svg></div>
-<section style="background:var(--light-bg);padding:80px 0 0;">
+<div style="background:var(--navy);line-height:0;font-size:0;display:block;margin:0;padding:0;"><svg preserveAspectRatio="none" style="display:block;width:100%;height:80px;margin:0;padding:0;vertical-align:bottom;" viewBox="0 0 1440 80" aria-hidden="true"><path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#f8fafc"></path></svg></div>
+<section style="background:var(--light-bg);padding:0;">
 <section class="bw-home-band" id="opportunity" style="padding-top:0;text-align:center;">
 <div class="bw-home-wrap">
 <div class="bw-home-eyebrow">You built the business. Now let's help it grow.</div>
@@ -1126,6 +1058,7 @@ footer a:hover{opacity:1!important;}
 </section>
 </section>
 
+<div style="background:var(--light-bg);line-height:0;font-size:0;display:block;margin:0;padding:0;"><svg preserveAspectRatio="none" style="display:block;width:100%;height:80px;margin:0;padding:0;vertical-align:bottom;" viewBox="0 0 1440 80" aria-hidden="true"><path d="M0,40 C360,0 1080,80 1440,40 L1440,0 L0,0 Z" fill="#0a0f1e"></path></svg></div>
 <!-- ══════════════════ HOW WOULD YOU LIKE TO GROW ══════════════════ -->
 <section id="find-right-way" style="background:#fff;padding:100px 24px;">
 <style>
@@ -1168,14 +1101,6 @@ footer a:hover{opacity:1!important;}
   border-radius:10px;text-decoration:none;
   border:1px solid rgba(10,15,30,0.08);background:#fff;
   transition:all .25s;
-  min-width:0;
-}
-.bw-add-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}
-.bw-add-item > div:nth-child(2){min-width:0;}
-@media(max-width:640px){
-  #start-here .bw-start-grid{grid-template-columns:minmax(0,1fr)!important;}
-  #case-studies-new .bw-case-feature{grid-template-columns:minmax(0,1fr)!important;gap:24px!important;padding:28px 20px!important;}
-  #case-studies-new [style*="grid-template-columns:repeat(3,1fr)"]{grid-template-columns:minmax(0,1fr)!important;}
 }
 .bw-add-item:hover{border-color:var(--teal,#0891b2);background:#f0f9ff;transform:translateX(4px);}
 .bw-add-item:hover .bw-add-arrow{transform:translateX(6px);}
@@ -1183,8 +1108,6 @@ footer a:hover{opacity:1!important;}
 @media(max-width:640px){
   .bw-path-item{grid-template-columns:1fr!important;gap:16px!important;padding:28px 16px!important;}
   .bw-path-item > div:last-child{display:none!important;}
-  .bw-add-grid{grid-template-columns:minmax(0,1fr)!important;}
-  .bw-add-item{gap:12px;padding:16px!important;}
 }
 </style>
 
@@ -1249,7 +1172,7 @@ footer a:hover{opacity:1!important;}
   <!-- Additional Solutions -->
   <div style="margin-top:48px;padding-top:40px;border-top:1px solid rgba(10,15,30,0.06);">
     <div style="font-size:11px;font-weight:700;color:#94a3b8;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;">Additional Solutions</div>
-    <div class="bw-add-grid">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
 
       <a href="growth-systems/boosters.html" class="bw-add-item" style="--teal:#0891b2;">
         <div style="width:36px;height:36px;border-radius:8px;background:#f0f9ff;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
@@ -1350,7 +1273,7 @@ footer a:hover{opacity:1!important;}
     <h2 style="font-size:clamp(26px,4vw,44px);font-weight:900;color:#0a0f1e;line-height:1.1;letter-spacing:-0.5px;">Real Businesses. Real Results.</h2>
   </div>
   <!-- Karen M. horizontal -->
-  <div class="bw-case-feature" style="background:#fff;border-radius:16px;padding:40px 48px;box-shadow:0 4px 24px rgba(0,0,0,0.07);border:1px solid rgba(8,145,178,0.15);display:grid;grid-template-columns:1fr 160px;gap:48px;align-items:center;margin-bottom:24px;">
+  <div style="background:#fff;border-radius:16px;padding:40px 48px;box-shadow:0 4px 24px rgba(0,0,0,0.07);border:1px solid rgba(8,145,178,0.15);display:grid;grid-template-columns:1fr 160px;gap:48px;align-items:center;margin-bottom:24px;">
     <div>
       <div style="color:#fbbf24;font-size:18px;margin-bottom:14px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
       <div style="font-size:19px;font-weight:800;color:#0a0f1e;line-height:1.2;margin-bottom:14px;">A complete growth system, live within days</div>
@@ -1508,7 +1431,7 @@ footer a:hover{opacity:1!important;}
     <h2 style="font-size:clamp(24px,3.5vw,40px);font-weight:900;color:#0a0f1e;line-height:1.1;letter-spacing:-0.5px;margin-bottom:16px;">BluWav Has a Solution for Every Stage</h2>
     <p style="font-size:16px;color:#475569;max-width:620px;margin:0 auto;line-height:1.75;">Whether you're launching a new business, trying to attract more customers, improving visibility, managing customer relationships, or preparing for your next stage of growth — start here.</p>
   </div>
-  <div class="bw-start-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;">
+  <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;">
     <div style="background:#fff;border-radius:12px;padding:28px 24px;border:1px solid rgba(8,145,178,0.12);box-shadow:0 2px 12px rgba(0,0,0,0.05);display:flex;flex-direction:column;">
       <div style="font-size:20px;font-weight:800;color:#0a0f1e;margin-bottom:8px;">Growth Assessment</div>
       <p style="font-size:14px;color:#475569;line-height:1.65;flex-grow:1;margin-bottom:16px;">Find out why you're losing or not getting customers and what opportunities you're missing.</p>
@@ -1551,7 +1474,7 @@ footer a:hover{opacity:1!important;}
   <div style="max-width:1200px;margin:0 auto;padding:64px clamp(16px,4vw,60px) 48px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;">
     <div>
       <a href="index.html" style="text-decoration:none;display:inline-block;margin-bottom:16px;">
-        <div style="font-family:'Segoe UI',system-ui,sans-serif;font-size:26px;font-weight:700;letter-spacing:-0.3px;color:#fff;line-height:1;">Blu<span style="color:#00C8E0;">Wav</span></div>
+        <div style="font-family:'Segoe UI',system-ui,sans-serif;font-size:26px;font-weight:700;letter-spacing:-0.3px;color:#e8f4ff;line-height:1;text-shadow:0 0 20px rgba(255,255,255,0.3);">Blu<span style="color:#00d4ff;text-shadow:0 0 16px rgba(0,212,255,0.8),0 0 32px rgba(0,212,255,0.4);">Wav</span></div>
         <div style="font-size:10px;font-weight:700;color:rgba(0,200,224,0.6);letter-spacing:2px;text-transform:uppercase;margin-top:3px;">Caribbean</div>
       </a>
       <p style="font-size:14px;color:rgba(255,255,255,0.5);line-height:1.75;max-width:280px;margin-bottom:20px;">Helping Caribbean SMEs improve visibility, attract more customers, and put practical systems in place for sustainable growth.</p>
@@ -1760,39 +1683,5 @@ window.bwOpenCookiePrefs = function(){
   localStorage.removeItem('bwCookieConsent');
   location.reload();
 };
-</script>
-<script>
-/* BluWav Safe Animation Engine */
-(function(){
-  // Scroll reveal — ONLY elements already marked with bw-reveal classes
-  var revealEls = document.querySelectorAll('.bw-reveal,.bw-reveal-left,.bw-reveal-right');
-  if(revealEls.length){
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}
-      });
-    },{threshold:0.1,rootMargin:'0px 0px -30px 0px'});
-    revealEls.forEach(function(el){io.observe(el);});
-  }
-
-  // Nav shadow on scroll
-  var nav = document.querySelector('.bw-nav');
-  if(nav){
-    window.addEventListener('scroll',function(){
-      nav.classList.toggle('bw-nav-scrolled', window.pageYOffset > 20);
-    },{passive:true});
-  }
-
-  // Subtle parallax on hero background image only
-  var heroImg = document.querySelector('#hero img');
-  if(heroImg){
-    window.addEventListener('scroll',function(){
-      var scrollY = window.pageYOffset;
-      if(scrollY < window.innerHeight * 1.5){
-        heroImg.style.transform = 'translateY(' + (scrollY * 0.15) + 'px)';
-      }
-    },{passive:true});
-  }
-})();
 </script>
 </body></html>
