@@ -132,7 +132,7 @@ function submitBooking(e) {
   var formattedDate = month + '/' + day + '/' + year;
 
   // Build Zoho URL
-  var zohoUrl = 'https://calendar.zoho.com/eventreq/0801123fec87862301fa25796f9acb12000071506eadbe911f8f8e034fcccf661c53b580f73047c09f9861e3083a0451dde6f3bfc7613f71064c07fa3263a60027c8d6'
+  var zohoUrl = 'https://calendar.zoho.com/eventreq/0801123f6afbe1dc6bc3eca34b46eb17000077c79708043fcabdf84fb795c9ee32a2835cabdd0fb0649480468338937dee30a01dc5fb930f93545f92ec6ca48d79871d?name=[name]&mailId=[EmailId]&date=[MM/dd/yyyy]&time=[13:00]&reason=[Reason for Appointment]'
     + '?name=' + encodeURIComponent(name)
     + '&mailId=' + encodeURIComponent(email)
     + '&date=' + encodeURIComponent(formattedDate)
