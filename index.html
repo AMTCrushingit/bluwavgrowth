@@ -1316,26 +1316,28 @@ footer a div:first-child {
 
 </div>
 </section>
-<!-- ═══════════════ WHO WE SERVE ═══════════════ -->
-<!-- ═══════════════ WHO WE SERVE ═══════════════ -->
-<!-- ═══════════════ WHO WE SERVE ═══════════════ -->
-<section id="who-we-serve" style="background:linear-gradient(135deg,#0891b2 0%,#0c6e8a 100%);padding:80px 24px;">
-<div style="max-width:1100px;margin:0 auto;">
-  <div style="display:grid;grid-template-columns:1fr 2fr;gap:64px;align-items:center;">
 
-    <!-- Left: Image (no card, no border, just the photo) + text -->
+
+<!-- ═══════════════ WHO WE SERVE ═══════════════ -->
+<section id="who-we-serve" style="background:linear-gradient(135deg,#0891b2 0%,#0c6e8a 100%);padding:80px 24px;position:relative;z-index:1;">
+<div style="max-width:1100px;margin:0 auto;">
+  <div style="display:grid;grid-template-columns:280px 1fr;gap:64px;align-items:start;">
+
+    <!-- Left: Photo directly, no card, no wrapper box -->
     <div>
-      <img src="contact-professional.jpg" 
-           alt="Caribbean business owner ready to grow with BluWav" 
-           style="width:100%;height:300px;object-fit:cover;object-position:center top;display:block;border-radius:16px;margin-bottom:28px;"/>
-      <h2 style="font-size:clamp(26px,3.5vw,40px);font-weight:900;color:#fff;line-height:1.1;letter-spacing:-0.5px;margin-bottom:14px;">Who We Serve</h2>
-      <p style="font-size:17px;color:rgba(255,255,255,0.95);line-height:1.7;margin-bottom:6px;font-weight:700;">Doing great work but not getting enough attention?</p>
-      <p style="font-size:16px;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:28px;">You're our kind of business.</p>
-      <a href="health-check.html" style="display:inline-flex;align-items:center;gap:8px;background:#fff;color:#0891b2;font-size:15px;font-weight:800;padding:14px 28px;border-radius:100px;text-decoration:none;transition:all .2s;" onmouseover="this.style.background='#f0f9ff'" onmouseout="this.style.background='#fff'">Get My Free Growth Review &#8594;</a>
+      <img src="woman-tropical-office.jpg"
+           alt="Caribbean business owner - BluWav Growth"
+           style="width:100%;height:320px;object-fit:cover;object-position:center top;display:block;border-radius:14px;"/>
+      <div style="margin-top:24px;">
+        <h2 style="font-size:clamp(24px,3vw,36px);font-weight:900;color:#fff;line-height:1.1;margin-bottom:12px;">Who We Serve</h2>
+        <p style="font-size:16px;color:rgba(255,255,255,0.95);line-height:1.7;margin-bottom:6px;font-weight:700;">Doing great work but not getting enough attention?</p>
+        <p style="font-size:15px;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:24px;">You're our kind of business.</p>
+        <a href="health-check.html" style="display:inline-flex;align-items:center;gap:8px;background:#fff;color:#0891b2;font-size:14px;font-weight:800;padding:12px 24px;border-radius:100px;text-decoration:none;" onmouseover="this.style.background='#f0f9ff'" onmouseout="this.style.background='#fff'">Get My Free Growth Review &#8594;</a>
+      </div>
     </div>
 
     <!-- Right: Three industry columns -->
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;padding-top:8px;">
       <div>
         <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.55);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.2);">Professional Services</div>
         <div style="display:flex;flex-direction:column;gap:10px;">
@@ -1371,7 +1373,7 @@ footer a div:first-child {
 </div>
 <style>
 @media(max-width:900px){
-  #who-we-serve [style*="grid-template-columns:1fr 2fr"]{grid-template-columns:1fr!important;}
+  #who-we-serve [style*="grid-template-columns:280px 1fr"]{grid-template-columns:1fr!important;gap:32px!important;}
   #who-we-serve [style*="repeat(3,1fr)"]{grid-template-columns:repeat(3,1fr)!important;}
 }
 @media(max-width:480px){
