@@ -1,0 +1,1912 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="dark" name="color-scheme"/>
+<title>BluWav Caribbean Growth | Digital Growth Membership for Caribbean Businesses</title>
+<meta name="description" content="BluWav helps Caribbean small and medium-sized businesses build a professional online presence, improve visibility, and attract more customers. Professional websites, business email, and ongoing support from US$99 per month."/>
+<link rel="canonical" href="https://bluwavgrowth.com/"/>
+<meta property="og:title" content="BluWav Caribbean | Digital Growth Membership for Caribbean Businesses"/>
+<meta property="og:description" content="Professional websites, business email, Google visibility and ongoing support for Caribbean businesses. From US$99 per month. Get Found. Get Chosen. Grow."/>
+<meta property="og:url" content="https://bluwavgrowth.com/"/>
+<meta property="og:type" content="website"/>
+<meta property="og:image" content="https://bluwavgrowth.com/hero-main.png"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"BluWav Caribbean","url":"https://bluwavgrowth.com","description":"Digital growth membership for Caribbean small and medium-sized businesses. Professional websites, business email, Google visibility and ongoing support.","areaServed":{"@type":"Place","name":"Caribbean"},"serviceType":["Website Development","Google Business Profile","Business Email","Digital Marketing"],"contactPoint":{"@type":"ContactPoint","contactType":"customer service","email":"hello@bluwavgrowth.com"}}</script>
+<meta content="BluWav helps Caribbean small and medium-sized businesses build a professional online presence, improve visibility, and attract more customers. Professional websites, business email, and ongoing support." name="description"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              navy: '#0a0f1e',
+              'navy-card': '#0d1525',
+              'navy-mid': '#111827',
+              cyan: '#00d4ff',
+              orange: '#10B981',
+              gold: '#fbbf24',
+              'light-bg': '#f8fafc',
+            },
+          },
+        },
+      };
+    </script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap:wght@300;400;500;600;700;800&display=swap:wght@300;400;500;600;700;800;900&display=swap&font-display=swap" rel="stylesheet"/>
+<script defer="" src="https://unpkg.com/lucide@latest"></script>
+<style>
+      :root {
+        --navy: #0a0f1e;
+        --navy-card: #0d1525;
+        --navy-mid: #111827;
+        --cyan: #00d4ff;
+        --cyan-dim: rgba(0,212,255,0.12);
+        --orange: #10B981;
+        --white: #ffffff;
+        --white-70: rgba(255,255,255,0.70);
+        --white-40: rgba(255,255,255,0.40);
+        --light-bg: #f8fafc;
+        --gold: #fbbf24;
+      }
+
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+      html { scroll-behavior: smooth; overflow-x: hidden; }
+
+      body {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        background: var(--navy);
+        color: var(--white);
+        overflow-x: hidden;
+      }
+
+      /* ── NAV ── */
+      .site-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        background: rgba(10,15,30,0.94);
+        border-bottom: 1px solid rgba(0,212,255,0.12);
+        padding: 14px max(24px, calc((100vw - 1200px) / 2));
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition: padding 0.3s ease;
+      }
+      .site-nav.scrolled { padding-top: 10px; padding-bottom: 10px; }
+
+      .nav-link {
+        color: var(--white-70);
+        font-size: 14px;
+        font-weight: 500;
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .nav-link:hover { color: var(--cyan); }
+
+      .btn-outline-cyan {
+        font-size: 14px;
+        color: var(--cyan);
+        border: 1.5px solid var(--cyan);
+        padding: 10px 20px;
+        border-radius: 8px;
+        background: transparent;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background 0.2s, color 0.2s;
+        font-weight: 500;
+      }
+      .btn-outline-cyan:hover { background: var(--cyan-dim); }
+
+      .btn-orange-sm {
+        font-size: 14px;
+        color: var(--white);
+        background: var(--orange);
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        cursor: pointer;
+        text-decoration: none;
+        font-weight: 600;
+        transition: filter 0.2s;
+      }
+      .btn-orange-sm:hover { filter: brightness(0.9); }
+
+      /* ── HERO ── */
+      .hero-section {
+        position: relative;
+        min-height: calc(100vh - 68px);
+        padding-bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--navy);
+        overflow: hidden;
+      }
+      .hero-section::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(ellipse 60% 50% at 20% 50%, rgba(0,200,224,0.12) 0%, transparent 60%),
+          radial-gradient(ellipse 50% 60% at 80% 20%, rgba(255,101,53,0.08) 0%, transparent 60%),
+          radial-gradient(ellipse 40% 40% at 60% 80%, rgba(0,200,224,0.06) 0%, transparent 50%);
+        pointer-events: none;
+        animation: bwMeshShift 12s ease-in-out infinite alternate;
+      }
+      @keyframes bwMeshShift {
+        0% { opacity: 0.8; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.05); }
+        100% { opacity: 0.9; transform: scale(1) translateY(-10px); }
+      }
+
+      .hero-orb {
+        position: absolute;
+        border-radius: 50%;
+        background: var(--cyan);
+        filter: blur(100px);
+        pointer-events: none;
+      }
+
+      @keyframes float1 { 0%,100% { transform: translateY(0) translateX(0); } 50% { transform: translateY(-35px) translateX(15px); } }
+      @keyframes float2 { 0%,100% { transform: translateY(0) translateX(0); } 50% { transform: translateY(-28px) translateX(-20px); } }
+      @keyframes float3 { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-22px); } }
+
+      .hero-orb:nth-child(1) { width: 500px; height: 500px; top: -15%; left: -10%; opacity: 0.06; animation: float1 22s ease-in-out infinite; }
+      .hero-orb:nth-child(2) { width: 350px; height: 350px; top: 30%; right: -8%; opacity: 0.05; animation: float2 26s ease-in-out infinite 2s; }
+      .hero-orb:nth-child(3) { width: 600px; height: 600px; bottom: -20%; left: 30%; opacity: 0.04; animation: float3 30s ease-in-out infinite 4s; }
+      .hero-orb:nth-child(4) { width: 300px; height: 300px; top: 10%; right: 25%; opacity: 0.07; animation: float1 18s ease-in-out infinite 1s; }
+      .hero-orb:nth-child(5) { width: 400px; height: 400px; bottom: 10%; left: -5%; opacity: 0.05; animation: float2 24s ease-in-out infinite 3s; }
+      .hero-orb:nth-child(6) { width: 320px; height: 320px; top: 50%; right: -12%; opacity: 0.08; animation: float3 20s ease-in-out infinite 5s; }
+
+      .pill-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(0,212,255,0.12);
+        border: 1px solid rgba(0,212,255,0.3);
+        border-radius: 100px;
+        padding: 8px 20px;
+        font-size: 13px;
+        color: var(--cyan);
+        font-weight: 500;
+      }
+
+      /* ── BUTTONS ── */
+      .btn-orange {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--orange);
+        color: var(--white);
+        font-weight: 700;
+        padding: 16px 36px;
+        border-radius: 100px;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+        transition: filter 0.2s, transform 0.2s;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+      }
+      .btn-orange:hover { filter: brightness(1.1); transform: scale(1.02); }
+
+      .btn-ghost {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+        color: var(--white);
+        font-weight: 600;
+        padding: 16px 36px;
+        border-radius: 100px;
+        border: 1.5px solid rgba(255,255,255,0.35);
+        cursor: pointer;
+        text-decoration: none;
+        transition: border-color 0.2s;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+      }
+      .btn-ghost:hover { border-color: var(--white); }
+
+      .btn-outline-cyan-lg {
+        display: inline-flex;
+        align-items: center;
+        background: transparent;
+        color: var(--cyan);
+        border: 1.5px solid var(--cyan);
+        padding: 14px 36px;
+        border-radius: 100px;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background 0.2s;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+      }
+      .btn-outline-cyan-lg:hover { background: var(--cyan-dim); }
+
+      .btn-outline-white {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        background: transparent;
+        color: var(--white);
+        border: 1.5px solid rgba(255,255,255,0.3);
+        padding: 14px;
+        border-radius: 12px;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        transition: border-color 0.2s;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 15px;
+      }
+      .btn-outline-white:hover { border-color: var(--white); }
+
+      .btn-orange-full {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        background: var(--orange);
+        color: var(--white);
+        border: none;
+        padding: 14px;
+        border-radius: 12px;
+        font-weight: 700;
+        cursor: pointer;
+        text-decoration: none;
+        transition: filter 0.2s;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 15px;
+      }
+      .btn-orange-full:hover { filter: brightness(1.1); }
+
+      /* ── PILLAR CARDS ── */
+      .pillar-card {
+        background: var(--navy-card);
+        border: 1px solid rgba(0,212,255,0.15);
+        border-radius: 16px;
+        padding: 40px 36px;
+        transition: border-color 0.3s, box-shadow 0.3s;
+      }
+      .pillar-card:hover {
+        border-color: rgba(0,212,255,0.45);
+        box-shadow: 0 0 40px rgba(0,212,255,0.1);
+      }
+      .pillar-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: rgba(0,212,255,0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+      }
+
+      /* ── PRICING ── */
+      .pricing-card {
+        background: var(--navy-card);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 16px;
+        padding: 40px 32px;
+        display: flex;
+        flex-direction: column;
+      }
+      .pricing-card-popular {
+        background: linear-gradient(135deg, #0d1f3a 0%, #0a1628 100%);
+        border: 1px solid rgba(0,212,255,0.4);
+        box-shadow: 0 0 60px rgba(0,212,255,0.2);
+        border-radius: 16px;
+        padding: 40px 32px;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+      }
+      @media (min-width: 768px) {
+        .pricing-card-popular { transform: translateY(-8px); }
+      }
+
+      /* ── CASE STUDY CARDS ── */
+      .case-card {
+        background: white;
+        border-radius: 16px;
+        padding: 36px 32px;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* ── SCORE BADGE ── */
+      .score-badge {
+        width: 160px;
+        height: 160px;
+        border: 4px solid var(--orange);
+        border-radius: 50%;
+        background: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 40px;
+      }
+
+      /* ── FADE-IN ANIMATION ── */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ── MOBILE MENU ── */
+      .mobile-menu {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(10,15,30,0.98);
+        z-index: 1100;
+        flex-direction: column;
+        padding: 24px;
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+      }
+      .mobile-menu.open { display: flex; }
+
+      .mobile-menu a {
+        color: var(--white-70);
+        font-size: 18px;
+        font-weight: 500;
+        text-decoration: none;
+        padding: 16px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+        transition: color 0.2s;
+      }
+      .mobile-menu a:hover { color: var(--cyan); }
+
+      /* ── SECTION PADDING ── */
+      .section-pad { padding: 72px 24px; }
+      @media (min-width: 768px) { .section-pad { padding: 120px 24px; } }
+
+      /* ── WAVE ── */
+      /* waves use inline styles */
+
+      /* ── CTA FINAL GLOW ── */
+      .final-cta-glow {
+        position: relative;
+        overflow: hidden;
+      }
+      .final-cta-glow::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(0,212,255,0.12) 0%, transparent 70%);
+        pointer-events: none;
+      }
+
+      /* ── METRIC DIVIDERS ── */
+      @media (min-width: 768px) {
+        .metric-item:not(:last-child) {
+          border-right: 1px solid #e2e8f0;
+        }
+      }
+
+      .btn-white-outline-dark {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: white;
+        color: var(--navy);
+        font-weight: 600;
+        font-size: 16px;
+        padding: 14px 32px;
+        border-radius: 100px;
+        border: 1.5px solid #cbd5e1;
+        cursor: pointer;
+        text-decoration: none;
+        transition: border-color 0.2s;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+      }
+      .btn-white-outline-dark:hover { border-color: #94a3b8; }
+
+      /* ── MANIFESTO STRIP ── */
+      .manifesto-col {
+        padding: 0 48px;
+      }
+      .manifesto-col:first-child {
+        padding-left: 0;
+      }
+      .manifesto-col:last-child {
+        padding-right: 0;
+      }
+      @media (min-width: 768px) {
+        .manifesto-col:not(:last-child) {
+          border-right: 1px solid rgba(255,255,255,0.08);
+        }
+      }
+      @media (max-width: 767px) {
+        .manifesto-cols {
+          flex-direction: column !important;
+          gap: 40px !important;
+        }
+        .manifesto-col {
+          padding: 0 !important;
+          border-right: none !important;
+        }
+      }
+
+      /* ── Compact Dashboard ── */
+      .hero-dashboard {
+        position: relative;
+        z-index: 2;
+        max-width: 680px;
+        margin: 40px auto 0;
+        border-radius: 14px;
+        border: 1px solid rgba(255,255,255,0.08);
+        padding: 14px 18px;
+        background: rgba(10,15,30,0.7);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 0 60px rgba(0,212,255,0.07);
+      }
+      .dash-bar {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-bottom: 12px;
+      }
+      .dash-dot { width: 8px; height: 8px; border-radius: 50%; }
+      .dash-title { font-size: 10px; color: rgba(255,255,255,0.3); font-weight: 600; margin-left: 6px; }
+      .dash-live { font-size: 9px; font-weight: 700; color: #22c55e; background: rgba(34,197,94,0.1); padding: 2px 7px; border-radius: 100px; margin-left: auto; }
+      .dash-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; }
+      .dash-col { background: rgba(255,255,255,0.03); border-radius: 8px; padding: 8px; }
+      .dash-col-head { display: flex; align-items: center; gap: 5px; margin-bottom: 8px; }
+      .dash-col-dot { width: 6px; height: 6px; border-radius: 50%; }
+      .dash-col-label { font-size: 8px; font-weight: 800; color: rgba(255,255,255,0.3); text-transform: uppercase; letter-spacing: .1em; }
+      .dash-col-count { font-size: 8px; color: rgba(255,255,255,0.2); margin-left: auto; }
+      .dash-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 6px; padding: 6px 8px; margin-bottom: 5px; }
+      .dash-card:last-child { margin-bottom: 0; }
+      .dash-card-name { font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.8); }
+      .dash-card-val { font-size: 9px; font-weight: 700; margin-top: 2px; }
+      .dash-card-won { border-color: rgba(34,197,94,0.2); }
+      .dash-card-won .dash-card-val { color: #22c55e; }
+      @media(max-width:640px) {
+        .hero-dashboard { display: none; }
+      }
+
+      /* ── WhatsApp Float ── */
+      .wa-float {
+        position: fixed; bottom: 24px; right: 24px; z-index: 500;
+        width: 52px; height: 52px; background: #25D366; border-radius: 50%;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 26px; box-shadow: 0 4px 20px rgba(37,211,102,0.45);
+        text-decoration: none; transition: transform .2s;
+      }
+      .wa-float:hover { transform: scale(1.1); }
+      @keyframes waPulse {
+        0%,100% { box-shadow: 0 4px 20px rgba(37,211,102,0.45); }
+        50% { box-shadow: 0 4px 40px rgba(37,211,102,0.8), 0 0 0 8px rgba(37,211,102,0.1); }
+      }
+      .wa-float { animation: waPulse 2.5s ease-in-out infinite; }
+
+      /* ── Scroll Progress ── */
+      #bw-progress {
+        position: fixed; top: 0; left: 0; height: 3px; z-index: 9999;
+        width: 0%; background: linear-gradient(90deg, var(--orange), var(--gold), var(--cyan));
+        border-radius: 0 2px 2px 0; transition: width .1s linear; pointer-events: none;
+      }
+
+      /* ── Mobile nav link style (was missing) ── */
+      .mobile-nav-link {
+        color: rgba(255,255,255,0.85);
+        font-size: 17px;
+        font-weight: 500;
+        text-decoration: none;
+        padding: 15px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        transition: color .15s;
+      }
+      .mobile-nav-link:hover { color: var(--cyan); }
+
+      /* ── Mobile hero text sizing ── */
+      @media(max-width:480px) {
+        .hero-section { padding-top: 80px; }
+        .pill-badge { font-size: 12px; padding: 6px 14px; }
+      }
+
+      /* ── Pricing grid mobile ── */
+      @media(max-width:640px) {
+        #pricing-grid-w7x8 { grid-template-columns: 1fr !important; }
+        #pricing-grid-w7x8 { max-width: 100% !important; }
+        #cases-grid-k1l2 { grid-template-columns: 1fr !important; }
+        #pillars-grid-y3z4 { grid-template-columns: 1fr !important; }
+        #metrics-grid-m1n2 { grid-template-columns: repeat(2,1fr) !important; }
+        .pricing-card-popular { transform: none !important; }
+      }
+
+      /* ── Reduced motion ── */
+      @media(prefers-reduced-motion:reduce) {
+        .fade-in, .hero-orb, .wa-float { animation: none !important; transition: none !important; opacity: 1 !important; transform: none !important; }
+      }
+    img{max-width:100%;height:auto;}
+
+/* ── Standard BluWav Nav ── */
+.bw-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:68px;padding:0 clamp(16px,4vw,60px);display:flex;align-items:center;justify-content:space-between;background:rgba(10,15,30,0.96);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,200,224,0.12);box-shadow:0 2px 24px rgba(0,0,0,0.25);}
+.bw-nav-logo{text-decoration:none;display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.bw-nav-logo-name{font-family:'Plus Jakarta Sans', sans-serif;font-size:20px;font-weight:700;line-height:1;letter-spacing:-0.2px;}
+.bw-nav-logo-name .blu{color:#ffffff;}
+.bw-nav-logo-name .wav{color:#00C8E0;}
+.bw-nav-logo-sub{font-size:7px;font-weight:700;color:#00C8E0;letter-spacing:2.5px;text-transform:uppercase;margin-top:2px;opacity:0.8;}
+.bw-nav-links{display:flex;align-items:center;gap:24px;}
+.bw-nav-link{font-size:13px;font-weight:500;color:rgba(255,255,255,0.65);text-decoration:none;transition:color .2s;position:relative;}
+.bw-nav-link::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:#00d4ff;transition:width .3s;border-radius:2px;}
+.bw-nav-link:hover{color:#fff;}
+.bw-nav-link:hover::after{width:100%;}
+.bw-nav-link.active{color:#fff;}
+.bw-nav-link.active::after{width:100%;}
+.bw-nav-btn-outline{font-size:13px;font-weight:600;color:rgba(255,255,255,0.7);padding:8px 16px;border-radius:8px;border:1px solid rgba(255,255,255,0.15);text-decoration:none;transition:all .2s;}
+.bw-nav-btn-outline:hover{color:#fff;border-color:rgba(255,255,255,0.4);}
+.bw-nav-btn-cta{background:#10B981;color:#fff;font-size:13px;font-weight:700;padding:10px 22px;border-radius:8px;text-decoration:none;box-shadow:0 4px 16px rgba(16,185,129,0.35);transition:all .2s;white-space:nowrap;}
+.bw-nav-btn-cta:hover{filter:brightness(1.1);transform:translateY(-1px);}
+.bw-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px;margin:-8px;}
+.bw-hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all .3s ease;}
+.bw-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.bw-hamburger.open span:nth-child(2){opacity:0;}
+.bw-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.bw-mob-nav{display:none;position:fixed;top:68px;left:0;right:0;background:rgba(10,15,30,0.99);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:2px solid rgba(0,200,224,0.15);z-index:999;flex-direction:column;padding:8px 0 20px;}
+.bw-mob-nav.open{display:flex;}
+.bw-mob-link{font-size:16px;font-weight:500;color:rgba(255,255,255,0.85);text-decoration:none;padding:15px 24px;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;gap:10px;transition:all .15s;}
+.bw-mob-link:hover{color:#00d4ff;background:rgba(0,212,255,0.05);}
+.bw-mob-cta{background:linear-gradient(135deg,#10B981,#10B981);color:#fff;font-weight:800;padding:16px 24px;text-align:center;margin:14px 20px 4px;font-size:16px;display:block;border-radius:12px;text-decoration:none;box-shadow:0 4px 20px rgba(16,185,129,0.4);}
+@media(max-width:1024px){.bw-nav-links{display:none!important;}.bw-hamburger{display:flex!important;}}
+
+/* ── Airy spacing system (matching pricing page) ── */
+.section-pad { padding: 100px 24px !important; }
+.hero-section { padding-bottom: 0; }
+
+/* Section headings */
+.section-h2 {
+  font-size: clamp(28px,4vw,48px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+/* Body text */
+.section-body {
+  font-size: 17px;
+  color: #475569;
+  line-height: 1.75;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Eyebrow */
+.section-eyebrow {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  display: block;
+}
+
+/* Cards */
+.pillar-card { padding: 40px 32px !important; }
+
+/* Metrics */
+#metrics { padding: 80px 24px !important; }
+#metrics [style*="font-size:48px"] { font-size: 56px !important; }
+#metrics [style*="font-size:14px"] { font-size: 15px !important; margin-top: 10px !important; }
+
+/* Growth system section */
+#growth-system { padding: 100px 24px !important; }
+#growth-system h2 { font-size: clamp(28px,3.5vw,44px) !important; line-height: 1.15 !important; margin-bottom: 24px !important; }
+#growth-system p { font-size: 17px !important; line-height: 1.75 !important; margin-bottom: 20px !important; }
+#growth-system [style*="font-size:15px;font-weight:700"] { font-size: 17px !important; }
+#growth-system [style*="font-size:16px;font-weight:700"] { font-size: 17px !important; }
+
+/* Growth system cards - one row */
+#growth-system [style*="repeat(4,1fr)"] { gap: 20px !important; }
+#growth-system [style*="repeat(4,1fr)"] > div { padding: 32px 24px !important; }
+#growth-system [style*="repeat(4,1fr)"] h3 { font-size: 17px !important; margin-bottom: 10px !important; }
+#growth-system [style*="repeat(4,1fr)"] p { font-size: 14px !important; line-height: 1.65 !important; }
+
+/* Health score section */
+#health-score { padding: 100px 24px !important; }
+#health-score h2 { font-size: clamp(28px,4vw,48px) !important; }
+#health-score p { font-size: 17px !important; }
+#health-score li, #health-score [style*="display:flex;align-items:center;gap:12px"] { font-size: 16px !important; margin-bottom: 20px !important; }
+
+/* Pricing section */
+#pricing { padding: 100px 24px !important; }
+#pricing h2 { font-size: clamp(28px,4vw,48px) !important; }
+#pricing p { font-size: 17px !important; line-height: 1.75 !important; }
+
+/* Transparency section */
+#transparency { padding: 100px 24px !important; }
+#transparency h2 { font-size: clamp(28px,4vw,48px) !important; }
+#transparency [style*="font-size:16px"] { font-size: 17px !important; line-height: 1.65 !important; }
+#transparency [style*="grid-template-columns:repeat(2"] { gap: 32px 56px !important; max-width: 760px !important; margin: 56px auto 0 !important; }
+
+/* Manifesto section */
+#manifesto { padding: 100px 24px !important; }
+#manifesto h3 { font-size: 22px !important; margin-top: 20px !important; }
+#manifesto p { font-size: 16px !important; line-height: 1.75 !important; margin-top: 12px !important; }
+#manifesto [style*="gap:0"] { gap: 0 !important; }
+
+/* Case studies / testimonials */
+#case-studies { padding: 100px 24px !important; }
+#case-studies h2 { font-size: clamp(28px,4vw,48px) !important; margin-bottom: 60px !important; }
+#case-studies [style*="font-size:22px;font-weight:800"] { font-size: 20px !important; }
+#case-studies [style*="font-size:15px;color:#475569"] { font-size: 16px !important; line-height: 1.75 !important; }
+#case-studies [style*="grid-template-columns:repeat(3"] { gap: 32px !important; }
+#case-studies .case-card { padding: 40px 36px !important; }
+
+/* Final CTA */
+#final-cta { padding: 120px 24px !important; }
+#final-cta h2 { font-size: clamp(32px,4vw,56px) !important; line-height: 1.1 !important; }
+#final-cta p { font-size: 18px !important; line-height: 1.75 !important; }
+
+/* Hero trust bar */
+#hero-trust-8k9l { font-size: 15px !important; gap: 8px 20px !important; margin-top: 48px !important; }
+
+/* Dashboard */
+.hero-dashboard { margin-top: 56px !important; }
+
+/* Responsive */
+@media(max-width:768px) {
+  #growth-system [style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
+  #growth-system [style*="repeat(4,1fr)"] { grid-template-columns: repeat(2,1fr) !important; }
+  #transparency [style*="grid-template-columns:repeat(2"] { grid-template-columns: 1fr !important; }
+}
+@media(max-width:480px) {
+  #growth-system [style*="repeat(4,1fr)"] { grid-template-columns: 1fr !important; }
+}
+
+
+
+/* ═══════════════ ENHANCED VISUAL SYSTEM ═══════════════ */
+
+/* Smooth page load */
+@keyframes bwPageIn { from { opacity: 0; } to { opacity: 1; } }
+body { animation: bwPageIn 0.4s ease; }
+
+/* Hero dramatic gradient orbs - enhanced */
+@keyframes bwOrb1 { 0%,100% { transform: translate(0,0) scale(1); opacity: 0.07; } 33% { transform: translate(40px,-60px) scale(1.15); opacity: 0.12; } 66% { transform: translate(-30px,40px) scale(0.9); opacity: 0.06; } }
+@keyframes bwOrb2 { 0%,100% { transform: translate(0,0) scale(1); opacity: 0.05; } 50% { transform: translate(-50px,-40px) scale(1.2); opacity: 0.1; } }
+@keyframes bwOrb3 { 0%,100% { transform: translate(0,0); opacity: 0.04; } 50% { transform: translate(30px,50px); opacity: 0.08; } }
+
+/* Floating particles */
+@keyframes bwParticle { 0% { transform: translateY(0) translateX(0) scale(1); opacity: 0; } 10% { opacity: 1; } 90% { opacity: 0.6; } 100% { transform: translateY(-120vh) translateX(var(--drift)) scale(0.5); opacity: 0; } }
+
+/* Counter animation */
+@keyframes bwCountPop { 0% { transform: scale(0.8); opacity: 0; } 60% { transform: scale(1.05); } 100% { transform: scale(1); opacity: 1; } }
+
+/* Scroll reveal - enhanced */
+.bw-reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1); }
+.bw-reveal.bw-from-left { transform: translateX(-50px); }
+.bw-reveal.bw-from-right { transform: translateX(50px); }
+.bw-reveal.bw-scale { transform: scale(0.92); }
+.bw-reveal.bw-visible { opacity: 1 !important; transform: none !important; }
+.bw-d1 { transition-delay: 0.1s !important; }
+.bw-d2 { transition-delay: 0.2s !important; }
+.bw-d3 { transition-delay: 0.3s !important; }
+.bw-d4 { transition-delay: 0.4s !important; }
+.bw-d5 { transition-delay: 0.5s !important; }
+.bw-d6 { transition-delay: 0.6s !important; }
+
+/* Gradient text */
+.bw-gradient-text { background: linear-gradient(135deg, #00C8E0 0%, #ffffff 50%, #00C8E0 100%); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: bwGradientShift 4s linear infinite; }
+@keyframes bwGradientShift { 0% { background-position: 0% center; } 100% { background-position: 200% center; } }
+
+/* Glowing CTA button */
+.bw-btn-glow { position: relative; overflow: hidden; }
+.bw-btn-glow::before { content: ''; position: absolute; top: -50%; left: -60%; width: 40%; height: 200%; background: rgba(255,255,255,0.15); transform: skewX(-20deg); transition: left 0.5s ease; }
+.bw-btn-glow:hover::before { left: 120%; }
+@keyframes bwPulseGlow { 0%,100% { box-shadow: 0 8px 32px rgba(16,185,129,0.35); } 50% { box-shadow: 0 8px 48px rgba(255,101,53,0.6), 0 0 0 8px rgba(16,185,129,0.1); } }
+.bw-btn-glow { animation: bwPulseGlow 3s ease-in-out infinite; }
+
+/* Stat cards - enhanced */
+.bw-stat-card { position: relative; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.bw-stat-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0,200,224,0.05) 0%, transparent 60%); opacity: 0; transition: opacity 0.3s; }
+.bw-stat-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
+.bw-stat-card:hover::after { opacity: 1; }
+
+/* Pillar/feature cards */
+.bw-card-hover { transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s ease, border-color 0.3s ease; }
+.bw-card-hover:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,0.12); border-color: rgba(0,200,224,0.3) !important; }
+
+/* Testimonial cards */
+.bw-testimonial { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.bw-testimonial:hover { transform: translateY(-5px); box-shadow: 0 16px 48px rgba(0,0,0,0.1) !important; }
+
+/* Industry grid items */
+.bw-industry-item { transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; cursor: default; }
+.bw-industry-item:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 8px 32px rgba(0,0,0,0.1) !important; border-color: rgba(0,200,224,0.3) !important; }
+
+/* Pricing cards */
+.bw-pricing-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.bw-pricing-card:hover { transform: translateY(-8px); box-shadow: 0 24px 64px rgba(0,0,0,0.15) !important; }
+
+/* Mockup device frame */
+.bw-device { position: relative; border-radius: 16px; overflow: hidden; box-shadow: 0 32px 80px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.08); transition: transform 0.4s cubic-bezier(0.22,1,0.36,1), box-shadow 0.4s ease; }
+.bw-device:hover { transform: translateY(-8px) rotate(-1deg); box-shadow: 0 48px 100px rgba(0,0,0,0.5), 0 0 0 1px rgba(0,200,224,0.2); }
+.bw-device-bar { height: 28px; background: rgba(255,255,255,0.06); display: flex; align-items: center; padding: 0 12px; gap: 6px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.bw-device-dot { width: 8px; height: 8px; border-radius: 50%; }
+.bw-device-url { flex: 1; height: 14px; background: rgba(255,255,255,0.08); border-radius: 4px; margin: 0 8px; }
+.bw-device-screen { background: linear-gradient(135deg, #0d1525 0%, #0a1628 100%); min-height: 200px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px; }
+
+/* Horizontal scroll ticker */
+@keyframes bwTicker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.bw-ticker-track { display: flex; animation: bwTicker 20s linear infinite; white-space: nowrap; }
+.bw-ticker-track:hover { animation-play-state: paused; }
+
+/* Section number accent */
+.bw-section-num { font-size: 120px; font-weight: 900; color: rgba(0,200,224,0.04); position: absolute; top: -20px; left: -10px; line-height: 1; pointer-events: none; user-select: none; font-family: 'Plus Jakarta Sans', sans-serif; }
+
+/* Highlight underline */
+.bw-underline { position: relative; display: inline-block; }
+.bw-underline::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, #10B981, #00C8E0); border-radius: 2px; transform: scaleX(0); transform-origin: left; transition: transform 0.4s cubic-bezier(0.22,1,0.36,1); }
+.bw-underline:hover::after, .bw-underline.active::after { transform: scaleX(1); }
+
+/* Nav link underline animation */
+.bw-nav-link { position: relative; }
+.bw-nav-link::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: #00C8E0; transition: width 0.3s ease; border-radius: 2px; }
+.bw-nav-link:hover::after { width: 100%; }
+
+/* Progress bar on scroll */
+#bwScrollProgress { position: fixed; top: 0; left: 0; height: 3px; z-index: 9999; width: 0%; background: linear-gradient(90deg, #10B981, #fbbf24, #00C8E0); border-radius: 0 2px 2px 0; pointer-events: none; transition: width 0.1s linear; }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .bw-reveal, .bw-btn-glow, .bw-gradient-text, .bw-ticker-track { animation: none !important; transition: none !important; opacity: 1 !important; transform: none !important; }
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .bw-section-num { font-size: 72px; }
+  .bw-device { margin: 0 auto; max-width: 320px; }
+}
+
+
+/* ── C7-style CTA buttons ── */
+.bw-cta-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #10B981;
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 14px 28px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 4px 16px rgba(16,185,129,0.3);
+  position: relative;
+  overflow: hidden;
+}
+.bw-cta-primary::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0);
+  transition: background 0.2s;
+}
+.bw-cta-primary:hover {
+  background: #e8552a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(16,185,129,0.45);
+}
+.bw-cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 13px 28px;
+  border-radius: 8px;
+  border: 1.5px solid rgba(255,255,255,0.3);
+  cursor: pointer;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  transition: border-color 0.2s, background 0.2s, transform 0.15s;
+}
+.bw-cta-secondary:hover {
+  border-color: rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.06);
+  transform: translateY(-2px);
+}
+/* Update all existing btn-orange to rectangular */
+.btn-orange {
+  border-radius: 8px !important;
+  padding: 14px 28px !important;
+}
+.btn-ghost {
+  border-radius: 8px !important;
+  padding: 13px 28px !important;
+}
+.btn-orange-full {
+  border-radius: 8px !important;
+}
+.btn-outline-white {
+  border-radius: 8px !important;
+}
+.btn-outline-card {
+  border-radius: 8px !important;
+}
+.btn-orange-card {
+  border-radius: 8px !important;
+}
+.bw-nav-btn-cta {
+  border-radius: 6px !important;
+  padding: 9px 18px !important;
+}
+/* Remove pill shape from all inline CTAs */
+a[style*="border-radius:8px"] {
+  border-radius: 8px !important;
+}
+
+/* Customer-first homepage additions */
+.bw-home-band { padding: 92px 24px; }
+.bw-home-wrap { max-width: 1120px; margin: 0 auto; }
+.bw-home-eyebrow { color: var(--orange); font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 16px; }
+.bw-home-lead { max-width: 700px; margin: 16px auto 0; color: #475569; font-size: 17px; line-height: 1.75; }
+.bw-outcome-grid, .bw-help-grid, .bw-path-grid, .bw-region-grid { display: grid; gap: 20px; }
+.bw-outcome-grid { grid-template-columns: repeat(3, 1fr); margin-top: 44px; }
+.bw-help-grid { grid-template-columns: repeat(4, 1fr); margin-top: 44px; }
+.bw-path-grid { grid-template-columns: repeat(4, 1fr); margin-top: 40px; }
+.bw-region-grid { grid-template-columns: repeat(5, 1fr); margin-top: 36px; }
+.bw-outcome-card, .bw-help-card, .bw-path-card { background: #fff; border: 1px solid rgba(10,15,30,0.08); border-radius: 12px; padding: 26px; box-shadow: 0 4px 20px rgba(10,15,30,0.05); }
+.bw-outcome-card { text-align: center; }
+.bw-outcome-icon { width: 50px; height: 50px; margin: 0 auto 14px; border-radius: 12px; display: grid; place-items: center; background: rgba(0,200,224,0.1); font-size: 24px; }
+.bw-outcome-icon svg { width: 25px; height: 25px; stroke: var(--navy); stroke-width: 2; }
+.bw-outcome-card h3, .bw-help-card h3, .bw-path-card h3 { color: var(--navy); font-size: 19px; font-weight: 800; margin-bottom: 9px; }
+.bw-outcome-card p, .bw-help-card p, .bw-path-card p { color: #475569; font-size: 14px; line-height: 1.7; }
+.bw-help-card { border-top: 3px solid var(--cyan); }
+.bw-help-card:nth-child(2) { border-top-color: var(--orange); }
+.bw-help-card:nth-child(3) { border-top-color: var(--gold); }
+.bw-help-card:nth-child(4) { border-top-color: #22c55e; }
+.bw-help-label, .bw-path-card strong { display: block; color: var(--orange); font-size: 12px; font-weight: 700; margin-bottom: 11px; }
+.bw-region-band { background: var(--navy); color: #fff; text-align: center; }
+.bw-region-band .bw-home-lead { color: var(--white-70); }
+.bw-region-item { padding: 14px 10px; border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; color: var(--white-70); font-size: 13px; }
+@media(max-width:900px) { .bw-help-grid { grid-template-columns: repeat(2,1fr); } .bw-path-grid { grid-template-columns: repeat(2,1fr); } .bw-region-grid { grid-template-columns: repeat(3,1fr); } }
+@media(max-width:640px) { .bw-home-band { padding: 72px 20px; } .bw-outcome-grid, .bw-help-grid, .bw-path-grid { grid-template-columns: 1fr; } .bw-region-grid { grid-template-columns: repeat(2,1fr); } }
+.hero-grid { grid-template-columns: 1fr 1fr !important; max-width: 1200px !important; }
+#hero { background-image: linear-gradient(90deg, rgba(10,15,30,0.96) 0%, rgba(10,15,30,0.88) 34%, rgba(10,15,30,0.48) 58%, rgba(10,15,30,0.08) 100%), url('hero-business.webp') !important; background-position: center center !important; background-size: cover !important; background-repeat: no-repeat !important; }
+#hero-grid { grid-template-columns: 1fr !important; max-width: 1200px !important; gap: 0 !important; min-height: 680px; }
+#hero-grid > div:first-child { max-width: 560px; }
+#hero-visual { display: none !important; }
+#pricing, .pricing-wave { display: none !important; }
+@media(max-width:900px) { #hero { background-position: 62% center !important; } #hero-grid { min-height: 620px; } }
+/* Font display swap for CLS prevention */
+</style>
+<style>
+/* ── Plus Jakarta Sans Typography System ── */
+:root {
+  --font: 'Plus Jakarta Sans', sans-serif;
+  --h1: clamp(32px, 5vw, 64px);
+  --h2: clamp(24px, 3.5vw, 44px);
+  --h3: clamp(18px, 2.5vw, 28px);
+  --h4: clamp(15px, 2vw, 20px);
+  --body: 16px;
+  --small: 14px;
+  --xs: 12px;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+  --fw-black: 900;
+  --lh-tight: 1.1;
+  --lh-snug: 1.3;
+  --lh-normal: 1.6;
+  --lh-relaxed: 1.75;
+}
+* { font-family: var(--font) !important; }
+h1 { font-size: var(--h1); font-weight: var(--fw-black); line-height: var(--lh-tight); letter-spacing: -0.03em; }
+h2 { font-size: var(--h2); font-weight: var(--fw-extrabold); line-height: var(--lh-tight); letter-spacing: -0.02em; }
+h3 { font-size: var(--h3); font-weight: var(--fw-bold); line-height: var(--lh-snug); }
+h4 { font-size: var(--h4); font-weight: var(--fw-semibold); line-height: var(--lh-snug); }
+p, li, td, th, label, input, select, textarea, button { font-size: var(--body); line-height: var(--lh-relaxed); }
+small, .text-sm { font-size: var(--small); }
+.text-xs { font-size: var(--xs); }
+</style>
+<style>
+/* BluWav Logo Glow */
+.bw-nav-logo div:first-child,
+footer a div:first-child {
+  animation: bwLogoGlow 3s ease-in-out infinite;
+}
+@keyframes bwLogoGlow {
+  0%,100% { filter: brightness(1); }
+  50% { filter: brightness(1.15) drop-shadow(0 0 8px rgba(0,212,255,0.5)); }
+}
+</style>
+<style>
+/* ── BluWav Hero Animated Background ── */
+#hero {
+  position: relative;
+}
+#hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 50%, rgba(0,212,255,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 80% 30%, rgba(255,101,53,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 100% 100% at 50% 100%, rgba(0,136,178,0.05) 0%, transparent 50%);
+  animation: bwHeroBg 12s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+@keyframes bwHeroBg {
+  0%   { background-position: 0% 50%, 100% 0%, 50% 100%; opacity: 0.8; }
+  33%  { background-position: 30% 70%, 70% 30%, 20% 80%; opacity: 1; }
+  66%  { background-position: 60% 30%, 40% 70%, 80% 20%; opacity: 0.9; }
+  100% { background-position: 100% 50%, 0% 100%, 50% 0%; opacity: 1; }
+}
+
+/* Floating particles — pure CSS, zero JS */
+.bw-particle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(0,212,255,0.15);
+  animation: bwFloat 8s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+.bw-particle:nth-child(1) { width:4px;height:4px;top:20%;left:15%;animation-duration:9s;animation-delay:0s; }
+.bw-particle:nth-child(2) { width:3px;height:3px;top:60%;left:25%;animation-duration:11s;animation-delay:2s;background:rgba(16,185,129,0.2); }
+.bw-particle:nth-child(3) { width:5px;height:5px;top:35%;left:70%;animation-duration:8s;animation-delay:1s; }
+.bw-particle:nth-child(4) { width:3px;height:3px;top:75%;left:80%;animation-duration:13s;animation-delay:3s;background:rgba(0,212,255,0.1); }
+.bw-particle:nth-child(5) { width:4px;height:4px;top:15%;left:85%;animation-duration:10s;animation-delay:4s;background:rgba(16,185,129,0.15); }
+.bw-particle:nth-child(6) { width:2px;height:2px;top:50%;left:50%;animation-duration:7s;animation-delay:1.5s; }
+
+@keyframes bwFloat {
+  0%,100% { transform: translateY(0) translateX(0); opacity: 0.4; }
+  25%      { transform: translateY(-20px) translateX(10px); opacity: 0.8; }
+  50%      { transform: translateY(-10px) translateX(-15px); opacity: 0.6; }
+  75%      { transform: translateY(-25px) translateX(5px); opacity: 0.9; }
+}
+
+/* Slow wave line at bottom of hero */
+.bw-hero-wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  z-index: 1;
+  overflow: hidden;
+}
+.bw-hero-wave svg {
+  animation: bwWaveMove 8s linear infinite;
+  width: 200%;
+}
+@keyframes bwWaveMove {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Ensure hero content is above effects */
+#hero > div:last-of-type,
+#hero > div[style*="z-index:2"] {
+  position: relative;
+  z-index: 2;
+}
+</style>
+<style>body::before{content:"TEST: Emerald (#10B981)";position:fixed;top:0;left:50%;transform:translateX(-50%);background:#10B981;color:#fff;font-size:12px;font-weight:700;padding:4px 16px;border-radius:0 0 8px 8px;z-index:99999;font-family:sans-serif;}</style>
+</head>
+<div id="bwScrollProgress"></div>
+<body data-id="0" style="padding-top:68px;">
+<app-icon data-icon="trending-up" data-id="1" data-palette="Blue" hidden=""></app-icon>
+<!-- ── Standard BluWav Nav ── -->
+<nav class="bw-nav" id="bwNav">
+<a class="bw-nav-logo" href="index.html" style="text-decoration:none;display:flex;flex-direction:column;align-items:flex-start;line-height:1;flex-shrink:0;">
+<div style="font-family:'Plus Jakarta Sans', sans-serif;font-size:22px;font-weight:700;line-height:1;letter-spacing:-0.2px;"><span style="color:#e8f4ff;text-shadow:0 0 20px rgba(255,255,255,0.5);">Blu</span><span style="color:#00d4ff;text-shadow:0 0 16px rgba(0,212,255,0.9),0 0 40px rgba(0,212,255,0.5);">Wav</span></div>
+<div style="font-size:10px;font-weight:600;color:#00C8E0;letter-spacing:1.5px;text-transform:uppercase;margin-top:2px;">Caribbean</div>
+</a>
+<div class="bw-nav-links">
+<a class="bw-nav-link active" href="index.html#growth-system">What We Do</a>
+<a class="bw-nav-link" href="how-it-works.html">How It Works</a>
+<a class="bw-nav-link" href="case-studies.html">Case Studies</a>
+<a class="bw-nav-link" href="the-wave.html">The Wave</a>
+<a class="bw-nav-link" href="careers.html">Careers</a>
+<a class="bw-nav-btn-cta" href="https://calendly.com/hello-bluwavgrowth/30min" rel="noopener" target="_blank">Book a Free Growth Review</a>
+</div>
+<button aria-label="Menu" class="bw-hamburger" id="bwHamburger" onclick="bwToggleNav()">
+<span></span><span></span><span></span>
+</button>
+</nav>
+<!-- Mobile Nav -->
+<div class="bw-mob-nav" id="bwMobNav">
+<a class="bw-mob-link" href="index.html#growth-system" onclick="bwCloseNav()">🌐 What We Do</a>
+<a class="bw-mob-link" href="index.html#growth-system" onclick="bwCloseNav()">⚡ How It Works</a>
+<a class="bw-mob-link" href="pricing.html#plans-k1l2" onclick="bwCloseNav()">💰 Pricing</a>
+<a class="bw-mob-link" href="case-studies.html" onclick="bwCloseNav()">📐 Case Studies</a>
+<a class="bw-mob-link" href="the-wave.html" onclick="bwCloseNav()" style="color:#00d4ff;">The Wave</a>
+<a class="bw-mob-link" href="careers.html" onclick="bwCloseNav()">Careers</a>
+<a class="bw-mob-link" href="https://bluwavcrm.com/login.html" onclick="bwCloseNav()" rel="noopener" style="color:rgba(0,212,255,0.85);" target="_blank">🔐 Client Login</a>
+<a class="bw-mob-cta" href="health-score.html" onclick="bwCloseNav()">Get My Free Health Score →</a>
+</div>
+<main data-id="34">
+<!-- ═══════════════ HERO ═══════════════ -->
+<section id="hero" style="position:relative;min-height:calc(100vh - 68px);display:flex;align-items:center;overflow:hidden;background:#060d1f;">
+
+  <!-- Full-bleed background image -->
+  <div style="position:absolute;inset:0;z-index:0;">
+    <img src="homepage-hero.png"
+         alt="BluWav Caribbean growth"
+         loading="eager"
+         style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/>
+    <div style="position:absolute;inset:0;background:linear-gradient(100deg, rgba(6,13,31,0.95) 0%, rgba(6,13,31,0.88) 35%, rgba(6,13,31,0.5) 60%, rgba(6,13,31,0.1) 100%);"></div>
+  </div>
+
+  <!-- Content -->
+  <div style="position:relative;z-index:2;width:100%;padding:80px clamp(16px,4vw,60px);">
+    <div style="max-width:560px;">
+
+      <h1 class="bw-fade-up" id="hero-h1-c0d1" style="font-size:clamp(32px,5vw,58px);font-weight:900;line-height:1.12;color:#fff;letter-spacing:-0.5px;margin-bottom:24px;white-space:nowrap;">Tired of your business<br/>sitting on the sidelines?<br/><span style="color:#00C8E0;">Not anymore.</span></h1>
+
+      <div class="bw-fade-up bw-delay-1" style="display:flex;flex-direction:column;gap:10px;margin-bottom:24px;">
+        <div style="display:flex;align-items:center;gap:10px;font-size:16px;font-weight:700;color:#fff;">
+          <span style="color:#22c55e;font-size:18px;">&#10003;</span> Show up on Google. <span style="color:#00C8E0;">Check.</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:16px;font-weight:700;color:#fff;">
+          <span style="color:#22c55e;font-size:18px;">&#10003;</span> Stand out from the crowd. <span style="color:#00C8E0;">Check.</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:16px;font-weight:700;color:#fff;">
+          <span style="color:#22c55e;font-size:18px;">&#10003;</span> Be the business everybody knows. <span style="color:#00C8E0;">Check.</span>
+        </div>
+      </div>
+
+      <p class="bw-fade-up bw-delay-2" id="hero-body-4g5h" style="font-size:15px;color:rgba(255,255,255,0.75);line-height:1.85;margin-bottom:12px;max-width:480px;">You already do great work. You know your customers. You deliver.<br/>Now it's time everybody else knew it too.</p>
+
+      <p class="bw-fade-up bw-delay-2" style="font-size:16px;font-weight:800;color:#fff;margin-bottom:8px;">Get seen. Get noticed. Get more business. <span style="color:#10B981;">Period.</span></p>
+
+      <p class="bw-fade-up bw-delay-2" style="font-size:14px;color:rgba(255,255,255,0.6);margin-bottom:28px;">BluWav Caribbean is on your team. Let's go win the digital game!</p>
+
+      <div class="bw-fade-up bw-delay-3" id="hero-ctas-6i7j" style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:40px;">
+        <a class="bw-btn-cta" href="https://calendly.com/hello-bluwavgrowth/30min" rel="noopener" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#10B981;color:#fff;font-size:15px;font-weight:700;padding:15px 28px;border-radius:100px;text-decoration:none;box-shadow:0 8px 32px rgba(16,185,129,0.4);">Book a Free Growth Review &#8594;</a>
+        <a class="bw-btn-ghost" href="#how-we-help" style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.08);color:#fff;font-size:15px;font-weight:700;padding:15px 28px;border-radius:100px;text-decoration:none;border:1.5px solid rgba(255,255,255,0.25);">Explore Solutions</a>
+      </div>
+
+      <div class="bw-fade-up bw-delay-3" style="display:flex;flex-wrap:wrap;gap:20px;padding-top:28px;border-top:1px solid rgba(255,255,255,0.1);">
+        <div style="display:flex;align-items:center;gap:8px;"><span style="color:#22c55e;font-size:16px;font-weight:900;">&#10003;</span><span style="font-size:14px;color:rgba(255,255,255,0.85);font-weight:600;">Websites &amp; Visibility</span></div>
+        <div style="display:flex;align-items:center;gap:8px;"><span style="color:#22c55e;font-size:16px;font-weight:900;">&#10003;</span><span style="font-size:14px;color:rgba(255,255,255,0.85);font-weight:600;">CRM &amp; Growth Systems</span></div>
+        <div style="display:flex;align-items:center;gap:8px;"><span style="color:#22c55e;font-size:16px;font-weight:900;">&#10003;</span><span style="font-size:14px;color:rgba(255,255,255,0.85);font-weight:600;">Designed for Caribbean SMEs</span></div>
+      </div>
+
+    </div>
+  </div>
+
+  <style>
+    @media(max-width:768px){
+      #hero img{object-position:70% top!important;}
+      #hero [style*="background:linear-gradient(100deg"]{background:rgba(6,13,31,0.88)!important;}
+    }
+  </style>
+
+</section>
+
+
+
+<div style="background:var(--navy);line-height:0;font-size:0;display:block;margin:0;padding:0;"><svg preserveAspectRatio="none" style="display:block;width:100%;height:80px;margin:0;padding:0;vertical-align:bottom;" viewBox="0 0 1440 80" aria-hidden="true"><path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#f8fafc"></path></svg></div>
+<section style="background:var(--light-bg);padding:0;">
+<section class="bw-home-band" id="opportunity" style="padding:80px 24px;background:#fff;">
+<div style="max-width:1100px;margin:0 auto;">
+
+  <!-- Eyebrow + Headline -->
+  <div style="text-align:center;margin-bottom:56px;">
+    <div style="font-size:11px;font-weight:700;color:#10B981;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;">YOU BUILT THE BUSINESS. NOW LET'S GET IT NOTICED.</div>
+    <h2 style="font-size:clamp(28px,4vw,48px);font-weight:900;color:#0a0f1e;line-height:1.1;letter-spacing:-0.5px;margin-bottom:16px;">Get found. Get chosen. Get growing.</h2>
+    <p style="font-size:17px;color:#475569;max-width:580px;margin:0 auto;line-height:1.75;">You're good at what you do. Let's make sure your customers know it. We'll help you show up, stand out and turn more attention into more business.</p>
+  </div>
+
+  <!-- Three outcome cards — original card design -->
+  <div class="bw-outcome-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:48px;">
+
+    <div class="bw-outcome-card" style="background:#f8fafc;border-radius:16px;padding:36px 28px;border:1px solid rgba(10,15,30,0.08);box-shadow:0 4px 20px rgba(0,0,0,0.05);transition:transform .25s,box-shadow .25s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 40px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.05)'">
+      <div style="width:48px;height:48px;border-radius:12px;background:rgba(8,145,178,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0891b2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+      </div>
+      <h3 style="font-size:20px;font-weight:800;color:#0a0f1e;margin-bottom:10px;">Get Found</h3>
+      <p style="font-size:14px;color:#475569;line-height:1.7;margin-bottom:8px;font-weight:600;">If they can't find you, they can't choose you.</p>
+      <p style="font-size:14px;color:#64748b;line-height:1.7;">Show up where your customers are already looking.</p>
+    </div>
+
+    <div class="bw-outcome-card" style="background:#f8fafc;border-radius:16px;padding:36px 28px;border:1px solid rgba(10,15,30,0.08);box-shadow:0 4px 20px rgba(0,0,0,0.05);transition:transform .25s,box-shadow .25s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 40px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.05)'">
+      <div style="width:48px;height:48px;border-radius:12px;background:rgba(8,145,178,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0891b2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+      </div>
+      <h3 style="font-size:20px;font-weight:800;color:#0a0f1e;margin-bottom:10px;">Get Chosen</h3>
+      <p style="font-size:14px;color:#475569;line-height:1.7;margin-bottom:8px;font-weight:600;">Give them a reason to pick you.</p>
+      <p style="font-size:14px;color:#64748b;line-height:1.7;">Look the part, build trust and stand out from the competition.</p>
+    </div>
+
+    <div class="bw-outcome-card" style="background:#f8fafc;border-radius:16px;padding:36px 28px;border:1px solid rgba(10,15,30,0.08);box-shadow:0 4px 20px rgba(0,0,0,0.05);transition:transform .25s,box-shadow .25s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 40px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.05)'">
+      <div style="width:48px;height:48px;border-radius:12px;background:rgba(8,145,178,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0891b2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+      </div>
+      <h3 style="font-size:20px;font-weight:800;color:#0a0f1e;margin-bottom:10px;">Grow</h3>
+      <p style="font-size:14px;color:#475569;line-height:1.7;margin-bottom:8px;font-weight:600;">More than likes. More than clicks. More business.</p>
+      <p style="font-size:14px;color:#64748b;line-height:1.7;">Turn attention into enquiries, customers and growth.</p>
+    </div>
+
+  </div>
+
+  <!-- Bottom callout — teal/cyan, not black -->
+  <div style="background:linear-gradient(135deg,#0891b2 0%,#0c6e8a 100%);border-radius:20px;padding:48px 56px;text-align:center;">
+    <h3 style="font-size:clamp(22px,3vw,34px);font-weight:900;color:#fff;line-height:1.2;margin-bottom:16px;">Caribbean businesses weren't built to blend in.</h3>
+    <p style="font-size:17px;color:rgba(255,255,255,0.85);max-width:620px;margin:0 auto 8px;line-height:1.8;">From the first Google search to the final "I'm ready," BluWav helps your business show up strong, stand out and stay top of mind.</p>
+    <p style="font-size:15px;color:rgba(255,255,255,0.65);max-width:560px;margin:0 auto;line-height:1.75;">No disappearing in the crowd. No sitting on the sidelines. Let's get your business seen.</p>
+  </div>
+
+</div>
+<style>
+@media(max-width:768px){
+  #opportunity .bw-outcome-grid{grid-template-columns:1fr!important;}
+  #opportunity [style*="padding:48px 56px"]{padding:36px 24px!important;}
+}
+</style>
+</section>
+</section>
+
+<div style="background:var(--light-bg);line-height:0;font-size:0;display:block;margin:0;padding:0;"><svg preserveAspectRatio="none" style="display:block;width:100%;height:80px;margin:0;padding:0;vertical-align:bottom;" viewBox="0 0 1440 80" aria-hidden="true"><path d="M0,40 C360,0 1080,80 1440,40 L1440,0 L0,0 Z" fill="#0a0f1e"></path></svg></div>
+<!-- ══════════════════ HOW WOULD YOU LIKE TO GROW ══════════════════ -->
+<section id="find-right-way" style="background:#fff;padding:100px 24px;">
+<style>
+/* Pathway hover animations */
+.bw-path-item{
+  display:grid;grid-template-columns:80px 1fr auto;gap:32px;align-items:start;
+  padding:40px 32px;border-top:1px solid rgba(10,15,30,0.08);
+  cursor:pointer;transition:background .25s,border-color .25s;
+  border-radius:0;position:relative;
+}
+.bw-path-item::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:transparent;transition:background .25s;border-radius:0 2px 2px 0;
+}
+.bw-path-item:hover{background:rgba(10,15,30,0.02);}
+.bw-path-item:hover::before{background:var(--path-color,#10B981);}
+.bw-path-item:hover .bw-path-num{color:var(--path-color,#10B981);transform:scale(1.1);}
+.bw-path-item:hover .bw-path-title{color:var(--path-color,#10B981);}
+.bw-path-item:hover .bw-path-arrow{transform:translateX(8px);opacity:1;}
+.bw-path-item:hover .bw-path-explore{background:var(--path-color,#10B981);color:#fff;border-color:var(--path-color,#10B981);}
+.bw-path-num{font-size:13px;font-weight:700;letter-spacing:1px;padding-top:4px;transition:color .25s,transform .25s;color:rgba(10,15,30,0.3);}
+.bw-path-title{font-size:clamp(20px,2.5vw,26px);font-weight:900;color:#0a0f1e;margin-bottom:6px;line-height:1.2;transition:color .25s;}
+.bw-path-sub{font-size:14px;font-weight:700;margin-bottom:14px;letter-spacing:0.3px;}
+.bw-path-body{font-size:15px;color:#475569;line-height:1.8;max-width:520px;margin-bottom:16px;}
+.bw-path-includes{font-size:13px;color:#94a3b8;margin-bottom:20px;}
+.bw-path-includes span{color:#475569;font-weight:600;}
+.bw-path-explore{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:14px;font-weight:700;padding:11px 22px;
+  border-radius:100px;text-decoration:none;
+  border:1.5px solid rgba(10,15,30,0.2);color:#0a0f1e;
+  background:transparent;transition:all .25s;white-space:nowrap;
+}
+.bw-path-arrow{font-size:16px;transition:transform .25s;opacity:0.4;}
+.bw-path-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:4px;transition:transform .25s;}
+.bw-path-item:hover .bw-path-icon{transform:scale(1.08);}
+/* Additional solutions */
+.bw-add-item{
+  display:flex;align-items:center;gap:20px;padding:20px 32px;
+  border-radius:10px;text-decoration:none;
+  border:1px solid rgba(10,15,30,0.08);background:#fff;
+  transition:all .25s;
+}
+.bw-add-item:hover{border-color:var(--teal,#0891b2);background:#f0f9ff;transform:translateX(4px);}
+.bw-add-item:hover .bw-add-arrow{transform:translateX(6px);}
+.bw-add-arrow{font-size:16px;color:#0891b2;transition:transform .25s;margin-left:auto;}
+@media(max-width:640px){
+  .bw-path-item{grid-template-columns:1fr!important;gap:16px!important;padding:28px 16px!important;}
+  .bw-path-item > div:last-child{display:none!important;}
+}
+</style>
+
+<div style="max-width:960px;margin:0 auto;">
+
+  <!-- Header -->
+  <div style="margin-bottom:64px;">
+    <h2 style="font-size:clamp(28px,4vw,48px);font-weight:900;color:#0a0f1e;line-height:1.1;letter-spacing:-0.5px;margin-bottom:14px;">Ready to Make Waves?</h2>
+    <p style="font-size:17px;color:#64748b;max-width:480px;line-height:1.7;">Choose the path that best fits where your business is today.</p>
+  </div>
+
+  <!-- Three main pathways -->
+  <div>
+
+    <!-- 01 Triple A Growth -->
+    <a href="growth-systems/triple-a-growth.html" class="bw-path-item" style="--path-color:#10B981;text-decoration:none;display:grid;">
+      <div class="bw-path-num">01</div>
+      <div>
+        <div class="bw-path-title">Triple A Growth</div>
+        <div class="bw-path-sub" style="color:#10B981;">Assess. Act. Accelerate.</div>
+        <p class="bw-path-body">If you're not sure what's holding growth back, we'll help you identify the barriers, uncover opportunities, and create a clear plan forward.</p>
+        <div class="bw-path-includes">Includes: <span>Growth Assessment · Growth Sprint</span></div>
+        <span class="bw-path-explore">Explore Triple A Growth <span class="bw-path-arrow">&#8594;</span></span>
+      </div>
+      <div class="bw-path-icon" style="background:#fff7ed;border:1.5px solid rgba(16,185,129,0.2);">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+      </div>
+    </a>
+
+    <!-- 02 Growth Systems -->
+    <a href="growth-systems/growth-systems.html" class="bw-path-item" style="--path-color:#0891b2;text-decoration:none;display:grid;">
+      <div class="bw-path-num">02</div>
+      <div>
+        <div class="bw-path-title">Growth Systems</div>
+        <div class="bw-path-sub" style="color:#0891b2;">Get Found. Get Chosen. Grow.</div>
+        <p class="bw-path-body">Integrated solutions designed to help you improve visibility, attract opportunities, and support business growth.</p>
+        <div class="bw-path-includes">Includes: <span>Launch · Momentum · Accelerate</span></div>
+        <span class="bw-path-explore">Explore Growth Systems <span class="bw-path-arrow">&#8594;</span></span>
+      </div>
+      <div class="bw-path-icon" style="background:#f0f9ff;border:1.5px solid rgba(8,145,178,0.2);">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0891b2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+      </div>
+    </a>
+
+    <!-- 03 Growth Memberships -->
+    <a href="growth-systems/memberships.html" class="bw-path-item" style="--path-color:#22c55e;text-decoration:none;display:grid;border-bottom:1px solid rgba(10,15,30,0.08);">
+      <div class="bw-path-num">03</div>
+      <div>
+        <div class="bw-path-title">Growth Memberships</div>
+        <div class="bw-path-sub" style="color:#22c55e;">Ongoing Support &amp; Growth Guidance</div>
+        <p class="bw-path-body">Stay visible, supported, and moving forward with ongoing reviews, optimization, accountability, and practical guidance.</p>
+        <div class="bw-path-includes">Includes: <span>Essential · Growth · Partner</span></div>
+        <span class="bw-path-explore">Explore Memberships <span class="bw-path-arrow">&#8594;</span></span>
+      </div>
+      <div class="bw-path-icon" style="background:#f0fdf4;border:1.5px solid rgba(34,197,94,0.2);">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- Additional Solutions -->
+  <div style="margin-top:48px;padding-top:40px;border-top:1px solid rgba(10,15,30,0.06);">
+    <div style="font-size:11px;font-weight:700;color:#94a3b8;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;">Additional Solutions</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+
+      <a href="growth-systems/boosters.html" class="bw-add-item" style="--teal:#0891b2;">
+        <div style="width:36px;height:36px;border-radius:8px;background:#f0f9ff;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0891b2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <div>
+          <div style="font-size:15px;font-weight:800;color:#0a0f1e;margin-bottom:3px;">Growth Boosters</div>
+          <div style="font-size:13px;color:#64748b;">Targeted help for one specific area.</div>
+        </div>
+        <span class="bw-add-arrow">&#8594;</span>
+      </a>
+
+      <a href="growth-systems/advisory.html" class="bw-add-item" style="--teal:#0891b2;">
+        <div style="width:36px;height:36px;border-radius:8px;background:#f0f9ff;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0891b2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+        </div>
+        <div>
+          <div style="font-size:15px;font-weight:800;color:#0a0f1e;margin-bottom:3px;">Growth Advisory</div>
+          <div style="font-size:13px;color:#64748b;">Strategic guidance for business owners.</div>
+        </div>
+        <span class="bw-add-arrow">&#8594;</span>
+      </a>
+
+    </div>
+  </div>
+
+</div>
+</section>
+
+
+<!-- ═══════════════ WHO WE SERVE ═══════════════ -->
+<!-- ═══════════════ WHO WE SERVE ═══════════════ -->
+<section id="who-we-serve" style="background:linear-gradient(135deg,#0891b2 0%,#0c6e8a 100%);padding:80px 24px;position:relative;z-index:1;">
+<div style="max-width:1100px;margin:0 auto;">
+  <div style="display:grid;grid-template-columns:320px 1fr;gap:64px;align-items:start;">
+
+    <!-- Left: Images stacked, no card -->
+    <div>
+      <img src="img-professional.png"
+           alt="Caribbean professional services business owner"
+           style="width:100%;height:260px;object-fit:cover;object-position:center top;display:block;border-radius:14px;margin-bottom:12px;"/>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+        <img src="img-growth-man.png"
+             alt="Caribbean entrepreneur growing his business"
+             style="width:100%;height:130px;object-fit:cover;object-position:center top;display:block;border-radius:10px;"/>
+        <img src="img-frank-c.jpg"
+             alt="Frank C. Lawyer Saint Vincent - BluWav client"
+             style="width:100%;height:130px;object-fit:cover;object-position:center top;display:block;border-radius:10px;"/>
+      </div>
+      <div style="margin-top:24px;">
+        <h2 style="font-size:clamp(24px,3vw,36px);font-weight:900;color:#fff;line-height:1.1;margin-bottom:12px;">Who We Serve</h2>
+        <p style="font-size:16px;color:rgba(255,255,255,0.95);line-height:1.7;margin-bottom:6px;font-weight:700;">Doing great work but not getting enough attention?</p>
+        <p style="font-size:15px;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:24px;">You're our kind of business.</p>
+        <a href="health-check.html" style="display:inline-flex;align-items:center;gap:8px;background:#fff;color:#0891b2;font-size:14px;font-weight:800;padding:12px 24px;border-radius:100px;text-decoration:none;" onmouseover="this.style.background='#f0f9ff'" onmouseout="this.style.background='#fff'">Get My Free Growth Review &#8594;</a>
+      </div>
+    </div>
+
+    <!-- Right: Three industry columns -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;padding-top:8px;">
+      <div>
+        <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.55);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.2);">Professional Services</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="font-size:15px;color:#fff;font-weight:500;">Accountants</div>
+          <div style="font-size:15px;color:#fff;font-weight:500;">Lawyers</div>
+          <div style="font-size:15px;color:#fff;font-weight:500;">Consultants</div>
+          <div style="font-size:15px;color:#fff;font-weight:500;">Coaches</div>
+          <div style="font-size:15px;color:#fff;font-weight:500;">Agencies</div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.55);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.2);">Home Services</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="font-size:15px;color:#fff;font-weight:500;">HVAC</div>
+          <div style="font-size:15px;color:#fff;font-weight:500;">Plumbing</div>
+          <div style="font-size:15px;color:#fff;font-weight:500;">Electrical</div>
+          <div style="font-size:15px;color:#fff;font-weight:500;">Construction</div>
+          <div style="font-size:15px;color:#fff;font-weight:500;">Landscaping</div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.55);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.2);">Local Businesses</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="font-size:15px;color:#fff;font-weight:500;">Healthcare</div>
+          <div style="font-size:15px;color:#fff;font-weight:500;">Education</div>
+          <div style="font-size:15px;color:#fff;font-weight:500;">Retail</div>
+          <div style="font-size:15px;color:#fff;font-weight:500;">Hospitality</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<style>
+@media(max-width:900px){
+  #who-we-serve [style*="grid-template-columns:320px 1fr"]{grid-template-columns:1fr!important;gap:32px!important;}
+  #who-we-serve [style*="repeat(3,1fr)"]{grid-template-columns:repeat(3,1fr)!important;}
+}
+@media(max-width:480px){
+  #who-we-serve [style*="repeat(3,1fr)"]{grid-template-columns:1fr!important;}
+}
+</style>
+</section>
+
+<!-- ═══════════════ TESTIMONIALS ═══════════════ -->
+<style>
+#bwTestiTrack::-webkit-scrollbar{display:none;}
+.bw-tslide{min-width:320px;max-width:360px;flex-shrink:0;scroll-snap-align:start;background:#fff;border-radius:16px;padding:28px;border:2px solid transparent;box-shadow:0 4px 20px rgba(0,0,0,0.06);transition:border-color .3s;}
+.bw-tslide:hover{border-color:#0891b2;}
+</style>
+
+<section id="case-studies-new" style="background:#f0f9ff;padding:64px 0;border-top:4px solid #0891b2;overflow:hidden;">
+<div style="max-width:1100px;margin:0 auto;padding:0 24px;">
+  <div style="text-align:center;margin-bottom:40px;">
+    <div style="font-size:11px;font-weight:700;color:#10B981;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;">What Our Clients Say</div>
+    <h2 style="font-size:clamp(26px,4vw,40px);font-weight:900;color:#0a0f1e;line-height:1.1;letter-spacing:-0.5px;">We Said We'd Deliver. We Did.</h2>
+  </div>
+</div>
+
+<!-- Full-width scroll track -->
+<div style="position:relative;">
+  <div style="position:absolute;top:0;left:0;bottom:0;width:80px;background:linear-gradient(to right,#f0f9ff,transparent);pointer-events:none;z-index:2;"></div>
+  <div style="position:absolute;top:0;right:0;bottom:0;width:80px;background:linear-gradient(to left,#f0f9ff,transparent);pointer-events:none;z-index:2;"></div>
+
+  <div id="bwTestiTrack" style="display:flex;gap:20px;padding:8px 80px 16px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;">
+
+    <!-- Karen M. — featured -->
+    <div class="bw-tslide" style="min-width:480px;max-width:540px;border-color:rgba(16,185,129,0.2);background:linear-gradient(135deg,#fff7ed,#fff);">
+      <div style="color:#fbbf24;font-size:14px;margin-bottom:10px;letter-spacing:2px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div style="font-size:16px;font-weight:800;color:#0a0f1e;margin-bottom:12px;line-height:1.3;">A complete growth system, live within days</div>
+      <p style="font-size:14px;color:#475569;line-height:1.75;font-style:italic;margin-bottom:18px;">"As the President of Balanced as Designed, working with BluWav Caribbean was an amazing experience. They didn't just build me a beautiful website — they set up a complete growth system including Google visibility, WhatsApp Business, CRM, and automations. Everything was live within days."</p>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <img src="hvac-engineer.jpg" alt="Karen M." style="width:44px;height:44px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid rgba(16,185,129,0.3);"/>
+        <div><div style="font-size:14px;font-weight:700;color:#0a0f1e;">Karen M.</div><div style="font-size:12px;color:#64748b;"><a href="https://balancedasdesigned.com/" rel="noopener" target="_blank" style="color:#0891b2;text-decoration:none;">Balanced as Designed</a> · Nassau, Bahamas</div></div>
+      </div>
+    </div>
+
+    <!-- Ricardo T. -->
+    <div class="bw-tslide">
+      <div style="color:#fbbf24;font-size:14px;margin-bottom:10px;letter-spacing:2px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div style="font-size:15px;font-weight:800;color:#0a0f1e;margin-bottom:10px;line-height:1.3;">From invisible to 3-5 new enquiries every week</div>
+      <p style="font-size:14px;color:#475569;line-height:1.75;font-style:italic;margin-bottom:18px;">"We went from having no online presence to getting 3-5 new enquiries a week. BluWav set up our website, Google profile, and WhatsApp in 48 hours. Customers in Barbados can now find us easily."</p>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <img src="ricardo-t-new.png" alt="Ricardo T." style="width:44px;height:44px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid rgba(8,145,178,0.3);"/>
+        <div><div style="font-size:14px;font-weight:700;color:#0a0f1e;">Ricardo T.</div><div style="font-size:12px;color:#64748b;">Construction · Barbados</div></div>
+      </div>
+    </div>
+
+    <!-- Michelle A. -->
+    <div class="bw-tslide">
+      <div style="color:#fbbf24;font-size:14px;margin-bottom:10px;letter-spacing:2px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div style="font-size:15px;font-weight:800;color:#0a0f1e;margin-bottom:10px;line-height:1.3;">Professional presence that wins us bookings</div>
+      <p style="font-size:14px;color:#475569;line-height:1.75;font-style:italic;margin-bottom:18px;">"Before BluWav, guests couldn't find us online and we were losing bookings to competitors. Now we have a professional website, a verified Google profile, and WhatsApp set up to respond instantly."</p>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <img src="contact-lady.jpg" alt="Michelle A." style="width:44px;height:44px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid rgba(34,197,94,0.3);"/>
+        <div><div style="font-size:14px;font-weight:700;color:#0a0f1e;">Michelle A.</div><div style="font-size:12px;color:#64748b;">Hospitality · St. Lucia</div></div>
+      </div>
+    </div>
+
+    <!-- Alicia J. -->
+    <div class="bw-tslide">
+      <div style="color:#fbbf24;font-size:14px;margin-bottom:10px;letter-spacing:2px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div style="font-size:15px;font-weight:800;color:#0a0f1e;margin-bottom:10px;line-height:1.3;">More customers found us — and kept coming back</div>
+      <p style="font-size:14px;color:#475569;line-height:1.75;font-style:italic;margin-bottom:18px;">"BluWav helped us get our business properly set up online. Now customers can find us, see our work, and reach out directly. It made a real difference."</p>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <img src="alicia-j.png" alt="Alicia J." style="width:44px;height:44px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid rgba(139,92,246,0.3);"/>
+        <div><div style="font-size:14px;font-weight:700;color:#0a0f1e;">Alicia J.</div><div style="font-size:12px;color:#64748b;">Culinary Arts · Trinidad</div></div>
+      </div>
+    </div>
+
+    <!-- Service Business Owner -->
+    <div class="bw-tslide">
+      <div style="color:#fbbf24;font-size:14px;margin-bottom:10px;letter-spacing:2px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div style="font-size:15px;font-weight:800;color:#0a0f1e;margin-bottom:10px;line-height:1.3;">Systems and visibility made the difference</div>
+      <p style="font-size:14px;color:#475569;line-height:1.75;font-style:italic;margin-bottom:18px;">"The biggest difference wasn't the website. It was the systems and visibility improvements that helped us generate more inquiries."</p>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <img src="bilal-r.png" alt="Bilal R." style="width:44px;height:44px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid rgba(8,145,178,0.3);"/>
+        <div><div style="font-size:14px;font-weight:700;color:#0a0f1e;">Bilal R.</div><div style="font-size:12px;color:#64748b;">Service Business · Barbados</div></div>
+      </div>
+    </div>
+
+    <!-- Business Owner Jamaica -->
+    <div class="bw-tslide">
+      <div style="color:#fbbf24;font-size:14px;margin-bottom:10px;letter-spacing:2px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div style="font-size:15px;font-weight:800;color:#0a0f1e;margin-bottom:10px;line-height:1.3;">A professional presence we're proud of</div>
+      <p style="font-size:14px;color:#475569;line-height:1.75;font-style:italic;margin-bottom:18px;">"The team understood our business and worked with us every step of the way. We finally have a professional presence we're proud of."</p>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <img src="carol-a.png" alt="Carol A." style="width:44px;height:44px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid rgba(34,197,94,0.3);"/>
+        <div><div style="font-size:14px;font-weight:700;color:#0a0f1e;">Carol A.</div><div style="font-size:12px;color:#64748b;">Professional Services · Jamaica</div></div>
+      </div>
+    </div>
+
+    <!-- Entrepreneur Guyana -->
+    <div class="bw-tslide">
+      <div style="color:#fbbf24;font-size:14px;margin-bottom:10px;letter-spacing:2px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div style="font-size:15px;font-weight:800;color:#0a0f1e;margin-bottom:10px;line-height:1.3;">Stopped guessing, started growing</div>
+      <p style="font-size:14px;color:#475569;line-height:1.75;font-style:italic;margin-bottom:18px;">"BluWav helped us stop guessing and start focusing on what actually drives growth."</p>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <img src="confident-success.jpg" alt="Entrepreneur" style="width:44px;height:44px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid rgba(245,158,11,0.3);"/>
+        <div><div style="font-size:14px;font-weight:700;color:#0a0f1e;">Entrepreneur</div><div style="font-size:12px;color:#64748b;">Guyana</div></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Dot indicators -->
+<div id="bwDots" style="display:flex;justify-content:center;gap:8px;margin-top:16px;padding:0 24px;"></div>
+
+<script>
+(function(){
+  var track = document.getElementById('bwTestiTrack');
+  var dotsEl = document.getElementById('bwDots');
+  if(!track||!dotsEl) return;
+  var slides = track.querySelectorAll('.bw-tslide');
+  var total = slides.length;
+  var current = 0;
+  var timer;
+
+  for(var i=0;i<total;i++){
+    var d=document.createElement('button');
+    d.style.cssText='width:8px;height:8px;border-radius:50%;border:none;cursor:pointer;padding:0;transition:all .3s;background:rgba(10,15,30,0.2);';
+    d.dataset.i=i;
+    d.addEventListener('click',function(){goTo(parseInt(this.dataset.i));reset();});
+    dotsEl.appendChild(d);
+  }
+
+  function dots(){
+    dotsEl.querySelectorAll('button').forEach(function(d,i){
+      d.style.background=i===current?'#0891b2':'rgba(10,15,30,0.2)';
+      d.style.width=i===current?'24px':'8px';
+      d.style.borderRadius=i===current?'4px':'50%';
+    });
+  }
+
+  function goTo(n){
+    current=(n+total)%total;
+    var s=slides[current];
+    if(s) track.scrollTo({left:s.offsetLeft-80,behavior:'smooth'});
+    dots();
+  }
+
+  function reset(){clearInterval(timer);timer=setInterval(function(){goTo(current+1);},4500);}
+
+  track.addEventListener('mouseenter',function(){clearInterval(timer);});
+  track.addEventListener('mouseleave',reset);
+  track.addEventListener('touchstart',function(){clearInterval(timer);},{passive:true});
+  track.addEventListener('touchend',reset,{passive:true});
+
+  dots();
+  reset();
+})();
+</script>
+</section>
+<!-- ═══════════════ CASE STUDIES ═══════════════ -->
+<section id="case-studies" style="background:#fff;padding:80px 24px;">
+<div style="max-width:1200px;margin:0 auto;">
+
+  <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:48px;flex-wrap:wrap;gap:16px;">
+    <h2 style="font-size:clamp(28px,3.5vw,42px);font-weight:900;color:#0a0f1e;line-height:1.1;letter-spacing:-0.5px;">See What Happens When<br/>We Get to Work.</h2>
+    <a href="case-studies.html" style="font-size:14px;font-weight:700;color:#0891b2;text-decoration:none;white-space:nowrap;border-bottom:1.5px solid #0891b2;padding-bottom:2px;">View All Case Studies &#8594;</a>
+  </div>
+
+  <!-- 4 cards in a row — matching the design in the screenshot -->
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
+
+    <!-- Balanced as Designed -->
+    <a href="case-study-balanced-as-designed.html" style="text-decoration:none;display:flex;flex-direction:column;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.08);border:1px solid rgba(10,15,30,0.08);transition:transform .25s,box-shadow .25s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 40px rgba(0,0,0,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px rgba(0,0,0,0.08)'">
+      <div style="position:relative;height:180px;overflow:hidden;">
+        <img src="hvac-engineer.jpg" alt="Balanced as Designed - TAB and HVAC Commissioning, Nassau Bahamas" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform .4s ease;"/>
+        <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(10,15,30,0.6) 100%);"></div>
+      </div>
+      <div style="padding:20px;flex:1;display:flex;flex-direction:column;">
+        <div style="font-size:10px;font-weight:700;color:#22c55e;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:8px;">Digital Growth System</div>
+        <div style="font-size:16px;font-weight:800;color:#0a0f1e;margin-bottom:8px;line-height:1.3;">Balanced as Designed</div>
+        <p style="font-size:13px;color:#64748b;line-height:1.65;flex:1;margin-bottom:14px;">Website, Google visibility, WhatsApp Business, CRM, and automations — live within days.</p>
+        <span style="font-size:13px;font-weight:700;color:#0891b2;display:inline-flex;align-items:center;gap:4px;">Read Case Study &#8594;</span>
+      </div>
+    </a>
+
+    <!-- RIVVA -->
+    <a href="case-study-rivva.html" style="text-decoration:none;display:flex;flex-direction:column;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.08);border:1px solid rgba(10,15,30,0.08);transition:transform .25s,box-shadow .25s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 40px rgba(0,0,0,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px rgba(0,0,0,0.08)'">
+      <div style="position:relative;height:180px;overflow:hidden;">
+        <img src="cs-rivva.jpg" alt="RIVVA - Caribbean trust-verified service marketplace across six islands" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;transition:transform .4s ease;"/>
+        <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(10,15,30,0.6) 100%);"></div>
+      </div>
+      <div style="padding:20px;flex:1;display:flex;flex-direction:column;">
+        <div style="font-size:10px;font-weight:700;color:#0891b2;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:8px;">Platform Build</div>
+        <div style="font-size:16px;font-weight:800;color:#0a0f1e;margin-bottom:8px;line-height:1.3;">RIVVA</div>
+        <p style="font-size:13px;color:#64748b;line-height:1.65;flex:1;margin-bottom:14px;">The Caribbean's first trust-verified service marketplace across six islands.</p>
+        <span style="font-size:13px;font-weight:700;color:#0891b2;display:inline-flex;align-items:center;gap:4px;">Read Case Study &#8594;</span>
+      </div>
+    </a>
+
+    <!-- Stratiix -->
+    <a href="case-study-stratiix.html" style="text-decoration:none;display:flex;flex-direction:column;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.08);border:1px solid rgba(10,15,30,0.08);transition:transform .25s,box-shadow .25s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 40px rgba(0,0,0,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px rgba(0,0,0,0.08)'">
+      <div style="position:relative;height:180px;overflow:hidden;">
+        <img src="stressed-man-tropical.jpg" alt="Stratiix - Leadership alignment, accountability and execution for growing Caribbean companies" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform .4s ease;"/>
+        <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(10,15,30,0.6) 100%);"></div>
+      </div>
+      <div style="padding:20px;flex:1;display:flex;flex-direction:column;">
+        <div style="font-size:10px;font-weight:700;color:#8b5cf6;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:8px;">Brand &amp; Niche</div>
+        <div style="font-size:16px;font-weight:800;color:#0a0f1e;margin-bottom:8px;line-height:1.3;">Stratiix</div>
+        <p style="font-size:13px;color:#64748b;line-height:1.65;flex:1;margin-bottom:14px;">Leadership alignment, accountability, and execution for growing companies.</p>
+        <span style="font-size:13px;font-weight:700;color:#0891b2;display:inline-flex;align-items:center;gap:4px;">Read Case Study &#8594;</span>
+      </div>
+    </a>
+
+    <!-- Forwardly -->
+    <a href="case-study-forwardly.html" style="text-decoration:none;display:flex;flex-direction:column;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.08);border:1px solid rgba(10,15,30,0.08);transition:transform .25s,box-shadow .25s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 40px rgba(0,0,0,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px rgba(0,0,0,0.08)'">
+      <div style="position:relative;height:180px;overflow:hidden;">
+        <img src="for.png" alt="Forwardly - Digital toolkit storefront for founders, consultants, nonprofits and professionals" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform .4s ease;"/>
+        <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(10,15,30,0.6) 100%);"></div>
+      </div>
+      <div style="padding:20px;flex:1;display:flex;flex-direction:column;">
+        <div style="font-size:10px;font-weight:700;color:#8b5cf6;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:8px;">Digital Product</div>
+        <div style="font-size:16px;font-weight:800;color:#0a0f1e;margin-bottom:8px;line-height:1.3;">Forwardly</div>
+        <p style="font-size:13px;color:#64748b;line-height:1.65;flex:1;margin-bottom:14px;">A toolkit storefront for founders, consultants, nonprofits, and professionals.</p>
+        <span style="font-size:13px;font-weight:700;color:#0891b2;display:inline-flex;align-items:center;gap:4px;">Read Case Study &#8594;</span>
+      </div>
+    </a>
+
+  </div>
+
+  <style>
+    @media(max-width:900px){#case-studies [style*="repeat(4,1fr)"]{grid-template-columns:repeat(2,1fr)!important;}}
+    @media(max-width:480px){#case-studies [style*="repeat(4,1fr)"]{grid-template-columns:1fr!important;}}
+    #case-studies a:hover img{transform:scale(1.04);}
+  </style>
+
+</div>
+</section>
+<!-- ═══════════════ WHY BLUWAV + FINAL CTA ═══════════════ -->
+<section id="why-bluwav" style="position:relative;overflow:hidden;">
+
+  <!-- Sandy beach — single continuous background for both sections -->
+  <div style="position:absolute;inset:0;z-index:0;">
+    <img src="sandy-beach.png" alt="Caribbean beach" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"/>
+    <!-- Warm overlay — not dark navy, not black -->
+    <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(8,60,80,0.82) 0%,rgba(8,100,120,0.72) 50%,rgba(8,60,80,0.78) 100%);"></div>
+  </div>
+
+  <!-- WHY BLUWAV content -->
+  <div style="position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:80px 24px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
+    <div>
+      <h2 style="font-size:clamp(26px,3.5vw,42px);font-weight:900;color:#fff;line-height:1.1;margin-bottom:20px;">We Know Caribbean Business. <span style="color:#00C8E0;">Period.</span></h2>
+      <p style="font-size:17px;color:rgba(255,255,255,0.85);line-height:1.8;margin-bottom:24px;">We understand the realities of running a business in our region.</p>
+      <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:32px;">
+        <div style="display:flex;gap:12px;align-items:flex-start;">
+          <div style="width:6px;height:6px;border-radius:50%;background:#00C8E0;flex-shrink:0;margin-top:10px;"></div>
+          <span style="font-size:16px;color:rgba(255,255,255,0.9);line-height:1.7;">We know budgets matter.</span>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start;">
+          <div style="width:6px;height:6px;border-radius:50%;background:#00C8E0;flex-shrink:0;margin-top:10px;"></div>
+          <span style="font-size:16px;color:rgba(255,255,255,0.9);line-height:1.7;">We know growth matters.</span>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start;">
+          <div style="width:6px;height:6px;border-radius:50%;background:#00C8E0;flex-shrink:0;margin-top:10px;"></div>
+          <span style="font-size:16px;color:rgba(255,255,255,0.9);line-height:1.7;">And we know practical solutions beat complicated ones.</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.25);border-radius:16px;padding:36px;backdrop-filter:blur(8px);">
+        <div style="font-size:12px;font-weight:700;color:#00C8E0;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:16px;">Our Philosophy</div>
+        <p style="font-size:clamp(18px,2.5vw,24px);font-weight:800;color:#fff;line-height:1.4;">Built for Caribbean businesses. Priced for sustainable growth. Designed to deliver.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Divider line -->
+  <div style="position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:0 24px;">
+    <div style="border-top:1px solid rgba(255,255,255,0.15);"></div>
+  </div>
+
+  <!-- FINAL CTA content -->
+  <div id="start-here" style="position:relative;z-index:1;padding:80px 24px;text-align:center;">
+    <div style="max-width:680px;margin:0 auto;">
+      <h2 style="font-size:clamp(32px,5vw,58px);font-weight:900;color:#fff;line-height:1.1;letter-spacing:-1px;margin-bottom:16px;">Still Sitting on<br/><span style="color:#00C8E0;">the Sidelines?</span></h2>
+      <p style="font-size:18px;color:rgba(255,255,255,0.8);margin-bottom:8px;line-height:1.7;">We already said, not anymore. &#128521;</p>
+      <p style="font-size:17px;color:rgba(255,255,255,0.65);margin-bottom:44px;line-height:1.7;">Let's get your business seen, chosen and growing.</p>
+      <a href="https://calendly.com/hello-bluwavgrowth/30min" target="_blank" rel="noopener" class="bw-btn-cta" style="display:inline-flex;align-items:center;gap:10px;background:#10B981;color:#fff;font-size:18px;font-weight:800;padding:20px 48px;border-radius:100px;text-decoration:none;box-shadow:0 8px 40px rgba(16,185,129,0.45);transition:all .2s;" onmouseover="this.style.transform='translateY(-3px) scale(1.03)';this.style.boxShadow='0 16px 60px rgba(16,185,129,0.55)'" onmouseout="this.style.transform='';this.style.boxShadow='0 8px 40px rgba(16,185,129,0.45)'">Let's Make Some Waves &#127754; &#8594;</a>
+    </div>
+  </div>
+
+  <style>
+    @media(max-width:768px){
+      #why-bluwav [style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important;gap:32px!important;}
+    }
+  </style>
+
+</section>
+<!-- ═══════════════ FINAL CTA ═══════════════ -->
+<!-- ═══════════════ PRE-FOOTER CTA ═══════════════ -->
+<!-- ═══════════════ CANONICAL FOOTER ═══════════════ -->
+<footer style="background:#060c18;padding:0;">
+  <!-- Pre-footer CTA strip -->
+  <div style="background:linear-gradient(135deg,#0a0f1e 0%,#0c1a2e 100%);padding:64px clamp(16px,4vw,60px);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:32px;border-bottom:1px solid rgba(0,200,224,0.12);">
+    <div style="max-width:480px;">
+      <h2 style="font-size:clamp(22px,3.5vw,38px);font-weight:900;color:#fff;line-height:1.1;margin-bottom:10px;white-space:nowrap;">Get Found. Get Chosen. Grow.</h2>
+      <p style="font-size:15px;color:rgba(255,255,255,0.55);line-height:1.65;">Practical growth solutions built for Caribbean SMEs.</p>
+    </div>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;">
+      <a href="health-check.html" style="display:inline-flex;align-items:center;gap:8px;background:#10B981;color:#fff;font-size:15px;font-weight:700;padding:14px 28px;border-radius:100px;text-decoration:none;box-shadow:0 4px 20px rgba(16,185,129,0.35);transition:all .2s;" onmouseover="this.style.filter='brightness(1.1)'" onmouseout="this.style.filter=''">Book a Free Growth Review &#8594;</a>
+      <a href="https://calendly.com/hello-bluwavgrowth/30min" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:transparent;color:#fff;font-size:15px;font-weight:700;padding:14px 28px;border-radius:100px;text-decoration:none;border:1.5px solid rgba(255,255,255,0.25);transition:all .2s;" onmouseover="this.style.borderColor='rgba(255,255,255,0.6)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.25)'">&#128197; Book a Call</a>
+    </div>
+  </div>
+  <!-- Main footer columns -->
+  <div style="max-width:1200px;margin:0 auto;padding:64px clamp(16px,4vw,60px) 48px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;">
+    <div>
+      <a href="index.html" style="text-decoration:none;display:inline-block;margin-bottom:16px;">
+        <div style="font-family:'Segoe UI',system-ui,sans-serif;font-size:26px;font-weight:700;letter-spacing:-0.3px;color:#e8f4ff;line-height:1;text-shadow:0 0 20px rgba(255,255,255,0.3);">Blu<span style="color:#00d4ff;text-shadow:0 0 16px rgba(0,212,255,0.8),0 0 32px rgba(0,212,255,0.4);">Wav</span></div>
+        <div style="font-size:10px;font-weight:700;color:#00C8E0;letter-spacing:2px;text-transform:uppercase;margin-top:3px;">Caribbean</div>
+      </a>
+      <p style="font-size:14px;color:rgba(255,255,255,0.5);line-height:1.75;max-width:280px;margin-bottom:20px;">Helping Caribbean SMEs improve visibility, attract more customers, and put practical systems in place for sustainable growth.</p>
+      <div style="display:flex;gap:10px;">
+        <a href="https://facebook.com/bluwavgrowth" aria-label="Facebook" rel="noopener" target="_blank" style="width:34px;height:34px;border-radius:8px;border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.5);text-decoration:none;font-size:13px;transition:all .2s;" onmouseover="this.style.borderColor='rgba(255,255,255,0.4)';this.style.color='#fff'" onmouseout="this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='rgba(255,255,255,0.5)'">f</a>
+        <a href="https://www.instagram.com/bluwavgrowth/" aria-label="Instagram" rel="noopener" target="_blank" style="width:34px;height:34px;border-radius:8px;border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.5);text-decoration:none;font-size:13px;transition:all .2s;" onmouseover="this.style.borderColor='rgba(255,255,255,0.4)';this.style.color='#fff'" onmouseout="this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='rgba(255,255,255,0.5)'">&#9679;</a>
+        <a href="mailto:hello@bluwavgrowth.com" aria-label="Email" style="width:34px;height:34px;border-radius:8px;border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.5);text-decoration:none;font-size:13px;transition:all .2s;" onmouseover="this.style.borderColor='rgba(255,255,255,0.4)';this.style.color='#fff'" onmouseout="this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='rgba(255,255,255,0.5)'">@</a>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.35);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:20px;">Growth Solutions</div>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <a href="growth-systems/triple-a-growth.html" style="font-size:14px;color:rgba(255,255,255,0.6);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">Triple A Growth</a>
+        <a href="growth-systems/growth-systems.html" style="font-size:14px;color:rgba(255,255,255,0.6);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">Growth Systems</a>
+        <a href="growth-systems/memberships.html" style="font-size:14px;color:rgba(255,255,255,0.6);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">Growth Memberships</a>
+        <a href="growth-systems/boosters.html" style="font-size:14px;color:rgba(255,255,255,0.6);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">Growth Boosters</a>
+        <a href="growth-systems/advisory.html" style="font-size:14px;color:rgba(255,255,255,0.6);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">Growth Advisory</a>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.35);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:20px;">Company</div>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <a href="how-it-works.html" style="font-size:14px;color:rgba(255,255,255,0.6);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">How It Works</a>
+        <a href="case-studies.html" style="font-size:14px;color:rgba(255,255,255,0.6);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">Case Studies</a>
+        <a href="the-wave.html" style="font-size:14px;color:rgba(255,255,255,0.6);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">The Wave</a>
+        <a href="about.html" style="font-size:14px;color:rgba(255,255,255,0.6);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">About</a>
+        <a href="careers.html" style="font-size:14px;color:rgba(255,255,255,0.6);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">Careers</a>
+        <a href="contact.html" style="font-size:14px;color:rgba(255,255,255,0.6);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">Contact</a>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.35);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:20px;">Get Started</div>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <a href="health-check.html" style="font-size:14px;color:#00C8E0;text-decoration:none;font-weight:600;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#00C8E0'">Book a Free Growth Review</a>
+        <a href="https://calendly.com/hello-bluwavgrowth/30min" target="_blank" rel="noopener" style="font-size:14px;color:rgba(255,255,255,0.6);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">Book a Call</a>
+        <a href="https://bluwavcrm.com/login.html" target="_blank" rel="noopener" style="font-size:14px;color:rgba(255,255,255,0.6);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">Client Login</a>
+        <a href="mailto:hello@bluwavgrowth.com" style="font-size:14px;color:rgba(255,255,255,0.6);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">hello@bluwavgrowth.com</a>
+      </div>
+    </div>
+  </div>
+  <!-- Bottom legal bar -->
+  <div style="max-width:1200px;margin:0 auto;padding:20px clamp(16px,4vw,60px);border-top:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+    <div style="font-size:13px;color:rgba(255,255,255,0.25);">&copy; 2026 BluWav Caribbean. All rights reserved.</div>
+    <div style="display:flex;gap:20px;">
+      <a href="privacy.html" style="font-size:13px;color:rgba(255,255,255,0.25);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='rgba(255,255,255,0.6)'" onmouseout="this.style.color='rgba(255,255,255,0.25)'">Privacy</a>
+      <a href="cookie-policy.html" style="font-size:13px;color:rgba(255,255,255,0.25);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='rgba(255,255,255,0.6)'" onmouseout="this.style.color='rgba(255,255,255,0.25)'">Cookies</a>
+      <a href="our-promise.html" style="font-size:13px;color:rgba(255,255,255,0.25);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='rgba(255,255,255,0.6)'" onmouseout="this.style.color='rgba(255,255,255,0.25)'">Our Promise</a>
+    </div>
+  </div>
+  <style>
+    @media(max-width:900px){footer [style*="grid-template-columns:2fr 1fr 1fr 1fr"]{grid-template-columns:1fr 1fr!important;}}
+    @media(max-width:600px){footer [style*="grid-template-columns:2fr 1fr 1fr 1fr"]{grid-template-columns:1fr!important;} footer [style*="justify-content:space-between"]{flex-direction:column!important;align-items:flex-start!important;}}
+  </style>
+</footer>
+<script>
+(function(){
+"use strict";
+
+// ── Scroll progress bar ──────────────────────────────────────────────────────
+var prog = document.getElementById("bwScrollProgress");
+if(prog){
+  window.addEventListener("scroll", function(){
+    var s = window.scrollY, d = document.documentElement.scrollHeight - window.innerHeight;
+    prog.style.width = d > 0 ? (s/d*100)+"%" : "0%";
+  }, {passive:true});
+}
+
+// ── Particles ────────────────────────────────────────────────────────────────
+var pc = document.getElementById("bwParticles");
+if(pc && !window.matchMedia("(prefers-reduced-motion:reduce)").matches){
+  for(var i=0;i<18;i++){
+    (function(idx){
+      var p = document.createElement("div");
+      var size = Math.random()*3+1;
+      var left = Math.random()*100;
+      var delay = Math.random()*8;
+      var dur = Math.random()*10+8;
+      var drift = (Math.random()-0.5)*200+"px";
+      p.style.cssText = "position:absolute;width:"+size+"px;height:"+size+"px;border-radius:50%;background:rgba(0,200,224,"+(Math.random()*0.4+0.1)+");left:"+left+"%;bottom:-10px;--drift:"+drift+";animation:bwParticle "+dur+"s "+delay+"s linear infinite;";
+      pc.appendChild(p);
+    })(i);
+  }
+}
+
+// ── Enhanced scroll reveal ───────────────────────────────────────────────────
+if("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion:reduce)").matches){
+  var revEls = document.querySelectorAll(".bw-reveal, .fade-in");
+  revEls.forEach(function(el){
+    if(!el.classList.contains("bw-reveal")) el.classList.add("bw-reveal");
+  });
+  requestAnimationFrame(function(){
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.classList.add("bw-visible");
+          if(e.target.classList.contains("visible")) e.target.classList.add("bw-visible");
+          obs.unobserve(e.target);
+        }
+      });
+    },{threshold:0.08, rootMargin:"0px 0px -32px 0px"});
+    revEls.forEach(function(el){ obs.observe(el); });
+  });
+} else {
+  document.querySelectorAll(".bw-reveal,.fade-in").forEach(function(el){
+    el.classList.add("bw-visible","visible");
+  });
+}
+
+// ── Animated counters ────────────────────────────────────────────────────────
+var counters = document.querySelectorAll(".bw-counter");
+if(counters.length && "IntersectionObserver" in window){
+  var cObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting) return;
+      var el = e.target;
+      var target = parseInt(el.dataset.target);
+      var suffix = el.dataset.suffix || "";
+      var dur = 1200, start = null;
+      el.style.animation = "bwCountPop 0.5s ease both";
+      function step(ts){
+        if(!start) start = ts;
+        var p = Math.min((ts-start)/dur, 1);
+        var ease = 1 - Math.pow(1-p, 3);
+        el.textContent = Math.floor(target*ease) + suffix;
+        if(p < 1) requestAnimationFrame(step);
+        else el.textContent = target + suffix;
+      }
+      requestAnimationFrame(step);
+      cObs.unobserve(el);
+    });
+  },{threshold:0.5});
+  counters.forEach(function(c){ cObs.observe(c); });
+}
+
+// ── Add hover classes to cards ───────────────────────────────────────────────
+document.querySelectorAll(".pillar-card, .case-card").forEach(function(c){
+  c.classList.add("bw-card-hover");
+});
+document.querySelectorAll(".case-card").forEach(function(c){
+  c.classList.add("bw-testimonial");
+});
+document.querySelectorAll(".pricing-card, .pricing-card-popular, #card-launch, #card-presence, #card-growth, #card-pro").forEach(function(c){
+  c.classList.add("bw-pricing-card");
+});
+document.querySelectorAll(".metric-item").forEach(function(c){
+  c.classList.add("bw-stat-card");
+});
+
+// ── Add glow to primary CTA buttons ─────────────────────────────────────────
+document.querySelectorAll(".btn-orange, .bw-nav-btn-cta, .bw-mob-cta").forEach(function(b){
+  b.classList.add("bw-btn-glow");
+});
+
+// ── Parallax on hero orbs ────────────────────────────────────────────────────
+if(!window.matchMedia("(prefers-reduced-motion:reduce)").matches && window.innerWidth > 768){
+  window.addEventListener("scroll", function(){
+    var y = window.scrollY;
+    document.querySelectorAll(".hero-orb").forEach(function(orb, i){
+      var speed = [0.3, 0.2, 0.15, 0.25, 0.1, 0.2][i] || 0.2;
+      orb.style.transform = "translateY("+(y*speed)+"px)";
+    });
+  },{passive:true});
+}
+
+// ── Nav background on scroll ─────────────────────────────────────────────────
+var nav = document.getElementById("bwNav");
+if(nav){
+  window.addEventListener("scroll", function(){
+    nav.style.background = window.scrollY > 80 ? "rgba(10,15,30,0.99)" : "rgba(10,15,30,0.96)";
+    nav.style.boxShadow = window.scrollY > 80 ? "0 4px 32px rgba(0,0,0,0.4)" : "0 2px 24px rgba(0,0,0,0.25)";
+  },{passive:true});
+}
+
+})();
+</script>
+
+<style>
+@keyframes bwBannerSlide{from{transform:translateY(100%);opacity:0;}to{transform:translateY(0);opacity:1;}}
+#bwCookieBanner{animation:bwBannerSlide 0.4s cubic-bezier(0.22,1,0.36,1) forwards;}
+</style>
+<script>
+(function(){
+  if(localStorage.getItem('bwCookieConsent')) return;
+  var b = document.createElement('div');
+  b.id = 'bwCookieBanner';
+  b.style.cssText = 'position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#0a0f1e;border-top:2px solid rgba(0,200,224,0.3);padding:20px clamp(16px,4vw,60px);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;font-family:Plus Jakarta Sans,sans-serif;box-shadow:0 -8px 40px rgba(0,0,0,0.4);transform:translateY(100%);';
+  b.innerHTML = '<div style="flex:1;min-width:280px;"><div style="font-size:15px;font-weight:700;color:#fff;margin-bottom:6px;">&#127850; We Use Cookies</div><p style="font-size:13px;color:rgba(255,255,255,0.65);line-height:1.6;margin:0;">BluWav uses cookies to improve your experience and support analytics. <a href="/cookie-policy.html" style="color:#00C8E0;text-decoration:none;font-weight:600;">Cookie Policy</a> &middot; <a href="/privacy.html" style="color:#00C8E0;text-decoration:none;font-weight:600;">Privacy</a></p></div><div style="display:flex;gap:10px;flex-wrap:wrap;flex-shrink:0;"><button onclick="bwCA('essential')" style="background:transparent;color:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.25);font-size:13px;font-weight:600;padding:10px 18px;border-radius:100px;cursor:pointer;font-family:Plus Jakarta Sans,sans-serif;transition:all .2s;">Essential Only</button><button onclick="bwCA('all')" style="background:#10B981;color:#fff;border:none;font-size:13px;font-weight:700;padding:10px 22px;border-radius:100px;cursor:pointer;font-family:Plus Jakarta Sans,sans-serif;box-shadow:0 4px 16px rgba(16,185,129,0.35);transition:all .2s;">Accept All</button></div>';
+  document.body.appendChild(b);
+  // Animate in after short delay
+  setTimeout(function(){ b.style.transform = 'translateY(0)'; b.style.transition = 'transform 0.4s cubic-bezier(0.22,1,0.36,1), opacity 0.4s ease'; b.style.opacity = '1'; }, 800);
+  window.bwCA = function(t){
+    var banner = document.getElementById('bwCookieBanner');
+    banner.style.transform = 'translateY(100%)';
+    banner.style.opacity = '0';
+    setTimeout(function(){ banner.remove(); }, 400);
+    localStorage.setItem('bwCookieConsent', t);
+    localStorage.setItem('bwCookieDate', new Date().toISOString());
+  };
+  window.bwOpenCookiePrefs = function(){ localStorage.removeItem('bwCookieConsent'); location.reload(); };
+})();
+</script>
+
+<script>
+// Cookie preferences link
+window.bwOpenCookiePrefs = function(){
+  localStorage.removeItem('bwCookieConsent');
+  location.reload();
+};
+</script>
+</body></html>
